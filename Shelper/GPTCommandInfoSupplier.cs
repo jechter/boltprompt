@@ -5,7 +5,7 @@ namespace Shelper;
 
 public static class GptCommandInfoSupplier
 {
-    public static async Task<CommandInfo> GetCommandInfoForCommand2(string command)
+    public static async Task<CommandInfo> GetCommandInfoForCommand(string command)
     {
         var commandResult = await Cli.Wrap("man")
             .WithArguments(command)
@@ -72,7 +72,7 @@ public static class GptCommandInfoSupplier
         result.Comment = "Written by artificial stupidity.";
         return result;
     }
-
+/*
     public static async Task<string> GetCommandInfoForCommand(string command)
     {
     var commandResult = await Cli.Wrap("man")
@@ -117,7 +117,7 @@ public static class GptCommandInfoSupplier
                               The json for the `ls` command for example looks like this:
                               
                               ```json
-                              {{CommandInfo.ls.Serialize()}}
+                              {{CommandInfo.Ls.Serialize()}}
                               ```
                               
                               Can you write a json description for the `{{command}}` command? 
@@ -132,5 +132,5 @@ public static class GptCommandInfoSupplier
                               """;
         var result = await ChatGptClient.GetReply(gptPromptPrefix);
         return result;
-    }
+    }*/
 }

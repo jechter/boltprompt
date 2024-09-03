@@ -1,6 +1,6 @@
 namespace Shelper;
 
-public class Prompt
+public static class Prompt
 {
     public static void RenderPrompt(string? commandline = null, string? selectedSuggestion = null)
     {

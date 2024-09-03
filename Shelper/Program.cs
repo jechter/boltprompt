@@ -2,7 +2,6 @@
 using Shelper;
 
 var suggestor = new Suggestor();
-var viewer = new SuggestionConsoleViewer();
 var prompt = "";
 var selection = 0;
 Console.CancelKeyPress += ConsoleCancelKeyPress;
@@ -11,23 +10,6 @@ Prompt.RenderPrompt();
 
 while (true)
 {
-    void CommitSelection()
-    {
-        if (selection == -1) return;
-        if (suggestions.Length >= selection)
-        {
-            var promptWords = prompt.Split(' ');
-            promptWords[^1] = suggestions[selection].Text;
-            prompt = string.Join(' ', promptWords);
-            var pos= Console.GetCursorPosition();
-            Console.SetCursorPosition(0, pos.Top);
-            Prompt.RenderPrompt();
-            Console.Write(prompt);
-            SuggestionConsoleViewer.ClearLineFromCursor();
-        }
-        selection = -1;
-    }
-    
     var key = Console.ReadKey();
     switch (key.Key)
     {
@@ -73,7 +55,25 @@ while (true)
     else if (selection < -1)
         selection = suggestions.Length - 1; 
     Prompt.RenderPrompt(prompt, selection > -1 ? suggestions[selection].Text : null);
-    viewer.ShowSuggestions(suggestions, selection);
+    SuggestionConsoleViewer.ShowSuggestions(suggestions, selection);
+    continue;
+
+    void CommitSelection()
+    {
+        if (selection == -1) return;
+        if (suggestions.Length >= selection)
+        {
+            var promptWords = prompt.Split(' ');
+            promptWords[^1] = suggestions[selection].Text;
+            prompt = string.Join(' ', promptWords);
+            var pos= Console.GetCursorPosition();
+            Console.SetCursorPosition(0, pos.Top);
+            Prompt.RenderPrompt();
+            Console.Write(prompt);
+            SuggestionConsoleViewer.ClearLineFromCursor();
+        }
+        selection = -1;
+    }
 }
 
 void ConsoleCancelKeyPress(object? sender, ConsoleCancelEventArgs e)
@@ -85,7 +85,7 @@ void ConsoleCancelKeyPress(object? sender, ConsoleCancelEventArgs e)
 [DoesNotReturn]
 void ExitAndRunCommand(string command = "")
 {
-    viewer.Clear();
+    SuggestionConsoleViewer.Clear();
     Console.WriteLine();
     File.WriteAllText("/tmp/custom-command", command);
     History.AddCommandToHistory(command);

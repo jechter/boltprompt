@@ -5,16 +5,16 @@ namespace Shelper;
 
 public record CommandInfo
 {
-    private static JsonSerializerOptions SerializerOptions = new () 
+    private static JsonSerializerOptions _serializerOptions = new () 
     {
         WriteIndented = true,
         DefaultIgnoreCondition = JsonIgnoreCondition.WhenWritingDefault,
         Converters = { new JsonStringEnumConverter() }
     };
 
-    public string Serialize() => JsonSerializer.Serialize(this, SerializerOptions);
+    public string Serialize() => JsonSerializer.Serialize(this, _serializerOptions);
 
-    public static CommandInfo? Deserialize(string json) => JsonSerializer.Deserialize<CommandInfo>(json, SerializerOptions);
+    public static CommandInfo? Deserialize(string json) => JsonSerializer.Deserialize<CommandInfo>(json, _serializerOptions);
     
     [JsonInclude]
     public string? Comment;
@@ -42,7 +42,7 @@ public record CommandInfo
         [JsonInclude]
         public bool Optional = true;
         [JsonInclude]
-        public bool Repeat = false;
+        public bool Repeat;
         [JsonInclude]
         public string Description = "";
         [JsonInclude]
@@ -58,7 +58,7 @@ public record CommandInfo
     }
 
 
-    public static CommandInfo ls = new CommandInfo
+    public static CommandInfo Ls { get; } = new ()
     {
         Name = "ls",
         Description = "list directory contents",

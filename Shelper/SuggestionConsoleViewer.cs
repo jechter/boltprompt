@@ -2,16 +2,16 @@ namespace Shelper;
 
 public class SuggestionConsoleViewer
 {
-    public int maxSuggestions = 5;
-    
+    private const int MaxSuggestions = 5;
+
     public static void ClearLineFromCursor()
     {
         // Get the current cursor position
-        int currentLeft = Console.CursorLeft;
-        int currentTop = Console.CursorTop;
+        var currentLeft = Console.CursorLeft;
+        var currentTop = Console.CursorTop;
 
         // Calculate the number of characters to clear
-        int widthToClear = Console.WindowWidth - currentLeft;
+        var widthToClear = Console.WindowWidth - currentLeft;
 
         // Write spaces to clear the rest of the line
         Console.Write(new string(' ', widthToClear));
@@ -20,14 +20,14 @@ public class SuggestionConsoleViewer
         Console.SetCursorPosition(currentLeft, currentTop);
     }
     
-    public void ShowSuggestions(Suggestion[] suggestions, int selection)
+    public static void ShowSuggestions(Suggestion[] suggestions, int selection)
     {
         var pos = Console.GetCursorPosition();
         var topLine = Console.GetCursorPosition().Top + 1;
-        if  (topLine + maxSuggestions > Console.WindowHeight)
-            for (var i=0; i<maxSuggestions; i++)
+        if  (topLine + MaxSuggestions > Console.WindowHeight)
+            for (var i=0; i<MaxSuggestions; i++)
                 Console.WriteLine();
-        while (topLine + maxSuggestions > Console.WindowHeight)
+        while (topLine + MaxSuggestions > Console.WindowHeight)
         {
             topLine--;
             pos.Top--;
@@ -35,10 +35,10 @@ public class SuggestionConsoleViewer
         Console.SetCursorPosition(pos.Left, pos.Top);
         var descriptionStart = Console.WindowWidth / 3;
         var descriptionLength = Console.WindowWidth - descriptionStart;
-        var startLine = Math.Min(Math.Max(0, selection - maxSuggestions / 2), Math.Max(0, suggestions.Length - maxSuggestions));
+        var startLine = Math.Min(Math.Max(0, selection - MaxSuggestions / 2), Math.Max(0, suggestions.Length - MaxSuggestions));
         var line = topLine;
         var maxSuggestionLength = suggestions.Any() ? suggestions.Select(s => s.Text.Length).Max() : 0;
-        for (var i=startLine; i < startLine + maxSuggestions; i++)
+        for (var i=startLine; i < startLine + MaxSuggestions; i++)
         {
             Console.SetCursorPosition(0, line);
             if (selection == i)
@@ -66,7 +66,7 @@ public class SuggestionConsoleViewer
         Console.SetCursorPosition(pos.Left, pos.Top);
     }
 
-    public void Clear()
+    public static void Clear()
     {
         ShowSuggestions([], -1);
     }
