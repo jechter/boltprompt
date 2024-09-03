@@ -6,17 +6,18 @@ var viewer = new SuggestionConsoleViewer();
 var prompt = "";
 var selection = 0;
 Console.CancelKeyPress += ConsoleCancelKeyPress;
-Suggestion[] suggestions = null;
+Suggestion[] suggestions = [];
 Prompt.RenderPrompt();
+
 while (true)
 {
     void CommitSelection()
     {
         if (selection == -1) return;
-        if (suggestions != null && suggestions.Length >= selection)
+        if (suggestions.Length >= selection)
         {
             var promptWords = prompt.Split(' ');
-            promptWords[promptWords.Length - 1] = suggestions[selection].Text;
+            promptWords[^1] = suggestions[selection].Text;
             prompt = string.Join(' ', promptWords);
             var pos= Console.GetCursorPosition();
             Console.SetCursorPosition(0, pos.Top);
@@ -75,7 +76,7 @@ while (true)
     viewer.ShowSuggestions(suggestions, selection);
 }
 
-void ConsoleCancelKeyPress(object sender, ConsoleCancelEventArgs e)
+void ConsoleCancelKeyPress(object? sender, ConsoleCancelEventArgs e)
 {
     e.Cancel = true;
     ExitAndRunCommand();

@@ -3,7 +3,7 @@ using CliWrap.Buffered;
 
 namespace Shelper;
 
-public class GPTCommandInfoSupplier
+public static class GptCommandInfoSupplier
 {
     public static async Task<CommandInfo> GetCommandInfoForCommand2(string command)
     {
@@ -29,9 +29,9 @@ public class GPTCommandInfoSupplier
         var result = new CommandInfo
         {
             Name = command,
-            Description = await ChatGPTClient.GetReply(gptPromptPrefix, $"Give a one-line description of what the `{command}` command does. Don't mention the command in the description.")
+            Description = await ChatGptClient.GetReply(gptPromptPrefix, $"Give a one-line description of what the `{command}` command does. Don't mention the command in the description.")
         };
-        var argumentsText = await ChatGPTClient.GetReply(gptPromptPrefix, $"List all the command line arguments the `{command}` command accepts. List one argument per line, just the arguments, no extra text.");
+        var argumentsText = await ChatGptClient.GetReply(gptPromptPrefix, $"List all the command line arguments the `{command}` command accepts. List one argument per line, just the arguments, no extra text.");
         var sourceArguments = argumentsText.Split("\n");
         var arguments = new List<CommandInfo.Argument>();
         foreach (var sourceArgument in sourceArguments)
@@ -47,22 +47,22 @@ public class GPTCommandInfoSupplier
                 
             arguments.Add(new CommandInfo.Argument(type == CommandInfo.ArgumentType.Flag ? arg[1..] : arg)
             {
-                Optional = await ChatGPTClient.GetBooleanReply(gptPromptPrefix, $"Is the `{arg}` argument optional?"),
-                Repeat = await ChatGPTClient.GetBooleanReply(gptPromptPrefix, $"Can the `{arg}` argument appear more than once on the command line?"),
-                Description = await ChatGPTClient.GetReply(gptPromptPrefix, $"Give a one-line description of what the `{arg}` argument command does. Don't mention the command or argument in the description."),
+                Optional = await ChatGptClient.GetBooleanReply(gptPromptPrefix, $"Is the `{arg}` argument optional?"),
+                Repeat = await ChatGptClient.GetBooleanReply(gptPromptPrefix, $"Can the `{arg}` argument appear more than once on the command line?"),
+                Description = await ChatGptClient.GetReply(gptPromptPrefix, $"Give a one-line description of what the `{arg}` argument command does. Don't mention the command or argument in the description."),
                 Type = type,
             });
         }
     
-        if (await ChatGPTClient.GetBooleanReply(gptPromptPrefix,
+        if (await ChatGptClient.GetBooleanReply(gptPromptPrefix,
                 $"Does the `{command}` command take any path names as arguments?"))
         {
             arguments.Add(new CommandInfo.Argument("pathname")
             {
                 Type = CommandInfo.ArgumentType.FileSystemEntry,
-                Description = await ChatGPTClient.GetReply(gptPromptPrefix, $"Give a one-line description of what the path argument passed to the {command} command does. Don't mention the command or argument in the description."),
-                Repeat = await ChatGPTClient.GetBooleanReply(gptPromptPrefix, $"Does the `{command}` command take more than one path name as arguments?"),
-                Optional = await ChatGPTClient.GetBooleanReply(gptPromptPrefix, $"Is passing a path name argument to `{command}` optional?"),
+                Description = await ChatGptClient.GetReply(gptPromptPrefix, $"Give a one-line description of what the path argument passed to the {command} command does. Don't mention the command or argument in the description."),
+                Repeat = await ChatGptClient.GetBooleanReply(gptPromptPrefix, $"Does the `{command}` command take more than one path name as arguments?"),
+                Optional = await ChatGptClient.GetBooleanReply(gptPromptPrefix, $"Is passing a path name argument to `{command}` optional?"),
             });
         }
     
@@ -130,7 +130,7 @@ public class GPTCommandInfoSupplier
                               
                               Please reply with only the json.
                               """;
-        var result = await ChatGPTClient.GetReply(gptPromptPrefix);
+        var result = await ChatGptClient.GetReply(gptPromptPrefix);
         return result;
     }
 }

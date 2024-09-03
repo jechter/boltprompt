@@ -169,7 +169,9 @@ public class Suggestor
         
         var cwd = Directory.GetCurrentDirectory();
         var pathEnv = Environment.GetEnvironmentVariable("PATH");
-        var paths = new[] { cwd }.Concat(pathEnv.Split(":"));
+        var paths = pathEnv != null 
+            ? new[] { cwd }.Concat(pathEnv.Split(":")) 
+            : Array.Empty<string>();
         var executables = paths
             .Where(Directory.Exists)
             .SelectMany(Directory.GetFiles)

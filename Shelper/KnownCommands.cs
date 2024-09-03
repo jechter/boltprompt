@@ -5,7 +5,7 @@ namespace Shelper;
 public static class KnownCommands
 {
     public static Dictionary<string, CommandInfo> All => s_KnownCommands;
-    private static Dictionary<string, CommandInfo> s_KnownCommands;
+    private static readonly Dictionary<string, CommandInfo> s_KnownCommands;
     
     public static CommandInfo? GetCommand(string command)
     {
@@ -14,7 +14,7 @@ public static class KnownCommands
         NPath commandDir = "Commands";
         commandDir = commandDir.MakeAbsolute();
         var path = commandDir.Combine($"{command}.json");
-        var gptTask = GPTCommandInfoSupplier.GetCommandInfoForCommand2(command);
+        var gptTask = GptCommandInfoSupplier.GetCommandInfoForCommand2(command);
         ci = gptTask.GetAwaiter().GetResult();
         s_KnownCommands[command] = ci;
         path.WriteAllText(ci.Serialize());
@@ -23,14 +23,20 @@ public static class KnownCommands
     
     static KnownCommands()
     {
-        s_KnownCommands = new Dictionary<string, CommandInfo>();
-        s_KnownCommands["ls"] = CommandInfo.ls;
+        s_KnownCommands = new Dictionary<string, CommandInfo>
+        {
+            ["ls"] = CommandInfo.ls
+        };
         NPath commandDir = "Commands";
         commandDir = commandDir.MakeAbsolute();
         if (commandDir.DirectoryExists())
         {
             foreach (var file in commandDir.Files("*.json", true))
-                s_KnownCommands[file.FileNameWithoutExtension] = CommandInfo.Deserialize(file.ReadAllText());
+            {
+                var command = CommandInfo.Deserialize(file.ReadAllText());
+                if (command != null)
+                    s_KnownCommands[file.FileNameWithoutExtension] = command;
+            }
         }
         else
         {

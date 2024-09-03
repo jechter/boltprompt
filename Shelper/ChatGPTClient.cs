@@ -5,30 +5,30 @@ using System.Text.Json.Serialization;
 
 namespace Shelper;
 
-public class ChatGPTClient
+public static class ChatGptClient
 {
-    private static readonly HttpClient client = new ();
-    private static readonly string? apiKey = Environment.GetEnvironmentVariable("OPENAI_API_KEY");
-    private const string apiUrl = "https://api.openai.com/v1/chat/completions";
+    private static readonly HttpClient Client = new ();
+    private static readonly string? ApiKey = Environment.GetEnvironmentVariable("OPENAI_API_KEY");
+    private const string ApiUrl = "https://api.openai.com/v1/chat/completions";
 
-    record GPTMessage
+    public record GptMessage(string role, string content)
     {
         [JsonInclude]
-        public string role;
+        public string role = role;
         [JsonInclude]
-        public string content;
+        public string content = content;
     }
 
     public static async Task<bool> GetBooleanReply(params string[] prompt)
     {
         var stringReply = await GetReply(prompt.Append("Reply with just yes or no.").ToArray());
-        return stringReply.ToLower().Contains("yes");
+        return stringReply.Contains("yes", StringComparison.InvariantCultureIgnoreCase);
     }
 
     public static async Task<string> GetReply(params string[] prompt)
     {
-        var messages = new List<GPTMessage> { new GPTMessage { role = "system", content = "You are ChatGPT, a helpful assistant." } };
-        messages.AddRange(prompt.Select(s => new GPTMessage { role = "user", content = s }));
+        var messages = new List<GptMessage> {new( "system", "You are ChatGPT, a helpful assistant.")};
+        messages.AddRange(prompt.Select(s => new GptMessage("user", s)));
         
         var requestBody = new
         {
@@ -36,38 +36,38 @@ public class ChatGPTClient
             messages,
             max_tokens = 4096,
             n = 1,
-            stop = (string)null,
+            stop = (string?)null,
             temperature = 0.7
         };
 
-        client.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", apiKey);
+        Client.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", ApiKey);
 
-        Logger.Log(Logger.GPT, "Request:");
-        Logger.Log(Logger.GPT, JsonSerializer.Serialize(requestBody));
+        Logger.Log(Logger.Gpt, "Request:");
+        Logger.Log(Logger.Gpt, JsonSerializer.Serialize(requestBody));
 
-        var response = await client.PostAsJsonAsync(apiUrl, requestBody);
+        var response = await Client.PostAsJsonAsync(ApiUrl, requestBody);
 
         if (response.IsSuccessStatusCode)
         {
             var responseContent = await response.Content.ReadAsStringAsync();
-            Logger.Log(Logger.GPT, "Response:");
-            Logger.Log(Logger.GPT, responseContent);
+            Logger.Log(Logger.Gpt, "Response:");
+            Logger.Log(Logger.Gpt, responseContent);
             var responseData = JsonSerializer.Deserialize<JsonElement>(responseContent);
 
-            string chatResponse = responseData
+            var chatResponse = responseData
                 .GetProperty("choices")[0]
                 .GetProperty("message")
                 .GetProperty("content")
                 .GetString();
 
+            if (chatResponse == null)
+                throw new InvalidDataException("Could not read GPT response JSON");
             return chatResponse;
         }
-        else
-        {
-            var errorContent = await response.Content.ReadAsStringAsync();
-            Logger.Log(Logger.GPT, "Error:");
-            Logger.Log(Logger.GPT, errorContent);
-            return errorContent;
-        }
+
+        var errorContent = await response.Content.ReadAsStringAsync();
+        Logger.Log(Logger.Gpt, "Error:");
+        Logger.Log(Logger.Gpt, errorContent);
+        return errorContent;
     }
 }

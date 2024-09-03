@@ -3,18 +3,18 @@ using NiceIO;
 
 namespace Shelper;
 
-public class Logger
+public static class Logger
 {
-    public const string GPT = "GPT";
+    public const string Gpt = "GPT";
 
-    private static Dictionary<NPath, FileStream> logFiles = new();
+    private static readonly Dictionary<NPath, FileStream> LogFiles = new();
 
     static FileStream GetFileStream(NPath path)
     {
-        if (logFiles.TryGetValue(path, out var stream))
+        if (LogFiles.TryGetValue(path, out var stream))
             return stream;
         stream = File.Open(path.ToString(), FileMode.Truncate);
-        logFiles[path] = stream;
+        LogFiles[path] = stream;
         return stream;
     }
     public static void Log(string file, string message)

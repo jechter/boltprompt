@@ -2,9 +2,9 @@ using NiceIO;
 
 namespace Shelper;
 
-public class History
+public static class History
 {
-    private static NPath Path = "history";
+    private static readonly NPath Path = "history";
     
     public static void AddCommandToHistory(string command)
     {

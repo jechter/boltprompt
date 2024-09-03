@@ -17,11 +17,11 @@ public record CommandInfo
     public static CommandInfo? Deserialize(string json) => JsonSerializer.Deserialize<CommandInfo>(json, SerializerOptions);
     
     [JsonInclude]
-    public string Comment;
+    public string? Comment;
     [JsonInclude]
-    public string Name;
+    public string Name = "";
     [JsonInclude]
-    public string Description;
+    public string Description = "";
     [JsonInclude]
     public Argument[][]? Arguments;
     
@@ -44,7 +44,7 @@ public record CommandInfo
         [JsonInclude]
         public bool Repeat = false;
         [JsonInclude]
-        public string Description;
+        public string Description = "";
         [JsonInclude]
         public ArgumentType Type = ArgumentType.Keyword;
         [JsonInclude]
