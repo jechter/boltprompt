@@ -4,39 +4,61 @@ namespace Shelper;
 
 public static class KnownCommands
 {
-    public static Dictionary<string, CommandInfo> All => AllKnownCommands;
-    private static readonly Dictionary<string, CommandInfo> AllKnownCommands;
-    
-    public static CommandInfo GetCommand(string command)
+    private static readonly Dictionary<string, Task<CommandInfo>> AllKnownCommands;
+
+    public delegate void UpdateCommandInfo(CommandInfo ci);
+
+    public static event UpdateCommandInfo? CommandInfoLoaded;
+    private static async Task<CommandInfo> CreateAndCacheCommandInfo(string command)
     {
-        if (AllKnownCommands.TryGetValue(command, out var ci))
-            return ci;
         NPath commandDir = "Commands";
         commandDir = commandDir.MakeAbsolute();
         var path = commandDir.Combine($"{command}.json");
-        var gptTask = GptCommandInfoSupplier.GetCommandInfoForCommand(command);
-        ci = gptTask.GetAwaiter().GetResult();
-        AllKnownCommands[command] = ci;
+        var ci = await GptCommandInfoSupplier.GetCommandInfoForCommand(command);
         path.WriteAllText(ci.Serialize());
+        CommandInfoLoaded?.Invoke(ci);
         return ci;
+    }
+    
+    private static async Task<CommandInfo> LoadCachedCommandInfo(NPath path)
+    {
+        var json = await File.ReadAllTextAsync(path.ToString());
+        var ci = CommandInfo.Deserialize(json);
+        if (ci == null)
+            throw new InvalidDataException($"Could not load command info json for {path}");
+        CommandInfoLoaded?.Invoke(ci);
+        return ci;
+    }
+    
+    public static CommandInfo? GetCommand(string command, bool createInfoIfNotAvailable, out bool isPending)
+    {
+        isPending = false;
+        if (AllKnownCommands.TryGetValue(command, out var ci))
+        {
+            if (ci.IsCompleted) 
+                return ci.Result;
+            isPending = true;
+            return null;
+        }
+
+        if (!createInfoIfNotAvailable) return null;
+        
+        AllKnownCommands[command] = CreateAndCacheCommandInfo(command);
+        return null;
     }
     
     static KnownCommands()
     {
-        AllKnownCommands = new Dictionary<string, CommandInfo>
+        AllKnownCommands = new Dictionary<string, Task<CommandInfo>>
         {
-            ["ls"] = CommandInfo.Ls
+            ["ls"] = Task.FromResult(CommandInfo.Ls)
         };
         NPath commandDir = "Commands";
         commandDir = commandDir.MakeAbsolute();
         if (commandDir.DirectoryExists())
         {
             foreach (var file in commandDir.Files("*.json", true))
-            {
-                var command = CommandInfo.Deserialize(file.ReadAllText());
-                if (command != null)
-                    AllKnownCommands[file.FileNameWithoutExtension] = command;
-            }
+                AllKnownCommands[file.FileNameWithoutExtension] = LoadCachedCommandInfo(file);
         }
         else
         {
@@ -44,7 +66,7 @@ public static class KnownCommands
             foreach (var cmd in AllKnownCommands)
             {
                 var path = commandDir.Combine($"{cmd.Key}.json");
-                path.WriteAllText(cmd.Value.Serialize());
+                path.WriteAllText(cmd.Value.Result.Serialize());
             }
         }
     }

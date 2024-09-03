@@ -61,7 +61,7 @@ while (true)
     void CommitSelection()
     {
         if (selection == -1) return;
-        if (suggestions.Length >= selection)
+        if (suggestions.Length != 0 && suggestions.Length >= selection)
         {
             var promptWords = prompt.Split(' ');
             promptWords[^1] = suggestions[selection].Text;

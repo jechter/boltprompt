@@ -14,10 +14,19 @@ public class Suggestor
     private Suggestion[] executablesInPath;
     private string[] history;
 
+    Suggestion? GetExecutableCommandInfo(string command) =>
+        executablesInPath.FirstOrDefault(exe => exe.Text.Trim() == Path.GetFileName(command));
+    
     public Suggestor()
     {
         history = History.GetCommands();
         executablesInPath = FindExecutablesInPath();
+        KnownCommands.CommandInfoLoaded += ci =>
+        {
+            var sug = GetExecutableCommandInfo(ci.Name);
+            if (sug != null)
+                sug.Description = ci.Description;
+        };
     }
     
     public Suggestion[] SuggestionsForPrompt(string commandline)
@@ -27,7 +36,7 @@ public class Suggestor
         return split.Length == 1 ? SuggestCommand(command) : SuggestParameters(command, commandline).ToArray();
     }
 
-    private Suggestion[] SuggestFileSystemEntries(string commandline, bool directoriesOnly)
+    private static Suggestion[] SuggestFileSystemEntries(string commandline, bool directoriesOnly)
     {
         var split = commandline.Split(' ');
         var currentArg = split.Last();
@@ -46,7 +55,10 @@ public class Suggestor
     
     private IEnumerable<Suggestion> SuggestParameters(string command, string commandline)
     {
-        var ci = KnownCommands.GetCommand(command);
+        var executableExists = GetExecutableCommandInfo(command) != null;
+        var ci = KnownCommands.GetCommand(command, executableExists, out var pending) ?? CommandInfo.DefaultCommand;
+        if (pending)
+            ci = ci with { Description = "pending..." };
         if (ci?.Arguments == null)
             yield break;
         var lastParam = commandline.Split(' ').Last();
@@ -158,15 +170,8 @@ public class Suggestor
             .ToArray();
     }
 
-    private Suggestion[] FindExecutablesInPath()
+    private static Suggestion[] FindExecutablesInPath()
     {
-        bool IsExecutable(string path)
-        {
-            if (Syscall.stat(path, out var fileStat) == 0)
-                return (fileStat.st_mode & FilePermissions.S_IXUSR) != 0;
-            return false;
-        }
-        
         var cwd = Directory.GetCurrentDirectory();
         var pathEnv = Environment.GetEnvironmentVariable("PATH");
         var paths = pathEnv != null 
@@ -178,9 +183,16 @@ public class Suggestor
             .Where(IsExecutable);
         return executables.Select(ex => new Suggestion($"{Path.GetFileName(ex)} ")
         {
-            Description = KnownCommands.All.TryGetValue(Path.GetFileName(ex), out var ci) ? ci.Description : ex
+            Description = KnownCommands.GetCommand(Path.GetFileName(ex), false, out _)?.Description ?? ex
         })
             .OrderBy(s => s.Text)
             .ToArray();
+
+        bool IsExecutable(string path)
+        {
+            if (Syscall.stat(path, out var fileStat) == 0)
+                return (fileStat.st_mode & FilePermissions.S_IXUSR) != 0;
+            return false;
+        }
     }
 }

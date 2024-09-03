@@ -57,6 +57,13 @@ public record CommandInfo
         public static implicit operator Argument(string name) => new(name);
     }
 
+    public static CommandInfo DefaultCommand { get; } = new()
+    {
+        Arguments = 
+        [[
+            new Argument("") {Type = ArgumentType.FileSystemEntry}
+        ]]
+    };
 
     public static CommandInfo Ls { get; } = new ()
     {
