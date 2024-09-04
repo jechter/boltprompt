@@ -5,15 +5,15 @@ namespace Shelper;
 public static class History
 {
     private static readonly NPath Path = "history";
+    private static string[]? _commands; 
     
     public static void AddCommandToHistory(string command)
     {
-        if (!string.IsNullOrEmpty(command))
-            File.AppendAllText(Path.ToString(), $"{command}\n");
+        if (string.IsNullOrEmpty(command)) return;
+        _commands = Commands.Where(c => c != command).Append(command).ToArray();
+        Path.MakeAbsolute().WriteAllLines(_commands);
     }
 
-    public static string[] GetCommands()
-    {
-        return !Path.FileExists() ? [] : Path.MakeAbsolute().ReadAllLines().Distinct().ToArray();
-    }
+    public static string[] Commands =>
+        _commands ??= !Path.FileExists() ? [] : Path.MakeAbsolute().ReadAllLines().ToArray();
 }

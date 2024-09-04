@@ -12,14 +12,12 @@ public record Suggestion(string Text)
 public class Suggestor
 {
     private Suggestion[] executablesInPath;
-    private string[] history;
 
     Suggestion? GetExecutableCommandInfo(string command) =>
         executablesInPath.FirstOrDefault(exe => exe.Text.Trim() == Path.GetFileName(command));
     
     public Suggestor()
     {
-        history = History.GetCommands();
         executablesInPath = FindExecutablesInPath();
         KnownCommands.CommandInfoLoaded += ci =>
         {
@@ -28,12 +26,20 @@ public class Suggestor
                 sug.Description = ci.Description;
         };
     }
+
+    Suggestion[] SortSuggestionsByHistory(string commandline, IEnumerable<Suggestion> suggestions)
+    {
+        var commandLineWords = commandline.Split(' ').Length;
+        var historyFilteredByCommandline = 
+            History.Commands.Where(s => s.StartsWith(commandline)).Select(s => s.Split(' ')[commandLineWords - 1]).ToArray();
+        return suggestions.OrderByDescending(sug => Array.LastIndexOf(historyFilteredByCommandline, sug.Text)).ToArray();
+    }
     
     public Suggestion[] SuggestionsForPrompt(string commandline)
     {
         var split = commandline.Split(' ');
         var command = split[0];
-        return split.Length == 1 ? SuggestCommand(command) : SuggestParameters(command, commandline).ToArray();
+        return SortSuggestionsByHistory(commandline, split.Length == 1 ? SuggestCommand(command) : SuggestParameters(command, commandline).ToArray());
     }
 
     private static Suggestion[] SuggestFileSystemEntries(string commandline, bool directoriesOnly)
@@ -57,7 +63,7 @@ public class Suggestor
     {
         var executableExists = GetExecutableCommandInfo(command) != null;
         var ci = KnownCommands.GetCommand(command, executableExists) ?? CommandInfo.DefaultCommand;
-        if (ci?.Arguments == null)
+        if (ci.Arguments == null)
             yield break;
         var lastParam = commandline.Split(' ').Last();
         var arguments = ci.Arguments.SelectMany(a => a).ToList();
@@ -162,8 +168,8 @@ public class Suggestor
     private Suggestion[] SuggestCommand(string commandline)
     {
         if (string.IsNullOrEmpty(commandline))
-            return history.Select(h => new Suggestion(h)).ToArray();
-        return executablesInPath.Concat(history.Select(h => new Suggestion(h)))
+            return History.Commands.Select(h => new Suggestion(h)).ToArray();
+        return executablesInPath.Concat(History.Commands.Select(h => new Suggestion(h)))
             .Where(sug => sug.Text.StartsWith(commandline))
             .ToArray();
     }
