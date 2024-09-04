@@ -9,12 +9,21 @@ public static class KnownCommands
     public delegate void UpdateCommandInfo(CommandInfo ci);
 
     public static event UpdateCommandInfo? CommandInfoLoaded;
+    
+    static CommandInfo GetPendingCommandInfo(string command) => new ()
+    {
+        Name = command,
+        Description = "Command description and parameter information pending..."
+    };
+    
     private static async Task<CommandInfo> CreateAndCacheCommandInfo(string command)
     {
         NPath commandDir = "Commands";
         commandDir = commandDir.MakeAbsolute();
         var path = commandDir.Combine($"{command}.json");
-        var ci = await GptCommandInfoSupplier.GetCommandInfoForCommand(command);
+        var ci = GetPendingCommandInfo(command);
+        CommandInfoLoaded?.Invoke(ci);
+        ci = await GptCommandInfoSupplier.GetCommandInfoForCommand(command);
         path.WriteAllText(ci.Serialize());
         CommandInfoLoaded?.Invoke(ci);
         return ci;
@@ -30,15 +39,13 @@ public static class KnownCommands
         return ci;
     }
     
-    public static CommandInfo? GetCommand(string command, bool createInfoIfNotAvailable, out bool isPending)
+    public static CommandInfo? GetCommand(string command, bool createInfoIfNotAvailable)
     {
-        isPending = false;
         if (AllKnownCommands.TryGetValue(command, out var ci))
         {
             if (ci.IsCompleted) 
                 return ci.Result;
-            isPending = true;
-            return null;
+            return GetPendingCommandInfo(command);
         }
 
         if (!createInfoIfNotAvailable) return null;

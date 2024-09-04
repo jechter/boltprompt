@@ -56,9 +56,7 @@ public class Suggestor
     private IEnumerable<Suggestion> SuggestParameters(string command, string commandline)
     {
         var executableExists = GetExecutableCommandInfo(command) != null;
-        var ci = KnownCommands.GetCommand(command, executableExists, out var pending) ?? CommandInfo.DefaultCommand;
-        if (pending)
-            ci = ci with { Description = "pending..." };
+        var ci = KnownCommands.GetCommand(command, executableExists) ?? CommandInfo.DefaultCommand;
         if (ci?.Arguments == null)
             yield break;
         var lastParam = commandline.Split(' ').Last();
@@ -183,7 +181,7 @@ public class Suggestor
             .Where(IsExecutable);
         return executables.Select(ex => new Suggestion($"{Path.GetFileName(ex)} ")
         {
-            Description = KnownCommands.GetCommand(Path.GetFileName(ex), false, out _)?.Description ?? ex
+            Description = KnownCommands.GetCommand(Path.GetFileName(ex), false)?.Description ?? ex
         })
             .OrderBy(s => s.Text)
             .ToArray();
