@@ -11,14 +11,15 @@ public record Suggestion(string Text)
 
 public class Suggestor
 {
-    private Suggestion[] executablesInPath;
-
+    private readonly Suggestion[] _executablesInPath;
+    private readonly char[] _shellOperators = ['>', '<', '|', '&', ';']; 
+    
     Suggestion? GetExecutableCommandInfo(string command) =>
-        executablesInPath.FirstOrDefault(exe => exe.Text.Trim() == Path.GetFileName(command));
+        _executablesInPath.FirstOrDefault(exe => exe.Text.Trim() == Path.GetFileName(command));
     
     public Suggestor()
     {
-        executablesInPath = FindExecutablesInPath();
+        _executablesInPath = FindExecutablesInPath();
         KnownCommands.CommandInfoLoaded += ci =>
         {
             var sug = GetExecutableCommandInfo(ci.Name);
@@ -34,12 +35,14 @@ public class Suggestor
             History.Commands.Where(s => s.StartsWith(commandline)).Select(s => s.Split(' ')[commandLineWords - 1]).ToArray();
         return suggestions.OrderByDescending(sug => Array.LastIndexOf(historyFilteredByCommandline, sug.Text)).ToArray();
     }
-    
+
     public Suggestion[] SuggestionsForPrompt(string commandline)
     {
-        var split = commandline.Split(' ');
-        var command = split[0];
-        return SortSuggestionsByHistory(commandline, split.Length == 1 ? SuggestCommand(command) : SuggestParameters(command, commandline).ToArray());
+        var commandLineCommands = commandline.Split(_shellOperators);
+        var currentCommand = commandLineCommands.Last().TrimStart();
+        var commandLineArguments = currentCommand.Split(' ');
+        var command = commandLineArguments[0];
+        return SortSuggestionsByHistory(commandline, commandLineArguments.Length == 1 ? SuggestCommand(command) : SuggestParameters(command, commandline).ToArray());
     }
 
     private static Suggestion[] SuggestFileSystemEntries(string commandline, bool directoriesOnly)
@@ -142,7 +145,7 @@ public class Suggestor
                 }
                 case CommandInfo.ArgumentType.Command:
                 {
-                    foreach (var s in executablesInPath.Where(sug => sug.Text.StartsWith(lastParam)))
+                    foreach (var s in _executablesInPath.Where(sug => sug.Text.StartsWith(lastParam)))
                         yield return s;
 
                     break;
@@ -169,7 +172,7 @@ public class Suggestor
     {
         if (string.IsNullOrEmpty(commandline))
             return History.Commands.Select(h => new Suggestion(h)).ToArray();
-        return executablesInPath.Concat(History.Commands.Select(h => new Suggestion(h)))
+        return _executablesInPath.Concat(History.Commands.Select(h => new Suggestion(h)))
             .Where(sug => sug.Text.StartsWith(commandline))
             .ToArray();
     }
