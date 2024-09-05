@@ -56,6 +56,9 @@ public class Suggestor
             prefix = currentArg[..(currentArg.LastIndexOf('/') + 1)];
             dir = prefix;
         }
+        
+        if (dir.ToString().StartsWith('~'))
+            dir = NPath.HomeDirectory.Combine(dir.RelativeTo("~"));
 
         return new []{dir}.Concat(directoriesOnly ? dir.Directories() : dir.Contents())
             .Select(fs => new Suggestion($"{prefix}{fs.RelativeTo(dir)}{(fs.DirectoryExists()?'/':' ')}") { Icon = fs.DirectoryExists()?"📁" : "📄"})
