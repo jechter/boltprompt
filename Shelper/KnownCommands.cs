@@ -23,7 +23,7 @@ public static class KnownCommands
         var path = commandDir.Combine($"{command}.json");
         var ci = GetPendingCommandInfo(command);
         CommandInfoLoaded?.Invoke(ci);
-        ci = await GptCommandInfoSupplier.GetCommandInfoForCommand(command);
+        ci = await GptCommandInfoSupplier.GetCommandInfoForCommand2(command);
         path.WriteAllText(ci.Serialize());
         CommandInfoLoaded?.Invoke(ci);
         return ci;
@@ -42,11 +42,7 @@ public static class KnownCommands
     public static CommandInfo? GetCommand(string command, bool createInfoIfNotAvailable)
     {
         if (AllKnownCommands.TryGetValue(command, out var ci))
-        {
-            if (ci.IsCompleted) 
-                return ci.Result;
-            return GetPendingCommandInfo(command);
-        }
+            return ci.IsCompleted ? ci.Result : GetPendingCommandInfo(command);
 
         if (!createInfoIfNotAvailable) return null;
         
