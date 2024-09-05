@@ -20,7 +20,7 @@ public class SuggestionConsoleViewer
         Console.SetCursorPosition(currentLeft, currentTop);
     }
     
-    public static void ShowSuggestions(Suggestion[] suggestions, int selection)
+    public static void ShowSuggestions(Suggestion[] suggestions, int selection, bool useColor = true)
     {
         var pos = Console.GetCursorPosition();
         var topLine = Console.GetCursorPosition().Top + 1;
@@ -33,17 +33,19 @@ public class SuggestionConsoleViewer
             pos.Top--;
         }
         Console.SetCursorPosition(pos.Left, pos.Top);
-        var descriptionStart = Console.WindowWidth / 3;
-        var descriptionLength = Console.WindowWidth - descriptionStart;
         var startLine = Math.Min(Math.Max(0, selection - MaxSuggestions / 2), Math.Max(0, suggestions.Length - MaxSuggestions));
         var line = topLine;
-        var maxSuggestionLength = suggestions.Any() ? suggestions.Select(s => s.Text.Length).Max() : 0;
+        var maxSuggestionLength = suggestions.Any() ? suggestions.Skip(startLine).Take(MaxSuggestions).Select(s => s.Text.Length).Max() : 0;
+        var descriptionStart = Math.Min(maxSuggestionLength + 5, Console.WindowWidth / 2);
+        var descriptionLength = Console.WindowWidth - descriptionStart;
         for (var i=startLine; i < startLine + MaxSuggestions; i++)
         {
+            if (useColor)
+                Console.BackgroundColor = selection == i ? ConsoleColor.Green : ConsoleColor.Cyan;
             Console.SetCursorPosition(0, line);
-            if (selection == i)
-                Console.ForegroundColor = ConsoleColor.Gray;
-            Console.Write(selection == i ? "➡ " : "  ");
+            if (useColor)
+                Console.ForegroundColor = ConsoleColor.Magenta;
+            Console.Write(selection == i ? "➡️  " : "   ");
             if (suggestions.Length > i)
             {
                 if (suggestions[i].Icon != null)
@@ -52,7 +54,9 @@ public class SuggestionConsoleViewer
             }
 
             ClearLineFromCursor();
-            Console.SetCursorPosition(Math.Min(maxSuggestionLength + 3, Console.WindowWidth / 2), line);
+            Console.SetCursorPosition(descriptionStart, line);
+            if (useColor)
+                Console.ForegroundColor = ConsoleColor.Gray;
             if (suggestions.Length > i)
             {
                 var description = suggestions[i].Description;
@@ -60,7 +64,8 @@ public class SuggestionConsoleViewer
                     Console.Write(new string(description.Take(descriptionLength).ToArray()));
             }
 
-            Console.ResetColor();
+            if (useColor)
+                Console.ResetColor();
             line++;
         }
         Console.SetCursorPosition(pos.Left, pos.Top);
@@ -68,6 +73,6 @@ public class SuggestionConsoleViewer
 
     public static void Clear()
     {
-        ShowSuggestions([], -1);
+        ShowSuggestions([], -1, false);
     }
 }
