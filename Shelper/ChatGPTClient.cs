@@ -1,3 +1,4 @@
+using System.Net;
 using System.Net.Http.Headers;
 using System.Net.Http.Json;
 using System.Text.Json;
@@ -68,6 +69,6 @@ public static class ChatGptClient
         var errorContent = await response.Content.ReadAsStringAsync();
         Logger.Log(Logger.Gpt, "Error:");
         Logger.Log(Logger.Gpt, errorContent);
-        return errorContent;
+        throw new WebException("GPT returned an error, see log for details.");
     }
 }

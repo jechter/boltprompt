@@ -84,7 +84,7 @@ public static class GptCommandInfoSupplier
         if (commandResult.ExitCode == 0)
         {
             var manpage = commandResult.StandardOutput;
-            if (manpage.Length < 32 * 1024)
+            if (manpage.Length < 16 * 1024)
             {
                 manPageMessage += $"""
 

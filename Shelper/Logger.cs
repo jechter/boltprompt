@@ -13,13 +13,14 @@ public static class Logger
     {
         if (LogFiles.TryGetValue(path, out var stream))
             return stream;
-        stream = File.Open(path.ToString(), FileMode.Truncate);
+        stream = File.Open(path.ToString(), FileMode.Create);
         LogFiles[path] = stream;
         return stream;
     }
+    
     public static void Log(string file, string message)
     {
-        var logDir = new NPath("Logs").MakeAbsolute();
+        var logDir = NPath.HomeDirectory.Combine("Library/Logs/Shelper").MakeAbsolute();
         logDir.CreateDirectory();
         var path = logDir.Combine(file);
         var stream = GetFileStream(path);

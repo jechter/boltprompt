@@ -9,8 +9,13 @@ public static class KnownCommands
     public delegate void UpdateCommandInfo(CommandInfo ci);
 
     public static event UpdateCommandInfo? CommandInfoLoaded;
+
+    internal static void AddCommandInfo(string command, CommandInfo ci)
+    {
+        AllKnownCommands[command] = Task.FromResult(ci);
+    }
     
-    static CommandInfo GetPendingCommandInfo(string command) => new ()
+    static CommandInfo GetPendingCommandInfo(string command) => CommandInfo.DefaultCommand with
     {
         Name = command,
         Description = "Command description and parameter information pending..."
