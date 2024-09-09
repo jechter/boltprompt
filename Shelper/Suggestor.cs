@@ -11,15 +11,15 @@ public record Suggestion(string Text)
 
 public class Suggestor
 {
-    private readonly Suggestion[] _executablesInPath;
+    private readonly Suggestion[] _executablesInPathEnvironment;
     private readonly char[] _shellOperators = ['>', '<', '|', '&', ';']; 
     
     Suggestion? GetExecutableCommandInfo(string command) =>
-        _executablesInPath.FirstOrDefault(exe => exe.Text.Trim() == Path.GetFileName(command));
+        _executablesInPathEnvironment.FirstOrDefault(exe => exe.Text.Trim() == Path.GetFileName(command));
     
     public Suggestor()
     {
-        _executablesInPath = FindExecutablesInPath();
+        _executablesInPathEnvironment = FindExecutablesInPathEnvironment();
         KnownCommands.CommandInfoLoaded += ci =>
         {
             var sug = GetExecutableCommandInfo(ci.Name);
@@ -45,7 +45,7 @@ public class Suggestor
         return SortSuggestionsByHistory(commandline, commandLineArguments.Length == 1 ? SuggestCommand(command) : SuggestParameters(command, commandline).ToArray());
     }
 
-    private static Suggestion[] SuggestFileSystemEntries(string commandline, bool directoriesOnly)
+    private static Suggestion[] SuggestFileSystemEntries(string commandline, CommandInfo.ArgumentType type)
     {
         var split = commandline.Split(' ');
         var currentArg = split.Last();
@@ -60,7 +60,11 @@ public class Suggestor
         if (dir.ToString().StartsWith('~'))
             dir = NPath.HomeDirectory.Combine(dir.RelativeTo("~"));
 
-        return new []{dir}.Concat(directoriesOnly ? dir.Directories() : dir.Contents())
+        if (!dir.DirectoryExists())
+            return [];
+        
+        return new []{dir}.Concat(type == CommandInfo.ArgumentType.Directory ? dir.Directories() : dir.Contents())
+            .Where(fs => type != CommandInfo.ArgumentType.Command || fs.DirectoryExists() || (IsExecutable(fs) && !string.IsNullOrEmpty(prefix)))
             .Select(fs => new Suggestion($"{prefix}{fs.RelativeTo(dir)}{(fs.DirectoryExists()?'/':' ')}") { Icon = fs.DirectoryExists()?"📁" : "📄"})
             .ToArray();
     }
@@ -68,7 +72,7 @@ public class Suggestor
     private IEnumerable<Suggestion> SuggestParameters(string command, string commandline)
     {
         var executableExists = GetExecutableCommandInfo(command) != null;
-        var ci = KnownCommands.GetCommand(command, executableExists) ?? CommandInfo.DefaultCommand;
+        var ci = KnownCommands.GetCommand(command.Split('/').Last(), executableExists) ?? CommandInfo.DefaultCommand;
         if (ci.Arguments == null)
             yield break;
         var lastParam = commandline.Split(' ').Last();
@@ -148,7 +152,7 @@ public class Suggestor
                 }
                 case CommandInfo.ArgumentType.Command:
                 {
-                    foreach (var s in _executablesInPath.Where(sug => sug.Text.StartsWith(lastParam)))
+                    foreach (var s in _executablesInPathEnvironment.Where(sug => sug.Text.StartsWith(lastParam)))
                         yield return s;
 
                     break;
@@ -157,7 +161,7 @@ public class Suggestor
                 case CommandInfo.ArgumentType.Directory:
                 case CommandInfo.ArgumentType.File:
                 {
-                    foreach (var s in SuggestFileSystemEntries(commandline, arg.Type == CommandInfo.ArgumentType.Directory))
+                    foreach (var s in SuggestFileSystemEntries(commandline, arg.Type))
                         if (s.Text.StartsWith(lastParam))
                             yield return s with { Description = arg.Description };
                     break;
@@ -175,34 +179,44 @@ public class Suggestor
     {
         if (string.IsNullOrEmpty(commandline))
             return History.Commands.Select(h => new Suggestion(h)).ToArray();
-        return _executablesInPath.Concat(History.Commands.Select(h => new Suggestion(h)))
+        return _executablesInPathEnvironment
+            .Concat(
+                SuggestFileSystemEntries(commandline, CommandInfo.ArgumentType.Command)
+                    .Select(sug => sug with { Description = KnownCommands.GetCommand(sug.Text.Split('/').Last().Trim(), false)?.Description ?? "" })
+                )
+            .Concat(History.Commands.Select(h => new Suggestion(h)))
             .Where(sug => sug.Text.StartsWith(commandline))
             .ToArray();
     }
 
-    private static Suggestion[] FindExecutablesInPath()
+    private static Suggestion[] FindExecutablesInPath(NPath path)
     {
-        var cwd = Directory.GetCurrentDirectory();
-        var pathEnv = Environment.GetEnvironmentVariable("PATH");
-        var paths = pathEnv != null 
-            ? new[] { cwd }.Concat(pathEnv.Split(":")) 
-            : Array.Empty<string>();
-        var executables = paths
-            .Where(Directory.Exists)
-            .SelectMany(Directory.GetFiles)
+        var executables = path.Files()
             .Where(IsExecutable);
-        return executables.Select(ex => new Suggestion($"{Path.GetFileName(ex)} ")
-        {
-            Description = KnownCommands.GetCommand(Path.GetFileName(ex), false)?.Description ?? ex
-        })
+        return executables.Select(ex => new Suggestion($"{ex.FileName} ")
+            {
+                Description = KnownCommands.GetCommand(ex.FileName, false)?.Description ?? ex.ToString()
+            })
             .OrderBy(s => s.Text)
             .ToArray();
+    }
 
-        bool IsExecutable(string path)
-        {
-            if (Syscall.stat(path, out var fileStat) == 0)
-                return (fileStat.st_mode & FilePermissions.S_IXUSR) != 0;
-            return false;
-        }
+    private static bool IsExecutable(NPath filePath)
+    {
+        if (Syscall.stat(filePath.ToString(), out var fileStat) == 0)
+            return (fileStat.st_mode & FilePermissions.S_IXUSR) != 0;
+        return false;
+    }
+    
+    private static Suggestion[] FindExecutablesInPathEnvironment()
+    {
+        var pathEnv = Environment.GetEnvironmentVariable("PATH");
+        return pathEnv == null 
+            ? [] 
+            : pathEnv.Split(":")
+                .ToNPaths()
+                .Where(path => path.DirectoryExists())
+                .SelectMany(FindExecutablesInPath)
+                .ToArray();
     }
 }

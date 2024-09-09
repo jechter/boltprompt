@@ -24,18 +24,7 @@ public class SuggestorTests
     {
         foreach (var p in _pathsToCleanup)
             p.Delete();
-    }
-
-    [Test]
-    public void CanFindExecutablesInWorkingDir()
-    {
-        _pathsToCleanup.Add(MakeTestExecutable(new NPath("localTestExecutable").MakeAbsolute()));
-        _pathsToCleanup.Add(new NPath("localTestFile").MakeAbsolute().WriteAllText("Just a file"));
-
-        var suggestions = new Suggestor().SuggestionsForPrompt("l");
-        
-        Assert.That(suggestions.Select(s => s.Text.Trim()), Does.Contain("localTestExecutable"));
-        Assert.That(suggestions.Select(s => s.Text.Trim()), Does.Not.Contain("localTestFile"));
+        _pathsToCleanup.Clear();
     }
     
     [Test]
@@ -46,10 +35,10 @@ public class SuggestorTests
         MakeTestExecutable(testDir.Combine("testExecutable"));
         testDir.Combine("testFile").WriteAllText("Just a file");
 
-        var suggestions = new Suggestor().SuggestionsForPrompt("testDir/");
+        var suggestions = new Suggestor().SuggestionsForPrompt("localTestDir/");
         
-        Assert.That(suggestions.Select(s => s.Text.Trim()), Does.Contain("testDir/testExecutable"));
-        Assert.That(suggestions.Select(s => s.Text.Trim()), Does.Not.Contain("testDir/testFile"));
+        Assert.That(suggestions.Select(s => s.Text.Trim()), Does.Contain("localTestDir/testExecutable"));
+        Assert.That(suggestions.Select(s => s.Text.Trim()), Does.Not.Contain("localTestDir/testFile"));
     }
     
     [Test]
@@ -84,7 +73,7 @@ public class SuggestorTests
     {
         _pathsToCleanup.Add(MakeTestExecutable(new NPath("testExecutable").MakeAbsolute()));
         KnownCommands.AddCommandInfo("testExecutable", ci);
-        return new Suggestor().SuggestionsForPrompt($"testExecutable{extraPrompt}");
+        return new Suggestor().SuggestionsForPrompt($"./testExecutable{extraPrompt}");
     }
     
     [Test]
@@ -246,6 +235,11 @@ public class SuggestorTests
     [Test]
     public void CanGetSuggestionsForCommands()
     {
+        var testExePath1 = NPath.CreateTempDirectory("testdir-");
+        MakeTestExecutable(testExePath1.Combine("testExecutable"));
+        _pathsToCleanup.Add(testExePath1);
+        Environment.SetEnvironmentVariable("PATH", testExePath1.ToString());
+
         var ci = new CommandInfo
         {
             Arguments = [[ new("") { Type = CommandInfo.ArgumentType.Command }]]
