@@ -2,6 +2,12 @@ namespace Shelper;
 
 public static class Prompt
 {
+    public static void SetCursorPosition(int commandLineCursorPosition)
+    {
+        var pos = Console.GetCursorPosition();
+        Console.SetCursorPosition(commandLineCursorPosition + 3, pos.Top);
+    }
+    
     public static void RenderPrompt(string? commandline = null, string? selectedSuggestion = null)
     {
         var pos = Console.GetCursorPosition();

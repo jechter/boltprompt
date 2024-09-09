@@ -35,7 +35,7 @@ public class SuggestionConsoleViewer
         Console.SetCursorPosition(pos.Left, pos.Top);
         var startLine = Math.Min(Math.Max(0, selection - MaxSuggestions / 2), Math.Max(0, suggestions.Length - MaxSuggestions));
         var line = topLine;
-        var maxSuggestionLength = suggestions.Any() ? suggestions.Skip(startLine).Take(MaxSuggestions).Select(s => s.Text.Length).Max() : 0;
+        var maxSuggestionLength = suggestions.Any() ? suggestions.Skip(startLine).Take(MaxSuggestions).Select(s => s.Text.Length + (s.Icon?.Length ?? 0)).Max() : 0;
         var descriptionStart = Math.Min(maxSuggestionLength + 5, Console.WindowWidth / 2);
         var descriptionLength = Console.WindowWidth - descriptionStart;
         for (var i=startLine; i < startLine + MaxSuggestions; i++)

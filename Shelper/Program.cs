@@ -2,8 +2,9 @@
 using Shelper;
 
 var suggestor = new Suggestor();
-var prompt = "";
+var commandLine = "";
 var selection = 0;
+var commandLineCursorPos = 0;
 Console.CancelKeyPress += ConsoleCancelKeyPress;
 Suggestion[] suggestions = [];
 Prompt.RenderPrompt();
@@ -16,11 +17,10 @@ while (true)
         case ConsoleKey.Backspace:
         case ConsoleKey.Delete:
         {
-            if (prompt.Length > 0)
+            if (commandLine.Length > 0 && commandLineCursorPos > 0)
             {
-                prompt = prompt[..^1];
-                var pos= Console.GetCursorPosition();
-                Console.SetCursorPosition(pos.Left-1, pos.Top);
+                commandLine = commandLine[..(commandLineCursorPos - 1)] + commandLine[commandLineCursorPos..];
+                Prompt.SetCursorPosition(--commandLineCursorPos);
             }
             break;
         }
@@ -32,7 +32,17 @@ while (true)
             if (selection < 0)
                 selection = -2;
             break;
+        case ConsoleKey.LeftArrow:
+            if (commandLineCursorPos > 0)
+                Prompt.SetCursorPosition(--commandLineCursorPos);
+            break;
         case ConsoleKey.RightArrow:
+            if (commandLineCursorPos < commandLine.Length)
+                Prompt.SetCursorPosition(++commandLineCursorPos);
+            else
+                CommitSelection();
+            break;
+        case ConsoleKey.Tab:
             CommitSelection();
             break;
         case ConsoleKey.Escape:
@@ -40,21 +50,22 @@ while (true)
             break;
         case ConsoleKey.Enter:
             CommitSelection();
-            ExitAndRunCommand(prompt);
+            ExitAndRunCommand(commandLine);
             break;
         default:
-            prompt += key.KeyChar;
+            commandLine = commandLine[..commandLineCursorPos] + key.KeyChar + commandLine[commandLineCursorPos..];
+            commandLineCursorPos++;
             if (selection == -1)
                 selection = 0;
             break;
     }
 
-    suggestions = suggestor.SuggestionsForPrompt(prompt);
+    suggestions = suggestor.SuggestionsForPrompt(commandLine);
     if (selection >= suggestions.Length)
         selection = suggestions.Length > 0 ? 0 : -1;
     else if (selection < -1)
         selection = suggestions.Length - 1; 
-    Prompt.RenderPrompt(prompt, selection > -1 ? suggestions[selection].Text : null);
+    Prompt.RenderPrompt(commandLine, selection > -1 ? suggestions[selection].Text : null);
     SuggestionConsoleViewer.ShowSuggestions(suggestions, selection);
     continue;
 
@@ -63,14 +74,12 @@ while (true)
         if (selection == -1) return;
         if (suggestions.Length != 0 && suggestions.Length >= selection)
         {
-            var promptWords = prompt.Split(' ');
+            var promptWords = commandLine.Split(' ');
             promptWords[^1] = suggestions[selection].Text;
-            prompt = string.Join(' ', promptWords);
-            var pos= Console.GetCursorPosition();
-            Console.SetCursorPosition(0, pos.Top);
-            Prompt.RenderPrompt();
-            Console.Write(prompt);
-            SuggestionConsoleViewer.ClearLineFromCursor();
+            commandLine = string.Join(' ', promptWords);
+            Prompt.RenderPrompt(commandLine);
+            commandLineCursorPos = commandLine.Length;
+            Prompt.SetCursorPosition(commandLineCursorPos);
         }
         selection = -1;
     }
