@@ -50,6 +50,8 @@ public static class KnownCommands
             return ci.IsCompleted ? ci.Result : GetPendingCommandInfo(command);
 
         if (!createInfoIfNotAvailable) return null;
+
+        if (!ChatGptClient.IsAvailable) return null;
         
         AllKnownCommands[command] = CreateAndCacheCommandInfo(command);
         return null;

@@ -12,6 +12,7 @@ public static class ChatGptClient
     private static readonly string? ApiKey = Environment.GetEnvironmentVariable("OPENAI_API_KEY");
     private const string ApiUrl = "https://api.openai.com/v1/chat/completions";
 
+    public static bool IsAvailable => ApiKey != null;
     public record GptMessage(string role, string content)
     {
         [JsonInclude]
