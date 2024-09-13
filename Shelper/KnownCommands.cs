@@ -1,3 +1,4 @@
+using System.Reflection;
 using NiceIO;
 
 namespace Shelper;
@@ -9,7 +10,9 @@ public static class KnownCommands
     public delegate void UpdateCommandInfo(CommandInfo ci);
 
     public static event UpdateCommandInfo? CommandInfoLoaded;
-
+    
+    static List<ICommandInfoSupplier> commandSuppliers;
+    
     internal static void AddCommandInfo(string command, CommandInfo ci)
     {
         AllKnownCommands[command] = Task.FromResult(ci);
@@ -23,14 +26,17 @@ public static class KnownCommands
     
     private static async Task<CommandInfo> CreateAndCacheCommandInfo(string command)
     {
-        NPath commandDir = "Commands";
-        commandDir = commandDir.MakeAbsolute();
-        var path = commandDir.Combine($"{command}.json");
+        var path = Paths.CommandsDir.Combine($"{command}.json");
         var ci = GetPendingCommandInfo(command);
         CommandInfoLoaded?.Invoke(ci);
-        ci = await GptCommandInfoSupplier.GetCommandInfoForCommand2(command);
-        path.WriteAllText(ci.Serialize());
-        CommandInfoLoaded?.Invoke(ci);
+        foreach (var commandSupplier in commandSuppliers.Where(commandSupplier => commandSupplier.CanHandle(command)))
+        {
+            var newCi = await commandSupplier.GetCommandInfoForCommand(command);
+            if (newCi == null) continue;
+            path.WriteAllText(newCi.Serialize());
+            CommandInfoLoaded?.Invoke(newCi);
+            return newCi;
+        }
         return ci;
     }
     
@@ -51,8 +57,6 @@ public static class KnownCommands
 
         if (!createInfoIfNotAvailable) return null;
 
-        if (!ChatGptClient.IsAvailable) return null;
-        
         AllKnownCommands[command] = CreateAndCacheCommandInfo(command);
         return null;
     }
@@ -63,21 +67,25 @@ public static class KnownCommands
         {
             ["ls"] = Task.FromResult(CommandInfo.Ls)
         };
-        NPath commandDir = "Commands";
-        commandDir = commandDir.MakeAbsolute();
-        if (commandDir.DirectoryExists())
+        if (Paths.CommandsDir.DirectoryExists())
         {
-            foreach (var file in commandDir.Files("*.json", true))
+            foreach (var file in Paths.CommandsDir.Files("*.json", true))
                 AllKnownCommands[file.FileNameWithoutExtension] = LoadCachedCommandInfo(file);
         }
         else
         {
-            commandDir.CreateDirectory();
+            Paths.CommandsDir.CreateDirectory();
             foreach (var cmd in AllKnownCommands)
             {
-                var path = commandDir.Combine($"{cmd.Key}.json");
+                var path = Paths.CommandsDir.Combine($"{cmd.Key}.json");
                 path.WriteAllText(cmd.Value.Result.Serialize());
             }
         }
+        var commandInfoSupplierTypes = Assembly.GetExecutingAssembly().GetTypes()
+            .Where(t => t.GetInterfaces().Contains(typeof(ICommandInfoSupplier)));
+        commandSuppliers = commandInfoSupplierTypes
+            .Select(t => (ICommandInfoSupplier)Activator.CreateInstance(t)!)
+            .OrderBy(sup => sup.Order)
+            .ToList();
     }
 }

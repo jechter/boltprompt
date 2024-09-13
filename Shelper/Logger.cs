@@ -9,7 +9,7 @@ public static class Logger
 
     private static readonly Dictionary<NPath, FileStream> LogFiles = new();
 
-    static FileStream GetFileStream(NPath path)
+    private static FileStream GetFileStream(NPath path)
     {
         if (LogFiles.TryGetValue(path, out var stream))
             return stream;
@@ -20,11 +20,11 @@ public static class Logger
     
     public static void Log(string file, string message)
     {
-        var logDir = NPath.HomeDirectory.Combine("Library/Logs/Shelper").MakeAbsolute();
+        var logDir = Paths.LogDir;
         logDir.CreateDirectory();
         var path = logDir.Combine(file);
         var stream = GetFileStream(path);
-        stream.Write(Encoding.UTF8.GetBytes(message));
+        stream.Write(Encoding.UTF8.GetBytes(message + "\n"));
         stream.Flush();
     }
 }

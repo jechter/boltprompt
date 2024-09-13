@@ -3,9 +3,9 @@ using CliWrap.Buffered;
 
 namespace Shelper;
 
-public static class GptCommandInfoSupplier
+public class GptCommandInfoSupplier : ICommandInfoSupplier
 {
-    public static async Task<CommandInfo> GetCommandInfoForCommand(string command)
+    public static async Task<CommandInfo> GetCommandInfoForCommandOld(string command)
     {
         var commandResult = await Cli.Wrap("man")
             .WithArguments(command)
@@ -73,7 +73,14 @@ public static class GptCommandInfoSupplier
         return result;
     }
 
-    public static async Task<CommandInfo> GetCommandInfoForCommand2(string command)
+    public int Order => 2;
+
+    public bool CanHandle(string command)
+    {
+        return ChatGptClient.IsAvailable;
+    }
+
+    public async Task<CommandInfo?> GetCommandInfoForCommand(string command)
     {
         var commandResult = await Cli.Wrap("man")
             .WithArguments(command)

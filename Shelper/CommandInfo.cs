@@ -50,7 +50,7 @@ public record CommandInfo
         [JsonInclude]
         public string[]? Aliases;
         [JsonInclude]
-        public Argument[]? Arguments;
+        public Argument[][]? Arguments;
 
         [JsonIgnore]
         public string[] AllNames => new[] { Name }.Concat(Aliases ?? []).ToArray(); 
