@@ -17,6 +17,7 @@ public class SuggestorTests
     [SetUp]
     public void Setup()
     {
+        History.LoadTestHistory([]);
     }
 
     [TearDown]
@@ -222,7 +223,7 @@ public class SuggestorTests
         Assert.That(suggestions.Select(s => s.Text.Trim()), Does.Contain("-ad"));
         Assert.That(suggestions.Select(s => s.Text.Trim()), Does.Contain("-ae"));
         Assert.That(suggestions.Select(s => s.Text.Trim()), Does.Contain("-af"));
-        
+         
         suggestions = GetSuggestionsForTestExecutable(ci, " -d");
         Assert.That(suggestions.Select(s => s.Text.Trim()), Does.Not.Contain("-da"));
         Assert.That(suggestions.Select(s => s.Text.Trim()), Does.Not.Contain("-db"));
@@ -266,5 +267,82 @@ public class SuggestorTests
         var suggestions = GetSuggestionsForTestExecutable(ci, " testDir/");
         Assert.That(suggestions.Select(s => s.Text.Trim()), Does.Contain("testDir/directory/"));
         Assert.That(suggestions.Select(s => s.Text.Trim()).Contains("testDir/file"), Is.EqualTo(type != CommandInfo.ArgumentType.Directory));
+    }
+
+    [Test]
+    public void CanGetSuggestionsFromHistory()
+    {
+        History.LoadTestHistory(["foo", "bar", "foo bar"]);
+        var suggestions = new Suggestor().SuggestionsForPrompt("f");
+        Assert.That(suggestions.Select(s => s.Text.Trim()), Does.Contain("foo"));
+        Assert.That(suggestions.Select(s => s.Text.Trim()), Does.Contain("foo bar"));
+        Assert.That(suggestions.Select(s => s.Text.Trim()), Does.Not.Contain("bar"));
+    }
+
+    [Test]
+    public void FileSystemArgumentSuggestionsFromHistoryComeFirst()
+    {
+        var testDir = new NPath("testDir").MakeAbsolute().CreateDirectory();   
+        _pathsToCleanup.Add(testDir);
+        testDir.Combine("directory").CreateDirectory();
+        testDir.Combine("file").WriteAllText("bla");
+        
+        var ci = new CommandInfo
+        {
+            Arguments = [[ new("") { Type = CommandInfo.ArgumentType.FileSystemEntry }]]
+        };
+        var suggestions = GetSuggestionsForTestExecutable(ci, " testDir/");
+        Assert.That(suggestions.Select(s => s.Text.Trim()).ToArray(), Is.EqualTo(new [] {"testDir/directory/", "testDir/file"}));
+        
+        History.LoadTestHistory(["./testExecutable testDir/file"]);
+        suggestions = GetSuggestionsForTestExecutable(ci, " testDir/");
+        Assert.That(suggestions.Select(s => s.Text.Trim()).ToArray(), Is.EqualTo(new [] {"testDir/file", "testDir/directory/"}));
+    }
+    
+    [Test]
+    public void PartialFileSystemArgumentSuggestionsFromHistoryComeFirst()
+    {
+        var testDir = new NPath("testDir").MakeAbsolute().CreateDirectory();   
+        var testSubDir = testDir.Combine("testSubDir").CreateDirectory();   
+        testDir.Combine("otherTestSubDir").CreateDirectory();   
+        testSubDir.Combine("file").WriteAllText("bla");
+        _pathsToCleanup.Add(testDir);
+        
+        var ci = new CommandInfo
+        {
+            Arguments = [[ new("") { Type = CommandInfo.ArgumentType.FileSystemEntry }]]
+        };
+        var suggestions = GetSuggestionsForTestExecutable(ci, " testDir/");
+        Assert.That(suggestions.Select(s => s.Text.Trim()).ToArray(), Is.EqualTo(new [] {"testDir/otherTestSubDir/", "testDir/testSubDir/"}));
+        
+        History.LoadTestHistory(["./testExecutable testDir/testSubDir/file"]);
+        suggestions = GetSuggestionsForTestExecutable(ci, " testDir/");
+        Assert.That(suggestions.Select(s => s.Text.Trim()).ToArray(), Is.EqualTo(new [] {"testDir/testSubDir/", "testDir/otherTestSubDir/"}));
+    }
+    
+    [Test]
+    public void FlagArgumentSuggestionsFromHistoryComeFirst()
+    {
+        var ci = new CommandInfo
+        {
+            Arguments =
+            [
+                [
+                    new("a") { Type = CommandInfo.ArgumentType.Flag },
+                    new("b") { Type = CommandInfo.ArgumentType.Flag },
+                    new("c") { Type = CommandInfo.ArgumentType.Flag },
+                ]
+            ]
+        };
+        var suggestions = GetSuggestionsForTestExecutable(ci, " -");
+        Assert.That(suggestions.Select(s => s.Text.Trim()).ToArray(), Is.EqualTo(new [] {"-a", "-b", "-c"}));
+        
+        History.LoadTestHistory(["./testExecutable -c"]);
+        suggestions = GetSuggestionsForTestExecutable(ci, " -");
+        Assert.That(suggestions.Select(s => s.Text.Trim()).ToArray(), Is.EqualTo(new [] {"-c", "-a", "-b"}));
+
+        History.LoadTestHistory(["./testExecutable -b", "./testExecutable -c"]);
+        suggestions = GetSuggestionsForTestExecutable(ci, " -");
+        Assert.That(suggestions.Select(s => s.Text.Trim()).ToArray(), Is.EqualTo(new [] {"-c", "-b", "-a"}));
     }
 }

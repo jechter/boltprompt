@@ -1,3 +1,4 @@
+using System.Collections.Immutable;
 using Mono.Unix.Native;
 using NiceIO;
 
@@ -30,10 +31,25 @@ public class Suggestor
 
     Suggestion[] SortSuggestionsByHistory(string commandline, IEnumerable<Suggestion> suggestions)
     {
-        var commandLineWords = commandline.Split(' ').Length;
+        var commandLineWords = commandline.Split(' ');
+        var lastCommandLineWord = commandLineWords.Last();
+        var commandLineWordPathComponents = lastCommandLineWord.Split('/');
+
         var historyFilteredByCommandline = 
-            History.Commands.Where(s => s.StartsWith(commandline)).Select(s => s.Split(' ')[commandLineWords - 1]).ToArray();
-        return suggestions.OrderByDescending(sug => Array.LastIndexOf(historyFilteredByCommandline, sug.Text)).ToArray();
+            History.Commands.Where(s => s.StartsWith(commandline)).Select(FilterHistoryEntryByCommandLine).ToArray();
+        
+        return suggestions.OrderByDescending(sug => Array.LastIndexOf(historyFilteredByCommandline, sug.Text.Trim())).ToArray();
+
+        string FilterHistoryEntryByCommandLine(string historyEntry)
+        {
+            var historyEntryWords = historyEntry.Split(' ');
+            var historyEntryCommandLineWord = historyEntryWords[commandLineWords.Length - 1];
+            var historyEntryPathComponents = historyEntryCommandLineWord.Split('/');
+            var filteredHistoryEntryPathComponents = historyEntryPathComponents.Take(commandLineWordPathComponents.Length);
+            if (commandLineWordPathComponents.Length < historyEntryPathComponents.Length)
+                return string.Join('/', filteredHistoryEntryPathComponents) + "/";
+            return historyEntryCommandLineWord;
+        }
     }
 
     public Suggestion[] SuggestionsForPrompt(string commandline)
@@ -63,8 +79,9 @@ public class Suggestor
         if (!dir.DirectoryExists())
             return [];
         
-        return new []{dir}.Concat(type == CommandInfo.ArgumentType.Directory ? dir.Directories() : dir.Contents())
+        return /*new []{dir}.Concat*/(type == CommandInfo.ArgumentType.Directory ? dir.Directories() : dir.Contents())
             .Where(fs => type != CommandInfo.ArgumentType.Command || fs.DirectoryExists() || (IsExecutable(fs) && !string.IsNullOrEmpty(prefix)))
+            .OrderBy(fs => fs.FileName)
             .Select(fs => new Suggestion($"{prefix}{fs.RelativeTo(dir)}{(fs.DirectoryExists()?'/':' ')}") { Icon = fs.DirectoryExists()?"📁" : "📄"})
             .ToArray();
     }
@@ -76,48 +93,8 @@ public class Suggestor
         if (ci.Arguments == null)
             yield break;
         var lastParam = commandline.Split(' ').Last();
-        var arguments = ci.Arguments.SelectMany(a => a).ToList();
-        var keepParsing = true;
-        var paramPrefix = "";
-        CommandInfo.Argument? curArg = null;
-        while (keepParsing)
-        {
-            keepParsing = false;
-            foreach (var arg in arguments)
-            {
-                if (arg.Type != CommandInfo.ArgumentType.Keyword && arg.Type != CommandInfo.ArgumentType.Flag) continue;
-                foreach (var v in arg.AllNames)
-                {
-                    var name = v;
-                    if (paramPrefix == "")
-                        name = $"-{v}";
-                    if (!lastParam.StartsWith(name)) continue;
-                    if (arg.Arguments != null)
-                    {
-                        arguments = arg.Arguments.ToList();
-                        paramPrefix += lastParam[..name.Length];
-                        lastParam = lastParam[name.Length..];
-                        curArg = arg;
-                        keepParsing = true;
-                    }
-                    else if (arg.Type == CommandInfo.ArgumentType.Flag)
-                    {
-                        arguments = arguments.Where(a => a.Type == CommandInfo.ArgumentType.Flag && (a != arg || arg.Repeat)).ToList();
-                        paramPrefix += lastParam[..name.Length];
-                        lastParam = lastParam[name.Length..];
-                        curArg = arg;
-                        keepParsing = true;
-                    }
-                    /*else if (arg.Repeat)
-                    {
-                        paramPrefix += lastParam[..name.Length];
-                        lastParam = lastParam[name.Length..];
-                        curArg = arg;
-                        keepParsing = true;
-                    }*/
-                }
-            }
-        }
+
+        var arguments = GetEligibleArguments(ci.Arguments, out var paramPrefix, out var curArg, ref lastParam);
 
         if (curArg != null)
             yield return new (paramPrefix) { Description = curArg.Description };
@@ -175,6 +152,63 @@ public class Suggestor
         }
     }
 
+    private static List<CommandInfo.Argument> GetEligibleArguments(CommandInfo.Argument[][] ciArguments, out string paramPrefix, out CommandInfo.Argument? curArg,
+        ref string lastParam)
+    {
+        var arguments = new List<CommandInfo.Argument>();
+        paramPrefix = "";
+        curArg = null;
+
+        foreach (var argGroup in ciArguments)
+        {
+            var argGroupArguments = new List<CommandInfo.Argument>(argGroup);
+            var keepParsing = true;
+            var gotMatch = false;
+            while (keepParsing)
+            {
+                keepParsing = false;
+
+                foreach (var arg in argGroup)
+                {
+                    if (arg.Type != CommandInfo.ArgumentType.Keyword &&
+                        arg.Type != CommandInfo.ArgumentType.Flag) continue;
+                    foreach (var v in arg.AllNames)
+                    {
+                        var name = v;
+                        if (paramPrefix == "")
+                            name = $"-{v}";
+                        if (!lastParam.StartsWith(name)) continue;
+                        gotMatch = true;
+                        if (arg.Arguments != null)
+                        {
+                            argGroupArguments = arg.Arguments.SelectMany(a => a).ToList();
+                            paramPrefix += lastParam[..name.Length];
+                            lastParam = lastParam[name.Length..];
+                            curArg = arg;
+                            keepParsing = true;
+                        }
+                        else if (arg.Type == CommandInfo.ArgumentType.Flag)
+                        {
+                            argGroupArguments = argGroupArguments.Where(a =>
+                                a.Type == CommandInfo.ArgumentType.Flag && (a != arg || arg.Repeat)).ToList();
+                            paramPrefix += lastParam[..name.Length];
+                            lastParam = lastParam[name.Length..];
+                            curArg = arg;
+                            keepParsing = true;
+                        }
+                    }
+                }
+            }
+
+            if (gotMatch)
+                arguments = argGroupArguments;
+            else
+                arguments.AddRange(argGroup);
+        }
+
+        return arguments;
+    }
+    
     private Suggestion[] SuggestCommand(string commandline)
     {
         if (string.IsNullOrEmpty(commandline))
