@@ -121,7 +121,6 @@ public class FigCommandInfoSupplier : ICommandInfoSupplier
         figCommandInfo.args?.Select(ConvertFigArgument).ToArray() ?? [],
         figCommandInfo.subcommands?.Select(ConvertFigSubCommand).ToArray() ?? [],
     ];
-     
     
     public async Task<CommandInfo?> GetCommandInfoForCommand(string command)
     {

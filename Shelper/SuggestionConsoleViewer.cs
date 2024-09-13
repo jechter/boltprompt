@@ -2,7 +2,7 @@ namespace Shelper;
 
 public class SuggestionConsoleViewer
 {
-    private const int MaxSuggestions = 5;
+    private const int MaxSuggestions = 10;
 
     public static void ClearLineFromCursor()
     {
@@ -41,7 +41,7 @@ public class SuggestionConsoleViewer
         for (var i=startLine; i < startLine + MaxSuggestions; i++)
         {
             if (useColor)
-                Console.BackgroundColor = selection == i ? ConsoleColor.Green : ConsoleColor.Cyan;
+                Console.BackgroundColor = selection == i ? ConsoleColor.Cyan : ConsoleColor.Gray;
             Console.SetCursorPosition(0, line);
             if (useColor)
                 Console.ForegroundColor = ConsoleColor.Magenta;
@@ -56,7 +56,7 @@ public class SuggestionConsoleViewer
             ClearLineFromCursor();
             Console.SetCursorPosition(descriptionStart, line);
             if (useColor)
-                Console.ForegroundColor = ConsoleColor.Gray;
+                Console.ForegroundColor = ConsoleColor.Black;
             if (suggestions.Length > i)
             {
                 var description = suggestions[i].Description;
