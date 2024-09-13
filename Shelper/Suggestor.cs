@@ -1,4 +1,3 @@
-using System.Collections.Immutable;
 using Mono.Unix.Native;
 using NiceIO;
 
@@ -79,7 +78,7 @@ public class Suggestor
         if (!dir.DirectoryExists())
             return [];
         
-        return /*new []{dir}.Concat*/(type == CommandInfo.ArgumentType.Directory ? dir.Directories() : dir.Contents())
+        return (prefix == "" ? new []{dir}:[]).Concat(type == CommandInfo.ArgumentType.Directory ? dir.Directories() : dir.Contents())
             .Where(fs => type != CommandInfo.ArgumentType.Command || fs.DirectoryExists() || (IsExecutable(fs) && !string.IsNullOrEmpty(prefix)))
             .OrderBy(fs => fs.FileName)
             .Select(fs => new Suggestion($"{prefix}{fs.RelativeTo(dir)}{(fs.DirectoryExists()?'/':' ')}") { Icon = fs.DirectoryExists()?"📁" : "📄"})
