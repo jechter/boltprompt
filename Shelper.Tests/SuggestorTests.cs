@@ -190,7 +190,7 @@ public class SuggestorTests
     }
     
     [Test]
-    public void SuggestionsRespectArgumentGroupOrder()
+    public void SuggestionsRespectArgumentGroupOrderForFlags()
     {
         var ci = new CommandInfo
         {
@@ -234,6 +234,79 @@ public class SuggestorTests
     }
 
     [Test]
+    public void SuggestionsRespectArgumentGroupOrderForKeywords()
+    {
+        var ci = new CommandInfo
+        {
+            Arguments =
+            [
+                [
+                    new("a"),
+                    new("b"),
+                    new("c"),
+                ],
+                [
+                    new("d"),
+                    new("e"),
+                    new("f"),
+                ]
+            ]
+        };
+        var suggestions = GetSuggestionsForTestExecutable(ci, " ");
+        Assert.That(suggestions.Select(s => s.Text.Trim()), Does.Contain("a"));
+        Assert.That(suggestions.Select(s => s.Text.Trim()), Does.Contain("b"));
+        Assert.That(suggestions.Select(s => s.Text.Trim()), Does.Contain("c"));
+        Assert.That(suggestions.Select(s => s.Text.Trim()), Does.Contain("d"));
+        Assert.That(suggestions.Select(s => s.Text.Trim()), Does.Contain("e"));
+        Assert.That(suggestions.Select(s => s.Text.Trim()), Does.Contain("f"));
+        
+        suggestions = GetSuggestionsForTestExecutable(ci, " a ");
+        Assert.That(suggestions.Select(s => s.Text.Trim()), Does.Not.Contain("a"));
+        Assert.That(suggestions.Select(s => s.Text.Trim()), Does.Contain("b"));
+        Assert.That(suggestions.Select(s => s.Text.Trim()), Does.Contain("c"));
+        Assert.That(suggestions.Select(s => s.Text.Trim()), Does.Contain("d"));
+        Assert.That(suggestions.Select(s => s.Text.Trim()), Does.Contain("e"));
+        Assert.That(suggestions.Select(s => s.Text.Trim()), Does.Contain("f"));
+         
+        suggestions = GetSuggestionsForTestExecutable(ci, " d ");
+        Assert.That(suggestions.Select(s => s.Text.Trim()), Does.Not.Contain("a"));
+        Assert.That(suggestions.Select(s => s.Text.Trim()), Does.Not.Contain("b"));
+        Assert.That(suggestions.Select(s => s.Text.Trim()), Does.Not.Contain("c"));
+        Assert.That(suggestions.Select(s => s.Text.Trim()), Does.Not.Contain("d"));
+        Assert.That(suggestions.Select(s => s.Text.Trim()), Does.Contain("e"));
+        Assert.That(suggestions.Select(s => s.Text.Trim()), Does.Contain("f"));
+    }
+    
+    [Test]
+    public void CanGetSuggestionsForSubArgument()
+    {
+        var ci = new CommandInfo
+        {
+            Arguments =
+            [[
+                new("foo") {
+                    Arguments = [[
+                        new ("flip"), 
+                        new ("flop") 
+                    ]]
+                },
+                new("faz")
+            ]]
+        };
+        var suggestions = GetSuggestionsForTestExecutable(ci, " f");
+        Assert.That(suggestions.Select(s => s.Text.Trim()), Does.Contain("foo"));
+        Assert.That(suggestions.Select(s => s.Text.Trim()), Does.Contain("faz"));
+        Assert.That(suggestions.Select(s => s.Text.Trim()), Does.Not.Contain("flip"));
+        Assert.That(suggestions.Select(s => s.Text.Trim()), Does.Not.Contain("flop"));
+        suggestions = GetSuggestionsForTestExecutable(ci, " foo ");
+        Assert.That(suggestions.Select(s => s.Text.Trim()), Does.Not.Contain("foo"));
+        Assert.That(suggestions.Select(s => s.Text.Trim()), Does.Contain("faz"));
+        Assert.That(suggestions.Select(s => s.Text.Trim()), Does.Contain("flip"));
+        Assert.That(suggestions.Select(s => s.Text.Trim()), Does.Contain("flop"));
+    }
+    
+
+    [Test]
     public void CanGetSuggestionsForCommands()
     {
         var testExePath1 = NPath.CreateTempDirectory("testdir-");
@@ -268,6 +341,38 @@ public class SuggestorTests
         Assert.That(suggestions.Select(s => s.Text.Trim()), Does.Contain("testDir/directory/"));
         Assert.That(suggestions.Select(s => s.Text.Trim()).Contains("testDir/file"), Is.EqualTo(type != CommandInfo.ArgumentType.Directory));
     }
+    
+    [Test]
+    public void SuggestionsForFileSystemEntriesAreEscaped()
+    {
+        var testDir = new NPath("testDir").MakeAbsolute().CreateDirectory();   
+        _pathsToCleanup.Add(testDir);
+        testDir.Combine("this is a directory").CreateDirectory();
+
+        var ci = new CommandInfo
+        {
+            Arguments = [[ new("") { Type = CommandInfo.ArgumentType.FileSystemEntry }]]
+        };
+        var suggestions = GetSuggestionsForTestExecutable(ci, " testDir/");
+        Assert.That(suggestions.Select(s => s.Text.Trim()), Does.Contain("testDir/this\\ is\\ a\\ directory/"));
+    }
+    
+    [Test]
+    public void CanSuggestFileSystemEntriesInsideEscapedPath()
+    {
+        var testDir = new NPath("test dir").MakeAbsolute().CreateDirectory();   
+        _pathsToCleanup.Add(testDir);
+        testDir.Combine("test sub dir").CreateDirectory();
+        testDir.Combine("test sub dir").Combine("test file").WriteAllText("bla");
+
+        var ci = new CommandInfo
+        {
+            Arguments = [[ new("") { Type = CommandInfo.ArgumentType.FileSystemEntry }]]
+        };
+        var suggestions = GetSuggestionsForTestExecutable(ci, " test\\ dir/");
+        Assert.That(suggestions.Select(s => s.Text.Trim()), Does.Contain("test\\ dir/test\\ sub\\ dir/"));
+    }
+
 
     [Test]
     public void CanGetSuggestionsFromHistory()

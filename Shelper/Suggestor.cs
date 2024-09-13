@@ -1,3 +1,4 @@
+using System.Text.RegularExpressions;
 using Mono.Unix.Native;
 using NiceIO;
 
@@ -9,7 +10,7 @@ public record Suggestion(string Text)
     public string? Description;
 }
 
-public class Suggestor
+public partial class Suggestor
 {
     private readonly Suggestion[] _executablesInPathEnvironment;
     private readonly char[] _shellOperators = ['>', '<', '|', '&', ';']; 
@@ -51,25 +52,29 @@ public class Suggestor
         }
     }
 
+    public static string[] SplitCommandIntoWords(string currentCommand) => CommandLineWordsRegex().Split(currentCommand);
     public Suggestion[] SuggestionsForPrompt(string commandline)
     {
         var commandLineCommands = commandline.Split(_shellOperators);
         var currentCommand = commandLineCommands.Last().TrimStart();
-        var commandLineArguments = currentCommand.Split(' ');
+        var commandLineArguments = SplitCommandIntoWords(currentCommand);
         var command = commandLineArguments[0];
-        return SortSuggestionsByHistory(commandline, commandLineArguments.Length == 1 ? SuggestCommand(command) : SuggestParameters(command, commandline).ToArray());
+        return SortSuggestionsByHistory(commandline, commandLineArguments.Length == 1 ? SuggestCommand(command) : SuggestParameters(command, currentCommand).ToArray());
     }
+
+    private static string NPathToSuggestionText(string prefix, NPath parent, NPath path)
+        => $"{prefix}{path.RelativeTo(parent).ToString().Replace(@"\", @"\\").Replace(" ", @"\ ")}{(path.DirectoryExists() ? '/' : ' ')}";
 
     private static Suggestion[] SuggestFileSystemEntries(string commandline, CommandInfo.ArgumentType type)
     {
-        var split = commandline.Split(' ');
+        var split = SplitCommandIntoWords(commandline);
         var currentArg = split.Last();
         var dir = NPath.CurrentDirectory;
         var prefix = "";
         if (currentArg.Contains('/'))
         {
             prefix = currentArg[..(currentArg.LastIndexOf('/') + 1)];
-            dir = prefix;
+            dir = prefix.Replace("\\ ", " ");
         }
         
         if (dir.ToString().StartsWith('~'))
@@ -81,7 +86,7 @@ public class Suggestor
         return (prefix == "" ? new []{dir}:[]).Concat(type == CommandInfo.ArgumentType.Directory ? dir.Directories() : dir.Contents())
             .Where(fs => type != CommandInfo.ArgumentType.Command || fs.DirectoryExists() || (IsExecutable(fs) && !string.IsNullOrEmpty(prefix)))
             .OrderBy(fs => fs.FileName)
-            .Select(fs => new Suggestion($"{prefix}{fs.RelativeTo(dir)}{(fs.DirectoryExists()?'/':' ')}") { Icon = fs.DirectoryExists()?"📁" : "📄"})
+            .Select(fs => new Suggestion(NPathToSuggestionText(prefix, dir, fs)) { Icon = fs.DirectoryExists()?"📁" : "📄"})
             .ToArray();
     }
     
@@ -91,9 +96,10 @@ public class Suggestor
         var ci = KnownCommands.GetCommand(command.Split('/').Last(), executableExists) ?? CommandInfo.DefaultCommand;
         if (ci.Arguments == null)
             yield break;
-        var lastParam = commandline.Split(' ').Last();
+        var lastParam = SplitCommandIntoWords(commandline).Last();
+        var commandParams = SplitCommandIntoWords(commandline).Skip(1).ToArray();
 
-        var arguments = GetEligibleArguments(ci.Arguments, out var paramPrefix, out var curArg, ref lastParam);
+        var arguments = GetEligibleArguments(ci.Arguments, commandParams, out var paramPrefix, out var curArg);
 
         if (curArg != null)
             yield return new (paramPrefix) { Description = curArg.Description };
@@ -151,13 +157,15 @@ public class Suggestor
         }
     }
 
-    private static List<CommandInfo.Argument> GetEligibleArguments(CommandInfo.Argument[][] ciArguments, out string paramPrefix, out CommandInfo.Argument? curArg,
-        ref string lastParam)
+    private static List<CommandInfo.Argument> GetEligibleArguments(CommandInfo.Argument[][] ciArguments, string[] commandParams, out string paramPrefix, out CommandInfo.Argument? curArg)
     {
         var arguments = new List<CommandInfo.Argument>();
+
         paramPrefix = "";
         curArg = null;
 
+        var commandQueue = new Queue<string>(commandParams);
+        var lastParam = commandQueue.Dequeue();
         foreach (var argGroup in ciArguments)
         {
             var argGroupArguments = new List<CommandInfo.Argument>(argGroup);
@@ -174,14 +182,14 @@ public class Suggestor
                     foreach (var v in arg.AllNames)
                     {
                         var name = v;
-                        if (paramPrefix == "")
+                        if (paramPrefix == "" && arg.Type == CommandInfo.ArgumentType.Flag)
                             name = $"-{v}";
-                        if (!lastParam.StartsWith(name)) continue;
+                        if (commandQueue.Count != 0 ? lastParam != name : !lastParam.StartsWith(name)) continue;
                         gotMatch = true;
                         if (arg.Arguments != null)
                         {
-                            argGroupArguments = arg.Arguments.SelectMany(a => a).ToList();
-                            paramPrefix += lastParam[..name.Length];
+                            argGroupArguments = argGroupArguments.Where(a => a != arg || arg.Repeat).ToList();
+                            argGroupArguments.AddRange(arg.Arguments.SelectMany(a => a));
                             lastParam = lastParam[name.Length..];
                             curArg = arg;
                             keepParsing = true;
@@ -195,6 +203,11 @@ public class Suggestor
                             curArg = arg;
                             keepParsing = true;
                         }
+                        else
+                            argGroupArguments = argGroupArguments.Where(a => a != arg || arg.Repeat).ToList();
+
+                        if (lastParam.Length == 0 && commandQueue.Count != 0)
+                            lastParam = commandQueue.Dequeue();
                     }
                 }
             }
@@ -252,4 +265,7 @@ public class Suggestor
                 .SelectMany(FindExecutablesInPath)
                 .ToArray();
     }
+
+    [GeneratedRegex(@"(?<!\\) ")]
+    private static partial Regex CommandLineWordsRegex();
 }

@@ -136,7 +136,8 @@ public class FigCommandInfoSupplier : ICommandInfoSupplier
         {
             Name = command,
             Description = figCommandInfo.description ?? "",
-            Arguments = ConvertFigArguments(figCommandInfo)
+            Arguments = ConvertFigArguments(figCommandInfo),
+            Comment = "This command info is generated from fig"
         };
         return ci;
     }

@@ -74,7 +74,7 @@ while (true)
         if (selection == -1) return;
         if (suggestions.Length != 0 && suggestions.Length >= selection)
         {
-            var promptWords = commandLine.Split(' ');
+            var promptWords = Suggestor.SplitCommandIntoWords(commandLine);
             promptWords[^1] = suggestions[selection].Text;
             commandLine = string.Join(' ', promptWords);
             Prompt.RenderPrompt(commandLine);

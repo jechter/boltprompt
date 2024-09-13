@@ -10,6 +10,8 @@ public static class Prompt
         var pos = Console.GetCursorPosition();
         Console.SetCursorPosition(commandLineCursorPosition + _promptLength, pos.Top);
     }
+
+    static string CurrentDirectoryNameForPrompt(NPath path) => path == NPath.HomeDirectory ? "~" : path.FileName;
     
     public static void RenderPrompt(string? commandline = null, string? selectedSuggestion = null)
     {
@@ -17,16 +19,16 @@ public static class Prompt
         Console.BackgroundColor = ConsoleColor.Black;
         Console.ForegroundColor = ConsoleColor.White;
         Console.SetCursorPosition(0, pos.Top);
-        Console.Write(NPath.CurrentDirectory.FileName);
-        Console.Write("⚡️");
+        var promptText = $"{CurrentDirectoryNameForPrompt(NPath.CurrentDirectory)}⚡️";
+        Console.Write(promptText);
         Console.ResetColor();
         Console.ForegroundColor = ConsoleColor.Black;
         Console.Write("\uE0B0 ");
         Console.ResetColor();
-        _promptLength = Console.GetCursorPosition().Left;
+        _promptLength = promptText.Length + 2;
         if (commandline == null) return;
         Console.Write(commandline);
-        var commandLineLastWord = commandline.Split(' ').Last();
+        var commandLineLastWord = Suggestor.SplitCommandIntoWords(commandline).Last();
         if (selectedSuggestion != null && commandLineLastWord.Length < selectedSuggestion.Length)
         {
             Console.ForegroundColor = ConsoleColor.Gray;
