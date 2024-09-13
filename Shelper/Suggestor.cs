@@ -1,3 +1,4 @@
+using System.Collections;
 using System.Text.RegularExpressions;
 using Mono.Unix.Native;
 using NiceIO;
@@ -58,8 +59,26 @@ public partial class Suggestor
         var commandLineCommands = commandline.Split(_shellOperators);
         var currentCommand = commandLineCommands.Last().TrimStart();
         var commandLineArguments = SplitCommandIntoWords(currentCommand);
-        var command = commandLineArguments[0];
-        return SortSuggestionsByHistory(commandline, commandLineArguments.Length == 1 ? SuggestCommand(command) : SuggestParameters(command, currentCommand).ToArray());
+        var command = commandLineArguments.First();
+        var currentWord = commandLineArguments.Last();
+        var suggestions = commandLineArguments.Length == 1
+            ? SuggestCommand(command)
+            : SuggestParameters(currentCommand).ToArray();
+        if (currentWord.StartsWith("$"))
+            suggestions = SuggestEnvironmentVariables(currentWord).Concat(suggestions).ToArray();
+        return SortSuggestionsByHistory(commandline, suggestions);
+    }
+
+    private static IEnumerable<Suggestion> SuggestEnvironmentVariables(string currentWord)
+    {
+        var currentWordNoPrefix = currentWord[1..];
+        var env = Environment.GetEnvironmentVariables();
+        foreach (DictionaryEntry e in env)
+        {
+            var key = e.Key.ToString();
+            if (key?.StartsWith(currentWordNoPrefix) ?? false)
+                yield return new($"${e.Key}") { Description = e.Value?.ToString() };
+        }
     }
 
     private static string NPathToSuggestionText(string prefix, NPath parent, NPath path)
@@ -90,14 +109,17 @@ public partial class Suggestor
             .ToArray();
     }
     
-    private IEnumerable<Suggestion> SuggestParameters(string command, string commandline)
+    private IEnumerable<Suggestion> SuggestParameters(string commandline)
     {
+        var commandWords = SplitCommandIntoWords(commandline);
+        var command = commandWords.First();
+        var commandParams = commandWords.Skip(1).ToArray();
+        var lastParam = commandParams.Last();
+
         var executableExists = GetExecutableCommandInfo(command) != null;
         var ci = KnownCommands.GetCommand(command.Split('/').Last(), executableExists) ?? CommandInfo.DefaultCommand;
         if (ci.Arguments == null)
             yield break;
-        var lastParam = SplitCommandIntoWords(commandline).Last();
-        var commandParams = SplitCommandIntoWords(commandline).Skip(1).ToArray();
 
         var arguments = GetEligibleArguments(ci.Arguments, commandParams, out var paramPrefix, out var curArg);
 

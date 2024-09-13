@@ -450,4 +450,12 @@ public class SuggestorTests
         suggestions = GetSuggestionsForTestExecutable(ci, " -");
         Assert.That(suggestions.Select(s => s.Text.Trim()).ToArray(), Is.EqualTo(new [] {"-c", "-b", "-a"}));
     }
+    
+    [Test]
+    public void CanSuggestEnvironmentVariables()
+    {
+        Environment.SetEnvironmentVariable("FOO", "Test Value");
+        var suggestions = new Suggestor().SuggestionsForPrompt("$");
+        Assert.That(suggestions, Does.Contain(new Suggestion("$FOO") {Description = "Test Value"}));
+    }
 }
