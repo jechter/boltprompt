@@ -316,7 +316,7 @@ public class SuggestorTests
 
         var ci = new CommandInfo
         {
-            Arguments = [[ new("") { Type = CommandInfo.ArgumentType.Command }]]
+            Arguments = [[ new("") { Type = CommandInfo.ArgumentType.CommandName }]]
         };
         var suggestions = GetSuggestionsForTestExecutable(ci, " ");
         Assert.That(suggestions.Select(s => s.Text.Trim()), Does.Contain("testExecutable"));

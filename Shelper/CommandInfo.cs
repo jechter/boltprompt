@@ -33,6 +33,8 @@ public record CommandInfo
         Directory,
         File,
         Command,
+        CommandName,
+        ProcessId,
         String,
     }
     

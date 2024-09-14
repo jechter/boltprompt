@@ -103,7 +103,7 @@ public partial class Suggestor
             return [];
         
         return (prefix == "" ? new []{dir}:[]).Concat(type == CommandInfo.ArgumentType.Directory ? dir.Directories() : dir.Contents())
-            .Where(fs => type != CommandInfo.ArgumentType.Command || fs.DirectoryExists() || (IsExecutable(fs) && !string.IsNullOrEmpty(prefix)))
+            .Where(fs => type != CommandInfo.ArgumentType.CommandName || fs.DirectoryExists() || (IsExecutable(fs) && !string.IsNullOrEmpty(prefix)))
             .OrderBy(fs => fs.FileName)
             .Select(fs => new Suggestion(NPathToSuggestionText(prefix, dir, fs)) { Icon = fs.DirectoryExists()?"📁" : "📄"})
             .ToArray();
@@ -154,6 +154,7 @@ public partial class Suggestor
 
                     break;
                 }
+                case CommandInfo.ArgumentType.CommandName:
                 case CommandInfo.ArgumentType.Command:
                 {
                     foreach (var s in _executablesInPathEnvironment.Where(sug => sug.Text.StartsWith(lastParam)))
@@ -249,7 +250,7 @@ public partial class Suggestor
             return History.Commands.Select(h => new Suggestion(h)).ToArray();
         return _executablesInPathEnvironment
             .Concat(
-                SuggestFileSystemEntries(commandline, CommandInfo.ArgumentType.Command)
+                SuggestFileSystemEntries(commandline, CommandInfo.ArgumentType.CommandName)
                     .Select(sug => sug with { Description = KnownCommands.GetCommand(sug.Text.Split('/').Last().Trim(), false)?.Description ?? "" })
                 )
             .Concat(History.Commands.Select(h => new Suggestion(h)))
