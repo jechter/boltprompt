@@ -81,12 +81,15 @@ public class FigCommandInfoSupplier : ICommandInfoSupplier
 
     private static CommandInfo.ArgumentType GetArgumentType(FigArg figArg)
     {
-        if (figArg.template == null)
-            return CommandInfo.ArgumentType.String;
-        if (figArg.template.Any(t => t == "filepaths"))
+        if (figArg.template != null)
+        {
+            if (figArg.template.Any(t => t == "filepaths"))
+                return CommandInfo.ArgumentType.FileSystemEntry;
+            if (figArg.template.Any(t => t == "folders"))
+                return CommandInfo.ArgumentType.Directory;
+        }
+        if (figArg.name.Any(n => n == "pathspec"))
             return CommandInfo.ArgumentType.FileSystemEntry;
-        if (figArg.template.Any(t => t == "folders"))
-            return CommandInfo.ArgumentType.Directory;
         return CommandInfo.ArgumentType.String;
     }
 
