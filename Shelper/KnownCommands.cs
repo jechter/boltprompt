@@ -26,7 +26,8 @@ public static class KnownCommands
     
     private static async Task<CommandInfo> CreateAndCacheCommandInfo(string command)
     {
-        var path = Paths.CommandsDir.Combine($"{command}.json");
+        Paths.GeneratedCommandsDir.CreateDirectory();
+        var path = Paths.GeneratedCommandsDir.Combine($"{command}.json");
         var ci = GetPendingCommandInfo(command);
         CommandInfoLoaded?.Invoke(ci);
         foreach (var commandSupplier in commandSuppliers.Where(commandSupplier => commandSupplier.CanHandle(command)))
@@ -67,25 +68,22 @@ public static class KnownCommands
         {
             ["ls"] = Task.FromResult(CommandInfo.Ls)
         };
-        if (Paths.CommandsDir.DirectoryExists())
-        {
-            foreach (var file in Paths.CommandsDir.Files("*.json", true))
-                AllKnownCommands[file.FileNameWithoutExtension] = LoadCachedCommandInfo(file);
-        }
-        else
-        {
-            Paths.CommandsDir.CreateDirectory();
-            foreach (var cmd in AllKnownCommands)
-            {
-                var path = Paths.CommandsDir.Combine($"{cmd.Key}.json");
-                path.WriteAllText(cmd.Value.Result.Serialize());
-            }
-        }
+        LoadCommandsFromPath(Paths.BuiltInCommandsDir);
+        LoadCommandsFromPath(Paths.GeneratedCommandsDir);
+
         var commandInfoSupplierTypes = Assembly.GetExecutingAssembly().GetTypes()
             .Where(t => t.GetInterfaces().Contains(typeof(ICommandInfoSupplier)));
         commandSuppliers = commandInfoSupplierTypes
             .Select(t => (ICommandInfoSupplier)Activator.CreateInstance(t)!)
             .OrderBy(sup => sup.Order)
             .ToList();
+        return;
+
+        void LoadCommandsFromPath(NPath path)
+        {
+            if (!path.DirectoryExists()) return;
+            foreach (var file in path.Files("*.json", true))
+                AllKnownCommands[file.FileNameWithoutExtension] = LoadCachedCommandInfo(file);
+        }
     }
 }
