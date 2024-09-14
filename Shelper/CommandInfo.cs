@@ -46,6 +46,8 @@ public record CommandInfo
         [JsonInclude]
         public bool Repeat;
         [JsonInclude]
+        public bool DontAllowMultiple;
+        [JsonInclude]
         public string Description = "";
         [JsonInclude]
         public ArgumentType Type = ArgumentType.Keyword;

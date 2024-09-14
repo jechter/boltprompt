@@ -240,7 +240,7 @@ public partial class Suggestor
                         gotMatch = true;
                         if (arg.Arguments != null)
                         {
-                            argGroupArguments = argGroupArguments.Where(a => a != arg || arg.Repeat).ToList();
+                            argGroupArguments = arg.DontAllowMultiple ? [] : argGroupArguments.Where(a => a != arg || arg.Repeat).ToList();
                             argGroupArguments.AddRange(arg.Arguments.SelectMany(a => a));
                             lastParam = lastParam[name.Length..];
                             curArg = arg;
@@ -248,7 +248,7 @@ public partial class Suggestor
                         }
                         else if (arg.Type == CommandInfo.ArgumentType.Flag)
                         {
-                            argGroupArguments = argGroupArguments.Where(a =>
+                            argGroupArguments = arg.DontAllowMultiple ? [] : argGroupArguments.Where(a =>
                                 a.Type == CommandInfo.ArgumentType.Flag && (a != arg || arg.Repeat)).ToList();
                             paramPrefix += lastParam[..name.Length];
                             lastParam = lastParam[name.Length..];
@@ -256,8 +256,8 @@ public partial class Suggestor
                             keepParsing = true;
                         }
                         else
-                            argGroupArguments = argGroupArguments.Where(a => a != arg || arg.Repeat).ToList();
-
+                            argGroupArguments = arg.DontAllowMultiple ? [] : argGroupArguments.Where(a => a != arg || arg.Repeat).ToList();
+                        
                         if (lastParam.Length == 0 && commandQueue.Count != 0)
                             lastParam = commandQueue.Dequeue();
                     }

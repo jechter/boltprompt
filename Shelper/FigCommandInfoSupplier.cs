@@ -110,6 +110,7 @@ public class FigCommandInfoSupplier : ICommandInfoSupplier
     private CommandInfo.Argument ConvertFigSubCommand(FigCommandInfo figCommand) => new (figCommand.name[0])
     {
         Type = CommandInfo.ArgumentType.Keyword,
+        DontAllowMultiple = true,
         Aliases = figCommand.name.Skip(1).ToArray(),
         Description = figCommand.description ?? "",
         Arguments = ConvertFigArguments(figCommand)

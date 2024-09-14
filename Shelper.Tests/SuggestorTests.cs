@@ -278,6 +278,50 @@ public class SuggestorTests
     }
     
     [Test]
+    public void SuggestionsRespectDontAllowMultiple()
+    {
+        var ci = new CommandInfo
+        {
+            Arguments =
+            [
+                [
+                    new("a") { DontAllowMultiple = true },
+                    new("b") { DontAllowMultiple = true },
+                    new("c") { DontAllowMultiple = true },
+                ], 
+                [ 
+                    new("d") { DontAllowMultiple = true },
+                    new("e") { DontAllowMultiple = true },
+                    new("f") { DontAllowMultiple = true },
+                ]
+            ]
+        };
+        var suggestions = GetSuggestionsForTestExecutable(ci, " ");
+        Assert.That(suggestions.Select(s => s.Text.Trim()), Does.Contain("a"));
+        Assert.That(suggestions.Select(s => s.Text.Trim()), Does.Contain("b"));
+        Assert.That(suggestions.Select(s => s.Text.Trim()), Does.Contain("c"));
+        Assert.That(suggestions.Select(s => s.Text.Trim()), Does.Contain("d"));
+        Assert.That(suggestions.Select(s => s.Text.Trim()), Does.Contain("e"));
+        Assert.That(suggestions.Select(s => s.Text.Trim()), Does.Contain("f"));
+        
+        suggestions = GetSuggestionsForTestExecutable(ci, " a ");
+        Assert.That(suggestions.Select(s => s.Text.Trim()), Does.Not.Contain("a"));
+        Assert.That(suggestions.Select(s => s.Text.Trim()), Does.Not.Contain("b"));
+        Assert.That(suggestions.Select(s => s.Text.Trim()), Does.Not.Contain("c"));
+        Assert.That(suggestions.Select(s => s.Text.Trim()), Does.Contain("d"));
+        Assert.That(suggestions.Select(s => s.Text.Trim()), Does.Contain("e"));
+        Assert.That(suggestions.Select(s => s.Text.Trim()), Does.Contain("f"));
+         
+        suggestions = GetSuggestionsForTestExecutable(ci, " d ");
+        Assert.That(suggestions.Select(s => s.Text.Trim()), Does.Not.Contain("a"));
+        Assert.That(suggestions.Select(s => s.Text.Trim()), Does.Not.Contain("b"));
+        Assert.That(suggestions.Select(s => s.Text.Trim()), Does.Not.Contain("c"));
+        Assert.That(suggestions.Select(s => s.Text.Trim()), Does.Not.Contain("d"));
+        Assert.That(suggestions.Select(s => s.Text.Trim()), Does.Not.Contain("e"));
+        Assert.That(suggestions.Select(s => s.Text.Trim()), Does.Not.Contain("f"));
+    }
+    
+    [Test]
     public void CanGetSuggestionsForSubArgument()
     {
         var ci = new CommandInfo
