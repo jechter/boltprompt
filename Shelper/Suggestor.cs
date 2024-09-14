@@ -1,5 +1,7 @@
 using System.Collections;
 using System.Text.RegularExpressions;
+using CliWrap;
+using CliWrap.Buffered;
 using Mono.Unix.Native;
 using NiceIO;
 
@@ -162,6 +164,17 @@ public partial class Suggestor
 
                     break;
                 }
+                case CommandInfo.ArgumentType.ProcessId:
+                {
+                    foreach (var p in GetProcesses())
+                    {
+                        var pidString = p.pid.ToString();
+                        if (pidString.StartsWith(lastParam))
+                            yield return new (pidString) { Description = p.name };
+                    }
+
+                    break;
+                }
                 case CommandInfo.ArgumentType.FileSystemEntry:
                 case CommandInfo.ArgumentType.Directory:
                 case CommandInfo.ArgumentType.File:
@@ -177,6 +190,22 @@ public partial class Suggestor
                 default:
                     throw new ArgumentOutOfRangeException();
             }
+        }
+    }
+
+    private IEnumerable<(int pid, string name)> GetProcesses()
+    {
+        var commandResult = Cli.Wrap("ps")
+            .WithArguments("-Ao pid,comm")
+            .ExecuteBufferedAsync()
+            .GetAwaiter()
+            .GetResult();
+        var lines = commandResult.StandardOutput.Split('\n');
+        foreach (var line in lines.Skip(1).Select(l => l.Trim()))
+        {
+            var split = line.Split(' ');
+            if (split.Length == 2)
+                yield return (int.Parse(split[0]), split[1]);
         }
     }
 

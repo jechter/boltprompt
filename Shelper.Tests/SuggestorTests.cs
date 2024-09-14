@@ -321,7 +321,20 @@ public class SuggestorTests
         var suggestions = GetSuggestionsForTestExecutable(ci, " ");
         Assert.That(suggestions.Select(s => s.Text.Trim()), Does.Contain("testExecutable"));
     }
-
+    
+    [Test]
+    public void CanGetSuggestionsForProcessId()
+    {
+        var ci = new CommandInfo
+        {
+            Arguments = [[ new("") { Type = CommandInfo.ArgumentType.ProcessId }]]
+        };
+        var pid = Environment.ProcessId;
+        var suggestions = GetSuggestionsForTestExecutable(ci, " ");
+        Assert.That(suggestions.Select(s => s.Text.Trim()), Does.Contain($"{pid}"));
+    }
+    
+    
     [Test]
     [TestCase(CommandInfo.ArgumentType.FileSystemEntry)]
     [TestCase(CommandInfo.ArgumentType.File)]
