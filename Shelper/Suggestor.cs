@@ -55,7 +55,37 @@ public partial class Suggestor
         }
     }
 
-    public static string[] SplitCommandIntoWords(string currentCommand) => CommandLineWordsRegex().Split(currentCommand);
+    public static string[] SplitCommandIntoWords(string currentCommand)
+    {
+        var result = new List<string>();
+        var command = currentCommand;
+        while (command.Length > 0)
+        {
+            var quoteIndex = command.IndexOf(" \"", StringComparison.Ordinal);
+            if (quoteIndex != -1)
+            {
+                result.AddRange(CommandLineWordsRegex().Split(command[..quoteIndex]));
+                var endQuoteIndex = command.IndexOf("\" ", quoteIndex + 2, StringComparison.Ordinal);
+                if (endQuoteIndex != -1)
+                {
+                    result.Add(command[(quoteIndex+1)..(endQuoteIndex+1)]);
+                    command = command[(endQuoteIndex+2)..];
+                }
+                else
+                {
+                    result.Add(command[(quoteIndex+1)..]);
+                    command = "";
+                }
+            }
+            else
+            {
+                result.AddRange(CommandLineWordsRegex().Split(command));
+                command = "";
+            }
+        }
+        return result.ToArray();
+    }
+
     public Suggestion[] SuggestionsForPrompt(string commandline)
     {
         var commandLineCommands = commandline.Split(_shellOperators);
@@ -256,7 +286,7 @@ public partial class Suggestor
                         }
                         else
                             argGroupArguments = arg.DontAllowMultiple ? [] : argGroupArguments.Where(a => a != arg || arg.Repeat).ToList();
-                        
+
                         if (lastParam.Length == 0 && commandQueue.Count != 0)
                             lastParam = commandQueue.Dequeue();
                     }

@@ -544,4 +544,26 @@ public class SuggestorTests
         var suggestions = new Suggestor().SuggestionsForPrompt("$");
         Assert.That(suggestions, Does.Contain(new Suggestion("$FOO") {Description = "Test Value"}));
     }
+
+    [Test]
+    public void SplitIntoCommandWordsHandlesEscapedSpace()
+    {
+        var split = Suggestor.SplitCommandIntoWords("This is a command\\ line with\\ escaped\\ spaces");
+        Assert.That(split, Is.EqualTo(new [] {"This", "is", "a", "command\\ line", "with\\ escaped\\ spaces"}));
+    }
+    
+    [Test]
+    public void SplitIntoCommandWordsHandlesQuotes()
+    {
+        var split = Suggestor.SplitCommandIntoWords("This is a \"command line\" with quotes");
+        Assert.That(split, Is.EqualTo(new [] {"This", "is", "a", "\"command line\"", "with", "quotes"}));
+    }
+    
+    [Test]
+    public void SplitIntoCommandWordsHandlesUnfinishedQuotes()
+    {
+        var split = Suggestor.SplitCommandIntoWords("This is a command line \"with quotes");
+        Assert.That(split, Is.EqualTo(new [] {"This", "is", "a", "command", "line", "\"with quotes"}));
+    }
+
 }
