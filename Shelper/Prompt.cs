@@ -28,7 +28,7 @@ public static class Prompt
         _promptLength = promptText.Length + 2;
         if (commandline == null) return;
         Console.Write(commandline);
-        var commandLineLastWord = Suggestor.SplitCommandIntoWords(commandline).Last();
+        var commandLineLastWord = Suggestor.SplitCommandIntoWords(commandline).LastOrDefault("");
         if (selectedSuggestion != null && commandLineLastWord.Length < selectedSuggestion.Length)
         {
             Console.ForegroundColor = ConsoleColor.Gray;

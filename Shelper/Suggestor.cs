@@ -91,12 +91,12 @@ public partial class Suggestor
         var commandLineCommands = commandline.Split(_shellOperators);
         var currentCommand = commandLineCommands.Last().TrimStart();
         var commandLineArguments = SplitCommandIntoWords(currentCommand);
-        var command = commandLineArguments.First();
-        var currentWord = commandLineArguments.Last();
-        var suggestions = commandLineArguments.Length == 1
+        var command = commandLineArguments.FirstOrDefault("");
+        var currentWord = commandLineArguments.LastOrDefault();
+        var suggestions = commandLineArguments.Length <= 1
             ? SuggestCommand(command)
             : SuggestParameters(currentCommand).ToArray();
-        if (currentWord.StartsWith("$"))
+        if (currentWord?.StartsWith('$') ?? false)
             suggestions = SuggestEnvironmentVariables(currentWord).Concat(suggestions).ToArray();
         return SortSuggestionsByHistory(commandline, suggestions);
     }
@@ -144,9 +144,9 @@ public partial class Suggestor
     private IEnumerable<Suggestion> SuggestParameters(string commandline)
     {
         var commandWords = SplitCommandIntoWords(commandline);
-        var command = commandWords.First();
+        var command = commandWords.FirstOrDefault("");
         var commandParams = commandWords.Skip(1).ToArray();
-        var lastParam = commandParams.Last();
+        var lastParam = commandParams.LastOrDefault("");
 
         var executableExists = GetExecutableCommandInfo(command) != null;
         var ci = KnownCommands.GetCommand(command.Split('/').Last(), executableExists) ?? CommandInfo.DefaultCommand;
@@ -247,6 +247,9 @@ public partial class Suggestor
         curArg = null;
 
         var commandQueue = new Queue<string>(commandParams);
+        if (commandQueue.Count == 0)
+            return arguments;
+        
         var lastParam = commandQueue.Dequeue();
         foreach (var argGroup in ciArguments)
         {

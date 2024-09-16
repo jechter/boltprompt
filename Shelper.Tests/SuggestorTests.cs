@@ -469,6 +469,16 @@ public class SuggestorTests
         Assert.That(suggestions.Select(s => s.Text.Trim()), Does.Contain("foo bar"));
         Assert.That(suggestions.Select(s => s.Text.Trim()), Does.Not.Contain("bar"));
     }
+    
+    [Test]
+    public void CanGetSuggestionsFromHistoryWithEmptyCommandLine()
+    {
+        History.LoadTestHistory(["foo", "bar", "foo bar"]);
+        var suggestions = new Suggestor().SuggestionsForPrompt("");
+        Assert.That(suggestions.Select(s => s.Text.Trim()), Does.Contain("foo"));
+        Assert.That(suggestions.Select(s => s.Text.Trim()), Does.Contain("foo bar"));
+        Assert.That(suggestions.Select(s => s.Text.Trim()), Does.Contain("bar"));
+    }
 
     [Test]
     public void FileSystemArgumentSuggestionsFromHistoryComeFirst()
