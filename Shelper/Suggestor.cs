@@ -212,7 +212,7 @@ public partial class Suggestor
     private static List<CommandInfo.Argument> GetEligibleArguments(CommandInfo.Argument[][] ciArguments, string[] commandParams, out string paramPrefix, out CommandInfo.Argument? curArg)
     {
         var arguments = new List<CommandInfo.Argument>();
-
+        
         paramPrefix = "";
         curArg = null;
 
@@ -227,7 +227,7 @@ public partial class Suggestor
             {
                 keepParsing = false;
 
-                foreach (var arg in argGroup)
+                foreach (var arg in argGroupArguments)
                 {
                     if (arg.Type != CommandInfo.ArgumentType.Keyword &&
                         arg.Type != CommandInfo.ArgumentType.Flag) continue;
@@ -240,8 +240,7 @@ public partial class Suggestor
                         gotMatch = true;
                         if (arg.Arguments != null)
                         {
-                            argGroupArguments = arg.DontAllowMultiple ? [] : argGroupArguments.Where(a => a != arg || arg.Repeat).ToList();
-                            argGroupArguments.AddRange(arg.Arguments.SelectMany(a => a));
+                            argGroupArguments = arg.Arguments.SelectMany(a => a).Concat(arg.DontAllowMultiple ? [] : argGroupArguments.Where(a => a != arg || arg.Repeat)).ToList();
                             lastParam = lastParam[name.Length..];
                             curArg = arg;
                             keepParsing = true;

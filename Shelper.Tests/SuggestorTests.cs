@@ -13,10 +13,12 @@ public class SuggestorTests
     }
 
     private readonly HashSet<NPath> _pathsToCleanup = [];
+    private string? _oldPath;
     
     [SetUp]
     public void Setup()
     {
+        _oldPath = Environment.GetEnvironmentVariable("PATH");
         History.LoadTestHistory([]);
     }
 
@@ -26,6 +28,7 @@ public class SuggestorTests
         foreach (var p in _pathsToCleanup)
             p.Delete();
         _pathsToCleanup.Clear();
+        Environment.SetEnvironmentVariable("PATH", _oldPath);
     }
     
     [Test]
@@ -349,6 +352,32 @@ public class SuggestorTests
         Assert.That(suggestions.Select(s => s.Text.Trim()), Does.Contain("flop"));
     }
     
+    [Test]
+    public void CanGetSuggestionsForSubIfMainArgumentHasSameName()
+    {
+        var ci = new CommandInfo
+        {
+            Arguments =
+            [[
+                new("foo") {
+                    Arguments = [[
+                        new("faz") {
+                            Arguments = [[
+                                new ("flip"), 
+                                new ("flop") 
+                            ]]
+                        }
+                    ]]
+                },
+                new("faz")
+            ]]
+        };
+        var suggestions = GetSuggestionsForTestExecutable(ci, " foo faz ");
+        Assert.That(suggestions.Select(s => s.Text.Trim()), Does.Not.Contain("foo"));
+        //Assert.That(suggestions.Select(s => s.Text.Trim()), Does.Not.Contain("faz"));
+        Assert.That(suggestions.Select(s => s.Text.Trim()), Does.Contain("flip"));
+        Assert.That(suggestions.Select(s => s.Text.Trim()), Does.Contain("flop"));
+    }
 
     [Test]
     public void CanGetSuggestionsForCommands()
