@@ -155,7 +155,7 @@ public partial class Suggestor
 
         var arguments = GetEligibleArguments(ci.Arguments, commandParams, out var paramPrefix, out var curArg);
 
-        if (curArg != null)
+        if (curArg != null && !commandline.EndsWith(' '))
             yield return new (paramPrefix) { Description = curArg.Description };
 
         foreach (var arg in arguments)
@@ -274,6 +274,7 @@ public partial class Suggestor
                         if (arg.Arguments != null)
                         {
                             argGroupArguments = arg.Arguments.SelectMany(a => a).Concat(arg.DontAllowMultiple ? [] : argGroupArguments.Where(a => a != arg || arg.Repeat)).ToList();
+                            paramPrefix += lastParam[..name.Length];
                             lastParam = lastParam[name.Length..];
                             curArg = arg;
                             keepParsing = true;
@@ -290,8 +291,11 @@ public partial class Suggestor
                         else
                             argGroupArguments = arg.DontAllowMultiple ? [] : argGroupArguments.Where(a => a != arg || arg.Repeat).ToList();
 
-                        if (lastParam.Length == 0 && commandQueue.Count != 0)
-                            lastParam = commandQueue.Dequeue();
+                        if (lastParam.Length != 0 || commandQueue.Count == 0) continue;
+                        
+                        lastParam = commandQueue.Dequeue();
+                        paramPrefix = "";
+                        curArg = null;
                     }
                 }
             }
