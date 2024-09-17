@@ -1,5 +1,6 @@
 using System.Diagnostics.CodeAnalysis;
-using Shelper;
+
+namespace Shelper;
 
 internal class MainLoop
 {
@@ -13,6 +14,7 @@ internal class MainLoop
     
     public MainLoop()
     {
+        _selection = -1;
         _screenWidth = Console.WindowWidth;
         Console.CancelKeyPress += ConsoleCancelKeyPress;
         KnownCommands.CommandInfoLoaded += _ => RequestRedraw();
@@ -38,11 +40,25 @@ internal class MainLoop
                 _screenWidth = Console.WindowWidth;
             }
 
-            if (Console.KeyAvailable)
+            while (Console.KeyAvailable)
             {
                 var key = Console.ReadKey();
                 RequestRedraw();
-                switch (key.Key)
+                if (key.Modifiers == ConsoleModifiers.Control)
+                {
+                    switch (key.Key)
+                    {
+                        case ConsoleKey.A:
+                            _commandLineCursorPos = 0;
+                            Prompt.SetCursorPosition(_commandLineCursorPos);
+                            break;
+                        case ConsoleKey.E:
+                            _commandLineCursorPos = _commandLine.Length;
+                            Prompt.SetCursorPosition(_commandLineCursorPos);
+                            break;
+                    }
+                }
+                else switch (key.Key)
                 {
                     case ConsoleKey.Backspace:
                     case ConsoleKey.Delete:
@@ -78,6 +94,7 @@ internal class MainLoop
                         break;
                     case ConsoleKey.Escape:
                         _selection = -1;
+                        SuggestionConsoleViewer.Clear();
                         break;
                     case ConsoleKey.Enter:
                         CommitSelection();
@@ -128,7 +145,8 @@ internal class MainLoop
         else if (_selection < -1)
             _selection = _suggestions.Length - 1;
         Prompt.RenderPrompt(_commandLine, _selection > -1 ? _suggestions[_selection].Text : null);
-        SuggestionConsoleViewer.ShowSuggestions(_suggestions, _selection);
+        if (_suggestions.Length > 0 && _selection != -1)
+            SuggestionConsoleViewer.ShowSuggestions(_suggestions, _selection);
         _needsRedraw = false;
     }
 
