@@ -1,9 +1,25 @@
 namespace Shelper;
 
-public class SuggestionConsoleViewer
+public static class SuggestionConsoleViewer
 {
     private const int MaxSuggestions = 10;
 
+    public static void ClearScreenFromCursor()
+    {
+        var cursorLeft = Console.CursorLeft;
+        var cursorTop = Console.CursorTop;
+        var oldCursorTop = cursorTop;
+
+        while (cursorTop < Console.WindowHeight)
+        {
+            ClearLineFromCursor();
+            cursorTop++;
+            Console.SetCursorPosition(0, cursorTop);    
+        }
+
+        Console.SetCursorPosition(cursorLeft, oldCursorTop);
+    }
+    
     public static void ClearLineFromCursor()
     {
         // Get the current cursor position
