@@ -8,14 +8,19 @@ internal class MainLoop
     private int _selection;
     private int _commandLineCursorPos;
     private int _screenWidth;
+    private bool _needsRedraw;
     private Suggestion[] _suggestions = [];
+    
     public MainLoop()
     {
         _screenWidth = Console.WindowWidth;
         Console.CancelKeyPress += ConsoleCancelKeyPress;
+        KnownCommands.CommandInfoLoaded += _ => RequestRedraw();
         Prompt.RenderPrompt();
     }
 
+    private void RequestRedraw() => _needsRedraw = true;
+    
     public void Run()
     {
         while (true)
@@ -28,69 +33,68 @@ internal class MainLoop
                         Console.Clear();
                     else
                         SuggestionConsoleViewer.ClearScreenFromCursor();
-                    RenderPromptAndSuggestions();
+                    RequestRedraw();
                 }
                 _screenWidth = Console.WindowWidth;
             }
-            
-            if (!Console.KeyAvailable)
-            {
-                Thread.Sleep(10);
-                continue;
-            }
 
-            var key = Console.ReadKey();
-            switch (key.Key)
+            if (Console.KeyAvailable)
             {
-                case ConsoleKey.Backspace:
-                case ConsoleKey.Delete:
+                var key = Console.ReadKey();
+                RequestRedraw();
+                switch (key.Key)
                 {
-                    if (_commandLine.Length > 0 && _commandLineCursorPos > 0)
+                    case ConsoleKey.Backspace:
+                    case ConsoleKey.Delete:
                     {
-                        _commandLine = _commandLine[..(_commandLineCursorPos - 1)] + _commandLine[_commandLineCursorPos..];
-                        Prompt.SetCursorPosition(--_commandLineCursorPos);
+                        if (_commandLine.Length > 0 && _commandLineCursorPos > 0)
+                        {
+                            _commandLine = _commandLine[..(_commandLineCursorPos - 1)] + _commandLine[_commandLineCursorPos..];
+                            Prompt.SetCursorPosition(--_commandLineCursorPos);
+                        }
+    
+                        break;
                     }
-
-                    break;
-                }
-                case ConsoleKey.DownArrow:
-                    _selection++;
-                    break;
-                case ConsoleKey.UpArrow:
-                    _selection--;
-                    if (_selection < 0)
-                        _selection = -2;
-                    break;
-                case ConsoleKey.LeftArrow:
-                    if (_commandLineCursorPos > 0)
-                        Prompt.SetCursorPosition(--_commandLineCursorPos);
-                    break;
-                case ConsoleKey.RightArrow:
-                    if (_commandLineCursorPos < _commandLine.Length)
-                        Prompt.SetCursorPosition(++_commandLineCursorPos);
-                    else
+                    case ConsoleKey.DownArrow:
+                        _selection++;
+                        break;
+                    case ConsoleKey.UpArrow:
+                        _selection--;
+                        if (_selection < 0)
+                            _selection = -2;
+                        break;
+                    case ConsoleKey.LeftArrow:
+                        if (_commandLineCursorPos > 0)
+                            Prompt.SetCursorPosition(--_commandLineCursorPos);
+                        break;
+                    case ConsoleKey.RightArrow:
+                        if (_commandLineCursorPos < _commandLine.Length)
+                            Prompt.SetCursorPosition(++_commandLineCursorPos);
+                        else
+                            CommitSelection();
+                        break;
+                    case ConsoleKey.Tab:
                         CommitSelection();
-                    break;
-                case ConsoleKey.Tab:
-                    CommitSelection();
-                    break;
-                case ConsoleKey.Escape:
-                    _selection = -1;
-                    break;
-                case ConsoleKey.Enter:
-                    CommitSelection();
-                    ExitAndRunCommand(_commandLine);
-                    break;
-                default:
-                    _commandLine = _commandLine[.._commandLineCursorPos] + key.KeyChar +
-                                   _commandLine[_commandLineCursorPos..];
-                    _commandLineCursorPos++;
-                    if (_selection == -1)
-                        _selection = 0;
-                    break;
+                        break;
+                    case ConsoleKey.Escape:
+                        _selection = -1;
+                        break;
+                    case ConsoleKey.Enter:
+                        CommitSelection();
+                        ExitAndRunCommand(_commandLine);
+                        break;
+                    default:
+                        _commandLine = _commandLine[.._commandLineCursorPos] + key.KeyChar +
+                                       _commandLine[_commandLineCursorPos..];
+                        _commandLineCursorPos++;
+                        if (_selection == -1)
+                            _selection = 0;
+                        break;
+                }
             }
 
-            RenderPromptAndSuggestions();
+            RenderPromptAndSuggestionsIfNeeded();
+            Thread.Sleep(100);
         }
     }
 
@@ -100,8 +104,13 @@ internal class MainLoop
         if (_suggestions.Length != 0 && _suggestions.Length >= _selection)
         {
             var promptWords = Suggestor.SplitCommandIntoWords(_commandLine);
-            promptWords[^1] = _suggestions[_selection].Text;
-            _commandLine = string.Join(' ', promptWords);
+            if (promptWords.Length == 0)
+                _commandLine = _suggestions[_selection].Text;
+            else
+            {
+                promptWords[^1] = _suggestions[_selection].Text;
+                _commandLine = string.Join(' ', promptWords);
+            }
             Prompt.RenderPrompt(_commandLine);
             _commandLineCursorPos = _commandLine.Length;
             Prompt.SetCursorPosition(_commandLineCursorPos);
@@ -110,8 +119,9 @@ internal class MainLoop
         _selection = -1;
     }
 
-    private void RenderPromptAndSuggestions()
+    private void RenderPromptAndSuggestionsIfNeeded()
     {
+        if (!_needsRedraw) return;
         _suggestions = _suggestor.SuggestionsForPrompt(_commandLine);
         if (_selection >= _suggestions.Length)
             _selection = _suggestions.Length > 0 ? 0 : -1;
@@ -119,6 +129,7 @@ internal class MainLoop
             _selection = _suggestions.Length - 1;
         Prompt.RenderPrompt(_commandLine, _selection > -1 ? _suggestions[_selection].Text : null);
         SuggestionConsoleViewer.ShowSuggestions(_suggestions, _selection);
+        _needsRedraw = false;
     }
 
     private void ConsoleCancelKeyPress(object? sender, ConsoleCancelEventArgs e)
