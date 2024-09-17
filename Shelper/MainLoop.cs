@@ -10,6 +10,7 @@ internal class MainLoop
     private int _commandLineCursorPos;
     private int _screenWidth;
     private bool _needsRedraw;
+    private bool _didShowSuggestions;
     private Suggestion[] _suggestions = [];
     
     public MainLoop()
@@ -94,7 +95,6 @@ internal class MainLoop
                         break;
                     case ConsoleKey.Escape:
                         _selection = -1;
-                        SuggestionConsoleViewer.Clear();
                         break;
                     case ConsoleKey.Enter:
                         CommitSelection();
@@ -146,7 +146,12 @@ internal class MainLoop
             _selection = _suggestions.Length - 1;
         Prompt.RenderPrompt(_commandLine, _selection > -1 ? _suggestions[_selection].Text : null);
         if (_suggestions.Length > 0 && _selection != -1)
+        {
+            _didShowSuggestions = true;
             SuggestionConsoleViewer.ShowSuggestions(_suggestions, _selection);
+        }
+        else if (_didShowSuggestions)
+            SuggestionConsoleViewer.Clear();
         _needsRedraw = false;
     }
 
