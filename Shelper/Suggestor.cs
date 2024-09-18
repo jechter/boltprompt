@@ -10,7 +10,15 @@ namespace Shelper;
 public record Suggestion(string Text)
 {
     public string? Icon;
-    public virtual string? Description { get; set; }
+    private string? _description;
+
+    public string? Description
+    {
+        get => _description ?? SecondaryDescription;
+        set => _description = value;
+    }
+
+    public virtual string? SecondaryDescription { get; set; }
 }
 
 public record FileSystemSuggestion(string Text) : Suggestion(Text)
@@ -19,7 +27,7 @@ public record FileSystemSuggestion(string Text) : Suggestion(Text)
 
     private static readonly Dictionary<string, string> FileDescriptionCache = new();
 
-    public override string? Description => _fileDescription ??= GetFileDescription();
+    public override string? SecondaryDescription => _fileDescription ??= GetFileDescription();
 
     private string GetFileDescription()
     {

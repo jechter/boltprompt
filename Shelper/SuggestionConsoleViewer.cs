@@ -75,7 +75,7 @@ public static class SuggestionConsoleViewer
                 Console.ForegroundColor = ConsoleColor.Black;
             if (suggestions.Length > i)
             {
-                var description = suggestions[i].Description;
+                var description = selection == i ? suggestions[i].Description : suggestions[i].SecondaryDescription ?? suggestions[i].Description;
                 if (description != null)
                     Console.Write(new string(description.Take(descriptionLength).ToArray()));
             }
