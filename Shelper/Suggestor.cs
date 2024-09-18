@@ -10,9 +10,31 @@ namespace Shelper;
 public record Suggestion(string Text)
 {
     public string? Icon;
-    public string? Description;
+    public virtual string? Description { get; set; }
 }
 
+public record FileSystemSuggestion(string Text) : Suggestion(Text)
+{
+    private string? _fileDescription = null;
+
+    private static readonly Dictionary<string, string> FileDescriptionCache = new();
+
+    public override string? Description => _fileDescription ??= GetFileDescription();
+
+    private string GetFileDescription()
+    {
+        if (FileDescriptionCache.TryGetValue(Text, out var fileDescription))
+            return fileDescription;
+        var commandResult = Cli.Wrap("file")
+            .WithArguments(new string[] {"-b", Suggestor.UnescapeFileName(Text).Trim()})
+            .ExecuteBufferedAsync()
+            .GetAwaiter()
+            .GetResult();
+        var result = commandResult.StandardOutput.Split(Environment.NewLine)[0];
+        FileDescriptionCache[Text] = result;
+        return result;
+    }
+}
 public partial class Suggestor
 {
     private readonly Suggestion[] _executablesInPathEnvironment;
@@ -113,8 +135,10 @@ public partial class Suggestor
         }
     }
 
+    static string EscapeFileName(string fileName) => fileName.Replace(@"\", @"\\").Replace(" ", @"\ ");
+    public static string UnescapeFileName(string fileName) => fileName.Replace(@"\ ", " ").Replace(@"\\", @"\").Replace("~", NPath.HomeDirectory.ToString());
     private static string NPathToSuggestionText(string prefix, NPath parent, NPath path)
-        => $"{prefix}{path.RelativeTo(parent).ToString().Replace(@"\", @"\\").Replace(" ", @"\ ")}{(path.DirectoryExists() ? '/' : ' ')}";
+        => $"{prefix}{EscapeFileName(path.RelativeTo(parent).ToString())}{(path.DirectoryExists() ? '/' : ' ')}";
 
     private static Suggestion[] SuggestFileSystemEntries(string commandline, CommandInfo.ArgumentType type)
     {
@@ -137,7 +161,7 @@ public partial class Suggestor
         return (prefix == "" ? new []{dir}:[]).Concat(type == CommandInfo.ArgumentType.Directory ? dir.Directories() : dir.Contents())
             .Where(fs => type != CommandInfo.ArgumentType.CommandName || fs.DirectoryExists() || (IsExecutable(fs) && !string.IsNullOrEmpty(prefix)))
             .OrderBy(fs => fs.FileName)
-            .Select(fs => new Suggestion(NPathToSuggestionText(prefix, dir, fs)) { Icon = fs.DirectoryExists()?"📁" : "📄"})
+            .Select(Suggestion (fs) => new FileSystemSuggestion(NPathToSuggestionText(prefix, dir, fs)) { Icon = fs.DirectoryExists()?"📁" : "📄"})
             .ToArray();
     }
     
@@ -215,6 +239,7 @@ public partial class Suggestor
                     break;
                 }
                 case CommandInfo.ArgumentType.String:
+                    yield return new (lastParam) { Description = string.IsNullOrEmpty(arg.Description) ? arg.Name : arg.Description };
                     // We have no suggestions for generic strings
                     break;
                 default:

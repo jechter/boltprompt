@@ -429,6 +429,21 @@ public class SuggestorTests
     }
     
     [Test]
+    public void CanDescribeFile()
+    {
+        var testDir = new NPath("testDir").MakeAbsolute().CreateDirectory();   
+        _pathsToCleanup.Add(testDir);
+        testDir.Combine("file").WriteAllText("This is a text file\n");
+
+        var ci = new CommandInfo
+        {
+            Arguments = [[ new("") { Type = CommandInfo.ArgumentType.File }]]
+        };
+        var suggestions = GetSuggestionsForTestExecutable(ci, " testDir/");
+        Assert.That(suggestions[0].Description, Is.EqualTo("ASCII text"));
+    }
+    
+    [Test]
     public void SuggestionsForFileSystemEntriesAreEscaped()
     {
         var testDir = new NPath("testDir").MakeAbsolute().CreateDirectory();   
