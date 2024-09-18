@@ -54,27 +54,53 @@ public partial class Suggestor
         };
     }
 
+    class HistoryComparer : IComparer<Suggestion>
+    {
+        private readonly string[] _historyFilteredByCommandline;
+        
+        public HistoryComparer(string commandline)
+        {
+            if (string.IsNullOrWhiteSpace(commandline))
+                _historyFilteredByCommandline = History.Commands.Select(s => s.Trim()).ToArray();
+            else
+            {
+                var commandLineWords = commandline.Split(' ');
+                var lastCommandLineWord = commandLineWords.Last();
+                var commandLineWordPathComponents = lastCommandLineWord.Split('/');
+
+                _historyFilteredByCommandline =
+                    History.Commands.Where(s => s.StartsWith(commandline)).Select(FilterHistoryEntryByCommandLine)
+                        .ToArray();
+
+                string FilterHistoryEntryByCommandLine(string historyEntry)
+                {
+                    var historyEntryWords = historyEntry.Split(' ');
+                    var historyEntryCommandLineWord = historyEntryWords[commandLineWords.Length - 1];
+                    var historyEntryPathComponents = historyEntryCommandLineWord.Split('/');
+                    var filteredHistoryEntryPathComponents =
+                        historyEntryPathComponents.Take(commandLineWordPathComponents.Length);
+                    if (commandLineWordPathComponents.Length < historyEntryPathComponents.Length)
+                        return string.Join('/', filteredHistoryEntryPathComponents) + "/";
+                    return historyEntryCommandLineWord;
+                }
+            }
+        }
+        
+        public int Compare(Suggestion? x, Suggestion? y)
+        { 
+            if (ReferenceEquals(x, y)) return 0;
+            if (y is null) return 1;
+            if (x is null) return -1;
+            var xHistIndex = Array.LastIndexOf(_historyFilteredByCommandline, x.Text.Trim());
+            var yHistIndex = Array.LastIndexOf(_historyFilteredByCommandline, y.Text.Trim());
+            if (xHistIndex != yHistIndex) return xHistIndex - yHistIndex;
+            return string.Compare(y.Text, x.Text, StringComparison.Ordinal);
+        }
+    }
+    
     Suggestion[] SortSuggestionsByHistory(string commandline, IEnumerable<Suggestion> suggestions)
     {
-        var commandLineWords = commandline.Split(' ');
-        var lastCommandLineWord = commandLineWords.Last();
-        var commandLineWordPathComponents = lastCommandLineWord.Split('/');
-
-        var historyFilteredByCommandline = 
-            History.Commands.Where(s => s.StartsWith(commandline)).Select(FilterHistoryEntryByCommandLine).ToArray();
-        
-        return suggestions.OrderByDescending(sug => Array.LastIndexOf(historyFilteredByCommandline, sug.Text.Trim())).ToArray();
-
-        string FilterHistoryEntryByCommandLine(string historyEntry)
-        {
-            var historyEntryWords = historyEntry.Split(' ');
-            var historyEntryCommandLineWord = historyEntryWords[commandLineWords.Length - 1];
-            var historyEntryPathComponents = historyEntryCommandLineWord.Split('/');
-            var filteredHistoryEntryPathComponents = historyEntryPathComponents.Take(commandLineWordPathComponents.Length);
-            if (commandLineWordPathComponents.Length < historyEntryPathComponents.Length)
-                return string.Join('/', filteredHistoryEntryPathComponents) + "/";
-            return historyEntryCommandLineWord;
-        }
+        return string.IsNullOrWhiteSpace(commandline) ? suggestions.ToArray() : suggestions.OrderDescending(new HistoryComparer(commandline)).ToArray();
     }
 
     public static string[] SplitCommandIntoWords(string currentCommand)
@@ -344,6 +370,7 @@ public partial class Suggestor
                     .Select(sug => sug with { Description = KnownCommands.GetCommand(sug.Text.Split('/').Last().Trim(), false)?.Description ?? "" })
                 )
             .Concat(History.Commands.Select(h => new Suggestion(h)))
+            .DistinctBy(s => s.Text)
             .Where(sug => sug.Text.StartsWith(commandline))
             .ToArray();
     }
