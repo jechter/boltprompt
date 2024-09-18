@@ -1,4 +1,3 @@
-
 const filePath = process.argv[2];
 
 if (!filePath) {
@@ -14,6 +13,3 @@ import(filePath)
   .catch((err) => {
     console.error("Error importing file:", err);
   });
-  
-//  import exportedObject from './build/man.js'; // or './file.js' if using "type": "module"
-//console.dir(exportedObject, { depth: null });

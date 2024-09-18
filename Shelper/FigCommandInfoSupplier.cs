@@ -71,13 +71,12 @@ internal record FigArg
 
 public class FigCommandInfoSupplier : ICommandInfoSupplier
 {
-    private readonly NPath _figBuildPath = Paths.FigAutoCompleteDir.Combine("build");
-    private readonly NPath _figListPath = Paths.ShelperInstallDir.Combine("list.js");
+    private readonly NPath _figBuildPath = Paths.FigAutoCompleteDir;
+    private readonly NPath _figListPath = Paths.ShelperSupportFilesDir.Combine("list.js");
     public int Order => 1;
 
     private NPath CommandPath(string command) => _figBuildPath.Combine($"{command}.js");
     public bool CanHandle(string command) => CommandPath(command).FileExists();
-
 
     private static CommandInfo.ArgumentType GetArgumentType(FigOption figOption) => 
         figOption.name.All(n => n.StartsWith('-') && n.Length == 2) && !figOption.requiresSeparator

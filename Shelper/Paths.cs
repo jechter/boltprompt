@@ -6,11 +6,10 @@ namespace Shelper;
 internal static class Paths
 {
     private static NPath ShelperUserDir { get; } = NPath.HomeDirectory.Combine("Library/Application Support/Shelper").MakeAbsolute();
-    public static NPath ShelperInstallDir { get; } = Assembly.GetExecutingAssembly().Location.ToNPath().ParentContaining("Shelper.sln");
+    public static NPath ShelperSupportFilesDir { get; } = Assembly.GetExecutingAssembly().Location.ToNPath().ParentContaining("ShelperSupportFiles").Combine("ShelperSupportFiles");
     public static NPath LogDir { get; } = ShelperUserDir.Combine("Logs");
     public static NPath GeneratedCommandsDir { get; } = ShelperUserDir.Combine("Commands");
-    public static NPath BuiltInCommandsDir { get; } = ShelperInstallDir.Combine("Commands");
-
+    public static NPath BuiltInCommandsDir { get; } = ShelperSupportFilesDir.Combine("Commands");
     public static NPath History { get; } = ShelperUserDir.Combine("history");
-    public static NPath FigAutoCompleteDir { get; } = ShelperInstallDir.Combine("autocomplete");
+    public static NPath FigAutoCompleteDir { get; } = ShelperSupportFilesDir.Combine("autocomplete");
 }

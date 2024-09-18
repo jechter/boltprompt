@@ -5,8 +5,11 @@
         <TargetFramework>net8.0</TargetFramework>
         <ImplicitUsings>enable</ImplicitUsings>
         <Nullable>enable</Nullable>
+        <Version>1.0.0-beta</Version>
+        <PackAsTool>true</PackAsTool>
+        <ToolCommandName>shelper</ToolCommandName>
     </PropertyGroup>
-
+    
     <PropertyGroup Condition=" '$(Configuration)' == 'Debug' ">
       <TreatWarningsAsErrors>true</TreatWarningsAsErrors>
     </PropertyGroup>
@@ -20,8 +23,18 @@
       <PackageReference Include="Mono.Unix" Version="7.1.0-final.1.21458.1" />
     </ItemGroup>
 
-    <Target Name="PostBuild" AfterTargets="PostBuildEvent">
-      <Exec Command="$(ProjectDir)/../build-autocomplete.sh" />
-    </Target>
+    <ItemGroup>
+        <None Update="ShelperSupportFiles/**">
+            <Pack>true</Pack>
+            <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+        </None>
+    </ItemGroup>
+
+    <ItemGroup>
+        <None Update="generate_command.sh">
+            <Pack>true</Pack>
+            <PackagePath>tools/</PackagePath>
+        </None>
+    </ItemGroup>
 
 </Project>

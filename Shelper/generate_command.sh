@@ -8,7 +8,7 @@ signal_handler() {
 
 # Function to generate a custom command
 generate_command() {
-    /Users/jechter/Shelper/Shelper/Shelper/bin/Debug/net8.0/Shelper
+    shelper
     
     CUSTOM_PROMPT=$(cat /tmp/custom-command)
     # Execute the custom command
