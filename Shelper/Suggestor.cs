@@ -408,6 +408,7 @@ public partial class Suggestor
         return pathEnv == null 
             ? [] 
             : pathEnv.Split(":")
+                .Select(UnescapeFileName)
                 .ToNPaths()
                 .Where(path => path.DirectoryExists())
                 .SelectMany(FindExecutablesInPath)
