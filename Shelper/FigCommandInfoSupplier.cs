@@ -52,6 +52,9 @@ internal record FigOption
     public string? description = null;
     [JsonInclude]
     public bool requiresSeparator = false;
+    [JsonInclude]
+    [JsonConverter(typeof(ArrayOrSingleValueConverter<FigArg>))]
+    public FigArg[]? args;
 }
 
 internal record FigArg
@@ -100,14 +103,16 @@ public class FigCommandInfoSupplier : ICommandInfoSupplier
         {
             Description = figOption.description ?? "",
             Aliases = figOption.name.Skip(1).Select(ConvertOptionName).ToArray(),
-            Type = type
+            Type = type,
+            Arguments = [ figOption.args?.Select(ConvertFigArgument).ToArray() ?? [] ]
         };
         string ConvertOptionName(string name) => type == CommandInfo.ArgumentType.Flag ? name[1..] : name;
     }
 
-    private CommandInfo.Argument ConvertFigArgument(FigArg figArg) => new (GetArgumentType(figArg).ToString())
+    private CommandInfo.Argument ConvertFigArgument(FigArg figArg) => new (figArg.name.FirstOrDefault(GetArgumentType(figArg).ToString()))
     {
-        Type = GetArgumentType(figArg)
+        Type = GetArgumentType(figArg),
+        Optional = false
     };
 
     private CommandInfo.Argument ConvertFigSubCommand(FigCommandInfo figCommand) => new (figCommand.name[0])
