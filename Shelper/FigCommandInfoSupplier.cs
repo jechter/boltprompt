@@ -63,6 +63,8 @@ internal record FigArg
     [JsonConverter(typeof(ArrayOrSingleValueConverter<string>))]
     public string[] name = [];
     [JsonInclude]
+    public bool isOptional = false;
+    [JsonInclude]
     [JsonConverter(typeof(ArrayOrSingleValueConverter<string>))]
     public string[]? template = null;
 }
@@ -70,7 +72,7 @@ internal record FigArg
 public class FigCommandInfoSupplier : ICommandInfoSupplier
 {
     private readonly NPath _figBuildPath = Paths.FigAutoCompleteDir.Combine("build");
-    private readonly NPath _figListPath = Paths.FigAutoCompleteDir.Combine("list.js");
+    private readonly NPath _figListPath = Paths.ShelperInstallDir.Combine("list.js");
     public int Order => 1;
 
     private NPath CommandPath(string command) => _figBuildPath.Combine($"{command}.js");
@@ -112,7 +114,8 @@ public class FigCommandInfoSupplier : ICommandInfoSupplier
     private CommandInfo.Argument ConvertFigArgument(FigArg figArg) => new (figArg.name.FirstOrDefault(GetArgumentType(figArg).ToString()))
     {
         Type = GetArgumentType(figArg),
-        Optional = false
+        Optional = figArg.isOptional,
+        Description = figArg.name.FirstOrDefault("")
     };
 
     private CommandInfo.Argument ConvertFigSubCommand(FigCommandInfo figCommand) => new (figCommand.name[0])
