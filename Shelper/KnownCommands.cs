@@ -57,6 +57,8 @@ public static class KnownCommands
             return ci.IsCompleted ? ci.Result : GetPendingCommandInfo(command);
 
         if (!createInfoIfNotAvailable) return null;
+        
+        if (!commandSuppliers.Any(commandSupplier => commandSupplier.CanHandle(command))) return null;
 
         AllKnownCommands[command] = CreateAndCacheCommandInfo(command);
         return null;
