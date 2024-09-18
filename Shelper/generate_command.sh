@@ -13,6 +13,7 @@ generate_command() {
     CUSTOM_PROMPT=$(cat /tmp/custom-command)
     # Execute the custom command
     eval $CUSTOM_PROMPT
+    history -s $CUSTOM_PROMPT
 }
 
 run() {
