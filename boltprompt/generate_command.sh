@@ -25,15 +25,20 @@ add_to_history() {
 
 generate_command() {
     boltprompt
-    
-    CUSTOM_PROMPT=$(cat /tmp/custom-command)
-    eval $CUSTOM_PROMPT
-    add_to_history $CUSTOM_PROMPT
+    if [ $? -ne 0 ]; then
+      echo "boltprompt failed!"
+      return 1 
+    else    
+      CUSTOM_PROMPT=$(cat /tmp/custom-command)
+      eval $CUSTOM_PROMPT
+      add_to_history $CUSTOM_PROMPT
+      return 0
+    fi
 }
 
 run() {
-	while true; do
-		generate_command
+	while generate_command; do
+	  true
 	done
 }
 
