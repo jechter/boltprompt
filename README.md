@@ -11,3 +11,10 @@ cd boltprompt
 ```
 
 Open a new Terminal window
+
+Optional, to try to generate auto complete info for unknown commands using AI:
+
+```
+export OPENAI_API_KEY=[your API key here]
+```
+
