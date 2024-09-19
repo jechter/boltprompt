@@ -1,6 +1,6 @@
 using System.Diagnostics.CodeAnalysis;
 
-namespace Shelper;
+namespace boltprompt;
 
 internal class MainLoop
 {

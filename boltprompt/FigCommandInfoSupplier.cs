@@ -4,7 +4,7 @@ using CliWrap;
 using CliWrap.Buffered;
 using NiceIO;
 
-namespace Shelper;
+namespace boltprompt;
 
 internal record FigCommandInfo
 {
@@ -72,7 +72,7 @@ internal record FigArg
 public class FigCommandInfoSupplier : ICommandInfoSupplier
 {
     private readonly NPath _figBuildPath = Paths.FigAutoCompleteDir;
-    private readonly NPath _figListPath = Paths.ShelperSupportFilesDir.Combine("list.js");
+    private readonly NPath _figListPath = Paths.boltpromptSupportFilesDir.Combine("list.js");
     public int Order => 1;
 
     private NPath CommandPath(string command) => _figBuildPath.Combine($"{command}.js");

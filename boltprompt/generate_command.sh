@@ -8,7 +8,7 @@ signal_handler() {
 
 # Function to generate a custom command
 generate_command() {
-    shelper
+    boltprompt
     
     CUSTOM_PROMPT=$(cat /tmp/custom-command)
     # Execute the custom command

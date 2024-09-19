@@ -1,6 +1,6 @@
 using NiceIO;
 
-namespace Shelper;
+namespace boltprompt;
 
 public static class Prompt
 {

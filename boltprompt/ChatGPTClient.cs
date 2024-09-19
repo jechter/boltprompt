@@ -4,7 +4,7 @@ using System.Net.Http.Json;
 using System.Text.Json;
 using System.Text.Json.Serialization;
 
-namespace Shelper;
+namespace boltprompt;
 
 public static class ChatGptClient
 {

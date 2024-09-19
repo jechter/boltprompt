@@ -1,7 +1,7 @@
 using Mono.Unix.Native;
 using NiceIO;
 
-namespace Shelper.Tests;
+namespace boltprompt.Tests;
 
 public class SuggestorTests
 {

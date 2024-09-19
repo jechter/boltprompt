@@ -1,7 +1,7 @@
 using System.Reflection;
 using NiceIO;
 
-namespace Shelper;
+namespace boltprompt;
 
 public static class KnownCommands
 {

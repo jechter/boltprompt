@@ -14,10 +14,10 @@ exit_if_tool_does_not_exist "pnpm"
 ./build-autocomplete.sh
 
 dotnet pack --configuration Release
-dotnet tool uninstall -g shelper || true
-dotnet tool install -g shelper --add-source Shelper/bin/Release/ --version 1.0.0-beta 
+dotnet tool uninstall -g boltprompt || true
+dotnet tool install -g boltprompt --add-source boltprompt/bin/Release/ --version 1.0.0-beta 
 
-line_to_add='source ~/.dotnet/tools/.store/shelper/1.0.0-beta/shelper/1.0.0-beta/tools/generate_command.sh'
+line_to_add='source ~/.dotnet/tools/.store/boltprompt/1.0.0-beta/boltprompt/1.0.0-beta/tools/generate_command.sh'
 
 add_line_if_not_exists() {
   local file="$1"

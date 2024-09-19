@@ -5,7 +5,7 @@ using CliWrap.Buffered;
 using Mono.Unix.Native;
 using NiceIO;
 
-namespace Shelper;
+namespace boltprompt;
 
 public record Suggestion(string Text)
 {

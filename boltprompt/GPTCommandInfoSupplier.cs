@@ -1,7 +1,7 @@
 using CliWrap;
 using CliWrap.Buffered;
 
-namespace Shelper;
+namespace boltprompt;
 
 public class GptCommandInfoSupplier : ICommandInfoSupplier
 {

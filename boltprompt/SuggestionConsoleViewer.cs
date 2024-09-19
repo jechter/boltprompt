@@ -1,4 +1,4 @@
-namespace Shelper;
+namespace boltprompt;
 
 public static class SuggestionConsoleViewer
 {
