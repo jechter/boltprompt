@@ -6,19 +6,33 @@ signal_handler() {
     run
 }
 
-# Function to generate a custom command
+export PATH=$HOME/.dotnet/tools:$PATH
+
+add_to_history() {
+  case "$SHELL" in
+    */bash)
+      history -s $1
+      ;;
+    */zsh)
+      print -s "$1"
+      ;;
+    *)
+      echo "Unsupported shell: $SHELL"
+      exit 1
+      ;;
+  esac
+}
+
 generate_command() {
     boltprompt
     
     CUSTOM_PROMPT=$(cat /tmp/custom-command)
-    # Execute the custom command
     eval $CUSTOM_PROMPT
-    history -s $CUSTOM_PROMPT
+    add_to_history $CUSTOM_PROMPT
 }
 
 run() {
 	while true; do
-	# Call the function to generate and run the custom command
 		generate_command
 	done
 }
