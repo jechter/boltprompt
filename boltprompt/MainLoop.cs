@@ -36,8 +36,8 @@ internal class MainLoop
                         Console.Clear();
                     else
                         SuggestionConsoleViewer.ClearScreenFromCursor();
-                    RequestRedraw();
                 }
+                RequestRedraw();
                 _screenWidth = Console.WindowWidth;
             }
 

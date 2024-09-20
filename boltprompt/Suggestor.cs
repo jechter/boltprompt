@@ -160,12 +160,14 @@ public partial class Suggestor
     private static IEnumerable<Suggestion> SuggestEnvironmentVariables(string currentWord)
     {
         var currentWordNoPrefix = currentWord[1..];
-        var env = Environment.GetEnvironmentVariables();
-        foreach (DictionaryEntry e in env)
+        var vars = Environment.GetEnvironmentVariables();
+        vars["?"] = "Exit status of the most recently executed foreground pipeline.";
+        vars["!"] = "Process ID of the job most recently placed into the background.";
+        vars["$"] = "Process ID of the shell.";
+        foreach (DictionaryEntry kvp in vars)
         {
-            var key = e.Key.ToString();
-            if (key?.StartsWith(currentWordNoPrefix) ?? false)
-                yield return new($"${e.Key}") { Description = e.Value?.ToString() };
+            if (kvp.Key.ToString()?.StartsWith(currentWordNoPrefix) ?? false)
+                yield return new($"${kvp.Key}") { Description = kvp.Value?.ToString() };
         }
     }
 

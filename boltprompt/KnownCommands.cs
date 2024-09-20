@@ -11,7 +11,7 @@ public static class KnownCommands
 
     public static event UpdateCommandInfo? CommandInfoLoaded;
     
-    static List<ICommandInfoSupplier> commandSuppliers;
+    private static readonly List<ICommandInfoSupplier> CommandSuppliers;
     
     internal static void AddCommandInfo(string command, CommandInfo ci)
     {
@@ -30,7 +30,7 @@ public static class KnownCommands
         var path = Paths.GeneratedCommandsDir.Combine($"{command}.json");
         var ci = GetPendingCommandInfo(command);
         CommandInfoLoaded?.Invoke(ci);
-        foreach (var commandSupplier in commandSuppliers.Where(commandSupplier => commandSupplier.CanHandle(command)))
+        foreach (var commandSupplier in CommandSuppliers.Where(commandSupplier => commandSupplier.CanHandle(command)))
         {
             var newCi = await commandSupplier.GetCommandInfoForCommand(command);
             if (newCi == null) continue;
@@ -58,7 +58,7 @@ public static class KnownCommands
 
         if (!createInfoIfNotAvailable) return null;
         
-        if (!commandSuppliers.Any(commandSupplier => commandSupplier.CanHandle(command))) return null;
+        if (!CommandSuppliers.Any(commandSupplier => commandSupplier.CanHandle(command))) return null;
 
         AllKnownCommands[command] = CreateAndCacheCommandInfo(command);
         return null;
@@ -75,7 +75,7 @@ public static class KnownCommands
 
         var commandInfoSupplierTypes = Assembly.GetExecutingAssembly().GetTypes()
             .Where(t => t.GetInterfaces().Contains(typeof(ICommandInfoSupplier)));
-        commandSuppliers = commandInfoSupplierTypes
+        CommandSuppliers = commandInfoSupplierTypes
             .Select(t => (ICommandInfoSupplier)Activator.CreateInstance(t)!)
             .OrderBy(sup => sup.Order)
             .ToList();
