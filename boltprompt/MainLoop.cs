@@ -19,6 +19,7 @@ internal class MainLoop
         _screenWidth = Console.WindowWidth;
         Console.CancelKeyPress += ConsoleCancelKeyPress;
         KnownCommands.CommandInfoLoaded += _ => RequestRedraw();
+        FileDescriptions.FileDescriptionLoaded += RequestRedraw;
         Prompt.RenderPrompt();
     }
 

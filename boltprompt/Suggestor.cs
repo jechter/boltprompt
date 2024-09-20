@@ -23,26 +23,11 @@ public record Suggestion(string Text)
 
 public record FileSystemSuggestion(string Text) : Suggestion(Text)
 {
-    private string? _fileDescription = null;
-
     private static readonly Dictionary<string, string> FileDescriptionCache = new();
 
-    public override string? SecondaryDescription => _fileDescription ??= GetFileDescription();
-
-    private string GetFileDescription()
-    {
-        if (FileDescriptionCache.TryGetValue(Text, out var fileDescription))
-            return fileDescription;
-        var commandResult = Cli.Wrap("file")
-            .WithArguments(new string[] {"-b", Suggestor.UnescapeFileName(Text).Trim()})
-            .ExecuteBufferedAsync()
-            .GetAwaiter()
-            .GetResult();
-        var result = commandResult.StandardOutput.Split(Environment.NewLine)[0];
-        FileDescriptionCache[Text] = result;
-        return result;
-    }
+    public override string? SecondaryDescription => FileDescriptions.GetFileDescription(Text);
 }
+
 public partial class Suggestor
 {
     private readonly Suggestion[] _executablesInPathEnvironment;

@@ -439,8 +439,18 @@ public class SuggestorTests
         {
             Arguments = [[ new("") { Type = CommandInfo.ArgumentType.File }]]
         };
+        var fileDescriptionLoadedEvent = new ManualResetEvent(false);
+
+        FileDescriptions.FileDescriptionLoaded += () =>
+        {
+            var suggestions = GetSuggestionsForTestExecutable(ci, " testDir/");
+            Assert.That(suggestions[0].SecondaryDescription, Is.EqualTo("ASCII text"));
+            fileDescriptionLoadedEvent.Set();
+        };
         var suggestions = GetSuggestionsForTestExecutable(ci, " testDir/");
-        Assert.That(suggestions[0].Description, Is.EqualTo("ASCII text"));
+        _ = suggestions[0].SecondaryDescription;
+        if (!fileDescriptionLoadedEvent.WaitOne(TimeSpan.FromSeconds(5)))
+            Assert.Fail("Timeout: FileDescriptionLoaded event was not raised within the expected time.");
     }
     
     [Test]
