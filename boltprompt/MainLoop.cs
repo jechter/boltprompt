@@ -62,15 +62,19 @@ internal class MainLoop
                 }
                 else switch (key.Key)
                 {
-                    case ConsoleKey.Backspace:
                     case ConsoleKey.Delete:
+                    {
+                        if (_commandLine.Length > 0 && _commandLineCursorPos < _commandLine.Length)
+                            _commandLine = _commandLine[.._commandLineCursorPos] + _commandLine[(_commandLineCursorPos + 1)..];
+                        break;
+                    }
+                    case ConsoleKey.Backspace:
                     {
                         if (_commandLine.Length > 0 && _commandLineCursorPos > 0)
                         {
                             _commandLine = _commandLine[..(_commandLineCursorPos - 1)] + _commandLine[_commandLineCursorPos..];
                             Prompt.SetCursorPosition(--_commandLineCursorPos);
                         }
-    
                         break;
                     }
                     case ConsoleKey.DownArrow:
