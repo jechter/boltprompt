@@ -17,7 +17,7 @@ dotnet pack --configuration Release
 dotnet tool uninstall -g boltprompt || true
 dotnet tool install -g boltprompt --add-source boltprompt/bin/Release/ --version 1.0.0-beta 
 
-line_to_add='source ~/.dotnet/tools/.store/boltprompt/1.0.0-beta/boltprompt/1.0.0-beta/tools/generate_command.sh'
+line_to_add='source ~/.dotnet/tools/.store/boltprompt/1.0.0-beta/boltprompt/1.0.0-beta/tools/setup_boltprompt.sh'
 
 add_line_if_not_exists() {
   local file="$1"

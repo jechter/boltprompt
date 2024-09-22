@@ -10,7 +10,7 @@ exit_if_tool_does_not_exist()
 
 exit_if_tool_does_not_exist "dotnet"
 
-line_to_remove='source ~/.dotnet/tools/.store/boltprompt/1.0.0-beta/boltprompt/1.0.0-beta/tools/generate_command.sh'
+line_to_remove='source ~/.dotnet/tools/.store/boltprompt/1.0.0-beta/boltprompt/1.0.0-beta/tools/setup_boltprompt.sh'
 
 remove_line_if_exists() {
   local file="$1"
