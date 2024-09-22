@@ -30,6 +30,31 @@ public class SuggestorTests
         _pathsToCleanup.Clear();
         Environment.SetEnvironmentVariable("PATH", _oldPath);
     }
+
+    [Test]
+    public void CommandInfoOptionalIsSerializedCorrectly()
+    {
+        var ci = new CommandInfo()
+        {
+            Arguments =
+            [
+                new([])
+                {
+                    Optional = false
+                },
+                new([])
+                {
+                    Optional = true
+                },
+
+            ]
+        };
+        
+        var json = ci.Serialize();
+        var deserialized = CommandInfo.Deserialize(json);
+        Assert.That(deserialized.Arguments[0].Optional, Is.EqualTo(ci.Arguments[0].Optional));
+        Assert.That(deserialized.Arguments[1].Optional, Is.EqualTo(ci.Arguments[1].Optional));
+    }
     
     [Test]
     public void CanFindExecutablesInSearchPrefix()
@@ -203,7 +228,7 @@ public class SuggestorTests
                     new("a") { Type = CommandInfo.ArgumentType.Flag },
                     new("b") { Type = CommandInfo.ArgumentType.Flag },
                     new("c") { Type = CommandInfo.ArgumentType.Flag },
-                ]),
+                ]) { Optional = true },
                 new([
                     new("d") { Type = CommandInfo.ArgumentType.Flag },
                     new("e") { Type = CommandInfo.ArgumentType.Flag },
@@ -363,7 +388,7 @@ public class SuggestorTests
                     new("a") { DontAllowMultiple = true },
                     new("b") { DontAllowMultiple = true },
                     new("c") { DontAllowMultiple = true },
-                ]), 
+                ]) { Optional = true }, 
                 new([ 
                     new("d") { DontAllowMultiple = true },
                     new("e") { DontAllowMultiple = true },

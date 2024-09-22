@@ -133,7 +133,7 @@ public class FigCommandInfoSupplier : ICommandInfoSupplier
     {
         var arggroups = new List<CommandInfo.ArgumentGroup>();
         if (figCommandInfo.options != null)
-            arggroups.Add(new(figCommandInfo.options.Select(ConvertFigOption).ToArray()));
+            arggroups.Add(new(figCommandInfo.options.Select(ConvertFigOption).ToArray()) { Optional = true });
         if (figCommandInfo.args != null)
             arggroups.AddRange(figCommandInfo.args.Select(ConvertFigArgument));
         if (figCommandInfo.subcommands != null)

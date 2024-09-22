@@ -8,7 +8,7 @@ public record CommandInfo
     private static JsonSerializerOptions _serializerOptions = new () 
     {
         WriteIndented = true,
-        DefaultIgnoreCondition = JsonIgnoreCondition.WhenWritingNull,
+        DefaultIgnoreCondition = JsonIgnoreCondition.WhenWritingDefault,
         
         Converters = { new JsonStringEnumConverter() }
     };
@@ -42,7 +42,7 @@ public record CommandInfo
     public record ArgumentGroup(Argument[] Arguments)
     {
         [JsonInclude]
-        public bool Optional = true;
+        public bool Optional;
     }
     
     public record Argument(string Name)
