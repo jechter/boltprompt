@@ -8,7 +8,8 @@ public record CommandInfo
     private static JsonSerializerOptions _serializerOptions = new () 
     {
         WriteIndented = true,
-        DefaultIgnoreCondition = JsonIgnoreCondition.WhenWritingDefault,
+        DefaultIgnoreCondition = JsonIgnoreCondition.WhenWritingNull,
+        
         Converters = { new JsonStringEnumConverter() }
     };
 
@@ -23,7 +24,7 @@ public record CommandInfo
     [JsonInclude]
     public string Description = "";
     [JsonInclude]
-    public Argument[][]? Arguments;
+    public ArgumentGroup[]? Arguments;
     
     public enum ArgumentType
     {
@@ -37,12 +38,15 @@ public record CommandInfo
         ProcessId,
         String,
     }
-    
 
-    public record Argument(string Name)
+    public record ArgumentGroup(Argument[] Arguments)
     {
         [JsonInclude]
         public bool Optional = true;
+    }
+    
+    public record Argument(string Name)
+    {
         [JsonInclude]
         public bool Repeat;
         [JsonInclude]
@@ -54,7 +58,7 @@ public record CommandInfo
         [JsonInclude]
         public string[]? Aliases;
         [JsonInclude]
-        public Argument[][]? Arguments;
+        public ArgumentGroup[]? Arguments;
 
         [JsonIgnore]
         public string[] AllNames => new[] { Name }.Concat(Aliases ?? []).ToArray(); 
@@ -64,9 +68,9 @@ public record CommandInfo
     public static CommandInfo DefaultCommand { get; } = new()
     {
         Arguments = 
-        [[
+        [new ([
             new Argument("") {Type = ArgumentType.FileSystemEntry}
-        ]]
+        ])]
     };
 
     public static CommandInfo Ls { get; } = new ()
@@ -75,7 +79,7 @@ public record CommandInfo
         Description = "list directory contents",
         Arguments =
         [
-            [
+            new ([
                 new ("l") { Description = "List in long format. Ownership, Date/Time etc (See below) For terminal output, a total sum of all the file sizes is  output on a line before the long listing. If the file is a symbolic link the pathname of the linked-to file is preceded by ->", Repeat = true, Type = ArgumentType.Flag},
                 new ("a") { Description = "List all entries including those starting with a dot .", Repeat = true, Type = ArgumentType.Flag},
                 new ("h") { Description = "When used with the -l option, use unit suffixes: Byte, Kilobyte, Megabyte, Gigabyte, Terabyte and Petabyte in order to reduce the number of digits to three or less using base 2 for sizes.", Repeat = true, Type = ArgumentType.Flag},
@@ -113,8 +117,8 @@ public record CommandInfo
                 new ("W") { Description = "Display whiteouts when scanning directories. (-S) flag).", Repeat = true, Type = ArgumentType.Flag},
                 new ("w") { Description = "Force raw printing of non-printable characters.  This is the default when output is not to a terminal.", Repeat = true, Type = ArgumentType.Flag},
                 new ("x") { Description = "The same as -C, except that the multi-column output is produced with entries sorted across, rather than down, the columns.", Repeat = true, Type = ArgumentType.Flag},
-            ],
-            [new ("FileSystemEntry") { Repeat = true, Type = ArgumentType.FileSystemEntry, Description = "A directory for which ls should list contents or a file for which ls should list information as requested."}]
+            ]),
+            new ([new ("FileSystemEntry") { Repeat = true, Type = ArgumentType.FileSystemEntry, Description = "A directory for which ls should list contents or a file for which ls should list information as requested."}])
         ]
     };
 }

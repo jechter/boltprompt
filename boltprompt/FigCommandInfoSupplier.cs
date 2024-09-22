@@ -105,16 +105,19 @@ public class FigCommandInfoSupplier : ICommandInfoSupplier
             Description = figOption.description ?? "",
             Aliases = figOption.name.Skip(1).Select(ConvertOptionName).ToArray(),
             Type = type,
-            Arguments = [ figOption.args?.Select(ConvertFigArgument).ToArray() ?? [] ]
+            Arguments = figOption.args?.Select(ConvertFigArgument).ToArray() ?? []
         };
         string ConvertOptionName(string name) => type == CommandInfo.ArgumentType.Flag ? name[1..] : name;
     }
 
-    private CommandInfo.Argument ConvertFigArgument(FigArg figArg) => new (figArg.name.FirstOrDefault(GetArgumentType(figArg).ToString()))
+    private CommandInfo.ArgumentGroup ConvertFigArgument(FigArg figArg) => new (
+            [new (figArg.name.FirstOrDefault(GetArgumentType(figArg).ToString())) {
+                Type = GetArgumentType(figArg),
+                Description = figArg.name.FirstOrDefault("")
+            }]
+        )
     {
-        Type = GetArgumentType(figArg),
         Optional = figArg.isOptional,
-        Description = figArg.name.FirstOrDefault("")
     };
 
     private CommandInfo.Argument ConvertFigSubCommand(FigCommandInfo figCommand) => new (figCommand.name[0])
@@ -126,12 +129,17 @@ public class FigCommandInfoSupplier : ICommandInfoSupplier
         Arguments = ConvertFigArguments(figCommand)
     };
 
-    private CommandInfo.Argument[][] ConvertFigArguments(FigCommandInfo figCommandInfo) =>
-    [
-        figCommandInfo.options?.Select(ConvertFigOption).ToArray() ?? [],
-        figCommandInfo.args?.Select(ConvertFigArgument).ToArray() ?? [],
-        figCommandInfo.subcommands?.Select(ConvertFigSubCommand).ToArray() ?? [],
-    ];
+    private CommandInfo.ArgumentGroup[] ConvertFigArguments(FigCommandInfo figCommandInfo)
+    {
+        var arggroups = new List<CommandInfo.ArgumentGroup>();
+        if (figCommandInfo.options != null)
+            arggroups.Add(new(figCommandInfo.options.Select(ConvertFigOption).ToArray()));
+        if (figCommandInfo.args != null)
+            arggroups.AddRange(figCommandInfo.args.Select(ConvertFigArgument));
+        if (figCommandInfo.subcommands != null)
+            arggroups.Add(new(figCommandInfo.subcommands.Select(ConvertFigSubCommand).ToArray()));
+        return arggroups.ToArray();
+    }
     
     public async Task<CommandInfo?> GetCommandInfoForCommand(string command)
     {

@@ -45,9 +45,9 @@ public class GptCommandInfoSupplier : ICommandInfoSupplier
                 ? CommandInfo.ArgumentType.Flag
                 : CommandInfo.ArgumentType.Keyword;
                 
-            arguments.Add(new CommandInfo.Argument(type == CommandInfo.ArgumentType.Flag ? arg[1..] : arg)
+            arguments.Add(new (type == CommandInfo.ArgumentType.Flag ? arg[1..] : arg)
             {
-                Optional = await ChatGptClient.GetBooleanReply(gptPromptPrefix, $"Is the `{arg}` argument optional?"),
+                //Optional = await ChatGptClient.GetBooleanReply(gptPromptPrefix, $"Is the `{arg}` argument optional?"),
                 Repeat = await ChatGptClient.GetBooleanReply(gptPromptPrefix, $"Can the `{arg}` argument appear more than once on the command line?"),
                 Description = await ChatGptClient.GetReply(gptPromptPrefix, $"Give a one-line description of what the `{arg}` argument command does. Don't mention the command or argument in the description."),
                 Type = type,
@@ -57,18 +57,18 @@ public class GptCommandInfoSupplier : ICommandInfoSupplier
         if (await ChatGptClient.GetBooleanReply(gptPromptPrefix,
                 $"Does the `{command}` command take any path names as arguments?"))
         {
-            arguments.Add(new CommandInfo.Argument("pathname")
+            arguments.Add(new ("pathname")
             {
                 Type = CommandInfo.ArgumentType.FileSystemEntry,
                 Description = await ChatGptClient.GetReply(gptPromptPrefix, $"Give a one-line description of what the path argument passed to the {command} command does. Don't mention the command or argument in the description."),
                 Repeat = await ChatGptClient.GetBooleanReply(gptPromptPrefix, $"Does the `{command}` command take more than one path name as arguments?"),
-                Optional = await ChatGptClient.GetBooleanReply(gptPromptPrefix, $"Is passing a path name argument to `{command}` optional?"),
+                //Optional = await ChatGptClient.GetBooleanReply(gptPromptPrefix, $"Is passing a path name argument to `{command}` optional?"),
             });
         }
     
         
     
-        result.Arguments = [arguments.ToArray()];        
+        result.Arguments = [new(arguments.ToArray())];        
         result.Comment = "Written by artificial stupidity.";
         return result;
     }
@@ -107,12 +107,16 @@ public class GptCommandInfoSupplier : ICommandInfoSupplier
 
                                 "Name" (string): the name of the command.
                                 "Description" (string): a one-line description of what the command does.
-                                "Arguments" (array of arrays of Argument objects, optional): The arguments the command takes, grouped into sub-arrays to allow specifying an order of different argument types. For example a command could have one array of Arguments for flags, and another one for pathname arguments to specify that flags must come before file names. Sub-arrays should be sorted by how commonly an argument is used, with the most common ones coming first.
+                                "Arguments" (array of ArgumentGroup objects, optional): The arguments the command takes, grouped into sub-arrays to allow specifying an order of different argument types. For example a command could have one array of Arguments for flags, and another one for pathname arguments to specify that flags must come before file names. Sub-arrays should be sorted by how commonly an argument is used, with the most common ones coming first.
 
+                                The `ArgumentGroup` object has the following keys:
+
+                                "Optional" (boolean): whether the argument is optional.
+                                "Arguments" (array of ArgumentGroup objects, optional): The arguments the command takes, grouped into sub-arrays to allow specifying an order of different argument types. For example a command could have one array of Arguments for flags, and another one for pathname arguments to specify that flags must come before file names. Sub-arrays should be sorted by how commonly an argument is used, with the most common ones coming first.
+                                
                                 The `Argument` object has the following keys:
 
                                 "Name" (string): the name of the argument. This is used to look up either a matching ArgumentGroup or ArgumentDescription to define the argument.
-                                "Optional" (boolean, optional): whether the argument is optional. Default is true.
                                 "Repeat" (boolean, optional): whether the can be specified on the command line multiple times. Default is false.
                                 "Description" (string): a one-line description of what the argument does.
                                 "Type" (string): the type of the argument. Default is "Keyword". Must be one of: 

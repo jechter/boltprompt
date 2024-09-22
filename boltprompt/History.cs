@@ -1,5 +1,3 @@
-using NiceIO;
-
 namespace boltprompt;
 
 public static class History

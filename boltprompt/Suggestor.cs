@@ -198,9 +198,10 @@ public partial class Suggestor
         if (ci.Arguments == null)
             yield break;
 
-        var arguments = GetEligibleArguments(ci.Arguments, commandParams, out var paramPrefix, out var curArg);
+        var lastParamIsFinished = commandline.LastOrDefault(' ') == ' ';
+        var arguments = GetEligibleArguments(ci.Arguments, commandParams, lastParamIsFinished, out var paramPrefix, out var curArg);
 
-        if (curArg != null && !commandline.EndsWith(' '))
+        if (curArg != null && !lastParamIsFinished)
             yield return new (paramPrefix) { Description = curArg.Description };
 
         foreach (var arg in arguments)
@@ -285,7 +286,7 @@ public partial class Suggestor
         }
     }
 
-    private static List<CommandInfo.Argument> GetEligibleArguments(CommandInfo.Argument[][] ciArguments, string[] commandParams, out string paramPrefix, out CommandInfo.Argument? curArg)
+    private static List<CommandInfo.Argument> GetEligibleArguments(CommandInfo.ArgumentGroup[] ciArguments, string[] commandParams, bool lastParamIsFinished, out string paramPrefix, out CommandInfo.Argument? curArg)
     {
         var arguments = new List<CommandInfo.Argument>();
         
@@ -299,7 +300,7 @@ public partial class Suggestor
         var lastParam = commandQueue.Dequeue();
         foreach (var argGroup in ciArguments)
         {
-            var argGroupArguments = new List<CommandInfo.Argument>(argGroup);
+            var argGroupArguments = new List<CommandInfo.Argument>(argGroup.Arguments);
             var keepParsing = true;
             var gotMatch = false;
             while (keepParsing)
@@ -308,48 +309,77 @@ public partial class Suggestor
 
                 foreach (var arg in argGroupArguments)
                 {
-                    if (arg.Type != CommandInfo.ArgumentType.Keyword &&
-                        arg.Type != CommandInfo.ArgumentType.Flag) continue;
-                    foreach (var v in arg.AllNames)
+                    switch (arg.Type)
                     {
-                        var name = v;
-                        if (paramPrefix == "" && arg.Type == CommandInfo.ArgumentType.Flag)
-                            name = $"-{v}";
-                        if (commandQueue.Count != 0 ? lastParam != name : !lastParam.StartsWith(name)) continue;
-                        gotMatch = true;
-                        if (arg.Arguments != null)
-                        {
-                            argGroupArguments = arg.Arguments.SelectMany(a => a).Concat(arg.DontAllowMultiple ? [] : argGroupArguments.Where(a => a != arg || arg.Repeat)).ToList();
-                            paramPrefix += lastParam[..name.Length];
-                            lastParam = lastParam[name.Length..];
-                            curArg = arg;
-                            keepParsing = true;
-                        }
-                        else if (arg.Type == CommandInfo.ArgumentType.Flag)
-                        {
-                            argGroupArguments = arg.DontAllowMultiple ? [] : argGroupArguments.Where(a =>
-                                a.Type == CommandInfo.ArgumentType.Flag && (a != arg || arg.Repeat)).ToList();
-                            paramPrefix += lastParam[..name.Length];
-                            lastParam = lastParam[name.Length..];
-                            curArg = arg;
-                            keepParsing = true;
-                        }
-                        else
-                            argGroupArguments = arg.DontAllowMultiple ? [] : argGroupArguments.Where(a => a != arg || arg.Repeat).ToList();
+                        case CommandInfo.ArgumentType.Keyword:
+                        case CommandInfo.ArgumentType.Flag:
+                            foreach (var v in arg.AllNames)
+                            {
+                                var name = v;
+                                if (paramPrefix == "" && arg.Type == CommandInfo.ArgumentType.Flag)
+                                    name = $"-{v}";
+                                if (commandQueue.Count != 0 ? lastParam != name : !lastParam.StartsWith(name)) continue;
+                                gotMatch = true;
+                                if (arg.Arguments != null)
+                                {
+                                    argGroupArguments = arg.Arguments.SelectMany(a => a.Arguments).Concat(arg.DontAllowMultiple ? [] : argGroupArguments.Where(a => a != arg || arg.Repeat)).ToList();
+                                    paramPrefix += lastParam[..name.Length];
+                                    lastParam = lastParam[name.Length..];
+                                    curArg = arg;
+                                    keepParsing = true;
+                                }
+                                else if (arg.Type == CommandInfo.ArgumentType.Flag)
+                                {
+                                    argGroupArguments = arg.DontAllowMultiple ? [] : argGroupArguments.Where(a =>
+                                        a.Type == CommandInfo.ArgumentType.Flag && (a != arg || arg.Repeat)).ToList();
+                                    paramPrefix += lastParam[..name.Length];
+                                    lastParam = lastParam[name.Length..];
+                                    curArg = arg;
+                                    keepParsing = true;
+                                }
+                                else
+                                    argGroupArguments = arg.DontAllowMultiple ? [] : argGroupArguments.Where(a => a != arg || arg.Repeat).ToList();
+                            }
+                            break;
+                        case CommandInfo.ArgumentType.FileSystemEntry:
+                        case CommandInfo.ArgumentType.Directory:
+                        case CommandInfo.ArgumentType.File:
+                        case CommandInfo.ArgumentType.Command:
+                        case CommandInfo.ArgumentType.CommandName:
+                        case CommandInfo.ArgumentType.ProcessId:
+                        case CommandInfo.ArgumentType.String: 
+                            if (!gotMatch && lastParam.Length != 0 && commandQueue.Count > 0)
+                            {
+                                argGroupArguments = [];
+                                gotMatch = true;
+                                curArg = arg;
+                                paramPrefix = lastParam;
+                                lastParam = "";
+                            }
 
-                        if (lastParam.Length != 0 || commandQueue.Count == 0) continue;
-                        
-                        lastParam = commandQueue.Dequeue();
-                        paramPrefix = "";
-                        curArg = null;
+                            break;
                     }
+                    if (lastParam.Length != 0 || commandQueue.Count == 0) continue;
+                        
+                    lastParam = commandQueue.Dequeue();
+                    paramPrefix = "";
+                    curArg = null;
+                    
                 }
             }
 
             if (gotMatch)
+            {
                 arguments = argGroupArguments;
+                if (lastParam.Length == 0 && !lastParamIsFinished)
+                    break;
+            }
             else
-                arguments.AddRange(argGroup);
+            {
+                arguments.AddRange(argGroup.Arguments);
+                if (!argGroup.Optional)
+                    break;
+            }
         }
 
         return arguments;
