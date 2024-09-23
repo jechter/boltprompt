@@ -42,3 +42,5 @@ case "$SHELL" in
     exit 1
     ;;
 esac
+
+osascript setup-terminal.scpt
