@@ -108,7 +108,7 @@ internal class MainLoop
                     default:
                         _commandLine = _commandLine[.._commandLineCursorPos] + key.KeyChar +
                                        _commandLine[_commandLineCursorPos..];
-                        Prompt.SetCursorPosition(_commandLineCursorPos++);
+                        Prompt.SetCursorPosition(++_commandLineCursorPos);
                         if (_selection == -1)
                             _selection = 0;
                         break;
