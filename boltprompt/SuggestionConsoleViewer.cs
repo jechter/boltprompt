@@ -28,12 +28,14 @@ public static class SuggestionConsoleViewer
 
         // Calculate the number of characters to clear
         var widthToClear = Console.WindowWidth - currentLeft;
+        if (widthToClear > 0)
+        {
+            // Write spaces to clear the rest of the line
+            Console.Write(new string(' ', widthToClear));
 
-        // Write spaces to clear the rest of the line
-        Console.Write(new string(' ', widthToClear));
-
-        // Reset the cursor to the original position
-        Console.SetCursorPosition(currentLeft, currentTop);
+            // Reset the cursor to the original position
+            Console.SetCursorPosition(currentLeft, currentTop);
+        }
     }
     
     public static void ShowSuggestions(Suggestion[] suggestions, int selection, bool useColor = true)
