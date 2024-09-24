@@ -1,3 +1,4 @@
+using System.Reflection;
 using NiceIO;
 
 namespace boltprompt;
@@ -24,13 +25,15 @@ public static class Prompt
         Console.BackgroundColor = ConsoleColor.Black;
         Console.ForegroundColor = ConsoleColor.White;
         Console.SetCursorPosition(0, pos.Top);
-        var promptText = $"{CurrentDirectoryNameForPrompt(NPath.CurrentDirectory)}⚡️";
+        var debug = Assembly.GetEntryAssembly()?.Location.ToNPath().Parent.Parent.FileName == "Debug";
+        var promptchar = debug ? "🪲" : "⚡️";
+        var promptText = $"{CurrentDirectoryNameForPrompt(NPath.CurrentDirectory)}{promptchar}️";
         Console.Write(promptText);
         Console.ResetColor();
         Console.ForegroundColor = ConsoleColor.Black;
         Console.Write("\uE0B0 ");
         Console.ResetColor();
-        _promptLength = promptText.Length + 2;
+        _promptLength = promptText.Length + 1;
         if (commandline == null) return;
         var commandLineLastWord = Suggestor.SplitCommandIntoWords(commandline).LastOrDefault("");
         var selectedSuggestionSuffix = "";
