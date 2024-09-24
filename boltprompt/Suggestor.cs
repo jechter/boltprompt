@@ -237,10 +237,12 @@ public partial class Suggestor
 
                     break;
                 case CommandInfo.ArgumentType.CommandName:
-                case CommandInfo.ArgumentType.Command:
                     foreach (var s in _executablesInPathEnvironment.Where(sug => sug.Text.StartsWith(lastParam)))
                         yield return s;
-
+                    break;
+                case CommandInfo.ArgumentType.Command:
+                    foreach (var s in SuggestionsForPrompt(string.Join(' ',commandParams)))
+                        yield return s;
                     break;
                 case CommandInfo.ArgumentType.ProcessId:
                     foreach (var p in GetProcesses())
@@ -347,7 +349,6 @@ public partial class Suggestor
                         case CommandInfo.ArgumentType.FileSystemEntry:
                         case CommandInfo.ArgumentType.Directory:
                         case CommandInfo.ArgumentType.File:
-                        case CommandInfo.ArgumentType.Command:
                         case CommandInfo.ArgumentType.CommandName:
                         case CommandInfo.ArgumentType.ProcessId:
                         case CommandInfo.ArgumentType.String: 
@@ -359,7 +360,10 @@ public partial class Suggestor
                                 paramPrefix = lastParam;
                                 lastParam = "";
                             }
-
+                            break;
+                        
+                        case CommandInfo.ArgumentType.Command:
+                            argGroupArguments = [arg];
                             break;
                     }
                     if (lastParam.Length != 0 || commandQueue.Count == 0) continue;
