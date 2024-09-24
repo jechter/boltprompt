@@ -578,6 +578,26 @@ public class SuggestorTests
             Assert.Fail("Timeout: FileDescriptionLoaded event was not raised within the expected time.");
     }
     
+    
+    [Test]
+    [TestCase(false)]
+    [TestCase(true)]
+    public void SuggestionForFileSystemEntryHasDescription(bool fileExists)
+    {
+        var testDir = new NPath("testDir").MakeAbsolute().CreateDirectory();   
+        _pathsToCleanup.Add(testDir);
+        if (fileExists)
+            testDir.Combine("file").WriteAllText("This is a text file\n");
+
+        var ci = new CommandInfo
+        {
+            Arguments = [new([ new("") { Type = CommandInfo.ArgumentType.File, Description = "my file argument"}])]
+        };
+        var suggestions = GetSuggestionsForTestExecutable(ci, " testDir/file");
+        Assert.That(suggestions[0].Description, Is.EqualTo("my file argument"));
+    }    
+    
+    
     [Test]
     public void SuggestionsForFileSystemEntriesAreEscaped()
     {

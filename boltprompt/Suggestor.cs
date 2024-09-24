@@ -261,9 +261,18 @@ public partial class Suggestor
                 case CommandInfo.ArgumentType.FileSystemEntry:
                 case CommandInfo.ArgumentType.Directory:
                 case CommandInfo.ArgumentType.File:
+                    bool hasMatch = false;
                     foreach (var s in SuggestFileSystemEntries(commandline, arg.Type))
+                    {
                         if (s.Text.StartsWith(lastParam))
+                        {
                             yield return s with { Description = arg.Description };
+                            hasMatch = true;
+                        }
+                    }
+                    // if we have no matching files, return a match for whatever was typed to allow creating new paths.
+                    if (!hasMatch)
+                        yield return new (lastParam) { Description = string.IsNullOrEmpty(arg.Description) ? arg.Name : arg.Description };
                     break;
                 case CommandInfo.ArgumentType.String:
                     yield return new (lastParam) { Description = string.IsNullOrEmpty(arg.Description) ? arg.Name : arg.Description };
