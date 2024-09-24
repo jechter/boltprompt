@@ -36,6 +36,7 @@ public record CommandInfo
         Command,
         CommandName,
         ProcessId,
+        ProcessName,
         String,
     }
 

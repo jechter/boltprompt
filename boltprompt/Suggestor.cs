@@ -217,7 +217,6 @@ public partial class Suggestor
             switch (arg.Type)
             {
                 case CommandInfo.ArgumentType.Flag:
-                {
                     if (paramPrefix == "" && (lastParam.Length == 0 || lastParam.StartsWith('-')))
                     {
                         foreach (var v in arg.AllNames)
@@ -229,9 +228,7 @@ public partial class Suggestor
                             yield return new(paramPrefix + v) { Description = arg.Description };
                     }
                     break;
-                }
                 case CommandInfo.ArgumentType.Keyword:
-                {
                     foreach (var v in arg.AllNames)
                     {
                         if (v.StartsWith(lastParam))
@@ -239,17 +236,13 @@ public partial class Suggestor
                     }
 
                     break;
-                }
                 case CommandInfo.ArgumentType.CommandName:
                 case CommandInfo.ArgumentType.Command:
-                {
                     foreach (var s in _executablesInPathEnvironment.Where(sug => sug.Text.StartsWith(lastParam)))
                         yield return s;
 
                     break;
-                }
                 case CommandInfo.ArgumentType.ProcessId:
-                {
                     foreach (var p in GetProcesses())
                     {
                         var pidString = p.pid.ToString();
@@ -258,16 +251,18 @@ public partial class Suggestor
                     }
 
                     break;
-                }
+                case CommandInfo.ArgumentType.ProcessName:
+                    foreach (var p in GetProcesses().Select(p => p.name.ToNPath().FileName).Where(p => p.StartsWith(lastParam)).Distinct())
+                        yield return new(p);
+
+                    break;
                 case CommandInfo.ArgumentType.FileSystemEntry:
                 case CommandInfo.ArgumentType.Directory:
                 case CommandInfo.ArgumentType.File:
-                {
                     foreach (var s in SuggestFileSystemEntries(commandline, arg.Type))
                         if (s.Text.StartsWith(lastParam))
                             yield return s with { Description = arg.Description };
                     break;
-                }
                 case CommandInfo.ArgumentType.String:
                     yield return new (lastParam) { Description = string.IsNullOrEmpty(arg.Description) ? arg.Name : arg.Description };
                     // We have no suggestions for generic strings

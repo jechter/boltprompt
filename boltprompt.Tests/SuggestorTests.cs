@@ -506,6 +506,17 @@ public class SuggestorTests
         Assert.That(suggestions.Select(s => s.Text.Trim()), Does.Contain($"{pid}"));
     }
     
+    [Test]
+    public void CanGetSuggestionsForProcessName()
+    {
+        var ci = new CommandInfo
+        {
+            Arguments = [new([ new("") { Type = CommandInfo.ArgumentType.ProcessName }])]
+        };
+        var suggestions = GetSuggestionsForTestExecutable(ci, " ");
+        Assert.That(suggestions.Select(s => s.Text.Trim()), Does.Contain("dotnet"));
+    }
+    
     
     [Test]
     [TestCase(CommandInfo.ArgumentType.FileSystemEntry)]
