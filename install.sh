@@ -43,4 +43,13 @@ case "$SHELL" in
     ;;
 esac
 
+url="https://github.com/ryanoasis/nerd-fonts/releases/latest/download/0xProto.zip"
+zipfile="0xProto.zip"
+output_dir="$HOME/Library/Fonts"
+
+curl -L -o "$zipfile" "$url"
+unzip -o "$zipfile" -d "nerd-fonts-temp"
+cp nerd-fonts-temp/*.ttf "$output_dir"
+rm -rf "$zipfile" nerd-fonts-temp
+
 osascript setup-terminal.scpt
