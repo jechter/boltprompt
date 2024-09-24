@@ -1,3 +1,5 @@
+using CliWrap;
+using CliWrap.Buffered;
 using Mono.Unix.Native;
 using NiceIO;
 
@@ -523,6 +525,21 @@ public class SuggestorTests
         var suggestions = GetSuggestionsForTestExecutable(ci, " testDir/");
         Assert.That(suggestions.Select(s => s.Text.Trim()), Does.Contain("testDir/directory/"));
         Assert.That(suggestions.Select(s => s.Text.Trim()).Contains("testDir/file"), Is.EqualTo(type != CommandInfo.ArgumentType.Directory));
+    }
+
+    [Test]
+    public void FileSystemSuggestionsForPrivateFolderWontFail()
+    {
+        var testDir = new NPath("testDir").MakeAbsolute().CreateDirectory();
+        Cli.Wrap("chmod").WithArguments("000 testDir").ExecuteBufferedAsync().GetAwaiter().GetResult();
+        _pathsToCleanup.Add(testDir);
+
+        var ci = new CommandInfo
+        {
+            Arguments = [new([ new("") { Type = CommandInfo.ArgumentType.FileSystemEntry }])]
+        };
+        var suggestions = GetSuggestionsForTestExecutable(ci, " testDir/");
+        Assert.That(suggestions, Is.Empty);
     }
     
     [Test]

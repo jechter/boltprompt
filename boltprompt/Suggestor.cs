@@ -178,8 +178,16 @@ public partial class Suggestor
 
         if (!dir.DirectoryExists())
             return [];
-        
-        return (prefix == "" ? new []{dir}:[]).Concat(type == CommandInfo.ArgumentType.Directory ? dir.Directories() : dir.Contents())
+
+        NPath[] contents = [];
+        try
+        {
+            contents = type == CommandInfo.ArgumentType.Directory ? dir.Directories() : dir.Contents();
+        }
+        catch (IOException) { }
+        catch (UnauthorizedAccessException) { }
+
+        return (prefix == "" ? new []{dir}:[]).Concat(contents)
             .Where(fs => type != CommandInfo.ArgumentType.CommandName || fs.DirectoryExists() || (IsExecutable(fs) && !string.IsNullOrEmpty(prefix)))
             .OrderBy(fs => fs.FileName)
             .Select(Suggestion (fs) => new FileSystemSuggestion(NPathToSuggestionText(prefix, dir, fs)) { Icon = fs.DirectoryExists()?"📁" : "📄"})
