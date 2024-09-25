@@ -274,6 +274,11 @@ public partial class Suggestor
                     if (!hasMatch)
                         yield return new (lastParam) { Description = string.IsNullOrEmpty(arg.Description) ? arg.Name : arg.Description };
                     break;
+                case CommandInfo.ArgumentType.CustomArgument:
+                    foreach (var s in CustomArguments.Get(arg.Name))
+                        if (s.Text.StartsWith(lastParam))
+                            yield return s;
+                    break;
                 case CommandInfo.ArgumentType.String:
                     yield return new (lastParam) { Description = string.IsNullOrEmpty(arg.Description) ? arg.Name : arg.Description };
                     // We have no suggestions for generic strings

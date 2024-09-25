@@ -517,6 +517,34 @@ public class SuggestorTests
         Assert.That(suggestions.Select(s => s.Text.Trim()), Does.Contain("dotnet"));
     }
     
+    [Test]
+    public void CanGetSuggestionsForCustomArgument()
+    {
+        var testDir = new NPath("testDir").MakeAbsolute().CreateDirectory();   
+        _pathsToCleanup.Add(testDir);
+        testDir.Combine("customArgList").WriteAllText("foo\nbar\nbaz\n");
+
+        var ci = new CommandInfo
+        {
+            Arguments = [new([ new("cat testDir/customArgList") { Type = CommandInfo.ArgumentType.CustomArgument }])]
+        };
+        
+        var customArgumentsLoadedEvent = new ManualResetEvent(false);
+
+        CustomArguments.CustomArgumentsLoaded += () =>
+        {
+            var suggestions = GetSuggestionsForTestExecutable(ci, " ");
+            Assert.That(suggestions.Select(s => s.Text.Trim()), Does.Contain("foo"));
+            Assert.That(suggestions.Select(s => s.Text.Trim()), Does.Contain("bar"));
+            Assert.That(suggestions.Select(s => s.Text.Trim()), Does.Contain("baz"));
+            customArgumentsLoadedEvent.Set();
+        };
+        GetSuggestionsForTestExecutable(ci, " ");
+
+        if (!customArgumentsLoadedEvent.WaitOne(TimeSpan.FromSeconds(5)))
+            Assert.Fail("Timeout: CustomArgumentsLoaded event was not raised within the expected time.");
+        
+    }
     
     [Test]
     [TestCase(CommandInfo.ArgumentType.FileSystemEntry)]

@@ -37,6 +37,7 @@ public record CommandInfo
         CommandName,
         ProcessId,
         ProcessName,
+        CustomArgument,
         String,
     }
 
