@@ -11,29 +11,31 @@ public static class Prompt
     private static int _commandLineCursorPosition;
     public static void SetCursorPosition(int commandLineCursorPosition)
     {
-        var pos = Console.GetCursorPosition();
+        var pos = BufferedConsole.GetCursorPosition();
         _commandLineCursorPosition = commandLineCursorPosition;
         _scrollOffset = Math.Clamp(_scrollOffset, commandLineCursorPosition - Console.WindowWidth + _promptLength + 1, commandLineCursorPosition);
-        Console.SetCursorPosition(_commandLineCursorPosition + _promptLength - _scrollOffset, pos.Top);
+        BufferedConsole.SetCursorPosition(_commandLineCursorPosition + _promptLength - _scrollOffset, pos.Top);
+        BufferedConsole.Flush();
     }
 
     static string CurrentDirectoryNameForPrompt(NPath path) => path == NPath.HomeDirectory ? "~" : path.FileName;
     
     public static void RenderPrompt(string? commandline = null, string? selectedSuggestion = null)
     {
-        var pos = Console.GetCursorPosition();
-        Console.BackgroundColor = ConsoleColor.Black;
-        Console.ForegroundColor = ConsoleColor.White;
-        Console.SetCursorPosition(0, pos.Top);
+        BufferedConsole.Update();
+        var pos = BufferedConsole.GetCursorPosition();
+        BufferedConsole.BackgroundColor = BufferedConsole.ConsoleColor.Black;
+        BufferedConsole.ForegroundColor = BufferedConsole.ConsoleColor.White;
+        BufferedConsole.SetCursorPosition(0, pos.Top);
         var debug = Assembly.GetEntryAssembly()?.Location.ToNPath().Parent.Parent.FileName == "Debug";
         var promptchar = debug ? "🪲" : "⚡️";
-        var promptText = $"{CurrentDirectoryNameForPrompt(NPath.CurrentDirectory)}{promptchar}️";
-        Console.Write(promptText);
-        Console.ResetColor();
-        Console.ForegroundColor = ConsoleColor.Black;
-        Console.Write("\uE0B0 ");
-        Console.ResetColor();
-        _promptLength = promptText.Length + 1;
+        var promptText = $"{CurrentDirectoryNameForPrompt(NPath.CurrentDirectory)}{promptchar}";
+        BufferedConsole.Write(promptText);
+        BufferedConsole.ResetColor();
+        BufferedConsole.ForegroundColor = BufferedConsole.ConsoleColor.Black;
+        BufferedConsole.Write("\uE0B0 ");
+        BufferedConsole.ResetColor();
+        _promptLength = promptText.Length + 2;
         if (commandline == null) return;
         var commandLineLastWord = Suggestor.SplitCommandIntoWords(commandline).LastOrDefault("");
         var selectedSuggestionSuffix = "";
@@ -48,30 +50,30 @@ public static class Prompt
         
         if (charactersToSkip > 0)
         {
-            Console.Write("⋯");
+            BufferedConsole.Write("⋯");
             charactersToSkip++;
         }
 
         if (charactersToSkip < commandline.Length)
         {
-            Console.Write(commandline[charactersToSkip..]);
+            BufferedConsole.Write(commandline[charactersToSkip..]);
             charactersToSkip = 0;
         }
         else
             charactersToSkip -= commandline.Length;
-        Console.ForegroundColor = ConsoleColor.Gray;
-        Console.Write(selectedSuggestionSuffix[charactersToSkip..]);
+        BufferedConsole.ForegroundColor = BufferedConsole.ConsoleColor.Gray15;
+        BufferedConsole.Write(selectedSuggestionSuffix[charactersToSkip..]);
 
         if (remainingSpace + _scrollOffset < 0)
         {
-            Console.SetCursorPosition(Console.WindowWidth - 1, pos.Top);
-            Console.Write("⋯");
+            BufferedConsole.SetCursorPosition(Console.WindowWidth - 1, pos.Top);
+            BufferedConsole.Write("⋯");
         }
 
 
-        Console.ResetColor();
+        BufferedConsole.ResetColor();
 
         SuggestionConsoleViewer.ClearLineFromCursor();
-        Console.SetCursorPosition(pos.Left, pos.Top);
+        SetCursorPosition(_commandLineCursorPosition);
     }
 }

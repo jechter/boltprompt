@@ -6,94 +6,101 @@ public static class SuggestionConsoleViewer
 
     public static void ClearScreenFromCursor()
     {
-        var cursorLeft = Console.CursorLeft;
-        var cursorTop = Console.CursorTop;
+        var cursorLeft = BufferedConsole.CursorLeft;
+        var cursorTop = BufferedConsole.CursorTop;
         var oldCursorTop = cursorTop;
 
-        while (cursorTop < Console.WindowHeight)
+        while (cursorTop < BufferedConsole.WindowHeight)
         {
             ClearLineFromCursor();
             cursorTop++;
-            Console.SetCursorPosition(0, cursorTop);    
+            BufferedConsole.SetCursorPosition(0, cursorTop);    
         }
 
-        Console.SetCursorPosition(cursorLeft, oldCursorTop);
+        BufferedConsole.SetCursorPosition(cursorLeft, oldCursorTop);
     }
     
     public static void ClearLineFromCursor()
     {
         // Get the current cursor position
-        var currentLeft = Console.CursorLeft;
-        var currentTop = Console.CursorTop;
+        var currentLeft = BufferedConsole.CursorLeft;
+        var currentTop = BufferedConsole.CursorTop;
 
         // Calculate the number of characters to clear
-        var widthToClear = Console.WindowWidth - currentLeft;
+        var widthToClear = BufferedConsole.WindowWidth - currentLeft;
         if (widthToClear > 0)
         {
             // Write spaces to clear the rest of the line
-            Console.Write(new string(' ', widthToClear));
+            BufferedConsole.Write(new (' ', widthToClear));
 
             // Reset the cursor to the original position
-            Console.SetCursorPosition(currentLeft, currentTop);
+            BufferedConsole.SetCursorPosition(currentLeft, currentTop);
         }
     }
     
     public static void ShowSuggestions(Suggestion[] suggestions, int selection, bool useColor = true)
     {
-        var pos = Console.GetCursorPosition();
-        var topLine = Console.GetCursorPosition().Top + 1;
-        if  (topLine + MaxSuggestions > Console.WindowHeight)
+        BufferedConsole.Update();
+        var pos = BufferedConsole.GetCursorPosition();
+        var topLine = BufferedConsole.GetCursorPosition().Top + 1;
+        if  (topLine + MaxSuggestions > BufferedConsole.WindowHeight)
             for (var i=0; i<MaxSuggestions; i++)
-                Console.WriteLine();
-        while (topLine + MaxSuggestions > Console.WindowHeight)
+                BufferedConsole.WriteLine();
+        while (topLine + MaxSuggestions > BufferedConsole.WindowHeight)
         {
             topLine--;
             pos.Top--;
         }
-        Console.SetCursorPosition(pos.Left, pos.Top);
+        BufferedConsole.SetCursorPosition(pos.Left, pos.Top);
         var startLine = Math.Min(Math.Max(0, selection - MaxSuggestions / 2), Math.Max(0, suggestions.Length - MaxSuggestions));
         var line = topLine;
         var maxSuggestionLength = suggestions.Any() ? suggestions.Skip(startLine).Take(MaxSuggestions).Select(s => s.Text.Length + (s.Icon?.Length ?? 0)).Max() : 0;
         var descriptionStart = maxSuggestionLength + 5;
-        var descriptionLength = Console.WindowWidth - descriptionStart;
+        var descriptionLength = BufferedConsole.WindowWidth - descriptionStart;
         for (var i=startLine; i < startLine + MaxSuggestions; i++)
         {
             if (useColor)
-                Console.BackgroundColor = selection == i ? ConsoleColor.Cyan : ConsoleColor.Gray;
-            Console.SetCursorPosition(0, line);
-            if (useColor)
-                Console.ForegroundColor = ConsoleColor.Magenta;
-            Console.Write(selection == i ? "➡️  " : "   ");
+            {
+                BufferedConsole.BackgroundColor = selection == i
+                    ? BufferedConsole.ConsoleColor.LightCyan
+                    : BufferedConsole.ConsoleColor.Gray20;
+                BufferedConsole.ForegroundColor = BufferedConsole.ConsoleColor.Gray5;
+            }
+
+            BufferedConsole.SetCursorPosition(0, line);
+            BufferedConsole.Bold = true;
+            BufferedConsole.Write(selection == i ? "\u27a4  " : "   ");
             if (suggestions.Length > i)
             {
                 if (suggestions[i].Icon != null)
-                    Console.Write($"{suggestions[i].Icon} ");
-                var labelSize = Console.WindowWidth - (suggestions[i].Icon != null ? 5 : 3);
+                    BufferedConsole.Write($"{suggestions[i].Icon} ");
+                var labelSize = BufferedConsole.WindowWidth - (suggestions[i].Icon != null ? 5 : 3);
                 if (suggestions[i].Text.Length > labelSize)
                 {
-                    Console.Write("⋯");
-                    Console.Write($"{suggestions[i].Text[^labelSize..]} ");
+                    BufferedConsole.Write("⋯");
+                    BufferedConsole.Write($"{suggestions[i].Text[^labelSize..]} ");
                 }
                 else
-                    Console.Write(suggestions[i].Text);
+                    BufferedConsole.Write(suggestions[i].Text);
             }
 
+            BufferedConsole.Bold = false;
+
             ClearLineFromCursor();
-            Console.SetCursorPosition(descriptionStart, line);
-            if (useColor)
-                Console.ForegroundColor = ConsoleColor.Black;
+            BufferedConsole.SetCursorPosition(descriptionStart, line);
             if (suggestions.Length > i)
             {
                 var description = selection == i ? suggestions[i].Description : suggestions[i].SecondaryDescription ?? suggestions[i].Description;
                 if (description != null)
-                    Console.Write(new string(description.Replace('\n', ' ').Take(descriptionLength).ToArray()));
+                    BufferedConsole.Write(new string(description.Replace('\n', ' ').Take(descriptionLength).ToArray()));
             }
 
             if (useColor)
-                Console.ResetColor();
+                BufferedConsole.ResetColor();
             line++;
         }
-        Console.SetCursorPosition(pos.Left, pos.Top);
+        BufferedConsole.SetCursorPosition(pos.Left, pos.Top);
+        BufferedConsole.Flush();
     }
 
     public static void Clear()

@@ -20,6 +20,7 @@ internal class MainLoop
         Console.CancelKeyPress += ConsoleCancelKeyPress;
         KnownCommands.CommandInfoLoaded += _ => RequestRedraw();
         FileDescriptions.FileDescriptionLoaded += RequestRedraw;
+        CustomArguments.CustomArgumentsLoaded += RequestRedraw;
         Prompt.RenderPrompt();
     }
 
@@ -45,6 +46,7 @@ internal class MainLoop
             while (Console.KeyAvailable)
             {
                 var key = Console.ReadKey();
+                BufferedConsole.Update();
                 RequestRedraw();
                 if (key.Modifiers == ConsoleModifiers.Control)
                 {
