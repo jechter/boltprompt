@@ -21,6 +21,7 @@ internal class MainLoop
         KnownCommands.CommandInfoLoaded += _ => RequestRedraw();
         FileDescriptions.FileDescriptionLoaded += RequestRedraw;
         CustomArguments.CustomArgumentsLoaded += RequestRedraw;
+        AISuggestor.AIDescriptionLoaded += RequestRedraw;
         Prompt.RenderPrompt();
     }
 
@@ -128,7 +129,7 @@ internal class MainLoop
         if (_suggestions.Length != 0 && _suggestions.Length >= _selection)
         {
             var promptWords = Suggestor.SplitCommandIntoWords(_commandLine);
-            if (promptWords.Length == 0)
+            if (promptWords.Length == 0 || _commandLine.StartsWith("@"))
                 _commandLine = _suggestions[_selection].Text;
             else
             {
@@ -151,7 +152,7 @@ internal class MainLoop
             _selection = _suggestions.Length > 0 ? 0 : -1;
         else if (_selection < -1)
             _selection = _suggestions.Length - 1;
-        Prompt.RenderPrompt(_commandLine, _selection > -1 ? _suggestions[_selection].Text : null);
+        Prompt.RenderPrompt(_commandLine, _selection > -1 && !_commandLine.StartsWith("@") ? _suggestions[_selection].Text : null);
         if (_suggestions.Length > 0 && _selection != -1)
         {
             _didShowSuggestions = true;

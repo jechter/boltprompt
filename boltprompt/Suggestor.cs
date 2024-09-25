@@ -129,6 +129,8 @@ public partial class Suggestor
 
     public Suggestion[] SuggestionsForPrompt(string commandline)
     {
+        if (commandline.StartsWith('@'))
+            return SuggestByAI(commandline);
         var commandLineCommands = commandline.Split(_shellOperators);
         var currentCommand = commandLineCommands.Last().TrimStart();
         var commandLineArguments = SplitCommandIntoWords(currentCommand);
@@ -140,6 +142,14 @@ public partial class Suggestor
         if (currentWord?.StartsWith('$') ?? false)
             suggestions = SuggestEnvironmentVariables(currentWord).Concat(suggestions).ToArray();
         return SortSuggestionsByHistory(commandline, suggestions);
+    }
+
+    private Suggestion[] SuggestByAI(string commandline)
+    {
+        if (!ChatGptClient.IsAvailable)
+            return [];
+
+        return AISuggestor.Suggest(commandline[1..]);
     }
 
     private static IEnumerable<Suggestion> SuggestEnvironmentVariables(string currentWord)
