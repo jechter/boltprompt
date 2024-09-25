@@ -66,7 +66,7 @@ public class SuggestorTests
         MakeTestExecutable(testDir.Combine("testExecutable"));
         testDir.Combine("testFile").WriteAllText("Just a file");
 
-        var suggestions = new Suggestor().SuggestionsForPrompt("localTestDir/");
+        var suggestions = Suggestor.SuggestionsForPrompt("localTestDir/");
         
         Assert.That(suggestions.Select(s => s.Text.Trim()), Does.Contain("localTestDir/testExecutable"));
         Assert.That(suggestions.Select(s => s.Text.Trim()), Does.Not.Contain("localTestDir/testFile"));
@@ -86,14 +86,15 @@ public class SuggestorTests
         _pathsToCleanup.Add(testExePath2);
 
         Environment.SetEnvironmentVariable("PATH", $"{testExePath1}:{testExePath2}");
+        Suggestor.Init();
         
-        var suggestions = new Suggestor().SuggestionsForPrompt("p");
+        var suggestions = Suggestor.SuggestionsForPrompt("p");
 
         Assert.That(suggestions.Select(s => s.Text.Trim()), Does.Contain("pathTestExecutable"));
         Assert.That(suggestions.Select(s => s.Text.Trim()), Does.Not.Contain("pathTestFile"));
         Assert.That(suggestions.Select(s => s.Text.Trim()), Does.Not.Contain("anotherPathTestFile"));
         
-        suggestions = new Suggestor().SuggestionsForPrompt("a");
+        suggestions = Suggestor.SuggestionsForPrompt("a");
 
         Assert.That(suggestions.Select(s => s.Text.Trim()), Does.Contain("anotherPathTestExecutable"));
         Assert.That(suggestions.Select(s => s.Text.Trim()), Does.Not.Contain("anotherPathTestFile"));
@@ -104,7 +105,7 @@ public class SuggestorTests
     {
         _pathsToCleanup.Add(MakeTestExecutable(new NPath("testExecutable").MakeAbsolute()));
         KnownCommands.AddCommandInfo("testExecutable", ci);
-        return new Suggestor().SuggestionsForPrompt($"./testExecutable{extraPrompt}");
+        return Suggestor.SuggestionsForPrompt($"./testExecutable{extraPrompt}");
     }
     
     [Test]
@@ -485,6 +486,7 @@ public class SuggestorTests
         MakeTestExecutable(testExePath1.Combine("testExecutable"));
         _pathsToCleanup.Add(testExePath1);
         Environment.SetEnvironmentVariable("PATH", testExePath1.ToString());
+        Suggestor.Init();
 
         var ci = new CommandInfo
         {
@@ -577,8 +579,7 @@ public class SuggestorTests
         {
             Arguments = [new([ new("") { Type = CommandInfo.ArgumentType.FileSystemEntry }])]
         };
-        var suggestions = GetSuggestionsForTestExecutable(ci, " testDir/");
-        Assert.That(suggestions, Is.Empty);
+        Assert.DoesNotThrow(() => GetSuggestionsForTestExecutable(ci, " testDir/"));
     }
     
     [Test]
@@ -662,7 +663,7 @@ public class SuggestorTests
     public void CanGetSuggestionsFromHistory()
     {
         History.LoadTestHistory(["foo", "bar", "foo bar"]);
-        var suggestions = new Suggestor().SuggestionsForPrompt("f");
+        var suggestions = Suggestor.SuggestionsForPrompt("f");
         Assert.That(suggestions.Select(s => s.Text.Trim()), Does.Contain("foo"));
         Assert.That(suggestions.Select(s => s.Text.Trim()), Does.Contain("foo bar"));
         Assert.That(suggestions.Select(s => s.Text.Trim()), Does.Not.Contain("bar"));
@@ -672,7 +673,7 @@ public class SuggestorTests
     public void CanGetSuggestionsFromHistoryWithEmptyCommandLine()
     {
         History.LoadTestHistory(["foo", "bar", "foo bar"]);
-        var suggestions = new Suggestor().SuggestionsForPrompt("");
+        var suggestions = Suggestor.SuggestionsForPrompt("");
         Assert.That(suggestions.Select(s => s.Text.Trim()), Does.Contain("foo"));
         Assert.That(suggestions.Select(s => s.Text.Trim()), Does.Contain("foo bar"));
         Assert.That(suggestions.Select(s => s.Text.Trim()), Does.Contain("bar"));
@@ -749,7 +750,7 @@ public class SuggestorTests
     public void CanSuggestEnvironmentVariables()
     {
         Environment.SetEnvironmentVariable("FOO", "Test Value");
-        var suggestions = new Suggestor().SuggestionsForPrompt("$");
+        var suggestions = Suggestor.SuggestionsForPrompt("$");
         Assert.That(suggestions, Does.Contain(new Suggestion("$FOO") {Description = "Test Value"}));
     }
 

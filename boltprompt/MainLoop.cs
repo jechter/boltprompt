@@ -4,7 +4,6 @@ namespace boltprompt;
 
 internal class MainLoop
 {
-    private readonly Suggestor _suggestor = new ();
     private string _commandLine = "";
     private int _selection;
     private int _commandLineCursorPos;
@@ -147,7 +146,7 @@ internal class MainLoop
     private void RenderPromptAndSuggestionsIfNeeded()
     {
         if (!_needsRedraw) return;
-        _suggestions = _suggestor.SuggestionsForPrompt(_commandLine);
+        _suggestions = Suggestor.SuggestionsForPrompt(_commandLine);
         if (_selection >= _suggestions.Length)
             _selection = _suggestions.Length > 0 ? 0 : -1;
         else if (_selection < -1)

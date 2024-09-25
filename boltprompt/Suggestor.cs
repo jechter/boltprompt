@@ -1,4 +1,5 @@
 using System.Collections;
+using System.ComponentModel;
 using System.Text.RegularExpressions;
 using CliWrap;
 using CliWrap.Buffered;
@@ -28,17 +29,23 @@ public record FileSystemSuggestion(string Text) : Suggestion(Text)
     public override string? SecondaryDescription => FileDescriptions.GetFileDescription(Text);
 }
 
-public partial class Suggestor
+public static partial class Suggestor
 {
-    private readonly Suggestion[] _executablesInPathEnvironment;
-    private readonly char[] _shellOperators = ['>', '<', '|', '&', ';']; 
+    private static Suggestion[] _executablesInPathEnvironment = [];
+    private static readonly char[] _shellOperators = ['>', '<', '|', '&', ';']; 
     
-    Suggestion? GetExecutableCommandInfo(string command) =>
+    public static Suggestion[] ExecutablesInPathEnvironment => _executablesInPathEnvironment;
+    static Suggestion? GetExecutableCommandInfo(string command) =>
         _executablesInPathEnvironment.FirstOrDefault(exe => exe.Text.Trim() == Path.GetFileName(command));
-    
-    public Suggestor()
+
+    public static void Init()
     {
         _executablesInPathEnvironment = FindExecutablesInPathEnvironment();
+    }
+    
+    static Suggestor()
+    {
+        Init();
         KnownCommands.CommandInfoLoaded += ci =>
         {
             var sug = GetExecutableCommandInfo(ci.Name);
@@ -91,7 +98,7 @@ public partial class Suggestor
         }
     }
     
-    Suggestion[] SortSuggestionsByHistory(string commandline, IEnumerable<Suggestion> suggestions)
+    static Suggestion[] SortSuggestionsByHistory(string commandline, IEnumerable<Suggestion> suggestions)
     {
         return string.IsNullOrWhiteSpace(commandline) ? suggestions.ToArray() : suggestions.OrderDescending(new HistoryComparer(commandline)).ToArray();
     }
@@ -127,7 +134,7 @@ public partial class Suggestor
         return result.ToArray();
     }
 
-    public Suggestion[] SuggestionsForPrompt(string commandline)
+    public static Suggestion[] SuggestionsForPrompt(string commandline)
     {
         if (commandline.StartsWith('@'))
             return SuggestByAI(commandline);
@@ -144,7 +151,7 @@ public partial class Suggestor
         return SortSuggestionsByHistory(commandline, suggestions);
     }
 
-    private Suggestion[] SuggestByAI(string commandline)
+    private static Suggestion[] SuggestByAI(string commandline)
     {
         if (!ChatGptClient.IsAvailable)
             return [];
@@ -204,7 +211,7 @@ public partial class Suggestor
             .ToArray();
     }
     
-    private IEnumerable<Suggestion> SuggestParameters(string commandline)
+    private static IEnumerable<Suggestion> SuggestParameters(string commandline)
     {
         var commandWords = SplitCommandIntoWords(commandline);
         var command = commandWords.FirstOrDefault("");
@@ -299,7 +306,7 @@ public partial class Suggestor
         }
     }
 
-    private IEnumerable<(int pid, string name)> GetProcesses()
+    private static IEnumerable<(int pid, string name)> GetProcesses()
     {
         var commandResult = Cli.Wrap("ps")
             .WithArguments("-Ao pid,comm")
@@ -416,7 +423,7 @@ public partial class Suggestor
         return arguments;
     }
     
-    private Suggestion[] SuggestCommand(string commandline)
+    private static Suggestion[] SuggestCommand(string commandline)
     {
         if (string.IsNullOrEmpty(commandline))
             return History.Commands.Select(h => new Suggestion(h)).ToArray();
