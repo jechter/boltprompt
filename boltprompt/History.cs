@@ -1,21 +1,48 @@
+using System.Text.Json;
+using System.Text.Json.Serialization;
+
 namespace boltprompt;
 
 public static class History
 {
-    private static string[]? _commands; 
-    
-    public static void AddCommandToHistory(string command)
+    public record Command(string Commandline)
     {
-        if (string.IsNullOrEmpty(command)) return;
+        [JsonInclude]
+        public string? AIPrompt;
+    }
+    
+    private static Command[]? _commands; 
+    
+    public static void AddCommandToHistory(string commandLine, string? aiPrompt)
+    {
+        if (string.IsNullOrEmpty(commandLine)) return;
+        var command = new Command(commandLine) { AIPrompt = aiPrompt };
         _commands = Commands.Where(c => c != command).Append(command).ToArray();
-        Paths.History.WriteAllLines(_commands);
+        Paths.History.WriteAllText(JsonSerializer.Serialize(_commands));
     }
 
-    public static string[] Commands =>
-        _commands ??= !Paths.History.FileExists() ? [] : Paths.History.ReadAllLines().ToArray();
+    public static Command[] Commands
+    {
+        get
+        {
+            if (_commands != null) return _commands;
+            _commands = [];
+            if (!Paths.History.FileExists()) return _commands;
+            try
+            {
+                _commands = JsonSerializer.Deserialize<Command[]>(Paths.History.ReadAllText()) ?? [];
+            }
+            catch (JsonException)
+            {
+                _commands = [];
+            }
+
+            return _commands;
+        }
+    }
 
     internal static void LoadTestHistory(string[] commands)
     {
-        _commands = commands;
+        _commands = commands.Select(c => new Command(c)).ToArray();
     }
 }

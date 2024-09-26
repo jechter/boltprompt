@@ -5,6 +5,7 @@ namespace boltprompt;
 internal class MainLoop
 {
     private string _commandLine = "";
+    private string? _aiPrompt;
     private int _selection;
     private int _commandLineCursorPos;
     private int _screenWidth;
@@ -128,8 +129,13 @@ internal class MainLoop
         if (_suggestions.Length != 0 && _suggestions.Length >= _selection)
         {
             var promptWords = Suggestor.SplitCommandIntoWords(_commandLine);
-            if (promptWords.Length == 0 || _commandLine.StartsWith("@"))
+            if (promptWords.Length == 0)
+                _commandLine = _suggestions[_selection].Text; 
+            else if (_commandLine.StartsWith('@'))
+            {
+                _aiPrompt = _commandLine[1..];
                 _commandLine = _suggestions[_selection].Text;
+            }
             else
             {
                 promptWords[^1] = _suggestions[_selection].Text;
@@ -169,12 +175,12 @@ internal class MainLoop
     }
 
     [DoesNotReturn]
-    static void ExitAndRunCommand(string command = "")
+    void ExitAndRunCommand(string command = "")
     {
         SuggestionConsoleViewer.Clear();
         Console.WriteLine();
         File.WriteAllText("/tmp/custom-command", command);
-        History.AddCommandToHistory(command);
+        History.AddCommandToHistory(command, _aiPrompt);
         Environment.Exit(0);
     }
 }

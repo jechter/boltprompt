@@ -11,27 +11,42 @@ static class AISuggestor
     public static event Action AIDescriptionLoaded = () => {};
 
     private static Task<string>? _directoryListing = null;
-
+    
     static async Task<string> GetDirectoryListing()
     {
         var result = await Cli.Wrap("ls").WithArguments("-al").ExecuteBufferedAsync();
         return result.StandardOutput;
     }
 
+    private static Task<string>? _osInfo = null;
+
+    static async Task<string> GetOSInfo()
+    {
+        var result = await Cli.Wrap("sw_vers").ExecuteBufferedAsync();
+        return result.StandardOutput;
+    }
+
     private static async Task<Suggestion[]> GetSuggestionsFromAI(CancellationToken cancellationToken, string request)
     {
         _directoryListing ??= GetDirectoryListing();
-        await _directoryListing;
+        _osInfo ??= GetOSInfo();
+        await Task.WhenAll(_directoryListing, _osInfo);
+        
         var fullRequest =
             $"""
              We want to help a user writing shell commands in the Terminal. The current shell is {Environment.GetEnvironmentVariable("SHELL")}.
+             
+             This is our runtime environment:
+             
+             {_osInfo.Result}
+             
              This is the listing of the current working directory {NPath.CurrentDirectory}:
              
              {_directoryListing.Result}
              
              These were the last commands executed:
              
-             {History.Commands.TakeLast(5)}
+             {string.Join("\n\n", History.Commands.TakeLast(5).Select(cmd => $"{cmd.Commandline}{(cmd.AIPrompt != null ? $"\n# suggested from AI prompt: `{cmd.AIPrompt}`" : "")}"))}
              
              This is a list of all the available commands:
              
