@@ -31,6 +31,20 @@ public record FileSystemSuggestion(string Text) : Suggestion(Text)
 
 public static partial class Suggestor
 {
+    public record CommandLinePart(string Text)
+    {
+        public enum PartType
+        {
+            Command,
+            Argument,
+            Operator,
+            Whitespace,
+        }
+
+        public PartType Type;
+        public CommandInfo.ArgumentType ArgumentType;
+    }
+    
     private static Suggestion[] _executablesInPathEnvironment = [];
     private static readonly char[] _shellOperators = ['>', '<', '|', '&', ';']; 
     
@@ -54,6 +68,56 @@ public static partial class Suggestor
         };
     }
 
+    public static IEnumerable<CommandLinePart> ParseCommandLine(string commandline)
+    {
+        var pos = 0;
+        var lastPartType = CommandLinePart.PartType.Whitespace;
+        while (pos < commandline.Length)
+        {
+            var nextPos = pos;
+            while (nextPos < commandline.Length && char.IsWhiteSpace(commandline[nextPos])) nextPos++;
+            
+            if (nextPos != pos)
+            {
+                yield return new (commandline[pos..nextPos]) { Type = CommandLinePart.PartType.Whitespace };
+                pos = nextPos;
+            }
+            
+            if (pos == commandline.Length) break;
+            
+            if (_shellOperators.Contains(commandline[pos]))
+            {
+                yield return new (commandline[pos].ToString()) { Type = CommandLinePart.PartType.Operator };
+                lastPartType = CommandLinePart.PartType.Operator;
+                pos++;
+            }
+                
+            nextPos = pos;
+            
+            if (pos == commandline.Length) break;
+
+            while (nextPos < commandline.Length && !char.IsWhiteSpace(commandline[nextPos]) && !_shellOperators.Contains(commandline[nextPos])) nextPos++;
+
+            if (nextPos != pos)
+            {
+                var part = new CommandLinePart(commandline[pos..nextPos])
+                {
+                    Type = lastPartType switch
+                    {
+                        CommandLinePart.PartType.Command => CommandLinePart.PartType.Argument,
+                        CommandLinePart.PartType.Argument => CommandLinePart.PartType.Argument,
+                        CommandLinePart.PartType.Operator => CommandLinePart.PartType.Command,
+                        CommandLinePart.PartType.Whitespace => CommandLinePart.PartType.Command,
+                        _ => throw new ArgumentOutOfRangeException()
+                    }
+                };
+                lastPartType = part.Type;
+                yield return part;
+                pos = nextPos;
+            }
+        }
+    }
+    
     class HistoryComparer : IComparer<Suggestion>
     {
         private readonly string[] _historyFilteredByCommandline;
@@ -61,7 +125,7 @@ public static partial class Suggestor
         public HistoryComparer(string commandline)
         {
             if (string.IsNullOrWhiteSpace(commandline))
-                _historyFilteredByCommandline = History.Commands.Select(s => s.Trim()).ToArray();
+                _historyFilteredByCommandline = History.Commands.Select(s => s.Commandline.Trim()).ToArray();
             else
             {
                 var commandLineWords = commandline.Split(' ');
@@ -69,12 +133,12 @@ public static partial class Suggestor
                 var commandLineWordPathComponents = lastCommandLineWord.Split('/');
 
                 _historyFilteredByCommandline =
-                    History.Commands.Where(s => s.StartsWith(commandline)).Select(FilterHistoryEntryByCommandLine)
+                    History.Commands.Where(s => s.Commandline.StartsWith(commandline)).Select(FilterHistoryEntryByCommandLine)
                         .ToArray();
 
-                string FilterHistoryEntryByCommandLine(string historyEntry)
+                string FilterHistoryEntryByCommandLine(History.Command historyEntry)
                 {
-                    var historyEntryWords = historyEntry.Split(' ');
+                    var historyEntryWords = historyEntry.Commandline.Split(' ');
                     var historyEntryCommandLineWord = historyEntryWords[commandLineWords.Length - 1];
                     var historyEntryPathComponents = historyEntryCommandLineWord.Split('/');
                     var filteredHistoryEntryPathComponents =
@@ -426,13 +490,13 @@ public static partial class Suggestor
     private static Suggestion[] SuggestCommand(string commandline)
     {
         if (string.IsNullOrEmpty(commandline))
-            return History.Commands.Select(h => new Suggestion(h)).ToArray();
+            return History.Commands.Select(h => new Suggestion(h.Commandline)).ToArray();
         return _executablesInPathEnvironment
             .Concat(
                 SuggestFileSystemEntries(commandline, CommandInfo.ArgumentType.CommandName)
                     .Select(sug => sug with { Description = KnownCommands.GetCommand(sug.Text.Split('/').Last().Trim(), false)?.Description ?? "" })
                 )
-            .Concat(History.Commands.Select(h => new Suggestion(h)))
+            .Concat(History.Commands.Select(h => new Suggestion(h.Commandline)))
             .DistinctBy(s => s.Text)
             .Where(sug => sug.Text.StartsWith(commandline))
             .ToArray();

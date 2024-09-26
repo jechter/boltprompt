@@ -54,13 +54,24 @@ public static class Prompt
             charactersToSkip++;
         }
 
-        if (charactersToSkip < commandline.Length)
+        var parts = Suggestor.ParseCommandLine(commandline);
+        foreach (var part in parts)
         {
-            BufferedConsole.Write(commandline[charactersToSkip..]);
-            charactersToSkip = 0;
+            BufferedConsole.Bold = part.Type switch
+            {
+                Suggestor.CommandLinePart.PartType.Command => true,
+                Suggestor.CommandLinePart.PartType.Argument => false,
+                Suggestor.CommandLinePart.PartType.Operator => true,
+                Suggestor.CommandLinePart.PartType.Whitespace => false,
+                _ => throw new ArgumentOutOfRangeException()
+            };
+            if (charactersToSkip < part.Text.Length)
+                BufferedConsole.Write(part.Text[charactersToSkip..]);
+            charactersToSkip -= part.Text.Length;
+            if (charactersToSkip < 0)
+                charactersToSkip = 0;
         }
-        else
-            charactersToSkip -= commandline.Length;
+        
         BufferedConsole.ForegroundColor = BufferedConsole.ConsoleColor.Gray15;
         BufferedConsole.Write(selectedSuggestionSuffix[charactersToSkip..]);
 
