@@ -65,6 +65,13 @@ public static class Prompt
                 Suggestor.CommandLinePart.PartType.Whitespace => false,
                 _ => throw new ArgumentOutOfRangeException()
             };
+            BufferedConsole.Underline = part.ArgumentType switch
+            {
+                CommandInfo.ArgumentType.Directory => true,
+                CommandInfo.ArgumentType.File => true,
+                CommandInfo.ArgumentType.FileSystemEntry => true,
+                _ => false
+            };
             if (charactersToSkip < part.Text.Length)
                 BufferedConsole.Write(part.Text[charactersToSkip..]);
             charactersToSkip -= part.Text.Length;

@@ -68,10 +68,100 @@ public static partial class Suggestor
         };
     }
 
+    class ArgumentParsingState
+    {
+        public ArgumentParsingState(CommandInfo.ArgumentGroup[] groups)
+        {
+            Groups = groups;
+            InitEligibleArguments();
+        }
+        
+        public CommandInfo.ArgumentGroup[] Groups = [];
+        public List<(CommandInfo.Argument argument, int groupIndex)> EligibleArguments = new();
+        public int MinGroupIndex = 0;
+        public int MaxGroupIndex = 0;
+
+        public void InitEligibleArguments(int startIndex = 0)
+        {
+            MinGroupIndex = startIndex;
+            var groupIndex = MinGroupIndex;
+            EligibleArguments.Clear();
+            while (Groups.Length > groupIndex)
+            {
+                var group = Groups[groupIndex];
+                EligibleArguments.AddRange(group.Arguments.Select(a => (a, groupIndex)));
+                if (!group.Optional)
+                    break;
+                groupIndex++;
+                if (groupIndex > MaxGroupIndex)
+                    MaxGroupIndex = groupIndex;
+            }
+        }
+    }
+
+    static CommandInfo.Argument? ParseArgument(string arg, Stack<ArgumentParsingState> parsingState)
+    {
+        if (parsingState.Count == 0)
+            return null;
+        var currentState = parsingState.Peek();
+        foreach (var argToMatch in currentState.EligibleArguments)
+        {
+            if (CanMatchArgument(arg, argToMatch.argument))
+            {
+                currentState.MinGroupIndex = argToMatch.groupIndex;
+                if (!currentState.Groups[argToMatch.groupIndex].Optional)
+                    currentState.InitEligibleArguments(argToMatch.groupIndex + 1);
+                else
+                    currentState.EligibleArguments = currentState.EligibleArguments.Where(a => a.groupIndex >= currentState.MinGroupIndex && (a != argToMatch || a.argument.Repeat)).ToList();
+                if (argToMatch.argument.Arguments != null)
+                    parsingState.Push(new (argToMatch.argument.Arguments));
+
+                return argToMatch.argument;
+            }
+        }
+
+        if (currentState.MaxGroupIndex == currentState.Groups.Length)
+        {
+            parsingState.Pop();
+            var result = ParseArgument(arg, parsingState);
+            if (result != null)
+                return result;
+            parsingState.Push(currentState);
+        }
+        
+        return null;
+    }
+
+    private static bool CanMatchArgument(string arg, CommandInfo.Argument argToMatch)
+    {
+        switch (argToMatch.Type)
+        {
+            case CommandInfo.ArgumentType.Keyword:
+                return argToMatch.AllNames.Any(a => a == arg);
+            case CommandInfo.ArgumentType.Flag:
+                return argToMatch.AllNames.Any(a => $"-{a}" == arg); // Todo Flag groups
+            case CommandInfo.ArgumentType.FileSystemEntry:
+            case CommandInfo.ArgumentType.Directory:
+            case CommandInfo.ArgumentType.File:
+            case CommandInfo.ArgumentType.Command:
+            case CommandInfo.ArgumentType.CommandName:
+            case CommandInfo.ArgumentType.ProcessId:
+            case CommandInfo.ArgumentType.ProcessName:
+            case CommandInfo.ArgumentType.String:
+                return true;
+            case CommandInfo.ArgumentType.CustomArgument:
+                return CustomArguments.Get(argToMatch.Name).Any(a => a.Text == arg);
+            default:
+                throw new ArgumentOutOfRangeException();
+        }
+    }
+
     public static IEnumerable<CommandLinePart> ParseCommandLine(string commandline)
     {
         var pos = 0;
         var lastPartType = CommandLinePart.PartType.Whitespace;
+        var commandinfo = CommandInfo.DefaultCommand;
+        var parsingState = new Stack<ArgumentParsingState>();
         while (pos < commandline.Length)
         {
             var nextPos = pos;
@@ -112,6 +202,21 @@ public static partial class Suggestor
                     }
                 };
                 lastPartType = part.Type;
+                if (part.Type == CommandLinePart.PartType.Command)
+                {
+                    commandinfo = KnownCommands.GetCommand(part.Text.Split('/').Last(), false);
+                    parsingState = new ();
+                    if (commandinfo?.Arguments != null)
+                        parsingState.Push(new (commandinfo.Arguments));
+                }
+
+                if (part.Type == CommandLinePart.PartType.Argument)
+                {
+                    var parsedArgument = ParseArgument(part.Text, parsingState);
+                    if (parsedArgument != null)
+                        part.ArgumentType = parsedArgument.Type;
+                }
+
                 yield return part;
                 pos = nextPos;
             }

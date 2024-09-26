@@ -119,7 +119,7 @@ public record CommandInfo
                 new ("W") { Description = "Display whiteouts when scanning directories. (-S) flag).", Repeat = true, Type = ArgumentType.Flag},
                 new ("w") { Description = "Force raw printing of non-printable characters.  This is the default when output is not to a terminal.", Repeat = true, Type = ArgumentType.Flag},
                 new ("x") { Description = "The same as -C, except that the multi-column output is produced with entries sorted across, rather than down, the columns.", Repeat = true, Type = ArgumentType.Flag},
-            ]),
+            ]) { Optional = true },
             new ([new ("FileSystemEntry") { Repeat = true, Type = ArgumentType.FileSystemEntry, Description = "A directory for which ls should list contents or a file for which ls should list information as requested."}])
         ]
     };

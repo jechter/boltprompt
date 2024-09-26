@@ -109,6 +109,10 @@ internal static class BufferedConsole
         set => _buffer.Append(value ? "\u001b[1m" : "\u001b[22m");
     }
     
+    public static bool Underline
+    {
+        set => _buffer.Append(value ? "\u001b[4m" : "\u001b[24m");
+    }
     public static void ResetColor()
     {
         _buffer.Append("\u001b[0m");
