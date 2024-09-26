@@ -14,17 +14,17 @@ static class AISuggestor
 
     static async Task<string> GetDirectoryListing()
     {
-        var result = await Cli.Wrap("ls").WithArguments("-l").ExecuteBufferedAsync();
+        var result = await Cli.Wrap("ls").WithArguments("-al").ExecuteBufferedAsync();
         return result.StandardOutput;
     }
 
-    private static async Task<Suggestion[]> GetSuggestionsFromAI(string request)
+    private static async Task<Suggestion[]> GetSuggestionsFromAI(CancellationToken cancellationToken, string request)
     {
         _directoryListing ??= GetDirectoryListing();
         await _directoryListing;
         var fullRequest =
             $"""
-             We want to help a user writing shell commands in the Terminal. 
+             We want to help a user writing shell commands in the Terminal. The current shell is {Environment.GetEnvironmentVariable("SHELL")}.
              This is the listing of the current working directory {NPath.CurrentDirectory}:
              
              {_directoryListing.Result}
@@ -44,11 +44,14 @@ static class AISuggestor
              If there are multiple reasonable ways you can perform the request, you can reply with multiple command lines - one per line. 
              Reply with the command line(s) only - no further text!
              """;
-        var reply = await ChatGptClient.GetReply(fullRequest);
+        var reply = await ChatGptClient.GetReply(cancellationToken, fullRequest);
         return reply.Split(Environment.NewLine).Where(line => !line.StartsWith("```")).Select(line => new Suggestion(line)).ToArray();
     }
 
     private static readonly Suggestion PendingSuggestion = new("") { Icon = "🧠", Description = "suggestions pending" };
+
+
+    static CancellationTokenSource? _cancellationTokenSource;
     public static Suggestion[] Suggest(string request)
     {
         if (!ChatGptClient.IsAvailable)
@@ -56,13 +59,21 @@ static class AISuggestor
 
         if (request.Trim().Length == 0)
             return [];
-        
-        if (Cache.TryGetValue(request, out var result)) 
-            return result.IsCompletedSuccessfully ? result.Result : [PendingSuggestion];
 
-        var task = GetSuggestionsFromAI(request);
+        if (Cache.TryGetValue(request, out var result))
+        {
+            if (result.IsCanceled)
+                Cache.Remove(request);
+            else
+                return result.IsCompletedSuccessfully ? result.Result : [PendingSuggestion];
+        }
+
+        _cancellationTokenSource?.Cancel();
+        _cancellationTokenSource = new();
+        
+        var task = GetSuggestionsFromAI(_cancellationTokenSource.Token, request);
         Cache[request] = task;
         task.ContinueWith(_ => AIDescriptionLoaded.Invoke());
-        return [PendingSuggestion ];
+        return [PendingSuggestion];
     }
 }

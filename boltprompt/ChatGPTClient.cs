@@ -21,20 +21,20 @@ public static class ChatGptClient
         public string content = content;
     }
 
-    public static async Task<bool> GetBooleanReply(params string[] prompt)
+    public static async Task<bool> GetBooleanReply(CancellationToken cancellationToken, params string[] prompt)
     {
-        var stringReply = await GetReply(prompt.Append("Reply with just yes or no.").ToArray());
+        var stringReply = await GetReply(cancellationToken, prompt.Append("Reply with just yes or no.").ToArray());
         return stringReply.Contains("yes", StringComparison.InvariantCultureIgnoreCase);
     }
 
-    public static async Task<string> GetReply(params string[] prompt)
+    public static async Task<string> GetReply(CancellationToken cancellationToken, params string[] prompt)
     {
-        var messages = new List<GptMessage> {new( "system", "You are ChatGPT, a helpful assistant.")};
+        var messages = new List<GptMessage> { new("system", "You are ChatGPT, a helpful assistant.") };
         messages.AddRange(prompt.Select(s => new GptMessage("user", s)));
-        
+
         var requestBody = new
         {
-            model = "gpt-3.5-turbo",//"gpt-3.5-turbo",//"gpt-4", // or "gpt-3.5-turbo"
+            model = "gpt-3.5-turbo", // or "gpt-4"
             messages,
             max_tokens = 4096,
             n = 1,
@@ -47,11 +47,12 @@ public static class ChatGptClient
         Logger.Log(Logger.Gpt, "Request:");
         Logger.Log(Logger.Gpt, JsonSerializer.Serialize(requestBody));
 
-        var response = await Client.PostAsJsonAsync(ApiUrl, requestBody);
+        // Pass the cancellation token here
+        var response = await Client.PostAsJsonAsync(ApiUrl, requestBody, cancellationToken);
 
         if (response.IsSuccessStatusCode)
         {
-            var responseContent = await response.Content.ReadAsStringAsync();
+            var responseContent = await response.Content.ReadAsStringAsync(cancellationToken);
             Logger.Log(Logger.Gpt, "Response:");
             Logger.Log(Logger.Gpt, responseContent);
             var responseData = JsonSerializer.Deserialize<JsonElement>(responseContent);
@@ -64,10 +65,11 @@ public static class ChatGptClient
 
             if (chatResponse == null)
                 throw new InvalidDataException("Could not read GPT response JSON");
+        
             return chatResponse;
         }
 
-        var errorContent = await response.Content.ReadAsStringAsync();
+        var errorContent = await response.Content.ReadAsStringAsync(cancellationToken);
         Logger.Log(Logger.Gpt, "Error:");
         Logger.Log(Logger.Gpt, errorContent);
         throw new WebException("GPT returned an error, see log for details.");

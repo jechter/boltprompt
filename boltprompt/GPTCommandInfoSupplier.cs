@@ -26,12 +26,13 @@ public class GptCommandInfoSupplier : ICommandInfoSupplier
             }
         }
     
+        var token = new CancellationToken();
         var result = new CommandInfo
         {
             Name = command,
-            Description = await ChatGptClient.GetReply(gptPromptPrefix, $"Give a one-line description of what the `{command}` command does. Don't mention the command in the description.")
+            Description = await ChatGptClient.GetReply(token, gptPromptPrefix, $"Give a one-line description of what the `{command}` command does. Don't mention the command in the description.")
         };
-        var argumentsText = await ChatGptClient.GetReply(gptPromptPrefix, $"List all the command line arguments the `{command}` command accepts. List one argument per line, just the arguments, no extra text.");
+        var argumentsText = await ChatGptClient.GetReply(token, gptPromptPrefix, $"List all the command line arguments the `{command}` command accepts. List one argument per line, just the arguments, no extra text.");
         var sourceArguments = argumentsText.Split("\n");
         var arguments = new List<CommandInfo.Argument>();
         foreach (var sourceArgument in sourceArguments)
@@ -48,20 +49,20 @@ public class GptCommandInfoSupplier : ICommandInfoSupplier
             arguments.Add(new (type == CommandInfo.ArgumentType.Flag ? arg[1..] : arg)
             {
                 //Optional = await ChatGptClient.GetBooleanReply(gptPromptPrefix, $"Is the `{arg}` argument optional?"),
-                Repeat = await ChatGptClient.GetBooleanReply(gptPromptPrefix, $"Can the `{arg}` argument appear more than once on the command line?"),
-                Description = await ChatGptClient.GetReply(gptPromptPrefix, $"Give a one-line description of what the `{arg}` argument command does. Don't mention the command or argument in the description."),
+                Repeat = await ChatGptClient.GetBooleanReply(token, gptPromptPrefix, $"Can the `{arg}` argument appear more than once on the command line?"),
+                Description = await ChatGptClient.GetReply(token, gptPromptPrefix, $"Give a one-line description of what the `{arg}` argument command does. Don't mention the command or argument in the description."),
                 Type = type,
             });
         }
     
-        if (await ChatGptClient.GetBooleanReply(gptPromptPrefix,
+        if (await ChatGptClient.GetBooleanReply(token, gptPromptPrefix,
                 $"Does the `{command}` command take any path names as arguments?"))
         {
             arguments.Add(new ("pathname")
             {
                 Type = CommandInfo.ArgumentType.FileSystemEntry,
-                Description = await ChatGptClient.GetReply(gptPromptPrefix, $"Give a one-line description of what the path argument passed to the {command} command does. Don't mention the command or argument in the description."),
-                Repeat = await ChatGptClient.GetBooleanReply(gptPromptPrefix, $"Does the `{command}` command take more than one path name as arguments?"),
+                Description = await ChatGptClient.GetReply(token, gptPromptPrefix, $"Give a one-line description of what the path argument passed to the {command} command does. Don't mention the command or argument in the description."),
+                Repeat = await ChatGptClient.GetBooleanReply(token, gptPromptPrefix, $"Does the `{command}` command take more than one path name as arguments?"),
                 //Optional = await ChatGptClient.GetBooleanReply(gptPromptPrefix, $"Is passing a path name argument to `{command}` optional?"),
             });
         }
@@ -142,7 +143,7 @@ public class GptCommandInfoSupplier : ICommandInfoSupplier
 
                                 Please reply with only the json.
                                 """;
-        var result = await ChatGptClient.GetReply(gptPromptPrefix);
+        var result = await ChatGptClient.GetReply(new CancellationToken(), gptPromptPrefix);
         result = string.Join('\n', result.Split('\n').Where(l => !l.StartsWith("```")));
         var ci = CommandInfo.Deserialize(result) ?? throw new InvalidDataException("Could not parse GPT output");
         ci.Comment = "Written by artificial stupidity.";
