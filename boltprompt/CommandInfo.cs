@@ -45,14 +45,14 @@ public record CommandInfo
     {
         [JsonInclude]
         public bool Optional;
+        [JsonInclude]
+        public bool DontAllowMultiple;
     }
     
     public record Argument(string Name)
     {
         [JsonInclude]
         public bool Repeat;
-        [JsonInclude]
-        public bool DontAllowMultiple;
         [JsonInclude]
         public string Description = "";
         [JsonInclude]

@@ -65,7 +65,7 @@ public static class Prompt
                 Suggestor.CommandLinePart.PartType.Whitespace => false,
                 _ => throw new ArgumentOutOfRangeException()
             };
-            BufferedConsole.Underline = part.ArgumentType switch
+            BufferedConsole.Underline = part.Argument?.Type switch
             {
                 CommandInfo.ArgumentType.Directory => true,
                 CommandInfo.ArgumentType.File => true,

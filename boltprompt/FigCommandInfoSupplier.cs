@@ -123,7 +123,6 @@ public class FigCommandInfoSupplier : ICommandInfoSupplier
     private CommandInfo.Argument ConvertFigSubCommand(FigCommandInfo figCommand) => new (figCommand.name[0])
     {
         Type = CommandInfo.ArgumentType.Keyword,
-        DontAllowMultiple = true,
         Aliases = figCommand.name.Skip(1).ToArray(),
         Description = figCommand.description ?? "",
         Arguments = ConvertFigArguments(figCommand)
@@ -137,7 +136,7 @@ public class FigCommandInfoSupplier : ICommandInfoSupplier
         if (figCommandInfo.args != null)
             arggroups.AddRange(figCommandInfo.args.Select(ConvertFigArgument));
         if (figCommandInfo.subcommands != null)
-            arggroups.Add(new(figCommandInfo.subcommands.Select(ConvertFigSubCommand).ToArray()));
+            arggroups.Add(new(figCommandInfo.subcommands.Select(ConvertFigSubCommand).ToArray()) { DontAllowMultiple = true });
         return arggroups.ToArray();
     }
     
