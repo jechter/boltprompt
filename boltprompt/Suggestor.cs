@@ -212,20 +212,22 @@ public static partial class Suggestor
                 };
 
                 lastPartType = part.Type;
-                if (part.Type == CommandLinePart.PartType.Command)
+                switch (part.Type)
                 {
-                    var commandInfo = KnownCommands.GetCommand(part.Text.Split('/').Last(), false);
-                    parsingState.Clear();
-
-                    if (commandInfo?.Arguments != null)
-                        parsingState.Add(new (commandInfo.Arguments));
-                }
-
-                if (part.Type == CommandLinePart.PartType.Argument)
-                {
-                    var parsedArgument = ParseArgument(part.Text, parsingState);
-                    if (parsedArgument != null)
-                        part.Argument = parsedArgument;
+                    case CommandLinePart.PartType.Command:
+                        LoadCommandPart(part);
+                        break;
+                    case CommandLinePart.PartType.Argument:
+                    {
+                        var parsedArgument = ParseArgument(part.Text, parsingState);
+                        if (parsedArgument != null)
+                        {
+                            part.Argument = parsedArgument;
+                            if (parsedArgument.Type == CommandInfo.ArgumentType.Command)
+                                LoadCommandPart(part);
+                        }
+                        break;
+                    }
                 }
 
                 yield return part;
@@ -240,6 +242,16 @@ public static partial class Suggestor
             if (!char.IsWhiteSpace(commandline[index]))
                 return false;
             return index == 0 || commandline[index - 1] != '\\';
+        }
+
+
+        void LoadCommandPart(CommandLinePart part)
+        {
+            var commandInfo = KnownCommands.GetCommand(part.Text.Split('/').Last(), false);
+            parsingState.Clear();
+
+            if (commandInfo?.Arguments != null)
+                parsingState.Add(new (commandInfo.Arguments));
         }
     }
     
@@ -445,12 +457,9 @@ public static partial class Suggestor
 
                     break;
                 case CommandInfo.ArgumentType.CommandName:
+                case CommandInfo.ArgumentType.Command:
                     foreach (var s in _executablesInPathEnvironment.Where(sug => sug.Text.StartsWith(lastParam)))
                         yield return s;
-                    break;
-                case CommandInfo.ArgumentType.Command:
-                    //foreach (var s in SuggestionsForPrompt(string.Join(' ',commandParams)))
-                      //  yield return s;
                     break;
                 case CommandInfo.ArgumentType.ProcessId:
                     foreach (var p in GetProcesses())
