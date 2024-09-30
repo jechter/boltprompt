@@ -103,6 +103,13 @@ internal class MainLoop
                         CommitSelection();
                         break;
                     case ConsoleKey.Escape:
+                        if (Console.KeyAvailable && key.KeyChar == 0x1b) 
+                        {
+                            // handle bracketed paste escape sequence
+                            while (Console.KeyAvailable && key.KeyChar != '~')
+                                key = Console.ReadKey();
+                            break;
+                        }
                         _selection = -1;
                         break;
                     case ConsoleKey.Enter:
