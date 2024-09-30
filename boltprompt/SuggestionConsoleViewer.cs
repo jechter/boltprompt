@@ -3,40 +3,6 @@ namespace boltprompt;
 public static class SuggestionConsoleViewer
 {
     private const int MaxSuggestions = 10;
-
-    public static void ClearScreenFromCursor()
-    {
-        var cursorLeft = BufferedConsole.CursorLeft;
-        var cursorTop = BufferedConsole.CursorTop;
-        var oldCursorTop = cursorTop;
-
-        while (cursorTop < BufferedConsole.WindowHeight)
-        {
-            ClearLineFromCursor();
-            cursorTop++;
-            BufferedConsole.SetCursorPosition(0, cursorTop);    
-        }
-
-        BufferedConsole.SetCursorPosition(cursorLeft, oldCursorTop);
-    }
-    
-    public static void ClearLineFromCursor()
-    {
-        // Get the current cursor position
-        var currentLeft = BufferedConsole.CursorLeft;
-        var currentTop = BufferedConsole.CursorTop;
-
-        // Calculate the number of characters to clear
-        var widthToClear = BufferedConsole.WindowWidth - currentLeft;
-        if (widthToClear > 0)
-        {
-            // Write spaces to clear the rest of the line
-            BufferedConsole.Write(new (' ', widthToClear));
-
-            // Reset the cursor to the original position
-            BufferedConsole.SetCursorPosition(currentLeft, currentTop);
-        }
-    }
     
     public static void ShowSuggestions(Suggestion[] suggestions, int selection, bool useColor = true)
     {
@@ -86,7 +52,7 @@ public static class SuggestionConsoleViewer
 
             BufferedConsole.Bold = false;
 
-            ClearLineFromCursor();
+            BufferedConsole.ClearEndOfLine();
             BufferedConsole.SetCursorPosition(descriptionStart, line);
             if (suggestions.Length > i)
             {

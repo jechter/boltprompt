@@ -91,7 +91,8 @@ public static class Prompt
 
         BufferedConsole.ResetColor();
 
-        SuggestionConsoleViewer.ClearLineFromCursor();
+        //SuggestionConsoleViewer.ClearLineFromCursor();
+        BufferedConsole.ClearEndOfLine();
         SetCursorPosition(_commandLineCursorPosition);
     }
 }

@@ -36,9 +36,10 @@ internal class MainLoop
                 if (_suggestions.Length != 0)
                 {
                     if (Console.WindowWidth < _screenWidth)
-                        Console.Clear();
-                    else
-                        SuggestionConsoleViewer.ClearScreenFromCursor();
+                    {
+                        BufferedConsole.ClearEndOfScreem();
+                        BufferedConsole.Flush();
+                    }
                 }
                 RequestRedraw();
                 _screenWidth = Console.WindowWidth;

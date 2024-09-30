@@ -66,10 +66,14 @@ internal static class BufferedConsole
     public static int CursorTop => _top;
     public static int WindowWidth => _windowWidth;
     public static int WindowHeight => _windowHeight;
-    
+
+    static void ConsoleControl(string ctrl)
+    {
+        _buffer.Append($"\u001b[{ctrl}");
+    }
     public static void SetCursorPosition(int left, int top)
     {
-        _buffer.Append($"\u001b[{top+1};{left+1}H");
+        ConsoleControl($"{top + 1};{left + 1}H");
         _left = left;
         _top = top;
         if (Debug)
@@ -97,25 +101,35 @@ internal static class BufferedConsole
     }
     
     public static ConsoleColor BackgroundColor {
-        set => _buffer.Append($"\u001b[48;5;{(int)value}m");
+        set => ConsoleControl($"48;5;{(int)value}m");
     }
 
     public static ConsoleColor ForegroundColor {
-        set => _buffer.Append($"\u001b[38;5;{(int)value}m");
+        set => ConsoleControl($"38;5;{(int)value}m");
     }
 
     public static bool Bold
     {
-        set => _buffer.Append(value ? "\u001b[1m" : "\u001b[22m");
+        set => ConsoleControl(value ? "1m" : "22m");
     }
     
     public static bool Underline
     {
-        set => _buffer.Append(value ? "\u001b[4m" : "\u001b[24m");
+        set => ConsoleControl(value ? "4m" : "24m");
     }
     public static void ResetColor()
     {
-        _buffer.Append("\u001b[0m");
+        ConsoleControl("0m");
+    }
+
+    public static void ClearEndOfLine()
+    {
+        ConsoleControl("0K");
+    }
+
+    public static void ClearEndOfScreem()
+    {
+        ConsoleControl("0J");
     }
 
     public static void Flush()
