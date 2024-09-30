@@ -1,5 +1,6 @@
 using System.Text.Json;
 using System.Text.Json.Serialization;
+using NiceIO;
 
 namespace boltprompt;
 
@@ -9,6 +10,10 @@ public static class History
     {
         [JsonInclude]
         public string? AIPrompt;
+        [JsonInclude]
+        public string? WorkingDirectory;
+        [JsonInclude] 
+        public bool CommandHasRelativePaths;
     }
     
     private static Command[]? _commands; 
@@ -16,7 +21,11 @@ public static class History
     public static void AddCommandToHistory(string commandLine, string? aiPrompt)
     {
         if (string.IsNullOrEmpty(commandLine)) return;
-        var command = new Command(commandLine) { AIPrompt = aiPrompt };
+        var parsedCommand = Suggestor.ParseCommandLine(commandLine);
+        var commandHasRelativePaths = parsedCommand.Any(part => 
+                part is { Type: Suggestor.CommandLinePart.PartType.Argument, Argument.Type: CommandInfo.ArgumentType.File or CommandInfo.ArgumentType.Directory or CommandInfo.ArgumentType.FileSystemEntry }
+                && Suggestor.UnescapeFileName(part.Text).ToNPath().IsRelative);
+        var command = new Command(commandLine) { AIPrompt = aiPrompt, WorkingDirectory = NPath.CurrentDirectory.ToString(), CommandHasRelativePaths = commandHasRelativePaths };
         _commands = Commands.Where(c => c != command).Append(command).ToArray();
         Paths.History.WriteAllText(JsonSerializer.Serialize(_commands));
     }
