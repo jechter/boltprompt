@@ -354,9 +354,6 @@ public static partial class Suggestor
 
     private static Suggestion[] SuggestByAI(string commandline)
     {
-        if (!ChatGptClient.IsAvailable)
-            return [];
-
         return AISuggestor.Suggest(commandline[1..]);
     }
 

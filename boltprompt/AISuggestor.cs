@@ -1,16 +1,18 @@
 using CliWrap;
 using CliWrap.Buffered;
+using LanguageModels;
+using Microsoft.Extensions.DependencyInjection;
 using NiceIO;
 
 namespace boltprompt;
 
 static class AISuggestor
 {
-    private static readonly Dictionary<string, Task<Suggestion[]>> Cache = new();
+    private static readonly Dictionary<string, (Task task, Suggestion[] suggestions)> Cache = new();
 
     public static event Action AIDescriptionLoaded = () => {};
 
-    private static Task<string>? _directoryListing = null;
+    private static Task<string>? _directoryListing;
     
     static async Task<string> GetDirectoryListing()
     {
@@ -18,7 +20,7 @@ static class AISuggestor
         return result.StandardOutput;
     }
 
-    private static Task<string>? _osInfo = null;
+    private static Task<string>? _osInfo;
 
     static async Task<string> GetOSInfo()
     {
@@ -26,7 +28,28 @@ static class AISuggestor
         return result.StandardOutput;
     }
 
-    private static async Task<Suggestion[]> GetSuggestionsFromAI(CancellationToken cancellationToken, string request)
+    class AISuggestion
+    {
+        private readonly string _request;
+
+        public AISuggestion(string request)
+        {
+            _request = request;
+        }
+        
+        [DescriptionForLanguageModel("function to invoke with proposed suggestions")]
+        public bool ProvideSuggestions(string suggestion)
+        {
+            Logger.Log("AISuggestor",$"Received AI Suggestion: {suggestion}");
+            Cache.TryGetValue(_request, out var cacheEntry);
+            cacheEntry.suggestions = cacheEntry.suggestions.Append(new(suggestion)).ToArray();
+            Cache[_request] = cacheEntry;
+            AIDescriptionLoaded.Invoke();
+            return true;
+        }
+    }
+    
+    private static async Task GetSuggestionsFromAI(CancellationToken cancellationToken, string request)
     {
         _directoryListing ??= GetDirectoryListing();
         _osInfo ??= GetOSInfo();
@@ -56,39 +79,58 @@ static class AISuggestor
              
              `{request}` 
              
-             If there are multiple reasonable ways you can perform the request, you can reply with multiple command lines - one per line. 
-             Reply with the command line(s) only - no further text!
+             If there are multiple reasonable ways you can perform the request, you can propose multiple different command lines.
+             
+             Call the ProvideSuggestions function once for each proposed command line string.
              """;
-        var reply = await ChatGptClient.GetReply(cancellationToken, fullRequest);
-        return reply.Split(Environment.NewLine).Where(line => !line.StartsWith("```")).Select(line => new Suggestion(line)).ToArray();
+        
+
+        try
+        {
+            var model = AIService.ServiceProvider.GetRequiredService<ILanguageModel>();
+            var suggestions = new AISuggestion(request);
+            var chatRequest = new ChatRequest()
+            {
+                 Messages = [new ChatMessage("user", fullRequest)],
+                 Functions = CSharpBackedFunctions.Create([suggestions])
+            };
+            Logger.Log("AISuggestor",$"Sent AI Request for {request}");
+
+            var r = model.Execute(chatRequest, cancellationToken);
+            await r.ReadCompleteMessagesAsync().ReadAll();
+
+        }
+        catch (Exception e)
+        {
+            Logger.Log("AISuggestor", $"Caught: {e}");
+            throw;
+        }
     }
 
-    private static readonly Suggestion PendingSuggestion = new("") { Icon = "🧠", Description = "suggestions pending" };
+    private static readonly Suggestion PendingSuggestion = new("") { Icon = "🤖", Description = "suggestions pending" };
 
-
-    static CancellationTokenSource? _cancellationTokenSource;
+    private static CancellationTokenSource? _cancellationTokenSource;
     public static Suggestion[] Suggest(string request)
     {
-        if (!ChatGptClient.IsAvailable)
+        if (!AIService.Available) 
             return [];
-
+          
         if (request.Trim().Length == 0)
             return [];
 
         if (Cache.TryGetValue(request, out var result))
         {
-            if (result.IsCanceled)
+            if (result.task.IsCanceled)
                 Cache.Remove(request);
             else
-                return result.IsCompletedSuccessfully ? result.Result : [PendingSuggestion];
+                return result.task.IsCompletedSuccessfully ? result.suggestions : result.suggestions.Length != 0 ? result.suggestions : [PendingSuggestion];
         }
 
         _cancellationTokenSource?.Cancel();
         _cancellationTokenSource = new();
         
         var task = GetSuggestionsFromAI(_cancellationTokenSource.Token, request);
-        Cache[request] = task;
-        task.ContinueWith(_ => AIDescriptionLoaded.Invoke());
+        Cache[request] = (task, []);
         return [PendingSuggestion];
     }
 }

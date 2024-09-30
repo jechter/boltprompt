@@ -8,7 +8,8 @@
         <Version>1.0.0-beta</Version>
         <PackAsTool>true</PackAsTool>
         <ToolCommandName>boltprompt</ToolCommandName>
-    </PropertyGroup>
+      <UserSecretsId>e5d22356-8fa4-45a9-b4ae-badfea992c18</UserSecretsId>
+  </PropertyGroup>
     
     <PropertyGroup Condition=" '$(Configuration)' == 'Debug' ">
       <TreatWarningsAsErrors>true</TreatWarningsAsErrors>
@@ -20,6 +21,9 @@
 
     <ItemGroup>
       <PackageReference Include="CliWrap" Version="3.6.6" />
+      <PackageReference Include="Microsoft.Extensions.Configuration.EnvironmentVariables" Version="9.0.0-rc.1.24431.7" />
+      <PackageReference Include="Microsoft.Extensions.Configuration.UserSecrets" Version="9.0.0-rc.1.24431.7" />
+      <PackageReference Include="Microsoft.Extensions.DependencyInjection" Version="8.0.0" />
       <PackageReference Include="Mono.Unix" Version="7.1.0-final.1.21458.1" />
     </ItemGroup>
 
@@ -35,6 +39,10 @@
             <Pack>true</Pack>
             <PackagePath>tools/</PackagePath>
         </None>
+    </ItemGroup>
+
+    <ItemGroup>
+      <ProjectReference Include="..\LanguageModels\LanguageModels\LanguageModels.csproj" />
     </ItemGroup>
 
 </Project>
