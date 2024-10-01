@@ -372,7 +372,32 @@ public static partial class Suggestor
     }
 
     static string EscapeFileName(string fileName) => fileName.Replace(@"\", @"\\").Replace(" ", @"\ ");
-    public static string UnescapeFileName(string fileName) => fileName.Replace(@"\ ", " ").Replace(@"\\", @"\").Replace("~", NPath.HomeDirectory.ToString());
+
+    private static Dictionary<string, string> userDirCache = new();
+    
+    public static string UnescapeFileName(string fileName)
+    {
+       var unescaped = fileName.Replace(@"\ ", " ").Replace(@"\\", @"\");
+
+       if (!unescaped.StartsWith('~')) return unescaped;
+       
+       var slashIndex = unescaped.IndexOf('/');
+       if (slashIndex is -1 or 1)
+           unescaped = unescaped.Replace("~", NPath.HomeDirectory.ToString());
+       else
+       {
+           var userNameEscape = unescaped[..slashIndex];
+           if (!userDirCache.TryGetValue(userNameEscape, out var userDir))
+           {
+               var result = Cli.Wrap("sh").WithArguments($"-c \"echo {userNameEscape}\"").ExecuteBufferedAsync().GetAwaiter().GetResult();
+               userDir = result.StandardOutput.Trim('\n', ' ');
+               userDirCache[userNameEscape] = userDir;
+           }
+           unescaped = unescaped.Replace(userNameEscape, userDir);
+       }
+       return unescaped;
+    } 
+    
     private static string NPathToSuggestionText(string prefix, NPath parent, NPath path)
         => $"{prefix}{EscapeFileName(path.RelativeTo(parent).ToString())}{(path.DirectoryExists() ? '/' : ' ')}";
 
@@ -385,12 +410,9 @@ public static partial class Suggestor
         if (currentArg.Contains('/'))
         {
             prefix = currentArg[..(currentArg.LastIndexOf('/') + 1)];
-            dir = prefix.Replace("\\ ", " ");
+            dir = UnescapeFileName(prefix.Replace("\\ ", " "));
         }
         
-        if (dir.ToString().StartsWith('~'))
-            dir = NPath.HomeDirectory.Combine(dir.RelativeTo("~"));
-
         if (!dir.DirectoryExists())
             return [];
 

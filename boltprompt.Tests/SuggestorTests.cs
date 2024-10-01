@@ -806,4 +806,17 @@ public class SuggestorTests
         Assert.That(split, Is.EqualTo(new [] {"This", "is", "a", "command", "line", "\"with quotes"}));
     }
 
+    [Test]
+    public void UnescapeFileNameHandlesEscapedCharacters()
+    {
+        Assert.That(Suggestor.UnescapeFileName(@"path\ name/with\ escaped\ spaces/and\\back\\slashes"), Is.EqualTo(@"path name/with escaped spaces/and\back\slashes"));
+    }
+
+    [Test]
+    public void UnescapeFileNameHandlesUserDirs()
+    {
+        Assert.That(Suggestor.UnescapeFileName("~/dir/relative/to/current/user"), Is.EqualTo($"{NPath.HomeDirectory}/dir/relative/to/current/user"));
+        Assert.That(Suggestor.UnescapeFileName("~root/dir/relative/to/root"), Is.EqualTo("/var/root/dir/relative/to/root"));
+        Assert.That(Suggestor.UnescapeFileName($"~{Environment.GetEnvironmentVariable("USER")}/dir/relative/to/user/name"), Is.EqualTo($"{NPath.HomeDirectory}/dir/relative/to/user/name"));
+    }
 }
