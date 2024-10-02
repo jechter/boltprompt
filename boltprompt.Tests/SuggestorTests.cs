@@ -711,23 +711,54 @@ public class SuggestorTests
     }
 
     [Test]
-    public void FileSystemArgumentSuggestionsFromHistoryComeFirst()
+    public void FileSystemArgumentIsSorted()
     {
-        var testDir = new NPath("testDir").MakeAbsolute().CreateDirectory();   
+        var testDir = new NPath("testDir").MakeAbsolute().CreateDirectory();
         _pathsToCleanup.Add(testDir);
-        testDir.Combine("directory").CreateDirectory();
-        testDir.Combine("file").WriteAllText("bla");
+        testDir.Combine("a_directory").CreateDirectory();
+        testDir.Combine("a_file").WriteAllText("bla");
+        testDir.Combine("b_directory").CreateDirectory();
+        testDir.Combine("b_file").WriteAllText("bla");
+        testDir.Combine(".invisibleDirectory").CreateDirectory();
+        testDir.Combine(".invisibleFile").WriteAllText("bla");
         
         var ci = new CommandInfo
         {
-            Arguments = [new([ new("") { Type = CommandInfo.ArgumentType.FileSystemEntry }])]
+            Arguments = [new([ 
+                    new("") { Type = CommandInfo.ArgumentType.FileSystemEntry }
+                ])]
         };
-        var suggestions = GetSuggestionsForTestExecutable(ci, " testDir/");
-        Assert.That(suggestions.Select(s => s.Text.Trim()).ToArray(), Is.EqualTo(new [] {"testDir/directory/", "testDir/file"}));
         
-        History.LoadTestHistory(["./testExecutable testDir/file"]);
+        // Desired sort order:
+        // -Files from history come first, in the order used in history
+        // Visible files or directories come before invisible (starting with .) ones
+        // Directories before files
+        // Then sorted alphabetically
+        
+        var suggestions = GetSuggestionsForTestExecutable(ci, " testDir/");
+        Assert.That(suggestions.Select(s => s.Text.Trim()).ToArray(), Is.EqualTo(new []
+            {
+                "testDir/a_directory/", 
+                "testDir/b_directory/", 
+                "testDir/a_file",
+                "testDir/b_file",
+                "testDir/.invisibleDirectory/",
+                "testDir/.invisibleFile"
+            }
+        ));
+        
+        History.LoadTestHistory(["./testExecutable testDir/.invisibleDirectory/", "./testExecutable testDir/b_file"]);
         suggestions = GetSuggestionsForTestExecutable(ci, " testDir/");
-        Assert.That(suggestions.Select(s => s.Text.Trim()).ToArray(), Is.EqualTo(new [] {"testDir/file", "testDir/directory/"}));
+        Assert.That(suggestions.Select(s => s.Text.Trim()).ToArray(), Is.EqualTo(new [] 
+            {
+                "testDir/b_file",
+                "testDir/.invisibleDirectory/",
+                "testDir/a_directory/", 
+                "testDir/b_directory/", 
+                "testDir/a_file",
+                "testDir/.invisibleFile"
+            }
+        ));
     }
     
     [Test]

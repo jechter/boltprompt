@@ -2,6 +2,7 @@ using System.Collections;
 using System.Text.RegularExpressions;
 using CliWrap;
 using CliWrap.Buffered;
+using LanguageModels;
 using Mono.Unix.Native;
 using NiceIO;
 
@@ -257,11 +258,11 @@ public static partial class Suggestor
         }
     }
     
-    class HistoryComparer : IComparer<Suggestion>
+    class SuggestionSorter : IComparer<Suggestion>
     {
         private readonly string[] _historyFilteredByCommandline;
         
-        public HistoryComparer(string commandline)
+        public SuggestionSorter(string commandline)
         {
             if (string.IsNullOrWhiteSpace(commandline))
                 _historyFilteredByCommandline = History.Commands.Select(s => s.Commandline.Trim()).ToArray();
@@ -297,13 +298,32 @@ public static partial class Suggestor
             var xHistIndex = Array.LastIndexOf(_historyFilteredByCommandline, x.Text.Trim());
             var yHistIndex = Array.LastIndexOf(_historyFilteredByCommandline, y.Text.Trim());
             if (xHistIndex != yHistIndex) return xHistIndex - yHistIndex;
+
+            if (x is FileSystemSuggestion && y is FileSystemSuggestion)
+            {
+                NPath pathX = UnescapeFileName(x.Text);
+                NPath pathY = UnescapeFileName(y.Text);
+                if (pathX.Parent != pathY.Parent)
+                    return pathY.CompareTo(pathX);
+                var xIsInvisible = pathX.FileName.StartsWith('.');
+                var yIsInvisible = pathY.FileName.StartsWith('.');
+                if (xIsInvisible != yIsInvisible)
+                    return yIsInvisible.CompareTo(xIsInvisible);
+                var xIsDir = pathX.DirectoryExists();
+                var yIsDir = pathY.DirectoryExists();
+                return xIsDir != yIsDir ? xIsDir.CompareTo(yIsDir) : pathY.CompareTo(pathX);
+            }
+
+            if (x is FileSystemSuggestion) return 1;
+            if (y is FileSystemSuggestion) return 1;
+            
             return string.Compare(y.Text, x.Text, StringComparison.Ordinal);
         }
     }
     
     static Suggestion[] SortSuggestionsByHistory(string commandline, IEnumerable<Suggestion> suggestions)
     {
-        return string.IsNullOrWhiteSpace(commandline) ? suggestions.ToArray() : suggestions.OrderDescending(new HistoryComparer(commandline)).ToArray();
+        return string.IsNullOrWhiteSpace(commandline) ? suggestions.ToArray() : suggestions.OrderDescending(new SuggestionSorter(commandline)).ToArray();
     }
 
     public static string[] SplitCommandIntoWords(string currentCommand)
@@ -409,7 +429,7 @@ public static partial class Suggestor
     
     private static string NPathToSuggestionText(string prefix, NPath parent, NPath path)
         => $"{prefix}{EscapeFileName(path.RelativeTo(parent).ToString())}{(path.DirectoryExists() ? '/' : ' ')}";
-
+    
     private static Suggestion[] SuggestFileSystemEntries(string commandline, CommandInfo.ArgumentType type)
     {
         var split = SplitCommandIntoWords(commandline);
@@ -435,7 +455,6 @@ public static partial class Suggestor
 
         return (prefix == "" ? new []{dir}:[]).Concat(contents)
             .Where(fs => type != CommandInfo.ArgumentType.CommandName || fs.DirectoryExists() || (IsExecutable(fs) && !string.IsNullOrEmpty(prefix)))
-            .OrderBy(fs => fs.FileName)
             .Select(Suggestion (fs) => new FileSystemSuggestion(NPathToSuggestionText(prefix, dir, fs)) { Icon = fs.DirectoryExists()?"📁" : "📄"})
             .ToArray();
     }
