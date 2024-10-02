@@ -340,7 +340,19 @@ public static partial class Suggestor
     public static Suggestion[] SuggestionsForPrompt(string commandline)
     {
         if (commandline.StartsWith('@'))
-            return SuggestByAI(commandline);
+        {
+            var aiPrompt = commandline[1..];
+            return AISuggestor.Suggest(aiPrompt)
+                .Concat(
+                    History.Commands.Where(h => (h.AIPrompt?.StartsWith(aiPrompt) ?? false) && h.AIPrompt.Length > aiPrompt.Length)
+                        .Select(h => $"@{h.AIPrompt!}")
+                        .Reverse()
+                        .Distinct()
+                        .Select(h => new Suggestion(h))
+                )
+                .ToArray();
+        }
+
         var commandLineCommands = commandline.Split(_shellOperators);
         var currentCommand = commandLineCommands.Last().TrimStart();
         var commandLineArguments = SplitCommandIntoWords(currentCommand);
@@ -352,11 +364,6 @@ public static partial class Suggestor
         if (currentWord?.StartsWith('$') ?? false)
             suggestions = SuggestEnvironmentVariables(currentWord).Concat(suggestions).ToArray();
         return SortSuggestionsByHistory(commandline, suggestions);
-    }
-
-    private static Suggestion[] SuggestByAI(string commandline)
-    {
-        return AISuggestor.Suggest(commandline[1..]);
     }
 
     private static IEnumerable<Suggestion> SuggestEnvironmentVariables(string currentWord)

@@ -110,11 +110,20 @@ internal class MainLoop
                                 key = Console.ReadKey();
                             break;
                         }
+
+                        if (_commandLine.StartsWith('@'))
+                        {
+                            _commandLine = "";
+                            _commandLineCursorPos = 0;
+                            Prompt.SetCursorPosition(_commandLineCursorPos);
+                        }
+
                         _selection = -1;
                         break;
                     case ConsoleKey.Enter:
                         CommitSelection();
-                        ExitAndRunCommand(_commandLine);
+                        if (!_commandLine.StartsWith("@"))
+                            ExitAndRunCommand(_commandLine);
                         break;
                     default:
                         _commandLine = _commandLine[.._commandLineCursorPos] + key.KeyChar +
@@ -149,12 +158,13 @@ internal class MainLoop
                 promptWords[^1] = _suggestions[_selection].Text;
                 _commandLine = string.Join(' ', promptWords);
             }
-            Prompt.RenderPrompt(_commandLine);
             _commandLineCursorPos = _commandLine.Length;
             Prompt.SetCursorPosition(_commandLineCursorPos);
         }
-
-        _selection = -1;
+        // In most cases we don't want to show new suggestions after committing before typing.
+        // But if we selected an AI prompt from history, we want to get AI suggestions right away.
+        // And if we selected a path, we want to be able to continue said path
+        _selection = _commandLine.StartsWith('@') || _commandLine.EndsWith('/') ? 0 : -1;
     }
 
     private void RenderPromptAndSuggestionsIfNeeded()
