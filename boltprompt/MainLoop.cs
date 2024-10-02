@@ -195,6 +195,7 @@ internal class MainLoop
     [DoesNotReturn]
     void ExitAndRunCommand(string command = "")
     {
+        Prompt.RenderPrompt(_commandLine);
         SuggestionConsoleViewer.Clear();
         Console.WriteLine();
         File.WriteAllText("/tmp/custom-command", command);
