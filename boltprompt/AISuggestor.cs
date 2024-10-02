@@ -38,11 +38,11 @@ static class AISuggestor
         }
         
         [DescriptionForLanguageModel("function to invoke with proposed suggestions")]
-        public bool ProvideSuggestions(string suggestion)
+        public bool ProvideSuggestions([DescriptionForLanguageModel("the proposed command line")]string suggestion, [DescriptionForLanguageModel("a one-line summary of how the command works")]string description)
         {
             Logger.Log("AISuggestor",$"Received AI Suggestion: {suggestion}");
             Cache.TryGetValue(_request, out var cacheEntry);
-            cacheEntry.suggestions = cacheEntry.suggestions.Append(new(suggestion)).ToArray();
+            cacheEntry.suggestions = cacheEntry.suggestions.Append(new(suggestion) { Description = description, Icon = "🤖"}).ToArray();
             Cache[_request] = cacheEntry;
             AIDescriptionLoaded.Invoke();
             return true;
