@@ -1,5 +1,6 @@
 using System.Text.Json;
 using System.Text.Json.Serialization;
+using LanguageModels;
 
 namespace boltprompt;
 
@@ -9,7 +10,6 @@ public record CommandInfo
     {
         WriteIndented = true,
         DefaultIgnoreCondition = JsonIgnoreCondition.WhenWritingDefault,
-        
         Converters = { new JsonStringEnumConverter() }
     };
 
@@ -20,10 +20,13 @@ public record CommandInfo
     [JsonInclude]
     public string? Comment;
     [JsonInclude]
+    [DescriptionForLanguageModel("The name of the command")]
     public string Name = "";
     [JsonInclude]
+    [DescriptionForLanguageModel("A short description what the command does")]
     public string Description = "";
     [JsonInclude]
+    [DescriptionForLanguageModel("A list of Argument groups with command line arguments accepted by the command. All arguments in a single group can come in any random order. If an argument needs to come after another argument, it should come in a new group. If the command does not take any arguments, this should be empty.")]
     public ArgumentGroup[]? Arguments;
     
     public enum ArgumentType
@@ -41,25 +44,46 @@ public record CommandInfo
         String,
     }
 
-    public record ArgumentGroup(Argument[] Arguments)
+    public record ArgumentGroup([DescriptionForLanguageModel("Arguments belonging to this argument group")]Argument[] Arguments)
     {
         [JsonInclude]
+        [DescriptionForLanguageModel("Does the command require an argument from this group to be on the command line?")]
         public bool Optional;
         [JsonInclude]
+        [DescriptionForLanguageModel("If true, only one argument from this group is allowed. If false, there can be multiple.")]
         public bool DontAllowMultiple;
     }
     
-    public record Argument(string Name)
+    public record Argument([DescriptionForLanguageModel("The name of the argument. If the argument is of type `flag`, this is the single-character flag to enable the argument. If the argument is of type `keyword`, this is the string passed to the command line for this argument.")]string Name)
     {
         [JsonInclude]
+        [DescriptionForLanguageModel("If true, this argument can be on the command line multiple times. If false, only once.")]
         public bool Repeat;
         [JsonInclude]
+        [DescriptionForLanguageModel("A short description what the argument does")]
         public string Description = "";
         [JsonInclude]
+        [DescriptionForLanguageModel(
+            """
+            Type of the argument. Must be one of:
+             'Keyword': Use this when the argument is invoked by a specific word on the command line, like e.g. '--help' . In this case, 'name' should be the word used on the command line, e.g. '--help'.
+             'Flag': Like 'Keyword', but for single-character flags, like '-h'. In this case 'name' should be a single character without a dash, e.h. 'h'.
+             'FileSystemEntry': The user can pass any file system path as this argument.
+             'File': The user can pass any file system path pointing to a file as this argument.
+             'Directory': The user can pass any file system path pointing to a directory as this argument.
+             'Command': The argument is a command line command itself (like the argument to 'sudo').
+             'CommandName': The argument is the name of another command line executable.
+             'ProcessId': The argument is the pid of a running process.
+             'ProcessName': The argument is the name of a running process.
+             'CustomArgument': The argument can be any value returned in the standard out of running 'name' as a process.
+             'String': The argument can be any arbitrary string. This matches anything.
+            """)]
         public ArgumentType Type = ArgumentType.Keyword;
         [JsonInclude]
+        [DescriptionForLanguageModel("Alternative names for the argument (if any).")]
         public string[]? Aliases;
         [JsonInclude]
+        [DescriptionForLanguageModel("A list of Argument groups with command line sub arguments following the argument. All arguments in a single group can come in any random order. If an argument needs to come after another argument, it should come in a new group. If the argument does not take any sub arguments, this should be empty.")]
         public ArgumentGroup[]? Arguments;
 
         [JsonIgnore]
@@ -71,7 +95,7 @@ public record CommandInfo
     {
         Arguments = 
         [new ([
-            new Argument("") {Type = ArgumentType.FileSystemEntry}
+            new ("") {Type = ArgumentType.FileSystemEntry}
         ])]
     };
 

@@ -247,7 +247,9 @@ public static partial class Suggestor
 
         void LoadCommandPart(CommandLinePart part)
         {
-            var commandInfo = KnownCommands.GetCommand(part.Text.Split('/').Last(), false);
+            NPath commandPath = part.Text;
+            var createCommandInfo = commandPath.FileExists() || _executablesInPathEnvironment.Any(s => commandPath.FileName == s.Text.Trim());
+            var commandInfo = KnownCommands.GetCommand(commandPath.FileName, createCommandInfo);
             parsingState.Clear();
 
             if (commandInfo?.Arguments != null)

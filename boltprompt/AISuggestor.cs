@@ -87,7 +87,6 @@ static class AISuggestor
 
         try
         {
-            var model = AIService.ServiceProvider.GetRequiredService<ILanguageModel>();
             var suggestions = new AISuggestion(request);
             var chatRequest = new ChatRequest()
             {
@@ -96,7 +95,7 @@ static class AISuggestor
             };
             Logger.Log("AISuggestor",$"Sent AI Request for {request}");
 
-            var r = model.Execute(chatRequest, cancellationToken);
+            var r = AIService.LanguageModel.Execute(chatRequest, cancellationToken);
             await r.ReadCompleteMessagesAsync().ReadAll();
 
         }

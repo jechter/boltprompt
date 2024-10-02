@@ -7,9 +7,8 @@ namespace boltprompt;
 class AIService
 {
     readonly ServiceProvider _serviceProvider;
-
-    public static ServiceProvider ServiceProvider => Instance._serviceProvider;
     public static bool Available => Instance.IsAvailable();
+    public static ILanguageModel LanguageModel => Instance._serviceProvider.GetRequiredService<ILanguageModel>();
 
     private IConfiguration Configuration { get; } = new ConfigurationBuilder().AddUserSecrets<AIService>().AddEnvironmentVariables().Build();
 
