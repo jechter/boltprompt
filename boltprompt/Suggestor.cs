@@ -212,6 +212,10 @@ public static partial class Suggestor
                     }
                 };
 
+                // Variable assignment
+                if (part.Type == CommandLinePart.PartType.Command && part.Text.Contains('='))
+                    part.Type = CommandLinePart.PartType.Operator;
+                
                 lastPartType = part.Type;
                 switch (part.Type)
                 {
