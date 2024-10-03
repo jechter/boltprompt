@@ -762,6 +762,31 @@ public class SuggestorTests
     }
     
     [Test]
+    public void CanFilterExtensions()
+    {
+        var testDir = new NPath("testDir").MakeAbsolute().CreateDirectory();
+        _pathsToCleanup.Add(testDir);
+        testDir.Combine("file.a").WriteAllText("bla");
+        testDir.Combine("file.b").WriteAllText("bla");
+        testDir.Combine("file.c").WriteAllText("bla");
+        
+        var ci = new CommandInfo
+        {
+            Arguments = [new([ 
+                    new("") { Type = CommandInfo.ArgumentType.File, Extensions = ["a", "c"]}
+                ])]
+        };
+        
+        var suggestions = GetSuggestionsForTestExecutable(ci, " testDir/");
+        Assert.That(suggestions.Select(s => s.Text.Trim()).ToArray(), Is.EqualTo(new []
+            {
+                "testDir/file.a", 
+                "testDir/file.c", 
+            }
+        ));
+    }
+    
+    [Test]
     public void PartialFileSystemArgumentSuggestionsFromHistoryComeFirst()
     {
         var testDir = new NPath("testDir").MakeAbsolute().CreateDirectory();   

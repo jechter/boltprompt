@@ -2,7 +2,6 @@ using System.Collections;
 using System.Text.RegularExpressions;
 using CliWrap;
 using CliWrap.Buffered;
-using LanguageModels;
 using Mono.Unix.Native;
 using NiceIO;
 
@@ -434,7 +433,7 @@ public static partial class Suggestor
     private static string NPathToSuggestionText(string prefix, NPath parent, NPath path)
         => $"{prefix}{EscapeFileName(path.RelativeTo(parent).ToString())}{(path.DirectoryExists() ? '/' : ' ')}";
     
-    private static Suggestion[] SuggestFileSystemEntries(string commandline, CommandInfo.ArgumentType type)
+    private static Suggestion[] SuggestFileSystemEntries(string commandline, CommandInfo.ArgumentType type, string[]? extensions = null)
     {
         var split = SplitCommandIntoWords(commandline);
         var currentArg = split.Last();
@@ -458,7 +457,13 @@ public static partial class Suggestor
         catch (UnauthorizedAccessException) { }
 
         return (prefix == "" ? new []{dir}:[]).Concat(contents)
-            .Where(fs => type != CommandInfo.ArgumentType.CommandName || fs.DirectoryExists() || (IsExecutable(fs) && !string.IsNullOrEmpty(prefix)))
+            .Where(fs => fs.DirectoryExists() ||
+                 type switch
+                 { 
+                     CommandInfo.ArgumentType.CommandName => IsExecutable(fs) && !string.IsNullOrEmpty(prefix),
+                     CommandInfo.ArgumentType.File => extensions == null || fs.HasExtension(extensions),
+                     _ => true
+                 })
             .Select(Suggestion (fs) => new FileSystemSuggestion(NPathToSuggestionText(prefix, dir, fs)) { Icon = fs.DirectoryExists()?"📁" : "📄"})
             .ToArray();
     }
@@ -530,7 +535,7 @@ public static partial class Suggestor
                 case CommandInfo.ArgumentType.Directory:
                 case CommandInfo.ArgumentType.File:
                     bool hasMatch = false;
-                    foreach (var s in SuggestFileSystemEntries(commandline, arg.Type))
+                    foreach (var s in SuggestFileSystemEntries(commandline, arg.Type, arg.Extensions))
                     {
                         if (s.Text.StartsWith(lastParam))
                         {

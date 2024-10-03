@@ -80,6 +80,9 @@ public record CommandInfo
             """)]
         public ArgumentType Type = ArgumentType.Keyword;
         [JsonInclude]
+        [DescriptionForLanguageModel("Valid file extensions (only applicable if type is 'file').")]
+        public string[]? Extensions;
+        [JsonInclude]
         [DescriptionForLanguageModel("Alternative names for the argument (if any).")]
         public string[]? Aliases;
         [JsonInclude]
