@@ -9,9 +9,6 @@ exit_if_tool_does_not_exist()
 }
 
 exit_if_tool_does_not_exist "dotnet"
-exit_if_tool_does_not_exist "pnpm"
-
-./build-autocomplete.sh
 
 dotnet pack --configuration Release
 dotnet tool uninstall -g boltprompt || true
