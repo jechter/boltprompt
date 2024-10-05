@@ -19,6 +19,8 @@ internal record FigCommandInfo
     [JsonInclude]
     public FigOption[]? options;
     [JsonInclude]
+    public string? loadSpec;
+    [JsonInclude]
     [JsonConverter(typeof(ArrayOrSingleValueConverter<FigCommandInfo>))]
     public FigCommandInfo[]? subcommands;
 }
@@ -35,6 +37,61 @@ internal class ArrayOrSingleValueConverter<T> : JsonConverter<T[]?>
     }
 
     public override void Write(Utf8JsonWriter writer, T[]? value, JsonSerializerOptions options)
+    {
+        if (value?.Length == 1)
+            JsonSerializer.Serialize(writer, value[0], options);
+        else
+            JsonSerializer.Serialize(writer, value, options);
+    }
+}
+
+internal class SuggestionConverter : JsonConverter<FigSuggestion[]>
+{
+    FigSuggestion? ReadSuggestion(ref Utf8JsonReader reader, JsonSerializerOptions options)
+    {
+        switch (reader.TokenType)
+        {
+            case JsonTokenType.StartObject:
+                return JsonSerializer.Deserialize<FigSuggestion>(ref reader, options);
+            case JsonTokenType.String:
+            {
+                var name = reader.GetString();
+                if (name != null)
+                    return new () { name = [name] };
+                return null;
+            }
+            default:
+                throw new JsonException("Invalid JSON format for FigSuggestion array.");
+        }
+    }
+    
+    public override FigSuggestion[]? Read(ref Utf8JsonReader reader, Type typeToConvert, JsonSerializerOptions options)
+    {
+        var suggestions = new List<FigSuggestion>();
+        if (reader.TokenType == JsonTokenType.StartArray)
+        {
+            while (reader.Read())
+            {
+                if (reader.TokenType == JsonTokenType.EndArray)
+                    break;
+                var sug = ReadSuggestion(ref reader, options);
+                if (sug != null)
+                    suggestions.Add(sug);
+            }
+        }
+        else
+        {
+            var sug = ReadSuggestion(ref reader, options);
+            if (sug != null)
+                suggestions.Add(sug);
+        }
+
+        return suggestions.ToArray();
+
+
+    }
+
+    public override void Write(Utf8JsonWriter writer, FigSuggestion[] value, JsonSerializerOptions options)
     {
         if (value?.Length == 1)
             JsonSerializer.Serialize(writer, value[0], options);
@@ -66,8 +123,17 @@ internal record FigGenerator
     [JsonInclude]
     [JsonConverter(typeof(ArrayOrSingleValueConverter<string>))]
     public string[]? extensions = [];
-
 }
+
+internal record FigSuggestion
+{
+    [JsonInclude]
+    [JsonConverter(typeof(ArrayOrSingleValueConverter<string>))]
+    public string[] name = [];
+    [JsonInclude]
+    public string? description;
+}
+
 internal record FigArg
 {
     [JsonInclude]
@@ -78,6 +144,9 @@ internal record FigArg
     [JsonInclude]
     [JsonConverter(typeof(ArrayOrSingleValueConverter<string>))]
     public string[]? template = null;
+    [JsonInclude]
+    [JsonConverter(typeof(SuggestionConverter))]
+    public FigSuggestion[]? suggestions = null;
     [JsonInclude]
     [JsonConverter(typeof(ArrayOrSingleValueConverter<FigGenerator>))]
     public FigGenerator[]? generators = null;
@@ -136,25 +205,39 @@ public class FigCommandInfoSupplier : ICommandInfoSupplier
     }
 
     private CommandInfo.ArgumentGroup ConvertFigArgument(FigArg figArg) => new (
-            [new (figArg.name.FirstOrDefault(GetArgumentType(figArg).ToString())) {
+        new []
+            {new CommandInfo.Argument(figArg.name.FirstOrDefault(GetArgumentType(figArg).ToString())) {
                 Type = GetArgumentType(figArg),
                 Description = figArg.name.FirstOrDefault(""),
-                Extensions = figArg.generators?[0].extensions
-            }]
+                Extensions = figArg.generators?[0].extensions,
+                CustomCommand = figArg.generators?[0].script != null ? string.Join(" ", figArg.generators?[0].script!) : null,
+            }}
+            .Concat(figArg.suggestions?.Select(s => new CommandInfo.Argument(s.name[0]) { Description = s.description ?? figArg.name.FirstOrDefault() ?? ""}) ?? [])
+            .ToArray()
         )
     {
         Optional = figArg.isOptional,
     };
 
-    private CommandInfo.Argument ConvertFigSubCommand(FigCommandInfo figCommand) => new (figCommand.name[0])
+    private async Task<CommandInfo.Argument> ConvertFigSubCommand(FigCommandInfo figCommand)
     {
-        Type = CommandInfo.ArgumentType.Keyword,
-        Aliases = figCommand.name.Skip(1).ToArray(),
-        Description = figCommand.description ?? "",
-        Arguments = ConvertFigArguments(figCommand)
-    };
+        if (!string.IsNullOrEmpty(figCommand.loadSpec))
+        {
+            var childCommandInfo = await LoadFigCommandInfo(figCommand.loadSpec);
+            if (childCommandInfo != null)
+                return await ConvertFigSubCommand(childCommandInfo);
+        }
 
-    private CommandInfo.ArgumentGroup[] ConvertFigArguments(FigCommandInfo figCommandInfo)
+        return new(figCommand.name[0])
+        {
+            Type = CommandInfo.ArgumentType.Keyword,
+            Aliases = figCommand.name.Skip(1).ToArray(),
+            Description = figCommand.description ?? "",
+            Arguments = await ConvertFigArguments(figCommand)
+        };
+    }
+
+    private async Task<CommandInfo.ArgumentGroup[]> ConvertFigArguments(FigCommandInfo figCommandInfo)
     {
         var arggroups = new List<CommandInfo.ArgumentGroup>();
         if (figCommandInfo.options != null)
@@ -162,42 +245,55 @@ public class FigCommandInfoSupplier : ICommandInfoSupplier
         if (figCommandInfo.args != null)
             arggroups.AddRange(figCommandInfo.args.Select(ConvertFigArgument));
         if (figCommandInfo.subcommands != null)
-            arggroups.Add(new(figCommandInfo.subcommands.Select(ConvertFigSubCommand).ToArray()) { DontAllowMultiple = true });
+            arggroups.Add(new((await Task.WhenAll(figCommandInfo.subcommands.Select(ConvertFigSubCommand))).ToArray()) { DontAllowMultiple = true });
         return arggroups.ToArray();
     }
 
     public async Task<CommandInfo?> GetCommandInfoForCommand(string command)
     {
-        var tempArtifacts = NPath.CreateTempDirectory("fig-temp");
-        Logger.Log("Fig", $"running tsc --outDir {tempArtifacts.ToString()} {CommandPath(command).ToString()}");
+        var figCommandInfo = await LoadFigCommandInfo(command);
+        if (figCommandInfo == null)
+            return null;
+        var ci = new CommandInfo
+        {
+            Name = command,
+            Description = figCommandInfo.description ?? "",
+            Arguments = await ConvertFigArguments(figCommandInfo),
+            Comment = "This command info is generated from fig"
+        };
+        return ci;
+    }
 
+    private async Task<FigCommandInfo?> LoadFigCommandInfo(string command)
+    {
+        var tempArtifacts = NPath.CreateTempDirectory("fig-temp");
         var configPath = tempArtifacts.Combine("tsconfig.json");
         configPath.WriteAllText(
             $$"""
-            {
-              "compilerOptions": {
-                "moduleResolution": "node",
-                "target": "ES2018",
-                "module": "ESNext",
-                "lib": [
-                  "ES2018",
-                  "DOM"
+              {
+                "compilerOptions": {
+                  "moduleResolution": "node",
+                  "target": "ES2018",
+                  "module": "ESNext",
+                  "lib": [
+                    "ES2018",
+                    "DOM"
+                  ],
+                  "noImplicitAny": false,
+                  "allowSyntheticDefaultImports": true,
+                  "baseUrl": "./",
+                  "types": [
+                    "{{FigAutoCompletePath}}/node_modules/@withfig/autocomplete-types"
+                  ]
+                },
+                "exclude": [
+                  "node_modules/"
                 ],
-                "noImplicitAny": false,
-                "allowSyntheticDefaultImports": true,
-                "baseUrl": "./",
-                "types": [
-                  "{{FigAutoCompletePath}}/node_modules/@withfig/autocomplete-types"
+                "include": [
+                  "{{CommandPath(command)}}"
                 ]
-              },
-              "exclude": [
-                "node_modules/"
-              ],
-              "include": [
-                "{{CommandPath(command)}}"
-              ]
-            }
-            """);
+              }
+              """);
         
         var commandResult = await Cli.Wrap("tsc")
             .WithArguments(new string[] { "--outDir", tempArtifacts.ToString(), "--project", configPath.ToString() })
@@ -215,6 +311,7 @@ public class FigCommandInfoSupplier : ICommandInfoSupplier
             $"running node {FigListScript.ToString()} {tempArtifacts.Combine($"{command}.mjs").ToString()}");
 
         FigListDir.Combine("node_modules").Copy(tempArtifacts);
+        command = new NPath(command).FileName;
         tempArtifacts.Combine($"{command}.js").Move(tempArtifacts.Combine($"{command}.mjs"));
         commandResult = await Cli.Wrap("node")
             .WithArguments(new string[] { FigListScript.ToString(), tempArtifacts.Combine($"{command}.mjs").ToString() })
@@ -232,17 +329,8 @@ public class FigCommandInfoSupplier : ICommandInfoSupplier
         
         tempArtifacts.Delete();
         
-        Logger.Log("Fig", $"Got json {json}");
+        Logger.Log("Fig", $"Got json\n{json}");
         var figCommandInfo = JsonSerializer.Deserialize<FigCommandInfo>(json);
-        if (figCommandInfo == null)
-            return null;
-        var ci = new CommandInfo
-        {
-            Name = command,
-            Description = figCommandInfo.description ?? "",
-            Arguments = ConvertFigArguments(figCommandInfo),
-            Comment = "This command info is generated from fig"
-        };
-        return ci;
+        return figCommandInfo;
     }
 }

@@ -559,24 +559,55 @@ public class SuggestorTests
 
         var ci = new CommandInfo
         {
-            Arguments = [new([ new("cat testDir/customArgList") { Type = CommandInfo.ArgumentType.CustomArgument }])]
+            Arguments = [
+                new([ new("arg1") { Type = CommandInfo.ArgumentType.CustomArgument, CustomCommand = "cat testDir/customArgList", Description = "Custom argument"}]),
+            ]
         };
         
         var customArgumentsLoadedEvent = new ManualResetEvent(false);
-
         CustomArguments.CustomArgumentsLoaded += () =>
         {
             var suggestions = GetSuggestionsForTestExecutable(ci, " ");
-            Assert.That(suggestions.Select(s => s.Text.Trim()), Does.Contain("foo"));
-            Assert.That(suggestions.Select(s => s.Text.Trim()), Does.Contain("bar"));
-            Assert.That(suggestions.Select(s => s.Text.Trim()), Does.Contain("baz"));
+            Assert.That(suggestions, Does.Contain(new Suggestion("foo") {Description = "Custom argument"}));
+            Assert.That(suggestions, Does.Contain(new Suggestion("bar") {Description = "Custom argument"}));
+            Assert.That(suggestions, Does.Contain(new Suggestion("baz") {Description = "Custom argument"}));
+            
             customArgumentsLoadedEvent.Set();
         };
         GetSuggestionsForTestExecutable(ci, " ");
 
         if (!customArgumentsLoadedEvent.WaitOne(TimeSpan.FromSeconds(5)))
             Assert.Fail("Timeout: CustomArgumentsLoaded event was not raised within the expected time.");
+    }
+    
+    [Test]
+    public void CanGetSuggestionsForCustomArgumentWithRegex()
+    {
+        var testDir = new NPath("testDir").MakeAbsolute().CreateDirectory();   
+        _pathsToCleanup.Add(testDir);
+        testDir.Combine("customArgListWithRegex").WriteAllText("foo2;the foo argument\nbar bar;the bar argument\nbazz;the baz argument\n");
+
+        var ci = new CommandInfo
+        {
+            Arguments = [
+                new([ new("arg") { Type = CommandInfo.ArgumentType.CustomArgument, CustomCommand = "cat testDir/customArgListWithRegex", CustomCommandRegex = "(.+);(.+)\n", Description = "Custom argument with regex"}])
+            ]
+        };
         
+        var customArgumentsLoadedEvent = new ManualResetEvent(false);
+        CustomArguments.CustomArgumentsLoaded += () =>
+        {
+            var suggestions = GetSuggestionsForTestExecutable(ci, " ");
+            Assert.That(suggestions, Does.Contain(new Suggestion("foo2") {Description = "the foo argument"}));
+            Assert.That(suggestions, Does.Contain(new Suggestion("bar bar") {Description = "the bar argument"}));
+            Assert.That(suggestions, Does.Contain(new Suggestion("bazz") {Description = "the baz argument"}));
+            
+            customArgumentsLoadedEvent.Set();
+        };
+        GetSuggestionsForTestExecutable(ci, " ");
+
+        if (!customArgumentsLoadedEvent.WaitOne(TimeSpan.FromSeconds(5)))
+            Assert.Fail("Timeout: CustomArgumentsLoaded event was not raised within the expected time.");
     }
     
     [Test]

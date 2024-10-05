@@ -142,9 +142,11 @@ public static partial class Suggestor
                 return argToMatch.AllNames.Any(a => a == arg);
             case CommandInfo.ArgumentType.Flag:
                 return argToMatch.AllNames.Any(a => arg.StartsWith($"-{a}"));
+            case CommandInfo.ArgumentType.File:
+                return !(argToMatch.Extensions?.Length > 0) 
+                       || arg.ToNPath().HasExtension(argToMatch.Extensions);
             case CommandInfo.ArgumentType.FileSystemEntry:
             case CommandInfo.ArgumentType.Directory:
-            case CommandInfo.ArgumentType.File:
             case CommandInfo.ArgumentType.Command:
             case CommandInfo.ArgumentType.CommandName:
             case CommandInfo.ArgumentType.ProcessId:
@@ -152,7 +154,7 @@ public static partial class Suggestor
             case CommandInfo.ArgumentType.String:
                 return true;
             case CommandInfo.ArgumentType.CustomArgument:
-                return CustomArguments.Get(argToMatch.Name).Any(a => a.Text == arg);
+                return argToMatch.CustomCommand != null && CustomArguments.Get(argToMatch).Any(a => a.Text == arg);
             default:
                 throw new ArgumentOutOfRangeException();
         }
@@ -318,7 +320,7 @@ public static partial class Suggestor
             }
 
             if (x is FileSystemSuggestion) return 1;
-            if (y is FileSystemSuggestion) return 1;
+            if (y is FileSystemSuggestion) return -1;
             
             return string.Compare(y.Text, x.Text, StringComparison.Ordinal);
         }
@@ -548,7 +550,7 @@ public static partial class Suggestor
                         yield return new (lastParam) { Description = string.IsNullOrEmpty(arg.Description) ? arg.Name : arg.Description };
                     break;
                 case CommandInfo.ArgumentType.CustomArgument:
-                    foreach (var s in CustomArguments.Get(arg.Name))
+                    foreach (var s in CustomArguments.Get(arg))
                         if (s.Text.StartsWith(lastParam))
                             yield return s;
                     break;

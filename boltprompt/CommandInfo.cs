@@ -83,6 +83,12 @@ public record CommandInfo
         [DescriptionForLanguageModel("Valid file extensions (only applicable if type is 'file').")]
         public string[]? Extensions;
         [JsonInclude]
+        [DescriptionForLanguageModel("The command to run to get suggestions (only applicable if type is 'customargument').")]
+        public string? CustomCommand;
+        [JsonInclude]
+        [DescriptionForLanguageModel("A Regex to match the output of the custom command to suggestions and descriptions (only applicable if type is 'customargument').")]
+        public string? CustomCommandRegex;
+        [JsonInclude]
         [DescriptionForLanguageModel("Alternative names for the argument (if any).")]
         public string[]? Aliases;
         [JsonInclude]
