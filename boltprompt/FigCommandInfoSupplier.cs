@@ -123,6 +123,9 @@ internal record FigGenerator
     [JsonInclude]
     [JsonConverter(typeof(ArrayOrSingleValueConverter<string>))]
     public string[]? extensions = [];
+
+    [JsonInclude]
+    public string? showFolders;
 }
 
 internal record FigSuggestion
@@ -174,7 +177,11 @@ internal class FigCommandInfoSupplier : ICommandInfoSupplier
                 Console.WriteLine($"Converting {commandName}...");
                 var ci = await GetCommandInfoForCommand(commandName);
                 if (ci != null)
-                    outputDir.Combine($"{commandName}.json").WriteAllText(ci.Serialize());
+                {
+                    var outPath = outputDir.Combine($"{commandName}.json");
+                    Console.WriteLine($"Writing {outPath}...");
+                    outPath.WriteAllText(ci.Serialize());
+                }
             }
             catch (Exception ex)
             {
@@ -203,6 +210,8 @@ internal class FigCommandInfoSupplier : ICommandInfoSupplier
         {
             if (figArg.generators[0].extensions?.Length > 0)
                 return CommandInfo.ArgumentType.File;
+            if (figArg.generators[0].showFolders != null)
+                return CommandInfo.ArgumentType.Directory;
             if (figArg.generators[0].script?.Length > 0)
                 return CommandInfo.ArgumentType.CustomArgument;
 

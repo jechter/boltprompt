@@ -1,0 +1,280 @@
+{
+  "Comment": "This command info is generated from fig",
+  "Name": "kotlinc",
+  "Description": "Kotlin compiler for JVM",
+  "Arguments": [
+    {
+      "Arguments": [
+        {
+          "Name": "-version",
+          "Description": "Display the compiler version",
+          "Aliases": [],
+          "Arguments": []
+        },
+        {
+          "Name": "-nowarn",
+          "Description": "Suppress the compiler from displaying warnings during compilation",
+          "Aliases": [],
+          "Arguments": []
+        },
+        {
+          "Name": "-Werror",
+          "Description": "Turn any warnings into a compilation error",
+          "Aliases": [],
+          "Arguments": []
+        },
+        {
+          "Name": "-verbose",
+          "Description": "Enable verbose logging output which includes details of the compilation process",
+          "Aliases": [],
+          "Arguments": []
+        },
+        {
+          "Name": "-script",
+          "Description": "Evaluate a Kotlin script file. When called with this option, the compiler executes the first Kotlin script (*.kts) file among the given arguments",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "script-file",
+                  "Description": "script-file",
+                  "Type": "FileSystemEntry"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "Name": "-help",
+          "Description": "Display usage information and exit. Only standard options are shown. To show advanced options, use -X",
+          "Aliases": [
+            "-h"
+          ],
+          "Arguments": []
+        },
+        {
+          "Name": "-X",
+          "Description": "Display information about the advanced options and exit. These options are currently unstable: their names and behavior may be changed without notice",
+          "Aliases": [],
+          "Arguments": []
+        },
+        {
+          "Name": "-kotlin-home",
+          "Description": "Specify a custom path to the Kotlin compiler used for the discovery of runtime libraries",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "path",
+                  "Description": "path",
+                  "Type": "FileSystemEntry"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "Name": "-P",
+          "Description": "Pass an option to a Kotlin compiler plugin. Available plugins and their options are listed in the Tools \u003E Compiler plugins section of the documentation",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "plugin:pluginId:optionName=value",
+                  "Description": "plugin:pluginId:optionName=value",
+                  "Type": "String"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "Name": "-language-version",
+          "Description": "Provide source compatibility with the specified version of Kotlin",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "version",
+                  "Description": "version",
+                  "Type": "String"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "Name": "-api-version",
+          "Description": "Allow using declarations only from the specified version of Kotlin bundled libraries",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "version",
+                  "Description": "version",
+                  "Type": "String"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "Name": "-progressive",
+          "Description": "Enable the progressive mode for the compiler. In the progressive mode, deprecations and bug fixes for unstable code take effect immediately, instead of going through a graceful migration cycle. Code written in the progressive mode is backward compatible; however, code written in a non-progressive mode may cause compilation errors in the progressive mode",
+          "Aliases": [],
+          "Arguments": []
+        },
+        {
+          "Name": "-opt-in",
+          "Description": "Enable usages of API that requires opt-in with a requirement annotation specified by the given fully qualified name",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "annotation",
+                  "Description": "annotation",
+                  "Type": "String"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "Name": "-classpath",
+          "Description": "Search for class files in the specified paths. Separate elements of the classpath with system path separators (; on Windows, : on macOS/Linux). The classpath can contain file and directory paths, ZIP, or JAR files",
+          "Aliases": [
+            "-cp"
+          ],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "path",
+                  "Description": "path",
+                  "Type": "FileSystemEntry"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "Name": "-d",
+          "Description": "Place the generated class files into the specified location. The location can be a directory, a ZIP, or a JAR file",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "path",
+                  "Description": "path",
+                  "Type": "FileSystemEntry"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "Name": "-include-runtime",
+          "Description": "Include the Kotlin runtime into the resulting JAR file. Makes the resulting archive runnable on any Java-enabled environment",
+          "Aliases": [],
+          "Arguments": []
+        },
+        {
+          "Name": "-jdk-home",
+          "Description": "Use a custom JDK home directory to include into the classpath if it differs from the default JAVA_HOME",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "path",
+                  "Description": "path",
+                  "Type": "Directory"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "Name": "-jvm-target",
+          "Description": "Specify the target version of the generated JVM bytecode. Possible values are 1.8, 9, 10, ..., 21. The default value is 1.8",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "version",
+                  "Description": "version",
+                  "Type": "String"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "Name": "-java-parameters",
+          "Description": "Generate metadata for Java 1.8 reflection on method parameters",
+          "Aliases": [],
+          "Arguments": []
+        },
+        {
+          "Name": "-module-name",
+          "Description": "Set a custom name for the generated .kotlin_module file",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "name",
+                  "Description": "name",
+                  "Type": "String"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "Name": "-no-jdk",
+          "Description": "Don\u0027t automatically include the Java runtime into the classpath",
+          "Aliases": [],
+          "Arguments": []
+        },
+        {
+          "Name": "-no-reflect",
+          "Description": "Don\u0027t automatically include the Kotlin reflection (kotlin-reflect.jar) into the classpath",
+          "Aliases": [],
+          "Arguments": []
+        },
+        {
+          "Name": "-no-stdlib",
+          "Description": "Don\u0027t automatically include the Kotlin/JVM stdlib (kotlin-stdlib.jar) and Kotlin reflection (kotlin-reflect.jar) into the classpath",
+          "Aliases": [],
+          "Arguments": []
+        },
+        {
+          "Name": "-script-templates",
+          "Description": "Script definition template classes. Use fully qualified class names and separate them with commas (,)",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "classnames[,]",
+                  "Description": "classnames[,]",
+                  "Type": "String"
+                }
+              ]
+            }
+          ]
+        }
+      ],
+      "DontAllowMultiple": true
+    }
+  ]
+}
