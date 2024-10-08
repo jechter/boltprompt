@@ -1,0 +1,482 @@
+{
+  "Comment": "This command info is generated from fig",
+  "Name": "tree",
+  "Description": "Display directories as trees (with optional color/HTML output)",
+  "Arguments": [
+    {
+      "Arguments": [
+        {
+          "Name": "a",
+          "Description": "All files are listed",
+          "Type": "Flag",
+          "Aliases": [],
+          "Arguments": []
+        },
+        {
+          "Name": "d",
+          "Description": "List directories only",
+          "Type": "Flag",
+          "Aliases": [],
+          "Arguments": []
+        },
+        {
+          "Name": "l",
+          "Description": "Follow symbolic links like directories",
+          "Type": "Flag",
+          "Aliases": [],
+          "Arguments": []
+        },
+        {
+          "Name": "f",
+          "Description": "Print the full path prefix for each file",
+          "Type": "Flag",
+          "Aliases": [],
+          "Arguments": []
+        },
+        {
+          "Name": "x",
+          "Description": "Stay on current filesystem only",
+          "Type": "Flag",
+          "Aliases": [],
+          "Arguments": []
+        },
+        {
+          "Name": "L",
+          "Description": "Descend only level directories deep",
+          "Type": "Flag",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "level",
+                  "Description": "level",
+                  "Type": "String"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "Name": "R",
+          "Description": "Rerun tree when max dir level reached",
+          "Type": "Flag",
+          "Aliases": [],
+          "Arguments": []
+        },
+        {
+          "Name": "P",
+          "Description": "List only those files that match the pattern given",
+          "Type": "Flag",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "pattern",
+                  "Description": "pattern",
+                  "Type": "String"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "Name": "I",
+          "Description": "Do not list files that match the given pattern",
+          "Type": "Flag",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "pattern",
+                  "Description": "pattern",
+                  "Type": "String"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "Name": "--ignore-case",
+          "Description": "Ignore case when pattern matching",
+          "Aliases": [],
+          "Arguments": []
+        },
+        {
+          "Name": "--matchdirs",
+          "Description": "Include directory names in -P pattern matching",
+          "Aliases": [],
+          "Arguments": []
+        },
+        {
+          "Name": "--noreport",
+          "Description": "Turn off file/directory count at end of tree listing",
+          "Aliases": [],
+          "Arguments": []
+        },
+        {
+          "Name": "--charset",
+          "Description": "Use charset X for terminal/HTML and indentation line output",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "charset",
+                  "Description": "charset",
+                  "Type": "String"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "Name": "--filelimit",
+          "Description": "Do not descend dirs with more than # files in them",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "number",
+                  "Description": "number",
+                  "Type": "String"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "Name": "--timefmt",
+          "Description": "Print and format time according to the format \u003Cf\u003E",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "format",
+                  "Description": "format",
+                  "Type": "String"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "Name": "o",
+          "Description": "Output to file instead of stdout",
+          "Type": "Flag",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "filename",
+                  "Description": "filename",
+                  "Type": "String"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "Name": "q",
+          "Description": "Print non-printable characters as \u0027?\u0027",
+          "Type": "Flag",
+          "Aliases": [],
+          "Arguments": []
+        },
+        {
+          "Name": "N",
+          "Description": "Print non-printable characters as is",
+          "Type": "Flag",
+          "Aliases": [],
+          "Arguments": []
+        },
+        {
+          "Name": "Q",
+          "Description": "Quote filenames with double quotes",
+          "Type": "Flag",
+          "Aliases": [],
+          "Arguments": []
+        },
+        {
+          "Name": "p",
+          "Description": "Print the protections for each file",
+          "Type": "Flag",
+          "Aliases": [],
+          "Arguments": []
+        },
+        {
+          "Name": "u",
+          "Description": "Displays file owner or UID number",
+          "Type": "Flag",
+          "Aliases": [],
+          "Arguments": []
+        },
+        {
+          "Name": "g",
+          "Description": "Displays file group owner or GID number",
+          "Type": "Flag",
+          "Aliases": [],
+          "Arguments": []
+        },
+        {
+          "Name": "s",
+          "Description": "Print the size in bytes of each file",
+          "Type": "Flag",
+          "Aliases": [],
+          "Arguments": []
+        },
+        {
+          "Name": "h",
+          "Description": "Print the size in a more human readable way",
+          "Type": "Flag",
+          "Aliases": [],
+          "Arguments": []
+        },
+        {
+          "Name": "--si",
+          "Description": "Like -h but use SI units (powers of 1000) instead",
+          "Aliases": [],
+          "Arguments": []
+        },
+        {
+          "Name": "--du",
+          "Description": "For each directory report its size as the accumulation of sizes of all its files and sub-directories (and their files, and so on). The total amount of used space is also given in the final report (like the \u0027du -c\u0027 command.) This option requires tree to read the entire directory tree before emitting it, see BUGS AND NOTES below. Implies -s",
+          "Aliases": [],
+          "Arguments": []
+        },
+        {
+          "Name": "D",
+          "Description": "Print the date of the last modification time or if -c is used, the last status change time for the file listed",
+          "Type": "Flag",
+          "Aliases": [],
+          "Arguments": []
+        },
+        {
+          "Name": "F",
+          "Description": "Appends \u0027/\u0027, \u0027=\u0027, \u0027*\u0027, \u0027@\u0027, \u0027|\u0027 or \u0027\u003E\u0027 as per ls -F",
+          "Type": "Flag",
+          "Aliases": [],
+          "Arguments": []
+        },
+        {
+          "Name": "--inodes",
+          "Description": "Print inode number of each file",
+          "Aliases": [],
+          "Arguments": []
+        },
+        {
+          "Name": "--device",
+          "Description": "Print device ID number to which each file belongs",
+          "Aliases": [],
+          "Arguments": []
+        },
+        {
+          "Name": "v",
+          "Description": "Sort files alphanumerically by version",
+          "Type": "Flag",
+          "Aliases": [],
+          "Arguments": []
+        },
+        {
+          "Name": "t",
+          "Description": "Sort files by last modification time",
+          "Type": "Flag",
+          "Aliases": [],
+          "Arguments": []
+        },
+        {
+          "Name": "c",
+          "Description": "Sort files by last status change time",
+          "Type": "Flag",
+          "Aliases": [],
+          "Arguments": []
+        },
+        {
+          "Name": "U",
+          "Description": "Leave files unsorted",
+          "Type": "Flag",
+          "Aliases": [],
+          "Arguments": []
+        },
+        {
+          "Name": "r",
+          "Description": "Reverse the order of the sort",
+          "Type": "Flag",
+          "Aliases": [],
+          "Arguments": []
+        },
+        {
+          "Name": "--dirsfirst",
+          "Description": "List directories before files (-U disables)",
+          "Aliases": [],
+          "Arguments": []
+        },
+        {
+          "Name": "--sort",
+          "Description": "Select sort",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "type",
+                  "Description": "type",
+                  "Type": "String"
+                },
+                {
+                  "Name": "name",
+                  "Description": "type"
+                },
+                {
+                  "Name": "version",
+                  "Description": "type"
+                },
+                {
+                  "Name": "size",
+                  "Description": "type"
+                },
+                {
+                  "Name": "mtime",
+                  "Description": "type"
+                },
+                {
+                  "Name": "ctime",
+                  "Description": "type"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "Name": "i",
+          "Description": "Don\u0027t print indentation lines",
+          "Type": "Flag",
+          "Aliases": [],
+          "Arguments": []
+        },
+        {
+          "Name": "A",
+          "Description": "Print ANSI lines graphic indentation lines",
+          "Type": "Flag",
+          "Aliases": [],
+          "Arguments": []
+        },
+        {
+          "Name": "S",
+          "Description": "Print with CP437 (console) graphics indentation lines",
+          "Type": "Flag",
+          "Aliases": [],
+          "Arguments": []
+        },
+        {
+          "Name": "n",
+          "Description": "Turn colorization off always (-C overrides)",
+          "Type": "Flag",
+          "Aliases": [],
+          "Arguments": []
+        },
+        {
+          "Name": "C",
+          "Description": "Turn colorization on always",
+          "Type": "Flag",
+          "Aliases": [],
+          "Arguments": []
+        },
+        {
+          "Name": "X",
+          "Description": "Prints out an XML representation of the tree",
+          "Type": "Flag",
+          "Aliases": [],
+          "Arguments": []
+        },
+        {
+          "Name": "J",
+          "Description": "Prints out an JSON representation of the tree",
+          "Type": "Flag",
+          "Aliases": [],
+          "Arguments": []
+        },
+        {
+          "Name": "H",
+          "Description": "Prints out HTML format with baseHREF as top directory",
+          "Type": "Flag",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "baseHREF",
+                  "Description": "baseHREF",
+                  "Type": "String"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "Name": "T",
+          "Description": "Replace the default HTML title and H1 header with string",
+          "Type": "Flag",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "title",
+                  "Description": "title",
+                  "Type": "String"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "Name": "--nolinks",
+          "Description": "Turn off hyperlinks in HTML output",
+          "Aliases": [],
+          "Arguments": []
+        },
+        {
+          "Name": "--fromfile",
+          "Description": "Reads paths from files",
+          "Aliases": [],
+          "Arguments": []
+        },
+        {
+          "Name": "--version",
+          "Description": "Print version and exit",
+          "Aliases": [],
+          "Arguments": []
+        },
+        {
+          "Name": "--help",
+          "Description": "Print usage and this help message and exit",
+          "Aliases": [],
+          "Arguments": []
+        },
+        {
+          "Name": "-",
+          "Description": "Options processing terminator",
+          "Type": "Flag",
+          "Aliases": [],
+          "Arguments": []
+        }
+      ],
+      "Optional": true
+    },
+    {
+      "Arguments": [
+        {
+          "Name": "Directory",
+          "Description": "",
+          "Type": "Directory"
+        }
+      ]
+    }
+  ]
+}

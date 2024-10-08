@@ -1,0 +1,450 @@
+{
+  "Comment": "This command info is generated from fig",
+  "Name": "dprint",
+  "Description": "A pluggable and configurable code formatting platform written in Rust",
+  "Arguments": [
+    {
+      "Arguments": [
+        {
+          "Name": "-c",
+          "Description": "Path or url to JSON configuration file. Defaults to dprint.json or .dprint.json in current or ancestor directory when not provided",
+          "Aliases": [
+            "--config"
+          ],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "config",
+                  "Description": "config",
+                  "Type": "String"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "Name": "-h",
+          "Description": "Prints help information",
+          "Aliases": [
+            "--help"
+          ],
+          "Arguments": []
+        },
+        {
+          "Name": "--plugins",
+          "Description": "List of urls or file paths of plugins to use. This overrides what is specified in the config file",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "urls/files",
+                  "Description": "urls/files",
+                  "Type": "FileSystemEntry"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "Name": "--verbose",
+          "Description": "Prints additional diagnostic information",
+          "Aliases": [],
+          "Arguments": []
+        }
+      ],
+      "Optional": true
+    },
+    {
+      "Arguments": [
+        {
+          "Name": "init",
+          "Description": "Initializes a configuration file in the current directory",
+          "Aliases": [],
+          "Arguments": []
+        },
+        {
+          "Name": "fmt",
+          "Description": "Formats the source files and writes the result to the file system",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "--diff",
+                  "Description": "Outputs a check-like diff of every formatted file",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "--stdin",
+                  "Description": "Format stdin and output the result to stdout. Provide an absolute file path to apply the inclusion and exclusion rules or an extension or file name to always format the text",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "extension/file-name/file-path",
+                          "Description": "extension/file-name/file-path",
+                          "Type": "FileSystemEntry"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "--incremental",
+                  "Description": "Only format files when they change. This may alternatively be specified in the configuration file",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "incremental",
+                          "Description": "incremental",
+                          "Type": "String"
+                        },
+                        {
+                          "Name": "true",
+                          "Description": "incremental"
+                        },
+                        {
+                          "Name": "false",
+                          "Description": "incremental"
+                        }
+                      ],
+                      "Optional": true
+                    }
+                  ]
+                },
+                {
+                  "Name": "--excludes",
+                  "Description": "List of file patterns or directories in quotes to exclude when formatting. This overrides what is specified in the config file",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "pattern",
+                          "Description": "pattern",
+                          "Type": "FileSystemEntry"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "--allow-node-modules",
+                  "Description": "Allows traversing node module directories (unstable - This flag will be renamed to be non-node specific in the future)",
+                  "Aliases": [],
+                  "Arguments": []
+                }
+              ],
+              "Optional": true
+            },
+            {
+              "Arguments": [
+                {
+                  "Name": "files",
+                  "Description": "files",
+                  "Type": "String"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "Name": "check",
+          "Description": "Checks for any files that haven\u0027t been formatted",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "--incremental",
+                  "Description": "Only format files when they change. This may alternatively be specified in the configuration file",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "incremental",
+                          "Description": "incremental",
+                          "Type": "String"
+                        },
+                        {
+                          "Name": "true",
+                          "Description": "incremental"
+                        },
+                        {
+                          "Name": "false",
+                          "Description": "incremental"
+                        }
+                      ],
+                      "Optional": true
+                    }
+                  ]
+                },
+                {
+                  "Name": "--excludes",
+                  "Description": "List of file patterns or directories in quotes to exclude when formatting. This overrides what is specified in the config file",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "pattern",
+                          "Description": "pattern",
+                          "Type": "FileSystemEntry"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "--allow-node-modules",
+                  "Description": "Allows traversing node module directories (unstable - This flag will be renamed to be non-node specific in the future)",
+                  "Aliases": [],
+                  "Arguments": []
+                }
+              ],
+              "Optional": true
+            },
+            {
+              "Arguments": [
+                {
+                  "Name": "files",
+                  "Description": "files",
+                  "Type": "String"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "Name": "config",
+          "Description": "Functionality related to the configuration file",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "add",
+                  "Description": "Adds a plugin to the configuration file",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "url-or-plugin-name",
+                          "Description": "url-or-plugin-name",
+                          "Type": "String"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "init",
+                  "Description": "Initializes a configuration file in the current directory",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "update",
+                  "Description": "Updates the plugins in the configuration file",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "-y",
+                          "Description": "Upgrade process plugins without prompting to confirm checksums",
+                          "Aliases": [
+                            "--yes"
+                          ],
+                          "Arguments": []
+                        }
+                      ],
+                      "Optional": true
+                    }
+                  ]
+                },
+                {
+                  "Name": "help",
+                  "Description": "Prints the help of the given subcommand(s)",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "SUBCOMMAND",
+                          "Description": "SUBCOMMAND",
+                          "Type": "String"
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ],
+              "DontAllowMultiple": true
+            }
+          ]
+        },
+        {
+          "Name": "output-file-paths",
+          "Description": "Prints the resolved file paths for the plugins based on the args and configuration",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "--excludes",
+                  "Description": "List of file patterns or directories in quotes to exclude when formatting. This overrides what is specified in the config file",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "pattern",
+                          "Description": "pattern",
+                          "Type": "FileSystemEntry"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "--allow-node-modules",
+                  "Description": "Allows traversing node module directories (unstable - This flag will be renamed to be non-node specific in the future)",
+                  "Aliases": [],
+                  "Arguments": []
+                }
+              ],
+              "Optional": true
+            },
+            {
+              "Arguments": [
+                {
+                  "Name": "files",
+                  "Description": "files",
+                  "Type": "String"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "Name": "output-resolved-config",
+          "Description": "Prints the resolved configuration for the plugins based on the args and configuration",
+          "Aliases": [],
+          "Arguments": []
+        },
+        {
+          "Name": "output-format-times",
+          "Description": "Prints the amount of time it takes to format each file. Use this for debugging",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "--incremental",
+                  "Description": "Only format files when they change. This may alternatively be specified in the configuration file",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "incremental",
+                          "Description": "incremental",
+                          "Type": "String"
+                        },
+                        {
+                          "Name": "true",
+                          "Description": "incremental"
+                        },
+                        {
+                          "Name": "false",
+                          "Description": "incremental"
+                        }
+                      ],
+                      "Optional": true
+                    }
+                  ]
+                },
+                {
+                  "Name": "--excludes",
+                  "Description": "List of file patterns or directories in quotes to exclude when formatting. This overrides what is specified in the config file",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "pattern",
+                          "Description": "pattern",
+                          "Type": "FileSystemEntry"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "--allow-node-modules",
+                  "Description": "Allows traversing node module directories (unstable - This flag will be renamed to be non-node specific in the future)",
+                  "Aliases": [],
+                  "Arguments": []
+                }
+              ],
+              "Optional": true
+            },
+            {
+              "Arguments": [
+                {
+                  "Name": "files",
+                  "Description": "files",
+                  "Type": "String"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "Name": "clear-cache",
+          "Description": "Deletes the plugin cache directory",
+          "Aliases": [],
+          "Arguments": []
+        },
+        {
+          "Name": "upgrade",
+          "Description": "Upgrades the dprint executable",
+          "Aliases": [],
+          "Arguments": []
+        },
+        {
+          "Name": "license",
+          "Description": "Outputs the software license",
+          "Aliases": [],
+          "Arguments": []
+        },
+        {
+          "Name": "help",
+          "Description": "Prints the help of the given subcommand(s)",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "SUBCOMMAND",
+                  "Description": "SUBCOMMAND",
+                  "Type": "String"
+                }
+              ]
+            }
+          ]
+        }
+      ],
+      "DontAllowMultiple": true
+    }
+  ]
+}

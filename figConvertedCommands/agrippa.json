@@ -1,0 +1,403 @@
+{
+  "Comment": "This command info is generated from fig",
+  "Name": "agrippa",
+  "Description": "",
+  "Arguments": [
+    {
+      "Arguments": [
+        {
+          "Name": "component\u0027s name",
+          "Description": "component\u0027s name",
+          "Type": "String"
+        }
+      ]
+    },
+    {
+      "Arguments": [
+        {
+          "Name": "init",
+          "Description": "Generates a basic .agripparc.json file, with some default values for options that agrippa accepts",
+          "Aliases": [],
+          "Arguments": []
+        },
+        {
+          "Name": "generate",
+          "Description": "This is the core of the CLI - this command generates a new React component, based on the name and options passed to it",
+          "Aliases": [
+            "gen"
+          ],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "--props",
+                  "Description": "Determines which prop declaration/validation solution to generate. Defaults to \u0060ts\u0060 if \u0060typescript\u0060 flag is \u0060true\u0060, \u0060none\u0060 otherwise",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "String",
+                          "Description": "",
+                          "Type": "String"
+                        },
+                        {
+                          "Name": "ts",
+                          "Description": "Generate a TypeScript interface for props (this requires the typescript option to be true)"
+                        },
+                        {
+                          "Name": "jsdoc",
+                          "Description": "Generates JSDoc type hints for props (a @typedef and a @type)"
+                        },
+                        {
+                          "Name": "prop-types",
+                          "Description": "Generates prop-types for props"
+                        },
+                        {
+                          "Name": "none",
+                          "Description": "Generates no props"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "--children",
+                  "Description": "Whether the component is meant to have children or not. Defaults to \u0060false\u0060",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "String",
+                          "Description": "",
+                          "Type": "String"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "--typescript",
+                  "Description": "Option to generate Typescript components, defaults to \u0060true\u0060 if the CLI manages to find a \u0060tsconfig.json\u0060 file, false otherwise",
+                  "Aliases": [
+                    "--ts"
+                  ],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "String",
+                          "Description": "",
+                          "Type": "String"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "--import-react",
+                  "Description": "Option to import React at the top of the component. Defaults to \u0060true\u0060 if the CLI manages to find a \u0060tsconfig.json\u0060 file and it has a \u0060jsx\u0060 field under \u0060compilerOptions\u0060 with \u0060react-jsx\u0060 or \u0060react-jsxdev\u0060 as the value, \u0060false\u0060 otherwise",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "String",
+                          "Description": "",
+                          "Type": "String"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "--export-type",
+                  "Description": "Whether to export the component as a named export or a default export. Defaults to \u0060named\u0060",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "String",
+                          "Description": "",
+                          "Type": "String"
+                        },
+                        {
+                          "Name": "named",
+                          "Description": ""
+                        },
+                        {
+                          "Name": "default",
+                          "Description": ""
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "--declaration",
+                  "Description": "Whether to declare the component as a \u0060const\u0060 with an arrow function, or as a \u0060function\u0060 declaration. Defaults to \u0060const\u0060",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "String",
+                          "Description": "",
+                          "Type": "String"
+                        },
+                        {
+                          "Name": "const",
+                          "Description": ""
+                        },
+                        {
+                          "Name": "function",
+                          "Description": ""
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "--memo",
+                  "Description": "Generates a component as a memo component. Defaults to \u0060false\u0060",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "String",
+                          "Description": "",
+                          "Type": "String"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "--react-native",
+                  "Description": "Generates a React Native component. Defaults to \u0060true\u0060 if \u0060react-native\u0060 is a dependency in the project\u0027s \u0060package.json\u0060, \u0060false\u0060 otherwise",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "String",
+                          "Description": "",
+                          "Type": "String"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "--styling",
+                  "Description": "Which styling solution to generate. Defaults to \u0060none\u0060",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "String",
+                          "Description": "",
+                          "Type": "String"
+                        },
+                        {
+                          "Name": "none",
+                          "Description": "Generates no style"
+                        },
+                        {
+                          "Name": "css",
+                          "Description": "Generates a \u0060css\u0060 file"
+                        },
+                        {
+                          "Name": "scss",
+                          "Description": "Generates a \u0060scss\u0060 file"
+                        },
+                        {
+                          "Name": "jss",
+                          "Description": "Generates a \u0060useStyles\u0060 hook above the component with \u0060react-jss\u0060\u0027s \u0060createUseStyles\u0060"
+                        },
+                        {
+                          "Name": "mui",
+                          "Description": "Generates a \u0060useStyles\u0060 hook above the component with \u0060material-ui\u0060\u0027s \u0060makeStyles\u0060. Note that this generates styles for \u0060material-ui\u0060 v4"
+                        },
+                        {
+                          "Name": "react-native",
+                          "Description": "Generates a React Native \u0060StyleSheet\u0060"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "--styling-module",
+                  "Description": "Whether to generate a scoped \u0060module\u0060 stylesheet. This option is only relevant for \u0060css\u0060 or \u0060scss\u0060 styling, and will be ignored for other values. Defaults to \u0060true\u0060",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "String",
+                          "Description": "",
+                          "Type": "String"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "--base-dir",
+                  "Description": "Path to a base directory which components should be generated inside of (directly or nested). Defaults to the current working directory",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "path",
+                          "Description": "path",
+                          "Type": "Directory"
+                        }
+                      ],
+                      "Optional": true
+                    }
+                  ]
+                },
+                {
+                  "Name": "--dest",
+                  "Description": "Allows the user to generate the component at a path relative to \u0060baseDir\u0060. It\u0027s mostly used to augment or modify the generation path in the command-line when creating the component itself. \u0060dest\u0060 is resolved relative to \u0060baseDir\u0060",
+                  "Aliases": [
+                    "--destination"
+                  ],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "path",
+                          "Description": "path",
+                          "Type": "Directory"
+                        }
+                      ],
+                      "Optional": true
+                    }
+                  ]
+                },
+                {
+                  "Name": "--allow-outside-base",
+                  "Description": "Overrides default Agrippa behaviour to allow components to be specified outside \u0060baseDir\u0060. Defaults to current working directory",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "path",
+                          "Description": "path",
+                          "Type": "Directory"
+                        }
+                      ],
+                      "Optional": true
+                    }
+                  ]
+                },
+                {
+                  "Name": "--flat",
+                  "Description": "By default, Agrippa generates a dedicated directory for the generated component; this directory has the same name as the component, and will contain the component file (as \u0060index.tsx\u0060 or \u0060index.jsx\u0060), and the style file (if one is generated). Defaults to \u0060false\u0060",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "String",
+                          "Description": "",
+                          "Type": "String"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "--separate-index",
+                  "Description": "In the \u0060separateIndex\u0060 generation scheme, Agrippa creates one file for the component\u0027s code, and one \u0060index\u0060 file, whose purpose is to allow importing exports from the component\u0027s directory elegantly (the import path can then be \u0060\u003Cpath\u003E/\u003Cto\u003E/\u003Cdirectory\u003E/Component\u0060 instead of \u0060\u003Cpath\u003E/\u003Cto\u003E/\u003Cdirectory\u003E/Component/Component\u0060). Defaults to \u0060true\u0060",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "String",
+                          "Description": "",
+                          "Type": "String"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "--post-command",
+                  "Description": "Allows a custom command to be run after having generated a component. This allows for some cool functionality, such as opening an IDE at the newly generated files automatically or linting them. Defaults to \u0060none\u0060",
+                  "Aliases": [
+                    "--postCommand"
+                  ],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "String",
+                          "Description": "",
+                          "Type": "String"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "--overwrite",
+                  "Description": "By default, Agrippa prevents the generation of a component over an existing components, to prevent a loss of code. \u0060--overwrite\u0060 tells Agrippa to replace existing files, if any are found. Defaults to \u0060false\u0060",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "String",
+                          "Description": "",
+                          "Type": "String"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "--debug",
+                  "Description": "The \u0060debug\u0060 flag makes Agrippa print out additional debug information. It\u0027s quite useful when debugging. Defaults to \u0060false\u0060",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "String",
+                          "Description": "",
+                          "Type": "String"
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ],
+              "Optional": true
+            },
+            {
+              "Arguments": [
+                {
+                  "Name": "component",
+                  "Description": "component",
+                  "Type": "String"
+                }
+              ]
+            }
+          ]
+        }
+      ],
+      "DontAllowMultiple": true
+    }
+  ]
+}

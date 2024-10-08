@@ -1,0 +1,40 @@
+{
+  "Comment": "This command info is generated from fig",
+  "Name": "kubens",
+  "Description": "Switch between Kubernetes-namespaces",
+  "Arguments": [
+    {
+      "Arguments": [
+        {
+          "Name": "--help",
+          "Description": "Show help for kubens",
+          "Aliases": [
+            "-h"
+          ],
+          "Arguments": []
+        },
+        {
+          "Name": "--current",
+          "Description": "Show current namespace",
+          "Aliases": [
+            "-c"
+          ],
+          "Arguments": []
+        }
+      ],
+      "Optional": true
+    },
+    {
+      "Arguments": [
+        {
+          "Name": "namespace",
+          "Description": "namespace",
+          "Type": "CustomArgument",
+          "Extensions": [],
+          "CustomCommand": "bash -c kubens | grep -v $(kubens -c)"
+        }
+      ],
+      "Optional": true
+    }
+  ]
+}

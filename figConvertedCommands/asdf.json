@@ -1,0 +1,794 @@
+{
+  "Comment": "This command info is generated from fig",
+  "Name": "asdf",
+  "Description": "Extendable version manager with support for Ruby, Node.js, Elixir, Erlang \u0026 more",
+  "Arguments": [
+    {
+      "Arguments": [
+        {
+          "Name": "--version",
+          "Description": "Version for asdf",
+          "Aliases": [],
+          "Arguments": []
+        },
+        {
+          "Name": "-h",
+          "Description": "Help for asdf",
+          "Aliases": [
+            "--help"
+          ],
+          "Arguments": []
+        }
+      ],
+      "Optional": true
+    },
+    {
+      "Arguments": [
+        {
+          "Name": "plugin",
+          "Description": "Plugin management sub-commands",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "add",
+                  "Description": "Add a plugin from the plugin repo OR, add a Git repo as a plugin by specifying the name and repo url",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "name",
+                          "Description": "name",
+                          "Type": "String",
+                          "Extensions": [],
+                          "CustomCommand": ""
+                        }
+                      ]
+                    },
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "git-url",
+                          "Description": "git-url",
+                          "Type": "String"
+                        }
+                      ],
+                      "Optional": true
+                    }
+                  ]
+                },
+                {
+                  "Name": "list",
+                  "Description": "List installed plugins. Optionally show git urls and git-ref",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "--urls",
+                          "Description": "Show git urls",
+                          "Aliases": [],
+                          "Arguments": []
+                        },
+                        {
+                          "Name": "--refs",
+                          "Description": "Show git refs",
+                          "Aliases": [],
+                          "Arguments": []
+                        }
+                      ],
+                      "Optional": true
+                    },
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "all",
+                          "Description": "List plugins registered on asdf-plugins repository with URLs",
+                          "Aliases": [],
+                          "Arguments": []
+                        }
+                      ],
+                      "DontAllowMultiple": true
+                    }
+                  ]
+                },
+                {
+                  "Name": "remove",
+                  "Description": "Remove plugin and package versions",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "name",
+                          "Description": "name",
+                          "Type": "CustomArgument",
+                          "Extensions": [],
+                          "CustomCommand": "asdf plugin-list"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "update",
+                  "Description": "Update a plugin to latest commit on default branch or a particular git-ref",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "--all",
+                          "Description": "Update all plugins to latest commit on default branch",
+                          "Aliases": [],
+                          "Arguments": []
+                        }
+                      ],
+                      "Optional": true
+                    },
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "name",
+                          "Description": "name",
+                          "Type": "String"
+                        }
+                      ],
+                      "Optional": true
+                    },
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "git-ref",
+                          "Description": "git-ref",
+                          "Type": "String"
+                        }
+                      ],
+                      "Optional": true
+                    }
+                  ]
+                }
+              ],
+              "DontAllowMultiple": true
+            }
+          ]
+        },
+        {
+          "Name": "plugin-add",
+          "Description": "Add a plugin from the plugin repo OR, add a Git repo as a plugin by specifying the name and repo url",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "name",
+                  "Description": "name",
+                  "Type": "String",
+                  "Extensions": [],
+                  "CustomCommand": ""
+                }
+              ]
+            },
+            {
+              "Arguments": [
+                {
+                  "Name": "git-url",
+                  "Description": "git-url",
+                  "Type": "String"
+                }
+              ],
+              "Optional": true
+            }
+          ]
+        },
+        {
+          "Name": "plugin-list",
+          "Description": "List installed plugins. Optionally show git urls and git-ref",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "--urls",
+                  "Description": "Show git urls",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "--refs",
+                  "Description": "Show git refs",
+                  "Aliases": [],
+                  "Arguments": []
+                }
+              ],
+              "Optional": true
+            },
+            {
+              "Arguments": [
+                {
+                  "Name": "all",
+                  "Description": "List plugins registered on asdf-plugins repository with URLs",
+                  "Aliases": [],
+                  "Arguments": []
+                }
+              ],
+              "DontAllowMultiple": true
+            }
+          ]
+        },
+        {
+          "Name": "plugin-list-all",
+          "Description": "List plugins registered on asdf-plugins repository with URLs",
+          "Aliases": [],
+          "Arguments": []
+        },
+        {
+          "Name": "plugin-remove",
+          "Description": "Remove plugin and package versions",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "name",
+                  "Description": "name",
+                  "Type": "CustomArgument",
+                  "Extensions": [],
+                  "CustomCommand": "asdf plugin-list"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "Name": "plugin-update",
+          "Description": "Update a plugin to latest commit on default branch or a particular git-ref",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "--all",
+                  "Description": "Update all plugins to latest commit on default branch",
+                  "Aliases": [],
+                  "Arguments": []
+                }
+              ],
+              "Optional": true
+            },
+            {
+              "Arguments": [
+                {
+                  "Name": "name",
+                  "Description": "name",
+                  "Type": "String"
+                }
+              ],
+              "Optional": true
+            },
+            {
+              "Arguments": [
+                {
+                  "Name": "git-ref",
+                  "Description": "git-ref",
+                  "Type": "String"
+                }
+              ],
+              "Optional": true
+            }
+          ]
+        },
+        {
+          "Name": "install",
+          "Description": "Install plugin at stated version, or all from .tools-versions",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "name",
+                  "Description": "name",
+                  "Type": "CustomArgument",
+                  "Extensions": [],
+                  "CustomCommand": "asdf plugin-list"
+                }
+              ],
+              "Optional": true
+            },
+            {
+              "Arguments": [
+                {
+                  "Name": "version",
+                  "Description": "version",
+                  "Type": "String",
+                  "Extensions": [],
+                  "CustomCommand": ""
+                },
+                {
+                  "Name": "latest",
+                  "Description": "version"
+                }
+              ],
+              "Optional": true
+            }
+          ]
+        },
+        {
+          "Name": "uninstall",
+          "Description": "Remove a specific version of a package",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "name",
+                  "Description": "name",
+                  "Type": "CustomArgument",
+                  "Extensions": [],
+                  "CustomCommand": "asdf plugin-list"
+                }
+              ]
+            },
+            {
+              "Arguments": [
+                {
+                  "Name": "version",
+                  "Description": "version",
+                  "Type": "String",
+                  "Extensions": [],
+                  "CustomCommand": ""
+                }
+              ],
+              "Optional": true
+            }
+          ]
+        },
+        {
+          "Name": "current",
+          "Description": "Display current versions for named package (else all)",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "name",
+                  "Description": "name",
+                  "Type": "CustomArgument",
+                  "Extensions": [],
+                  "CustomCommand": "asdf plugin-list"
+                }
+              ],
+              "Optional": true
+            }
+          ]
+        },
+        {
+          "Name": "where",
+          "Description": "Display install path for given package at optional specified version",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "name",
+                  "Description": "name",
+                  "Type": "CustomArgument",
+                  "Extensions": [],
+                  "CustomCommand": "asdf plugin-list"
+                }
+              ]
+            },
+            {
+              "Arguments": [
+                {
+                  "Name": "version",
+                  "Description": "version",
+                  "Type": "String",
+                  "Extensions": [],
+                  "CustomCommand": ""
+                }
+              ],
+              "Optional": true
+            }
+          ]
+        },
+        {
+          "Name": "which",
+          "Description": "Display path to an executable",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "command",
+                  "Description": "command",
+                  "Type": "String",
+                  "Extensions": [],
+                  "CustomCommand": ""
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "Name": "local",
+          "Description": "Set package local version",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "name",
+                  "Description": "name",
+                  "Type": "CustomArgument",
+                  "Extensions": [],
+                  "CustomCommand": "asdf plugin-list"
+                }
+              ]
+            },
+            {
+              "Arguments": [
+                {
+                  "Name": "version",
+                  "Description": "version",
+                  "Type": "String",
+                  "Extensions": [],
+                  "CustomCommand": ""
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "Name": "global",
+          "Description": "Set package global version",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "name",
+                  "Description": "name",
+                  "Type": "CustomArgument",
+                  "Extensions": [],
+                  "CustomCommand": "asdf plugin-list"
+                }
+              ]
+            },
+            {
+              "Arguments": [
+                {
+                  "Name": "version",
+                  "Description": "version",
+                  "Type": "String",
+                  "Extensions": [],
+                  "CustomCommand": ""
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "Name": "shell",
+          "Description": "Set the package version to ASDF_${LANG}_VERSION\u0060 in the current shell",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "name",
+                  "Description": "name",
+                  "Type": "CustomArgument",
+                  "Extensions": [],
+                  "CustomCommand": "asdf plugin-list"
+                }
+              ]
+            },
+            {
+              "Arguments": [
+                {
+                  "Name": "version",
+                  "Description": "version",
+                  "Type": "String",
+                  "Extensions": [],
+                  "CustomCommand": ""
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "Name": "latest",
+          "Description": "Display latest version available to install for a named package",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "name",
+                  "Description": "name",
+                  "Type": "CustomArgument",
+                  "Extensions": [],
+                  "CustomCommand": "asdf plugin-list"
+                }
+              ]
+            },
+            {
+              "Arguments": [
+                {
+                  "Name": "version",
+                  "Description": "version",
+                  "Type": "String",
+                  "Extensions": [],
+                  "CustomCommand": ""
+                }
+              ],
+              "Optional": true
+            }
+          ]
+        },
+        {
+          "Name": "list",
+          "Description": "List installed versions of a package",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "name",
+                  "Description": "name",
+                  "Type": "CustomArgument",
+                  "Extensions": [],
+                  "CustomCommand": "asdf plugin-list"
+                }
+              ]
+            },
+            {
+              "Arguments": [
+                {
+                  "Name": "all",
+                  "Description": "List all available (remote) versions of a package",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "name",
+                          "Description": "name",
+                          "Type": "CustomArgument",
+                          "Extensions": [],
+                          "CustomCommand": "asdf plugin-list"
+                        }
+                      ]
+                    },
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "version",
+                          "Description": "version",
+                          "Type": "String",
+                          "Extensions": [],
+                          "CustomCommand": ""
+                        }
+                      ],
+                      "Optional": true
+                    }
+                  ]
+                }
+              ],
+              "DontAllowMultiple": true
+            }
+          ]
+        },
+        {
+          "Name": "list-all",
+          "Description": "List all available (remote) versions of a package",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "name",
+                  "Description": "name",
+                  "Type": "CustomArgument",
+                  "Extensions": [],
+                  "CustomCommand": "asdf plugin-list"
+                }
+              ]
+            },
+            {
+              "Arguments": [
+                {
+                  "Name": "version",
+                  "Description": "version",
+                  "Type": "String",
+                  "Extensions": [],
+                  "CustomCommand": ""
+                }
+              ],
+              "Optional": true
+            }
+          ]
+        },
+        {
+          "Name": "help",
+          "Description": "Output documentation for plugin and tool",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "name",
+                  "Description": "name",
+                  "Type": "CustomArgument",
+                  "Extensions": [],
+                  "CustomCommand": "asdf plugin-list"
+                }
+              ]
+            },
+            {
+              "Arguments": [
+                {
+                  "Name": "version",
+                  "Description": "version",
+                  "Type": "String",
+                  "Extensions": [],
+                  "CustomCommand": ""
+                }
+              ],
+              "Optional": true
+            }
+          ]
+        },
+        {
+          "Name": "exec",
+          "Description": "Executes the command shim for the current version",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "command",
+                  "Description": "command",
+                  "Type": "String",
+                  "Extensions": [],
+                  "CustomCommand": ""
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "Name": "env",
+          "Description": "Prints or runs an executable under a command environment",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "command",
+                  "Description": "command",
+                  "Type": "String",
+                  "Extensions": [],
+                  "CustomCommand": ""
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "Name": "info",
+          "Description": "Print os, shell and asdf debug information",
+          "Aliases": [],
+          "Arguments": []
+        },
+        {
+          "Name": "reshim",
+          "Description": "Recreate shims for version of a package",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "name",
+                  "Description": "name",
+                  "Type": "CustomArgument",
+                  "Extensions": [],
+                  "CustomCommand": "asdf plugin-list"
+                }
+              ],
+              "Optional": true
+            },
+            {
+              "Arguments": [
+                {
+                  "Name": "version",
+                  "Description": "version",
+                  "Type": "String",
+                  "Extensions": [],
+                  "CustomCommand": ""
+                }
+              ],
+              "Optional": true
+            }
+          ]
+        },
+        {
+          "Name": "shim",
+          "Description": "Shim management sub-commands",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "versions",
+                  "Description": "List for given command which plugins and versions provide it",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "command",
+                          "Description": "command",
+                          "Type": "String",
+                          "Extensions": [],
+                          "CustomCommand": ""
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ],
+              "DontAllowMultiple": true
+            }
+          ]
+        },
+        {
+          "Name": "shim-versions",
+          "Description": "List for given command which plugins and versions provide it",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "command",
+                  "Description": "command",
+                  "Type": "String",
+                  "Extensions": [],
+                  "CustomCommand": ""
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "Name": "update",
+          "Description": "Update ASDF to the latest stable release (unless --head)",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "--head",
+                  "Description": "Using HEAD commit",
+                  "Aliases": [],
+                  "Arguments": []
+                }
+              ],
+              "Optional": true
+            }
+          ]
+        },
+        {
+          "Name": "version",
+          "Description": "Version for asdf",
+          "Aliases": [],
+          "Arguments": []
+        }
+      ],
+      "DontAllowMultiple": true
+    }
+  ]
+}

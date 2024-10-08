@@ -1,0 +1,1603 @@
+{
+  "Comment": "This command info is generated from fig",
+  "Name": "adb",
+  "Description": "Android Debug Bridge",
+  "Arguments": [
+    {
+      "Arguments": [
+        {
+          "Name": "a",
+          "Description": "Listen on all network interfaces, not just localhost",
+          "Type": "Flag",
+          "Aliases": [],
+          "Arguments": []
+        },
+        {
+          "Name": "d",
+          "Description": "Use USB device (error if multiple devices connected)",
+          "Type": "Flag",
+          "Aliases": [],
+          "Arguments": []
+        },
+        {
+          "Name": "e",
+          "Description": "Use TCP/IP device (error if multiple TCP/IP devices available)",
+          "Type": "Flag",
+          "Aliases": [],
+          "Arguments": []
+        },
+        {
+          "Name": "s",
+          "Description": "Use device with given serial (overrides $ANDROID_SERIAL)",
+          "Type": "Flag",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "SERIAL",
+                  "Description": "SERIAL",
+                  "Type": "String"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "Name": "t",
+          "Description": "Use device with given transport id",
+          "Type": "Flag",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "ID",
+                  "Description": "ID",
+                  "Type": "String"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "Name": "H",
+          "Description": "Name of adb server host [default=localhost]",
+          "Type": "Flag",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "host name",
+                  "Description": "host name",
+                  "Type": "String"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "Name": "P",
+          "Description": "Port of adb server [default=5037]",
+          "Type": "Flag",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "port",
+                  "Description": "port",
+                  "Type": "String"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "Name": "L",
+          "Description": "Listen on given socket for adb server [default=tcp:localhost:5037]",
+          "Type": "Flag",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "socket",
+                  "Description": "socket",
+                  "Type": "String"
+                }
+              ]
+            }
+          ]
+        }
+      ],
+      "Optional": true
+    },
+    {
+      "Arguments": [
+        {
+          "Name": "devices",
+          "Description": "List connected devices",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "l",
+                  "Description": "Long output",
+                  "Type": "Flag",
+                  "Aliases": [],
+                  "Arguments": []
+                }
+              ],
+              "Optional": true
+            }
+          ]
+        },
+        {
+          "Name": "help",
+          "Description": "Show this help message",
+          "Aliases": [],
+          "Arguments": []
+        },
+        {
+          "Name": "get-state",
+          "Description": "Print offline | bootloader | device",
+          "Aliases": [],
+          "Arguments": []
+        },
+        {
+          "Name": "get-serialno",
+          "Description": "Print \u003Cserial-number\u003E",
+          "Aliases": [],
+          "Arguments": []
+        },
+        {
+          "Name": "get-devpath",
+          "Description": "Print \u003Cdevice-path\u003E",
+          "Aliases": [],
+          "Arguments": []
+        },
+        {
+          "Name": "remount",
+          "Description": "Remount partitions read-write. if a reboot is required, -R will automatically reboot the device",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "R",
+                  "Description": "Reboot device",
+                  "Type": "Flag",
+                  "Aliases": [],
+                  "Arguments": []
+                }
+              ],
+              "Optional": true
+            }
+          ]
+        },
+        {
+          "Name": "jdwp",
+          "Description": "List pids of processes hosting a JDWP transport",
+          "Aliases": [],
+          "Arguments": []
+        },
+        {
+          "Name": "root",
+          "Description": "Restart adbd with root permissions",
+          "Aliases": [],
+          "Arguments": []
+        },
+        {
+          "Name": "unroot",
+          "Description": "Restart adbd without root permissions",
+          "Aliases": [],
+          "Arguments": []
+        },
+        {
+          "Name": "usb",
+          "Description": "Restart adbd listening on USB",
+          "Aliases": [],
+          "Arguments": []
+        },
+        {
+          "Name": "sideload",
+          "Description": "Sideload the given full OTA package",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "OTAPACKAGE",
+                  "Description": "OTAPACKAGE",
+                  "Type": "String"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "Name": "start-server",
+          "Description": "Ensure that there is a server running",
+          "Aliases": [],
+          "Arguments": []
+        },
+        {
+          "Name": "kill-server",
+          "Description": "Kill the server if it is running",
+          "Aliases": [],
+          "Arguments": []
+        },
+        {
+          "Name": "reconnect",
+          "Description": "Kick connection from host side to force reconnect",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "device",
+                  "Description": "Kick connection from device side to force reconnect",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "offline",
+                  "Description": "Reset offline/unauthorized devices to force reconnect\u0060",
+                  "Aliases": [],
+                  "Arguments": []
+                }
+              ],
+              "DontAllowMultiple": true
+            }
+          ]
+        },
+        {
+          "Name": "tcpip",
+          "Description": "Restart adbd listening on TCP on PORT",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "PORT",
+                  "Description": "PORT",
+                  "Type": "String"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "Name": "reboot",
+          "Description": "Reboot the device; defaults to booting system image but supports bootloader and recovery too. sideload reboots into recovery and automatically starts sideload mode, sideload-auto-reboot is the same but reboots after sideloading",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "type",
+                  "Description": "type",
+                  "Type": "String"
+                },
+                {
+                  "Name": "bootloader",
+                  "Description": "type"
+                },
+                {
+                  "Name": "recovery",
+                  "Description": "type"
+                },
+                {
+                  "Name": "sideload",
+                  "Description": "type"
+                },
+                {
+                  "Name": "sideload-auto-reboot",
+                  "Description": "type"
+                }
+              ],
+              "Optional": true
+            }
+          ]
+        },
+        {
+          "Name": "disable-verity",
+          "Description": "Disable dm-verity checking on userdebug builds",
+          "Aliases": [],
+          "Arguments": []
+        },
+        {
+          "Name": "enable-verity",
+          "Description": "Re-enable dm-verity checking on userdebug builds",
+          "Aliases": [],
+          "Arguments": []
+        },
+        {
+          "Name": "wait-for-device",
+          "Description": "Wait for state=device",
+          "Aliases": [],
+          "Arguments": []
+        },
+        {
+          "Name": "wait-for-recovery",
+          "Description": "Wait for state=recovery",
+          "Aliases": [],
+          "Arguments": []
+        },
+        {
+          "Name": "wait-for-rescue",
+          "Description": "Wait for state=rescue",
+          "Aliases": [],
+          "Arguments": []
+        },
+        {
+          "Name": "wait-for-sideload",
+          "Description": "Wait for state=sideload",
+          "Aliases": [],
+          "Arguments": []
+        },
+        {
+          "Name": "wait-for-bootloader",
+          "Description": "Wait for state=bootloader",
+          "Aliases": [],
+          "Arguments": []
+        },
+        {
+          "Name": "wait-for-disconnect",
+          "Description": "Wait for state=disconnect",
+          "Aliases": [],
+          "Arguments": []
+        },
+        {
+          "Name": "wait-for-usb-device",
+          "Description": "Wait for usb in state=device",
+          "Aliases": [],
+          "Arguments": []
+        },
+        {
+          "Name": "wait-for-usb-recovery",
+          "Description": "Wait for usb in state=recovery",
+          "Aliases": [],
+          "Arguments": []
+        },
+        {
+          "Name": "wait-for-usb-rescue",
+          "Description": "Wait for usb in state=rescue",
+          "Aliases": [],
+          "Arguments": []
+        },
+        {
+          "Name": "wait-for-usb-sideload",
+          "Description": "Wait for usb in state=sideload",
+          "Aliases": [],
+          "Arguments": []
+        },
+        {
+          "Name": "wait-for-usb-bootloader",
+          "Description": "Wait for usb in state=bootloader",
+          "Aliases": [],
+          "Arguments": []
+        },
+        {
+          "Name": "wait-for-usb-disconnect",
+          "Description": "Wait for usb in state=disconnect",
+          "Aliases": [],
+          "Arguments": []
+        },
+        {
+          "Name": "wait-for-local-device",
+          "Description": "Wait for local in state=device",
+          "Aliases": [],
+          "Arguments": []
+        },
+        {
+          "Name": "wait-for-local-recovery",
+          "Description": "Wait for local in state=recovery",
+          "Aliases": [],
+          "Arguments": []
+        },
+        {
+          "Name": "wait-for-local-rescue",
+          "Description": "Wait for local in state=rescue",
+          "Aliases": [],
+          "Arguments": []
+        },
+        {
+          "Name": "wait-for-local-sideload",
+          "Description": "Wait for local in state=sideload",
+          "Aliases": [],
+          "Arguments": []
+        },
+        {
+          "Name": "wait-for-local-bootloader",
+          "Description": "Wait for local in state=bootloader",
+          "Aliases": [],
+          "Arguments": []
+        },
+        {
+          "Name": "wait-for-local-disconnect",
+          "Description": "Wait for local in state=disconnect",
+          "Aliases": [],
+          "Arguments": []
+        },
+        {
+          "Name": "wait-for-any-device",
+          "Description": "Wait for any in state=device",
+          "Aliases": [],
+          "Arguments": []
+        },
+        {
+          "Name": "wait-for-any-recovery",
+          "Description": "Wait for any in state=recovery",
+          "Aliases": [],
+          "Arguments": []
+        },
+        {
+          "Name": "wait-for-any-rescue",
+          "Description": "Wait for any in state=rescue",
+          "Aliases": [],
+          "Arguments": []
+        },
+        {
+          "Name": "wait-for-any-sideload",
+          "Description": "Wait for any in state=sideload",
+          "Aliases": [],
+          "Arguments": []
+        },
+        {
+          "Name": "wait-for-any-bootloader",
+          "Description": "Wait for any in state=bootloader",
+          "Aliases": [],
+          "Arguments": []
+        },
+        {
+          "Name": "wait-for-any-disconnect",
+          "Description": "Wait for any in state=disconnect",
+          "Aliases": [],
+          "Arguments": []
+        },
+        {
+          "Name": "keygen",
+          "Description": "Generate adb public/private key; private key stored in FILE",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "FILE",
+                  "Description": "FILE",
+                  "Type": "FileSystemEntry"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "Name": "logcat",
+          "Description": "Show device log (logcat --help for more)",
+          "Aliases": [],
+          "Arguments": []
+        },
+        {
+          "Name": "version",
+          "Description": "Show version num",
+          "Aliases": [],
+          "Arguments": []
+        },
+        {
+          "Name": "connect",
+          "Description": "Connect to a device via TCP/IP [default port=5555]",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "HOST[:PORT]",
+                  "Description": "HOST[:PORT]",
+                  "Type": "String"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "Name": "disconnect",
+          "Description": "Disconnect from given TCP/IP device [default port=5555], or all",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "HOST[:PORT]",
+                  "Description": "HOST[:PORT]",
+                  "Type": "String"
+                }
+              ],
+              "Optional": true
+            }
+          ]
+        },
+        {
+          "Name": "uninstall",
+          "Description": "Remove this app package from the device",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "k",
+                  "Description": "Keep the data and cache directories",
+                  "Type": "Flag",
+                  "Aliases": [],
+                  "Arguments": []
+                }
+              ],
+              "Optional": true
+            }
+          ]
+        },
+        {
+          "Name": "bugreport",
+          "Description": "Write bugreport to given PATH [default=bugreport.zip];",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "PATH",
+                  "Description": "PATH",
+                  "Type": "String"
+                }
+              ],
+              "Optional": true
+            }
+          ]
+        },
+        {
+          "Name": "pair",
+          "Description": "Pair with a device for secure TCP/IP communication",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "HOST[:PORT]",
+                  "Description": "HOST[:PORT]",
+                  "Type": "String"
+                }
+              ]
+            },
+            {
+              "Arguments": [
+                {
+                  "Name": "[PAIRING CODE]",
+                  "Description": "[PAIRING CODE]",
+                  "Type": "String"
+                }
+              ],
+              "Optional": true
+            }
+          ]
+        },
+        {
+          "Name": "ppp",
+          "Description": "Run PPP over USB",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "TTY",
+                  "Description": "TTY",
+                  "Type": "String"
+                }
+              ]
+            },
+            {
+              "Arguments": [
+                {
+                  "Name": "[PARAMETER...]",
+                  "Description": "[PARAMETER...]",
+                  "Type": "String"
+                }
+              ],
+              "Optional": true
+            }
+          ]
+        },
+        {
+          "Name": "emu",
+          "Description": "Run emulator console command",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "COMMAND",
+                  "Description": "COMMAND",
+                  "Type": "String"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "Name": "install",
+          "Description": "Push a single package to the device and install it",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "l",
+                  "Description": "Forward-lock the app",
+                  "Type": "Flag",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "r",
+                  "Description": "Replace existing application",
+                  "Type": "Flag",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "t",
+                  "Description": "Allow test packages",
+                  "Type": "Flag",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "d",
+                  "Description": "Allow version code downgrade (debuggable packages only)",
+                  "Type": "Flag",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "s",
+                  "Description": "Install on SD card instead of internal storage",
+                  "Type": "Flag",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "g",
+                  "Description": "Grant all runtime permissions",
+                  "Type": "Flag",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "--abi",
+                  "Description": "Override platform\u0027s default ABI",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "ABI",
+                          "Description": "ABI",
+                          "Type": "String"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "--instant",
+                  "Description": "Cause the app to be installed as an ephemeral install app",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "--no-streaming",
+                  "Description": "Always push APK to device and invoke Package Manager as separate steps",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "--streaming",
+                  "Description": "Force streaming APK directly into Package Manager",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "--fastdeploy",
+                  "Description": "Use fast deploy",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "--no-fastdeploy",
+                  "Description": "Prevent use of fast deploy",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "--force-agent",
+                  "Description": "Force update of deployment agent when using fast deploy",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "--date-check-agent",
+                  "Description": "Update deployment agent when local version is newer and using fast deploy",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "--version-check-agent",
+                  "Description": "Update deployment agent when local version has different version code and using fast deploy",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "--local-agent",
+                  "Description": "Locate agent files from local source build (instead of SDK location)",
+                  "Aliases": [],
+                  "Arguments": []
+                }
+              ],
+              "Optional": true
+            },
+            {
+              "Arguments": [
+                {
+                  "Name": "PACKAGE",
+                  "Description": "PACKAGE",
+                  "Type": "FileSystemEntry"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "Name": "install-multiple",
+          "Description": "Push multiple APKs to the device for a single package and install them",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "p",
+                  "Description": "Partial application install (install-multiple only)",
+                  "Type": "Flag",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "l",
+                  "Description": "Forward-lock the app",
+                  "Type": "Flag",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "r",
+                  "Description": "Replace existing application",
+                  "Type": "Flag",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "t",
+                  "Description": "Allow test packages",
+                  "Type": "Flag",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "d",
+                  "Description": "Allow version code downgrade (debuggable packages only)",
+                  "Type": "Flag",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "s",
+                  "Description": "Install on SD card instead of internal storage",
+                  "Type": "Flag",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "g",
+                  "Description": "Grant all runtime permissions",
+                  "Type": "Flag",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "--abi",
+                  "Description": "Override platform\u0027s default ABI",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "ABI",
+                          "Description": "ABI",
+                          "Type": "String"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "--instant",
+                  "Description": "Cause the app to be installed as an ephemeral install app",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "--no-streaming",
+                  "Description": "Always push APK to device and invoke Package Manager as separate steps",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "--streaming",
+                  "Description": "Force streaming APK directly into Package Manager",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "--fastdeploy",
+                  "Description": "Use fast deploy",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "--no-fastdeploy",
+                  "Description": "Prevent use of fast deploy",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "--force-agent",
+                  "Description": "Force update of deployment agent when using fast deploy",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "--date-check-agent",
+                  "Description": "Update deployment agent when local version is newer and using fast deploy",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "--version-check-agent",
+                  "Description": "Update deployment agent when local version has different version code and using fast deploy",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "--local-agent",
+                  "Description": "Locate agent files from local source build (instead of SDK location)",
+                  "Aliases": [],
+                  "Arguments": []
+                }
+              ],
+              "Optional": true
+            },
+            {
+              "Arguments": [
+                {
+                  "Name": "PACKAGE",
+                  "Description": "PACKAGE",
+                  "Type": "FileSystemEntry"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "Name": "install-multi-package",
+          "Description": "Push one or more packages to the device and install them atomically",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "p",
+                  "Description": "Partial application install (install-multiple only)",
+                  "Type": "Flag",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "l",
+                  "Description": "Forward-lock the app",
+                  "Type": "Flag",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "r",
+                  "Description": "Replace existing application",
+                  "Type": "Flag",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "t",
+                  "Description": "Allow test packages",
+                  "Type": "Flag",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "d",
+                  "Description": "Allow version code downgrade (debuggable packages only)",
+                  "Type": "Flag",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "s",
+                  "Description": "Install on SD card instead of internal storage",
+                  "Type": "Flag",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "g",
+                  "Description": "Grant all runtime permissions",
+                  "Type": "Flag",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "--abi",
+                  "Description": "Override platform\u0027s default ABI",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "ABI",
+                          "Description": "ABI",
+                          "Type": "String"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "--instant",
+                  "Description": "Cause the app to be installed as an ephemeral install app",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "--no-streaming",
+                  "Description": "Always push APK to device and invoke Package Manager as separate steps",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "--streaming",
+                  "Description": "Force streaming APK directly into Package Manager",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "--fastdeploy",
+                  "Description": "Use fast deploy",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "--no-fastdeploy",
+                  "Description": "Prevent use of fast deploy",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "--force-agent",
+                  "Description": "Force update of deployment agent when using fast deploy",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "--date-check-agent",
+                  "Description": "Update deployment agent when local version is newer and using fast deploy",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "--version-check-agent",
+                  "Description": "Update deployment agent when local version has different version code and using fast deploy",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "--local-agent",
+                  "Description": "Locate agent files from local source build (instead of SDK location)",
+                  "Aliases": [],
+                  "Arguments": []
+                }
+              ],
+              "Optional": true
+            },
+            {
+              "Arguments": [
+                {
+                  "Name": "PACKAGE",
+                  "Description": "PACKAGE",
+                  "Type": "FileSystemEntry"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "Name": "shell",
+          "Description": "Run remote shell command (interactive shell if no command given)",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "e",
+                  "Description": "Choose escape character, or \u0060none\u0060 default \u0027~\u0027",
+                  "Type": "Flag",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "n",
+                  "Description": "Don\u0027t read from stdin",
+                  "Type": "Flag",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "T",
+                  "Description": "Disable pty allocation",
+                  "Type": "Flag",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "t",
+                  "Description": "Allocate a pty if on a tty",
+                  "Type": "Flag",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "-tt",
+                  "Description": "-tt: force pty allocation",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "x",
+                  "Description": "Disable remote exit codes and stdout/stderr separation",
+                  "Type": "Flag",
+                  "Aliases": [],
+                  "Arguments": []
+                }
+              ],
+              "Optional": true
+            },
+            {
+              "Arguments": [
+                {
+                  "Name": "COMMANDS ...",
+                  "Description": "COMMANDS ...",
+                  "Type": "String"
+                }
+              ],
+              "Optional": true
+            }
+          ]
+        },
+        {
+          "Name": "mdns",
+          "Description": "Mdns utils",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "check",
+                  "Description": "Check if mdns discovery is available",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "services",
+                  "Description": "List all discovered services",
+                  "Aliases": [],
+                  "Arguments": []
+                }
+              ],
+              "DontAllowMultiple": true
+            }
+          ]
+        },
+        {
+          "Name": "push",
+          "Description": "Copy local files/directories to device",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "--sync",
+                  "Description": "Only push files that are newer on the host than the device",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "n",
+                  "Description": "Dry run: push files to device without storing to the filesystem",
+                  "Type": "Flag",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "z",
+                  "Description": "Enable compression with a specified algorithm (any, none, brotli)",
+                  "Type": "Flag",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "ALGORITHM",
+                          "Description": "ALGORITHM",
+                          "Type": "String"
+                        },
+                        {
+                          "Name": "any",
+                          "Description": "ALGORITHM"
+                        },
+                        {
+                          "Name": "none",
+                          "Description": "ALGORITHM"
+                        },
+                        {
+                          "Name": "brotli",
+                          "Description": "ALGORITHM"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "Z",
+                  "Description": "Disable compression",
+                  "Type": "Flag",
+                  "Aliases": [],
+                  "Arguments": []
+                }
+              ],
+              "Optional": true
+            },
+            {
+              "Arguments": [
+                {
+                  "Name": "LOCAL",
+                  "Description": "LOCAL",
+                  "Type": "FileSystemEntry"
+                }
+              ]
+            },
+            {
+              "Arguments": [
+                {
+                  "Name": "REMOTE",
+                  "Description": "REMOTE",
+                  "Type": "String"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "Name": "sync",
+          "Description": "Sync a local build from $ANDROID_PRODUCT_OUT to the device (default all)",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "n",
+                  "Description": "Dry run: push files to device without storing to the filesystem",
+                  "Type": "Flag",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "l",
+                  "Description": "List files that would be copied, but don\u0027t copy them",
+                  "Type": "Flag",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "z",
+                  "Description": "Enable compression with a specified algorithm (any, none, brotli)",
+                  "Type": "Flag",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "ALGORITHM",
+                          "Description": "ALGORITHM",
+                          "Type": "String"
+                        },
+                        {
+                          "Name": "any",
+                          "Description": "ALGORITHM"
+                        },
+                        {
+                          "Name": "none",
+                          "Description": "ALGORITHM"
+                        },
+                        {
+                          "Name": "brotli",
+                          "Description": "ALGORITHM"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "Z",
+                  "Description": "Disable compression",
+                  "Type": "Flag",
+                  "Aliases": [],
+                  "Arguments": []
+                }
+              ],
+              "Optional": true
+            },
+            {
+              "Arguments": [
+                {
+                  "Name": "String",
+                  "Description": "",
+                  "Type": "String"
+                },
+                {
+                  "Name": "all",
+                  "Description": ""
+                },
+                {
+                  "Name": "data",
+                  "Description": ""
+                },
+                {
+                  "Name": "odm",
+                  "Description": ""
+                },
+                {
+                  "Name": "oem",
+                  "Description": ""
+                },
+                {
+                  "Name": "product",
+                  "Description": ""
+                },
+                {
+                  "Name": "system",
+                  "Description": ""
+                },
+                {
+                  "Name": "system_ext",
+                  "Description": ""
+                },
+                {
+                  "Name": "vendor",
+                  "Description": ""
+                }
+              ],
+              "Optional": true
+            }
+          ]
+        },
+        {
+          "Name": "pull",
+          "Description": "Copy files/dirs from device",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "a",
+                  "Description": "Preserve file timestamp and mode",
+                  "Type": "Flag",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "z",
+                  "Description": "Enable compression with a specified algorithm (any, none, brotli)",
+                  "Type": "Flag",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "ALGORITHM",
+                          "Description": "ALGORITHM",
+                          "Type": "String"
+                        },
+                        {
+                          "Name": "any",
+                          "Description": "ALGORITHM"
+                        },
+                        {
+                          "Name": "none",
+                          "Description": "ALGORITHM"
+                        },
+                        {
+                          "Name": "brotli",
+                          "Description": "ALGORITHM"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "Z",
+                  "Description": "Disable compression",
+                  "Type": "Flag",
+                  "Aliases": [],
+                  "Arguments": []
+                }
+              ],
+              "Optional": true
+            },
+            {
+              "Arguments": [
+                {
+                  "Name": "REMOTE",
+                  "Description": "REMOTE",
+                  "Type": "FileSystemEntry"
+                }
+              ]
+            },
+            {
+              "Arguments": [
+                {
+                  "Name": "LOCAL",
+                  "Description": "LOCAL",
+                  "Type": "String"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "Name": "forward",
+          "Description": "Forward connection",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "--list",
+                  "Description": "List all forward socket connections",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "--remove",
+                  "Description": "Remove specific forward socket connection",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "LOCAL",
+                          "Description": "LOCAL",
+                          "Type": "String"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "--remove-all",
+                  "Description": "Remove all forward socket connections",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "--no-rebind",
+                  "Description": "Reversal fails if the specified socket is already bound through a previous reverse command",
+                  "Aliases": [],
+                  "Arguments": []
+                }
+              ],
+              "Optional": true
+            },
+            {
+              "Arguments": [
+                {
+                  "Name": "LOCAL -\u003E port|domain|device|pid",
+                  "Description": "LOCAL -\u003E port|domain|device|pid",
+                  "Type": "String"
+                },
+                {
+                  "Name": "tcp",
+                  "Description": "LOCAL -\u003E port|domain|device|pid"
+                },
+                {
+                  "Name": "localabstract",
+                  "Description": "LOCAL -\u003E port|domain|device|pid"
+                },
+                {
+                  "Name": "localreserved",
+                  "Description": "LOCAL -\u003E port|domain|device|pid"
+                },
+                {
+                  "Name": "localfilesystem",
+                  "Description": "LOCAL -\u003E port|domain|device|pid"
+                },
+                {
+                  "Name": "dev",
+                  "Description": "LOCAL -\u003E port|domain|device|pid"
+                },
+                {
+                  "Name": "jdwp",
+                  "Description": "LOCAL -\u003E port|domain|device|pid"
+                },
+                {
+                  "Name": "acceptfd",
+                  "Description": "LOCAL -\u003E port|domain|device|pid"
+                }
+              ]
+            },
+            {
+              "Arguments": [
+                {
+                  "Name": "REMOTE -\u003E port|domain|device|pid",
+                  "Description": "REMOTE -\u003E port|domain|device|pid",
+                  "Type": "String"
+                },
+                {
+                  "Name": "tcp",
+                  "Description": "REMOTE -\u003E port|domain|device|pid"
+                },
+                {
+                  "Name": "localabstract",
+                  "Description": "REMOTE -\u003E port|domain|device|pid"
+                },
+                {
+                  "Name": "localreserved",
+                  "Description": "REMOTE -\u003E port|domain|device|pid"
+                },
+                {
+                  "Name": "localfilesystem",
+                  "Description": "REMOTE -\u003E port|domain|device|pid"
+                },
+                {
+                  "Name": "dev",
+                  "Description": "REMOTE -\u003E port|domain|device|pid"
+                },
+                {
+                  "Name": "jdwp",
+                  "Description": "REMOTE -\u003E port|domain|device|pid"
+                },
+                {
+                  "Name": "acceptfd",
+                  "Description": "REMOTE -\u003E port|domain|device|pid"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "Name": "reverse",
+          "Description": "Reverse connection",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "--list",
+                  "Description": "List all reverse socket connections from device",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "--remove",
+                  "Description": "Remove specific reverse socket connection",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "REMOTE",
+                          "Description": "REMOTE",
+                          "Type": "String"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "--remove-all",
+                  "Description": "Remove all reverse socket connections from device",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "--no-rebind",
+                  "Description": "Reversal fails if the specified socket is already bound through a previous reverse command",
+                  "Aliases": [],
+                  "Arguments": []
+                }
+              ],
+              "Optional": true
+            },
+            {
+              "Arguments": [
+                {
+                  "Name": "REMOTE -\u003E port|domain|device|pid",
+                  "Description": "REMOTE -\u003E port|domain|device|pid",
+                  "Type": "String"
+                },
+                {
+                  "Name": "tcp",
+                  "Description": "REMOTE -\u003E port|domain|device|pid"
+                },
+                {
+                  "Name": "localabstract",
+                  "Description": "REMOTE -\u003E port|domain|device|pid"
+                },
+                {
+                  "Name": "localreserved",
+                  "Description": "REMOTE -\u003E port|domain|device|pid"
+                },
+                {
+                  "Name": "localfilesystem",
+                  "Description": "REMOTE -\u003E port|domain|device|pid"
+                }
+              ]
+            },
+            {
+              "Arguments": [
+                {
+                  "Name": "LOCAL -\u003E port|domain|device|pid",
+                  "Description": "LOCAL -\u003E port|domain|device|pid",
+                  "Type": "String"
+                },
+                {
+                  "Name": "tcp",
+                  "Description": "LOCAL -\u003E port|domain|device|pid"
+                },
+                {
+                  "Name": "localabstract",
+                  "Description": "LOCAL -\u003E port|domain|device|pid"
+                },
+                {
+                  "Name": "localreserved",
+                  "Description": "LOCAL -\u003E port|domain|device|pid"
+                },
+                {
+                  "Name": "localfilesystem",
+                  "Description": "LOCAL -\u003E port|domain|device|pid"
+                }
+              ]
+            }
+          ]
+        }
+      ],
+      "DontAllowMultiple": true
+    }
+  ]
+}

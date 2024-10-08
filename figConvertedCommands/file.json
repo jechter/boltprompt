@@ -1,0 +1,367 @@
+{
+  "Comment": "This command info is generated from fig",
+  "Name": "file",
+  "Description": "Determine file type",
+  "Arguments": [
+    {
+      "Arguments": [
+        {
+          "Name": "--help",
+          "Description": "Print a help message and exit",
+          "Aliases": [],
+          "Arguments": []
+        },
+        {
+          "Name": "--apple",
+          "Description": "Causes the file command to output the file type and creator code\nas used by older MacOS versions.  The code consists of eight\nletters, the first describing the file type, the latter the\ncreator.  This option works properly only for file formats that\nhave the apple-style output defined",
+          "Aliases": [],
+          "Arguments": []
+        },
+        {
+          "Name": "--brief",
+          "Description": "Do not prepend filenames to output lines (brief mode)",
+          "Aliases": [
+            "-b"
+          ],
+          "Arguments": []
+        },
+        {
+          "Name": "--checking-printoug",
+          "Description": "Cause a checking printout of the parsed form of the magic file.\nThis is usually used in conjunction with the -m option to debug a\nnew magic file before installing it",
+          "Aliases": [
+            "-c"
+          ],
+          "Arguments": []
+        },
+        {
+          "Name": "--compile",
+          "Description": "Write a magic.mgc output file that contains a pre-parsed version\nof the magic file or directory",
+          "Aliases": [
+            "-C"
+          ],
+          "Arguments": []
+        },
+        {
+          "Name": "d",
+          "Description": "Apply the default system tests; this is the default behavior\nunless -M is specified",
+          "Type": "Flag",
+          "Aliases": [],
+          "Arguments": []
+        },
+        {
+          "Name": "D",
+          "Description": "Print debugging messages",
+          "Type": "Flag",
+          "Aliases": [],
+          "Arguments": []
+        },
+        {
+          "Name": "E",
+          "Description": "On filesystem errors (file not found etc), instead of handling\nthe error as regular output as POSIX mandates and keep going,\nissue an error message and exit",
+          "Type": "Flag",
+          "Aliases": [],
+          "Arguments": []
+        },
+        {
+          "Name": "--exclude",
+          "Description": "Exclude the test named in testname from the list of tests made to\ndetermine the file type",
+          "Aliases": [
+            "-e"
+          ],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "testname",
+                  "Description": "testname",
+                  "Type": "String"
+                },
+                {
+                  "Name": "apptype",
+                  "Description": "testname"
+                },
+                {
+                  "Name": "ascii",
+                  "Description": "testname"
+                },
+                {
+                  "Name": "encoding",
+                  "Description": "testname"
+                },
+                {
+                  "Name": "token",
+                  "Description": "testname"
+                },
+                {
+                  "Name": "cdf",
+                  "Description": "testname"
+                },
+                {
+                  "Name": "compress",
+                  "Description": "testname"
+                },
+                {
+                  "Name": "csv",
+                  "Description": "testname"
+                },
+                {
+                  "Name": "elf",
+                  "Description": "testname"
+                },
+                {
+                  "Name": "json",
+                  "Description": "testname"
+                },
+                {
+                  "Name": "soft",
+                  "Description": "testname"
+                },
+                {
+                  "Name": "tar",
+                  "Description": "testname"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "Name": "--exclude-quiet",
+          "Description": "Like --exclude but ignore tests that file does not know about.\nThis is intended for compatibility with older versions of file",
+          "Aliases": [],
+          "Arguments": []
+        },
+        {
+          "Name": "--extension",
+          "Description": "Print a slash-separated list of valid extensions for the file\ntype found",
+          "Aliases": [],
+          "Arguments": []
+        },
+        {
+          "Name": "--separator",
+          "Description": "Use the specified string as the separator between the filename\nand the file result returned",
+          "Aliases": [
+            "-F"
+          ],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "separator",
+                  "Description": "separator",
+                  "Type": "String"
+                },
+                {
+                  "Name": ".",
+                  "Description": "separator"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "Name": "--files-from",
+          "Description": "Read the names of the files to be examined from namefile (one per\nline) before the argument list.  Either namefile or at least one\nfilename argument must be present; to test the standard input,\nuse \u2018-\u2019 as a filename argument.  Please note that namefile is\nunwrapped and the enclosed filenames are processed when this\noption is encountered and before any further options processing\nis done.  This allows one to process multiple lists of files with\ndifferent command line arguments on the same file invocation.\nThus if you want to set the delimiter, you need to do it before\nyou specify the list of files, like: \u0022-F @ -f namefile\u0022, instead\nof: \u0022-f namefile -F @\u0022",
+          "Aliases": [
+            "-f"
+          ],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "namefile",
+                  "Description": "namefile",
+                  "Type": "String"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "Name": "--no-dereference",
+          "Description": "This option causes symlinks not to be followed (on systems that\nsupport symbolic links)",
+          "Aliases": [
+            "-h"
+          ],
+          "Arguments": []
+        },
+        {
+          "Name": "i",
+          "Description": "If the file is a regular file, do not classify its contents",
+          "Type": "Flag",
+          "Aliases": [],
+          "Arguments": []
+        },
+        {
+          "Name": "--mime",
+          "Description": "Causes the file command to output mime type strings rather than\nthe more traditional human readable ones.  Thus it may say\n\u0027text/plain; charset=us-ascii\u0027 rather than \u0022ASCII text\u0022",
+          "Aliases": [
+            "-I"
+          ],
+          "Arguments": []
+        },
+        {
+          "Name": "--mime-type",
+          "Description": "Like -I, but print only the specified element(s)",
+          "Aliases": [
+            "--mime-encoding"
+          ],
+          "Arguments": []
+        },
+        {
+          "Name": "--keep-going",
+          "Description": "Don\u0027t stop at the first match, keep going.  Subsequent matches\nwill be have the string \u0027\\012- \u0027 prepended.  (If you want a\nnewline, see the -r option.)  The magic pattern with the highest\nstrength (see the -l option) comes first",
+          "Aliases": [
+            "-k"
+          ],
+          "Arguments": []
+        },
+        {
+          "Name": "--list",
+          "Description": "Shows a list of patterns and their strength sorted descending by\nmagic(5) strength which is used for the matching (see also the -k\noption)",
+          "Aliases": [
+            "-l"
+          ],
+          "Arguments": []
+        },
+        {
+          "Name": "--dereference",
+          "Description": "This option causes symlinks to be followed, as the like-named\noption in ls(1) (on systems that support symbolic links).  This\nis the default behavior",
+          "Aliases": [
+            "-L"
+          ],
+          "Arguments": []
+        },
+        {
+          "Name": "--magic-file",
+          "Description": "Specify an alternate list of files and directories containing\nmagic.  This can be a single item, or a colon-separated list.  If\na compiled magic file is found alongside a file or directory, it\nwill be used instead",
+          "Aliases": [
+            "-m"
+          ],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "list",
+                  "Description": "list",
+                  "Type": "FileSystemEntry"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "Name": "M",
+          "Description": "Like -m, except that the default rules are not applied unless -d\nis specified",
+          "Type": "Flag",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "list",
+                  "Description": "list",
+                  "Type": "FileSystemEntry"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "Name": "--no-buffer",
+          "Description": "Force stdout to be flushed after checking each file.  This is\nonly useful if checking a list of files.  It is intended to be\nused by programs that want filetype output from a pipe",
+          "Aliases": [
+            "-n"
+          ],
+          "Arguments": []
+        },
+        {
+          "Name": "--preserve-data",
+          "Description": "On systems that support utime(3) or utimes(2), attempt to\npreserve the access time of files analyzed, to pretend that file\nnever read them",
+          "Aliases": [
+            "-p"
+          ],
+          "Arguments": []
+        },
+        {
+          "Name": "--parameter",
+          "Description": "Set various parameter limits",
+          "Aliases": [
+            "-P"
+          ],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "name=value",
+                  "Description": "name=value",
+                  "Type": "String",
+                  "Extensions": [],
+                  "CustomCommand": ""
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "Name": "--raw",
+          "Description": "No operation, included for historical compatibility",
+          "Aliases": [
+            "-r"
+          ],
+          "Arguments": []
+        },
+        {
+          "Name": "--special-files",
+          "Description": "Normally, file only attempts to read and determine the type of\nargument files which stat(2) reports are ordinary files.  This\nprevents problems, because reading special files may have\npeculiar consequences.  Specifying the -s option causes file to\nalso read argument files which are block or character special\nfiles.  This is useful for determining the filesystem types of\nthe data in raw disk partitions, which are block special files.\nThis option also causes file to disregard the file size as\nreported by stat(2) since on some systems it reports a zero size\nfor raw disk partitions",
+          "Aliases": [
+            "s"
+          ],
+          "Arguments": []
+        },
+        {
+          "Name": "--version",
+          "Description": "Print the version of the program and exit",
+          "Aliases": [
+            "-v"
+          ],
+          "Arguments": []
+        },
+        {
+          "Name": "--uncompress",
+          "Description": "Try to look inside compressed files",
+          "Aliases": [
+            "-z"
+          ],
+          "Arguments": []
+        },
+        {
+          "Name": "--uncompress-noreport",
+          "Description": "Try to look inside compressed files, but report information about\nthe contents only not the compression",
+          "Aliases": [
+            "-Z"
+          ],
+          "Arguments": []
+        },
+        {
+          "Name": "--print0",
+          "Description": "Output a null character \u0027\u0000\u0027 after the end of the filename.  Nice\nto cut(1) the output.  This does not affect the separator, which\nis still printed",
+          "Aliases": [
+            "-0"
+          ],
+          "Arguments": []
+        }
+      ],
+      "Optional": true
+    },
+    {
+      "Arguments": [
+        {
+          "Name": "file",
+          "Description": "file",
+          "Type": "FileSystemEntry"
+        }
+      ],
+      "Optional": true
+    }
+  ]
+}

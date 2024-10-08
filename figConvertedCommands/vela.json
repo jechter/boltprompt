@@ -1,0 +1,2163 @@
+{
+  "Comment": "This command info is generated from fig",
+  "Name": "vela",
+  "Description": "A Highly Extensible Platform Engine based on Kubernetes and Open Application Model",
+  "Arguments": [
+    {
+      "Arguments": [
+        {
+          "Name": "--help",
+          "Description": "Show help for vela",
+          "Aliases": [
+            "-h"
+          ],
+          "Arguments": []
+        }
+      ],
+      "Optional": true
+    },
+    {
+      "Arguments": [
+        {
+          "Name": "show",
+          "Description": "Show the reference doc for component, trait or workflow types",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "-e",
+                  "Description": "Specify environment name for application",
+                  "Aliases": [
+                    "--env"
+                  ],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "string",
+                          "Description": "string",
+                          "Type": "String"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "--help",
+                  "Description": "Help for show command",
+                  "Aliases": [
+                    "-h"
+                  ],
+                  "Arguments": []
+                },
+                {
+                  "Name": "-n",
+                  "Description": "Specify the Kubernetes namespace to use",
+                  "Aliases": [
+                    "--namespace"
+                  ],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "string",
+                          "Description": "string",
+                          "Type": "String"
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ],
+              "Optional": true
+            },
+            {
+              "Arguments": [
+                {
+                  "Name": "String",
+                  "Description": "",
+                  "Type": "String"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "Name": "env",
+          "Description": "Manage environments for vela applications to run",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "delete",
+                  "Description": "Delete an environment",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "String",
+                          "Description": "",
+                          "Type": "String"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "init",
+                  "Description": "Delete an environment",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "--namespace",
+                          "Description": "Specify K8s namespace for env",
+                          "Aliases": [],
+                          "Arguments": [
+                            {
+                              "Arguments": [
+                                {
+                                  "Name": "string",
+                                  "Description": "string",
+                                  "Type": "String"
+                                }
+                              ]
+                            }
+                          ]
+                        }
+                      ],
+                      "Optional": true
+                    },
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "String",
+                          "Description": "",
+                          "Type": "String"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "ls",
+                  "Description": "List all environments for vela applications to run",
+                  "Aliases": [
+                    "list"
+                  ],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "String",
+                          "Description": "",
+                          "Type": "String"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "set",
+                  "Description": "Set an environment as the default one for running vela applications",
+                  "Aliases": [
+                    "sw"
+                  ],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "String",
+                          "Description": "",
+                          "Type": "String"
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ],
+              "DontAllowMultiple": true
+            }
+          ]
+        },
+        {
+          "Name": "init",
+          "Description": "Create scaffold for vela application",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "--env",
+                  "Description": "Specify environment name for application",
+                  "Aliases": [
+                    "-e"
+                  ],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "string",
+                          "Description": "string",
+                          "Type": "String"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "--namespace",
+                  "Description": "Specify the Kubernetes namespace to use",
+                  "Aliases": [
+                    "-n"
+                  ],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "string",
+                          "Description": "string",
+                          "Type": "String"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "--render-only",
+                  "Description": "Rendering vela.yaml in current dir and do not deploy",
+                  "Aliases": [],
+                  "Arguments": []
+                }
+              ],
+              "Optional": true
+            }
+          ]
+        },
+        {
+          "Name": "up",
+          "Description": "Deploy one application",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "--env",
+                  "Description": "The environment name for the CLI request",
+                  "Aliases": [
+                    "-e"
+                  ],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "string",
+                          "Description": "string",
+                          "Type": "String"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "--file",
+                  "Description": "The file path for appfile or application. It could be a remote url",
+                  "Aliases": [
+                    "-f"
+                  ],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "path",
+                          "Description": "path",
+                          "Type": "FileSystemEntry"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "--namespace",
+                  "Description": "If present, the namespace scope for this CLI request",
+                  "Aliases": [
+                    "-n"
+                  ],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "string",
+                          "Description": "string",
+                          "Type": "String"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "--publish-version",
+                  "Description": "The publish version for deploying application",
+                  "Aliases": [
+                    "-v"
+                  ],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "string",
+                          "Description": "string",
+                          "Type": "String"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "--revision",
+                  "Description": "The revision to use for deploying the application, if empty, the current application configuration will be used",
+                  "Aliases": [
+                    "-r"
+                  ],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "string",
+                          "Description": "string",
+                          "Type": "String"
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ],
+              "Optional": true
+            },
+            {
+              "Arguments": [
+                {
+                  "Name": "String",
+                  "Description": "",
+                  "Type": "String"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "Name": "cluster",
+          "Description": "Manage Kubernetes Clusters for Continuous Delivery",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "alias",
+                  "Description": "Alias a named cluster",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "detach",
+                  "Description": "Detach managed cluster",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "--kubeconfig-path",
+                          "Description": "Specify the kubeconfig path of managed cluster. If you use ocm to manage your cluster, you must set the kubeconfig-path",
+                          "Aliases": [
+                            "-p"
+                          ],
+                          "Arguments": [
+                            {
+                              "Arguments": [
+                                {
+                                  "Name": "path",
+                                  "Description": "path",
+                                  "Type": "FileSystemEntry"
+                                }
+                              ]
+                            }
+                          ]
+                        }
+                      ],
+                      "Optional": true
+                    }
+                  ]
+                },
+                {
+                  "Name": "join",
+                  "Description": "Join managed cluster by kubeconfig",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "--create-namespace",
+                          "Description": "Specifies the namespace need to create in managedCluster (default \u0022vela-system\u0022)",
+                          "Aliases": [],
+                          "Arguments": [
+                            {
+                              "Arguments": [
+                                {
+                                  "Name": "string",
+                                  "Description": "string",
+                                  "Type": "String"
+                                }
+                              ]
+                            }
+                          ]
+                        },
+                        {
+                          "Name": "--name",
+                          "Description": "Specify the cluster name. If empty, it will use the cluster name in config file. Default to be empty",
+                          "Aliases": [
+                            "-n"
+                          ],
+                          "Arguments": [
+                            {
+                              "Arguments": [
+                                {
+                                  "Name": "string",
+                                  "Description": "string",
+                                  "Type": "String"
+                                }
+                              ]
+                            }
+                          ]
+                        }
+                      ],
+                      "Optional": true
+                    }
+                  ]
+                },
+                {
+                  "Name": "labels",
+                  "Description": "Manage Kubernetes Cluster Labels",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "add",
+                          "Description": "Add labels to managed cluster",
+                          "Aliases": [],
+                          "Arguments": []
+                        },
+                        {
+                          "Name": "del",
+                          "Description": "Delete labels for managed cluster",
+                          "Aliases": [],
+                          "Arguments": []
+                        }
+                      ],
+                      "DontAllowMultiple": true
+                    }
+                  ]
+                },
+                {
+                  "Name": "list",
+                  "Description": "List managed clusters",
+                  "Aliases": [
+                    "ls"
+                  ],
+                  "Arguments": []
+                },
+                {
+                  "Name": "probe",
+                  "Description": "Health probe managed cluster",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "rename",
+                  "Description": "Rename managed cluster",
+                  "Aliases": [],
+                  "Arguments": []
+                }
+              ],
+              "DontAllowMultiple": true
+            }
+          ]
+        },
+        {
+          "Name": "workflow",
+          "Description": "Operate the Workflow during Application Delivery",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "restart",
+                  "Description": "Restart an application workflow",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "--env",
+                          "Description": "Specify environment name for application",
+                          "Aliases": [
+                            "-e"
+                          ],
+                          "Arguments": [
+                            {
+                              "Arguments": [
+                                {
+                                  "Name": "string",
+                                  "Description": "string",
+                                  "Type": "String"
+                                }
+                              ]
+                            }
+                          ]
+                        },
+                        {
+                          "Name": "--namespace",
+                          "Description": "Specify the Kubernetes namespace to use",
+                          "Aliases": [
+                            "-n"
+                          ],
+                          "Arguments": [
+                            {
+                              "Arguments": [
+                                {
+                                  "Name": "string",
+                                  "Description": "string",
+                                  "Type": "String"
+                                }
+                              ]
+                            }
+                          ]
+                        }
+                      ],
+                      "Optional": true
+                    }
+                  ]
+                },
+                {
+                  "Name": "resume",
+                  "Description": "Resume a suspend application workflow",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "--env",
+                          "Description": "Specify environment name for application",
+                          "Aliases": [
+                            "-e"
+                          ],
+                          "Arguments": [
+                            {
+                              "Arguments": [
+                                {
+                                  "Name": "string",
+                                  "Description": "string",
+                                  "Type": "String"
+                                }
+                              ]
+                            }
+                          ]
+                        },
+                        {
+                          "Name": "--namespace",
+                          "Description": "Specify the Kubernetes namespace to use",
+                          "Aliases": [
+                            "-n"
+                          ],
+                          "Arguments": [
+                            {
+                              "Arguments": [
+                                {
+                                  "Name": "string",
+                                  "Description": "string",
+                                  "Type": "String"
+                                }
+                              ]
+                            }
+                          ]
+                        }
+                      ],
+                      "Optional": true
+                    }
+                  ]
+                },
+                {
+                  "Name": "rollback",
+                  "Description": "Rollback an application workflow to the latest revision",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "--env",
+                          "Description": "Specify environment name for application",
+                          "Aliases": [
+                            "-e"
+                          ],
+                          "Arguments": [
+                            {
+                              "Arguments": [
+                                {
+                                  "Name": "string",
+                                  "Description": "string",
+                                  "Type": "String"
+                                }
+                              ]
+                            }
+                          ]
+                        },
+                        {
+                          "Name": "--namespace",
+                          "Description": "Specify the Kubernetes namespace to use",
+                          "Aliases": [
+                            "-n"
+                          ],
+                          "Arguments": [
+                            {
+                              "Arguments": [
+                                {
+                                  "Name": "string",
+                                  "Description": "string",
+                                  "Type": "String"
+                                }
+                              ]
+                            }
+                          ]
+                        }
+                      ],
+                      "Optional": true
+                    }
+                  ]
+                },
+                {
+                  "Name": "suspend",
+                  "Description": "Suspend an application workflow",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "--env",
+                          "Description": "Specify environment name for application",
+                          "Aliases": [
+                            "-e"
+                          ],
+                          "Arguments": [
+                            {
+                              "Arguments": [
+                                {
+                                  "Name": "string",
+                                  "Description": "string",
+                                  "Type": "String"
+                                }
+                              ]
+                            }
+                          ]
+                        },
+                        {
+                          "Name": "--namespace",
+                          "Description": "Specify the Kubernetes namespace to use",
+                          "Aliases": [
+                            "-n"
+                          ],
+                          "Arguments": [
+                            {
+                              "Arguments": [
+                                {
+                                  "Name": "string",
+                                  "Description": "string",
+                                  "Type": "String"
+                                }
+                              ]
+                            }
+                          ]
+                        }
+                      ],
+                      "Optional": true
+                    }
+                  ]
+                },
+                {
+                  "Name": "terminate",
+                  "Description": "Terminate an application workflow",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "--env",
+                          "Description": "Specify environment name for application",
+                          "Aliases": [
+                            "-e"
+                          ],
+                          "Arguments": [
+                            {
+                              "Arguments": [
+                                {
+                                  "Name": "string",
+                                  "Description": "string",
+                                  "Type": "String"
+                                }
+                              ]
+                            }
+                          ]
+                        },
+                        {
+                          "Name": "--namespace",
+                          "Description": "Specify the Kubernetes namespace to use",
+                          "Aliases": [
+                            "-n"
+                          ],
+                          "Arguments": [
+                            {
+                              "Arguments": [
+                                {
+                                  "Name": "string",
+                                  "Description": "string",
+                                  "Type": "String"
+                                }
+                              ]
+                            }
+                          ]
+                        }
+                      ],
+                      "Optional": true
+                    }
+                  ]
+                }
+              ],
+              "DontAllowMultiple": true
+            }
+          ]
+        },
+        {
+          "Name": "addon",
+          "Description": "Manage addons for extension",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "disable",
+                  "Description": "Disable an addon",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "--force",
+                          "Description": "Skip checking if applications are still using this addon",
+                          "Aliases": [
+                            "-f"
+                          ],
+                          "Arguments": []
+                        }
+                      ],
+                      "Optional": true
+                    }
+                  ]
+                },
+                {
+                  "Name": "enable",
+                  "Description": "Enable an addon",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "--clusters",
+                          "Description": "Specify the runtime-clusters to enable",
+                          "Aliases": [
+                            "-c"
+                          ],
+                          "Arguments": [
+                            {
+                              "Arguments": [
+                                {
+                                  "Name": "string",
+                                  "Description": "string",
+                                  "Type": "String"
+                                }
+                              ]
+                            }
+                          ]
+                        }
+                      ],
+                      "Optional": true
+                    }
+                  ]
+                },
+                {
+                  "Name": "list",
+                  "Description": "List addons",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "registry",
+                  "Description": "Manage addon registry",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "add",
+                          "Description": "Add an addon registry",
+                          "Aliases": [],
+                          "Arguments": [
+                            {
+                              "Arguments": [
+                                {
+                                  "Name": "--bucket",
+                                  "Description": "Specify the OSS bucket name",
+                                  "Aliases": [],
+                                  "Arguments": [
+                                    {
+                                      "Arguments": [
+                                        {
+                                          "Name": "string",
+                                          "Description": "string",
+                                          "Type": "String"
+                                        }
+                                      ]
+                                    }
+                                  ]
+                                },
+                                {
+                                  "Name": "--endpoint",
+                                  "Description": "Specify the addon registry endpoint",
+                                  "Aliases": [],
+                                  "Arguments": [
+                                    {
+                                      "Arguments": [
+                                        {
+                                          "Name": "string",
+                                          "Description": "string",
+                                          "Type": "String"
+                                        }
+                                      ]
+                                    }
+                                  ]
+                                },
+                                {
+                                  "Name": "--gitToken",
+                                  "Description": "Specify the github repo token",
+                                  "Aliases": [],
+                                  "Arguments": [
+                                    {
+                                      "Arguments": [
+                                        {
+                                          "Name": "string",
+                                          "Description": "string",
+                                          "Type": "String"
+                                        }
+                                      ]
+                                    }
+                                  ]
+                                },
+                                {
+                                  "Name": "--path",
+                                  "Description": "Specify the addon registry OSS path",
+                                  "Aliases": [],
+                                  "Arguments": [
+                                    {
+                                      "Arguments": [
+                                        {
+                                          "Name": "string",
+                                          "Description": "string",
+                                          "Type": "String"
+                                        }
+                                      ]
+                                    }
+                                  ]
+                                },
+                                {
+                                  "Name": "--type",
+                                  "Description": "Specify the addon registry type",
+                                  "Aliases": [],
+                                  "Arguments": [
+                                    {
+                                      "Arguments": [
+                                        {
+                                          "Name": "string",
+                                          "Description": "string",
+                                          "Type": "String"
+                                        }
+                                      ]
+                                    }
+                                  ]
+                                }
+                              ],
+                              "Optional": true
+                            }
+                          ]
+                        },
+                        {
+                          "Name": "delete",
+                          "Description": "Delete an addon registry",
+                          "Aliases": [],
+                          "Arguments": []
+                        },
+                        {
+                          "Name": "get",
+                          "Description": "Get an addon registry",
+                          "Aliases": [],
+                          "Arguments": []
+                        },
+                        {
+                          "Name": "list",
+                          "Description": "List addon registries",
+                          "Aliases": [],
+                          "Arguments": []
+                        },
+                        {
+                          "Name": "update",
+                          "Description": "Update an addon registry",
+                          "Aliases": [],
+                          "Arguments": [
+                            {
+                              "Arguments": [
+                                {
+                                  "Name": "--bucket",
+                                  "Description": "Specify the OSS bucket name",
+                                  "Aliases": [],
+                                  "Arguments": [
+                                    {
+                                      "Arguments": [
+                                        {
+                                          "Name": "string",
+                                          "Description": "string",
+                                          "Type": "String"
+                                        }
+                                      ]
+                                    }
+                                  ]
+                                },
+                                {
+                                  "Name": "--endpoint",
+                                  "Description": "Specify the addon registry endpoint",
+                                  "Aliases": [],
+                                  "Arguments": [
+                                    {
+                                      "Arguments": [
+                                        {
+                                          "Name": "string",
+                                          "Description": "string",
+                                          "Type": "String"
+                                        }
+                                      ]
+                                    }
+                                  ]
+                                },
+                                {
+                                  "Name": "--gitToken",
+                                  "Description": "Specify the github repo token",
+                                  "Aliases": [],
+                                  "Arguments": [
+                                    {
+                                      "Arguments": [
+                                        {
+                                          "Name": "string",
+                                          "Description": "string",
+                                          "Type": "String"
+                                        }
+                                      ]
+                                    }
+                                  ]
+                                },
+                                {
+                                  "Name": "--path",
+                                  "Description": "Specify the addon registry OSS path",
+                                  "Aliases": [],
+                                  "Arguments": [
+                                    {
+                                      "Arguments": [
+                                        {
+                                          "Name": "string",
+                                          "Description": "string",
+                                          "Type": "String"
+                                        }
+                                      ]
+                                    }
+                                  ]
+                                },
+                                {
+                                  "Name": "--type",
+                                  "Description": "Specify the addon registry type",
+                                  "Aliases": [],
+                                  "Arguments": [
+                                    {
+                                      "Arguments": [
+                                        {
+                                          "Name": "string",
+                                          "Description": "string",
+                                          "Type": "String"
+                                        }
+                                      ]
+                                    }
+                                  ]
+                                }
+                              ],
+                              "Optional": true
+                            }
+                          ]
+                        }
+                      ],
+                      "DontAllowMultiple": true
+                    }
+                  ]
+                },
+                {
+                  "Name": "status",
+                  "Description": "Get addon status",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "upgrade",
+                  "Description": "Upgrade an addon",
+                  "Aliases": [],
+                  "Arguments": []
+                }
+              ],
+              "DontAllowMultiple": true
+            }
+          ]
+        },
+        {
+          "Name": "uischema",
+          "Description": "Manage UI schema for addons",
+          "Aliases": [
+            "ui"
+          ],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "apply",
+                  "Description": "Apply UI schema from a file or dir",
+                  "Aliases": [],
+                  "Arguments": []
+                }
+              ],
+              "DontAllowMultiple": true
+            }
+          ]
+        },
+        {
+          "Name": "def",
+          "Description": "Manage X-Definition for addons",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "apply",
+                  "Description": "Apply X-Definition",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "--dry-run",
+                          "Description": "Only build definition from CUE into CRB object without applying it to kubernetes clusters",
+                          "Aliases": [],
+                          "Arguments": []
+                        },
+                        {
+                          "Name": "--namespace",
+                          "Description": "Specify which namespace to apply. (default \u0022vela-system\u0022)",
+                          "Aliases": [
+                            "-n"
+                          ],
+                          "Arguments": [
+                            {
+                              "Arguments": [
+                                {
+                                  "Name": "string",
+                                  "Description": "string",
+                                  "Type": "String"
+                                }
+                              ]
+                            }
+                          ]
+                        }
+                      ],
+                      "Optional": true
+                    },
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "FileSystemEntry",
+                          "Description": "",
+                          "Type": "FileSystemEntry"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "del",
+                  "Description": "Delete X-Definition",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "--namespace",
+                          "Description": "Specify which namespace to apply. (default \u0022vela-system\u0022)",
+                          "Aliases": [
+                            "-n"
+                          ],
+                          "Arguments": [
+                            {
+                              "Arguments": [
+                                {
+                                  "Name": "string",
+                                  "Description": "string",
+                                  "Type": "String"
+                                }
+                              ]
+                            }
+                          ]
+                        },
+                        {
+                          "Name": "--type",
+                          "Description": "Specify the definition type of target. Valid types: workflow-step, component, trait, policy, workload, scope",
+                          "Aliases": [
+                            "-t"
+                          ],
+                          "Arguments": [
+                            {
+                              "Arguments": [
+                                {
+                                  "Name": "string",
+                                  "Description": "string",
+                                  "Type": "String"
+                                }
+                              ]
+                            }
+                          ]
+                        }
+                      ],
+                      "Optional": true
+                    },
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "FileSystemEntry",
+                          "Description": "",
+                          "Type": "FileSystemEntry"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "doc-gen",
+                  "Description": "Generate documentation of definitions (Only Terraform typed definitions are supported)",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "--type",
+                          "Description": "Specify the definition type of target. Valid types: workflow-step, component, trait, policy, workload, scope",
+                          "Aliases": [
+                            "-t"
+                          ],
+                          "Arguments": [
+                            {
+                              "Arguments": [
+                                {
+                                  "Name": "string",
+                                  "Description": "string",
+                                  "Type": "String"
+                                }
+                              ]
+                            }
+                          ]
+                        }
+                      ],
+                      "Optional": true
+                    }
+                  ]
+                },
+                {
+                  "Name": "edit",
+                  "Description": "Edit X-Definition",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "--namespace",
+                          "Description": "Specify which namespace to apply. (default \u0022vela-system\u0022)",
+                          "Aliases": [
+                            "-n"
+                          ],
+                          "Arguments": [
+                            {
+                              "Arguments": [
+                                {
+                                  "Name": "string",
+                                  "Description": "string",
+                                  "Type": "String"
+                                }
+                              ]
+                            }
+                          ]
+                        },
+                        {
+                          "Name": "--type",
+                          "Description": "Specify the definition type of target. Valid types: workflow-step, component, trait, policy, workload, scope",
+                          "Aliases": [
+                            "-t"
+                          ],
+                          "Arguments": [
+                            {
+                              "Arguments": [
+                                {
+                                  "Name": "string",
+                                  "Description": "string",
+                                  "Type": "String"
+                                }
+                              ]
+                            }
+                          ]
+                        }
+                      ],
+                      "Optional": true
+                    }
+                  ]
+                },
+                {
+                  "Name": "get",
+                  "Description": "Get X-Definition",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "--namespace",
+                          "Description": "Specify which namespace to apply. (default \u0022vela-system\u0022)",
+                          "Aliases": [
+                            "-n"
+                          ],
+                          "Arguments": [
+                            {
+                              "Arguments": [
+                                {
+                                  "Name": "string",
+                                  "Description": "string",
+                                  "Type": "String"
+                                }
+                              ]
+                            }
+                          ]
+                        },
+                        {
+                          "Name": "--type",
+                          "Description": "Specify the definition type of target. Valid types: workflow-step, component, trait, policy, workload, scope",
+                          "Aliases": [
+                            "-t"
+                          ],
+                          "Arguments": [
+                            {
+                              "Arguments": [
+                                {
+                                  "Name": "string",
+                                  "Description": "string",
+                                  "Type": "String"
+                                }
+                              ]
+                            }
+                          ]
+                        }
+                      ],
+                      "Optional": true
+                    }
+                  ]
+                },
+                {
+                  "Name": "init",
+                  "Description": "Init a new definition",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "--desc",
+                          "Description": "Specify the description of the new definition",
+                          "Aliases": [
+                            "-d"
+                          ],
+                          "Arguments": [
+                            {
+                              "Arguments": [
+                                {
+                                  "Name": "string",
+                                  "Description": "string",
+                                  "Type": "String"
+                                }
+                              ]
+                            }
+                          ]
+                        },
+                        {
+                          "Name": "--interactive",
+                          "Description": "Specify whether use interactive process to help generate definitions",
+                          "Aliases": [
+                            "-i"
+                          ],
+                          "Arguments": []
+                        },
+                        {
+                          "Name": "--git",
+                          "Description": "Specify which git repository the configuration(HCL) is stored in. Valid when --provider/-p is set",
+                          "Aliases": [],
+                          "Arguments": [
+                            {
+                              "Arguments": [
+                                {
+                                  "Name": "string",
+                                  "Description": "string",
+                                  "Type": "String"
+                                }
+                              ]
+                            }
+                          ]
+                        },
+                        {
+                          "Name": "--local",
+                          "Description": "Specify the local path of the configuration(HCL) file. Valid when --provider/-p is set",
+                          "Aliases": [],
+                          "Arguments": [
+                            {
+                              "Arguments": [
+                                {
+                                  "Name": "string",
+                                  "Description": "string",
+                                  "Type": "String"
+                                }
+                              ]
+                            }
+                          ]
+                        },
+                        {
+                          "Name": "--output",
+                          "Description": "Specify the output path of the generated definition. If empty, the definition will be printed in the console",
+                          "Aliases": [
+                            "-o"
+                          ],
+                          "Arguments": [
+                            {
+                              "Arguments": [
+                                {
+                                  "Name": "string",
+                                  "Description": "string",
+                                  "Type": "String"
+                                }
+                              ]
+                            }
+                          ]
+                        },
+                        {
+                          "Name": "--path",
+                          "Description": "Specify which path the configuration(HCL) is stored in the Git repository. Valid when --git is set",
+                          "Aliases": [],
+                          "Arguments": [
+                            {
+                              "Arguments": [
+                                {
+                                  "Name": "string",
+                                  "Description": "string",
+                                  "Type": "String"
+                                }
+                              ]
+                            }
+                          ]
+                        },
+                        {
+                          "Name": "--provider",
+                          "Description": "Specify which provider the cloud resource definition belongs to. Only alibaba, \u0060aws\u0060, \u0060azure\u0060 are supported",
+                          "Aliases": [
+                            "-p"
+                          ],
+                          "Arguments": [
+                            {
+                              "Arguments": [
+                                {
+                                  "Name": "string",
+                                  "Description": "string",
+                                  "Type": "String"
+                                }
+                              ]
+                            }
+                          ]
+                        },
+                        {
+                          "Name": "--template-yaml",
+                          "Description": "Specify the template yaml file that definition will use to build the schema. If empty, a default template for the given definition type will be used",
+                          "Aliases": [
+                            "-f"
+                          ],
+                          "Arguments": [
+                            {
+                              "Arguments": [
+                                {
+                                  "Name": "path",
+                                  "Description": "path",
+                                  "Type": "FileSystemEntry"
+                                }
+                              ]
+                            }
+                          ]
+                        },
+                        {
+                          "Name": "--type",
+                          "Description": "Specify the type of the new definition. Valid types: scope, workflow-step, component, trait, policy, workload",
+                          "Aliases": [
+                            "-t"
+                          ],
+                          "Arguments": [
+                            {
+                              "Arguments": [
+                                {
+                                  "Name": "string",
+                                  "Description": "string",
+                                  "Type": "String"
+                                }
+                              ]
+                            }
+                          ]
+                        }
+                      ],
+                      "Optional": true
+                    }
+                  ]
+                },
+                {
+                  "Name": "list",
+                  "Description": "List X-Definition",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "--namespace",
+                          "Description": "Specify which namespace to apply. (default \u0022vela-system\u0022)",
+                          "Aliases": [
+                            "-n"
+                          ],
+                          "Arguments": [
+                            {
+                              "Arguments": [
+                                {
+                                  "Name": "string",
+                                  "Description": "string",
+                                  "Type": "String"
+                                }
+                              ]
+                            }
+                          ]
+                        },
+                        {
+                          "Name": "--type",
+                          "Description": "Specify the definition type of target. Valid types: workflow-step, component, trait, policy, workload, scope",
+                          "Aliases": [
+                            "-t"
+                          ],
+                          "Arguments": [
+                            {
+                              "Arguments": [
+                                {
+                                  "Name": "string",
+                                  "Description": "string",
+                                  "Type": "String"
+                                }
+                              ]
+                            }
+                          ]
+                        }
+                      ],
+                      "Optional": true
+                    }
+                  ]
+                },
+                {
+                  "Name": "render",
+                  "Description": "Render X-Definition",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "--message",
+                          "Description": "Specify the header message of the generated YAML file. For example, declaring author information",
+                          "Aliases": [],
+                          "Arguments": [
+                            {
+                              "Arguments": [
+                                {
+                                  "Name": "string",
+                                  "Description": "string",
+                                  "Type": "String"
+                                }
+                              ]
+                            }
+                          ]
+                        },
+                        {
+                          "Name": "--output",
+                          "Description": "Specify the output path of the rendered definition YAML. If empty, the definition will be printed in the console. If input is a directory, the output path is expected to be a directory as well",
+                          "Aliases": [
+                            "-o"
+                          ],
+                          "Arguments": [
+                            {
+                              "Arguments": [
+                                {
+                                  "Name": "path",
+                                  "Description": "path",
+                                  "Type": "Directory"
+                                }
+                              ]
+                            }
+                          ]
+                        }
+                      ],
+                      "Optional": true
+                    }
+                  ]
+                },
+                {
+                  "Name": "vet",
+                  "Description": "Validate X-Definition",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "FileSystemEntry",
+                          "Description": "",
+                          "Type": "FileSystemEntry"
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ],
+              "DontAllowMultiple": true
+            }
+          ]
+        },
+        {
+          "Name": "registry",
+          "Description": "Manage Registry of X-Definitions for extension",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "config",
+                  "Description": "Configure (add if not exist) a registry, default is local (built-in capabilities)",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "--token",
+                          "Description": "Github Repo token",
+                          "Aliases": [
+                            "-t"
+                          ],
+                          "Arguments": [
+                            {
+                              "Arguments": [
+                                {
+                                  "Name": "string",
+                                  "Description": "string",
+                                  "Type": "String"
+                                }
+                              ]
+                            }
+                          ]
+                        }
+                      ],
+                      "Optional": true
+                    }
+                  ]
+                },
+                {
+                  "Name": "ls",
+                  "Description": "List all configured registry",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "remove",
+                  "Description": "Remove specified registry",
+                  "Aliases": [
+                    "rm"
+                  ],
+                  "Arguments": []
+                }
+              ],
+              "DontAllowMultiple": true
+            }
+          ]
+        },
+        {
+          "Name": "component",
+          "Description": "List component types installed and discover more registry",
+          "Aliases": [
+            "comp",
+            "components"
+          ],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "--discover",
+                  "Description": "Discover more registry",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "string",
+                          "Description": "string",
+                          "Type": "String"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "--label",
+                  "Description": "A label to filter components, the format is --label type=terraform",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "key=value",
+                          "Description": "key=value",
+                          "Type": "String"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "--registry",
+                  "Description": "Specify the registry name (default \u0022default\u0022)",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "string",
+                          "Description": "string",
+                          "Type": "String"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "--token",
+                  "Description": "Specify token when using --url to specify registry url",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "string",
+                          "Description": "string",
+                          "Type": "String"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "--url",
+                  "Description": "Specify the registry url",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "string",
+                          "Description": "string",
+                          "Type": "String"
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ],
+              "Optional": true
+            },
+            {
+              "Arguments": [
+                {
+                  "Name": "get",
+                  "Description": "Get component from type",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "--registry",
+                          "Description": "Specify the registry name (default \u0022default\u0022)",
+                          "Aliases": [],
+                          "Arguments": [
+                            {
+                              "Arguments": [
+                                {
+                                  "Name": "string",
+                                  "Description": "string",
+                                  "Type": "String"
+                                }
+                              ]
+                            }
+                          ]
+                        },
+                        {
+                          "Name": "--token",
+                          "Description": "Specify token when using --url to specify registry url",
+                          "Aliases": [],
+                          "Arguments": [
+                            {
+                              "Arguments": [
+                                {
+                                  "Name": "string",
+                                  "Description": "string",
+                                  "Type": "String"
+                                }
+                              ]
+                            }
+                          ]
+                        },
+                        {
+                          "Name": "--url",
+                          "Description": "Specify the registry url",
+                          "Aliases": [],
+                          "Arguments": [
+                            {
+                              "Arguments": [
+                                {
+                                  "Name": "string",
+                                  "Description": "string",
+                                  "Type": "String"
+                                }
+                              ]
+                            }
+                          ]
+                        }
+                      ],
+                      "Optional": true
+                    }
+                  ]
+                }
+              ],
+              "DontAllowMultiple": true
+            }
+          ]
+        },
+        {
+          "Name": "trait",
+          "Description": "List trait types installed and discover more in registry",
+          "Aliases": [
+            "traits"
+          ],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "--discover",
+                  "Description": "Discover traits in registries",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "--registry",
+                  "Description": "Specify the registry name (default \u0022default\u0022)",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "string",
+                          "Description": "string",
+                          "Type": "String"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "--token",
+                  "Description": "Specify token when using --url to specify registry url",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "string",
+                          "Description": "string",
+                          "Type": "String"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "--url",
+                  "Description": "Specify the registry url",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "string",
+                          "Description": "string",
+                          "Type": "String"
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ],
+              "Optional": true
+            },
+            {
+              "Arguments": [
+                {
+                  "Name": "get",
+                  "Description": "Get trait from registry",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "--registry",
+                          "Description": "Specify the registry name (default \u0022default\u0022)",
+                          "Aliases": [],
+                          "Arguments": [
+                            {
+                              "Arguments": [
+                                {
+                                  "Name": "string",
+                                  "Description": "string",
+                                  "Type": "String"
+                                }
+                              ]
+                            }
+                          ]
+                        },
+                        {
+                          "Name": "--token",
+                          "Description": "Specify token when using --url to specify registry url",
+                          "Aliases": [],
+                          "Arguments": [
+                            {
+                              "Arguments": [
+                                {
+                                  "Name": "string",
+                                  "Description": "string",
+                                  "Type": "String"
+                                }
+                              ]
+                            }
+                          ]
+                        },
+                        {
+                          "Name": "--url",
+                          "Description": "Specify the registry url",
+                          "Aliases": [],
+                          "Arguments": [
+                            {
+                              "Arguments": [
+                                {
+                                  "Name": "string",
+                                  "Description": "string",
+                                  "Type": "String"
+                                }
+                              ]
+                            }
+                          ]
+                        }
+                      ],
+                      "Optional": true
+                    }
+                  ]
+                }
+              ],
+              "DontAllowMultiple": true
+            }
+          ]
+        },
+        {
+          "Name": "uninstall",
+          "Description": "Uninstalls KubeVela from a Kubernetes cluster",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "--force",
+                  "Description": "Force uninstall whole vela include all addons",
+                  "Aliases": [
+                    "-f"
+                  ],
+                  "Arguments": []
+                },
+                {
+                  "Name": "--detail",
+                  "Description": "Show detail log of uninstall information",
+                  "Aliases": [
+                    "-d"
+                  ],
+                  "Arguments": []
+                },
+                {
+                  "Name": "--namespace",
+                  "Description": "Namespace scope for installing KubeVela Core. (default \u0022vela-system\u0022)",
+                  "Aliases": [
+                    "-n"
+                  ],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "string",
+                          "Description": "string",
+                          "Type": "String"
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ],
+              "Optional": true
+            }
+          ]
+        },
+        {
+          "Name": "install",
+          "Description": "Installs KubeVela into a Kubernetes cluster",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "--file",
+                  "Description": "Custom the chart path of KubeVela control plane",
+                  "Aliases": [
+                    "-f"
+                  ],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "path",
+                          "Description": "path",
+                          "Type": "FileSystemEntry"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "--detail",
+                  "Description": "Show detail log of install information",
+                  "Aliases": [
+                    "-d"
+                  ],
+                  "Arguments": []
+                },
+                {
+                  "Name": "--namespace",
+                  "Description": "Namespace scope for installing KubeVela Core",
+                  "Aliases": [
+                    "-n"
+                  ],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "string",
+                          "Description": "string",
+                          "Type": "String"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "--reuse",
+                  "Description": "Will re-use the user\u0027s last supplied values. (default true)",
+                  "Aliases": [
+                    "-r"
+                  ],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "bool",
+                          "Description": "bool",
+                          "Type": "String"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "--version",
+                  "Description": "Specify the version of KubeVela to install",
+                  "Aliases": [
+                    "-v"
+                  ],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "string",
+                          "Description": "string",
+                          "Type": "String"
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ],
+              "Optional": true
+            }
+          ]
+        },
+        {
+          "Name": "completion",
+          "Description": "Output shell completion code for the specified shell (bash or zsh). The shell code must be evaluated to provide interactive completion of vela commands",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "bash",
+                  "Description": "Output bash completion code",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "zsh",
+                  "Description": "Output zsh completion code",
+                  "Aliases": [],
+                  "Arguments": []
+                }
+              ],
+              "DontAllowMultiple": true
+            }
+          ]
+        },
+        {
+          "Name": "export",
+          "Description": "Export deploy manifests from appfile or application",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "--file",
+                  "Description": "Specify the appfile path",
+                  "Aliases": [
+                    "-f"
+                  ],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "path",
+                          "Description": "path",
+                          "Type": "FileSystemEntry"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "--env",
+                  "Description": "Specify environment name for application",
+                  "Aliases": [
+                    "-e"
+                  ],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "string",
+                          "Description": "string",
+                          "Type": "String"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "--namespace",
+                  "Description": "Specify the Kubernetes namespace to use",
+                  "Aliases": [
+                    "-n"
+                  ],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "string",
+                          "Description": "string",
+                          "Type": "String"
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ],
+              "Optional": true
+            }
+          ]
+        },
+        {
+          "Name": "version",
+          "Description": "Prints the version",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "list",
+                  "Description": "List all available versions",
+                  "Aliases": [],
+                  "Arguments": []
+                }
+              ],
+              "DontAllowMultiple": true
+            }
+          ]
+        }
+      ],
+      "DontAllowMultiple": true
+    }
+  ]
+}

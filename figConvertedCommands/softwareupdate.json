@@ -1,0 +1,207 @@
+{
+  "Comment": "This command info is generated from fig",
+  "Name": "softwareupdate",
+  "Description": "Software Update checks for new and updated versions of your software based on information about your computer and current software",
+  "Arguments": [
+    {
+      "Arguments": [
+        {
+          "Name": "--no-scan",
+          "Description": "Do not scan when listing or installing updates (use available updates previously scanned)",
+          "Aliases": [],
+          "Arguments": []
+        },
+        {
+          "Name": "--product-types",
+          "Description": "Limit a scan to a particular product type only - ignoring all others",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "type",
+                  "Description": "type",
+                  "Type": "String"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "Name": "--products",
+          "Description": "A comma-separated (no spaces) list of product keys to operate on",
+          "Aliases": [],
+          "Arguments": []
+        },
+        {
+          "Name": "--force",
+          "Description": "Force an operation to complete.  Use with --background to trigger a background scan regardless of \u0022Automatically check\u0022 pref",
+          "Aliases": [],
+          "Arguments": []
+        },
+        {
+          "Name": "--agree-to-license",
+          "Description": "Agree to the software license agreement without user interaction",
+          "Aliases": [],
+          "Arguments": []
+        },
+        {
+          "Name": "--verbose",
+          "Description": "Enable verbose output",
+          "Aliases": [],
+          "Arguments": []
+        },
+        {
+          "Name": "--help",
+          "Description": "Show help for softwareupdate",
+          "Aliases": [
+            "-h"
+          ],
+          "Arguments": []
+        }
+      ],
+      "Optional": true
+    },
+    {
+      "Arguments": [
+        {
+          "Name": "-l",
+          "Description": "List all appropriate update labels",
+          "Aliases": [
+            "--list"
+          ],
+          "Arguments": []
+        },
+        {
+          "Name": "-d",
+          "Description": "Download Only",
+          "Aliases": [
+            "--download"
+          ],
+          "Arguments": []
+        },
+        {
+          "Name": "-i",
+          "Description": "Install",
+          "Aliases": [
+            "--install"
+          ],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "-a",
+                  "Description": "All appropriate updates",
+                  "Aliases": [
+                    "--all"
+                  ],
+                  "Arguments": []
+                },
+                {
+                  "Name": "-R",
+                  "Description": "Automatically restart (or shut down) if required to complete installation",
+                  "Aliases": [
+                    "--restart"
+                  ],
+                  "Arguments": []
+                },
+                {
+                  "Name": "-r",
+                  "Description": "Only recommended updates",
+                  "Aliases": [
+                    "--recommended"
+                  ],
+                  "Arguments": []
+                }
+              ],
+              "Optional": true
+            },
+            {
+              "Arguments": [
+                {
+                  "Name": "label",
+                  "Description": "label",
+                  "Type": "CustomArgument",
+                  "Extensions": [],
+                  "CustomCommand": "softwareupdate --list"
+                }
+              ],
+              "Optional": true
+            }
+          ]
+        },
+        {
+          "Name": "--list-full-installers",
+          "Description": "List the available macOS Installers",
+          "Aliases": [],
+          "Arguments": []
+        },
+        {
+          "Name": "--fetch-full-installer",
+          "Description": "Install the latest recommended macOS Installer",
+          "Aliases": [],
+          "Arguments": []
+        },
+        {
+          "Name": "--full-installer-version",
+          "Description": "The version of macOS to install",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "version",
+                  "Description": "version",
+                  "Type": "String"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "Name": "--install-rosetta",
+          "Description": "Install Rosetta 2",
+          "Aliases": [],
+          "Arguments": []
+        },
+        {
+          "Name": "--background",
+          "Description": "Trigger a background scan and update operation",
+          "Aliases": [],
+          "Arguments": []
+        },
+        {
+          "Name": "--dump-state",
+          "Description": "Log the internal state of the SU daemon to /var/log/install.log",
+          "Aliases": [],
+          "Arguments": []
+        },
+        {
+          "Name": "--evaluate-products",
+          "Description": "Evaluate a list of product keys specified by the --products option",
+          "Aliases": [],
+          "Arguments": []
+        },
+        {
+          "Name": "--history",
+          "Description": "Show the install history.  By default, only displays updates installed by softwareupdate",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "--all",
+                  "Description": "Include all processes in history (including App installs)",
+                  "Aliases": [],
+                  "Arguments": []
+                }
+              ],
+              "Optional": true
+            }
+          ]
+        }
+      ],
+      "DontAllowMultiple": true
+    }
+  ]
+}

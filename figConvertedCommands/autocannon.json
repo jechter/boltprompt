@@ -1,0 +1,639 @@
+{
+  "Comment": "This command info is generated from fig",
+  "Name": "autocannon",
+  "Description": "Fast HTTP/1.1 benchmarking tool written in Node.js",
+  "Arguments": [
+    {
+      "Arguments": [
+        {
+          "Name": "-c",
+          "Description": "The number of concurrent connections to use",
+          "Aliases": [
+            "--connections"
+          ],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "NUM",
+                  "Description": "NUM",
+                  "Type": "String"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "Name": "-p",
+          "Description": "The number of pipelined requests to use",
+          "Aliases": [
+            "--pipelining"
+          ],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "NUM",
+                  "Description": "NUM",
+                  "Type": "String"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "Name": "-d",
+          "Description": "The number of seconds to run the autocannon",
+          "Aliases": [
+            "--duration"
+          ],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "SEC",
+                  "Description": "SEC",
+                  "Type": "String"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "Name": "-a",
+          "Description": "The number of requests to make before exiting the benchmark",
+          "Aliases": [
+            "--amount"
+          ],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "NUM",
+                  "Description": "NUM",
+                  "Type": "String"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "Name": "L",
+          "Description": "The number of milliseconds to elapse between taking samples. This controls the sample interval, \u0026 therefore the total number of samples, which affects statistical analyses",
+          "Type": "Flag",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "NUM",
+                  "Description": "NUM",
+                  "Type": "String"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "Name": "-S",
+          "Description": "A path to a Unix Domain Socket or a Windows Named Pipe. A URL is still required to send the correct Host header and path",
+          "Aliases": [
+            "--socketPath"
+          ],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "PATH",
+                  "Description": "PATH",
+                  "Type": "String"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "Name": "-w",
+          "Description": "Number of worker threads to use to fire requests",
+          "Aliases": [
+            "--workers"
+          ],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "NUM",
+                  "Description": "NUM",
+                  "Type": "String"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "Name": "-W",
+          "Description": "Use a warm up interval before starting sampling. This enables startup processes to finish and traffic to normalize before sampling begins",
+          "Aliases": [
+            "--warmup"
+          ],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "-c",
+                  "Description": "-c",
+                  "Type": "String"
+                }
+              ]
+            },
+            {
+              "Arguments": [
+                {
+                  "Name": "-d",
+                  "Description": "-d",
+                  "Type": "String"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "Name": "--on-port",
+          "Description": "Start the command listed after -- on the command line. When it starts listening on a port, start sending requests to that port. A URL is still required to send requests to the correct path. The hostname can be omitted, \u0060localhost\u0060 will be used by default",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "PORT",
+                  "Description": "PORT",
+                  "Type": "String"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "Name": "-m",
+          "Description": "The HTTP method to use",
+          "Aliases": [
+            "--method"
+          ],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "METHOD",
+                  "Description": "METHOD",
+                  "Type": "String"
+                },
+                {
+                  "Name": "GET",
+                  "Description": "METHOD"
+                },
+                {
+                  "Name": "POST",
+                  "Description": "METHOD"
+                },
+                {
+                  "Name": "PUT",
+                  "Description": "METHOD"
+                },
+                {
+                  "Name": "DELETE",
+                  "Description": "METHOD"
+                },
+                {
+                  "Name": "PATCH",
+                  "Description": "METHOD"
+                },
+                {
+                  "Name": "HEAD",
+                  "Description": "METHOD"
+                },
+                {
+                  "Name": "OPTIONS",
+                  "Description": "METHOD"
+                },
+                {
+                  "Name": "TRACE",
+                  "Description": "METHOD"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "Name": "-t",
+          "Description": "The number of seconds before timing out and resetting a connection",
+          "Aliases": [
+            "--timeout"
+          ],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "NUM",
+                  "Description": "NUM",
+                  "Type": "String"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "Name": "-T",
+          "Description": "The title to place in the results for identification",
+          "Aliases": [
+            "--title"
+          ],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "TITLE",
+                  "Description": "TITLE",
+                  "Type": "String"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "Name": "-b",
+          "Description": "The body of the request",
+          "Aliases": [
+            "--body"
+          ],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "BODY",
+                  "Description": "BODY",
+                  "Type": "String"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "Name": "-F",
+          "Description": "",
+          "Aliases": [
+            "--form"
+          ],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "FORM",
+                  "Description": "FORM",
+                  "Type": "String"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "Name": "-i",
+          "Description": "The body of the request",
+          "Aliases": [
+            "--input"
+          ],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "FILE",
+                  "Description": "FILE",
+                  "Type": "String",
+                  "Extensions": [],
+                  "CustomCommand": ""
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "Name": "-H",
+          "Description": "The request headers",
+          "Aliases": [
+            "--headers"
+          ],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "K=V",
+                  "Description": "K=V",
+                  "Type": "String"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "Name": "--har",
+          "Description": "When provided, Autocannon will use requests from the HAR file",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "FILE",
+                  "Description": "FILE",
+                  "Type": "FileSystemEntry"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "Name": "-B",
+          "Description": "The number of failures before initiating a bailout",
+          "Aliases": [
+            "--bailout"
+          ],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "NUM",
+                  "Description": "NUM",
+                  "Type": "String"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "Name": "-M",
+          "Description": "The max number of requests to make per connection to the server",
+          "Aliases": [
+            "--maxConnectionRequests"
+          ],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "NUM",
+                  "Description": "NUM",
+                  "Type": "String"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "Name": "-O",
+          "Description": "The max number of requests to make overall to the server",
+          "Aliases": [
+            "--maxOverallRequests"
+          ],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "NUM",
+                  "Description": "NUM",
+                  "Type": "String"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "Name": "-r",
+          "Description": "The max number of requests to make per second from an individual connection",
+          "Aliases": [
+            "--connectionRate"
+          ],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "NUM",
+                  "Description": "NUM",
+                  "Type": "String"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "Name": "-R",
+          "Description": "The max number of requests to make per second from all connections",
+          "Aliases": [
+            "--overallRate"
+          ],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "NUM",
+                  "Description": "NUM",
+                  "Type": "String"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "Name": "-C",
+          "Description": "Ignore the coordinated omission issue when requests should be sent at a fixed rate using \u0027connectionRate\u0027 or \u0027overallRate\u0027",
+          "Aliases": [
+            "--ignoreCoordinatedOmission"
+          ],
+          "Arguments": []
+        },
+        {
+          "Name": "-D",
+          "Description": "The number of requests to make before resetting a connections connection to the server",
+          "Aliases": [
+            "--reconnectRate"
+          ],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "NUM",
+                  "Description": "NUM",
+                  "Type": "String"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "Name": "-n",
+          "Description": "Don\u0027t render the progress bar. default: false",
+          "Aliases": [
+            "--no-progress"
+          ],
+          "Arguments": []
+        },
+        {
+          "Name": "-l",
+          "Description": "Print all the latency data. default: false",
+          "Aliases": [
+            "--latency"
+          ],
+          "Arguments": []
+        },
+        {
+          "Name": "-I",
+          "Description": "Enable replacement of [\u003Cid\u003E] with a randomly generated ID within the request body. default: false",
+          "Aliases": [
+            "--idReplacement"
+          ],
+          "Arguments": []
+        },
+        {
+          "Name": "-j",
+          "Description": "Print the output as newline delimited JSON. This will cause the progress bar and results not to be rendered",
+          "Aliases": [
+            "--jsonPath"
+          ],
+          "Arguments": []
+        },
+        {
+          "Name": "-f",
+          "Description": "Run the benchmark forever. Efficiently restarts the benchmark on completion",
+          "Aliases": [
+            "--forever"
+          ],
+          "Arguments": []
+        },
+        {
+          "Name": "-s",
+          "Description": "Server name for the SNI (Server Name Indication) TLS extension. Defaults to the hostname of the URL when it is not an IP address",
+          "Aliases": [
+            "--servername"
+          ],
+          "Arguments": []
+        },
+        {
+          "Name": "-x",
+          "Description": "Exclude error statistics (non-2xx HTTP responses) from the final latency and bytes per second averages. default: false",
+          "Aliases": [
+            "--excludeErrorStats"
+          ],
+          "Arguments": []
+        },
+        {
+          "Name": "-E",
+          "Description": "Ensure the body matches this value. If enabled, mismatches count towards bailout. Enabling this option will slow down the load testing",
+          "Aliases": [
+            "--expectBody"
+          ],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "EXPECTED",
+                  "Description": "EXPECTED",
+                  "Type": "String"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "Name": "--renderStatusCodes",
+          "Description": "Print status codes and their respective statistics",
+          "Aliases": [],
+          "Arguments": []
+        },
+        {
+          "Name": "--cert",
+          "Description": "Path to cert chain in pem format",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "FILE",
+                  "Description": "FILE",
+                  "Type": "FileSystemEntry"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "Name": "--key",
+          "Description": "Path to private key for specified cert in pem format",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "FILE",
+                  "Description": "FILE",
+                  "Type": "FileSystemEntry"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "Name": "--ca",
+          "Description": "Path to trusted ca certificates for the test. This argument accepts both a single file as well as a list of files",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "FILE",
+                  "Description": "FILE",
+                  "Type": "FileSystemEntry"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "Name": "--debug",
+          "Description": "Print connection errors to stderr",
+          "Aliases": [],
+          "Arguments": []
+        },
+        {
+          "Name": "-v",
+          "Description": "Print the version number",
+          "Aliases": [
+            "--version"
+          ],
+          "Arguments": []
+        },
+        {
+          "Name": "-V",
+          "Description": "Print the table with results (default: true)",
+          "Aliases": [
+            "--verbose"
+          ],
+          "Arguments": []
+        },
+        {
+          "Name": "-h",
+          "Description": "Print help",
+          "Aliases": [
+            "--help"
+          ],
+          "Arguments": []
+        }
+      ],
+      "Optional": true
+    },
+    {
+      "Arguments": [
+        {
+          "Name": "URL",
+          "Description": "URL",
+          "Type": "String"
+        }
+      ]
+    }
+  ]
+}

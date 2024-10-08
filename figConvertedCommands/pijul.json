@@ -1,0 +1,1674 @@
+{
+  "Comment": "This command info is generated from fig",
+  "Name": "pijul",
+  "Description": "A distributed version control system that is at the same time theoretically sound, fast and easy to learn and use",
+  "Arguments": [
+    {
+      "Arguments": [
+        {
+          "Name": "add",
+          "Description": "Adds a path to the tree",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "-f",
+                  "Description": "",
+                  "Aliases": [
+                    "--force"
+                  ],
+                  "Arguments": []
+                },
+                {
+                  "Name": "-h",
+                  "Description": "Print help information",
+                  "Aliases": [
+                    "--help"
+                  ],
+                  "Arguments": []
+                },
+                {
+                  "Name": "-r",
+                  "Description": "",
+                  "Aliases": [
+                    "--recursive"
+                  ],
+                  "Arguments": []
+                }
+              ],
+              "Optional": true
+            },
+            {
+              "Arguments": [
+                {
+                  "Name": "PATHS",
+                  "Description": "PATHS",
+                  "Type": "String"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "Name": "apply",
+          "Description": "Applies changes to a channel",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "--channel",
+                  "Description": "Apply change to this channel",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "CHANNEL",
+                          "Description": "CHANNEL",
+                          "Type": "String"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "--deps-only",
+                  "Description": "Only apply the dependencies of the change, not the change itself. Only applicable for a single change",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "-h",
+                  "Description": "Print help information",
+                  "Aliases": [
+                    "--help"
+                  ],
+                  "Arguments": []
+                },
+                {
+                  "Name": "--repository",
+                  "Description": "Set the repository where this command should run. Defaults to the first ancestor of the current directory that contains a .pijul directory",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "REPO_PATH",
+                          "Description": "REPO_PATH",
+                          "Type": "String"
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ],
+              "Optional": true
+            },
+            {
+              "Arguments": [
+                {
+                  "Name": "CHANGE",
+                  "Description": "CHANGE",
+                  "Type": "String"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "Name": "archive",
+          "Description": "Creates an archive of the repository",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "--change",
+                  "Description": "Apply these changes after switching to the channel",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "CHANGE",
+                          "Description": "CHANGE",
+                          "Type": "String"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "--channel",
+                  "Description": "Use this channel, instead of the current channel",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "CHANNEL",
+                          "Description": "CHANNEL",
+                          "Type": "String"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "-h",
+                  "Description": "Print help information",
+                  "Aliases": [
+                    "--help"
+                  ],
+                  "Arguments": []
+                },
+                {
+                  "Name": "k",
+                  "Description": "Do not check certificates (HTTPS remotes only, this option might be dangerous)",
+                  "Type": "Flag",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "o",
+                  "Description": "Name of the output file",
+                  "Type": "Flag",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "NAME",
+                          "Description": "NAME",
+                          "Type": "String"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "--prefix",
+                  "Description": "Append this path in front of each path inside the archive",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "PREFIX",
+                          "Description": "PREFIX",
+                          "Type": "String"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "--remote",
+                  "Description": "Ask the remote to send an archive",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "REMOTE",
+                          "Description": "REMOTE",
+                          "Type": "String"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "--repository",
+                  "Description": "Set the repository where this command should run. Defaults to the first ancestor of the current directory that contains a .pijul directory",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "REPO_PATH",
+                          "Description": "REPO_PATH",
+                          "Type": "String"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "--state",
+                  "Description": "Archive in this state",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "STATE",
+                          "Description": "STATE",
+                          "Type": "String"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "--umask",
+                  "Description": "Append this path in front of each path inside the archive",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "UMASK",
+                          "Description": "UMASK",
+                          "Type": "String"
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ],
+              "Optional": true
+            }
+          ]
+        },
+        {
+          "Name": "change",
+          "Description": "Shows information about a particular change",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "-h",
+                  "Description": "Print help information",
+                  "Aliases": [
+                    "--help"
+                  ],
+                  "Arguments": []
+                },
+                {
+                  "Name": "--repository",
+                  "Description": "Use the repository at PATH instead of the current directory",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "PATH",
+                          "Description": "PATH",
+                          "Type": "String"
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ],
+              "Optional": true
+            },
+            {
+              "Arguments": [
+                {
+                  "Name": "HASH",
+                  "Description": "HASH",
+                  "Type": "String"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "Name": "channel",
+          "Description": "Manages different channels",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "-h",
+                  "Description": "Print help information",
+                  "Aliases": [
+                    "--help"
+                  ],
+                  "Arguments": []
+                },
+                {
+                  "Name": "--repository",
+                  "Description": "Set the repository where this command should run. Defaults to the first ancestor of the current directory that contains a .pijul directory",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "REPO_PATH",
+                          "Description": "REPO_PATH",
+                          "Type": "String"
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ],
+              "Optional": true
+            },
+            {
+              "Arguments": [
+                {
+                  "Name": "delete",
+                  "Description": "Delete a channel. The channel must not be the current channel",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "-h",
+                          "Description": "Print help information",
+                          "Aliases": [
+                            "--help"
+                          ],
+                          "Arguments": []
+                        }
+                      ],
+                      "Optional": true
+                    },
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "DELETE",
+                          "Description": "DELETE",
+                          "Type": "String"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "help",
+                  "Description": "Print this message or the help of the given subcommand(s)",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "new",
+                  "Description": "Create a new, empty channel",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "rename",
+                  "Description": "Rename a channel",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "-h",
+                          "Description": "Print help information",
+                          "Aliases": [
+                            "--help"
+                          ],
+                          "Arguments": []
+                        }
+                      ],
+                      "Optional": true
+                    },
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "FROM",
+                          "Description": "FROM",
+                          "Type": "String"
+                        }
+                      ]
+                    },
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "TO",
+                          "Description": "TO",
+                          "Type": "String"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "switch",
+                  "Description": "Switch to a channel. There must not be unrecorded changes in the working copy",
+                  "Aliases": [],
+                  "Arguments": []
+                }
+              ],
+              "DontAllowMultiple": true
+            }
+          ]
+        },
+        {
+          "Name": "clone",
+          "Description": "Clones an existing pijul repository",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "--change",
+                  "Description": "Clone this change and its dependencies",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "CHANGE",
+                          "Description": "CHANGE",
+                          "Type": "String"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "--channel",
+                  "Description": "Set the remote channel [default: main]",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "CHANNEL",
+                          "Description": "CHANNEL",
+                          "Type": "String"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "-h",
+                  "Description": "Print help information",
+                  "Aliases": [
+                    "--help"
+                  ],
+                  "Arguments": []
+                },
+                {
+                  "Name": "k",
+                  "Description": "Do not check certificates (HTTPS remotes only, this option might be dangerous)",
+                  "Type": "Flag",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "--path",
+                  "Description": "Clone this path only",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "PARTIAL_PATHS",
+                          "Description": "PARTIAL_PATHS",
+                          "Type": "String"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "--state",
+                  "Description": "Clone this state",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "STATE",
+                          "Description": "STATE",
+                          "Type": "String"
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ],
+              "Optional": true
+            },
+            {
+              "Arguments": [
+                {
+                  "Name": "REMOTE",
+                  "Description": "REMOTE",
+                  "Type": "String"
+                }
+              ]
+            },
+            {
+              "Arguments": [
+                {
+                  "Name": "PATH",
+                  "Description": "PATH",
+                  "Type": "String"
+                }
+              ]
+            },
+            {
+              "Arguments": [
+                {
+                  "Name": "SALT",
+                  "Description": "SALT",
+                  "Type": "String"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "Name": "credit",
+          "Description": "Shows which change last affected each line of the given file(s)",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "--channel",
+                  "Description": "Use this channel instead of the current channel",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "CHANNEL",
+                          "Description": "CHANNEL",
+                          "Type": "String"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "-h",
+                  "Description": "Print help information",
+                  "Aliases": [
+                    "--help"
+                  ],
+                  "Arguments": []
+                },
+                {
+                  "Name": "--repository",
+                  "Description": "Set the repository where this command should run. Defaults to the first ancestor of the current directory that contains a .pijul directory",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "REPO_PATH",
+                          "Description": "REPO_PATH",
+                          "Type": "String"
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ],
+              "Optional": true
+            },
+            {
+              "Arguments": [
+                {
+                  "Name": "FILE",
+                  "Description": "FILE",
+                  "Type": "String"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "Name": "diff",
+          "Description": "Shows difference between two channels/changes",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "--channel",
+                  "Description": "Compare with this channel",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "CHANNEL",
+                          "Description": "CHANNEL",
+                          "Type": "String"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "-h",
+                  "Description": "Print help information",
+                  "Aliases": [
+                    "--help"
+                  ],
+                  "Arguments": []
+                },
+                {
+                  "Name": "--json",
+                  "Description": "Output the diff in JSON format instead of the default change text format",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "--repository",
+                  "Description": "Set the repository where this command should run. Defaults to the first ancestor of the current directory that contains a .pijul directory",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "REPO_PATH",
+                          "Description": "REPO_PATH",
+                          "Type": "String"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "-s",
+                  "Description": "Show a short version of the diff",
+                  "Aliases": [
+                    "--short"
+                  ],
+                  "Arguments": []
+                },
+                {
+                  "Name": "--tag",
+                  "Description": "Add all the changes of this channel as dependencies (except changes implied transitively), instead of the minimal dependencies",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "-u",
+                  "Description": "Include the untracked files",
+                  "Aliases": [
+                    "--untracked"
+                  ],
+                  "Arguments": []
+                }
+              ],
+              "Optional": true
+            },
+            {
+              "Arguments": [
+                {
+                  "Name": "PREFIXES",
+                  "Description": "PREFIXES",
+                  "Type": "String"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "Name": "fork",
+          "Description": "Create a new channel",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "--change",
+                  "Description": "Apply this change after creating the channel",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "CHANGE",
+                          "Description": "CHANGE",
+                          "Type": "String"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "--channel",
+                  "Description": "Make the new channel from this channel instead of the current channel",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "CHANNEL",
+                          "Description": "CHANNEL",
+                          "Type": "String"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "-h",
+                  "Description": "Print help information",
+                  "Aliases": [
+                    "--help"
+                  ],
+                  "Arguments": []
+                },
+                {
+                  "Name": "--repository",
+                  "Description": "Set the repository where this command should run. Defaults to the first ancestor of the current directory that contains a .pijul directory",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "REPO_PATH",
+                          "Description": "REPO_PATH",
+                          "Type": "String"
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ],
+              "Optional": true
+            },
+            {
+              "Arguments": [
+                {
+                  "Name": "TO",
+                  "Description": "TO",
+                  "Type": "String"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "Name": "init",
+          "Description": "Initializes an empty pijul repository",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "--channel",
+                  "Description": "Set the name of the current channel (defaults to \u201Cmain\u201D)",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "CHANNEL",
+                          "Description": "CHANNEL",
+                          "Type": "String"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "-h",
+                  "Description": "Print help information",
+                  "Aliases": [
+                    "--help"
+                  ],
+                  "Arguments": []
+                },
+                {
+                  "Name": "-k",
+                  "Description": "Project kind; if Pijul knows about your project kind, the .ignore file will be populated with a conservative list of commonly ignored entries. Example: pijul init --kind=rust",
+                  "Aliases": [
+                    "--kind"
+                  ],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "KIND",
+                          "Description": "KIND",
+                          "Type": "String"
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ],
+              "Optional": true
+            },
+            {
+              "Arguments": [
+                {
+                  "Name": "PATH",
+                  "Description": "PATH",
+                  "Type": "String"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "Name": "log",
+          "Description": "Show the entire log of changes",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "--channel",
+                  "Description": "Show logs for this channel instead of the current channel",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "CHANNEL",
+                          "Description": "CHANNEL",
+                          "Type": "String"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "--description",
+                  "Description": "Include full change description in the output",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "-h",
+                  "Description": "Print help information",
+                  "Aliases": [
+                    "--help"
+                  ],
+                  "Arguments": []
+                },
+                {
+                  "Name": "--hash-only",
+                  "Description": "Only show the change hashes",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "--limit",
+                  "Description": "Output at most this many changes",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "LIMIT",
+                          "Description": "LIMIT",
+                          "Type": "String"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "--offset",
+                  "Description": "Start after this many changes",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "OFFSET",
+                          "Description": "OFFSET",
+                          "Type": "String"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "--output-format",
+                  "Description": "",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "OUTPUT_FORMAT",
+                          "Description": "OUTPUT_FORMAT",
+                          "Type": "String"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "--repository",
+                  "Description": "Set the repository where this command should run. Defaults to the first ancestor of the current directory that contains a .pijul directory",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "REPO_PATH",
+                          "Description": "REPO_PATH",
+                          "Type": "String"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "--state",
+                  "Description": "Include state identifiers in the output",
+                  "Aliases": [],
+                  "Arguments": []
+                }
+              ],
+              "Optional": true
+            },
+            {
+              "Arguments": [
+                {
+                  "Name": "FILTERS",
+                  "Description": "FILTERS",
+                  "Type": "String"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "Name": "ls",
+          "Description": "",
+          "Aliases": [],
+          "Arguments": []
+        },
+        {
+          "Name": "mv",
+          "Description": "",
+          "Aliases": [],
+          "Arguments": []
+        },
+        {
+          "Name": "pull",
+          "Description": "Pulls changes from a remote upstream",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "-a",
+                  "Description": "Pull all changes",
+                  "Aliases": [
+                    "--all"
+                  ],
+                  "Arguments": []
+                },
+                {
+                  "Name": "-f",
+                  "Description": "Force an update of the local remote cache. May effect some reporting of unrecords/concurrent changes in the remote",
+                  "Aliases": [
+                    "--force-cache"
+                  ],
+                  "Arguments": []
+                },
+                {
+                  "Name": "--from-channel",
+                  "Description": "Pull from this remote channel",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "FROM_CHANNEL",
+                          "Description": "FROM_CHANNEL",
+                          "Type": "String"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "--full",
+                  "Description": "Download full changes, even when not necessary",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "-h",
+                  "Description": "Print help information",
+                  "Aliases": [
+                    "--help"
+                  ],
+                  "Arguments": []
+                },
+                {
+                  "Name": "k",
+                  "Description": "Do not check certificates (HTTPS remotes only, this option might be dangerous)",
+                  "Type": "Flag",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "--path",
+                  "Description": "Only pull to these paths",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "PATH",
+                          "Description": "PATH",
+                          "Type": "String"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "--repository",
+                  "Description": "Set the repository where this command should run. Defaults to the first ancestor of the current directory that contains a .pijul directory",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "REPO_PATH",
+                          "Description": "REPO_PATH",
+                          "Type": "String"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "--to-channel",
+                  "Description": "Pull into this channel instead of the current channel",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "TO_CHANNEL",
+                          "Description": "TO_CHANNEL",
+                          "Type": "String"
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ],
+              "Optional": true
+            },
+            {
+              "Arguments": [
+                {
+                  "Name": "FROM",
+                  "Description": "FROM",
+                  "Type": "String"
+                }
+              ]
+            },
+            {
+              "Arguments": [
+                {
+                  "Name": "CHANGES",
+                  "Description": "CHANGES",
+                  "Type": "String"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "Name": "push",
+          "Description": "Pushes changes to a remote upstream",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "-a",
+                  "Description": "Push all changes",
+                  "Aliases": [
+                    "--all"
+                  ],
+                  "Arguments": []
+                },
+                {
+                  "Name": "-f",
+                  "Description": "Force an update of the local remote cache. May effect some reporting of unrecords/concurrent changes in the remote",
+                  "Aliases": [
+                    "--force-cache"
+                  ],
+                  "Arguments": []
+                },
+                {
+                  "Name": "--from-channel",
+                  "Description": "Push from this channel instead of the default channel",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "FROM_CHANNEL",
+                          "Description": "FROM_CHANNEL",
+                          "Type": "String"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "-h",
+                  "Description": "Print help information",
+                  "Aliases": [
+                    "--help"
+                  ],
+                  "Arguments": []
+                },
+                {
+                  "Name": "k",
+                  "Description": "Do not check certificates (HTTPS remotes only, this option might be dangerous)",
+                  "Type": "Flag",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "--path",
+                  "Description": "Push changes only relating to these paths",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "PATH",
+                          "Description": "PATH",
+                          "Type": "String"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "--repository",
+                  "Description": "Path to the repository. Uses the current repository if the argument is omitted",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "REPO_PATH",
+                          "Description": "REPO_PATH",
+                          "Type": "String"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "--to-channel",
+                  "Description": "Push to this remote channel instead of the remote\u2019s default channel",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "TO_CHANNEL",
+                          "Description": "TO_CHANNEL",
+                          "Type": "String"
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ],
+              "Optional": true
+            },
+            {
+              "Arguments": [
+                {
+                  "Name": "TO",
+                  "Description": "TO",
+                  "Type": "String"
+                }
+              ]
+            },
+            {
+              "Arguments": [
+                {
+                  "Name": "CHANGES",
+                  "Description": "CHANGES",
+                  "Type": "String"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "Name": "record",
+          "Description": "Creates a new change",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "-a",
+                  "Description": "Record all paths that have changed",
+                  "Aliases": [
+                    "--all"
+                  ],
+                  "Arguments": []
+                },
+                {
+                  "Name": "--amend",
+                  "Description": "Amend this change instead of creating a new change",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "AMEND",
+                          "Description": "AMEND",
+                          "Type": "String"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "--author",
+                  "Description": "Set the author field",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "AUTHOR",
+                          "Description": "AUTHOR",
+                          "Type": "String"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "--channel",
+                  "Description": "Record the change in this channel instead of the current channel",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "CHANNEL",
+                          "Description": "CHANNEL",
+                          "Type": "String"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "-h",
+                  "Description": "Print help information",
+                  "Aliases": [
+                    "--help"
+                  ],
+                  "Arguments": []
+                },
+                {
+                  "Name": "--ignore-missing",
+                  "Description": "Ignore missing (deleted) files",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "-m",
+                  "Description": "Set the change message",
+                  "Aliases": [
+                    "--message"
+                  ],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "MESSAGE",
+                          "Description": "MESSAGE",
+                          "Type": "String"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "--repository",
+                  "Description": "Set the repository where this command should run. Defaults to the first ancestor of the current directory that contains a .pijul directory",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "REPO_PATH",
+                          "Description": "REPO_PATH",
+                          "Type": "String"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "--timestamp",
+                  "Description": "Set the timestamp field",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "TIMESTAMP",
+                          "Description": "TIMESTAMP",
+                          "Type": "String"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "--working-copy",
+                  "Description": "",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "WORKING_COPY",
+                          "Description": "WORKING_COPY",
+                          "Type": "String"
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ],
+              "Optional": true
+            },
+            {
+              "Arguments": [
+                {
+                  "Name": "PREFIXES",
+                  "Description": "PREFIXES",
+                  "Type": "String"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "Name": "remote",
+          "Description": "Manages remote repositories",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "-h",
+                  "Description": "Print help information",
+                  "Aliases": [
+                    "--help"
+                  ],
+                  "Arguments": []
+                },
+                {
+                  "Name": "--repository",
+                  "Description": "Set the repository where this command should run. Defaults to the first ancestor of the current directory that contains a .pijul directory",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "REPO_PATH",
+                          "Description": "REPO_PATH",
+                          "Type": "String"
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ],
+              "Optional": true
+            },
+            {
+              "Arguments": [
+                {
+                  "Name": "delete",
+                  "Description": "Deletes the remote",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "-h",
+                          "Description": "Print help information",
+                          "Aliases": [
+                            "--help"
+                          ],
+                          "Arguments": []
+                        }
+                      ],
+                      "Optional": true
+                    },
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "REMOTE",
+                          "Description": "REMOTE",
+                          "Type": "String"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "help",
+                  "Description": "Print this message or the help of the given subcommand(s)",
+                  "Aliases": [],
+                  "Arguments": []
+                }
+              ],
+              "DontAllowMultiple": true
+            }
+          ]
+        },
+        {
+          "Name": "remove",
+          "Description": "Removes a file from the tree of tracked files (pijul record will then record this as a deletion)",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "-h",
+                  "Description": "Print help information",
+                  "Aliases": [
+                    "--help"
+                  ],
+                  "Arguments": []
+                }
+              ],
+              "Optional": true
+            },
+            {
+              "Arguments": [
+                {
+                  "Name": "PATHS",
+                  "Description": "PATHS",
+                  "Type": "String"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "Name": "reset",
+          "Description": "Resets the working copy to the last recorded change.\nIn other words, discards all unrecorded changes",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "--channel",
+                  "Description": "Reset the working copy to this channel, and change the current channel to this channel",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "CHANNEL",
+                          "Description": "CHANNEL",
+                          "Type": "String"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "--dry-run",
+                  "Description": "Print this file to the standard output, without modifying the repository (works for a single file only)",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "-f",
+                  "Description": "Reset even if there are unrecorded changes",
+                  "Aliases": [
+                    "--force"
+                  ],
+                  "Arguments": []
+                },
+                {
+                  "Name": "-h",
+                  "Description": "Print help information",
+                  "Aliases": [
+                    "--help"
+                  ],
+                  "Arguments": []
+                },
+                {
+                  "Name": "--repository",
+                  "Description": "Set the repository where this command should run. Defaults to the first ancestor of the current directory that contains a .pijul directory",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "REPO_PATH",
+                          "Description": "REPO_PATH",
+                          "Type": "String"
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ],
+              "Optional": true
+            },
+            {
+              "Arguments": [
+                {
+                  "Name": "FILES",
+                  "Description": "FILES",
+                  "Type": "String"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "Name": "unrecord",
+          "Description": "Unrecords a list of changes",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "--channel",
+                  "Description": "Unrecord changes from this channel instead of the current channel",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "CHANNEL",
+                          "Description": "CHANNEL",
+                          "Type": "String"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "-h",
+                  "Description": "Print help information",
+                  "Aliases": [
+                    "--help"
+                  ],
+                  "Arguments": []
+                },
+                {
+                  "Name": "--repository",
+                  "Description": "Set the repository where this command should run. Defaults to the first ancestor of the current directory that contains a .pijul directory",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "REPO_PATH",
+                          "Description": "REPO_PATH",
+                          "Type": "String"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "--reset",
+                  "Description": "Also undo the changes in the working copy (preserving unrecorded changes if there are any)",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "--show-changes",
+                  "Description": "Show N changes in a text editor if no s were given. Defaults to the value of unrecord_changes in your global configuration",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "N",
+                          "Description": "N",
+                          "Type": "String"
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ],
+              "Optional": true
+            },
+            {
+              "Arguments": [
+                {
+                  "Name": "CHANGE_ID",
+                  "Description": "CHANGE_ID",
+                  "Type": "String"
+                }
+              ]
+            }
+          ]
+        }
+      ],
+      "DontAllowMultiple": true
+    }
+  ]
+}

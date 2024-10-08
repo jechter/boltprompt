@@ -1,0 +1,560 @@
+{
+  "Comment": "This command info is generated from fig",
+  "Name": "charm",
+  "Description": "Do Charm stuff; run without arguments for a TUI or use the sub-commands like a pro",
+  "Arguments": [
+    {
+      "Arguments": [
+        {
+          "Name": "--help",
+          "Description": "Help for charm",
+          "Aliases": [
+            "-h"
+          ],
+          "Arguments": []
+        },
+        {
+          "Name": "--version",
+          "Description": "Version for charm",
+          "Aliases": [
+            "-v"
+          ],
+          "Arguments": []
+        }
+      ],
+      "Optional": true
+    },
+    {
+      "Arguments": [
+        {
+          "Name": "backup-keys",
+          "Description": "Backup your Charm account keys",
+          "Aliases": [],
+          "Arguments": []
+        },
+        {
+          "Name": "completion",
+          "Description": "Generate shell completion",
+          "Aliases": [],
+          "Arguments": []
+        },
+        {
+          "Name": "crypt",
+          "Description": "Use charm encryption",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "decrypt",
+                  "Description": "Decrypt stdin with your Charm account encryption key",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "decrypt-lookup",
+                  "Description": "Decrypt arg deterministically",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "encrypt",
+                  "Description": "Encrypt stdin with your Charm account encryption key",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "encrypt-lookup",
+                  "Description": "Encrypt arg deterministically",
+                  "Aliases": [],
+                  "Arguments": []
+                }
+              ],
+              "DontAllowMultiple": true
+            }
+          ]
+        },
+        {
+          "Name": "fs",
+          "Description": "Use the Charm file systems",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "cat",
+                  "Description": "Output the content of the file at path",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "[charm:]PATH",
+                          "Description": "[charm:]PATH",
+                          "Type": "String"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "cp",
+                  "Description": "Copy a file, preface source or destination with \u0022charm:\u0022 to specify a remote path",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "--recursive",
+                          "Description": "Copy directories recursively",
+                          "Aliases": [
+                            "-r"
+                          ],
+                          "Arguments": []
+                        }
+                      ],
+                      "Optional": true
+                    },
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "[charm:]PATH",
+                          "Description": "[charm:]PATH",
+                          "Type": "String"
+                        }
+                      ]
+                    },
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "[charm:]PATH",
+                          "Description": "[charm:]PATH",
+                          "Type": "String"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "ls",
+                  "Description": "List file or directory at path",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "[charm:]PATH",
+                          "Description": "[charm:]PATH",
+                          "Type": "String"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "mv",
+                  "Description": "Move a file, preface source or destination with \u0022charm\u0022 to specify a remote  path",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "[charm:]PATH",
+                          "Description": "[charm:]PATH",
+                          "Type": "String"
+                        }
+                      ]
+                    },
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "[charm:]PATH",
+                          "Description": "[charm:]PATH",
+                          "Type": "String"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "rm",
+                  "Description": "Remove file or directory at path",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "[charm:]PATH",
+                          "Description": "[charm:]PATH",
+                          "Type": "String"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "tree",
+                  "Description": "Print a file system tree from path",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "[charm:]PATH",
+                          "Description": "[charm:]PATH",
+                          "Type": "String"
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ],
+              "DontAllowMultiple": true
+            }
+          ]
+        },
+        {
+          "Name": "help",
+          "Description": "Help about any command",
+          "Aliases": [],
+          "Arguments": []
+        },
+        {
+          "Name": "id",
+          "Description": "Print your Charm ID",
+          "Aliases": [],
+          "Arguments": []
+        },
+        {
+          "Name": "import-keys",
+          "Description": "Import previously backed up Charm account keys",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "--force-overwrite",
+                  "Description": "Overwrite if keys exist; don\u0027t prompt for input",
+                  "Aliases": [
+                    "-f"
+                  ],
+                  "Arguments": []
+                }
+              ],
+              "Optional": true
+            },
+            {
+              "Arguments": [
+                {
+                  "Name": "BACKUP.tar",
+                  "Description": "BACKUP.tar",
+                  "Type": "FileSystemEntry"
+                },
+                {
+                  "Name": "BACKUP.tar",
+                  "Description": "BACKUP.tar"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "Name": "jwt",
+          "Description": "Print a JWT",
+          "Aliases": [],
+          "Arguments": []
+        },
+        {
+          "Name": "keys",
+          "Description": "Browse or print linked SSH keys",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "--randomart",
+                  "Description": "Print SSH 5.1 randomart for each key (the Drunken Bishop algorithm)",
+                  "Aliases": [
+                    "-r"
+                  ],
+                  "Arguments": []
+                },
+                {
+                  "Name": "--simple",
+                  "Description": "Simple, non-interactive output (good for scripts)",
+                  "Aliases": [
+                    "-s"
+                  ],
+                  "Arguments": []
+                }
+              ],
+              "Optional": true
+            }
+          ]
+        },
+        {
+          "Name": "kv",
+          "Description": "Use the Charm key value store",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "delete",
+                  "Description": "Delete a key with an optional @ db",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "KEY[@DB]",
+                          "Description": "KEY[@DB]",
+                          "Type": "String"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "get",
+                  "Description": "Get a value for a key with an optional @ db",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "KEY[@DB]",
+                          "Description": "KEY[@DB]",
+                          "Type": "String"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "list",
+                  "Description": "List all key value pairs with an optional @ db",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "KEY[@DB]",
+                          "Description": "KEY[@DB]",
+                          "Type": "String"
+                        }
+                      ],
+                      "Optional": true
+                    }
+                  ]
+                },
+                {
+                  "Name": "reset",
+                  "Description": "Delete local db and pull down fresh copy from Charm Cloud",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "KEY[@DB]",
+                          "Description": "KEY[@DB]",
+                          "Type": "String"
+                        }
+                      ],
+                      "Optional": true
+                    }
+                  ]
+                },
+                {
+                  "Name": "set",
+                  "Description": "Set a value for a key with an optional @ db",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "KEY[@DB]",
+                          "Description": "KEY[@DB]",
+                          "Type": "String"
+                        }
+                      ]
+                    },
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "VALUE",
+                          "Description": "VALUE",
+                          "Type": "String"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "sync",
+                  "Description": "Sync local db with latest Charm Cloud db",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "KEY[@DB]",
+                          "Description": "KEY[@DB]",
+                          "Type": "String"
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ],
+              "DontAllowMultiple": true
+            }
+          ]
+        },
+        {
+          "Name": "link",
+          "Description": "Link multiple machines to your Charm account",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "code",
+                  "Description": "code",
+                  "Type": "String"
+                }
+              ],
+              "Optional": true
+            }
+          ]
+        },
+        {
+          "Name": "name",
+          "Description": "Username stuff",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "username",
+                  "Description": "username",
+                  "Type": "String"
+                }
+              ],
+              "Optional": true
+            }
+          ]
+        },
+        {
+          "Name": "serve",
+          "Description": "Start a self-hosted Charm Cloud server",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "--data-dir",
+                  "Description": "Directory to store SQLite db, SSH keys and file data",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "DATA_DIR",
+                          "Description": "DATA_DIR",
+                          "Type": "Directory"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "--health-port",
+                  "Description": "Health port to listen on",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "HEALTH_PORT",
+                          "Description": "HEALTH_PORT",
+                          "Type": "String"
+                        },
+                        {
+                          "Name": "35356",
+                          "Description": "HEALTH_PORT"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "--http-port",
+                  "Description": "HTTP port to listen on",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "HTTP_PORT",
+                          "Description": "HTTP_PORT",
+                          "Type": "String"
+                        },
+                        {
+                          "Name": "35354",
+                          "Description": "HTTP_PORT"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "--ssh-port",
+                  "Description": "SSH port to listen on",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "SSH_PORT",
+                          "Description": "SSH_PORT",
+                          "Type": "String"
+                        },
+                        {
+                          "Name": "35353",
+                          "Description": "SSH_PORT"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "--stats-port",
+                  "Description": "Stats port to listen on",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "STATS_PORT",
+                          "Description": "STATS_PORT",
+                          "Type": "String"
+                        },
+                        {
+                          "Name": "35355",
+                          "Description": "STATS_PORT"
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ],
+              "Optional": true
+            }
+          ]
+        }
+      ],
+      "DontAllowMultiple": true
+    }
+  ]
+}

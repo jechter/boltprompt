@@ -1,0 +1,868 @@
+{
+  "Comment": "This command info is generated from fig",
+  "Name": "tuist",
+  "Description": "Generate, build and test your Xcode projects. For more info please see https://docs.tuist.io/",
+  "Arguments": [
+    {
+      "Arguments": [
+        {
+          "Name": "--help",
+          "Description": "Show help for tuist",
+          "Aliases": [
+            "-h"
+          ],
+          "Arguments": []
+        }
+      ],
+      "Optional": true
+    },
+    {
+      "Arguments": [
+        {
+          "Name": "build",
+          "Description": "Build the project in the current directory",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "--build-output-path",
+                  "Description": "Build the project to a custom directory, example usage: \u0027tuist build --build-output-path .build\u0027:",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "--device",
+                  "Description": "Build the project to a specific device, example usage: \u0027tuist build --device \u0022iPhone X\u0022\u0027:",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "--os",
+                  "Description": "Build the project to a specific OS, example usage: \u0027tuist build --os 14.0\u0027:",
+                  "Aliases": [],
+                  "Arguments": []
+                }
+              ],
+              "Optional": true
+            },
+            {
+              "Arguments": [
+                {
+                  "Name": "scheme",
+                  "Description": "scheme",
+                  "Type": "String"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "Name": "cache",
+          "Description": "A set of utilities related to the caching of targets. For more info see https://docs.tuist.io/building-at-scale/caching USAGE: tuist cache \u003Csubcommand\u003E",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "warm",
+                  "Description": "Warms the local and remote cache",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "--path",
+                          "Description": "The path to the directory that contains the project whose targets will be cached",
+                          "Aliases": [
+                            "-p"
+                          ],
+                          "Arguments": []
+                        },
+                        {
+                          "Name": "--profile",
+                          "Description": "The name of the profile to be used when warming up the cache",
+                          "Aliases": [
+                            "-P"
+                          ],
+                          "Arguments": []
+                        },
+                        {
+                          "Name": "--xcframeworks",
+                          "Description": "When passed it caches the targets for simulator and device using xcframeworks",
+                          "Aliases": [
+                            "-x"
+                          ],
+                          "Arguments": []
+                        },
+                        {
+                          "Name": "--dependencies-only",
+                          "Description": "If passed, the command doesn\u0027t cache the targets passed in the \u0060--targets\u0060 argument, but only their dependencies",
+                          "Aliases": [],
+                          "Arguments": []
+                        }
+                      ],
+                      "Optional": true
+                    }
+                  ]
+                },
+                {
+                  "Name": "print-hashes",
+                  "Description": "Print the hashes of the cacheable frameworks in the given project",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "--path",
+                          "Description": "The path to the directory that contains the project whose targets will be cached",
+                          "Aliases": [
+                            "-p"
+                          ],
+                          "Arguments": []
+                        },
+                        {
+                          "Name": "--profile",
+                          "Description": "The name of the profile to be used when warming up the cache",
+                          "Aliases": [
+                            "-P"
+                          ],
+                          "Arguments": []
+                        },
+                        {
+                          "Name": "--xcframeworks",
+                          "Description": "When passed it caches the targets for simulator and device using xcframeworks",
+                          "Aliases": [
+                            "-x"
+                          ],
+                          "Arguments": []
+                        }
+                      ],
+                      "Optional": true
+                    }
+                  ]
+                }
+              ],
+              "DontAllowMultiple": true
+            }
+          ]
+        },
+        {
+          "Name": "clean",
+          "Description": "Clean all the data generated by Tuist. USAGE: tuist clean [\u003Cclean-categories\u003E ...] [--path \u003Cpath\u003E]",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "--path",
+                  "Description": "The path to the directory that contains the project that should be cleaned",
+                  "Aliases": [
+                    "-p"
+                  ],
+                  "Arguments": []
+                },
+                {
+                  "Name": "plugins",
+                  "Description": "Clean only the plugins cache generated by Tuist, example usage: \u0027tuist clean plugins\u0027:",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "builds",
+                  "Description": "Clean only the builds artifacts cache generated by Tuist, example usage: \u0027tuist clean builds\u0027:",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "tests",
+                  "Description": "Clean only the tests cache generated by Tuist, example usage: \u0027tuist clean tests\u0027:",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "generatedAutomationProjects",
+                  "Description": "Clean only the automation projects cache generated by Tuist, example usage: \u0027tuist clean generatedAutomationProjects\u0027:",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "projectDescriptionHelpers",
+                  "Description": "Clean only the project description helpers cache generated by Tuist, example usage: \u0027tuist clean projectDescriptionHelpers\u0027:",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "manifests",
+                  "Description": "Clean only the manifests cache generated by Tuist, example usage: \u0027tuist clean manifests\u0027:",
+                  "Aliases": [],
+                  "Arguments": []
+                }
+              ],
+              "Optional": true
+            },
+            {
+              "Arguments": [
+                {
+                  "Name": "clean-categories",
+                  "Description": "clean-categories",
+                  "Type": "String"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "Name": "fetch",
+          "Description": "Dependencies can be fetched by running the following command. They are stored in your project\u0027s \u0060Tuist/Dependencies\u0060 directory. For more info see https://docs.tuist.io/commands/dependencies",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "--path",
+                  "Description": "The path to the directory that contains the workspace or project whose dependencies will be fetched/updated. The default is the current directory",
+                  "Aliases": [
+                    "-p"
+                  ],
+                  "Arguments": []
+                },
+                {
+                  "Name": "--update",
+                  "Description": "Clean only the builds artifacts cache generated by Tuist, example usage: \u0027tuist fetch --update\u0027:",
+                  "Aliases": [],
+                  "Arguments": []
+                }
+              ],
+              "Optional": true
+            }
+          ]
+        },
+        {
+          "Name": "edit",
+          "Description": "Editing your projects is easy; position yourself in a directory where there\u0027s a project defined and run the edit command. It will open a temporary Xcode project with all the project manifests and the project description helpers, so you will be able to edit the whole project configuration. After making changes you can run the target from Xcode and it will call tuist generate for you. For more info see https://docs.tuist.io/commands/edit",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "--permanent",
+                  "Description": "The project is deleted automatically once you are done with editing. If you wish to generate and keep the project in the current directory, you can run the command passing the --permanent argument. That will generate a Manifest.xcodeproj project that you can open manually",
+                  "Aliases": [],
+                  "Arguments": []
+                }
+              ],
+              "Optional": true
+            }
+          ]
+        },
+        {
+          "Name": "graph",
+          "Description": "Generates a graph from the workspace or project in the current directory. For more info see https://docs.tuist.io/commands/graph USAGE: tuist graph [--skip-test-targets] [--skip-external-dependencies] [--format \u003Cformat\u003E] [--algorithm \u003Calgorithm\u003E] [\u003Ctargets\u003E ...] [--path \u003Cpath\u003E] [--output-path \u003Coutput-path\u003E]",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "--skip-test-targets",
+                  "Description": "Excludes test targets from the generated graph",
+                  "Aliases": [
+                    "-t"
+                  ],
+                  "Arguments": []
+                },
+                {
+                  "Name": "--skip-external-dependencies",
+                  "Description": "Excludes external dependencies from the generated graph",
+                  "Aliases": [
+                    "-d"
+                  ],
+                  "Arguments": []
+                },
+                {
+                  "Name": "--format",
+                  "Description": "If you prefer to have the dot or json representations of the graph and render it separately. Available formats: dot, png, json (default: png)",
+                  "Aliases": [
+                    "-f"
+                  ],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "format",
+                          "Description": "format",
+                          "Type": "String"
+                        },
+                        {
+                          "Name": "dot",
+                          "Description": "format"
+                        },
+                        {
+                          "Name": "png",
+                          "Description": "format"
+                        },
+                        {
+                          "Name": "json",
+                          "Description": "format"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "--algorithm",
+                  "Description": "Available formats: dot, neato, twopi, circo, fdp, sfddp, patchwork (default: dot)",
+                  "Aliases": [
+                    "-a"
+                  ],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "format",
+                          "Description": "format",
+                          "Type": "String"
+                        },
+                        {
+                          "Name": "dot",
+                          "Description": "format"
+                        },
+                        {
+                          "Name": "neato",
+                          "Description": "format"
+                        },
+                        {
+                          "Name": "twopi",
+                          "Description": "format"
+                        },
+                        {
+                          "Name": "circo",
+                          "Description": "format"
+                        },
+                        {
+                          "Name": "fdp",
+                          "Description": "format"
+                        },
+                        {
+                          "Name": "sfddp",
+                          "Description": "format"
+                        },
+                        {
+                          "Name": "patchwork",
+                          "Description": "format"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "--path",
+                  "Description": "The path to the directory that contains the definition of the project. Default is current directory",
+                  "Aliases": [
+                    "-p"
+                  ],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "project dir",
+                          "Description": "project dir",
+                          "Type": "Directory"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "--output-path",
+                  "Description": "The path to where the image will be exported. When not specified, it exports the image in the current directory",
+                  "Aliases": [
+                    "-o"
+                  ],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "output path",
+                          "Description": "output path",
+                          "Type": "Directory"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "--no-open",
+                  "Description": "If set, the generated graph is not opened automatically. Default is yes",
+                  "Aliases": [
+                    "-n"
+                  ],
+                  "Arguments": []
+                },
+                {
+                  "Name": "--platform",
+                  "Description": "If set, show only the targets for the given platform. Default is all platforms. Available platforms: ios, macos, tvos, watchos",
+                  "Aliases": [
+                    "-l"
+                  ],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "platform",
+                          "Description": "platform",
+                          "Type": "String"
+                        },
+                        {
+                          "Name": "ios",
+                          "Description": "platform"
+                        },
+                        {
+                          "Name": "macos",
+                          "Description": "platform"
+                        },
+                        {
+                          "Name": "tvos",
+                          "Description": "platform"
+                        },
+                        {
+                          "Name": "watchos",
+                          "Description": "platform"
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ],
+              "Optional": true
+            },
+            {
+              "Arguments": [
+                {
+                  "Name": "targets",
+                  "Description": "targets",
+                  "Type": "String"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "Name": "generate",
+          "Description": "Generates an Xcode workspace to start working on the project. For more info see https://docs.tuist.io/commands/generate",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "--path",
+                  "Description": "The path to the directory that contains the definition of the project. Default is current directory",
+                  "Aliases": [
+                    "-p"
+                  ],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "path",
+                          "Description": "path",
+                          "Type": "Directory"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "--no-open",
+                  "Description": "Don\u0027t open the project after generating it. Default is false",
+                  "Aliases": [
+                    "-n"
+                  ],
+                  "Arguments": []
+                },
+                {
+                  "Name": "--xcframeworks",
+                  "Description": "When passed it uses xcframeworks (simulator and device) from the cache instead of frameworks (only simulator). Default is false",
+                  "Aliases": [
+                    "-x"
+                  ],
+                  "Arguments": []
+                },
+                {
+                  "Name": "--no-cache",
+                  "Description": "Ignore cached targets, and use their sources instead.\tDefault is false",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "--profile",
+                  "Description": "The name of the cache profile",
+                  "Aliases": [
+                    "-P"
+                  ],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "cache profile",
+                          "Description": "cache profile",
+                          "Type": "String"
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ],
+              "Optional": true
+            },
+            {
+              "Arguments": [
+                {
+                  "Name": "sources",
+                  "Description": "sources",
+                  "Type": "String"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "Name": "migration",
+          "Description": "To help developers with the process of adopting Tuist, Tuist provides a set of commands under tuist migration. For more info see https://docs.tuist.io/commands/migration",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "settings-to-xcconfig",
+                  "Description": "It\u0027s recommended to make .xcconfig files the source of truth for build settings. For that, Tuist provides a tuist migration settings-to-xcconfig command that extracts the build settings from targets and projects",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "--xcodeproj-path",
+                          "Description": "Required. Path to the Xcode project whose build settings will be extracted",
+                          "Aliases": [
+                            "-p"
+                          ],
+                          "Arguments": [
+                            {
+                              "Arguments": [
+                                {
+                                  "Name": "path",
+                                  "Description": "path",
+                                  "Type": "Directory"
+                                }
+                              ]
+                            }
+                          ]
+                        },
+                        {
+                          "Name": "--xcconfig-path",
+                          "Description": "Required. Path to the Xcode project whose build settings will be extracted",
+                          "Aliases": [
+                            "-x"
+                          ],
+                          "Arguments": [
+                            {
+                              "Arguments": [
+                                {
+                                  "Name": "path",
+                                  "Description": "path",
+                                  "Type": "Directory"
+                                }
+                              ]
+                            }
+                          ]
+                        },
+                        {
+                          "Name": "--target",
+                          "Description": "Optional. The name of the target whose build settings will be extracted. When not passed, it extracts the build settings of the project",
+                          "Aliases": [
+                            "-t"
+                          ],
+                          "Arguments": [
+                            {
+                              "Arguments": [
+                                {
+                                  "Name": "target",
+                                  "Description": "target",
+                                  "Type": "String"
+                                }
+                              ]
+                            }
+                          ]
+                        }
+                      ],
+                      "Optional": true
+                    }
+                  ]
+                },
+                {
+                  "Name": "check-empty-settings",
+                  "Description": "After making .xcconfig files the source of truth for build settings, it\u0027s important to ensure that build settings are no longer set to the project. To help with that, Tuist includes a command that fails if the build settings of a project or a target are not empty",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "--xcodeproj-path",
+                          "Description": "Required. Path to the Xcode project whose build settings will be checked",
+                          "Aliases": [
+                            "-p"
+                          ],
+                          "Arguments": []
+                        },
+                        {
+                          "Name": "--target",
+                          "Description": "Optional. The name of the target whose build settings will be checked. When not passed, it checks the build settings of the project",
+                          "Aliases": [
+                            "-t"
+                          ],
+                          "Arguments": []
+                        }
+                      ],
+                      "Optional": true
+                    }
+                  ]
+                },
+                {
+                  "Name": "list-targets",
+                  "Description": "When passed it uses xcframeworks (simulator and device) from the cache instead of frameworks (only simulator). Default is false",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "--xcodeproj-path",
+                          "Description": "Required. Path to the Xcode project whose build settings will be checked",
+                          "Aliases": [
+                            "-p"
+                          ],
+                          "Arguments": []
+                        }
+                      ],
+                      "Optional": true
+                    }
+                  ]
+                }
+              ],
+              "DontAllowMultiple": true
+            }
+          ]
+        },
+        {
+          "Name": "scaffold",
+          "Description": "Generates new project based on a template. For more info see https://docs.tuist.io/commands/scaffold USAGE: tuist scaffold \u003Ctemplate\u003E [--json] [--path \u003Cpath\u003E] \u003Csubcommand\u003E",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "--path",
+                  "Description": "The path to the folder where the template will be generated (Default: Current directory)",
+                  "Aliases": [
+                    "-p"
+                  ],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "path",
+                          "Description": "path",
+                          "Type": "String"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "--json",
+                  "Description": "The output in JSON format",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "--name",
+                  "Description": "The name of the generate project",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "name",
+                          "Description": "name",
+                          "Type": "String"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "--platform",
+                  "Description": "The platform used by the project",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "platform",
+                          "Description": "platform",
+                          "Type": "String"
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ],
+              "Optional": true
+            },
+            {
+              "Arguments": [
+                {
+                  "Name": "template",
+                  "Description": "template",
+                  "Type": "String"
+                }
+              ]
+            },
+            {
+              "Arguments": [
+                {
+                  "Name": "list",
+                  "Description": "Lists available scaffold templates",
+                  "Aliases": [],
+                  "Arguments": []
+                }
+              ],
+              "DontAllowMultiple": true
+            }
+          ]
+        },
+        {
+          "Name": "test",
+          "Description": "Tests a project. For more info see https://docs.tuist.io/commands/test USAGE: tuist test [\u003Cscheme\u003E] [--clean] [--path \u003Cpath\u003E] [--device \u003Cdevice\u003E] [--os \u003Cos\u003E] [--configuration \u003Cconfiguration\u003E] [--skip-ui-tests] [--result-bundle-path \u003Cresult-bundle-path\u003E] [--retry-count \u003Cretry-count\u003E]",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "--path",
+                  "Description": "The path to the directory that contains the project to be tested",
+                  "Aliases": [
+                    "-p"
+                  ],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "path",
+                          "Description": "path",
+                          "Type": "Directory"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "--clean",
+                  "Description": "When passed, it cleans the project before testing it",
+                  "Aliases": [
+                    "-c"
+                  ],
+                  "Arguments": []
+                },
+                {
+                  "Name": "--device",
+                  "Description": "Test on a specific device",
+                  "Aliases": [
+                    "-d"
+                  ],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "device",
+                          "Description": "device",
+                          "Type": "String"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "--os",
+                  "Description": "Test with a specific version of the OS",
+                  "Aliases": [
+                    "-o"
+                  ],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "os",
+                          "Description": "os",
+                          "Type": "String"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "--configuration",
+                  "Description": "The configuration to be used when testing the scheme",
+                  "Aliases": [
+                    "-C"
+                  ],
+                  "Arguments": []
+                },
+                {
+                  "Name": "--skip-ui-tests",
+                  "Description": "When passed, it skips testing UI Tests targets",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "--result-bundle-path",
+                  "Description": "Path where test result bundle will be saved",
+                  "Aliases": [
+                    "-T"
+                  ],
+                  "Arguments": []
+                },
+                {
+                  "Name": "--retry-count",
+                  "Description": "Tests will retry \u003Cnumber\u003E of times until success. Example: if 1 is specified, the test will be retried at most once, hence it will run up to 2 times. (default: 0)",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "times",
+                          "Description": "times",
+                          "Type": "String"
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ],
+              "Optional": true
+            },
+            {
+              "Arguments": [
+                {
+                  "Name": "scheme",
+                  "Description": "scheme",
+                  "Type": "String"
+                }
+              ]
+            }
+          ]
+        }
+      ],
+      "DontAllowMultiple": true
+    }
+  ]
+}

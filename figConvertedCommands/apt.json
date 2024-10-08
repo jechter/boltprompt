@@ -1,0 +1,918 @@
+{
+  "Comment": "This command info is generated from fig",
+  "Name": "apt",
+  "Description": "Package manager for Debian-based Linux distributions",
+  "Arguments": [
+    {
+      "Arguments": [
+        {
+          "Name": "-h",
+          "Description": "Print help message and exit",
+          "Aliases": [
+            "--help"
+          ],
+          "Arguments": []
+        },
+        {
+          "Name": "-v",
+          "Description": "Print version information and exit",
+          "Aliases": [
+            "--version"
+          ],
+          "Arguments": []
+        }
+      ],
+      "Optional": true
+    },
+    {
+      "Arguments": [
+        {
+          "Name": "update",
+          "Description": "Update the package database",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "y",
+                  "Description": "Assume yes to all prompts",
+                  "Type": "Flag",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "--assume-no",
+                  "Description": "Assume no to all prompts",
+                  "Aliases": [],
+                  "Arguments": []
+                }
+              ],
+              "Optional": true
+            }
+          ]
+        },
+        {
+          "Name": "upgrade",
+          "Description": "Install all available upgrades",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "-d",
+                  "Description": "For any operation that would download packages, download them, but do nothing else",
+                  "Aliases": [
+                    "--download-only"
+                  ],
+                  "Arguments": []
+                },
+                {
+                  "Name": "--no-download",
+                  "Description": "Do not download packages, attempt to use already downloaded packages",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "y",
+                  "Description": "Assume yes to all prompts",
+                  "Type": "Flag",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "--assume-no",
+                  "Description": "Assume no to all prompts",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "-s",
+                  "Description": "Simulate running this command and show it\u0027s output, without actually changing anything",
+                  "Aliases": [
+                    "--simulate"
+                  ],
+                  "Arguments": []
+                }
+              ],
+              "Optional": true
+            },
+            {
+              "Arguments": [
+                {
+                  "Name": "package",
+                  "Description": "package",
+                  "Type": "CustomArgument",
+                  "Extensions": [],
+                  "CustomCommand": "apt list --upgradable"
+                }
+              ],
+              "Optional": true
+            }
+          ]
+        },
+        {
+          "Name": "full-upgrade",
+          "Description": "Install available upgrades, removing currently installed packages if needed to upgrade the system as a whole",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "-d",
+                  "Description": "For any operation that would download packages, download them, but do nothing else",
+                  "Aliases": [
+                    "--download-only"
+                  ],
+                  "Arguments": []
+                },
+                {
+                  "Name": "--no-download",
+                  "Description": "Do not download packages, attempt to use already downloaded packages",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "y",
+                  "Description": "Assume yes to all prompts",
+                  "Type": "Flag",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "--assume-no",
+                  "Description": "Assume no to all prompts",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "-s",
+                  "Description": "Simulate running this command and show it\u0027s output, without actually changing anything",
+                  "Aliases": [
+                    "--simulate"
+                  ],
+                  "Arguments": []
+                }
+              ],
+              "Optional": true
+            }
+          ]
+        },
+        {
+          "Name": "install",
+          "Description": "Install package(s)",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "-d",
+                  "Description": "For any operation that would download packages, download them, but do nothing else",
+                  "Aliases": [
+                    "--download-only"
+                  ],
+                  "Arguments": []
+                },
+                {
+                  "Name": "--no-download",
+                  "Description": "Do not download packages, attempt to use already downloaded packages",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "y",
+                  "Description": "Assume yes to all prompts",
+                  "Type": "Flag",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "--assume-no",
+                  "Description": "Assume no to all prompts",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "-s",
+                  "Description": "Simulate running this command and show it\u0027s output, without actually changing anything",
+                  "Aliases": [
+                    "--simulate"
+                  ],
+                  "Arguments": []
+                },
+                {
+                  "Name": "--reinstall",
+                  "Description": "Reinstall the package if it is already installed",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "-f",
+                  "Description": "Attempt to fix broken packages",
+                  "Aliases": [
+                    "--fix-broken"
+                  ],
+                  "Arguments": []
+                }
+              ],
+              "Optional": true
+            },
+            {
+              "Arguments": [
+                {
+                  "Name": "package",
+                  "Description": "package",
+                  "Type": "String",
+                  "Extensions": [],
+                  "CustomCommand": ""
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "Name": "reinstall",
+          "Description": "Reinstall package(s)",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "y",
+                  "Description": "Assume yes to all prompts",
+                  "Type": "Flag",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "--assume-no",
+                  "Description": "Assume no to all prompts",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "-s",
+                  "Description": "Simulate running this command and show it\u0027s output, without actually changing anything",
+                  "Aliases": [
+                    "--simulate"
+                  ],
+                  "Arguments": []
+                }
+              ],
+              "Optional": true
+            },
+            {
+              "Arguments": [
+                {
+                  "Name": "package",
+                  "Description": "package",
+                  "Type": "CustomArgument",
+                  "Extensions": [],
+                  "CustomCommand": "apt list --installed"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "Name": "remove",
+          "Description": "Remove package(s)",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "y",
+                  "Description": "Assume yes to all prompts",
+                  "Type": "Flag",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "--assume-no",
+                  "Description": "Assume no to all prompts",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "-s",
+                  "Description": "Simulate running this command and show it\u0027s output, without actually changing anything",
+                  "Aliases": [
+                    "--simulate"
+                  ],
+                  "Arguments": []
+                },
+                {
+                  "Name": "-f",
+                  "Description": "Attempt to fix broken packages",
+                  "Aliases": [
+                    "--fix-broken"
+                  ],
+                  "Arguments": []
+                }
+              ],
+              "Optional": true
+            },
+            {
+              "Arguments": [
+                {
+                  "Name": "package",
+                  "Description": "package",
+                  "Type": "CustomArgument",
+                  "Extensions": [],
+                  "CustomCommand": "apt list --installed"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "Name": "purge",
+          "Description": "Remove package(s) and their configuration files",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "y",
+                  "Description": "Assume yes to all prompts",
+                  "Type": "Flag",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "--assume-no",
+                  "Description": "Assume no to all prompts",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "-s",
+                  "Description": "Simulate running this command and show it\u0027s output, without actually changing anything",
+                  "Aliases": [
+                    "--simulate"
+                  ],
+                  "Arguments": []
+                }
+              ],
+              "Optional": true
+            },
+            {
+              "Arguments": [
+                {
+                  "Name": "package",
+                  "Description": "package",
+                  "Type": "CustomArgument",
+                  "Extensions": [],
+                  "CustomCommand": "apt list --installed"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "Name": "autoremove",
+          "Description": "Remove unused packages",
+          "Aliases": [
+            "auto-remove"
+          ],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "y",
+                  "Description": "Assume yes to all prompts",
+                  "Type": "Flag",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "--assume-no",
+                  "Description": "Assume no to all prompts",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "-s",
+                  "Description": "Simulate running this command and show it\u0027s output, without actually changing anything",
+                  "Aliases": [
+                    "--simulate"
+                  ],
+                  "Arguments": []
+                }
+              ],
+              "Optional": true
+            }
+          ]
+        },
+        {
+          "Name": "list",
+          "Description": "List packages",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "--installed",
+                  "Description": "List installed packages",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "--upgradable",
+                  "Description": "List upgradable packages",
+                  "Aliases": [],
+                  "Arguments": []
+                }
+              ],
+              "Optional": true
+            }
+          ]
+        },
+        {
+          "Name": "search",
+          "Description": "Search for packages",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "y",
+                  "Description": "Assume yes to all prompts",
+                  "Type": "Flag",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "--assume-no",
+                  "Description": "Assume no to all prompts",
+                  "Aliases": [],
+                  "Arguments": []
+                }
+              ],
+              "Optional": true
+            },
+            {
+              "Arguments": [
+                {
+                  "Name": "query",
+                  "Description": "query",
+                  "Type": "String"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "Name": "show",
+          "Description": "Show package details",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "package",
+                  "Description": "package",
+                  "Type": "String",
+                  "Extensions": [],
+                  "CustomCommand": ""
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "Name": "satisfy",
+          "Description": "Satisfy package dependencies",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "-d",
+                  "Description": "For any operation that would download packages, download them, but do nothing else",
+                  "Aliases": [
+                    "--download-only"
+                  ],
+                  "Arguments": []
+                },
+                {
+                  "Name": "--no-download",
+                  "Description": "Do not download packages, attempt to use already downloaded packages",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "y",
+                  "Description": "Assume yes to all prompts",
+                  "Type": "Flag",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "--assume-no",
+                  "Description": "Assume no to all prompts",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "-s",
+                  "Description": "Simulate running this command and show it\u0027s output, without actually changing anything",
+                  "Aliases": [
+                    "--simulate"
+                  ],
+                  "Arguments": []
+                }
+              ],
+              "Optional": true
+            },
+            {
+              "Arguments": [
+                {
+                  "Name": "package",
+                  "Description": "package",
+                  "Type": "String",
+                  "Extensions": [],
+                  "CustomCommand": ""
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "Name": "clean",
+          "Description": "Remove downloaded package files",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "y",
+                  "Description": "Assume yes to all prompts",
+                  "Type": "Flag",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "--assume-no",
+                  "Description": "Assume no to all prompts",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "-s",
+                  "Description": "Simulate running this command and show it\u0027s output, without actually changing anything",
+                  "Aliases": [
+                    "--simulate"
+                  ],
+                  "Arguments": []
+                }
+              ],
+              "Optional": true
+            }
+          ]
+        },
+        {
+          "Name": "edit-sources",
+          "Description": "Edit the list of package sources",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "y",
+                  "Description": "Assume yes to all prompts",
+                  "Type": "Flag",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "--assume-no",
+                  "Description": "Assume no to all prompts",
+                  "Aliases": [],
+                  "Arguments": []
+                }
+              ],
+              "Optional": true
+            }
+          ]
+        },
+        {
+          "Name": "source",
+          "Description": "Fetch package source files",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "-d",
+                  "Description": "For any operation that would download packages, download them, but do nothing else",
+                  "Aliases": [
+                    "--download-only"
+                  ],
+                  "Arguments": []
+                },
+                {
+                  "Name": "--no-download",
+                  "Description": "Do not download packages, attempt to use already downloaded packages",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "y",
+                  "Description": "Assume yes to all prompts",
+                  "Type": "Flag",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "--assume-no",
+                  "Description": "Assume no to all prompts",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "-s",
+                  "Description": "Simulate running this command and show it\u0027s output, without actually changing anything",
+                  "Aliases": [
+                    "--simulate"
+                  ],
+                  "Arguments": []
+                },
+                {
+                  "Name": "--compile",
+                  "Description": "Compile the package to a binary using dpkg-buildpackage",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "--only-source",
+                  "Description": "",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "--host-architecture",
+                  "Description": "The architecture to build for",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "architecture",
+                          "Description": "architecture",
+                          "Type": "String"
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ],
+              "Optional": true
+            },
+            {
+              "Arguments": [
+                {
+                  "Name": "package",
+                  "Description": "package",
+                  "Type": "String",
+                  "Extensions": [],
+                  "CustomCommand": ""
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "Name": "build-dep",
+          "Description": "Install/remove packages in an attempt to satisfy the build dependencies for a source package",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "-d",
+                  "Description": "For any operation that would download packages, download them, but do nothing else",
+                  "Aliases": [
+                    "--download-only"
+                  ],
+                  "Arguments": []
+                },
+                {
+                  "Name": "--no-download",
+                  "Description": "Do not download packages, attempt to use already downloaded packages",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "y",
+                  "Description": "Assume yes to all prompts",
+                  "Type": "Flag",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "--assume-no",
+                  "Description": "Assume no to all prompts",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "-s",
+                  "Description": "Simulate running this command and show it\u0027s output, without actually changing anything",
+                  "Aliases": [
+                    "--simulate"
+                  ],
+                  "Arguments": []
+                },
+                {
+                  "Name": "--host-architecture",
+                  "Description": "The architecture to build for",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "architecture",
+                          "Description": "architecture",
+                          "Type": "String"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "--only-source",
+                  "Description": "",
+                  "Aliases": [],
+                  "Arguments": []
+                }
+              ],
+              "Optional": true
+            },
+            {
+              "Arguments": [
+                {
+                  "Name": "package",
+                  "Description": "package",
+                  "Type": "String",
+                  "Extensions": [],
+                  "CustomCommand": ""
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "Name": "download",
+          "Description": "Download package binary into the current directory",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "-d",
+                  "Description": "For any operation that would download packages, download them, but do nothing else",
+                  "Aliases": [
+                    "--download-only"
+                  ],
+                  "Arguments": []
+                },
+                {
+                  "Name": "--no-download",
+                  "Description": "Do not download packages, attempt to use already downloaded packages",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "y",
+                  "Description": "Assume yes to all prompts",
+                  "Type": "Flag",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "--assume-no",
+                  "Description": "Assume no to all prompts",
+                  "Aliases": [],
+                  "Arguments": []
+                }
+              ],
+              "Optional": true
+            },
+            {
+              "Arguments": [
+                {
+                  "Name": "package",
+                  "Description": "package",
+                  "Type": "String",
+                  "Extensions": [],
+                  "CustomCommand": ""
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "Name": "autoclean",
+          "Description": "Like clean, but only removes package files that can no longer be downloaded",
+          "Aliases": [
+            "auto-clean"
+          ],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "-d",
+                  "Description": "For any operation that would download packages, download them, but do nothing else",
+                  "Aliases": [
+                    "--download-only"
+                  ],
+                  "Arguments": []
+                },
+                {
+                  "Name": "--no-download",
+                  "Description": "Do not download packages, attempt to use already downloaded packages",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "y",
+                  "Description": "Assume yes to all prompts",
+                  "Type": "Flag",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "--assume-no",
+                  "Description": "Assume no to all prompts",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "-s",
+                  "Description": "Simulate running this command and show it\u0027s output, without actually changing anything",
+                  "Aliases": [
+                    "--simulate"
+                  ],
+                  "Arguments": []
+                }
+              ],
+              "Optional": true
+            }
+          ]
+        },
+        {
+          "Name": "changelog",
+          "Description": "Show the changelog for a package",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "-d",
+                  "Description": "For any operation that would download packages, download them, but do nothing else",
+                  "Aliases": [
+                    "--download-only"
+                  ],
+                  "Arguments": []
+                },
+                {
+                  "Name": "--no-download",
+                  "Description": "Do not download packages, attempt to use already downloaded packages",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "y",
+                  "Description": "Assume yes to all prompts",
+                  "Type": "Flag",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "--assume-no",
+                  "Description": "Assume no to all prompts",
+                  "Aliases": [],
+                  "Arguments": []
+                }
+              ],
+              "Optional": true
+            },
+            {
+              "Arguments": [
+                {
+                  "Name": "package",
+                  "Description": "package",
+                  "Type": "String",
+                  "Extensions": [],
+                  "CustomCommand": ""
+                }
+              ]
+            }
+          ]
+        }
+      ],
+      "DontAllowMultiple": true
+    }
+  ]
+}

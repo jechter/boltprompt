@@ -1,0 +1,173 @@
+{
+  "Comment": "This command info is generated from fig",
+  "Name": "tccutil",
+  "Description": "Manage the privacy database",
+  "Arguments": [
+    {
+      "Arguments": [
+        {
+          "Name": "command",
+          "Description": "command",
+          "Type": "String"
+        },
+        {
+          "Name": "reset",
+          "Description": "Reset permissions"
+        }
+      ]
+    },
+    {
+      "Arguments": [
+        {
+          "Name": "service",
+          "Description": "service",
+          "Type": "String"
+        },
+        {
+          "Name": "AppleEvents",
+          "Description": "service"
+        },
+        {
+          "Name": "BluetoothAlways",
+          "Description": "Use Bluetooth"
+        },
+        {
+          "Name": "Calendar",
+          "Description": "Access your calendar"
+        },
+        {
+          "Name": "Camera",
+          "Description": "Access the camera"
+        },
+        {
+          "Name": "ContactsFull",
+          "Description": "Access all of your contacts information"
+        },
+        {
+          "Name": "ContactsLimited",
+          "Description": "Access your contacts basic information"
+        },
+        {
+          "Name": "FileProviderDomain",
+          "Description": "Access files managed by indirect_object"
+        },
+        {
+          "Name": "FileProviderPresence",
+          "Description": "Allow the app to see when you are using files managed by it?"
+        },
+        {
+          "Name": "Location",
+          "Description": "Use your current location"
+        },
+        {
+          "Name": "MediaLibrary",
+          "Description": "Access Apple Music, your music and video activity, and your media library"
+        },
+        {
+          "Name": "Microphone",
+          "Description": "Access the microphone"
+        },
+        {
+          "Name": "Motion",
+          "Description": "Access Your Motion \u0026 Fitness Activity"
+        },
+        {
+          "Name": "Photos",
+          "Description": "Access Your Photo"
+        },
+        {
+          "Name": "PhotosAdd",
+          "Description": "Add to your Photo"
+        },
+        {
+          "Name": "Prototype3Rights",
+          "Description": "Authorization to Test Service Proto3Right"
+        },
+        {
+          "Name": "Prototype4Rights",
+          "Description": "Authorization to Test Service Proto4Right"
+        },
+        {
+          "Name": "Reminders",
+          "Description": "Access your reminders"
+        },
+        {
+          "Name": "ScreenCapture",
+          "Description": "Capture the contents of the system display"
+        },
+        {
+          "Name": "Siri",
+          "Description": "Use app with Siri"
+        },
+        {
+          "Name": "SpeechRecognition",
+          "Description": "Access Speech Recognition"
+        },
+        {
+          "Name": "SystemPolicyDesktopFolder",
+          "Description": "Access files in your Desktop folder"
+        },
+        {
+          "Name": "SystemPolicyDeveloperFiles",
+          "Description": "Access a file used in Software Development"
+        },
+        {
+          "Name": "SystemPolicyDocumentsFolder",
+          "Description": "Access files in your Documents folder"
+        },
+        {
+          "Name": "SystemPolicyDownloadsFolder",
+          "Description": "Access files in your Downloads folder"
+        },
+        {
+          "Name": "SystemPolicyNetworkVolumes",
+          "Description": "Access files on a network volume"
+        },
+        {
+          "Name": "SystemPolicyRemovableVolumes",
+          "Description": "Access files on a removable volume"
+        },
+        {
+          "Name": "SystemPolicySysAdminFiles",
+          "Description": "Administer your computer"
+        },
+        {
+          "Name": "Willow",
+          "Description": "Access your Home data"
+        },
+        {
+          "Name": "SystemPolicyAllFiles",
+          "Description": "Full Disk Acces"
+        },
+        {
+          "Name": "Accessibility",
+          "Description": "Allows app to control your compute"
+        },
+        {
+          "Name": "PostEvent",
+          "Description": "Allows to send keystroke"
+        },
+        {
+          "Name": "ListenEvent",
+          "Description": "Allow monitoring input from your keyboard"
+        },
+        {
+          "Name": "DeveloperTool",
+          "Description": "Allow app to run software that doesn\u0027t meet the system\u0027s security policy"
+        }
+      ]
+    },
+    {
+      "Arguments": [
+        {
+          "Name": "bundle id",
+          "Description": "bundle id",
+          "Type": "CustomArgument",
+          "Extensions": [],
+          "CustomCommand": "bash -c mdfind kMDItemContentTypeTree=com.apple.application-bundle -onlyin /Applications | while read line; do echo $(mdls -name kMDItemCFBundleIdentifier -r \u0022$line\u0022) $line; done"
+        }
+      ],
+      "Optional": true
+    }
+  ]
+}

@@ -1,0 +1,956 @@
+{
+  "Comment": "This command info is generated from fig",
+  "Name": "truffle",
+  "Description": "A world class development environment, testing framework and asset pipeline for blockchains using the Ethereum Virtual Machine (EVM), aiming to make life as a developer easier",
+  "Arguments": [
+    {
+      "Arguments": [
+        {
+          "Name": "build",
+          "Description": "Execute build pipeline (if configuration present)",
+          "Aliases": [],
+          "Arguments": []
+        },
+        {
+          "Name": "compile",
+          "Description": "Compile contract source files",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "--list",
+                  "Description": "List all recent stable releases from solc-bin. If filter is specified then it will display only that type of release or docker tags",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "filter",
+                          "Description": "filter",
+                          "Type": "String"
+                        },
+                        {
+                          "Name": "prereleases",
+                          "Description": "filter"
+                        },
+                        {
+                          "Name": "releases",
+                          "Description": "filter"
+                        },
+                        {
+                          "Name": "latestRelease",
+                          "Description": "filter"
+                        },
+                        {
+                          "Name": "docker",
+                          "Description": "filter"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "--all",
+                  "Description": "Compile all contracts instead of only the contracts changed since last compile",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "--quiet",
+                  "Description": "Suppress all compilation output",
+                  "Aliases": [],
+                  "Arguments": []
+                }
+              ],
+              "Optional": true
+            }
+          ]
+        },
+        {
+          "Name": "config",
+          "Description": "Set user-level configuration options",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "--enable-analytics",
+                  "Description": "Enable Truffle to send usage data to Google Analytics",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "--disable-analytics",
+                  "Description": "Disable Truffle\u0027s ability to send usage data to Google Analytics",
+                  "Aliases": [],
+                  "Arguments": []
+                }
+              ],
+              "Optional": true
+            },
+            {
+              "Arguments": [
+                {
+                  "Name": "get",
+                  "Description": "Get a Truffle configuration option value",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "key",
+                          "Description": "key",
+                          "Type": "String"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "set",
+                  "Description": "Set a Truffle configuration option value",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "key",
+                          "Description": "key",
+                          "Type": "String"
+                        }
+                      ]
+                    },
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "value-for-set",
+                          "Description": "value-for-set",
+                          "Type": "String"
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ],
+              "DontAllowMultiple": true
+            }
+          ]
+        },
+        {
+          "Name": "console",
+          "Description": "Run a console with contract abstractions and commands available",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "--network",
+                  "Description": "Specify the network to use",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "name",
+                          "Description": "name",
+                          "Type": "String"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "--verbose-rpc",
+                  "Description": "Log communication between Truffle and the Ethereum client",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "--require",
+                  "Description": "Preload console environment from required JavaScript file",
+                  "Aliases": [
+                    "-r"
+                  ],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "file",
+                          "Description": "file",
+                          "Type": "FileSystemEntry"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "--require-none",
+                  "Description": "Do not load any user-defined JavaScript into the console environment. This option takes precedence over --require, -r, and values provided for console.require in your project\u0027s truffle-config.js",
+                  "Aliases": [],
+                  "Arguments": []
+                }
+              ],
+              "Optional": true
+            }
+          ]
+        },
+        {
+          "Name": "create",
+          "Description": "Helper to create new contracts, migrations and tests",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "artifact_type",
+                  "Description": "artifact_type",
+                  "Type": "String"
+                },
+                {
+                  "Name": "contract",
+                  "Description": "artifact_type"
+                },
+                {
+                  "Name": "migration",
+                  "Description": "artifact_type"
+                },
+                {
+                  "Name": "test",
+                  "Description": "artifact_type"
+                },
+                {
+                  "Name": "all",
+                  "Description": "artifact_type"
+                }
+              ]
+            },
+            {
+              "Arguments": [
+                {
+                  "Name": "ArtifactName",
+                  "Description": "ArtifactName",
+                  "Type": "String"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "Name": "debug",
+          "Description": "Interactively debug any transaction on the blockchain",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "--network",
+                  "Description": "The network to connect to",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "network",
+                          "Description": "network",
+                          "Type": "String"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "--fetch-external",
+                  "Description": "Allows the debugger to download source from source verification services to debug transactions involving external contracts. When used, a transaction hash is required. May be abbreviated -x",
+                  "Aliases": [
+                    "-x"
+                  ],
+                  "Arguments": []
+                },
+                {
+                  "Name": "--compile-tests",
+                  "Description": "Allows the debugger to compile Solidity test contracts. Implies --compile-all",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "--compile-all",
+                  "Description": "Forces the debugger to recompile all contracts, even when it would otherwise judge doing so unnecessary. Compilation results are not saved",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "--compile-none",
+                  "Description": "Forces the debugger not to recompile contracts, even when it would otherwise judge it necessary. This option is dangerous and may cause errors. Please only use this if you are sure a recompilation is not necessary",
+                  "Aliases": [],
+                  "Arguments": []
+                }
+              ],
+              "Optional": true
+            },
+            {
+              "Arguments": [
+                {
+                  "Name": "transaction_hash",
+                  "Description": "transaction_hash",
+                  "Type": "String"
+                }
+              ],
+              "Optional": true
+            }
+          ]
+        },
+        {
+          "Name": "deploy",
+          "Description": "Alias for migrate. See migrate for details",
+          "Aliases": [],
+          "Arguments": []
+        },
+        {
+          "Name": "develop",
+          "Description": "Open a console with a development blockchaine",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "--log",
+                  "Description": "Start/Connect to a Truffle develop session and log all RPC activity. See the Log RPC Activity docs for more information about using this option",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "network",
+                          "Description": "network",
+                          "Type": "String"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "--require",
+                  "Description": "Preload console environment from required JavaScript file",
+                  "Aliases": [
+                    "-r"
+                  ],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "file",
+                          "Description": "file",
+                          "Type": "FileSystemEntry"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "--require-none",
+                  "Description": "Do not load any user-defined JavaScript into the console environment. This option takes precedence over --require, -r, and values provided for console.require in your project\u0027s truffle-config.js",
+                  "Aliases": [],
+                  "Arguments": []
+                }
+              ],
+              "Optional": true
+            }
+          ]
+        },
+        {
+          "Name": "exec",
+          "Description": "Execute a JS module within the Truffle environment",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "--network",
+                  "Description": "Specify the network to use, using artifacts specific to that network",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "name",
+                          "Description": "name",
+                          "Type": "String"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "--compile",
+                  "Description": "Compile contracts before executing the script",
+                  "Aliases": [],
+                  "Arguments": []
+                }
+              ],
+              "Optional": true
+            },
+            {
+              "Arguments": [
+                {
+                  "Name": "script.js",
+                  "Description": "script.js",
+                  "Type": "FileSystemEntry"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "Name": "help",
+          "Description": "Display a list of all commands or information about a specific command",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "command",
+                  "Description": "command",
+                  "Type": "String"
+                },
+                {
+                  "Name": "build",
+                  "Description": "command"
+                },
+                {
+                  "Name": "compile",
+                  "Description": "command"
+                },
+                {
+                  "Name": "config",
+                  "Description": "command"
+                },
+                {
+                  "Name": "console",
+                  "Description": "command"
+                },
+                {
+                  "Name": "create",
+                  "Description": "command"
+                },
+                {
+                  "Name": "debug",
+                  "Description": "command"
+                },
+                {
+                  "Name": "deploy",
+                  "Description": "command"
+                },
+                {
+                  "Name": "develop",
+                  "Description": "command"
+                },
+                {
+                  "Name": "exec",
+                  "Description": "command"
+                },
+                {
+                  "Name": "help",
+                  "Description": "command"
+                },
+                {
+                  "Name": "init",
+                  "Description": "command"
+                },
+                {
+                  "Name": "install",
+                  "Description": "command"
+                },
+                {
+                  "Name": "networks",
+                  "Description": "command"
+                },
+                {
+                  "Name": "obtain",
+                  "Description": "command"
+                },
+                {
+                  "Name": "opcode",
+                  "Description": "command"
+                },
+                {
+                  "Name": "publish",
+                  "Description": "command"
+                },
+                {
+                  "Name": "run",
+                  "Description": "command"
+                },
+                {
+                  "Name": "version",
+                  "Description": "command"
+                },
+                {
+                  "Name": "watch",
+                  "Description": "command"
+                },
+                {
+                  "Name": "preserve",
+                  "Description": "command"
+                },
+                {
+                  "Name": "migrate",
+                  "Description": "command"
+                },
+                {
+                  "Name": "unbox",
+                  "Description": "command"
+                },
+                {
+                  "Name": "test",
+                  "Description": "command"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "Name": "init",
+          "Description": "Initialize new and empty Ethereum project",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "--force",
+                  "Description": "Initialize project regardless of the current working directory\u0027s state. Be careful, this could overwrite existing files that have name conflicts",
+                  "Aliases": [],
+                  "Arguments": []
+                }
+              ],
+              "Optional": true
+            }
+          ]
+        },
+        {
+          "Name": "install",
+          "Description": "Install a package from the Ethereum Package Registry",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "package_name",
+                  "Description": "package_name",
+                  "Type": "String"
+                }
+              ]
+            },
+            {
+              "Arguments": [
+                {
+                  "Name": "@version",
+                  "Description": "@version",
+                  "Type": "String"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "Name": "networks",
+          "Description": "Show addresses for deployed contracts on each network",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "--clean",
+                  "Description": "Remove all network artifacts that aren\u0027t associated with a named network",
+                  "Aliases": [],
+                  "Arguments": []
+                }
+              ],
+              "Optional": true
+            }
+          ]
+        },
+        {
+          "Name": "obtain",
+          "Description": "Fetch and cache a specified compiler",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "--solc",
+                  "Description": "Download and cache a version of the solc compiler. (required)",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "version",
+                          "Description": "version",
+                          "Type": "String"
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ],
+              "Optional": true
+            }
+          ]
+        },
+        {
+          "Name": "opcode",
+          "Description": "Print the compiled opcodes for a given contract",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "contract_name",
+                  "Description": "contract_name",
+                  "Type": "String"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "Name": "publish",
+          "Description": "Publish a package to the Ethereum Package Registry",
+          "Aliases": [],
+          "Arguments": []
+        },
+        {
+          "Name": "run",
+          "Description": "Run a third-party plugin command",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "command",
+                  "Description": "command",
+                  "Type": "String"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "Name": "version",
+          "Description": "Show version number and exit",
+          "Aliases": [],
+          "Arguments": []
+        },
+        {
+          "Name": "watch",
+          "Description": "Watch filesystem for changes and rebuild the project automatically",
+          "Aliases": [],
+          "Arguments": []
+        },
+        {
+          "Name": "preserve",
+          "Description": "Save data to decentralized storage platforms like IPFS and Filecoin",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "--environment",
+                  "Description": "Environment name, as defined in truffle-config \u0060environments\u0060 object",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "name",
+                          "Description": "name",
+                          "Type": "String"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "--ipfs",
+                  "Description": "Preserve to IPFS",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "--filecoin",
+                  "Description": "Preserve to Filecoin",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "--buckets",
+                  "Description": "Preserve to Textile Buckets",
+                  "Aliases": [],
+                  "Arguments": []
+                }
+              ],
+              "Optional": true
+            },
+            {
+              "Arguments": [
+                {
+                  "Name": "path",
+                  "Description": "path",
+                  "Type": "FileSystemEntry"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "Name": "migrate",
+          "Description": "Run migrations to deploy contracts",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "--reset",
+                  "Description": "Run all migrations from the beginning, instead of running from the last completed migration",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "--f",
+                  "Description": "Run contracts from a specific migration",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "number",
+                          "Description": "number",
+                          "Type": "String"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "--to",
+                  "Description": "Run contracts to a specific migration",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "number",
+                          "Description": "number",
+                          "Type": "String"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "--network",
+                  "Description": "Specify the network to use, saving artifacts specific to that network",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "name",
+                          "Description": "name",
+                          "Type": "String"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "--compile-all",
+                  "Description": "Compile all contracts instead of intelligently choosing which contracts need to be compiled",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "--verbose-rpc",
+                  "Description": "Log communication between Truffle and the Ethereum client",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "--dry-run",
+                  "Description": "Fork the network specified and only perform a test migration",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "--skip-dry-run",
+                  "Description": "Skip the test migration performed before the real migration",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "--interactive",
+                  "Description": "Prompt to confirm that the user wants to proceed after the dry run",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "--describe-json",
+                  "Description": "Prints additional status messages",
+                  "Aliases": [],
+                  "Arguments": []
+                }
+              ],
+              "Optional": true
+            }
+          ]
+        },
+        {
+          "Name": "unbox",
+          "Description": "Download a Truffle Box, a pre-built Truffle project",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "--force",
+                  "Description": "Unbox project in the current directory regardless of its state. Be careful, this will potentially overwrite files that exist in the directory",
+                  "Aliases": [],
+                  "Arguments": []
+                }
+              ],
+              "Optional": true
+            },
+            {
+              "Arguments": [
+                {
+                  "Name": "box_name",
+                  "Description": "box_name",
+                  "Type": "String"
+                }
+              ]
+            },
+            {
+              "Arguments": [
+                {
+                  "Name": "path",
+                  "Description": "path",
+                  "Type": "String",
+                  "Extensions": [],
+                  "CustomCommand": ""
+                }
+              ],
+              "Optional": true
+            }
+          ]
+        },
+        {
+          "Name": "test",
+          "Description": "Run JavaScript and Solidity tests",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "--compile-all",
+                  "Description": "Compile all contracts instead of intelligently choosing which contracts need to be compiled",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "--compile-all-debug",
+                  "Description": "Like --compile-all, but compiles contracts in debug mode for extra information. Has no effect on Solidity \u003C0.6.3",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "--network",
+                  "Description": "Specify the network to use, using artifacts specific to that network",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "name",
+                          "Description": "name",
+                          "Type": "String"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "--verbose-rpc",
+                  "Description": "Log communication between Truffle and the Ethereum client",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "--show-events",
+                  "Description": "Log all contract events",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "--debug",
+                  "Description": "Provides global debug() function for in-test debugging. Usable with Javascript tests only; implies --compile-all",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "--debug-global",
+                  "Description": "Allows one to rename the debug() function to something else",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "identifier",
+                          "Description": "identifier",
+                          "Type": "String"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "--bail",
+                  "Description": "Bail after the first test failure. May be abbreviated -b",
+                  "Aliases": [
+                    "-b"
+                  ],
+                  "Arguments": []
+                },
+                {
+                  "Name": "--stacktrace",
+                  "Description": "Allows for mixed Javascript-and-Solidity stacktraces when a Truffle Contract transaction or deployment reverts. Does not apply to calls or gas estimates. Implies --compile-all. May be abbreviated -t. Warning: This option is still somewhat experimental",
+                  "Aliases": [
+                    "-t"
+                  ],
+                  "Arguments": []
+                },
+                {
+                  "Name": "--stacktrace-extra",
+                  "Description": "Shortcut for --stacktrace --compile-all-debug",
+                  "Aliases": [],
+                  "Arguments": []
+                }
+              ],
+              "Optional": true
+            },
+            {
+              "Arguments": [
+                {
+                  "Name": "test_file",
+                  "Description": "test_file",
+                  "Type": "FileSystemEntry"
+                }
+              ]
+            }
+          ]
+        }
+      ],
+      "DontAllowMultiple": true
+    }
+  ]
+}

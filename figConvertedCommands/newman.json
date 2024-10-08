@@ -1,0 +1,577 @@
+{
+  "Comment": "This command info is generated from fig",
+  "Name": "newman",
+  "Description": "Newman is a command-line collection runner for Postman",
+  "Arguments": [
+    {
+      "Arguments": [
+        {
+          "Name": "-v",
+          "Description": "Output the version number",
+          "Aliases": [
+            "--version"
+          ],
+          "Arguments": []
+        },
+        {
+          "Name": "-h",
+          "Description": "Display help for command",
+          "Aliases": [
+            "--help"
+          ],
+          "Arguments": []
+        }
+      ],
+      "Optional": true
+    },
+    {
+      "Arguments": [
+        {
+          "Name": "run",
+          "Description": "Initiate a Postman Collection run from a given URL or path",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "-e",
+                  "Description": "Specify a URL or path to a Postman Environment",
+                  "Aliases": [
+                    "--environment"
+                  ],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "path",
+                          "Description": "path",
+                          "Type": "FileSystemEntry"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "-g",
+                  "Description": "Specify a URL or path to a file containing Postman Globals",
+                  "Aliases": [
+                    "--globals"
+                  ],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "path",
+                          "Description": "path",
+                          "Type": "FileSystemEntry"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "-r",
+                  "Description": "Specify the reporters to use for this run",
+                  "Aliases": [
+                    "--reporters"
+                  ],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "reporters",
+                          "Description": "reporters",
+                          "Type": "String"
+                        }
+                      ],
+                      "Optional": true
+                    }
+                  ]
+                },
+                {
+                  "Name": "-n",
+                  "Description": "Define the number of iterations to run",
+                  "Aliases": [
+                    "--iteration-count"
+                  ],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "n",
+                          "Description": "n",
+                          "Type": "String"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "-d",
+                  "Description": "Specify a data file to use for iterations (either JSON or CSV)",
+                  "Aliases": [
+                    "--iteration-data"
+                  ],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "path",
+                          "Description": "path",
+                          "Type": "FileSystemEntry"
+                        },
+                        {
+                          "Name": "JSON",
+                          "Description": "path"
+                        },
+                        {
+                          "Name": "CSV",
+                          "Description": "path"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "--folder",
+                  "Description": "Specify the folder to run from a collection. Can be specified multiple times to run multiple folders",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "path",
+                          "Description": "path",
+                          "Type": "FileSystemEntry"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "--global-var",
+                  "Description": "Allows the specification of global variables via the command line, in a key=value format",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "value",
+                          "Description": "value",
+                          "Type": "String"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "--env-var",
+                  "Description": "Allows the specification of environment variables via the command line, in a key=value format",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "value",
+                          "Description": "value",
+                          "Type": "String"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "--export-environment",
+                  "Description": "Exports the final environment to a file after completing the run",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "path",
+                          "Description": "path",
+                          "Type": "FileSystemEntry"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "--export-globals",
+                  "Description": "Exports the final globals to a file after completing the run",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "path",
+                          "Description": "path",
+                          "Type": "FileSystemEntry"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "--export-collection",
+                  "Description": "Exports the executed collection to a file after completing the run",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "path",
+                          "Description": "path",
+                          "Type": "FileSystemEntry"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "--postman-api-key",
+                  "Description": "API Key used to load the resources from the Postman API",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "apiKey",
+                          "Description": "apiKey",
+                          "Type": "String"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "--bail",
+                  "Description": "Specify whether or not to gracefully stop a collection run on encountering an error and whether to end the run with an error based on the optional modifier",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "modifiers",
+                          "Description": "modifiers",
+                          "Type": "String"
+                        }
+                      ],
+                      "Optional": true
+                    }
+                  ]
+                },
+                {
+                  "Name": "--ignore-redirects",
+                  "Description": "Prevents Newman from automatically following 3XX redirect responses",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "-x",
+                  "Description": "Specify whether or not to override the default exit code for the current run",
+                  "Aliases": [
+                    "--suppress-exit-code"
+                  ],
+                  "Arguments": []
+                },
+                {
+                  "Name": "--silent",
+                  "Description": "Prevents Newman from showing output to CLI",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "--disable-unicode",
+                  "Description": "Forces Unicode compliant symbols to be replaced by their plain text equivalents",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "--color",
+                  "Description": "Enable/Disable colored output (auto|on|off)",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "value",
+                          "Description": "value",
+                          "Type": "String"
+                        },
+                        {
+                          "Name": "auto",
+                          "Description": "value"
+                        },
+                        {
+                          "Name": "on",
+                          "Description": "value"
+                        },
+                        {
+                          "Name": "off",
+                          "Description": "value"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "--delay-request",
+                  "Description": "Specify the extent of delay between requests (milliseconds)",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "n",
+                          "Description": "n",
+                          "Type": "String"
+                        }
+                      ],
+                      "Optional": true
+                    }
+                  ]
+                },
+                {
+                  "Name": "--timeout",
+                  "Description": "Specify a timeout for collection run (milliseconds)",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "n",
+                          "Description": "n",
+                          "Type": "String"
+                        }
+                      ],
+                      "Optional": true
+                    }
+                  ]
+                },
+                {
+                  "Name": "--timeout-request",
+                  "Description": "Specify a timeout for requests (milliseconds)",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "n",
+                          "Description": "n",
+                          "Type": "String"
+                        }
+                      ],
+                      "Optional": true
+                    }
+                  ]
+                },
+                {
+                  "Name": "--timeout-script",
+                  "Description": "Specify a timeout for scripts (milliseconds)",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "n",
+                          "Description": "n",
+                          "Type": "String"
+                        }
+                      ],
+                      "Optional": true
+                    }
+                  ]
+                },
+                {
+                  "Name": "--working-dir",
+                  "Description": "Specify the path to the working directory",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "path",
+                          "Description": "path",
+                          "Type": "FileSystemEntry"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "--no-insecure-file-read",
+                  "Description": "Prevents reading the files situated outside of the working directory",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "-k",
+                  "Description": "Disables SSL validations",
+                  "Aliases": [
+                    "--insecure"
+                  ],
+                  "Arguments": []
+                },
+                {
+                  "Name": "--ssl-client-cert-list",
+                  "Description": "Specify the path to a client certificates configurations (JSON)",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "path",
+                          "Description": "path",
+                          "Type": "FileSystemEntry"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "--ssl-client-cert",
+                  "Description": "Specify the path to a client certificate (PEM)",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "path",
+                          "Description": "path",
+                          "Type": "FileSystemEntry"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "--ssl-client-key",
+                  "Description": "Specify the path to a client certificate private key",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "path",
+                          "Description": "path",
+                          "Type": "FileSystemEntry"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "--ssl-client-passphrase",
+                  "Description": "Specify the client certificate passphrase (for protected key)",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "passphrase",
+                          "Description": "passphrase",
+                          "Type": "String"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "--ssl-extra-ca-certs",
+                  "Description": "Specify additionally trusted CA certificates (PEM)",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "path",
+                          "Description": "path",
+                          "Type": "FileSystemEntry"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "--cookie-jar",
+                  "Description": "Specify the path to a custom cookie jar (serialized tough-cookie JSON)",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "path",
+                          "Description": "path",
+                          "Type": "FileSystemEntry"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "--export-cookie-jar",
+                  "Description": "Exports the cookie jar to a file after completing the run",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "path",
+                          "Description": "path",
+                          "Type": "FileSystemEntry"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "--verbose",
+                  "Description": "Show detailed information of collection run and each request sent",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "-h",
+                  "Description": "Display help for command",
+                  "Aliases": [
+                    "--help"
+                  ],
+                  "Arguments": []
+                }
+              ],
+              "Optional": true
+            },
+            {
+              "Arguments": [
+                {
+                  "Name": "collection",
+                  "Description": "collection",
+                  "Type": "FileSystemEntry"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "Name": "help",
+          "Description": "Display help for command",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "command",
+                  "Description": "command",
+                  "Type": "String"
+                }
+              ],
+              "Optional": true
+            }
+          ]
+        }
+      ],
+      "DontAllowMultiple": true
+    }
+  ]
+}

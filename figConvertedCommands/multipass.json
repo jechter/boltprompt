@@ -1,0 +1,1070 @@
+{
+  "Comment": "This command info is generated from fig",
+  "Name": "multipass",
+  "Description": "Create, control and connect to Ubuntu instances",
+  "Arguments": [
+    {
+      "Arguments": [
+        {
+          "Name": "-h",
+          "Description": "Displays help on commandline options",
+          "Aliases": [
+            "--help"
+          ],
+          "Arguments": []
+        },
+        {
+          "Name": "--help-all",
+          "Description": "Displays help including Qt specific options",
+          "Aliases": [],
+          "Arguments": []
+        },
+        {
+          "Name": "-v",
+          "Description": "Increase logging verbosity. Repeat the \u0027v\u0027 in the short option for more detail. Maximum verbosity is obtained with 4 (or more) v\u0027s, i.e. -vvvv",
+          "Aliases": [
+            "--verbose"
+          ],
+          "Arguments": []
+        }
+      ],
+      "Optional": true
+    },
+    {
+      "Arguments": [
+        {
+          "Name": "alias",
+          "Description": "Create an alias",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "options",
+                  "Description": "options",
+                  "Type": "String"
+                }
+              ],
+              "Optional": true
+            },
+            {
+              "Arguments": [
+                {
+                  "Name": "definition",
+                  "Description": "definition",
+                  "Type": "String"
+                }
+              ]
+            },
+            {
+              "Arguments": [
+                {
+                  "Name": "name",
+                  "Description": "name",
+                  "Type": "String"
+                }
+              ],
+              "Optional": true
+            }
+          ]
+        },
+        {
+          "Name": "aliases",
+          "Description": "List available aliases",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "--format",
+                  "Description": "Output list in the requested format. Valid formats are: table (default), json, csv and yaml",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "format",
+                          "Description": "format",
+                          "Type": "String"
+                        },
+                        {
+                          "Name": "table",
+                          "Description": "format"
+                        },
+                        {
+                          "Name": "json",
+                          "Description": "format"
+                        },
+                        {
+                          "Name": "csv",
+                          "Description": "format"
+                        },
+                        {
+                          "Name": "yaml",
+                          "Description": "format"
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ],
+              "Optional": true
+            }
+          ]
+        },
+        {
+          "Name": "delete",
+          "Description": "Delete instances",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "--all",
+                  "Description": "Delete all instances",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "-p",
+                  "Description": "Purge instances immediately",
+                  "Aliases": [
+                    "--purge"
+                  ],
+                  "Arguments": []
+                }
+              ],
+              "Optional": true
+            },
+            {
+              "Arguments": [
+                {
+                  "Name": "name",
+                  "Description": "name",
+                  "Type": "CustomArgument",
+                  "Extensions": [],
+                  "CustomCommand": "multipass list --format=json"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "Name": "exec",
+          "Description": "Run a command on an instance",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "name",
+                  "Description": "name",
+                  "Type": "CustomArgument",
+                  "Extensions": [],
+                  "CustomCommand": "multipass list --format=json"
+                }
+              ]
+            },
+            {
+              "Arguments": [
+                {
+                  "Name": "command",
+                  "Description": "command",
+                  "Type": "String"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "Name": "find",
+          "Description": "Display available images to create instances from",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "--format",
+                  "Description": "Output list in the requested format. Valid formats are: table (default), json, csv and yaml",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "format",
+                          "Description": "format",
+                          "Type": "String"
+                        },
+                        {
+                          "Name": "table",
+                          "Description": "format"
+                        },
+                        {
+                          "Name": "json",
+                          "Description": "format"
+                        },
+                        {
+                          "Name": "csv",
+                          "Description": "format"
+                        },
+                        {
+                          "Name": "yaml",
+                          "Description": "format"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "--show-unsupported",
+                  "Description": "Show unsupported cloud images as well",
+                  "Aliases": [],
+                  "Arguments": []
+                }
+              ],
+              "Optional": true
+            },
+            {
+              "Arguments": [
+                {
+                  "Name": "string",
+                  "Description": "string",
+                  "Type": "String"
+                }
+              ],
+              "Optional": true
+            }
+          ]
+        },
+        {
+          "Name": "get",
+          "Description": "Get a configuration setting",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "--raw",
+                  "Description": "Output in raw format. For now, this affects only the representation of empty values (i.e. \u0022\u0022 instead of \u0022\u003Cempty\u003E\u0022)",
+                  "Aliases": [],
+                  "Arguments": []
+                }
+              ],
+              "Optional": true
+            },
+            {
+              "Arguments": [
+                {
+                  "Name": "key",
+                  "Description": "key",
+                  "Type": "String"
+                },
+                {
+                  "Name": "client.gui.autostart",
+                  "Description": "key"
+                },
+                {
+                  "Name": "client.gui.hotkey",
+                  "Description": "key"
+                },
+                {
+                  "Name": "client.primary-name",
+                  "Description": "key"
+                },
+                {
+                  "Name": "local.bridged-network",
+                  "Description": "key"
+                },
+                {
+                  "Name": "local.driver",
+                  "Description": "key"
+                },
+                {
+                  "Name": "local.privileged-mounts",
+                  "Description": "key"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "Name": "help",
+          "Description": "Display help about a command",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "command",
+                  "Description": "command",
+                  "Type": "String"
+                }
+              ],
+              "Optional": true
+            }
+          ]
+        },
+        {
+          "Name": "info",
+          "Description": "Display information about instances",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "--format",
+                  "Description": "Output list in the requested format. Valid formats are: table (default), json, csv and yaml",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "format",
+                          "Description": "format",
+                          "Type": "String"
+                        },
+                        {
+                          "Name": "table",
+                          "Description": "format"
+                        },
+                        {
+                          "Name": "json",
+                          "Description": "format"
+                        },
+                        {
+                          "Name": "csv",
+                          "Description": "format"
+                        },
+                        {
+                          "Name": "yaml",
+                          "Description": "format"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "--all",
+                  "Description": "Display info for all instances",
+                  "Aliases": [],
+                  "Arguments": []
+                }
+              ],
+              "Optional": true
+            },
+            {
+              "Arguments": [
+                {
+                  "Name": "name",
+                  "Description": "name",
+                  "Type": "CustomArgument",
+                  "Extensions": [],
+                  "CustomCommand": "multipass list --format=json"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "Name": "launch",
+          "Description": "Create and start an Ubuntu instance",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "--timeout",
+                  "Description": "Maximum time, in seconds, to wait for the command to complete. Note that some background operations may continue beyond that. By default, instance startup and initialization is limited to 5 minutes each",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "timeout",
+                          "Description": "timeout",
+                          "Type": "String"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "-c",
+                  "Description": "Number of CPUs to allocate. Minimum: 1, default: 1",
+                  "Aliases": [
+                    "--cpus"
+                  ],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "cpus",
+                          "Description": "cpus",
+                          "Type": "String"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "-d",
+                  "Description": "Disk space to allocate. Positive integers, in bytes, or with K, M, G suffix Minimum: 512M, default: 5G.",
+                  "Aliases": [
+                    "--disk"
+                  ],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "disk",
+                          "Description": "disk",
+                          "Type": "String"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "-m",
+                  "Description": "Amount of memory to allocate. Positive integers, in bytes, or with K, M, G suffix Minimum: 128M, default: 1G.",
+                  "Aliases": [
+                    "--mem"
+                  ],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "mem",
+                          "Description": "mem",
+                          "Type": "String"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "-n",
+                  "Description": "Name for the instance. If it is \u0027primary\u0027 (the configured primary instance name), the user\u0027s home directory is mounted inside the newly launched instance, in \u0027Home\u0027",
+                  "Aliases": [
+                    "--name"
+                  ],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "name",
+                          "Description": "name",
+                          "Type": "String"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "--cloud-init",
+                  "Description": "Path to a user-data cloud-init configuration, or \u0027-\u0027 forstdin",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "file",
+                          "Description": "file",
+                          "Type": "String"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "--network",
+                  "Description": "Add a network interface to the instance, where \u003Cspec\u003E is in the \u0022key=value,key=value\u0022 format",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "spec",
+                          "Description": "spec",
+                          "Type": "String"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "--bridged",
+                  "Description": "Adds one \u0060--network bridged\u0060 network",
+                  "Aliases": [],
+                  "Arguments": []
+                }
+              ],
+              "Optional": true
+            },
+            {
+              "Arguments": [
+                {
+                  "Name": "image",
+                  "Description": "image",
+                  "Type": "CustomArgument",
+                  "Extensions": [],
+                  "CustomCommand": "multipass find --format=json"
+                }
+              ],
+              "Optional": true
+            }
+          ]
+        },
+        {
+          "Name": "list",
+          "Description": "List all available instances",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "--format",
+                  "Description": "Output list in the requested format. Valid formats are: table (default), json, csv and yaml",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "format",
+                          "Description": "format",
+                          "Type": "String"
+                        },
+                        {
+                          "Name": "table",
+                          "Description": "format"
+                        },
+                        {
+                          "Name": "json",
+                          "Description": "format"
+                        },
+                        {
+                          "Name": "csv",
+                          "Description": "format"
+                        },
+                        {
+                          "Name": "yaml",
+                          "Description": "format"
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ],
+              "Optional": true
+            }
+          ]
+        },
+        {
+          "Name": "mount",
+          "Description": "Mount a local directory in the instance",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "-g",
+                  "Description": "A mapping of group IDs for use in the mount. File and folder ownership will be mapped from \u003Chost\u003E to \u003Cinstance\u003E inside the instance. Can be used multiple times",
+                  "Aliases": [
+                    "--gid-map"
+                  ],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "host:instance",
+                          "Description": "host:instance",
+                          "Type": "String"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "-u",
+                  "Description": "A mapping of user IDs for use in the mount. File and folder ownership will be mapped from \u003Chost\u003E to \u003Cinstance\u003E inside the instance. Can be used multiple times",
+                  "Aliases": [
+                    "--uid-map"
+                  ],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "host:instance",
+                          "Description": "host:instance",
+                          "Type": "String"
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ],
+              "Optional": true
+            },
+            {
+              "Arguments": [
+                {
+                  "Name": "source",
+                  "Description": "source",
+                  "Type": "Directory"
+                }
+              ]
+            },
+            {
+              "Arguments": [
+                {
+                  "Name": "target",
+                  "Description": "target",
+                  "Type": "String"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "Name": "networks",
+          "Description": "List all available networks interfaces",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "--format",
+                  "Description": "Output list in the requested format. Valid formats are: table (default), json, csv and yaml",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "format",
+                          "Description": "format",
+                          "Type": "String"
+                        },
+                        {
+                          "Name": "table",
+                          "Description": "format"
+                        },
+                        {
+                          "Name": "json",
+                          "Description": "format"
+                        },
+                        {
+                          "Name": "csv",
+                          "Description": "format"
+                        },
+                        {
+                          "Name": "yaml",
+                          "Description": "format"
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ],
+              "Optional": true
+            }
+          ]
+        },
+        {
+          "Name": "purge",
+          "Description": "Purge all deleted instances permanently",
+          "Aliases": [],
+          "Arguments": []
+        },
+        {
+          "Name": "recover",
+          "Description": "Recover deleted instances",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "--all",
+                  "Description": "Recover all deleted instances",
+                  "Aliases": [],
+                  "Arguments": []
+                }
+              ],
+              "Optional": true
+            },
+            {
+              "Arguments": [
+                {
+                  "Name": "name",
+                  "Description": "name",
+                  "Type": "CustomArgument",
+                  "Extensions": [],
+                  "CustomCommand": "multipass list --format=json"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "Name": "restart",
+          "Description": "Restart instances",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "--timeout",
+                  "Description": "Maximum time, in seconds, to wait for the command to complete. Note that some background operations may continue beyond that. By default, instance startup and initialization is limited to 5 minutes each",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "timeout",
+                          "Description": "timeout",
+                          "Type": "String"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "--all",
+                  "Description": "Restart all instances",
+                  "Aliases": [],
+                  "Arguments": []
+                }
+              ],
+              "Optional": true
+            },
+            {
+              "Arguments": [
+                {
+                  "Name": "name",
+                  "Description": "name",
+                  "Type": "CustomArgument",
+                  "Extensions": [],
+                  "CustomCommand": "multipass list --format=json"
+                }
+              ],
+              "Optional": true
+            }
+          ]
+        },
+        {
+          "Name": "set",
+          "Description": "Set a configuration setting",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "key=value",
+                  "Description": "key=value",
+                  "Type": "String"
+                },
+                {
+                  "Name": "client.gui.autostart=",
+                  "Description": "key=value"
+                },
+                {
+                  "Name": "client.gui.hotkey=",
+                  "Description": "key=value"
+                },
+                {
+                  "Name": "client.primary-name=",
+                  "Description": "key=value"
+                },
+                {
+                  "Name": "local.bridged-network=",
+                  "Description": "key=value"
+                },
+                {
+                  "Name": "local.driver=",
+                  "Description": "key=value"
+                },
+                {
+                  "Name": "local.privileged-mounts=",
+                  "Description": "key=value"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "Name": "shell",
+          "Description": "Open a shell on a running instance",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "--timeout",
+                  "Description": "Maximum time, in seconds, to wait for the command to complete. Note that some background operations may continue beyond that. By default, instance startup and initialization is limited to 5 minutes each",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "timeout",
+                          "Description": "timeout",
+                          "Type": "String"
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ],
+              "Optional": true
+            },
+            {
+              "Arguments": [
+                {
+                  "Name": "name",
+                  "Description": "name",
+                  "Type": "CustomArgument",
+                  "Extensions": [],
+                  "CustomCommand": "multipass list --format=json"
+                }
+              ],
+              "Optional": true
+            }
+          ]
+        },
+        {
+          "Name": "start",
+          "Description": "Start instances",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "--timeout",
+                  "Description": "Maximum time, in seconds, to wait for the command to complete. Note that some background operations may continue beyond that. By default, instance startup and initialization is limited to 5 minutes each",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "timeout",
+                          "Description": "timeout",
+                          "Type": "String"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "--all",
+                  "Description": "Start all instances",
+                  "Aliases": [],
+                  "Arguments": []
+                }
+              ],
+              "Optional": true
+            },
+            {
+              "Arguments": [
+                {
+                  "Name": "name",
+                  "Description": "name",
+                  "Type": "CustomArgument",
+                  "Extensions": [],
+                  "CustomCommand": "multipass list --format=json"
+                }
+              ],
+              "Optional": true
+            }
+          ]
+        },
+        {
+          "Name": "stop",
+          "Description": "Stop running instances",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "--all",
+                  "Description": "Stop all instances",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "-t",
+                  "Description": "Time from now, in minutes, to delay shutdown of the instance",
+                  "Aliases": [
+                    "--time"
+                  ],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "time",
+                          "Description": "time",
+                          "Type": "String"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "-c",
+                  "Description": "Cancel a pending delayed shutdown",
+                  "Aliases": [
+                    "--cancel"
+                  ],
+                  "Arguments": []
+                }
+              ],
+              "Optional": true
+            },
+            {
+              "Arguments": [
+                {
+                  "Name": "name",
+                  "Description": "name",
+                  "Type": "CustomArgument",
+                  "Extensions": [],
+                  "CustomCommand": "multipass list --format=json"
+                }
+              ],
+              "Optional": true
+            }
+          ]
+        },
+        {
+          "Name": "suspend",
+          "Description": "Suspend running instances",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "--all",
+                  "Description": "Suspend all instances",
+                  "Aliases": [],
+                  "Arguments": []
+                }
+              ],
+              "Optional": true
+            },
+            {
+              "Arguments": [
+                {
+                  "Name": "name",
+                  "Description": "name",
+                  "Type": "CustomArgument",
+                  "Extensions": [],
+                  "CustomCommand": "multipass list --format=json"
+                }
+              ],
+              "Optional": true
+            }
+          ]
+        },
+        {
+          "Name": "transfer",
+          "Description": "Transfer files between the host and instances",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "source",
+                  "Description": "source",
+                  "Type": "FileSystemEntry"
+                }
+              ]
+            },
+            {
+              "Arguments": [
+                {
+                  "Name": "destination",
+                  "Description": "destination",
+                  "Type": "FileSystemEntry"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "Name": "umount",
+          "Description": "Unmount a directory from an instance",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "mount",
+                  "Description": "mount",
+                  "Type": "String"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "Name": "unalias",
+          "Description": "Remove an alias",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "name",
+                  "Description": "name",
+                  "Type": "String"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "Name": "version",
+          "Description": "Show version details",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "--format",
+                  "Description": "Output list in the requested format. Valid formats are: table (default), json, csv and yaml",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "format",
+                          "Description": "format",
+                          "Type": "String"
+                        },
+                        {
+                          "Name": "table",
+                          "Description": "format"
+                        },
+                        {
+                          "Name": "json",
+                          "Description": "format"
+                        },
+                        {
+                          "Name": "csv",
+                          "Description": "format"
+                        },
+                        {
+                          "Name": "yaml",
+                          "Description": "format"
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ],
+              "Optional": true
+            }
+          ]
+        }
+      ],
+      "DontAllowMultiple": true
+    }
+  ]
+}

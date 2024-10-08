@@ -1,0 +1,279 @@
+{
+  "Comment": "This command info is generated from fig",
+  "Name": "yalc",
+  "Description": "Work with yarn/npm packages locally like a boss",
+  "Arguments": [
+    {
+      "Arguments": [
+        {
+          "Name": "--help",
+          "Description": "Show help for yalc",
+          "Aliases": [],
+          "Arguments": []
+        },
+        {
+          "Name": "--no-colors",
+          "Description": "Disable colors",
+          "Aliases": [],
+          "Arguments": []
+        },
+        {
+          "Name": "--quiet",
+          "Description": "Fully disable output (except errors)",
+          "Aliases": [],
+          "Arguments": []
+        }
+      ],
+      "Optional": true
+    },
+    {
+      "Arguments": [
+        {
+          "Name": "publish",
+          "Description": "Copy all the files that should be published in remote NPM registry",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "--push",
+                  "Description": "Publish package to the store and propagate all changes to existing yalc package installations",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "--no-scripts",
+                  "Description": "Publish without running scripts",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "--no-sig",
+                  "Description": "Disable adding hash signature of all files when copying package content",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "--content",
+                  "Description": "Show included files in the published package",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "--no-workspace-resolve",
+                  "Description": "Do not resolve \u0027workspace:\u0027 protocol in dependencies",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "--private",
+                  "Description": "Force publishing of private package",
+                  "Aliases": [],
+                  "Arguments": []
+                }
+              ],
+              "Optional": true
+            }
+          ]
+        },
+        {
+          "Name": "push",
+          "Description": "Publish your package to the store and propagate all changes to existing yalc package installations",
+          "Aliases": [],
+          "Arguments": []
+        },
+        {
+          "Name": "add",
+          "Description": "Copy the current version from the store to your project",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "--link",
+                  "Description": "Add a \u0027link:\u0027 dependency instead of \u0027file:\u0027",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "--dev",
+                  "Description": "Add yalc package to dev dependencies",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "--pure",
+                  "Description": "Do not touch \u0027package.json\u0027 or \u0027node_modules\u0027",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "--workspace",
+                  "Description": "Add dependency with \u0027workspace:\u0027 protocol",
+                  "Aliases": [
+                    "-W"
+                  ],
+                  "Arguments": []
+                }
+              ],
+              "Optional": true
+            },
+            {
+              "Arguments": [
+                {
+                  "Name": "package",
+                  "Description": "package",
+                  "Type": "CustomArgument",
+                  "Extensions": [],
+                  "CustomCommand": "bash -c command find ~/.yalc/packages -maxdepth 4 -iname \u0027package.json\u0027"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "Name": "link",
+          "Description": "Alterative to \u0027add\u0027, instead using local \u0027.yalc\u0027 as symlink source",
+          "Aliases": [],
+          "Arguments": []
+        },
+        {
+          "Name": "update",
+          "Description": "Update package(s)",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "--update",
+                  "Description": "Run package manager\u0027s update command for packages",
+                  "Aliases": [
+                    "--upgrade",
+                    "--up"
+                  ],
+                  "Arguments": []
+                }
+              ],
+              "Optional": true
+            },
+            {
+              "Arguments": [
+                {
+                  "Name": "package",
+                  "Description": "package",
+                  "Type": "CustomArgument",
+                  "Extensions": [],
+                  "CustomCommand": "bash -c command find ~/.yalc/packages -maxdepth 4 -iname \u0027package.json\u0027"
+                }
+              ],
+              "Optional": true
+            }
+          ]
+        },
+        {
+          "Name": "remove",
+          "Description": "Remove package info from \u0027package.json\u0027 \u0026 \u0027yalc.lock\u0027",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "--all",
+                  "Description": "Remove all packages from project",
+                  "Aliases": [],
+                  "Arguments": []
+                }
+              ],
+              "Optional": true
+            },
+            {
+              "Arguments": [
+                {
+                  "Name": "package",
+                  "Description": "package",
+                  "Type": "CustomArgument",
+                  "Extensions": [],
+                  "CustomCommand": "ls .yalc"
+                }
+              ],
+              "Optional": true
+            }
+          ]
+        },
+        {
+          "Name": "installations",
+          "Description": "",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "clean",
+                  "Description": "Unpublish a package published with yalc publish",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "package",
+                          "Description": "package",
+                          "Type": "CustomArgument",
+                          "Extensions": [],
+                          "CustomCommand": "bash -c command find ~/.yalc/packages -maxdepth 4 -iname \u0027package.json\u0027"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "show",
+                  "Description": "Show all packages to which chosen package has been added",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "package",
+                          "Description": "package",
+                          "Type": "CustomArgument",
+                          "Extensions": [],
+                          "CustomCommand": "bash -c command find ~/.yalc/packages -maxdepth 4 -iname \u0027package.json\u0027"
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ],
+              "DontAllowMultiple": true
+            }
+          ]
+        },
+        {
+          "Name": "dir",
+          "Description": "Show yalc system directory",
+          "Aliases": [],
+          "Arguments": []
+        },
+        {
+          "Name": "check",
+          "Description": "Check \u0027package.json\u0027 for yalc packages",
+          "Aliases": [],
+          "Arguments": []
+        },
+        {
+          "Name": "restore",
+          "Description": "Restore retreated packages",
+          "Aliases": [],
+          "Arguments": []
+        },
+        {
+          "Name": "retreat",
+          "Description": "Remove packages from project, but leave in lock file (to be restored later)",
+          "Aliases": [],
+          "Arguments": []
+        }
+      ],
+      "DontAllowMultiple": true
+    }
+  ]
+}

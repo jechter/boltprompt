@@ -1,0 +1,289 @@
+{
+  "Comment": "This command info is generated from fig",
+  "Name": "elm",
+  "Description": "Fig spec for the Elm language cli",
+  "Arguments": [
+    {
+      "Arguments": [
+        {
+          "Name": "--help",
+          "Description": "Show help for elm",
+          "Aliases": [],
+          "Arguments": []
+        }
+      ],
+      "Optional": true
+    },
+    {
+      "Arguments": [
+        {
+          "Name": "init",
+          "Description": "Initialize a new Elm project",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "--help",
+                  "Description": "Show help for elm init",
+                  "Aliases": [],
+                  "Arguments": []
+                }
+              ],
+              "Optional": true
+            }
+          ]
+        },
+        {
+          "Name": "repl",
+          "Description": "Start an Elm repl",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "--no-colors",
+                  "Description": "Turn off colors in the repl",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "--interpreter",
+                  "Description": "Path to an alternate JS interpreter, such as Node or Deno",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "interpreter",
+                          "Description": "interpreter",
+                          "Type": "String"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "--help",
+                  "Description": "Show help for elm repl",
+                  "Aliases": [],
+                  "Arguments": []
+                }
+              ],
+              "Optional": true
+            }
+          ]
+        },
+        {
+          "Name": "reactor",
+          "Description": "Start an Elm development server",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "--port",
+                  "Description": "The port to access the development server on",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "port",
+                          "Description": "port",
+                          "Type": "String"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "--help",
+                  "Description": "Show help for elm reactor",
+                  "Aliases": [],
+                  "Arguments": []
+                }
+              ],
+              "Optional": true
+            }
+          ]
+        },
+        {
+          "Name": "install",
+          "Description": "Install an Elm dependency",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "--help",
+                  "Description": "Show help for elm install",
+                  "Aliases": [],
+                  "Arguments": []
+                }
+              ],
+              "Optional": true
+            },
+            {
+              "Arguments": [
+                {
+                  "Name": "package",
+                  "Description": "package",
+                  "Type": "CustomArgument",
+                  "Extensions": [],
+                  "CustomCommand": "curl -sH accept-encoding: gzip --compressed https://package.elm-lang.org/search.json"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "Name": "make",
+          "Description": "Build your Elm code",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "--help",
+                  "Description": "Show help for elm make",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "--debug",
+                  "Description": "Compile in debug mode",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "--optimize",
+                  "Description": "Compile in production mode",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "--output",
+                  "Description": "Where to output the compiled code",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "output file",
+                          "Description": "output file",
+                          "Type": "String"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "--docs",
+                  "Description": "Generate a JSON file of documentation",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "output json",
+                          "Description": "output json",
+                          "Type": "String"
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ],
+              "Optional": true
+            },
+            {
+              "Arguments": [
+                {
+                  "Name": "source files",
+                  "Description": "source files",
+                  "Type": "FileSystemEntry"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "Name": "bump",
+          "Description": "Bump the version of your package",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "--help",
+                  "Description": "Show help for elm bump",
+                  "Aliases": [],
+                  "Arguments": []
+                }
+              ],
+              "Optional": true
+            }
+          ]
+        },
+        {
+          "Name": "diff",
+          "Description": "See what changed between versions of a package",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "--help",
+                  "Description": "Show help for elm diff",
+                  "Aliases": [],
+                  "Arguments": []
+                }
+              ],
+              "Optional": true
+            },
+            {
+              "Arguments": [
+                {
+                  "Name": "package",
+                  "Description": "package",
+                  "Type": "String"
+                }
+              ],
+              "Optional": true
+            },
+            {
+              "Arguments": [
+                {
+                  "Name": "version",
+                  "Description": "version",
+                  "Type": "String"
+                }
+              ],
+              "Optional": true
+            }
+          ]
+        },
+        {
+          "Name": "publish",
+          "Description": "Publish your package",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "--help",
+                  "Description": "Show help for elm publish",
+                  "Aliases": [],
+                  "Arguments": []
+                }
+              ],
+              "Optional": true
+            }
+          ]
+        }
+      ],
+      "DontAllowMultiple": true
+    }
+  ]
+}

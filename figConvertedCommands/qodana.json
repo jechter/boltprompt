@@ -1,0 +1,557 @@
+{
+  "Comment": "This command info is generated from fig",
+  "Name": "qodana",
+  "Description": "Run Qodana as fast as possible, with minimum effort required",
+  "Arguments": [
+    {
+      "Arguments": [
+        {
+          "Name": "-h",
+          "Description": "Show help page for command",
+          "Aliases": [
+            "--help"
+          ],
+          "Arguments": []
+        },
+        {
+          "Name": "-v",
+          "Description": "Version for Qodana",
+          "Aliases": [
+            "--version"
+          ],
+          "Arguments": []
+        }
+      ],
+      "Optional": true
+    },
+    {
+      "Arguments": [
+        {
+          "Name": "init",
+          "Description": "Configure project for Qodana",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "-i",
+                  "Description": "Root directory of the project to configure (default \u0022.\u0022)",
+                  "Aliases": [
+                    "--project-dir"
+                  ],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "string",
+                          "Description": "string",
+                          "Type": "Directory"
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ],
+              "Optional": true
+            }
+          ]
+        },
+        {
+          "Name": "scan",
+          "Description": "Scan a project with Qodana",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "-a",
+                  "Description": "Unique report identifier (GUID) to be used by Qodana Cloud",
+                  "Aliases": [
+                    "--analysis-id"
+                  ],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "string",
+                          "Description": "string",
+                          "Type": "String"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "-b",
+                  "Description": "Provide the path to an existing SARIF report to be used in the baseline state calculation",
+                  "Aliases": [
+                    "--baseline"
+                  ],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "string",
+                          "Description": "string",
+                          "Type": "String"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "--baseline-include-absent",
+                  "Description": "Include in the output report the results from the baseline run that are absent in the current run",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "--cache-dir",
+                  "Description": "Override cache directory (default \u003CuserCacheDir\u003E/JetBrains/\u003Clinter\u003E/cache)",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "string",
+                          "Description": "string",
+                          "Type": "String"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "-c",
+                  "Description": "Override the docker image to be used for the analysis",
+                  "Aliases": [
+                    "--changes"
+                  ],
+                  "Arguments": []
+                },
+                {
+                  "Name": "--clear-cache",
+                  "Description": "Clear the local Qodana cache before running the analysis",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "--disable-sanity",
+                  "Description": "Skip running the inspections configured by the sanity profile",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "-e",
+                  "Description": "Define additional environment variables for the Qodana container (you can use the flag multiple times). CLI is not reading full host environment variables and does not pass it to the Qodana container for security reasons",
+                  "Aliases": [
+                    "--env"
+                  ],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "stringArray",
+                          "Description": "stringArray",
+                          "Type": "String"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "--fail-threshold",
+                  "Description": "Set the number of problems that will serve as a quality gate. If this number is reached, the inspection run is terminated with a non-zero exit code",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "string",
+                          "Description": "string",
+                          "Type": "String"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "-l",
+                  "Description": "Override linter to use",
+                  "Aliases": [
+                    "--linter"
+                  ],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "string",
+                          "Description": "string",
+                          "Type": "String"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "--port",
+                  "Description": "Port to serve the report on (default 8080)",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "int",
+                          "Description": "int",
+                          "Type": "String"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "--print-problems",
+                  "Description": "Print all found problems by Qodana in the CLI output",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "-n",
+                  "Description": "Profile name defined in the project",
+                  "Aliases": [
+                    "--profile-name"
+                  ],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "string",
+                          "Description": "string",
+                          "Type": "String"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "-p",
+                  "Description": "Path to the profile file",
+                  "Aliases": [
+                    "--profile-path"
+                  ],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "string",
+                          "Description": "string",
+                          "Type": "FileSystemEntry"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "-i",
+                  "Description": "Root directory of the inspected project (default \u0022.\u0022)",
+                  "Aliases": [
+                    "--project-dir"
+                  ],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "string",
+                          "Description": "string",
+                          "Type": "Directory"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "--property",
+                  "Description": "Set a JVM property to be used while running Qodana using the --property property.name=value1,value2,...,valueN notation",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "stringArray",
+                          "Description": "stringArray",
+                          "Type": "String"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "-o",
+                  "Description": "Override directory to save Qodana inspection results to (default \u003CuserCacheDir\u003E/JetBrains/\u003Clinter\u003E/results)",
+                  "Aliases": [
+                    "--results-dir"
+                  ],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "string",
+                          "Description": "string",
+                          "Type": "String"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "--run-promo",
+                  "Description": "Set to \u0027true\u0027 to have the application run the inspections configured by the promo profile; set to \u0027false\u0027 otherwise (default: \u0027true\u0027 only if Qodana is executed with the default profile)",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "string",
+                          "Description": "string",
+                          "Type": "String"
+                        },
+                        {
+                          "Name": "true",
+                          "Description": "string"
+                        },
+                        {
+                          "Name": "false",
+                          "Description": "string"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "-s",
+                  "Description": "Generate HTML report (default true)",
+                  "Aliases": [
+                    "--save-report"
+                  ],
+                  "Arguments": []
+                },
+                {
+                  "Name": "--script",
+                  "Description": "Override the run scenario (default \u0022default\u0022)",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "string",
+                          "Description": "string",
+                          "Type": "String"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "--send-report",
+                  "Description": "Send the inspection report to Qodana Cloud, requires the \u0027--token\u0027 option to be specified",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "-w",
+                  "Description": "Serve HTML report on port",
+                  "Aliases": [
+                    "--show-report"
+                  ],
+                  "Arguments": []
+                },
+                {
+                  "Name": "--skip-pull",
+                  "Description": "Skip pulling the latest Qodana container",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "-d",
+                  "Description": "Directory inside the project-dir directory must be inspected. If not specified, the whole project is inspected",
+                  "Aliases": [
+                    "--source-directory"
+                  ],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "string",
+                          "Description": "string",
+                          "Type": "String"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "--stub-profile",
+                  "Description": "Absolute path to the fallback profile file. This option is applied in case the profile was not specified using any available options",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "string",
+                          "Description": "string",
+                          "Type": "String"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "-u",
+                  "Description": "User to run Qodana container as. Please specify user id \u2013 \u0027$UID\u0027 or user id and group id $(id -u):$(id -g). Use \u0027root\u0027 to run as the root user (default: the current user)",
+                  "Aliases": [
+                    "--user"
+                  ],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "string",
+                          "Description": "string",
+                          "Type": "String"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "-v",
+                  "Description": "Define additional volumes for the Qodana container (you can use the flag multiple times)",
+                  "Aliases": [
+                    "--volume"
+                  ],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "string",
+                          "Description": "string",
+                          "Type": "String"
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ],
+              "Optional": true
+            }
+          ]
+        },
+        {
+          "Name": "show",
+          "Description": "Show Qodana report",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "-d",
+                  "Description": "Open report directory only, don\u0027t serve it",
+                  "Aliases": [
+                    "--dir-only"
+                  ],
+                  "Arguments": []
+                },
+                {
+                  "Name": "-p",
+                  "Description": "Specify port to serve report at (default 8080)",
+                  "Aliases": [
+                    "--port"
+                  ],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "int",
+                          "Description": "int",
+                          "Type": "String"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "-i",
+                  "Description": "Root directory of the inspected project (default \u0022.\u0022)",
+                  "Aliases": [
+                    "--project-dir"
+                  ],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "string",
+                          "Description": "string",
+                          "Type": "Directory"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "-r",
+                  "Description": "Specify HTML report path (the one with index.html inside) (default \u003CuserCacheDir\u003E/JetBrains/\u003Clinter\u003E/results/report)",
+                  "Aliases": [
+                    "--report-dir"
+                  ],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "string",
+                          "Description": "string",
+                          "Type": "Directory"
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ],
+              "Optional": true
+            }
+          ]
+        },
+        {
+          "Name": "view",
+          "Description": "View SARIF files in CLI",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "-f",
+                  "Description": "Path to the SARIF file (default \u0022./qodana.sarif.json\u0022)",
+                  "Aliases": [
+                    "--sarif-file"
+                  ],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "string",
+                          "Description": "string",
+                          "Type": "FileSystemEntry"
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ],
+              "Optional": true
+            }
+          ]
+        }
+      ],
+      "DontAllowMultiple": true
+    }
+  ]
+}

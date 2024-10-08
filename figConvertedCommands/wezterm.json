@@ -1,0 +1,1384 @@
+{
+  "Comment": "This command info is generated from fig",
+  "Name": "wezterm",
+  "Description": "Wez\u0027s Terminal Emulator",
+  "Arguments": [
+    {
+      "Arguments": [
+        {
+          "Name": "--config-file",
+          "Description": "Specify the configuration file to use, overrides the normal configuration file resolution",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "config-file",
+                  "Description": "config-file",
+                  "Type": "FileSystemEntry"
+                }
+              ],
+              "Optional": true
+            }
+          ]
+        },
+        {
+          "Name": "--config",
+          "Description": "Override specific configuration values",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "name=value",
+                  "Description": "name=value",
+                  "Type": "String"
+                }
+              ],
+              "Optional": true
+            }
+          ]
+        },
+        {
+          "Name": "-h",
+          "Description": "Print help information",
+          "Aliases": [
+            "--help"
+          ],
+          "Arguments": []
+        },
+        {
+          "Name": "-V",
+          "Description": "Print version information",
+          "Aliases": [
+            "--version"
+          ],
+          "Arguments": []
+        },
+        {
+          "Name": "n",
+          "Description": "Skip loading wezterm.lua",
+          "Type": "Flag",
+          "Aliases": [],
+          "Arguments": []
+        }
+      ],
+      "Optional": true
+    },
+    {
+      "Arguments": [
+        {
+          "Name": "start",
+          "Description": "Start the GUI, optionally running an alternative program",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "--cwd",
+                  "Description": "Specify the current working directory for the initially spawned program",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "cwd",
+                          "Description": "cwd",
+                          "Type": "Directory"
+                        }
+                      ],
+                      "Optional": true
+                    }
+                  ]
+                },
+                {
+                  "Name": "--class",
+                  "Description": "Override the default windowing system class. The default is \u0022org.wezfurlong.wezterm\u0022. Under X11 and Windows this changes the window class. Under Wayland this changes the app_id. This changes the class for all windows spawned by this instance of wezterm, including error, update and ssh authentication dialogs",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "class",
+                          "Description": "class",
+                          "Type": "String"
+                        }
+                      ],
+                      "Optional": true
+                    }
+                  ]
+                },
+                {
+                  "Name": "--workspace",
+                  "Description": "Override the default workspace with the provided name. The default is \u0022default\u0022",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "workspace",
+                          "Description": "workspace",
+                          "Type": "String"
+                        }
+                      ],
+                      "Optional": true
+                    }
+                  ]
+                },
+                {
+                  "Name": "--position",
+                  "Description": "Override the position for the initial window launched by this process",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "position",
+                          "Description": "position",
+                          "Type": "String"
+                        }
+                      ],
+                      "Optional": true
+                    }
+                  ]
+                },
+                {
+                  "Name": "--no-auto-connect",
+                  "Description": "If true, do not connect to domains marked as connect_automatically in your wezterm configuration file",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "--always-new-process",
+                  "Description": "If enabled, don\u0027t try to ask an existing wezterm GUI instance to start the command.  Instead, always start the GUI in this invocation of wezterm so that you can wait for the command to complete by waiting for this wezterm process to finish",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "-h",
+                  "Description": "Print help information",
+                  "Aliases": [
+                    "--help"
+                  ],
+                  "Arguments": []
+                }
+              ],
+              "Optional": true
+            },
+            {
+              "Arguments": [
+                {
+                  "Name": "prog",
+                  "Description": "prog",
+                  "Type": "String"
+                }
+              ],
+              "Optional": true
+            }
+          ]
+        },
+        {
+          "Name": "ssh",
+          "Description": "Establish an ssh session",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "-o",
+                  "Description": "Override specific SSH configuration options. \u0060wezterm ssh\u0060 is able to parse some (but not all!) options from your \u0060~/.ssh/config\u0060 and \u0060/etc/ssh/ssh_config\u0060 files. This command line switch allows you to override or otherwise specify ssh_config style options",
+                  "Aliases": [
+                    "--ssh-option"
+                  ],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "name=value",
+                          "Description": "name=value",
+                          "Type": "String"
+                        }
+                      ],
+                      "Optional": true
+                    }
+                  ]
+                },
+                {
+                  "Name": "--class",
+                  "Description": "Override the default windowing system class. The default is \u0022org.wezfurlong.wezterm\u0022. Under X11 and Windows this changes the window class. Under Wayland this changes the app_id. This changes the class for all windows spawned by this instance of wezterm, including error, update and ssh authentication dialogs",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "class",
+                          "Description": "class",
+                          "Type": "String"
+                        }
+                      ],
+                      "Optional": true
+                    }
+                  ]
+                },
+                {
+                  "Name": "--position",
+                  "Description": "Override the position for the initial window launched by this process",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "position",
+                          "Description": "position",
+                          "Type": "String"
+                        }
+                      ],
+                      "Optional": true
+                    }
+                  ]
+                },
+                {
+                  "Name": "v",
+                  "Description": "Enable verbose ssh protocol tracing. The trace information is printed to the stderr stream of the process",
+                  "Type": "Flag",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "-h",
+                  "Description": "Print help information",
+                  "Aliases": [
+                    "--help"
+                  ],
+                  "Arguments": []
+                }
+              ],
+              "Optional": true
+            },
+            {
+              "Arguments": [
+                {
+                  "Name": "user-at-host-and-port",
+                  "Description": "user-at-host-and-port",
+                  "Type": "String"
+                }
+              ]
+            },
+            {
+              "Arguments": [
+                {
+                  "Name": "prog",
+                  "Description": "prog",
+                  "Type": "String"
+                }
+              ],
+              "Optional": true
+            }
+          ]
+        },
+        {
+          "Name": "serial",
+          "Description": "Open a serial port",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "--baud",
+                  "Description": "Set the baud rate.  The default is 9600 baud",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "baud",
+                          "Description": "baud",
+                          "Type": "String"
+                        }
+                      ],
+                      "Optional": true
+                    }
+                  ]
+                },
+                {
+                  "Name": "--class",
+                  "Description": "Override the default windowing system class. The default is \u0022org.wezfurlong.wezterm\u0022. Under X11 and Windows this changes the window class. Under Wayland this changes the app_id. This changes the class for all windows spawned by this instance of wezterm, including error, update and ssh authentication dialogs",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "class",
+                          "Description": "class",
+                          "Type": "String"
+                        }
+                      ],
+                      "Optional": true
+                    }
+                  ]
+                },
+                {
+                  "Name": "--position",
+                  "Description": "Override the position for the initial window launched by this process",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "position",
+                          "Description": "position",
+                          "Type": "String"
+                        }
+                      ],
+                      "Optional": true
+                    }
+                  ]
+                },
+                {
+                  "Name": "-h",
+                  "Description": "Print help information",
+                  "Aliases": [
+                    "--help"
+                  ],
+                  "Arguments": []
+                }
+              ],
+              "Optional": true
+            },
+            {
+              "Arguments": [
+                {
+                  "Name": "port",
+                  "Description": "port",
+                  "Type": "String"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "Name": "connect",
+          "Description": "Connect to wezterm multiplexer",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "--class",
+                  "Description": "Override the default windowing system class. The default is \u0022org.wezfurlong.wezterm\u0022. Under X11 and Windows this changes the window class. Under Wayland this changes the app_id. This changes the class for all windows spawned by this instance of wezterm, including error, update and ssh authentication dialogs",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "class",
+                          "Description": "class",
+                          "Type": "String"
+                        }
+                      ],
+                      "Optional": true
+                    }
+                  ]
+                },
+                {
+                  "Name": "--workspace",
+                  "Description": "Override the default workspace with the provided name. The default is \u0022default\u0022",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "workspace",
+                          "Description": "workspace",
+                          "Type": "String"
+                        }
+                      ],
+                      "Optional": true
+                    }
+                  ]
+                },
+                {
+                  "Name": "--position",
+                  "Description": "Override the position for the initial window launched by this process",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "position",
+                          "Description": "position",
+                          "Type": "String"
+                        }
+                      ],
+                      "Optional": true
+                    }
+                  ]
+                },
+                {
+                  "Name": "-h",
+                  "Description": "Print help information",
+                  "Aliases": [
+                    "--help"
+                  ],
+                  "Arguments": []
+                }
+              ],
+              "Optional": true
+            },
+            {
+              "Arguments": [
+                {
+                  "Name": "domain-name",
+                  "Description": "domain-name",
+                  "Type": "String"
+                }
+              ]
+            },
+            {
+              "Arguments": [
+                {
+                  "Name": "prog",
+                  "Description": "prog",
+                  "Type": "String"
+                }
+              ],
+              "Optional": true
+            }
+          ]
+        },
+        {
+          "Name": "ls-fonts",
+          "Description": "Display information about fonts",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "--text",
+                  "Description": "Explain which fonts are used to render the supplied text string",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "text",
+                          "Description": "text",
+                          "Type": "String"
+                        }
+                      ],
+                      "Optional": true
+                    }
+                  ]
+                },
+                {
+                  "Name": "--list-system",
+                  "Description": "Whether to list all fonts available to the system",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "--rasterize-ascii",
+                  "Description": "Show rasterized glyphs for the text in --text using ascii blocks",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "-h",
+                  "Description": "Print help information",
+                  "Aliases": [
+                    "--help"
+                  ],
+                  "Arguments": []
+                }
+              ],
+              "Optional": true
+            }
+          ]
+        },
+        {
+          "Name": "show-keys",
+          "Description": "Show key assignments",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "--key-table",
+                  "Description": "In lua mode, show only the named key table",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "key-table",
+                          "Description": "key-table",
+                          "Type": "String"
+                        }
+                      ],
+                      "Optional": true
+                    }
+                  ]
+                },
+                {
+                  "Name": "--lua",
+                  "Description": "Show the keys as lua config statements",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "-h",
+                  "Description": "Print help information",
+                  "Aliases": [
+                    "--help"
+                  ],
+                  "Arguments": []
+                }
+              ],
+              "Optional": true
+            }
+          ]
+        },
+        {
+          "Name": "cli",
+          "Description": "Interact with experimental mux server",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "--class",
+                  "Description": "When connecting to a gui instance, if you started the gui with \u0060--class SOMETHING\u0060, you should also pass that same value here in order for the client to find the correct gui instance",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "class",
+                          "Description": "class",
+                          "Type": "String"
+                        }
+                      ],
+                      "Optional": true
+                    }
+                  ]
+                },
+                {
+                  "Name": "--no-auto-start",
+                  "Description": "Don\u0027t automatically start the server",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "--prefer-mux",
+                  "Description": "Prefer connecting to a background mux server. The default is to prefer connecting to a running wezterm gui instance",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "-h",
+                  "Description": "Print help information",
+                  "Aliases": [
+                    "--help"
+                  ],
+                  "Arguments": []
+                }
+              ],
+              "Optional": true
+            },
+            {
+              "Arguments": [
+                {
+                  "Name": "list",
+                  "Description": "List windows, tabs and panes",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "--format",
+                          "Description": "Controls the output format. \u0022table\u0022 and \u0022json\u0022 are possible formats",
+                          "Aliases": [],
+                          "Arguments": [
+                            {
+                              "Arguments": [
+                                {
+                                  "Name": "format",
+                                  "Description": "format",
+                                  "Type": "String"
+                                }
+                              ],
+                              "Optional": true
+                            }
+                          ]
+                        },
+                        {
+                          "Name": "-h",
+                          "Description": "Print help information",
+                          "Aliases": [
+                            "--help"
+                          ],
+                          "Arguments": []
+                        }
+                      ],
+                      "Optional": true
+                    }
+                  ]
+                },
+                {
+                  "Name": "list-clients",
+                  "Description": "List clients",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "--format",
+                          "Description": "Controls the output format. \u0022table\u0022 and \u0022json\u0022 are possible formats",
+                          "Aliases": [],
+                          "Arguments": [
+                            {
+                              "Arguments": [
+                                {
+                                  "Name": "format",
+                                  "Description": "format",
+                                  "Type": "String"
+                                }
+                              ],
+                              "Optional": true
+                            }
+                          ]
+                        },
+                        {
+                          "Name": "-h",
+                          "Description": "Print help information",
+                          "Aliases": [
+                            "--help"
+                          ],
+                          "Arguments": []
+                        }
+                      ],
+                      "Optional": true
+                    }
+                  ]
+                },
+                {
+                  "Name": "proxy",
+                  "Description": "Start rpc proxy pipe",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "-h",
+                          "Description": "Print help information",
+                          "Aliases": [
+                            "--help"
+                          ],
+                          "Arguments": []
+                        }
+                      ],
+                      "Optional": true
+                    }
+                  ]
+                },
+                {
+                  "Name": "tlscreds",
+                  "Description": "Obtain tls credentials",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "-h",
+                          "Description": "Print help information",
+                          "Aliases": [
+                            "--help"
+                          ],
+                          "Arguments": []
+                        }
+                      ],
+                      "Optional": true
+                    }
+                  ]
+                },
+                {
+                  "Name": "move-pane-to-new-tab",
+                  "Description": "Move a pane into a new tab",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "--pane-id",
+                          "Description": "Specify the pane that should be moved. The default is to use the current pane based on the environment variable WEZTERM_PANE",
+                          "Aliases": [],
+                          "Arguments": [
+                            {
+                              "Arguments": [
+                                {
+                                  "Name": "pane-id",
+                                  "Description": "pane-id",
+                                  "Type": "String"
+                                }
+                              ],
+                              "Optional": true
+                            }
+                          ]
+                        },
+                        {
+                          "Name": "--window-id",
+                          "Description": "Specify the window into which the new tab will be created. If omitted, the window associated with the current pane is used",
+                          "Aliases": [],
+                          "Arguments": [
+                            {
+                              "Arguments": [
+                                {
+                                  "Name": "window-id",
+                                  "Description": "window-id",
+                                  "Type": "String"
+                                }
+                              ],
+                              "Optional": true
+                            }
+                          ]
+                        },
+                        {
+                          "Name": "--workspace",
+                          "Description": "If creating a new window, override the default workspace name with the provided name.  The default name is \u0022default\u0022",
+                          "Aliases": [],
+                          "Arguments": [
+                            {
+                              "Arguments": [
+                                {
+                                  "Name": "workspace",
+                                  "Description": "workspace",
+                                  "Type": "String"
+                                }
+                              ],
+                              "Optional": true
+                            }
+                          ]
+                        },
+                        {
+                          "Name": "--new-window",
+                          "Description": "Create tab in a new window, rather than the window currently containing the pane",
+                          "Aliases": [],
+                          "Arguments": []
+                        },
+                        {
+                          "Name": "-h",
+                          "Description": "Print help information",
+                          "Aliases": [
+                            "--help"
+                          ],
+                          "Arguments": []
+                        }
+                      ],
+                      "Optional": true
+                    }
+                  ]
+                },
+                {
+                  "Name": "split-pane",
+                  "Description": "Split the current pane. Outputs the pane-id for the newly created pane on success",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "--pane-id",
+                          "Description": "Specify the pane that should be split. The default is to use the current pane based on the environment variable WEZTERM_PANE",
+                          "Aliases": [],
+                          "Arguments": [
+                            {
+                              "Arguments": [
+                                {
+                                  "Name": "pane-id",
+                                  "Description": "pane-id",
+                                  "Type": "String"
+                                }
+                              ],
+                              "Optional": true
+                            }
+                          ]
+                        },
+                        {
+                          "Name": "--cells",
+                          "Description": "The number of cells that the new split should have. If omitted, 50% of the available space is used",
+                          "Aliases": [],
+                          "Arguments": [
+                            {
+                              "Arguments": [
+                                {
+                                  "Name": "cells",
+                                  "Description": "cells",
+                                  "Type": "String"
+                                }
+                              ],
+                              "Optional": true
+                            }
+                          ]
+                        },
+                        {
+                          "Name": "--percent",
+                          "Description": "Specify the number of cells that the new split should have, expressed as a percentage of the available space",
+                          "Aliases": [],
+                          "Arguments": [
+                            {
+                              "Arguments": [
+                                {
+                                  "Name": "percent",
+                                  "Description": "percent",
+                                  "Type": "String"
+                                }
+                              ],
+                              "Optional": true
+                            }
+                          ]
+                        },
+                        {
+                          "Name": "--cwd",
+                          "Description": "Specify the current working directory for the initially spawned program",
+                          "Aliases": [],
+                          "Arguments": [
+                            {
+                              "Arguments": [
+                                {
+                                  "Name": "cwd",
+                                  "Description": "cwd",
+                                  "Type": "Directory"
+                                }
+                              ],
+                              "Optional": true
+                            }
+                          ]
+                        },
+                        {
+                          "Name": "--move-pane-id",
+                          "Description": "Instead of spawning a new command, move the specified pane into the newly created split",
+                          "Aliases": [],
+                          "Arguments": [
+                            {
+                              "Arguments": [
+                                {
+                                  "Name": "move-pane-id",
+                                  "Description": "move-pane-id",
+                                  "Type": "String"
+                                }
+                              ],
+                              "Optional": true
+                            }
+                          ]
+                        },
+                        {
+                          "Name": "--horizontal",
+                          "Description": "Equivalent to \u0060--right\u0060. If neither this nor any other direction is specified, the default is equivalent to \u0060--bottom\u0060",
+                          "Aliases": [],
+                          "Arguments": []
+                        },
+                        {
+                          "Name": "--left",
+                          "Description": "Split horizontally, with the new pane on the left",
+                          "Aliases": [],
+                          "Arguments": []
+                        },
+                        {
+                          "Name": "--right",
+                          "Description": "Split horizontally, with the new pane on the right",
+                          "Aliases": [],
+                          "Arguments": []
+                        },
+                        {
+                          "Name": "--top",
+                          "Description": "Split vertically, with the new pane on the top",
+                          "Aliases": [],
+                          "Arguments": []
+                        },
+                        {
+                          "Name": "--bottom",
+                          "Description": "Split vertically, with the new pane on the bottom",
+                          "Aliases": [],
+                          "Arguments": []
+                        },
+                        {
+                          "Name": "--top-level",
+                          "Description": "Rather than splitting the active pane, split the entire window",
+                          "Aliases": [],
+                          "Arguments": []
+                        },
+                        {
+                          "Name": "-h",
+                          "Description": "Print help information",
+                          "Aliases": [
+                            "--help"
+                          ],
+                          "Arguments": []
+                        }
+                      ],
+                      "Optional": true
+                    },
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "prog",
+                          "Description": "prog",
+                          "Type": "String"
+                        }
+                      ],
+                      "Optional": true
+                    }
+                  ]
+                },
+                {
+                  "Name": "spawn",
+                  "Description": "Spawn a command into a new window or tab. Outputs the pane-id for the newly created pane on success",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "--pane-id",
+                          "Description": "Specify the current pane. The default is to use the current pane based on the environment variable WEZTERM_PANE. The pane is used to determine the current domain and window",
+                          "Aliases": [],
+                          "Arguments": [
+                            {
+                              "Arguments": [
+                                {
+                                  "Name": "pane-id",
+                                  "Description": "pane-id",
+                                  "Type": "String"
+                                }
+                              ],
+                              "Optional": true
+                            }
+                          ]
+                        },
+                        {
+                          "Name": "--domain-name",
+                          "Description": "",
+                          "Aliases": [],
+                          "Arguments": [
+                            {
+                              "Arguments": [
+                                {
+                                  "Name": "domain-name",
+                                  "Description": "domain-name",
+                                  "Type": "String"
+                                }
+                              ],
+                              "Optional": true
+                            }
+                          ]
+                        },
+                        {
+                          "Name": "--window-id",
+                          "Description": "Specify the window into which to spawn a tab. If omitted, the window associated with the current pane is used. Cannot be used with \u0060--workspace\u0060 or \u0060--new-window\u0060",
+                          "Aliases": [],
+                          "Arguments": [
+                            {
+                              "Arguments": [
+                                {
+                                  "Name": "window-id",
+                                  "Description": "window-id",
+                                  "Type": "String"
+                                }
+                              ],
+                              "Optional": true
+                            }
+                          ]
+                        },
+                        {
+                          "Name": "--cwd",
+                          "Description": "Specify the current working directory for the initially spawned program",
+                          "Aliases": [],
+                          "Arguments": [
+                            {
+                              "Arguments": [
+                                {
+                                  "Name": "cwd",
+                                  "Description": "cwd",
+                                  "Type": "Directory"
+                                }
+                              ],
+                              "Optional": true
+                            }
+                          ]
+                        },
+                        {
+                          "Name": "--workspace",
+                          "Description": "When creating a new window, override the default workspace name with the provided name.  The default name is \u0022default\u0022",
+                          "Aliases": [],
+                          "Arguments": [
+                            {
+                              "Arguments": [
+                                {
+                                  "Name": "workspace",
+                                  "Description": "workspace",
+                                  "Type": "String"
+                                }
+                              ],
+                              "Optional": true
+                            }
+                          ]
+                        },
+                        {
+                          "Name": "--new-window",
+                          "Description": "Spawn into a new window, rather than a new tab",
+                          "Aliases": [],
+                          "Arguments": []
+                        },
+                        {
+                          "Name": "-h",
+                          "Description": "Print help information",
+                          "Aliases": [
+                            "--help"
+                          ],
+                          "Arguments": []
+                        }
+                      ],
+                      "Optional": true
+                    },
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "prog",
+                          "Description": "prog",
+                          "Type": "String"
+                        }
+                      ],
+                      "Optional": true
+                    }
+                  ]
+                },
+                {
+                  "Name": "send-text",
+                  "Description": "Send text to a pane as though it were pasted. If bracketed paste mode is enabled in the pane, then the text will be sent as a bracketed paste",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "--pane-id",
+                          "Description": "Specify the target pane. The default is to use the current pane based on the environment variable WEZTERM_PANE",
+                          "Aliases": [],
+                          "Arguments": [
+                            {
+                              "Arguments": [
+                                {
+                                  "Name": "pane-id",
+                                  "Description": "pane-id",
+                                  "Type": "String"
+                                }
+                              ],
+                              "Optional": true
+                            }
+                          ]
+                        },
+                        {
+                          "Name": "--no-paste",
+                          "Description": "Send the text directly, rather than as a bracketed paste",
+                          "Aliases": [],
+                          "Arguments": []
+                        },
+                        {
+                          "Name": "-h",
+                          "Description": "Print help information",
+                          "Aliases": [
+                            "--help"
+                          ],
+                          "Arguments": []
+                        }
+                      ],
+                      "Optional": true
+                    },
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "text",
+                          "Description": "text",
+                          "Type": "String"
+                        }
+                      ],
+                      "Optional": true
+                    }
+                  ]
+                },
+                {
+                  "Name": "help",
+                  "Description": "Print this message or the help of the given subcommand(s)",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "subcommand",
+                          "Description": "subcommand",
+                          "Type": "String"
+                        }
+                      ],
+                      "Optional": true
+                    }
+                  ]
+                }
+              ],
+              "DontAllowMultiple": true
+            }
+          ]
+        },
+        {
+          "Name": "imgcat",
+          "Description": "Output an image to the terminal",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "--width",
+                  "Description": "Specify the display width; defaults to \u0022auto\u0022 which automatically selects an appropriate size.  You may also use an integer value \u0060N\u0060 to specify the number of cells, or \u0060Npx\u0060 to specify the number of pixels, or \u0060N%\u0060 to size relative to the terminal width",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "width",
+                          "Description": "width",
+                          "Type": "String"
+                        }
+                      ],
+                      "Optional": true
+                    }
+                  ]
+                },
+                {
+                  "Name": "--height",
+                  "Description": "Specify the display height; defaults to \u0022auto\u0022 which automatically selects an appropriate size.  You may also use an integer value \u0060N\u0060 to specify the number of cells, or \u0060Npx\u0060 to specify the number of pixels, or \u0060N%\u0060 to size relative to the terminal height",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "height",
+                          "Description": "height",
+                          "Type": "String"
+                        }
+                      ],
+                      "Optional": true
+                    }
+                  ]
+                },
+                {
+                  "Name": "--no-preserve-aspect-ratio",
+                  "Description": "Do not respect the aspect ratio.  The default is to respect the aspect ratio",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "-h",
+                  "Description": "Print help information",
+                  "Aliases": [
+                    "--help"
+                  ],
+                  "Arguments": []
+                }
+              ],
+              "Optional": true
+            },
+            {
+              "Arguments": [
+                {
+                  "Name": "file-name",
+                  "Description": "file-name",
+                  "Type": "FileSystemEntry"
+                }
+              ],
+              "Optional": true
+            }
+          ]
+        },
+        {
+          "Name": "set-working-directory",
+          "Description": "Advise the terminal of the current working directory by emitting an OSC 7 escape sequence",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "-h",
+                  "Description": "Print help information",
+                  "Aliases": [
+                    "--help"
+                  ],
+                  "Arguments": []
+                }
+              ],
+              "Optional": true
+            },
+            {
+              "Arguments": [
+                {
+                  "Name": "cwd",
+                  "Description": "cwd",
+                  "Type": "Directory"
+                }
+              ],
+              "Optional": true
+            },
+            {
+              "Arguments": [
+                {
+                  "Name": "host",
+                  "Description": "host",
+                  "Type": "String"
+                }
+              ],
+              "Optional": true
+            }
+          ]
+        },
+        {
+          "Name": "record",
+          "Description": "Record a terminal session as an asciicast",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "-h",
+                  "Description": "Print help information",
+                  "Aliases": [
+                    "--help"
+                  ],
+                  "Arguments": []
+                }
+              ],
+              "Optional": true
+            },
+            {
+              "Arguments": [
+                {
+                  "Name": "prog",
+                  "Description": "prog",
+                  "Type": "String"
+                }
+              ],
+              "Optional": true
+            }
+          ]
+        },
+        {
+          "Name": "replay",
+          "Description": "Replay an asciicast terminal session",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "--explain",
+                  "Description": "Explain what is being sent/received",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "-h",
+                  "Description": "Print help information",
+                  "Aliases": [
+                    "--help"
+                  ],
+                  "Arguments": []
+                }
+              ],
+              "Optional": true
+            },
+            {
+              "Arguments": [
+                {
+                  "Name": "cast-file",
+                  "Description": "cast-file",
+                  "Type": "String"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "Name": "shell-completion",
+          "Description": "Generate shell completion information",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "--shell",
+                  "Description": "Which shell to generate for",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "shell",
+                          "Description": "shell",
+                          "Type": "String"
+                        },
+                        {
+                          "Name": "bash",
+                          "Description": "shell"
+                        },
+                        {
+                          "Name": "elvish",
+                          "Description": "shell"
+                        },
+                        {
+                          "Name": "fish",
+                          "Description": "shell"
+                        },
+                        {
+                          "Name": "power-shell",
+                          "Description": "shell"
+                        },
+                        {
+                          "Name": "zsh",
+                          "Description": "shell"
+                        },
+                        {
+                          "Name": "fig",
+                          "Description": "shell"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "-h",
+                  "Description": "Print help information",
+                  "Aliases": [
+                    "--help"
+                  ],
+                  "Arguments": []
+                }
+              ],
+              "Optional": true
+            }
+          ]
+        },
+        {
+          "Name": "help",
+          "Description": "Print this message or the help of the given subcommand(s)",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "subcommand",
+                  "Description": "subcommand",
+                  "Type": "String"
+                }
+              ],
+              "Optional": true
+            }
+          ]
+        }
+      ],
+      "DontAllowMultiple": true
+    }
+  ]
+}

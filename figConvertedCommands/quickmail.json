@@ -1,0 +1,335 @@
+{
+  "Comment": "This command info is generated from fig",
+  "Name": "quickmail",
+  "Description": "Quickmail is a terminal-based solution to send mails",
+  "Arguments": [
+    {
+      "Arguments": [
+        {
+          "Name": "-v",
+          "Description": "Output cli version",
+          "Aliases": [
+            "--version"
+          ],
+          "Arguments": []
+        },
+        {
+          "Name": "-h",
+          "Description": "Output cli help",
+          "Aliases": [
+            "--help"
+          ],
+          "Arguments": []
+        }
+      ],
+      "Optional": true
+    },
+    {
+      "Arguments": [
+        {
+          "Name": "init",
+          "Description": "Initialise cli",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "-h",
+                  "Description": "Get help regarding init command",
+                  "Aliases": [
+                    "--help"
+                  ],
+                  "Arguments": []
+                }
+              ],
+              "Optional": true
+            },
+            {
+              "Arguments": [
+                {
+                  "Name": "FileSystemEntry",
+                  "Description": "",
+                  "Type": "FileSystemEntry"
+                }
+              ],
+              "Optional": true
+            }
+          ]
+        },
+        {
+          "Name": "clear",
+          "Description": "Clear the files stored locally",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "-h",
+                  "Description": "Get help regarding clear command",
+                  "Aliases": [
+                    "--help"
+                  ],
+                  "Arguments": []
+                },
+                {
+                  "Name": "-j",
+                  "Description": "Clear entire cli storage including token",
+                  "Aliases": [
+                    "--justdoit"
+                  ],
+                  "Arguments": []
+                }
+              ],
+              "Optional": true
+            }
+          ]
+        },
+        {
+          "Name": "send",
+          "Description": "Send mail",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "-h",
+                  "Description": "Get help regarding send command",
+                  "Aliases": [
+                    "--help"
+                  ],
+                  "Arguments": []
+                },
+                {
+                  "Name": "-r",
+                  "Description": "Receiver\u0027s email address",
+                  "Aliases": [
+                    "--receiver"
+                  ],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "receiver",
+                          "Description": "receiver",
+                          "Type": "String"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "-sub",
+                  "Description": "Subject of mail",
+                  "Aliases": [
+                    "--subject"
+                  ],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "Subject",
+                          "Description": "Subject",
+                          "Type": "String"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "-t",
+                  "Description": "Templates for mail body",
+                  "Aliases": [
+                    "--template"
+                  ],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "Template",
+                          "Description": "Template",
+                          "Type": "CustomArgument",
+                          "Extensions": [],
+                          "CustomCommand": "quickmail template listall"
+                        }
+                      ],
+                      "Optional": true
+                    }
+                  ]
+                },
+                {
+                  "Name": "-b",
+                  "Description": "Body of the mail",
+                  "Aliases": [
+                    "--body"
+                  ],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "Body",
+                          "Description": "Body",
+                          "Type": "String"
+                        }
+                      ],
+                      "Optional": true
+                    }
+                  ]
+                },
+                {
+                  "Name": "-a",
+                  "Description": "Path to attachment file",
+                  "Aliases": [
+                    "--attachment"
+                  ],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "Attachment file",
+                          "Description": "Attachment file",
+                          "Type": "FileSystemEntry"
+                        }
+                      ],
+                      "Optional": true
+                    }
+                  ]
+                },
+                {
+                  "Name": "-l",
+                  "Description": "Skip confirmation, and send mail",
+                  "Aliases": [
+                    "--lessgo"
+                  ],
+                  "Arguments": []
+                }
+              ],
+              "Optional": true
+            }
+          ]
+        },
+        {
+          "Name": "template",
+          "Description": "Manage templates",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "-h",
+                  "Description": "Get help regarding template command",
+                  "Aliases": [
+                    "--help"
+                  ],
+                  "Arguments": []
+                }
+              ],
+              "Optional": true
+            },
+            {
+              "Arguments": [
+                {
+                  "Name": "add",
+                  "Description": "Add a new template",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "-h",
+                          "Description": "Get help regarding template add subcommand",
+                          "Aliases": [
+                            "--help"
+                          ],
+                          "Arguments": []
+                        },
+                        {
+                          "Name": "n",
+                          "Description": "Set template id",
+                          "Type": "Flag",
+                          "Aliases": [],
+                          "Arguments": [
+                            {
+                              "Arguments": [
+                                {
+                                  "Name": "Template id",
+                                  "Description": "Template id",
+                                  "Type": "String"
+                                }
+                              ]
+                            }
+                          ]
+                        }
+                      ],
+                      "Optional": true
+                    }
+                  ]
+                },
+                {
+                  "Name": "listall",
+                  "Description": "List all templates stored",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "-h",
+                          "Description": "Get help regarding template listall subcommand",
+                          "Aliases": [
+                            "--help"
+                          ],
+                          "Arguments": []
+                        }
+                      ],
+                      "Optional": true
+                    }
+                  ]
+                },
+                {
+                  "Name": "edit",
+                  "Description": "Edit any particular template",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "-h",
+                          "Description": "Get help regarding template edit subcommand",
+                          "Aliases": [
+                            "--help"
+                          ],
+                          "Arguments": []
+                        },
+                        {
+                          "Name": "n",
+                          "Description": "Edit template by id",
+                          "Type": "Flag",
+                          "Aliases": [],
+                          "Arguments": [
+                            {
+                              "Arguments": [
+                                {
+                                  "Name": "Template id",
+                                  "Description": "Template id",
+                                  "Type": "CustomArgument",
+                                  "Extensions": [],
+                                  "CustomCommand": "quickmail template listall"
+                                }
+                              ]
+                            }
+                          ]
+                        }
+                      ],
+                      "Optional": true
+                    }
+                  ]
+                }
+              ],
+              "DontAllowMultiple": true
+            }
+          ]
+        }
+      ],
+      "DontAllowMultiple": true
+    }
+  ]
+}

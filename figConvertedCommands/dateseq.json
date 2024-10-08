@@ -1,0 +1,182 @@
+{
+  "Comment": "This command info is generated from fig",
+  "Name": "dateseq",
+  "Description": "Nifty command line date and time utilities; fast date calculations and conversion in the shell",
+  "Arguments": [
+    {
+      "Arguments": [
+        {
+          "Name": "--help",
+          "Description": "Print help and exit",
+          "Aliases": [
+            "-h"
+          ],
+          "Arguments": []
+        },
+        {
+          "Name": "--version",
+          "Description": "Print version and exit",
+          "Aliases": [
+            "-V"
+          ],
+          "Arguments": []
+        },
+        {
+          "Name": "--quiet",
+          "Description": "Suppress message about date/time and duration parse errors and fix-ups",
+          "Aliases": [
+            "-q"
+          ],
+          "Arguments": []
+        },
+        {
+          "Name": "-f",
+          "Description": "Output format. This can either be a specifier string (similar to strftime()\u0027s FMT) or the name of a calendar",
+          "Aliases": [
+            "--format"
+          ],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "string",
+                  "Description": "string",
+                  "Type": "String"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "Name": "-i",
+          "Description": "Input format, can be used multiple times. Each date/time will be passed to the input format parsers in the order they are given, if a date/time can be read successfully with a given input format specifier string, that value will be used",
+          "Aliases": [
+            "--input-format"
+          ],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "input format",
+                  "Description": "input format",
+                  "Type": "String"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "Name": "-b",
+          "Description": "For underspecified input use DT as a fallback to fill in missing fields. Also used for ambiguous format specifiers to position their range on the absolute time line. Must be a date/time in ISO8601 format. If omitted defaults to the current date/time",
+          "Aliases": [
+            "--base"
+          ],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "base",
+                  "Description": "base",
+                  "Type": "String"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "Name": "-e",
+          "Description": "Enable interpretation of backslash escapes in the output and input format specifier strings",
+          "Aliases": [
+            "--backslash-escapes"
+          ],
+          "Arguments": []
+        },
+        {
+          "Name": "--locale",
+          "Description": "Format results according to LOCALE, this would only affect month and weekday names",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "locale",
+                  "Description": "locale",
+                  "Type": "String"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "Name": "-s",
+          "Description": "Skip weekdays specified by WEEKDAY. WEEKDAY can be a single weekday (Mon, Tue, etc.), and to skip several days the --skip option can be used multiple times. WEEKDAY can also be a comma-separated list of weekday names, or \u0060ss\u0027 to skip weekends (sat\u002Bsun) altogether. WEEKDAY can also contain date ranges like \u0060mo-we\u0027 for Monday to Wednesday",
+          "Aliases": [
+            "--skip"
+          ],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "weekday",
+                  "Description": "weekday",
+                  "Type": "String"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "Name": "--alt-inc",
+          "Description": "Alternative increment to use when a date is hit that is skipped as per --skip. This increment will be applied until a non-skipped date is reached. The special case \u00600\u0027 (default) deactivates alternative incrementing.  A useful value could be \u00601d\u0027 for increasing sequences and \u0060-1d\u0027 for decreasing sequences, so if a skipped date is encountered the next non-skipped date after/before will be used",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "alternative increment",
+                  "Description": "alternative increment",
+                  "Type": "String"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "Name": "--compute-from-last",
+          "Description": "Compute a start value from LAST using INCREMENT. This option has an effect only when INCREMENT is not a divisor of the duration between FIRST and LAST. In such case, an alternative FIRST will be computed by consecutively subtracting INCREMENT from LAST until FIRST is hit or crossed",
+          "Aliases": [],
+          "Arguments": []
+        }
+      ],
+      "Optional": true
+    },
+    {
+      "Arguments": [
+        {
+          "Name": "FIRST",
+          "Description": "FIRST",
+          "Type": "String"
+        }
+      ]
+    },
+    {
+      "Arguments": [
+        {
+          "Name": "INCREMENT",
+          "Description": "INCREMENT",
+          "Type": "String"
+        }
+      ],
+      "Optional": true
+    },
+    {
+      "Arguments": [
+        {
+          "Name": "LAST",
+          "Description": "LAST",
+          "Type": "String"
+        }
+      ]
+    }
+  ]
+}

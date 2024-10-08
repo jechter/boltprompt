@@ -1,0 +1,5136 @@
+{
+  "Comment": "This command info is generated from fig",
+  "Name": "tmux",
+  "Description": "A terminal multiplexer",
+  "Arguments": [
+    {
+      "Arguments": [
+        {
+          "Name": "a",
+          "Description": "Attach to last session",
+          "Aliases": [
+            "at",
+            "attach",
+            "attach-session"
+          ],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "d",
+                  "Description": "Detach all others clients to the session",
+                  "Type": "Flag",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "x",
+                  "Description": "Send SIGHUP to the parent process and detach the client",
+                  "Type": "Flag",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "f",
+                  "Description": "Set client flags",
+                  "Type": "Flag",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "flags",
+                          "Description": "flags",
+                          "Type": "String"
+                        },
+                        {
+                          "Name": "active-pane",
+                          "Description": "flags"
+                        },
+                        {
+                          "Name": "ignore-size",
+                          "Description": "flags"
+                        },
+                        {
+                          "Name": "no-output",
+                          "Description": "flags"
+                        },
+                        {
+                          "Name": "pause-after",
+                          "Description": "flags"
+                        },
+                        {
+                          "Name": "read-only",
+                          "Description": "flags"
+                        },
+                        {
+                          "Name": "wait-exit",
+                          "Description": "flags"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "c",
+                  "Description": "Set the session\u0027s working directory",
+                  "Type": "Flag",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "working-directory",
+                          "Description": "working-directory",
+                          "Type": "Directory"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "E",
+                  "Description": "Don\u0027t use update-environment option",
+                  "Type": "Flag",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "t",
+                  "Description": "Attach to a session with the given name",
+                  "Type": "Flag",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "target-session",
+                          "Description": "target-session",
+                          "Type": "CustomArgument",
+                          "Extensions": [],
+                          "CustomCommand": "tmux ls"
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ],
+              "Optional": true
+            }
+          ]
+        },
+        {
+          "Name": "bind",
+          "Description": "Bind a key to a command",
+          "Aliases": [
+            "bind-key"
+          ],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "n",
+                  "Description": "Alias for -T root",
+                  "Type": "Flag",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "r",
+                  "Description": "Indicate that this key may repeat",
+                  "Type": "Flag",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "N",
+                  "Description": "Attach a note to the key",
+                  "Type": "Flag",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "note",
+                          "Description": "note",
+                          "Type": "String"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "T",
+                  "Description": "The key table to use",
+                  "Type": "Flag",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "key-table",
+                          "Description": "key-table",
+                          "Type": "String"
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ],
+              "Optional": true
+            },
+            {
+              "Arguments": [
+                {
+                  "Name": "key",
+                  "Description": "key",
+                  "Type": "String"
+                }
+              ]
+            },
+            {
+              "Arguments": [
+                {
+                  "Name": "command",
+                  "Description": "command",
+                  "Type": "String"
+                }
+              ]
+            },
+            {
+              "Arguments": [
+                {
+                  "Name": "arguments",
+                  "Description": "arguments",
+                  "Type": "String"
+                }
+              ],
+              "Optional": true
+            }
+          ]
+        },
+        {
+          "Name": "breakp",
+          "Description": "Break a pane from an exiting into a new window",
+          "Aliases": [
+            "break-pane"
+          ],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "a",
+                  "Description": "Move the window to the next index after",
+                  "Type": "Flag",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "b",
+                  "Description": "Move the window to the next index before",
+                  "Type": "Flag",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "d",
+                  "Description": "The new windows does not become the current window",
+                  "Type": "Flag",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "P",
+                  "Description": "Print information about the new window",
+                  "Type": "Flag",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "F",
+                  "Description": "Format output",
+                  "Type": "Flag",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "format",
+                          "Description": "format",
+                          "Type": "String"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "n",
+                  "Description": "The target window",
+                  "Type": "Flag",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "window-name",
+                          "Description": "window-name",
+                          "Type": "CustomArgument",
+                          "Extensions": [],
+                          "CustomCommand": "tmux lsw"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "s",
+                  "Description": "The source pane",
+                  "Type": "Flag",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "src-pane",
+                          "Description": "src-pane",
+                          "Type": "CustomArgument",
+                          "Extensions": [],
+                          "CustomCommand": "tmux lsp"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "t",
+                  "Description": "The destination window",
+                  "Type": "Flag",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "window-name",
+                          "Description": "window-name",
+                          "Type": "CustomArgument",
+                          "Extensions": [],
+                          "CustomCommand": "tmux lsw"
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ],
+              "Optional": true
+            }
+          ]
+        },
+        {
+          "Name": "capturep",
+          "Description": "Capture the contents of a pane to a buffer",
+          "Aliases": [
+            "capture-pane"
+          ],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "a",
+                  "Description": "Use the alternate screen and history is not accessible",
+                  "Type": "Flag",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "e",
+                  "Description": "Include escape sequences for text and background attributes",
+                  "Type": "Flag",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "p",
+                  "Description": "Redirect output to stdout",
+                  "Type": "Flag",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "P",
+                  "Description": "Capture only outputs that is the beginning of an as-yet incomplete escape sequence",
+                  "Type": "Flag",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "q",
+                  "Description": "Do not throw an error if not alternate screen is found",
+                  "Type": "Flag",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "C",
+                  "Description": "Escape non-printable characters as octal",
+                  "Type": "Flag",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "J",
+                  "Description": "Preserve trailing spaces and join any wrapped lines",
+                  "Type": "Flag",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "N",
+                  "Description": "Preserve trailing spaces at each line\u0027s end",
+                  "Type": "Flag",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "b",
+                  "Description": "The buffer name",
+                  "Type": "Flag",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "buffer-name",
+                          "Description": "buffer-name",
+                          "Type": "CustomArgument",
+                          "Extensions": [],
+                          "CustomCommand": "tmux lsb"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "E",
+                  "Description": "Ending line number",
+                  "Type": "Flag",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "end-line",
+                          "Description": "end-line",
+                          "Type": "String"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "S",
+                  "Description": "Starting line number",
+                  "Type": "Flag",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "start-line",
+                          "Description": "start-line",
+                          "Type": "String"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "t",
+                  "Description": "The target pane",
+                  "Type": "Flag",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "src-pane",
+                          "Description": "src-pane",
+                          "Type": "CustomArgument",
+                          "Extensions": [],
+                          "CustomCommand": "tmux lsp"
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ],
+              "Optional": true
+            }
+          ]
+        },
+        {
+          "Name": "choose-buffer",
+          "Description": "Put a pane into buffer choice mode",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "N",
+                  "Description": "Start without the preview",
+                  "Type": "Flag",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "Z",
+                  "Description": "Zoom the pane",
+                  "Type": "Flag",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "r",
+                  "Description": "Reverse the sort order",
+                  "Type": "Flag",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "F",
+                  "Description": "Format output",
+                  "Type": "Flag",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "format",
+                          "Description": "format",
+                          "Type": "String"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "f",
+                  "Description": "Specify an initial filter",
+                  "Type": "Flag",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "filter",
+                          "Description": "filter",
+                          "Type": "String"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "O",
+                  "Description": "Specify the sort order",
+                  "Type": "Flag",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "sort-order",
+                          "Description": "sort-order",
+                          "Type": "String"
+                        },
+                        {
+                          "Name": "time",
+                          "Description": "sort-order"
+                        },
+                        {
+                          "Name": "name",
+                          "Description": "sort-order"
+                        },
+                        {
+                          "Name": "size",
+                          "Description": "sort-order"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "t",
+                  "Description": "The target pane",
+                  "Type": "Flag",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "src-pane",
+                          "Description": "src-pane",
+                          "Type": "CustomArgument",
+                          "Extensions": [],
+                          "CustomCommand": "tmux lsp"
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ],
+              "Optional": true
+            },
+            {
+              "Arguments": [
+                {
+                  "Name": "template",
+                  "Description": "template",
+                  "Type": "String"
+                }
+              ],
+              "Optional": true
+            }
+          ]
+        },
+        {
+          "Name": "choose-client",
+          "Description": "Put a pane into buffer client mode",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "N",
+                  "Description": "Start without the preview",
+                  "Type": "Flag",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "r",
+                  "Description": "Reserve the sort order",
+                  "Type": "Flag",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "Z",
+                  "Description": "Zoom the pane",
+                  "Type": "Flag",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "F",
+                  "Description": "Format output",
+                  "Type": "Flag",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "format",
+                          "Description": "format",
+                          "Type": "String"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "f",
+                  "Description": "Specify an initial filter",
+                  "Type": "Flag",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "filter",
+                          "Description": "filter",
+                          "Type": "String"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "O",
+                  "Description": "Specify the initial sort field",
+                  "Type": "Flag",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "sort",
+                          "Description": "sort",
+                          "Type": "String"
+                        },
+                        {
+                          "Name": "name",
+                          "Description": "sort"
+                        },
+                        {
+                          "Name": "size",
+                          "Description": "sort"
+                        },
+                        {
+                          "Name": "creation",
+                          "Description": "sort"
+                        },
+                        {
+                          "Name": "activity",
+                          "Description": "sort"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "t",
+                  "Description": "The target pane",
+                  "Type": "Flag",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "src-pane",
+                          "Description": "src-pane",
+                          "Type": "CustomArgument",
+                          "Extensions": [],
+                          "CustomCommand": "tmux lsp"
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ],
+              "Optional": true
+            },
+            {
+              "Arguments": [
+                {
+                  "Name": "template",
+                  "Description": "template",
+                  "Type": "String"
+                }
+              ],
+              "Optional": true
+            }
+          ]
+        },
+        {
+          "Name": "choose-tree",
+          "Description": "Put a pane into buffer tree mode",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "G",
+                  "Description": "Include all sessions in any session group in the tree",
+                  "Type": "Flag",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "N",
+                  "Description": "Start without the preview",
+                  "Type": "Flag",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "r",
+                  "Description": "Reserve the sort order",
+                  "Type": "Flag",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "s",
+                  "Description": "Start with sessions collapsed",
+                  "Type": "Flag",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "w",
+                  "Description": "Start with windows collapsed",
+                  "Type": "Flag",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "Z",
+                  "Description": "Zoom the pane",
+                  "Type": "Flag",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "F",
+                  "Description": "Format output",
+                  "Type": "Flag",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "format",
+                          "Description": "format",
+                          "Type": "String"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "f",
+                  "Description": "Specify an initial filter",
+                  "Type": "Flag",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "filter",
+                          "Description": "filter",
+                          "Type": "String"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "O",
+                  "Description": "Specify the initial sort field",
+                  "Type": "Flag",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "sort",
+                          "Description": "sort",
+                          "Type": "String"
+                        },
+                        {
+                          "Name": "name",
+                          "Description": "sort"
+                        },
+                        {
+                          "Name": "size",
+                          "Description": "sort"
+                        },
+                        {
+                          "Name": "creation",
+                          "Description": "sort"
+                        },
+                        {
+                          "Name": "activity",
+                          "Description": "sort"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "t",
+                  "Description": "The target pane",
+                  "Type": "Flag",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "src-pane",
+                          "Description": "src-pane",
+                          "Type": "CustomArgument",
+                          "Extensions": [],
+                          "CustomCommand": "tmux lsp"
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ],
+              "Optional": true
+            },
+            {
+              "Arguments": [
+                {
+                  "Name": "template",
+                  "Description": "template",
+                  "Type": "String"
+                }
+              ],
+              "Optional": true
+            }
+          ]
+        },
+        {
+          "Name": "clearhist",
+          "Description": "Remove and clear history for a pane",
+          "Aliases": [
+            "clear-history"
+          ],
+          "Arguments": []
+        },
+        {
+          "Name": "clock-mode",
+          "Description": "Enter clock mode",
+          "Aliases": [],
+          "Arguments": []
+        },
+        {
+          "Name": "command-prompt",
+          "Description": "Open the tmux command prompt in a client",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "l",
+                  "Description": "The prompt only accept one key press",
+                  "Type": "Flag",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "i",
+                  "Description": "Execute the command every time the prompt input changes",
+                  "Type": "Flag",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "k",
+                  "Description": "Like -l but the key press is translated to a key name",
+                  "Type": "Flag",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "N",
+                  "Description": "The prompt only accept numeric key press",
+                  "Type": "Flag",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "T",
+                  "Description": "Tell that the prompt is for a target",
+                  "Type": "Flag",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "W",
+                  "Description": "Tell that the prompt is for a window",
+                  "Type": "Flag",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "I",
+                  "Description": "Comma-separated list of the initial text for each prompt",
+                  "Type": "Flag",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "inputs",
+                          "Description": "inputs",
+                          "Type": "String"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "p",
+                  "Description": "Comma-separated list of prompts which are displayed in order",
+                  "Type": "Flag",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "prompts",
+                          "Description": "prompts",
+                          "Type": "String"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "t",
+                  "Description": "The target client",
+                  "Type": "Flag",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "target-client",
+                          "Description": "target-client",
+                          "Type": "CustomArgument",
+                          "Extensions": [],
+                          "CustomCommand": "tmux lsc"
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ],
+              "Optional": true
+            },
+            {
+              "Arguments": [
+                {
+                  "Name": "template",
+                  "Description": "template",
+                  "Type": "String"
+                }
+              ],
+              "Optional": true
+            }
+          ]
+        },
+        {
+          "Name": "confirm",
+          "Description": "Run a command but ask for confirmation before",
+          "Aliases": [
+            "confirm-before"
+          ],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "p",
+                  "Description": "A prompt to display for confirmation",
+                  "Type": "Flag",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "prompt",
+                          "Description": "prompt",
+                          "Type": "String"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "t",
+                  "Description": "The target client",
+                  "Type": "Flag",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "target-client",
+                          "Description": "target-client",
+                          "Type": "CustomArgument",
+                          "Extensions": [],
+                          "CustomCommand": "tmux lsc"
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ],
+              "Optional": true
+            },
+            {
+              "Arguments": [
+                {
+                  "Name": "command",
+                  "Description": "command",
+                  "Type": "String"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "Name": "copy-mode",
+          "Description": "Enter copy mode",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "e",
+                  "Description": "Scrolling to the bottom should exit copy mode",
+                  "Type": "Flag",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "H",
+                  "Description": "Hide the position indicator",
+                  "Type": "Flag",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "M",
+                  "Description": "Begin a mouse drag",
+                  "Type": "Flag",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "q",
+                  "Description": "Cancel copy mode and any other modes",
+                  "Type": "Flag",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "u",
+                  "Description": "Scroll one page up",
+                  "Type": "Flag",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "s",
+                  "Description": "The source pane",
+                  "Type": "Flag",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "src-pane",
+                          "Description": "src-pane",
+                          "Type": "CustomArgument",
+                          "Extensions": [],
+                          "CustomCommand": "tmux lsp"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "t",
+                  "Description": "The target pane",
+                  "Type": "Flag",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "src-pane",
+                          "Description": "src-pane",
+                          "Type": "CustomArgument",
+                          "Extensions": [],
+                          "CustomCommand": "tmux lsp"
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ],
+              "Optional": true
+            }
+          ]
+        },
+        {
+          "Name": "deleteb",
+          "Description": "Delete a paste buffer",
+          "Aliases": [
+            "delete-buffer"
+          ],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "b",
+                  "Description": "The target buffer",
+                  "Type": "Flag",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "buffer-name",
+                          "Description": "buffer-name",
+                          "Type": "CustomArgument",
+                          "Extensions": [],
+                          "CustomCommand": "tmux lsb"
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ],
+              "Optional": true
+            }
+          ]
+        },
+        {
+          "Name": "detach",
+          "Description": "Detach a client from the server",
+          "Aliases": [
+            "detach-client"
+          ],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "a",
+                  "Description": "Kills all but the client given with -t",
+                  "Type": "Flag",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "P",
+                  "Description": "Send SIGHUP to the parent process",
+                  "Type": "Flag",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "E",
+                  "Description": "Run the given shell-command to replace the client",
+                  "Type": "Flag",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "shell-command",
+                          "Description": "shell-command",
+                          "Type": "String"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "t",
+                  "Description": "The target client",
+                  "Type": "Flag",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "target-client",
+                          "Description": "target-client",
+                          "Type": "CustomArgument",
+                          "Extensions": [],
+                          "CustomCommand": "tmux lsc"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "s",
+                  "Description": "Detach all clients attached to the specified session",
+                  "Type": "Flag",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "target-session",
+                          "Description": "target-session",
+                          "Type": "CustomArgument",
+                          "Extensions": [],
+                          "CustomCommand": "tmux ls"
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ],
+              "Optional": true
+            }
+          ]
+        },
+        {
+          "Name": "menu",
+          "Description": "Display menu on target-client",
+          "Aliases": [
+            "display-menu"
+          ],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "O",
+                  "Description": "Do not close the menu when the mouse button is released",
+                  "Type": "Flag",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "c",
+                  "Description": "The target client",
+                  "Type": "Flag",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "target-client",
+                          "Description": "target-client",
+                          "Type": "CustomArgument",
+                          "Extensions": [],
+                          "CustomCommand": "tmux lsc"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "t",
+                  "Description": "The target pane",
+                  "Type": "Flag",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "src-pane",
+                          "Description": "src-pane",
+                          "Type": "CustomArgument",
+                          "Extensions": [],
+                          "CustomCommand": "tmux lsp"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "T",
+                  "Description": "Specify a title",
+                  "Type": "Flag",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "title",
+                          "Description": "title",
+                          "Type": "String"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "x",
+                  "Description": "Give the x position of the menu",
+                  "Type": "Flag",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "position",
+                          "Description": "position",
+                          "Type": "String"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "y",
+                  "Description": "Give the y position of the menu",
+                  "Type": "Flag",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "position",
+                          "Description": "position",
+                          "Type": "String"
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ],
+              "Optional": true
+            },
+            {
+              "Arguments": [
+                {
+                  "Name": "name",
+                  "Description": "name",
+                  "Type": "String"
+                }
+              ]
+            },
+            {
+              "Arguments": [
+                {
+                  "Name": "key",
+                  "Description": "key",
+                  "Type": "String"
+                }
+              ]
+            },
+            {
+              "Arguments": [
+                {
+                  "Name": "command",
+                  "Description": "command",
+                  "Type": "String"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "Name": "display",
+          "Description": "Display a message in the status line",
+          "Aliases": [
+            "display-message"
+          ],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "a",
+                  "Description": "List the format variables and their values",
+                  "Type": "Flag",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "I",
+                  "Description": "Forward any input read from stdin to the empty pane target-pane",
+                  "Type": "Flag",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "p",
+                  "Description": "Print output to stdout",
+                  "Type": "Flag",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "v",
+                  "Description": "Print verbose logging as the format is parsed",
+                  "Type": "Flag",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "target-client",
+                          "Description": "target-client",
+                          "Type": "CustomArgument",
+                          "Extensions": [],
+                          "CustomCommand": "tmux lsc"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "d",
+                  "Description": "A delay for the message",
+                  "Type": "Flag",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "delay",
+                          "Description": "delay",
+                          "Type": "String"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "t",
+                  "Description": "The target pane",
+                  "Type": "Flag",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "src-pane",
+                          "Description": "src-pane",
+                          "Type": "CustomArgument",
+                          "Extensions": [],
+                          "CustomCommand": "tmux lsp"
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ],
+              "Optional": true
+            },
+            {
+              "Arguments": [
+                {
+                  "Name": "message",
+                  "Description": "message",
+                  "Type": "String"
+                }
+              ],
+              "Optional": true
+            }
+          ]
+        },
+        {
+          "Name": "displayp",
+          "Description": "Display an indicator for each visible pane",
+          "Aliases": [
+            "display-panes"
+          ],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "b",
+                  "Description": "Do not block other commands from running until the indicator is closed",
+                  "Type": "Flag",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "N",
+                  "Description": "Do not close the indicator when a key is pressed",
+                  "Type": "Flag",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "d",
+                  "Description": "Specify the duration",
+                  "Type": "Flag",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "duration",
+                          "Description": "duration",
+                          "Type": "String"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "t",
+                  "Description": "The target client",
+                  "Type": "Flag",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "target-client",
+                          "Description": "target-client",
+                          "Type": "CustomArgument",
+                          "Extensions": [],
+                          "CustomCommand": "tmux lsc"
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ],
+              "Optional": true
+            },
+            {
+              "Arguments": [
+                {
+                  "Name": "template",
+                  "Description": "template",
+                  "Type": "String"
+                }
+              ],
+              "Optional": true
+            }
+          ]
+        },
+        {
+          "Name": "findw",
+          "Description": "Search for a pattern in windows",
+          "Aliases": [
+            "find-window"
+          ],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "i",
+                  "Description": "Make the search ignore cases",
+                  "Type": "Flag",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "C",
+                  "Description": "Match only visible window contents",
+                  "Type": "Flag",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "N",
+                  "Description": "Match only the window name",
+                  "Type": "Flag",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "r",
+                  "Description": "Search a regular expression",
+                  "Type": "Flag",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "T",
+                  "Description": "Match only the window\u0027s title",
+                  "Type": "Flag",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "Z",
+                  "Description": "Zoom the pane",
+                  "Type": "Flag",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "t",
+                  "Description": "The target pane",
+                  "Type": "Flag",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "src-pane",
+                          "Description": "src-pane",
+                          "Type": "CustomArgument",
+                          "Extensions": [],
+                          "CustomCommand": "tmux lsp"
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ],
+              "Optional": true
+            },
+            {
+              "Arguments": [
+                {
+                  "Name": "match-string",
+                  "Description": "match-string",
+                  "Type": "String"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "Name": "has",
+          "Description": "Check and report if a session exists on the server",
+          "Aliases": [
+            "has-session"
+          ],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "t",
+                  "Description": "Specify the target session",
+                  "Type": "Flag",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "target-session",
+                          "Description": "target-session",
+                          "Type": "CustomArgument",
+                          "Extensions": [],
+                          "CustomCommand": "tmux ls"
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ],
+              "Optional": true
+            }
+          ]
+        },
+        {
+          "Name": "if",
+          "Description": "Execute a tmux command if a shell-command succeeded",
+          "Aliases": [
+            "if-shell"
+          ],
+          "Arguments": []
+        },
+        {
+          "Name": "joinp",
+          "Description": "Split a pane and move an existing one into the new space",
+          "Aliases": [
+            "join-pane",
+            "movep",
+            "move-pane"
+          ],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "b",
+                  "Description": "Src-pane will be joined to left of or above dst-pane",
+                  "Type": "Flag",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "src-pane",
+                          "Description": "src-pane",
+                          "Type": "CustomArgument",
+                          "Extensions": [],
+                          "CustomCommand": "tmux lsp"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "l",
+                  "Description": "Set the size of the new space",
+                  "Type": "Flag",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "size",
+                          "Description": "size",
+                          "Type": "String"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "s",
+                  "Description": "The source pane",
+                  "Type": "Flag",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "src-pane",
+                          "Description": "src-pane",
+                          "Type": "CustomArgument",
+                          "Extensions": [],
+                          "CustomCommand": "tmux lsp"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "t",
+                  "Description": "The destination pane",
+                  "Type": "Flag",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "src-pane",
+                          "Description": "src-pane",
+                          "Type": "CustomArgument",
+                          "Extensions": [],
+                          "CustomCommand": "tmux lsp"
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ],
+              "Optional": true
+            }
+          ]
+        },
+        {
+          "Name": "killp",
+          "Description": "Destroy a given pane",
+          "Aliases": [
+            "kill-pane"
+          ],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "a",
+                  "Description": "Kill all but the target-pane",
+                  "Type": "Flag",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "t",
+                  "Description": "The target pane",
+                  "Type": "Flag",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "src-pane",
+                          "Description": "src-pane",
+                          "Type": "CustomArgument",
+                          "Extensions": [],
+                          "CustomCommand": "tmux lsp"
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ],
+              "Optional": true
+            }
+          ]
+        },
+        {
+          "Name": "kill-server",
+          "Description": "Kill clients, session and server",
+          "Aliases": [],
+          "Arguments": []
+        },
+        {
+          "Name": "kill-ses",
+          "Description": "Kill/delete sessions",
+          "Aliases": [
+            "kill-session"
+          ],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "t",
+                  "Description": "Kill/delete session with the given name",
+                  "Type": "Flag",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "target-session",
+                          "Description": "target-session",
+                          "Type": "CustomArgument",
+                          "Extensions": [],
+                          "CustomCommand": "tmux ls"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "a",
+                  "Description": "Kill/delete all session but the current",
+                  "Type": "Flag",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "C",
+                  "Description": "Clear alerts (bell, activity, or silence) in all windows linked to the session",
+                  "Type": "Flag",
+                  "Aliases": [],
+                  "Arguments": []
+                }
+              ],
+              "Optional": true
+            }
+          ]
+        },
+        {
+          "Name": "killw",
+          "Description": "Destroy a given window",
+          "Aliases": [
+            "kill-window"
+          ],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "a",
+                  "Description": "Kill all but the target-window",
+                  "Type": "Flag",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "t",
+                  "Description": "The target window",
+                  "Type": "Flag",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "window-name",
+                          "Description": "window-name",
+                          "Type": "CustomArgument",
+                          "Extensions": [],
+                          "CustomCommand": "tmux lsw"
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ],
+              "Optional": true
+            }
+          ]
+        },
+        {
+          "Name": "lastp",
+          "Description": "Select the previously selected pane",
+          "Aliases": [
+            "last-pane"
+          ],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "d",
+                  "Description": "Disable input to the pane",
+                  "Type": "Flag",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "e",
+                  "Description": "Enable input to the pane",
+                  "Type": "Flag",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "Z",
+                  "Description": "Keep the window zoomed if it was zoomed",
+                  "Type": "Flag",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "t",
+                  "Description": "The target window",
+                  "Type": "Flag",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "window-name",
+                          "Description": "window-name",
+                          "Type": "CustomArgument",
+                          "Extensions": [],
+                          "CustomCommand": "tmux lsw"
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ],
+              "Optional": true
+            }
+          ]
+        },
+        {
+          "Name": "last",
+          "Description": "Select the previously selected window",
+          "Aliases": [
+            "last-window"
+          ],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "t",
+                  "Description": "Select the previously select window of the target-session",
+                  "Type": "Flag",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "target-session",
+                          "Description": "target-session",
+                          "Type": "CustomArgument",
+                          "Extensions": [],
+                          "CustomCommand": "tmux ls"
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ],
+              "Optional": true
+            }
+          ]
+        },
+        {
+          "Name": "linkw",
+          "Description": "Link a window to another",
+          "Aliases": [
+            "link-window"
+          ],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "a",
+                  "Description": "Move the window to the next index after dst-window",
+                  "Type": "Flag",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "b",
+                  "Description": "Move the window to the next index before dst-window",
+                  "Type": "Flag",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "d",
+                  "Description": "Do not select the newly linked window",
+                  "Type": "Flag",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "k",
+                  "Description": "Kill dst-window if exist",
+                  "Type": "Flag",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "s",
+                  "Description": "The source window",
+                  "Type": "Flag",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "window-name",
+                          "Description": "window-name",
+                          "Type": "CustomArgument",
+                          "Extensions": [],
+                          "CustomCommand": "tmux lsw"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "t",
+                  "Description": "The destination window",
+                  "Type": "Flag",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "window-name",
+                          "Description": "window-name",
+                          "Type": "CustomArgument",
+                          "Extensions": [],
+                          "CustomCommand": "tmux lsw"
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ],
+              "Optional": true
+            }
+          ]
+        },
+        {
+          "Name": "lsb",
+          "Description": "List paste buffers of a session",
+          "Aliases": [
+            "list-buffers"
+          ],
+          "Arguments": []
+        },
+        {
+          "Name": "lsc",
+          "Description": "List clients attached to a server",
+          "Aliases": [
+            "list-clients"
+          ],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "F",
+                  "Description": "Format output",
+                  "Type": "Flag",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "format",
+                          "Description": "format",
+                          "Type": "String"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "t",
+                  "Description": "List only clients connected to that session",
+                  "Type": "Flag",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "target-session",
+                          "Description": "target-session",
+                          "Type": "CustomArgument",
+                          "Extensions": [],
+                          "CustomCommand": "tmux ls"
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ],
+              "Optional": true
+            }
+          ]
+        },
+        {
+          "Name": "lscm",
+          "Description": "List supported sub-commands",
+          "Aliases": [
+            "list-commands"
+          ],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "F",
+                  "Description": "Format output",
+                  "Type": "Flag",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "format",
+                          "Description": "format",
+                          "Type": "String"
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ],
+              "Optional": true
+            },
+            {
+              "Arguments": [
+                {
+                  "Name": "command",
+                  "Description": "command",
+                  "Type": "String"
+                }
+              ],
+              "Optional": true
+            }
+          ]
+        },
+        {
+          "Name": "lsk",
+          "Description": "List all key-bindings",
+          "Aliases": [
+            "list-keys"
+          ],
+          "Arguments": []
+        },
+        {
+          "Name": "lsp",
+          "Description": "List panes of a window",
+          "Aliases": [
+            "list-panes"
+          ],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "a",
+                  "Description": "Ignore target-window and list all panes",
+                  "Type": "Flag",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "s",
+                  "Description": "Target-window becomes a session",
+                  "Type": "Flag",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "F",
+                  "Description": "Format output",
+                  "Type": "Flag",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "format",
+                          "Description": "format",
+                          "Type": "String"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "f",
+                  "Description": "Specify a filter",
+                  "Type": "Flag",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "filter",
+                          "Description": "filter",
+                          "Type": "String"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "t",
+                  "Description": "The target window",
+                  "Type": "Flag",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "window-name",
+                          "Description": "window-name",
+                          "Type": "CustomArgument",
+                          "Extensions": [],
+                          "CustomCommand": "tmux lsw"
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ],
+              "Optional": true
+            }
+          ]
+        },
+        {
+          "Name": "ls",
+          "Description": "List sessions managed by a server",
+          "Aliases": [
+            "list-sessions"
+          ],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "F",
+                  "Description": "Format output",
+                  "Type": "Flag",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "format",
+                          "Description": "format",
+                          "Type": "String"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "f",
+                  "Description": "Filter the sessions",
+                  "Type": "Flag",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "filter",
+                          "Description": "filter",
+                          "Type": "String"
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ],
+              "Optional": true
+            }
+          ]
+        },
+        {
+          "Name": "lsw",
+          "Description": "List windows of a session",
+          "Aliases": [
+            "list-windows"
+          ],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "a",
+                  "Description": "Ignore target-session and list all windows",
+                  "Type": "Flag",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "F",
+                  "Description": "Format output",
+                  "Type": "Flag",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "format",
+                          "Description": "format",
+                          "Type": "String"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "f",
+                  "Description": "Specify a filter",
+                  "Type": "Flag",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "filter",
+                          "Description": "filter",
+                          "Type": "String"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "t",
+                  "Description": "The target session",
+                  "Type": "Flag",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "target-session",
+                          "Description": "target-session",
+                          "Type": "CustomArgument",
+                          "Extensions": [],
+                          "CustomCommand": "tmux ls"
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ],
+              "Optional": true
+            }
+          ]
+        },
+        {
+          "Name": "loadb",
+          "Description": "Load a file into a paste buffer",
+          "Aliases": [
+            "load-buffer"
+          ],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "w",
+                  "Description": "Send the buffer to the clipboard",
+                  "Type": "Flag",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "b",
+                  "Description": "The target buffer",
+                  "Type": "Flag",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "buffer-name",
+                          "Description": "buffer-name",
+                          "Type": "CustomArgument",
+                          "Extensions": [],
+                          "CustomCommand": "tmux lsb"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "t",
+                  "Description": "The target client",
+                  "Type": "Flag",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "target-client",
+                          "Description": "target-client",
+                          "Type": "CustomArgument",
+                          "Extensions": [],
+                          "CustomCommand": "tmux lsc"
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ],
+              "Optional": true
+            },
+            {
+              "Arguments": [
+                {
+                  "Name": "path",
+                  "Description": "path",
+                  "Type": "String"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "Name": "lockc",
+          "Description": "Lock a client",
+          "Aliases": [
+            "lock-client"
+          ],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "t",
+                  "Description": "The target client",
+                  "Type": "Flag",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "target-client",
+                          "Description": "target-client",
+                          "Type": "CustomArgument",
+                          "Extensions": [],
+                          "CustomCommand": "tmux lsc"
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ],
+              "Optional": true
+            }
+          ]
+        },
+        {
+          "Name": "lock",
+          "Description": "Lock all clients attached to the server",
+          "Aliases": [
+            "lock-server"
+          ],
+          "Arguments": []
+        },
+        {
+          "Name": "locks",
+          "Description": "Lock all clients attached to a session",
+          "Aliases": [
+            "lock-session"
+          ],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "t",
+                  "Description": "Lock all clients attached to target-session",
+                  "Type": "Flag",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "target-session",
+                          "Description": "target-session",
+                          "Type": "CustomArgument",
+                          "Extensions": [],
+                          "CustomCommand": "tmux ls"
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ],
+              "Optional": true
+            }
+          ]
+        },
+        {
+          "Name": "movew",
+          "Description": "Move a window to another",
+          "Aliases": [
+            "move-window"
+          ],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "a",
+                  "Description": "Move the window to the next index after dst-window",
+                  "Type": "Flag",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "b",
+                  "Description": "Move the window to the next index before dst-window",
+                  "Type": "Flag",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "r",
+                  "Description": "Renumber all windows in the session in sequential order",
+                  "Type": "Flag",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "d",
+                  "Description": "Do not select the newly linked window",
+                  "Type": "Flag",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "k",
+                  "Description": "Kill dst-window if exist",
+                  "Type": "Flag",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "s",
+                  "Description": "The source window",
+                  "Type": "Flag",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "window-name",
+                          "Description": "window-name",
+                          "Type": "CustomArgument",
+                          "Extensions": [],
+                          "CustomCommand": "tmux lsw"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "t",
+                  "Description": "The destination window",
+                  "Type": "Flag",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "window-name",
+                          "Description": "window-name",
+                          "Type": "CustomArgument",
+                          "Extensions": [],
+                          "CustomCommand": "tmux lsw"
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ],
+              "Optional": true
+            }
+          ]
+        },
+        {
+          "Name": "new",
+          "Description": "Create a new session",
+          "Aliases": [
+            "new-session"
+          ],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "A",
+                  "Description": "Behave like attach-session if session-name already exist",
+                  "Type": "Flag",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "d",
+                  "Description": "Use the initial size from default-size",
+                  "Type": "Flag",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "D",
+                  "Description": "Behave like -d if -A is set",
+                  "Type": "Flag",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "E",
+                  "Description": "Do not use update-environment option",
+                  "Type": "Flag",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "P",
+                  "Description": "Print information about the new session",
+                  "Type": "Flag",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "X",
+                  "Description": "Behave like -x if -A is set",
+                  "Type": "Flag",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "c",
+                  "Description": "Specify a start directory for the session",
+                  "Type": "Flag",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "start-directory",
+                          "Description": "start-directory",
+                          "Type": "Directory"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "e",
+                  "Description": "Set environment variables",
+                  "Type": "Flag",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "environment",
+                          "Description": "environment",
+                          "Type": "String"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "f",
+                  "Description": "Set client flags",
+                  "Type": "Flag",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "flags",
+                          "Description": "flags",
+                          "Type": "String"
+                        },
+                        {
+                          "Name": "active-pane",
+                          "Description": "flags"
+                        },
+                        {
+                          "Name": "ignore-size",
+                          "Description": "flags"
+                        },
+                        {
+                          "Name": "no-output",
+                          "Description": "flags"
+                        },
+                        {
+                          "Name": "pause-after",
+                          "Description": "flags"
+                        },
+                        {
+                          "Name": "read-only",
+                          "Description": "flags"
+                        },
+                        {
+                          "Name": "wait-exit",
+                          "Description": "flags"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "F",
+                  "Description": "Format output",
+                  "Type": "Flag",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "format",
+                          "Description": "format",
+                          "Type": "String"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "n",
+                  "Description": "Start a new session with the given name",
+                  "Type": "Flag",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "window-name",
+                          "Description": "window-name",
+                          "Type": "String"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "s",
+                  "Description": "Start a new session with the given name",
+                  "Type": "Flag",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "session-name",
+                          "Description": "session-name",
+                          "Type": "String"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "t",
+                  "Description": "The name of the group",
+                  "Type": "Flag",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "group-name",
+                          "Description": "group-name",
+                          "Type": "String"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "x",
+                  "Description": "The width of the session",
+                  "Type": "Flag",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "width",
+                          "Description": "width",
+                          "Type": "String"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "y",
+                  "Description": "The height of the session",
+                  "Type": "Flag",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "height",
+                          "Description": "height",
+                          "Type": "String"
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ],
+              "Optional": true
+            },
+            {
+              "Arguments": [
+                {
+                  "Name": "shell-command",
+                  "Description": "shell-command",
+                  "Type": "String"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "Name": "neww",
+          "Description": "Create a new window",
+          "Aliases": [
+            "new-window"
+          ],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "a",
+                  "Description": "Insert the new window at the next index after target-window",
+                  "Type": "Flag",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "b",
+                  "Description": "Insert the new window at the next index before target-window",
+                  "Type": "Flag",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "d",
+                  "Description": "The session does not make the new window the current window",
+                  "Type": "Flag",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "k",
+                  "Description": "Kill the target-window if exist",
+                  "Type": "Flag",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "P",
+                  "Description": "Print information about the new window",
+                  "Type": "Flag",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "S",
+                  "Description": "Select window-name if exist",
+                  "Type": "Flag",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "c",
+                  "Description": "Specify a start directory for the window",
+                  "Type": "Flag",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "start-directory",
+                          "Description": "start-directory",
+                          "Type": "Directory"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "e",
+                  "Description": "Set environment variables",
+                  "Type": "Flag",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "environment",
+                          "Description": "environment",
+                          "Type": "String"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "F",
+                  "Description": "Format output",
+                  "Type": "Flag",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "format",
+                          "Description": "format",
+                          "Type": "String"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "n",
+                  "Description": "Start a new window with the given name",
+                  "Type": "Flag",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "window-name",
+                          "Description": "window-name",
+                          "Type": "String"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "t",
+                  "Description": "The target window",
+                  "Type": "Flag",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "window-name",
+                          "Description": "window-name",
+                          "Type": "CustomArgument",
+                          "Extensions": [],
+                          "CustomCommand": "tmux lsw"
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ],
+              "Optional": true
+            },
+            {
+              "Arguments": [
+                {
+                  "Name": "shell-command",
+                  "Description": "shell-command",
+                  "Type": "String"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "Name": "nextl",
+          "Description": "Move a window to the next layout",
+          "Aliases": [
+            "next-layout"
+          ],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "t",
+                  "Description": "The target pane",
+                  "Type": "Flag",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "src-pane",
+                          "Description": "src-pane",
+                          "Type": "CustomArgument",
+                          "Extensions": [],
+                          "CustomCommand": "tmux lsp"
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ],
+              "Optional": true
+            }
+          ]
+        },
+        {
+          "Name": "next",
+          "Description": "Move to the next window in a session",
+          "Aliases": [
+            "next-window"
+          ],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "a",
+                  "Description": "Move to the next window with an alert",
+                  "Type": "Flag",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "t",
+                  "Description": "Move to the next window of the target-session",
+                  "Type": "Flag",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "target-session",
+                          "Description": "target-session",
+                          "Type": "CustomArgument",
+                          "Extensions": [],
+                          "CustomCommand": "tmux ls"
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ],
+              "Optional": true
+            }
+          ]
+        },
+        {
+          "Name": "pasteb",
+          "Description": "Insert a paste buffer into the window",
+          "Aliases": [
+            "paste-buffer"
+          ],
+          "Arguments": []
+        },
+        {
+          "Name": "pipep",
+          "Description": "Pipe output from a pane to a shell command",
+          "Aliases": [
+            "pipe-pane"
+          ],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "I",
+                  "Description": "Connect stdout to shell-command",
+                  "Type": "Flag",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "O",
+                  "Description": "Connect stdin to shell-command",
+                  "Type": "Flag",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "o",
+                  "Description": "Only open a new pipe if no previous pipe exists",
+                  "Type": "Flag",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "t",
+                  "Description": "The target pane",
+                  "Type": "Flag",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "src-pane",
+                          "Description": "src-pane",
+                          "Type": "CustomArgument",
+                          "Extensions": [],
+                          "CustomCommand": "tmux lsp"
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ],
+              "Optional": true
+            },
+            {
+              "Arguments": [
+                {
+                  "Name": "shell-command",
+                  "Description": "shell-command",
+                  "Type": "String"
+                }
+              ],
+              "Optional": true
+            }
+          ]
+        },
+        {
+          "Name": "prevl",
+          "Description": "Move a window to the previous layout",
+          "Aliases": [
+            "previous-layout"
+          ],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "t",
+                  "Description": "The target window",
+                  "Type": "Flag",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "window-name",
+                          "Description": "window-name",
+                          "Type": "CustomArgument",
+                          "Extensions": [],
+                          "CustomCommand": "tmux lsw"
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ],
+              "Optional": true
+            }
+          ]
+        },
+        {
+          "Name": "prev",
+          "Description": "Move to the previous window in a session",
+          "Aliases": [
+            "previous-window"
+          ],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "a",
+                  "Description": "Move with an alert",
+                  "Type": "Flag",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "t",
+                  "Description": "Move to the previous window of the target-session",
+                  "Type": "Flag",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "target-session",
+                          "Description": "target-session",
+                          "Type": "CustomArgument",
+                          "Extensions": [],
+                          "CustomCommand": "tmux ls"
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ],
+              "Optional": true
+            }
+          ]
+        },
+        {
+          "Name": "refresh",
+          "Description": "Refresh a client",
+          "Aliases": [
+            "refresh-client"
+          ],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "c",
+                  "Description": "Return the tracking cursor",
+                  "Type": "Flag",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "D",
+                  "Description": "Allow the visible portion of a window to be changed",
+                  "Type": "Flag",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "l",
+                  "Description": "Request the clipboard from the client",
+                  "Type": "Flag",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "L",
+                  "Description": "Allow the visible portion of a window to be changed",
+                  "Type": "Flag",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "R",
+                  "Description": "Allow the visible portion of a window to be changed",
+                  "Type": "Flag",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "S",
+                  "Description": "Only update the client\u0027s status line",
+                  "Type": "Flag",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "U",
+                  "Description": "Allow the visible portion of a window to be changed",
+                  "Type": "Flag",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "A",
+                  "Description": "The target pane",
+                  "Type": "Flag",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "src-pane",
+                          "Description": "src-pane",
+                          "Type": "CustomArgument",
+                          "Extensions": [],
+                          "CustomCommand": "tmux lsp"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "B",
+                  "Description": "A subscription to a format for a control mode",
+                  "Type": "Flag",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "subscription",
+                          "Description": "subscription",
+                          "Type": "String"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "C",
+                  "Description": "Set the width and height",
+                  "Type": "Flag",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "XxY",
+                          "Description": "XxY",
+                          "Type": "String"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "f",
+                  "Description": "Set client flags",
+                  "Type": "Flag",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "flags",
+                          "Description": "flags",
+                          "Type": "String"
+                        },
+                        {
+                          "Name": "active-pane",
+                          "Description": "flags"
+                        },
+                        {
+                          "Name": "ignore-size",
+                          "Description": "flags"
+                        },
+                        {
+                          "Name": "no-output",
+                          "Description": "flags"
+                        },
+                        {
+                          "Name": "pause-after",
+                          "Description": "flags"
+                        },
+                        {
+                          "Name": "read-only",
+                          "Description": "flags"
+                        },
+                        {
+                          "Name": "wait-exit",
+                          "Description": "flags"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "t",
+                  "Description": "The target client",
+                  "Type": "Flag",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "target-client",
+                          "Description": "target-client",
+                          "Type": "CustomArgument",
+                          "Extensions": [],
+                          "CustomCommand": "tmux lsc"
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ],
+              "Optional": true
+            },
+            {
+              "Arguments": [
+                {
+                  "Name": "adjustment",
+                  "Description": "adjustment",
+                  "Type": "String"
+                }
+              ],
+              "Optional": true
+            }
+          ]
+        },
+        {
+          "Name": "rename",
+          "Description": "Rename a session",
+          "Aliases": [
+            "rename-session"
+          ],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "t",
+                  "Description": "Rename the target-session",
+                  "Type": "Flag",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "target-session",
+                          "Description": "target-session",
+                          "Type": "CustomArgument",
+                          "Extensions": [],
+                          "CustomCommand": "tmux ls"
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ],
+              "Optional": true
+            },
+            {
+              "Arguments": [
+                {
+                  "Name": "new-name",
+                  "Description": "new-name",
+                  "Type": "String"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "Name": "renamew",
+          "Description": "Rename a window",
+          "Aliases": [
+            "rename-window"
+          ],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "t",
+                  "Description": "The target window",
+                  "Type": "Flag",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "window-name",
+                          "Description": "window-name",
+                          "Type": "CustomArgument",
+                          "Extensions": [],
+                          "CustomCommand": "tmux lsw"
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ],
+              "Optional": true
+            },
+            {
+              "Arguments": [
+                {
+                  "Name": "new-name",
+                  "Description": "new-name",
+                  "Type": "String"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "Name": "resizep",
+          "Description": "Resize a pane",
+          "Aliases": [
+            "resize-pane"
+          ],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "D",
+                  "Description": "Resize down by adjustment",
+                  "Type": "Flag",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "L",
+                  "Description": "Resize left by adjustment",
+                  "Type": "Flag",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "M",
+                  "Description": "Begin mouse resizing",
+                  "Type": "Flag",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "R",
+                  "Description": "Resize right by adjustment",
+                  "Type": "Flag",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "T",
+                  "Description": "Trim all lines below the current cursor position",
+                  "Type": "Flag",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "U",
+                  "Description": "Resize up by adjustment",
+                  "Type": "Flag",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "Z",
+                  "Description": "Toggle the active pane between zoomed and unzoomed",
+                  "Type": "Flag",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "t",
+                  "Description": "The target pane",
+                  "Type": "Flag",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "src-pane",
+                          "Description": "src-pane",
+                          "Type": "CustomArgument",
+                          "Extensions": [],
+                          "CustomCommand": "tmux lsp"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "x",
+                  "Description": "The width of the pane",
+                  "Type": "Flag",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "width",
+                          "Description": "width",
+                          "Type": "String"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "y",
+                  "Description": "The height of the pane",
+                  "Type": "Flag",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "height",
+                          "Description": "height",
+                          "Type": "String"
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ],
+              "Optional": true
+            },
+            {
+              "Arguments": [
+                {
+                  "Name": "adjustment",
+                  "Description": "adjustment",
+                  "Type": "String"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "Name": "resizew",
+          "Description": "Resize a window",
+          "Aliases": [
+            "resize-window"
+          ],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "a",
+                  "Description": "Set the size of the smallest session containing the window",
+                  "Type": "Flag",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "A",
+                  "Description": "Set the size of the largest session containing the window",
+                  "Type": "Flag",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "D",
+                  "Description": "Resize down by adjustment",
+                  "Type": "Flag",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "L",
+                  "Description": "Resize left by adjustment",
+                  "Type": "Flag",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "R",
+                  "Description": "Resize right by adjustment",
+                  "Type": "Flag",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "U",
+                  "Description": "Resize up by adjustment",
+                  "Type": "Flag",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "t",
+                  "Description": "The target window",
+                  "Type": "Flag",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "window-name",
+                          "Description": "window-name",
+                          "Type": "CustomArgument",
+                          "Extensions": [],
+                          "CustomCommand": "tmux lsw"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "x",
+                  "Description": "The width of the pane",
+                  "Type": "Flag",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "width",
+                          "Description": "width",
+                          "Type": "String"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "y",
+                  "Description": "The height of the pane",
+                  "Type": "Flag",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "height",
+                          "Description": "height",
+                          "Type": "String"
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ],
+              "Optional": true
+            },
+            {
+              "Arguments": [
+                {
+                  "Name": "adjustment",
+                  "Description": "adjustment",
+                  "Type": "String"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "Name": "respawnp",
+          "Description": "Reactivate a pane in which a command has exited",
+          "Aliases": [
+            "respawn-pane"
+          ],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "k",
+                  "Description": "Kill the target-pane if exist",
+                  "Type": "Flag",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "c",
+                  "Description": "Specify a start directory for the pane",
+                  "Type": "Flag",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "start-directory",
+                          "Description": "start-directory",
+                          "Type": "Directory"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "e",
+                  "Description": "Set environment variables",
+                  "Type": "Flag",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "environment",
+                          "Description": "environment",
+                          "Type": "String"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "t",
+                  "Description": "The target pane",
+                  "Type": "Flag",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "src-pane",
+                          "Description": "src-pane",
+                          "Type": "CustomArgument",
+                          "Extensions": [],
+                          "CustomCommand": "tmux lsp"
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ],
+              "Optional": true
+            },
+            {
+              "Arguments": [
+                {
+                  "Name": "shell-command",
+                  "Description": "shell-command",
+                  "Type": "String"
+                }
+              ],
+              "Optional": true
+            }
+          ]
+        },
+        {
+          "Name": "respawnw",
+          "Description": "Reactivate a window in which a command has exited",
+          "Aliases": [
+            "respawn-window"
+          ],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "k",
+                  "Description": "Kill the target-window if exist",
+                  "Type": "Flag",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "c",
+                  "Description": "Specify a start directory for the window",
+                  "Type": "Flag",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "start-directory",
+                          "Description": "start-directory",
+                          "Type": "Directory"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "e",
+                  "Description": "Set environment variables",
+                  "Type": "Flag",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "environment",
+                          "Description": "environment",
+                          "Type": "String"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "t",
+                  "Description": "The target window",
+                  "Type": "Flag",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "window-name",
+                          "Description": "window-name",
+                          "Type": "CustomArgument",
+                          "Extensions": [],
+                          "CustomCommand": "tmux lsw"
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ],
+              "Optional": true
+            },
+            {
+              "Arguments": [
+                {
+                  "Name": "shell-command",
+                  "Description": "shell-command",
+                  "Type": "String"
+                }
+              ],
+              "Optional": true
+            }
+          ]
+        },
+        {
+          "Name": "rotatew",
+          "Description": "Rotate positions of panes in a window",
+          "Aliases": [
+            "rotate-window"
+          ],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "D",
+                  "Description": "Rotate upward",
+                  "Type": "Flag",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "U",
+                  "Description": "Rotate downward",
+                  "Type": "Flag",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "Z",
+                  "Description": "Keep the window zoomed if it was zoomed",
+                  "Type": "Flag",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "t",
+                  "Description": "The target window",
+                  "Type": "Flag",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "window-name",
+                          "Description": "window-name",
+                          "Type": "CustomArgument",
+                          "Extensions": [],
+                          "CustomCommand": "tmux lsw"
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ],
+              "Optional": true
+            }
+          ]
+        },
+        {
+          "Name": "run",
+          "Description": "Execute a command without create a new window",
+          "Aliases": [
+            "run-shell"
+          ],
+          "Arguments": []
+        },
+        {
+          "Name": "saveb",
+          "Description": "Save a paste buffer to a file",
+          "Aliases": [
+            "save-buffer"
+          ],
+          "Arguments": []
+        },
+        {
+          "Name": "selectl",
+          "Description": "Choose a layout for a pane",
+          "Aliases": [
+            "select-layout"
+          ],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "E",
+                  "Description": "Spread the current pane and any panes next to it evenly",
+                  "Type": "Flag",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "n",
+                  "Description": "Equivalent to next-layout",
+                  "Type": "Flag",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "o",
+                  "Description": "Apply the last set layout if possible",
+                  "Type": "Flag",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "p",
+                  "Description": "Equivalent to previous-layout",
+                  "Type": "Flag",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "t",
+                  "Description": "The target pane",
+                  "Type": "Flag",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "src-pane",
+                          "Description": "src-pane",
+                          "Type": "CustomArgument",
+                          "Extensions": [],
+                          "CustomCommand": "tmux lsp"
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ],
+              "Optional": true
+            },
+            {
+              "Arguments": [
+                {
+                  "Name": "layout-name",
+                  "Description": "layout-name",
+                  "Type": "String"
+                }
+              ],
+              "Optional": true
+            }
+          ]
+        },
+        {
+          "Name": "selectp",
+          "Description": "Make a pane the active one in the window",
+          "Aliases": [
+            "select-pane"
+          ],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "D",
+                  "Description": "Use the down pane",
+                  "Type": "Flag",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "d",
+                  "Description": "Disable input to the pane",
+                  "Type": "Flag",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "e",
+                  "Description": "Enable input to the pane",
+                  "Type": "Flag",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "L",
+                  "Description": "Use the left pane",
+                  "Type": "Flag",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "l",
+                  "Description": "Same as last-pane command",
+                  "Type": "Flag",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "M",
+                  "Description": "Clear the marked pane",
+                  "Type": "Flag",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "m",
+                  "Description": "Set the market pane",
+                  "Type": "Flag",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "R",
+                  "Description": "Use the right pane",
+                  "Type": "Flag",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "U",
+                  "Description": "Use the up pane",
+                  "Type": "Flag",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "Z",
+                  "Description": "Set the pane\u0027s title",
+                  "Type": "Flag",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "T",
+                  "Description": "Set the pane title",
+                  "Type": "Flag",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "title",
+                          "Description": "title",
+                          "Type": "String"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "t",
+                  "Description": "The target pane",
+                  "Type": "Flag",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "src-pane",
+                          "Description": "src-pane",
+                          "Type": "CustomArgument",
+                          "Extensions": [],
+                          "CustomCommand": "tmux lsp"
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ],
+              "Optional": true
+            }
+          ]
+        },
+        {
+          "Name": "selectw",
+          "Description": "Select a window",
+          "Aliases": [
+            "select-window"
+          ],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "l",
+                  "Description": "Same as last-window",
+                  "Type": "Flag",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "n",
+                  "Description": "Same as next-window",
+                  "Type": "Flag",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "p",
+                  "Description": "Same as previous-window",
+                  "Type": "Flag",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "T",
+                  "Description": "Same as last-window if the selected window is already the current window",
+                  "Type": "Flag",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "t",
+                  "Description": "The target window",
+                  "Type": "Flag",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "window-name",
+                          "Description": "window-name",
+                          "Type": "CustomArgument",
+                          "Extensions": [],
+                          "CustomCommand": "tmux lsw"
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ],
+              "Optional": true
+            }
+          ]
+        },
+        {
+          "Name": "send",
+          "Description": "Send key(s) to a window",
+          "Aliases": [
+            "send-keys"
+          ],
+          "Arguments": []
+        },
+        {
+          "Name": "send-prefix",
+          "Description": "Send the prefix key to a window",
+          "Aliases": [],
+          "Arguments": []
+        },
+        {
+          "Name": "info",
+          "Description": "Show every session, window, pane, etc",
+          "Aliases": [
+            "server-info"
+          ],
+          "Arguments": []
+        },
+        {
+          "Name": "setb",
+          "Description": "Set content of a paste buffer",
+          "Aliases": [
+            "set-buffer"
+          ],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "a",
+                  "Description": "Append to rather than overwriting the buffer",
+                  "Type": "Flag",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "w",
+                  "Description": "Send the buffer to the clipboard",
+                  "Type": "Flag",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "b",
+                  "Description": "The name of the buffer",
+                  "Type": "Flag",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "buffer-name",
+                          "Description": "buffer-name",
+                          "Type": "CustomArgument",
+                          "Extensions": [],
+                          "CustomCommand": "tmux lsb"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "t",
+                  "Description": "The target client",
+                  "Type": "Flag",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "target-client",
+                          "Description": "target-client",
+                          "Type": "CustomArgument",
+                          "Extensions": [],
+                          "CustomCommand": "tmux lsc"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "n",
+                  "Description": "The new name of the buffer",
+                  "Type": "Flag",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "new-buffer-name",
+                          "Description": "new-buffer-name",
+                          "Type": "String"
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ],
+              "Optional": true
+            },
+            {
+              "Arguments": [
+                {
+                  "Name": "data",
+                  "Description": "data",
+                  "Type": "String"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "Name": "setenv",
+          "Description": "(Un)set an environment variable",
+          "Aliases": [
+            "set-environment"
+          ],
+          "Arguments": []
+        },
+        {
+          "Name": "set-hook",
+          "Description": "Set a hook to a command",
+          "Aliases": [],
+          "Arguments": []
+        },
+        {
+          "Name": "set",
+          "Description": "Set a session option",
+          "Aliases": [
+            "set-option"
+          ],
+          "Arguments": []
+        },
+        {
+          "Name": "setw",
+          "Description": "Set a window option",
+          "Aliases": [
+            "set-window-option"
+          ],
+          "Arguments": []
+        },
+        {
+          "Name": "showb",
+          "Description": "Display the contents of a paste buffer",
+          "Aliases": [
+            "show-buffer"
+          ],
+          "Arguments": []
+        },
+        {
+          "Name": "showenv",
+          "Description": "Display the environment",
+          "Aliases": [
+            "show-environment"
+          ],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "t",
+                  "Description": "Display the environment of the target-session",
+                  "Type": "Flag",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "target-session",
+                          "Description": "target-session",
+                          "Type": "CustomArgument",
+                          "Extensions": [],
+                          "CustomCommand": "tmux ls"
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ],
+              "Optional": true
+            }
+          ]
+        },
+        {
+          "Name": "show-hooks",
+          "Description": "Show the global list of hooks",
+          "Aliases": [],
+          "Arguments": []
+        },
+        {
+          "Name": "showmsgs",
+          "Description": "Show client\u0027s message log",
+          "Aliases": [
+            "show-messages"
+          ],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "T",
+                  "Description": "Show debugging information about terminals",
+                  "Type": "Flag",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "J",
+                  "Description": "Show debugging information about jobs",
+                  "Type": "Flag",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "t",
+                  "Description": "The target client",
+                  "Type": "Flag",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "target-client",
+                          "Description": "target-client",
+                          "Type": "CustomArgument",
+                          "Extensions": [],
+                          "CustomCommand": "tmux lsc"
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ],
+              "Optional": true
+            }
+          ]
+        },
+        {
+          "Name": "show",
+          "Description": "Show session options",
+          "Aliases": [
+            "show-options"
+          ],
+          "Arguments": []
+        },
+        {
+          "Name": "showw",
+          "Description": "Show window options",
+          "Aliases": [
+            "show-winsow-options"
+          ],
+          "Arguments": []
+        },
+        {
+          "Name": "source",
+          "Description": "Execute tmux commands from a file",
+          "Aliases": [
+            "source-file"
+          ],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "F",
+                  "Description": "Expand path as a format",
+                  "Type": "Flag",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "n",
+                  "Description": "Parse the file but don\u0027t run commands",
+                  "Type": "Flag",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "q",
+                  "Description": "Don\u0027t return any error if path does not exist",
+                  "Type": "Flag",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "v",
+                  "Description": "Show the parsed command and line numbers if possible",
+                  "Type": "Flag",
+                  "Aliases": [],
+                  "Arguments": []
+                }
+              ],
+              "Optional": true
+            },
+            {
+              "Arguments": [
+                {
+                  "Name": "path",
+                  "Description": "path",
+                  "Type": "String"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "Name": "splitw",
+          "Description": "Splits a pane into two",
+          "Aliases": [
+            "split-window"
+          ],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "b",
+                  "Description": "Create the new pane to the left of or above target-pane",
+                  "Type": "Flag",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "f",
+                  "Description": "Create a new pane spanning the full window height with -h or width with -v",
+                  "Type": "Flag",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "h",
+                  "Description": "Set the pane take full height",
+                  "Type": "Flag",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "I",
+                  "Description": "Create an empty pane and forward stdin to it",
+                  "Type": "Flag",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "v",
+                  "Description": "Set the pane take full width",
+                  "Type": "Flag",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "Z",
+                  "Description": "Zoom if the window is not zoomed",
+                  "Type": "Flag",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "c",
+                  "Description": "Specify a start directory for the pane",
+                  "Type": "Flag",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "start-directory",
+                          "Description": "start-directory",
+                          "Type": "Directory"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "e",
+                  "Description": "Set environment variables",
+                  "Type": "Flag",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "environment",
+                          "Description": "environment",
+                          "Type": "String"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "l",
+                  "Description": "Set the size in columns (horizontal split) or rows (vertical split)",
+                  "Type": "Flag",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "size",
+                          "Description": "size",
+                          "Type": "String"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "t",
+                  "Description": "The target pane",
+                  "Type": "Flag",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "src-pane",
+                          "Description": "src-pane",
+                          "Type": "CustomArgument",
+                          "Extensions": [],
+                          "CustomCommand": "tmux lsp"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "F",
+                  "Description": "Format output",
+                  "Type": "Flag",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "format",
+                          "Description": "format",
+                          "Type": "String"
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ],
+              "Optional": true
+            },
+            {
+              "Arguments": [
+                {
+                  "Name": "shell-command",
+                  "Description": "shell-command",
+                  "Type": "String"
+                }
+              ],
+              "Optional": true
+            }
+          ]
+        },
+        {
+          "Name": "start",
+          "Description": "Start a tmux server",
+          "Aliases": [
+            "start-server"
+          ],
+          "Arguments": []
+        },
+        {
+          "Name": "suspendc",
+          "Description": "Suspend a client",
+          "Aliases": [
+            "suspend-client"
+          ],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "t",
+                  "Description": "The target client",
+                  "Type": "Flag",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "target-client",
+                          "Description": "target-client",
+                          "Type": "CustomArgument",
+                          "Extensions": [],
+                          "CustomCommand": "tmux lsc"
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ],
+              "Optional": true
+            }
+          ]
+        },
+        {
+          "Name": "swapp",
+          "Description": "Swap two panes",
+          "Aliases": [
+            "swap-pane"
+          ],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "d",
+                  "Description": "Do not change the active pane",
+                  "Type": "Flag",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "D",
+                  "Description": "Swap with the next pane",
+                  "Type": "Flag",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "U",
+                  "Description": "Swap dst-pane with the previous pane",
+                  "Type": "Flag",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "Z",
+                  "Description": "Keep the window zoomed if it was zoomed",
+                  "Type": "Flag",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "s",
+                  "Description": "The source pane",
+                  "Type": "Flag",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "src-pane",
+                          "Description": "src-pane",
+                          "Type": "CustomArgument",
+                          "Extensions": [],
+                          "CustomCommand": "tmux lsp"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "t",
+                  "Description": "The destination pane",
+                  "Type": "Flag",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "src-pane",
+                          "Description": "src-pane",
+                          "Type": "CustomArgument",
+                          "Extensions": [],
+                          "CustomCommand": "tmux lsp"
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ],
+              "Optional": true
+            }
+          ]
+        },
+        {
+          "Name": "swapw",
+          "Description": "Swap two windows",
+          "Aliases": [
+            "swap-window"
+          ],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "d",
+                  "Description": "The new window does not become the current window",
+                  "Type": "Flag",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "s",
+                  "Description": "The source window",
+                  "Type": "Flag",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "window-name",
+                          "Description": "window-name",
+                          "Type": "CustomArgument",
+                          "Extensions": [],
+                          "CustomCommand": "tmux lsw"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "t",
+                  "Description": "The destination window",
+                  "Type": "Flag",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "window-name",
+                          "Description": "window-name",
+                          "Type": "CustomArgument",
+                          "Extensions": [],
+                          "CustomCommand": "tmux lsw"
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ],
+              "Optional": true
+            }
+          ]
+        },
+        {
+          "Name": "switchc",
+          "Description": "Switch the client to another session",
+          "Aliases": [
+            "switch-client"
+          ],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "E",
+                  "Description": "Do not use update-environment option",
+                  "Type": "Flag",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "l",
+                  "Description": "Move the client to the last session",
+                  "Type": "Flag",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "n",
+                  "Description": "Move the client to the next session",
+                  "Type": "Flag",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "p",
+                  "Description": "Move the client to the previous session",
+                  "Type": "Flag",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "r",
+                  "Description": "Toggle the client read-only and ignore-size flags",
+                  "Type": "Flag",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "Z",
+                  "Description": "Keep the window zoomed if it was zoomed",
+                  "Type": "Flag",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "c",
+                  "Description": "The target client",
+                  "Type": "Flag",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "target-client",
+                          "Description": "target-client",
+                          "Type": "CustomArgument",
+                          "Extensions": [],
+                          "CustomCommand": "tmux lsc"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "t",
+                  "Description": "Switch the client to the target-session",
+                  "Type": "Flag",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "target-session",
+                          "Description": "target-session",
+                          "Type": "CustomArgument",
+                          "Extensions": [],
+                          "CustomCommand": "tmux ls"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "T",
+                  "Description": "Set the client\u0027s key table",
+                  "Type": "Flag",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "key-table",
+                          "Description": "key-table",
+                          "Type": "String"
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ],
+              "Optional": true
+            }
+          ]
+        },
+        {
+          "Name": "unbind",
+          "Description": "Unbind a key",
+          "Aliases": [
+            "unbind-key"
+          ],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "a",
+                  "Description": "Remove all key-bindings",
+                  "Type": "Flag",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "n",
+                  "Description": "Alias for -T root",
+                  "Type": "Flag",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "q",
+                  "Description": "Prevent errors being returned",
+                  "Type": "Flag",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "T",
+                  "Description": "The key table to use",
+                  "Type": "Flag",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "key-table",
+                          "Description": "key-table",
+                          "Type": "String"
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ],
+              "Optional": true
+            },
+            {
+              "Arguments": [
+                {
+                  "Name": "key",
+                  "Description": "key",
+                  "Type": "String"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "Name": "unlinkw",
+          "Description": "Unlink a window",
+          "Aliases": [
+            "unlink-window"
+          ],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "k",
+                  "Description": "Destroy the window",
+                  "Type": "Flag",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "t",
+                  "Description": "The target window",
+                  "Type": "Flag",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "window-name",
+                          "Description": "window-name",
+                          "Type": "CustomArgument",
+                          "Extensions": [],
+                          "CustomCommand": "tmux lsw"
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ],
+              "Optional": true
+            }
+          ]
+        },
+        {
+          "Name": "wait",
+          "Description": "Wait for an event or trigger it",
+          "Aliases": [
+            "wait-for"
+          ],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "L",
+                  "Description": "Lock the channel",
+                  "Type": "Flag",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "U",
+                  "Description": "Unlock the channel",
+                  "Type": "Flag",
+                  "Aliases": [],
+                  "Arguments": []
+                }
+              ],
+              "Optional": true
+            },
+            {
+              "Arguments": [
+                {
+                  "Name": "channel",
+                  "Description": "channel",
+                  "Type": "String"
+                }
+              ]
+            }
+          ]
+        }
+      ],
+      "DontAllowMultiple": true
+    }
+  ]
+}

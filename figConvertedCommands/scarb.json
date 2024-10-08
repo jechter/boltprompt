@@ -1,0 +1,1019 @@
+{
+  "Comment": "This command info is generated from fig",
+  "Name": "scarb",
+  "Description": "Scarb, The build toolchain and package manager for Cairo and Starknet ecosystems",
+  "Arguments": [
+    {
+      "Arguments": [
+        {
+          "Name": "-h",
+          "Description": "Print help",
+          "Aliases": [
+            "--help"
+          ],
+          "Arguments": []
+        }
+      ],
+      "Optional": true
+    },
+    {
+      "Arguments": [
+        {
+          "Name": "add",
+          "Description": "Add dependencies to a Scarb.toml manifest file",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "--dry-run",
+                  "Description": "Do not actually write the manifest",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "-p",
+                  "Description": "Packages to run this command on",
+                  "Aliases": [
+                    "--package"
+                  ],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "SPEC",
+                          "Description": "SPEC",
+                          "Type": "CustomArgument",
+                          "Extensions": [],
+                          "CustomCommand": "scarb metadata --format-version 1 --no-deps"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "-v",
+                  "Description": "More output per occurrence",
+                  "Aliases": [
+                    "--verbose"
+                  ],
+                  "Arguments": []
+                },
+                {
+                  "Name": "-q",
+                  "Description": "Less output per occurrence",
+                  "Aliases": [
+                    "--quiet"
+                  ],
+                  "Arguments": []
+                },
+                {
+                  "Name": "-h",
+                  "Description": "Print help",
+                  "Aliases": [
+                    "--help"
+                  ],
+                  "Arguments": []
+                },
+                {
+                  "Name": "--path",
+                  "Description": "Filesystem path to local package to add",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "PATH",
+                          "Description": "PATH",
+                          "Type": "String"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "--git",
+                  "Description": "Git repository location",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "URI",
+                          "Description": "URI",
+                          "Type": "String"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "--branch",
+                  "Description": "Git branch to download the package from",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "BRANCH",
+                          "Description": "BRANCH",
+                          "Type": "String"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "--tag",
+                  "Description": "Git tag to download the package from",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "TAG",
+                          "Description": "TAG",
+                          "Type": "String"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "--rev",
+                  "Description": "Git reference to download the package from",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "REV",
+                          "Description": "REV",
+                          "Type": "String"
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ],
+              "Optional": true
+            },
+            {
+              "Arguments": [
+                {
+                  "Name": "DEP_ID",
+                  "Description": "DEP_ID",
+                  "Type": "String"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "Name": "remove",
+          "Description": "Remove dependencies from a manifest file",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "--dry-run",
+                  "Description": "Do not actually write the manifest",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "-p",
+                  "Description": "Packages to run this command on",
+                  "Aliases": [
+                    "--package"
+                  ],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "SPEC",
+                          "Description": "SPEC",
+                          "Type": "CustomArgument",
+                          "Extensions": [],
+                          "CustomCommand": "scarb metadata --format-version 1 --no-deps"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "-v",
+                  "Description": "More output per occurrence",
+                  "Aliases": [
+                    "--verbose"
+                  ],
+                  "Arguments": []
+                },
+                {
+                  "Name": "-q",
+                  "Description": "Less output per occurrence",
+                  "Aliases": [
+                    "--quiet"
+                  ],
+                  "Arguments": []
+                },
+                {
+                  "Name": "-w",
+                  "Description": "Run for all packages in the workspace",
+                  "Aliases": [
+                    "--workspace"
+                  ],
+                  "Arguments": []
+                },
+                {
+                  "Name": "-h",
+                  "Description": "Print help",
+                  "Aliases": [
+                    "--help"
+                  ],
+                  "Arguments": []
+                }
+              ],
+              "Optional": true
+            },
+            {
+              "Arguments": [
+                {
+                  "Name": "DEP_ID",
+                  "Description": "DEP_ID",
+                  "Type": "String"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "Name": "build",
+          "Description": "Compile current project",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "-p",
+                  "Description": "Packages to run this command on",
+                  "Aliases": [
+                    "--package"
+                  ],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "SPEC",
+                          "Description": "SPEC",
+                          "Type": "CustomArgument",
+                          "Extensions": [],
+                          "CustomCommand": "scarb metadata --format-version 1 --no-deps"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "-w",
+                  "Description": "Run for all packages in the workspace",
+                  "Aliases": [
+                    "--workspace"
+                  ],
+                  "Arguments": []
+                },
+                {
+                  "Name": "-v",
+                  "Description": "More output per occurrence",
+                  "Aliases": [
+                    "--verbose"
+                  ],
+                  "Arguments": []
+                },
+                {
+                  "Name": "-q",
+                  "Description": "Less output per occurrence",
+                  "Aliases": [
+                    "--quiet"
+                  ],
+                  "Arguments": []
+                },
+                {
+                  "Name": "-h",
+                  "Description": "Print help",
+                  "Aliases": [
+                    "--help"
+                  ],
+                  "Arguments": []
+                }
+              ],
+              "Optional": true
+            }
+          ]
+        },
+        {
+          "Name": "cache",
+          "Description": "Manipulate packages cache",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "-v",
+                  "Description": "More output per occurrence",
+                  "Aliases": [
+                    "--verbose"
+                  ],
+                  "Arguments": []
+                },
+                {
+                  "Name": "-q",
+                  "Description": "Less output per occurrence",
+                  "Aliases": [
+                    "--quiet"
+                  ],
+                  "Arguments": []
+                },
+                {
+                  "Name": "-h",
+                  "Description": "Print help",
+                  "Aliases": [
+                    "--help"
+                  ],
+                  "Arguments": []
+                }
+              ],
+              "Optional": true
+            },
+            {
+              "Arguments": [
+                {
+                  "Name": "clean",
+                  "Description": "Remove all cached dependencies",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "-v",
+                          "Description": "More output per occurrence",
+                          "Aliases": [
+                            "--verbose"
+                          ],
+                          "Arguments": []
+                        },
+                        {
+                          "Name": "-q",
+                          "Description": "Less output per occurrence",
+                          "Aliases": [
+                            "--quiet"
+                          ],
+                          "Arguments": []
+                        },
+                        {
+                          "Name": "-h",
+                          "Description": "Print help",
+                          "Aliases": [
+                            "--help"
+                          ],
+                          "Arguments": []
+                        }
+                      ],
+                      "Optional": true
+                    }
+                  ]
+                },
+                {
+                  "Name": "path",
+                  "Description": "Print the path of the cache directory",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "-v",
+                          "Description": "More output per occurrence",
+                          "Aliases": [
+                            "--verbose"
+                          ],
+                          "Arguments": []
+                        },
+                        {
+                          "Name": "-q",
+                          "Description": "Less output per occurrence",
+                          "Aliases": [
+                            "--quiet"
+                          ],
+                          "Arguments": []
+                        },
+                        {
+                          "Name": "-h",
+                          "Description": "Print help",
+                          "Aliases": [
+                            "--help"
+                          ],
+                          "Arguments": []
+                        }
+                      ],
+                      "Optional": true
+                    }
+                  ]
+                },
+                {
+                  "Name": "help",
+                  "Description": "Print this message or the help of the given subcommand(s)",
+                  "Aliases": [],
+                  "Arguments": []
+                }
+              ],
+              "DontAllowMultiple": true
+            }
+          ]
+        },
+        {
+          "Name": "clean",
+          "Description": "Remove generated artifacts",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "-v",
+                  "Description": "More output per occurrence",
+                  "Aliases": [
+                    "--verbose"
+                  ],
+                  "Arguments": []
+                },
+                {
+                  "Name": "-q",
+                  "Description": "Less output per occurrence",
+                  "Aliases": [
+                    "--quiet"
+                  ],
+                  "Arguments": []
+                },
+                {
+                  "Name": "-h",
+                  "Description": "Print help",
+                  "Aliases": [
+                    "--help"
+                  ],
+                  "Arguments": []
+                }
+              ],
+              "Optional": true
+            }
+          ]
+        },
+        {
+          "Name": "commands",
+          "Description": "List installed commands",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "-v",
+                  "Description": "More output per occurrence",
+                  "Aliases": [
+                    "--verbose"
+                  ],
+                  "Arguments": []
+                },
+                {
+                  "Name": "-q",
+                  "Description": "Less output per occurrence",
+                  "Aliases": [
+                    "--quiet"
+                  ],
+                  "Arguments": []
+                },
+                {
+                  "Name": "-h",
+                  "Description": "Print help",
+                  "Aliases": [
+                    "--help"
+                  ],
+                  "Arguments": []
+                }
+              ],
+              "Optional": true
+            }
+          ]
+        },
+        {
+          "Name": "fetch",
+          "Description": "Fetch dependencies of packages from the network",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "-v",
+                  "Description": "More output per occurrence",
+                  "Aliases": [
+                    "--verbose"
+                  ],
+                  "Arguments": []
+                },
+                {
+                  "Name": "-q",
+                  "Description": "Less output per occurrence",
+                  "Aliases": [
+                    "--quiet"
+                  ],
+                  "Arguments": []
+                },
+                {
+                  "Name": "-h",
+                  "Description": "Print help",
+                  "Aliases": [
+                    "--help"
+                  ],
+                  "Arguments": []
+                }
+              ],
+              "Optional": true
+            }
+          ]
+        },
+        {
+          "Name": "fmt",
+          "Description": "Format project files",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "-c",
+                  "Description": "Only check if files are formatted, do not write the changes to disk",
+                  "Aliases": [
+                    "--check"
+                  ],
+                  "Arguments": []
+                },
+                {
+                  "Name": "--no-color",
+                  "Description": "Do not color output",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "-v",
+                  "Description": "More output per occurrence",
+                  "Aliases": [
+                    "--verbose"
+                  ],
+                  "Arguments": []
+                },
+                {
+                  "Name": "-p",
+                  "Description": "Packages to run this command on",
+                  "Aliases": [
+                    "--package"
+                  ],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "SPEC",
+                          "Description": "SPEC",
+                          "Type": "CustomArgument",
+                          "Extensions": [],
+                          "CustomCommand": "scarb metadata --format-version 1 --no-deps"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "-q",
+                  "Description": "Less output per occurrence",
+                  "Aliases": [
+                    "--quiet"
+                  ],
+                  "Arguments": []
+                },
+                {
+                  "Name": "-w",
+                  "Description": "Run for all packages in the workspace",
+                  "Aliases": [
+                    "--workspace"
+                  ],
+                  "Arguments": []
+                },
+                {
+                  "Name": "-h",
+                  "Description": "Print help",
+                  "Aliases": [
+                    "--help"
+                  ],
+                  "Arguments": []
+                }
+              ],
+              "Optional": true
+            }
+          ]
+        },
+        {
+          "Name": "init",
+          "Description": "Create a new Scarb package in existing directory",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "--name",
+                  "Description": "Set the resulting package name, defaults to the directory name",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "NAME",
+                          "Description": "NAME",
+                          "Type": "String"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "--no-vcs",
+                  "Description": "Do not initialize a new Git repository",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "-v",
+                  "Description": "More output per occurrence",
+                  "Aliases": [
+                    "--verbose"
+                  ],
+                  "Arguments": []
+                },
+                {
+                  "Name": "-q",
+                  "Description": "Less output per occurrence",
+                  "Aliases": [
+                    "--quiet"
+                  ],
+                  "Arguments": []
+                },
+                {
+                  "Name": "-h",
+                  "Description": "Print help",
+                  "Aliases": [
+                    "--help"
+                  ],
+                  "Arguments": []
+                }
+              ],
+              "Optional": true
+            }
+          ]
+        },
+        {
+          "Name": "metadata",
+          "Description": "Output the resolved dependencies of a package, the concrete used versions including overrides, in machine-readable format",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "--format-version",
+                  "Description": "Format version",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "VERSION",
+                          "Description": "VERSION",
+                          "Type": "String"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "--no-deps",
+                  "Description": "Output information only about the workspace members and don\u0027t fetch dependencies",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "-v",
+                  "Description": "More output per occurrence",
+                  "Aliases": [
+                    "--verbose"
+                  ],
+                  "Arguments": []
+                },
+                {
+                  "Name": "-q",
+                  "Description": "Less output per occurrence",
+                  "Aliases": [
+                    "--quiet"
+                  ],
+                  "Arguments": []
+                },
+                {
+                  "Name": "-h",
+                  "Description": "Print help",
+                  "Aliases": [
+                    "--help"
+                  ],
+                  "Arguments": []
+                }
+              ],
+              "Optional": true
+            }
+          ]
+        },
+        {
+          "Name": "manifest-path",
+          "Description": "Print path to current Scarb.toml file to standard output",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "-v",
+                  "Description": "More output per occurrence",
+                  "Aliases": [
+                    "--verbose"
+                  ],
+                  "Arguments": []
+                },
+                {
+                  "Name": "-q",
+                  "Description": "Less output per occurrence",
+                  "Aliases": [
+                    "--quiet"
+                  ],
+                  "Arguments": []
+                },
+                {
+                  "Name": "-h",
+                  "Description": "Print help",
+                  "Aliases": [
+                    "--help"
+                  ],
+                  "Arguments": []
+                }
+              ],
+              "Optional": true
+            }
+          ]
+        },
+        {
+          "Name": "new",
+          "Description": "Create a new Scarb package at \u003CPATH\u003E",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "--name",
+                  "Description": "Set the resulting package name, defaults to the directory name",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "NAME",
+                          "Description": "NAME",
+                          "Type": "String"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "--no-vcs",
+                  "Description": "Do not initialize a new Git repository",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "-v",
+                  "Description": "More output per occurrence",
+                  "Aliases": [
+                    "--verbose"
+                  ],
+                  "Arguments": []
+                },
+                {
+                  "Name": "-q",
+                  "Description": "Less output per occurrence",
+                  "Aliases": [
+                    "--quiet"
+                  ],
+                  "Arguments": []
+                },
+                {
+                  "Name": "-h",
+                  "Description": "Print help",
+                  "Aliases": [
+                    "--help"
+                  ],
+                  "Arguments": []
+                }
+              ],
+              "Optional": true
+            },
+            {
+              "Arguments": [
+                {
+                  "Name": "PATH",
+                  "Description": "PATH",
+                  "Type": "String"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "Name": "run",
+          "Description": "Run arbitrary package scripts",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "-p",
+                  "Description": "Packages to run this command on",
+                  "Aliases": [
+                    "--package"
+                  ],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "SPEC",
+                          "Description": "SPEC",
+                          "Type": "CustomArgument",
+                          "Extensions": [],
+                          "CustomCommand": "scarb metadata --format-version 1 --no-deps"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "-v",
+                  "Description": "More output per occurrence",
+                  "Aliases": [
+                    "--verbose"
+                  ],
+                  "Arguments": []
+                },
+                {
+                  "Name": "-w",
+                  "Description": "Run for all packages in the workspace",
+                  "Aliases": [
+                    "--workspace"
+                  ],
+                  "Arguments": []
+                },
+                {
+                  "Name": "-q",
+                  "Description": "Less output per occurrence",
+                  "Aliases": [
+                    "--quiet"
+                  ],
+                  "Arguments": []
+                },
+                {
+                  "Name": "-h",
+                  "Description": "Print help",
+                  "Aliases": [
+                    "--help"
+                  ],
+                  "Arguments": []
+                }
+              ],
+              "Optional": true
+            },
+            {
+              "Arguments": [
+                {
+                  "Name": "SCRIPT",
+                  "Description": "SCRIPT",
+                  "Type": "String"
+                }
+              ]
+            },
+            {
+              "Arguments": [
+                {
+                  "Name": "ARGS",
+                  "Description": "ARGS",
+                  "Type": "String"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "Name": "test",
+          "Description": "Runs test in the local project, if it has a Scarb.toml manifest. If project is a virtual workspace, will run all tests by default",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "--workspace",
+                  "Description": "Run for all packages in the workspace",
+                  "Aliases": [
+                    "-w"
+                  ],
+                  "Arguments": []
+                },
+                {
+                  "Name": "--filter",
+                  "Description": "Runs the test with a specific filter",
+                  "Aliases": [
+                    "-f"
+                  ],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "FILTER",
+                          "Description": "FILTER",
+                          "Type": "String"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "--include-ignored",
+                  "Description": "Run ignored and not ignored tests",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "--ignored",
+                  "Description": "Run only ignored tests",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "--verbose",
+                  "Description": "More output per occurrence",
+                  "Aliases": [
+                    "-v"
+                  ],
+                  "Arguments": []
+                },
+                {
+                  "Name": "--quiet",
+                  "Description": "Less output per occurrence",
+                  "Aliases": [
+                    "-q"
+                  ],
+                  "Arguments": []
+                },
+                {
+                  "Name": "--help",
+                  "Description": "Print help",
+                  "Aliases": [
+                    "-h"
+                  ],
+                  "Arguments": []
+                },
+                {
+                  "Name": "--package",
+                  "Description": "Packages to run this command on",
+                  "Aliases": [
+                    "-p"
+                  ],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "SPEC",
+                          "Description": "SPEC",
+                          "Type": "CustomArgument",
+                          "Extensions": [],
+                          "CustomCommand": "scarb metadata --format-version 1 --no-deps"
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ],
+              "Optional": true
+            }
+          ]
+        }
+      ],
+      "DontAllowMultiple": true
+    }
+  ]
+}

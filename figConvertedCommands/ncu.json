@@ -1,0 +1,738 @@
+{
+  "Comment": "This command info is generated from fig",
+  "Name": "ncu",
+  "Description": "Upgrade your npm package.json dependencies to the latest versions, ignoring specified versions",
+  "Arguments": [
+    {
+      "Arguments": [
+        {
+          "Name": "--cache",
+          "Description": "Cache versions to a local cache file. Default --cacheFile is ~/.ncu-cache.json and default --cacheExpiration is 10 minutes",
+          "Aliases": [],
+          "Arguments": []
+        },
+        {
+          "Name": "--cacheClear",
+          "Description": "Clear the default cache, or the cache file specified by --cacheFile",
+          "Aliases": [],
+          "Arguments": []
+        },
+        {
+          "Name": "--cacheExpiration",
+          "Description": "Cache expiration in minutes. Only works with --cache. (default: 10)",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "min",
+                  "Description": "min",
+                  "Type": "String"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "Name": "--cacheFile",
+          "Description": "Filepath for the cache file. Only works with --cache. (default: \u0022~/.ncu-cache.json\u0022)",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "path",
+                  "Description": "path",
+                  "Type": "FileSystemEntry"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "Name": "--color",
+          "Description": "Force color in terminal",
+          "Aliases": [],
+          "Arguments": []
+        },
+        {
+          "Name": "--concurrency",
+          "Description": "Max number of concurrent HTTP requests to registry. (default: 8)",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "n",
+                  "Description": "n",
+                  "Type": "String"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "Name": "--configFileName",
+          "Description": "Config file name. (default: .ncurc.{json,yml,js,cjs})",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "s",
+                  "Description": "s",
+                  "Type": "FileSystemEntry"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "Name": "--configFilePath",
+          "Description": "Directory of .ncurc config file. (default: directory of packageFile)",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "path",
+                  "Description": "path",
+                  "Type": "Directory"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "Name": "--cwd",
+          "Description": "Working directory in which npm will be executed",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "path",
+                  "Description": "path",
+                  "Type": "Directory"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "Name": "--deep",
+          "Description": "Run recursively in current working directory. Alias of (--packageFile \u0027**/package.json\u0027)",
+          "Aliases": [],
+          "Arguments": []
+        },
+        {
+          "Name": "--dep",
+          "Description": "Check one or more sections of dependencies only: dev, optional, peer, prod, or packageManager (comma-delimited). (default: [\u0022prod\u0022,\u0022dev\u0022,\u0022optional\u0022])",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "value",
+                  "Description": "value",
+                  "Type": "String"
+                },
+                {
+                  "Name": "dev",
+                  "Description": "value"
+                },
+                {
+                  "Name": "optional",
+                  "Description": "value"
+                },
+                {
+                  "Name": "peer",
+                  "Description": "value"
+                },
+                {
+                  "Name": "prod",
+                  "Description": "value"
+                },
+                {
+                  "Name": "packageManager",
+                  "Description": "value"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "Name": "--deprecated",
+          "Description": "Include deprecated packages",
+          "Aliases": [],
+          "Arguments": []
+        },
+        {
+          "Name": "--doctor",
+          "Description": "Iteratively installs upgrades and runs tests to identify breaking upgrades. Requires -u to execute. Run \u0022ncu --help --doctor\u0022 for details",
+          "Aliases": [
+            "-d"
+          ],
+          "Arguments": []
+        },
+        {
+          "Name": "--doctorInstall",
+          "Description": "Specifies the install script to use in doctor mode. (default: npm install/yarn)",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "command",
+                  "Description": "command",
+                  "Type": "String"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "Name": "--doctorTest",
+          "Description": "Specifies the test script to use in doctor mode. (default: npm test)",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "command",
+                  "Description": "command",
+                  "Type": "String"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "Name": "--enginesNode",
+          "Description": "Include only packages that satisfy engines.node as specified in the package file",
+          "Aliases": [],
+          "Arguments": []
+        },
+        {
+          "Name": "--errorLevel",
+          "Description": "Set the error level. 1: exits with error code 0 if no errors occur. 2: exits with error code 0 if no packages need updating (useful for continuous integration). (default: 1)",
+          "Aliases": [
+            "-e"
+          ],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "n",
+                  "Description": "n",
+                  "Type": "String"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "Name": "--filter",
+          "Description": "Include only package names matching the given string, wildcard, glob, comma-or-space-delimited list, /regex/, or predicate function",
+          "Aliases": [
+            "-f"
+          ],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "p",
+                  "Description": "p",
+                  "Type": "String"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "Name": "--filterResults",
+          "Description": "Filters out upgrades based on a user provided function. Run \u0022ncu --help --filterResults\u0022 for details",
+          "Aliases": [],
+          "Arguments": []
+        },
+        {
+          "Name": "--filterVersion",
+          "Description": "Filter on package version using comma-or-space-delimited list, /regex/, or predicate function",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "p",
+                  "Description": "p",
+                  "Type": "String"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "Name": "--format",
+          "Description": "Modify the output formatting or show additional information. Specify one or more comma-delimited values: group, ownerChanged, repo, time, lines. Run \u0022ncu --help --format\u0022 for details. (default: [])",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "value",
+                  "Description": "value",
+                  "Type": "String"
+                },
+                {
+                  "Name": "group",
+                  "Description": "value"
+                },
+                {
+                  "Name": "ownerChanged",
+                  "Description": "value"
+                },
+                {
+                  "Name": "repo",
+                  "Description": "value"
+                },
+                {
+                  "Name": "time",
+                  "Description": "value"
+                },
+                {
+                  "Name": "lines",
+                  "Description": "value"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "Name": "--global",
+          "Description": "Check global packages instead of in the current project",
+          "Aliases": [
+            "-g"
+          ],
+          "Arguments": []
+        },
+        {
+          "Name": "--groupFunction",
+          "Description": "Customize how packages are divided into groups when using --format group. Run \u0022ncu --help --groupFunction\u0022 for details",
+          "Aliases": [],
+          "Arguments": []
+        },
+        {
+          "Name": "--help",
+          "Description": "Show help",
+          "Aliases": [
+            "-h"
+          ],
+          "Arguments": []
+        },
+        {
+          "Name": "--interactive",
+          "Description": "Enable interactive prompts for each dependency; implies -u unless one of the json options are set",
+          "Aliases": [
+            "-i"
+          ],
+          "Arguments": []
+        },
+        {
+          "Name": "--jsonAll",
+          "Description": "Output new package file instead of human-readable message",
+          "Aliases": [
+            "-j"
+          ],
+          "Arguments": []
+        },
+        {
+          "Name": "--jsonDeps",
+          "Description": "Like jsonAll but only lists dependencies, devDependencies, optionalDependencies, etc of the new package data",
+          "Aliases": [],
+          "Arguments": []
+        },
+        {
+          "Name": "--jsonUpgraded",
+          "Description": "Output upgraded dependencies in json",
+          "Aliases": [],
+          "Arguments": []
+        },
+        {
+          "Name": "--loglevel",
+          "Description": "Amount to log: silent, error, minimal, warn, info, verbose, silly. (default: \u0022warn\u0022)",
+          "Aliases": [
+            "-l"
+          ],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "n",
+                  "Description": "n",
+                  "Type": "String"
+                },
+                {
+                  "Name": "silent",
+                  "Description": "n"
+                },
+                {
+                  "Name": "error",
+                  "Description": "n"
+                },
+                {
+                  "Name": "minimal",
+                  "Description": "n"
+                },
+                {
+                  "Name": "warn",
+                  "Description": "n"
+                },
+                {
+                  "Name": "info",
+                  "Description": "n"
+                },
+                {
+                  "Name": "verbose",
+                  "Description": "n"
+                },
+                {
+                  "Name": "silly",
+                  "Description": "n"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "Name": "--mergeConfig",
+          "Description": "Merges nested configs with the root config file for --deep or --packageFile options. (default: false)",
+          "Aliases": [],
+          "Arguments": []
+        },
+        {
+          "Name": "--minimal",
+          "Description": "Do not upgrade newer versions that are already satisfied by the version range according to semver",
+          "Aliases": [
+            "-m"
+          ],
+          "Arguments": []
+        },
+        {
+          "Name": "--packageData",
+          "Description": "Package file data (you can also use stdin)",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "value",
+                  "Description": "value",
+                  "Type": "String"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "Name": "--packageFile",
+          "Description": "Package file(s) location. (default: ./package.json)",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "path|glob",
+                  "Description": "path|glob",
+                  "Type": "FileSystemEntry"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "Name": "--packageManager",
+          "Description": "Npm, yarn, pnpm, deno, staticRegistry (default: npm). Run \u0022ncu --help --packageManager\u0022 for details",
+          "Aliases": [
+            "-p"
+          ],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "s",
+                  "Description": "s",
+                  "Type": "String"
+                },
+                {
+                  "Name": "npm",
+                  "Description": "s"
+                },
+                {
+                  "Name": "yarn",
+                  "Description": "s"
+                },
+                {
+                  "Name": "pnpm",
+                  "Description": "s"
+                },
+                {
+                  "Name": "deno",
+                  "Description": "s"
+                },
+                {
+                  "Name": "staticRegistry",
+                  "Description": "s"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "Name": "--peer",
+          "Description": "Check peer dependencies of installed packages and filter updates to compatible versions. Run \u0022ncu --help --peer\u0022 for details",
+          "Aliases": [],
+          "Arguments": []
+        },
+        {
+          "Name": "--pre",
+          "Description": "Include prerelease versions, e.g. -alpha.0, -beta.5, -rc.2. Automatically set to 1 when --target is newest or greatest, or when the current version is a prerelease. (default: 0)",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "n",
+                  "Description": "n",
+                  "Type": "String"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "Name": "--prefix",
+          "Description": "Current working directory of npm",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "path",
+                  "Description": "path",
+                  "Type": "Directory"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "Name": "--registry",
+          "Description": "Third-party npm registry. Run \u0022ncu --help --registry\u0022 for details",
+          "Aliases": [
+            "-r"
+          ],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "uri",
+                  "Description": "uri",
+                  "Type": "String"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "Name": "--reject",
+          "Description": "Exclude packages matching the given string, wildcard, glob, comma-or-space-delimited list, /regex/, or predicate function",
+          "Aliases": [
+            "-x"
+          ],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "p",
+                  "Description": "p",
+                  "Type": "String"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "Name": "--rejectVersion",
+          "Description": "Exclude package.json versions using comma-or-space-delimited list, /regex/, or predicate function",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "p",
+                  "Description": "p",
+                  "Type": "String"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "Name": "--removeRange",
+          "Description": "Remove version ranges from the final package version",
+          "Aliases": [],
+          "Arguments": []
+        },
+        {
+          "Name": "--retry",
+          "Description": "Number of times to retry failed requests for package info. (default: 3)",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "n",
+                  "Description": "n",
+                  "Type": "String"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "Name": "--root",
+          "Description": "Runs updates on the root project in addition to specified workspaces. Only allowed with --workspace or --workspaces. (default: false)",
+          "Aliases": [],
+          "Arguments": []
+        },
+        {
+          "Name": "--silent",
+          "Description": "Don\u0027t output anything. Alias for --loglevel silent",
+          "Aliases": [
+            "-s"
+          ],
+          "Arguments": []
+        },
+        {
+          "Name": "--stdin",
+          "Description": "Read package.json from stdin",
+          "Aliases": [],
+          "Arguments": []
+        },
+        {
+          "Name": "--target",
+          "Description": "Determines the version to upgrade to: latest, newest, greatest, minor, patch, @[tag], or [function]. (default: latest) Run \u0022ncu --help --target\u0022 for details",
+          "Aliases": [
+            "-t"
+          ],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "value",
+                  "Description": "value",
+                  "Type": "String"
+                },
+                {
+                  "Name": "latest",
+                  "Description": "value"
+                },
+                {
+                  "Name": "newest",
+                  "Description": "value"
+                },
+                {
+                  "Name": "greatest",
+                  "Description": "value"
+                },
+                {
+                  "Name": "minor",
+                  "Description": "value"
+                },
+                {
+                  "Name": "patch",
+                  "Description": "value"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "Name": "--timeout",
+          "Description": "Global timeout in milliseconds. (default: no global timeout and 30 seconds per npm-registry-fetch)",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "ms",
+                  "Description": "ms",
+                  "Type": "String"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "Name": "--upgrade",
+          "Description": "Overwrite package file with upgraded versions instead of just outputting to console",
+          "Aliases": [
+            "-u"
+          ],
+          "Arguments": []
+        },
+        {
+          "Name": "--verbose",
+          "Description": "Log additional information for debugging. Alias for --loglevel verbose",
+          "Aliases": [],
+          "Arguments": []
+        },
+        {
+          "Name": "--version",
+          "Description": "Output the version number of npm-check-updates",
+          "Aliases": [
+            "-v"
+          ],
+          "Arguments": []
+        },
+        {
+          "Name": "--workspace",
+          "Description": "Run on one or more specified workspaces. Add --root to also upgrade the root project. (default: [])",
+          "Aliases": [
+            "-w"
+          ],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "s",
+                  "Description": "s",
+                  "Type": "String"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "Name": "--workspaces",
+          "Description": "Run on all workspaces. Add --root to also upgrade the root project",
+          "Aliases": [
+            "-ws"
+          ],
+          "Arguments": []
+        }
+      ],
+      "Optional": true
+    },
+    {
+      "Arguments": [
+        {
+          "Name": "filter",
+          "Description": "filter",
+          "Type": "String"
+        }
+      ],
+      "Optional": true
+    }
+  ]
+}

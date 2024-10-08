@@ -1,0 +1,426 @@
+{
+  "Comment": "This command info is generated from fig",
+  "Name": "assimp",
+  "Description": "Open Asset Import Library",
+  "Arguments": [
+    {
+      "Arguments": [
+        {
+          "Name": "-h",
+          "Description": "Display some basic help",
+          "Aliases": [
+            "--help"
+          ],
+          "Arguments": []
+        }
+      ],
+      "Optional": true
+    },
+    {
+      "Arguments": [
+        {
+          "Name": "listext",
+          "Description": "List all known file extensions available for import",
+          "Aliases": [],
+          "Arguments": []
+        },
+        {
+          "Name": "listexport",
+          "Description": "List all supported export formats",
+          "Aliases": [],
+          "Arguments": []
+        },
+        {
+          "Name": "knowext",
+          "Description": "List all known file extensions available for import",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "extension",
+                  "Description": "extension",
+                  "Type": "CustomArgument",
+                  "Extensions": [],
+                  "CustomCommand": "assimp listext"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "Name": "exportinfo",
+          "Description": "Show basic information on a specific export format",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "extension",
+                  "Description": "extension",
+                  "Type": "CustomArgument",
+                  "Extensions": [],
+                  "CustomCommand": "assimp listexport"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "Name": "info",
+          "Description": "Load a model file and print basic statistics. Full postprocessing is applied unless the \u0060-r\u0060 switch is specified",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "-r",
+                  "Description": "No postprocessing, do a raw import",
+                  "Aliases": [
+                    "--raw"
+                  ],
+                  "Arguments": []
+                },
+                {
+                  "Name": "-v",
+                  "Description": "Print verbose info such as node transform data",
+                  "Aliases": [
+                    "--verbose"
+                  ],
+                  "Arguments": []
+                },
+                {
+                  "Name": "-s",
+                  "Description": "Print only minimal info",
+                  "Aliases": [
+                    "--silent"
+                  ],
+                  "Arguments": []
+                },
+                {
+                  "Name": "-h",
+                  "Description": "Detailed help on a command",
+                  "Aliases": [
+                    "--help"
+                  ],
+                  "Arguments": []
+                }
+              ],
+              "Optional": true
+            },
+            {
+              "Arguments": [
+                {
+                  "Name": "file",
+                  "Description": "file",
+                  "Type": "FileSystemEntry"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "Name": "export",
+          "Description": "Export a file to one of the supported output formats",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "-f",
+                  "Description": "Export file formats supported by Assimp",
+                  "Aliases": [
+                    "--format"
+                  ],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "format",
+                          "Description": "format",
+                          "Type": "CustomArgument",
+                          "Extensions": [],
+                          "CustomCommand": "assimp listexport"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "-h",
+                  "Description": "Detailed help on a command",
+                  "Aliases": [
+                    "--help"
+                  ],
+                  "Arguments": []
+                }
+              ],
+              "Optional": true
+            },
+            {
+              "Arguments": [
+                {
+                  "Name": "model",
+                  "Description": "model",
+                  "Type": "FileSystemEntry"
+                }
+              ]
+            },
+            {
+              "Arguments": [
+                {
+                  "Name": "out",
+                  "Description": "out",
+                  "Type": "Directory"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "Name": "extract",
+          "Description": "Extract embedded texture images",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "-t",
+                  "Description": "Zero-based index of the texture to be extracted",
+                  "Aliases": [
+                    "--texture"
+                  ],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "index",
+                          "Description": "index",
+                          "Type": "String"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "-ba",
+                  "Description": "Specifies whether output BMPs contain an alpha channel or not",
+                  "Aliases": [
+                    "\u2013-bmp-with-alpha"
+                  ],
+                  "Arguments": []
+                },
+                {
+                  "Name": "-f",
+                  "Description": "Specifies the output file format. Supported formats are BMP and TGA. The default value is BMP (if a full output filename is specified, the output file format is taken from its extension)",
+                  "Aliases": [
+                    "--format"
+                  ],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "format",
+                          "Description": "format",
+                          "Type": "String"
+                        },
+                        {
+                          "Name": "bmp",
+                          "Description": "format"
+                        },
+                        {
+                          "Name": "tga",
+                          "Description": "format"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "-s",
+                  "Description": "Prevents the tool from adding the _img\u003Cn\u003E suffix to all filenames. This option must be specified together with -t to ensure that just one image is written",
+                  "Aliases": [
+                    "\u2013-nosuffix"
+                  ],
+                  "Arguments": []
+                },
+                {
+                  "Name": "-cfast",
+                  "Description": "Fast post processing preset, runs just a few important steps",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "-cdefault",
+                  "Description": "Default post processing: runs all recommended steps",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "-cfull",
+                  "Description": "Fires almost all post processing steps",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "-h",
+                  "Description": "Detailed help on a command",
+                  "Aliases": [
+                    "--help"
+                  ],
+                  "Arguments": []
+                }
+              ],
+              "Optional": true
+            },
+            {
+              "Arguments": [
+                {
+                  "Name": "model",
+                  "Description": "model",
+                  "Type": "FileSystemEntry"
+                }
+              ]
+            },
+            {
+              "Arguments": [
+                {
+                  "Name": "out",
+                  "Description": "out",
+                  "Type": "Directory"
+                }
+              ],
+              "Optional": true
+            }
+          ]
+        },
+        {
+          "Name": "dump",
+          "Description": "Convert models to a binary or textual dump (ASSBIN/ASSXML)",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "-b",
+                  "Description": "If true, the dump is written in binary format",
+                  "Aliases": [
+                    "--binary"
+                  ],
+                  "Arguments": []
+                },
+                {
+                  "Name": "-s",
+                  "Description": "If true, the dump is shortened to include only min/max values for all vertex components and animation channels",
+                  "Aliases": [
+                    "--short"
+                  ],
+                  "Arguments": []
+                },
+                {
+                  "Name": "-z",
+                  "Description": "If true, Compressed",
+                  "Aliases": [
+                    "--compressed"
+                  ],
+                  "Arguments": []
+                },
+                {
+                  "Name": "-cfast",
+                  "Description": "Fast post processing preset, runs just a few important steps",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "-cdefault",
+                  "Description": "Default post processing: runs all recommended steps",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "-cfull",
+                  "Description": "Fires almost all post processing steps",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "-h",
+                  "Description": "Detailed help on a command",
+                  "Aliases": [
+                    "--help"
+                  ],
+                  "Arguments": []
+                }
+              ],
+              "Optional": true
+            },
+            {
+              "Arguments": [
+                {
+                  "Name": "model",
+                  "Description": "model",
+                  "Type": "FileSystemEntry"
+                }
+              ]
+            },
+            {
+              "Arguments": [
+                {
+                  "Name": "out",
+                  "Description": "out",
+                  "Type": "Directory"
+                }
+              ],
+              "Optional": true
+            }
+          ]
+        },
+        {
+          "Name": "cmpdump",
+          "Description": "Compare dumps created using \u0027assimp dump \u003Cfile\u003E -s ...\u0027",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "-h",
+                  "Description": "Detailed help on a command",
+                  "Aliases": [
+                    "--help"
+                  ],
+                  "Arguments": []
+                }
+              ],
+              "Optional": true
+            },
+            {
+              "Arguments": [
+                {
+                  "Name": "actual",
+                  "Description": "actual",
+                  "Type": "FileSystemEntry"
+                }
+              ]
+            },
+            {
+              "Arguments": [
+                {
+                  "Name": "expected",
+                  "Description": "expected",
+                  "Type": "FileSystemEntry"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "Name": "version",
+          "Description": "Display Assimp version",
+          "Aliases": [],
+          "Arguments": []
+        }
+      ],
+      "DontAllowMultiple": true
+    }
+  ]
+}

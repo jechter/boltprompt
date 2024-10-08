@@ -1,0 +1,1335 @@
+{
+  "Comment": "This command info is generated from fig",
+  "Name": "zellij",
+  "Description": "A terminal workspace with batteries included",
+  "Arguments": [
+    {
+      "Arguments": [
+        {
+          "Name": "--max-panes",
+          "Description": "Maximum panes on screen, caution: opening more panes will close old ones",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "max-panes",
+                  "Description": "max-panes",
+                  "Type": "String"
+                }
+              ],
+              "Optional": true
+            }
+          ]
+        },
+        {
+          "Name": "--data-dir",
+          "Description": "Change where zellij looks for plugins",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "data-dir",
+                  "Description": "data-dir",
+                  "Type": "Directory"
+                }
+              ],
+              "Optional": true
+            }
+          ]
+        },
+        {
+          "Name": "--server",
+          "Description": "Run server listening at the specified socket path",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "server",
+                  "Description": "server",
+                  "Type": "FileSystemEntry"
+                }
+              ],
+              "Optional": true
+            }
+          ]
+        },
+        {
+          "Name": "-s",
+          "Description": "Specify name of a new session",
+          "Aliases": [
+            "--session"
+          ],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "session",
+                  "Description": "session",
+                  "Type": "String"
+                }
+              ],
+              "Optional": true
+            }
+          ]
+        },
+        {
+          "Name": "-l",
+          "Description": "Name of a predefined layout inside the layout directory or the path to a layout file",
+          "Aliases": [
+            "--layout"
+          ],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "layout",
+                  "Description": "layout",
+                  "Type": "FileSystemEntry"
+                }
+              ],
+              "Optional": true
+            }
+          ]
+        },
+        {
+          "Name": "-c",
+          "Description": "Change where zellij looks for the configuration file",
+          "Aliases": [
+            "--config"
+          ],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "config",
+                  "Description": "config",
+                  "Type": "FileSystemEntry"
+                }
+              ],
+              "Optional": true
+            }
+          ]
+        },
+        {
+          "Name": "--config-dir",
+          "Description": "Change where zellij looks for the configuration directory",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "config-dir",
+                  "Description": "config-dir",
+                  "Type": "Directory"
+                }
+              ],
+              "Optional": true
+            }
+          ]
+        },
+        {
+          "Name": "-h",
+          "Description": "Print help information",
+          "Aliases": [
+            "--help"
+          ],
+          "Arguments": []
+        },
+        {
+          "Name": "-V",
+          "Description": "Print version information",
+          "Aliases": [
+            "--version"
+          ],
+          "Arguments": []
+        },
+        {
+          "Name": "-d",
+          "Description": "Specify emitting additional debug information",
+          "Aliases": [
+            "--debug"
+          ],
+          "Arguments": []
+        }
+      ],
+      "Optional": true
+    },
+    {
+      "Arguments": [
+        {
+          "Name": "options",
+          "Description": "Change the behaviour of zellij",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "--simplified-ui",
+                  "Description": "Allow plugins to use a more simplified layout that is compatible with more fonts (true or false)",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "simplified-ui",
+                          "Description": "simplified-ui",
+                          "Type": "String"
+                        },
+                        {
+                          "Name": "true",
+                          "Description": "simplified-ui"
+                        },
+                        {
+                          "Name": "false",
+                          "Description": "simplified-ui"
+                        }
+                      ],
+                      "Optional": true
+                    }
+                  ]
+                },
+                {
+                  "Name": "--theme",
+                  "Description": "Set the default theme",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "theme",
+                          "Description": "theme",
+                          "Type": "String"
+                        }
+                      ],
+                      "Optional": true
+                    }
+                  ]
+                },
+                {
+                  "Name": "--default-mode",
+                  "Description": "Set the default mode",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "default-mode",
+                          "Description": "default-mode",
+                          "Type": "String"
+                        },
+                        {
+                          "Name": "normal",
+                          "Description": "In \u0060Normal\u0060 mode, input is always written to the terminal, except for the shortcuts leading to other modes"
+                        },
+                        {
+                          "Name": "locked",
+                          "Description": "In \u0060Locked\u0060 mode, input is always written to the terminal and all shortcuts are disabled except the one leading back to normal mode"
+                        },
+                        {
+                          "Name": "resize",
+                          "Description": "\u0060Resize\u0060 mode allows resizing the different existing panes"
+                        },
+                        {
+                          "Name": "pane",
+                          "Description": "\u0060Pane\u0060 mode allows creating and closing panes, as well as moving between them"
+                        },
+                        {
+                          "Name": "tab",
+                          "Description": "\u0060Tab\u0060 mode allows creating and closing tabs, as well as moving between them"
+                        },
+                        {
+                          "Name": "scroll",
+                          "Description": "\u0060Scroll\u0060 mode allows scrolling up and down within a pane"
+                        },
+                        {
+                          "Name": "enter-search",
+                          "Description": "\u0060EnterSearch\u0060 mode allows for typing in the needle for a search in the scroll buffer of a pane"
+                        },
+                        {
+                          "Name": "search",
+                          "Description": "\u0060Search\u0060 mode allows for searching a term in a pane (superset of \u0060Scroll\u0060)"
+                        },
+                        {
+                          "Name": "rename-tab",
+                          "Description": "\u0060RenameTab\u0060 mode allows assigning a new name to a tab"
+                        },
+                        {
+                          "Name": "rename-pane",
+                          "Description": "\u0060RenamePane\u0060 mode allows assigning a new name to a pane"
+                        },
+                        {
+                          "Name": "session",
+                          "Description": "\u0060Session\u0060 mode allows detaching sessions"
+                        },
+                        {
+                          "Name": "move",
+                          "Description": "\u0060Move\u0060 mode allows moving the different existing panes within a tab"
+                        },
+                        {
+                          "Name": "prompt",
+                          "Description": "\u0060Prompt\u0060 mode allows interacting with active prompts"
+                        },
+                        {
+                          "Name": "tmux",
+                          "Description": "\u0060Tmux\u0060 mode allows for basic tmux keybindings functionality"
+                        }
+                      ],
+                      "Optional": true
+                    }
+                  ]
+                },
+                {
+                  "Name": "--default-shell",
+                  "Description": "Set the default shell",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "default-shell",
+                          "Description": "default-shell",
+                          "Type": "String"
+                        },
+                        {
+                          "Name": "bash",
+                          "Description": "default-shell"
+                        },
+                        {
+                          "Name": "fish",
+                          "Description": "default-shell"
+                        },
+                        {
+                          "Name": "zsh",
+                          "Description": "default-shell"
+                        },
+                        {
+                          "Name": "tcsh",
+                          "Description": "default-shell"
+                        },
+                        {
+                          "Name": "csh",
+                          "Description": "default-shell"
+                        },
+                        {
+                          "Name": "sh",
+                          "Description": "default-shell"
+                        },
+                        {
+                          "Name": "ksh",
+                          "Description": "default-shell"
+                        },
+                        {
+                          "Name": "nu",
+                          "Description": "default-shell"
+                        }
+                      ],
+                      "Optional": true
+                    }
+                  ]
+                },
+                {
+                  "Name": "--default-layout",
+                  "Description": "Set the default layout",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "default-layout",
+                          "Description": "default-layout",
+                          "Type": "FileSystemEntry"
+                        }
+                      ],
+                      "Optional": true
+                    }
+                  ]
+                },
+                {
+                  "Name": "--layout-dir",
+                  "Description": "Set the layout_dir, defaults to subdirectory of config dir",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "layout-dir",
+                          "Description": "layout-dir",
+                          "Type": "Directory"
+                        }
+                      ],
+                      "Optional": true
+                    }
+                  ]
+                },
+                {
+                  "Name": "--theme-dir",
+                  "Description": "Set the theme_dir, defaults to subdirectory of config dir",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "theme-dir",
+                          "Description": "theme-dir",
+                          "Type": "Directory"
+                        }
+                      ],
+                      "Optional": true
+                    }
+                  ]
+                },
+                {
+                  "Name": "--mouse-mode",
+                  "Description": "Set the handling of mouse events (true or false) Can be temporarily bypassed by the [SHIFT] key",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "mouse-mode",
+                          "Description": "mouse-mode",
+                          "Type": "String"
+                        },
+                        {
+                          "Name": "true",
+                          "Description": "mouse-mode"
+                        },
+                        {
+                          "Name": "false",
+                          "Description": "mouse-mode"
+                        }
+                      ],
+                      "Optional": true
+                    }
+                  ]
+                },
+                {
+                  "Name": "--pane-frames",
+                  "Description": "Set display of the pane frames (true or false)",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "pane-frames",
+                          "Description": "pane-frames",
+                          "Type": "String"
+                        },
+                        {
+                          "Name": "true",
+                          "Description": "pane-frames"
+                        },
+                        {
+                          "Name": "false",
+                          "Description": "pane-frames"
+                        }
+                      ],
+                      "Optional": true
+                    }
+                  ]
+                },
+                {
+                  "Name": "--mirror-session",
+                  "Description": "Mirror session when multiple users are connected (true or false)",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "mirror-session",
+                          "Description": "mirror-session",
+                          "Type": "String"
+                        },
+                        {
+                          "Name": "true",
+                          "Description": "mirror-session"
+                        },
+                        {
+                          "Name": "false",
+                          "Description": "mirror-session"
+                        }
+                      ],
+                      "Optional": true
+                    }
+                  ]
+                },
+                {
+                  "Name": "--on-force-close",
+                  "Description": "Set behaviour on force close (quit or detach)",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "on-force-close",
+                          "Description": "on-force-close",
+                          "Type": "String"
+                        },
+                        {
+                          "Name": "quit",
+                          "Description": "on-force-close"
+                        },
+                        {
+                          "Name": "detach",
+                          "Description": "on-force-close"
+                        }
+                      ],
+                      "Optional": true
+                    }
+                  ]
+                },
+                {
+                  "Name": "--scroll-buffer-size",
+                  "Description": "",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "scroll-buffer-size",
+                          "Description": "scroll-buffer-size",
+                          "Type": "String"
+                        }
+                      ],
+                      "Optional": true
+                    }
+                  ]
+                },
+                {
+                  "Name": "--copy-command",
+                  "Description": "Switch to using a user supplied command for clipboard instead of OSC52",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "copy-command",
+                          "Description": "copy-command",
+                          "Type": "String"
+                        }
+                      ],
+                      "Optional": true
+                    }
+                  ]
+                },
+                {
+                  "Name": "--copy-clipboard",
+                  "Description": "OSC52 destination clipboard",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "copy-clipboard",
+                          "Description": "copy-clipboard",
+                          "Type": "String"
+                        },
+                        {
+                          "Name": "system",
+                          "Description": "copy-clipboard"
+                        },
+                        {
+                          "Name": "primary",
+                          "Description": "copy-clipboard"
+                        }
+                      ],
+                      "Optional": true
+                    }
+                  ]
+                },
+                {
+                  "Name": "--copy-on-select",
+                  "Description": "Automatically copy when selecting text (true or false)",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "copy-on-select",
+                          "Description": "copy-on-select",
+                          "Type": "String"
+                        },
+                        {
+                          "Name": "true",
+                          "Description": "copy-on-select"
+                        },
+                        {
+                          "Name": "false",
+                          "Description": "copy-on-select"
+                        }
+                      ],
+                      "Optional": true
+                    }
+                  ]
+                },
+                {
+                  "Name": "--scrollback-editor",
+                  "Description": "Explicit full path to open the scrollback editor (default is $EDITOR or $VISUAL)",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "scrollback-editor",
+                          "Description": "scrollback-editor",
+                          "Type": "FileSystemEntry"
+                        }
+                      ],
+                      "Optional": true
+                    }
+                  ]
+                },
+                {
+                  "Name": "--disable-mouse-mode",
+                  "Description": "Disable handling of mouse events",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "--no-pane-frames",
+                  "Description": "Disable display of pane frames",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "-h",
+                  "Description": "Print help information",
+                  "Aliases": [
+                    "--help"
+                  ],
+                  "Arguments": []
+                }
+              ],
+              "Optional": true
+            }
+          ]
+        },
+        {
+          "Name": "setup",
+          "Description": "Setup zellij and check its configuration",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "--dump-layout",
+                  "Description": "Dump the specified layout file to stdout",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "dump-layout",
+                          "Description": "dump-layout",
+                          "Type": "String"
+                        }
+                      ],
+                      "Optional": true
+                    }
+                  ]
+                },
+                {
+                  "Name": "--generate-completion",
+                  "Description": "Generates completion for the specified shell",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "generate-completion",
+                          "Description": "generate-completion",
+                          "Type": "String"
+                        }
+                      ],
+                      "Optional": true
+                    }
+                  ]
+                },
+                {
+                  "Name": "--generate-auto-start",
+                  "Description": "Generates auto-start script for the specified shell",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "generate-auto-start",
+                          "Description": "generate-auto-start",
+                          "Type": "String"
+                        }
+                      ],
+                      "Optional": true
+                    }
+                  ]
+                },
+                {
+                  "Name": "--dump-config",
+                  "Description": "Dump the default configuration file to stdout",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "--clean",
+                  "Description": "Disables loading of configuration file at default location, loads the defaults that zellij ships with",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "--check",
+                  "Description": "Checks the configuration of zellij and displays currently used directories",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "-h",
+                  "Description": "Print help information",
+                  "Aliases": [
+                    "--help"
+                  ],
+                  "Arguments": []
+                }
+              ],
+              "Optional": true
+            }
+          ]
+        },
+        {
+          "Name": "list-sessions",
+          "Description": "List active sessions",
+          "Aliases": [
+            "ls"
+          ],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "-h",
+                  "Description": "Print help information",
+                  "Aliases": [
+                    "--help"
+                  ],
+                  "Arguments": []
+                }
+              ],
+              "Optional": true
+            }
+          ]
+        },
+        {
+          "Name": "attach",
+          "Description": "Attach to a session",
+          "Aliases": [
+            "a"
+          ],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "--index",
+                  "Description": "Number of the session index in the active sessions ordered creation date",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "index",
+                          "Description": "index",
+                          "Type": "String"
+                        }
+                      ],
+                      "Optional": true
+                    }
+                  ]
+                },
+                {
+                  "Name": "-c",
+                  "Description": "Create a session if one does not exist",
+                  "Aliases": [
+                    "--create"
+                  ],
+                  "Arguments": []
+                },
+                {
+                  "Name": "-h",
+                  "Description": "Print help information",
+                  "Aliases": [
+                    "--help"
+                  ],
+                  "Arguments": []
+                }
+              ],
+              "Optional": true
+            },
+            {
+              "Arguments": [
+                {
+                  "Name": "session-name",
+                  "Description": "session-name",
+                  "Type": "CustomArgument",
+                  "Extensions": [],
+                  "CustomCommand": "zellij list-sessions"
+                }
+              ],
+              "Optional": true
+            },
+            {
+              "Arguments": [
+                {
+                  "Name": "options",
+                  "Description": "Change the behaviour of zellij",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "--simplified-ui",
+                          "Description": "Allow plugins to use a more simplified layout that is compatible with more fonts (true or false)",
+                          "Aliases": [],
+                          "Arguments": [
+                            {
+                              "Arguments": [
+                                {
+                                  "Name": "simplified-ui",
+                                  "Description": "simplified-ui",
+                                  "Type": "String"
+                                },
+                                {
+                                  "Name": "true",
+                                  "Description": "simplified-ui"
+                                },
+                                {
+                                  "Name": "false",
+                                  "Description": "simplified-ui"
+                                }
+                              ],
+                              "Optional": true
+                            }
+                          ]
+                        },
+                        {
+                          "Name": "--theme",
+                          "Description": "Set the default theme",
+                          "Aliases": [],
+                          "Arguments": [
+                            {
+                              "Arguments": [
+                                {
+                                  "Name": "theme",
+                                  "Description": "theme",
+                                  "Type": "String"
+                                }
+                              ],
+                              "Optional": true
+                            }
+                          ]
+                        },
+                        {
+                          "Name": "--default-mode",
+                          "Description": "Set the default mode",
+                          "Aliases": [],
+                          "Arguments": [
+                            {
+                              "Arguments": [
+                                {
+                                  "Name": "default-mode",
+                                  "Description": "default-mode",
+                                  "Type": "String"
+                                },
+                                {
+                                  "Name": "normal",
+                                  "Description": "In \u0060Normal\u0060 mode, input is always written to the terminal, except for the shortcuts leading to other modes"
+                                },
+                                {
+                                  "Name": "locked",
+                                  "Description": "In \u0060Locked\u0060 mode, input is always written to the terminal and all shortcuts are disabled except the one leading back to normal mode"
+                                },
+                                {
+                                  "Name": "resize",
+                                  "Description": "\u0060Resize\u0060 mode allows resizing the different existing panes"
+                                },
+                                {
+                                  "Name": "pane",
+                                  "Description": "\u0060Pane\u0060 mode allows creating and closing panes, as well as moving between them"
+                                },
+                                {
+                                  "Name": "tab",
+                                  "Description": "\u0060Tab\u0060 mode allows creating and closing tabs, as well as moving between them"
+                                },
+                                {
+                                  "Name": "scroll",
+                                  "Description": "\u0060Scroll\u0060 mode allows scrolling up and down within a pane"
+                                },
+                                {
+                                  "Name": "enter-search",
+                                  "Description": "\u0060EnterSearch\u0060 mode allows for typing in the needle for a search in the scroll buffer of a pane"
+                                },
+                                {
+                                  "Name": "search",
+                                  "Description": "\u0060Search\u0060 mode allows for searching a term in a pane (superset of \u0060Scroll\u0060)"
+                                },
+                                {
+                                  "Name": "rename-tab",
+                                  "Description": "\u0060RenameTab\u0060 mode allows assigning a new name to a tab"
+                                },
+                                {
+                                  "Name": "rename-pane",
+                                  "Description": "\u0060RenamePane\u0060 mode allows assigning a new name to a pane"
+                                },
+                                {
+                                  "Name": "session",
+                                  "Description": "\u0060Session\u0060 mode allows detaching sessions"
+                                },
+                                {
+                                  "Name": "move",
+                                  "Description": "\u0060Move\u0060 mode allows moving the different existing panes within a tab"
+                                },
+                                {
+                                  "Name": "prompt",
+                                  "Description": "\u0060Prompt\u0060 mode allows interacting with active prompts"
+                                },
+                                {
+                                  "Name": "tmux",
+                                  "Description": "\u0060Tmux\u0060 mode allows for basic tmux keybindings functionality"
+                                }
+                              ],
+                              "Optional": true
+                            }
+                          ]
+                        },
+                        {
+                          "Name": "--default-shell",
+                          "Description": "Set the default shell",
+                          "Aliases": [],
+                          "Arguments": [
+                            {
+                              "Arguments": [
+                                {
+                                  "Name": "default-shell",
+                                  "Description": "default-shell",
+                                  "Type": "String"
+                                },
+                                {
+                                  "Name": "bash",
+                                  "Description": "default-shell"
+                                },
+                                {
+                                  "Name": "fish",
+                                  "Description": "default-shell"
+                                },
+                                {
+                                  "Name": "zsh",
+                                  "Description": "default-shell"
+                                },
+                                {
+                                  "Name": "tcsh",
+                                  "Description": "default-shell"
+                                },
+                                {
+                                  "Name": "csh",
+                                  "Description": "default-shell"
+                                },
+                                {
+                                  "Name": "sh",
+                                  "Description": "default-shell"
+                                },
+                                {
+                                  "Name": "ksh",
+                                  "Description": "default-shell"
+                                },
+                                {
+                                  "Name": "nu",
+                                  "Description": "default-shell"
+                                }
+                              ],
+                              "Optional": true
+                            }
+                          ]
+                        },
+                        {
+                          "Name": "--default-layout",
+                          "Description": "Set the default layout",
+                          "Aliases": [],
+                          "Arguments": [
+                            {
+                              "Arguments": [
+                                {
+                                  "Name": "default-layout",
+                                  "Description": "default-layout",
+                                  "Type": "FileSystemEntry"
+                                }
+                              ],
+                              "Optional": true
+                            }
+                          ]
+                        },
+                        {
+                          "Name": "--layout-dir",
+                          "Description": "Set the layout_dir, defaults to subdirectory of config dir",
+                          "Aliases": [],
+                          "Arguments": [
+                            {
+                              "Arguments": [
+                                {
+                                  "Name": "layout-dir",
+                                  "Description": "layout-dir",
+                                  "Type": "Directory"
+                                }
+                              ],
+                              "Optional": true
+                            }
+                          ]
+                        },
+                        {
+                          "Name": "--theme-dir",
+                          "Description": "Set the theme_dir, defaults to subdirectory of config dir",
+                          "Aliases": [],
+                          "Arguments": [
+                            {
+                              "Arguments": [
+                                {
+                                  "Name": "theme-dir",
+                                  "Description": "theme-dir",
+                                  "Type": "Directory"
+                                }
+                              ],
+                              "Optional": true
+                            }
+                          ]
+                        },
+                        {
+                          "Name": "--mouse-mode",
+                          "Description": "Set the handling of mouse events (true or false) Can be temporarily bypassed by the [SHIFT] key",
+                          "Aliases": [],
+                          "Arguments": [
+                            {
+                              "Arguments": [
+                                {
+                                  "Name": "mouse-mode",
+                                  "Description": "mouse-mode",
+                                  "Type": "String"
+                                },
+                                {
+                                  "Name": "true",
+                                  "Description": "mouse-mode"
+                                },
+                                {
+                                  "Name": "false",
+                                  "Description": "mouse-mode"
+                                }
+                              ],
+                              "Optional": true
+                            }
+                          ]
+                        },
+                        {
+                          "Name": "--pane-frames",
+                          "Description": "Set display of the pane frames (true or false)",
+                          "Aliases": [],
+                          "Arguments": [
+                            {
+                              "Arguments": [
+                                {
+                                  "Name": "pane-frames",
+                                  "Description": "pane-frames",
+                                  "Type": "String"
+                                },
+                                {
+                                  "Name": "true",
+                                  "Description": "pane-frames"
+                                },
+                                {
+                                  "Name": "false",
+                                  "Description": "pane-frames"
+                                }
+                              ],
+                              "Optional": true
+                            }
+                          ]
+                        },
+                        {
+                          "Name": "--mirror-session",
+                          "Description": "Mirror session when multiple users are connected (true or false)",
+                          "Aliases": [],
+                          "Arguments": [
+                            {
+                              "Arguments": [
+                                {
+                                  "Name": "mirror-session",
+                                  "Description": "mirror-session",
+                                  "Type": "String"
+                                },
+                                {
+                                  "Name": "true",
+                                  "Description": "mirror-session"
+                                },
+                                {
+                                  "Name": "false",
+                                  "Description": "mirror-session"
+                                }
+                              ],
+                              "Optional": true
+                            }
+                          ]
+                        },
+                        {
+                          "Name": "--on-force-close",
+                          "Description": "Set behaviour on force close (quit or detach)",
+                          "Aliases": [],
+                          "Arguments": [
+                            {
+                              "Arguments": [
+                                {
+                                  "Name": "on-force-close",
+                                  "Description": "on-force-close",
+                                  "Type": "String"
+                                },
+                                {
+                                  "Name": "quit",
+                                  "Description": "on-force-close"
+                                },
+                                {
+                                  "Name": "detach",
+                                  "Description": "on-force-close"
+                                }
+                              ],
+                              "Optional": true
+                            }
+                          ]
+                        },
+                        {
+                          "Name": "--scroll-buffer-size",
+                          "Description": "",
+                          "Aliases": [],
+                          "Arguments": [
+                            {
+                              "Arguments": [
+                                {
+                                  "Name": "scroll-buffer-size",
+                                  "Description": "scroll-buffer-size",
+                                  "Type": "String"
+                                }
+                              ],
+                              "Optional": true
+                            }
+                          ]
+                        },
+                        {
+                          "Name": "--copy-command",
+                          "Description": "Switch to using a user supplied command for clipboard instead of OSC52",
+                          "Aliases": [],
+                          "Arguments": [
+                            {
+                              "Arguments": [
+                                {
+                                  "Name": "copy-command",
+                                  "Description": "copy-command",
+                                  "Type": "String"
+                                }
+                              ],
+                              "Optional": true
+                            }
+                          ]
+                        },
+                        {
+                          "Name": "--copy-clipboard",
+                          "Description": "OSC52 destination clipboard",
+                          "Aliases": [],
+                          "Arguments": [
+                            {
+                              "Arguments": [
+                                {
+                                  "Name": "copy-clipboard",
+                                  "Description": "copy-clipboard",
+                                  "Type": "String"
+                                },
+                                {
+                                  "Name": "system",
+                                  "Description": "copy-clipboard"
+                                },
+                                {
+                                  "Name": "primary",
+                                  "Description": "copy-clipboard"
+                                }
+                              ],
+                              "Optional": true
+                            }
+                          ]
+                        },
+                        {
+                          "Name": "--copy-on-select",
+                          "Description": "Automatically copy when selecting text (true or false)",
+                          "Aliases": [],
+                          "Arguments": [
+                            {
+                              "Arguments": [
+                                {
+                                  "Name": "copy-on-select",
+                                  "Description": "copy-on-select",
+                                  "Type": "String"
+                                },
+                                {
+                                  "Name": "true",
+                                  "Description": "copy-on-select"
+                                },
+                                {
+                                  "Name": "false",
+                                  "Description": "copy-on-select"
+                                }
+                              ],
+                              "Optional": true
+                            }
+                          ]
+                        },
+                        {
+                          "Name": "--scrollback-editor",
+                          "Description": "Explicit full path to open the scrollback editor (default is $EDITOR or $VISUAL)",
+                          "Aliases": [],
+                          "Arguments": [
+                            {
+                              "Arguments": [
+                                {
+                                  "Name": "scrollback-editor",
+                                  "Description": "scrollback-editor",
+                                  "Type": "FileSystemEntry"
+                                }
+                              ],
+                              "Optional": true
+                            }
+                          ]
+                        },
+                        {
+                          "Name": "--disable-mouse-mode",
+                          "Description": "Disable handling of mouse events",
+                          "Aliases": [],
+                          "Arguments": []
+                        },
+                        {
+                          "Name": "--no-pane-frames",
+                          "Description": "Disable display of pane frames",
+                          "Aliases": [],
+                          "Arguments": []
+                        },
+                        {
+                          "Name": "-h",
+                          "Description": "Print help information",
+                          "Aliases": [
+                            "--help"
+                          ],
+                          "Arguments": []
+                        }
+                      ],
+                      "Optional": true
+                    }
+                  ]
+                },
+                {
+                  "Name": "help",
+                  "Description": "Print this message or the help of the given subcommand(s)",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "subcommand",
+                          "Description": "subcommand",
+                          "Type": "String"
+                        }
+                      ],
+                      "Optional": true
+                    }
+                  ]
+                }
+              ],
+              "DontAllowMultiple": true
+            }
+          ]
+        },
+        {
+          "Name": "kill-session",
+          "Description": "Kill the specific session",
+          "Aliases": [
+            "k"
+          ],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "-h",
+                  "Description": "Print help information",
+                  "Aliases": [
+                    "--help"
+                  ],
+                  "Arguments": []
+                }
+              ],
+              "Optional": true
+            },
+            {
+              "Arguments": [
+                {
+                  "Name": "target-session",
+                  "Description": "target-session",
+                  "Type": "CustomArgument",
+                  "Extensions": [],
+                  "CustomCommand": "zellij list-sessions"
+                }
+              ],
+              "Optional": true
+            }
+          ]
+        },
+        {
+          "Name": "kill-all-sessions",
+          "Description": "Kill all sessions",
+          "Aliases": [
+            "ka"
+          ],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "-y",
+                  "Description": "Automatic yes to prompts",
+                  "Aliases": [
+                    "--yes"
+                  ],
+                  "Arguments": []
+                },
+                {
+                  "Name": "-h",
+                  "Description": "Print help information",
+                  "Aliases": [
+                    "--help"
+                  ],
+                  "Arguments": []
+                }
+              ],
+              "Optional": true
+            }
+          ]
+        },
+        {
+          "Name": "help",
+          "Description": "Print this message or the help of the given subcommand(s)",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "subcommand",
+                  "Description": "subcommand",
+                  "Type": "String"
+                }
+              ],
+              "Optional": true
+            }
+          ]
+        }
+      ],
+      "DontAllowMultiple": true
+    }
+  ]
+}

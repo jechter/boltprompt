@@ -1,0 +1,228 @@
+{
+  "Comment": "This command info is generated from fig",
+  "Name": "tokei",
+  "Description": "Count your code, quickly",
+  "Arguments": [
+    {
+      "Arguments": [
+        {
+          "Name": "-f",
+          "Description": "Will print out statistics on individual files",
+          "Aliases": [
+            "--files"
+          ],
+          "Arguments": []
+        },
+        {
+          "Name": "-h",
+          "Description": "Prints help information",
+          "Aliases": [
+            "--help"
+          ],
+          "Arguments": []
+        },
+        {
+          "Name": "--hidden",
+          "Description": "Count hidden files",
+          "Aliases": [],
+          "Arguments": []
+        },
+        {
+          "Name": "-l",
+          "Description": "Prints out supported languages and their extensions",
+          "Aliases": [
+            "--languages"
+          ],
+          "Arguments": []
+        },
+        {
+          "Name": "--no-ignore",
+          "Description": "Don\u0027t respect ignore files (.gitignore, .ignore, etc.)",
+          "Aliases": [],
+          "Arguments": []
+        },
+        {
+          "Name": "--no-ignore-dot",
+          "Description": "Don\u0027t respect .ignore and .tokeignore files, including those in parent directories",
+          "Aliases": [],
+          "Arguments": []
+        },
+        {
+          "Name": "--no-ignore-parent",
+          "Description": "Don\u0027t respect ignore files (.gitignore, .ignore, etc.) in parent directories",
+          "Aliases": [],
+          "Arguments": []
+        },
+        {
+          "Name": "--no-ignore-vcs",
+          "Description": "Don\u0027t respect VCS ignore files (.gitignore, .hgignore, etc.), including those in parent directories",
+          "Aliases": [],
+          "Arguments": []
+        },
+        {
+          "Name": "-V",
+          "Description": "Prints version information",
+          "Aliases": [
+            "--version"
+          ],
+          "Arguments": []
+        },
+        {
+          "Name": "-v",
+          "Description": "Set log output level:",
+          "Aliases": [
+            "--verbose"
+          ],
+          "Arguments": []
+        },
+        {
+          "Name": "-c",
+          "Description": "Sets a strict column width of the output, only available for terminal output",
+          "Aliases": [
+            "--columns"
+          ],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "columns",
+                  "Description": "columns",
+                  "Type": "String"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "Name": "-e",
+          "Description": "Ignore all files \u0026 directories matching the pattern",
+          "Aliases": [
+            "--exclude"
+          ],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "exclude",
+                  "Description": "exclude",
+                  "Type": "FileSystemEntry"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "Name": "-i",
+          "Description": "Gives statistics from a previous tokei run. Can be given a file path, or \u0022stdin\u0022 to read from stdin",
+          "Aliases": [
+            "--input"
+          ],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "input",
+                  "Description": "input",
+                  "Type": "FileSystemEntry"
+                },
+                {
+                  "Name": "stdin",
+                  "Description": "input"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "Name": "-o",
+          "Description": "Outputs Tokei in a specific format",
+          "Aliases": [
+            "--output"
+          ],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "output",
+                  "Description": "output",
+                  "Type": "String"
+                },
+                {
+                  "Name": "cbor",
+                  "Description": "output"
+                },
+                {
+                  "Name": "json",
+                  "Description": "output"
+                },
+                {
+                  "Name": "yaml",
+                  "Description": "output"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "Name": "-s",
+          "Description": "Sort languages based on column",
+          "Aliases": [
+            "--sort"
+          ],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "sort",
+                  "Description": "sort",
+                  "Type": "String"
+                },
+                {
+                  "Name": "files",
+                  "Description": "sort"
+                },
+                {
+                  "Name": "lines",
+                  "Description": "sort"
+                },
+                {
+                  "Name": "blanks",
+                  "Description": "sort"
+                },
+                {
+                  "Name": "code",
+                  "Description": "sort"
+                },
+                {
+                  "Name": "comments",
+                  "Description": "sort"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "Name": "-t",
+          "Description": "Filters output by language type, seperated by a comma. i.e. -t=Rust,Markdown",
+          "Aliases": [
+            "--type"
+          ],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "type",
+                  "Description": "type",
+                  "Type": "CustomArgument",
+                  "Extensions": [],
+                  "CustomCommand": "tokei --languages"
+                }
+              ]
+            }
+          ]
+        }
+      ],
+      "Optional": true
+    }
+  ]
+}

@@ -1,0 +1,651 @@
+{
+  "Comment": "This command info is generated from fig",
+  "Name": "rubocop",
+  "Description": "A Ruby static code analyzer and formatter, based on the community Ruby style guide",
+  "Arguments": [
+    {
+      "Arguments": [
+        {
+          "Name": "-l",
+          "Description": "Run only lint cops",
+          "Aliases": [
+            "--lint"
+          ],
+          "Arguments": []
+        },
+        {
+          "Name": "-x",
+          "Description": "Run only layout cops, with autocorrect on",
+          "Aliases": [
+            "--fix-layout"
+          ],
+          "Arguments": []
+        },
+        {
+          "Name": "--safe",
+          "Description": "Run only safe cops",
+          "Aliases": [],
+          "Arguments": []
+        },
+        {
+          "Name": "--except",
+          "Description": "Exclude the given cop(s)",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "COP",
+                  "Description": "COP",
+                  "Type": "CustomArgument",
+                  "Extensions": [],
+                  "CustomCommand": "rubocop --show-cops"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "Name": "--only",
+          "Description": "Run only the given cop(s)",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "COP",
+                  "Description": "COP",
+                  "Type": "CustomArgument",
+                  "Extensions": [],
+                  "CustomCommand": "rubocop --show-cops"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "Name": "--only-guide-cops",
+          "Description": "Run only cops for rules that link to a style guide",
+          "Aliases": [],
+          "Arguments": []
+        },
+        {
+          "Name": "-F",
+          "Description": "Inspect files in order of modification time and stop after the first file containing offenses",
+          "Aliases": [
+            "--fail-fast"
+          ],
+          "Arguments": []
+        },
+        {
+          "Name": "--disable-pending-cops",
+          "Description": "Run without pending cops",
+          "Aliases": [],
+          "Arguments": []
+        },
+        {
+          "Name": "--enable-pending-cops",
+          "Description": "Run with pending cops",
+          "Aliases": [],
+          "Arguments": []
+        },
+        {
+          "Name": "--ignore-disable-comments",
+          "Description": "Run cops even when they are disabled locally by a \u0060rubocop:disable\u0060 directive",
+          "Aliases": [],
+          "Arguments": []
+        },
+        {
+          "Name": "--force-exclusion",
+          "Description": "Any files excluded by \u0060Exclude\u0060 in configuration files will be excluded, even if given explicitly as arguments",
+          "Aliases": [],
+          "Arguments": []
+        },
+        {
+          "Name": "--only-recognized-file-types",
+          "Description": "Inspect files given on the command line only if they are listed in \u0060AllCops/Include\u0060 parameters of user configuration or default configuration",
+          "Aliases": [],
+          "Arguments": []
+        },
+        {
+          "Name": "--ignore-parent-exclusion",
+          "Description": "Prevent from inheriting \u0060AllCops/Exclude\u0060 from parent folders",
+          "Aliases": [],
+          "Arguments": []
+        },
+        {
+          "Name": "--ignore-unrecognized-cops",
+          "Description": "Ignore unrecognized cops or departments in the config",
+          "Aliases": [],
+          "Arguments": []
+        },
+        {
+          "Name": "--force-default-config",
+          "Description": "Use default configuration even if configuration files are present in the directory tree",
+          "Aliases": [],
+          "Arguments": []
+        },
+        {
+          "Name": "--stdin",
+          "Description": "Pipe source from STDIN, using FILE in offense reports. This is useful for editor integration",
+          "Aliases": [
+            "-s"
+          ],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "FILE",
+                  "Description": "FILE",
+                  "Type": "FileSystemEntry"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "Name": "-P",
+          "Description": "Use available CPUs to execute inspection in parallel default true",
+          "Aliases": [
+            "--parallel"
+          ],
+          "Arguments": []
+        },
+        {
+          "Name": "--no-parallel",
+          "Description": "Disable parallel inspection (default: false)",
+          "Aliases": [],
+          "Arguments": []
+        },
+        {
+          "Name": "--fail-level",
+          "Description": "Minimum severity for exit with error code",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "SEVERITY",
+                  "Description": "SEVERITY",
+                  "Type": "String"
+                },
+                {
+                  "Name": "A",
+                  "Description": "SEVERITY"
+                },
+                {
+                  "Name": "I",
+                  "Description": "SEVERITY"
+                },
+                {
+                  "Name": "R",
+                  "Description": "SEVERITY"
+                },
+                {
+                  "Name": "C",
+                  "Description": "SEVERITY"
+                },
+                {
+                  "Name": "W",
+                  "Description": "SEVERITY"
+                },
+                {
+                  "Name": "E",
+                  "Description": "SEVERITY"
+                },
+                {
+                  "Name": "F",
+                  "Description": "SEVERITY"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "Name": "-C",
+          "Description": "Use result caching (FLAG=true) or don\u0027t (FLAG=false), default determined by configuration parameter AllCops: UseCache",
+          "Aliases": [
+            "--cache"
+          ],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "FLAG",
+                  "Description": "FLAG",
+                  "Type": "String"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "Name": "--cache-root",
+          "Description": "Set the cache root directory. Takes precedence over the configuration parameter AllCops: CacheRootDirectory and the $RUBOCOP_CACHE_ROOT environment variable",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "DIR",
+                  "Description": "DIR",
+                  "Type": "Directory"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "Name": "--no-server",
+          "Description": "Do not use server even if it\u0027s available",
+          "Aliases": [],
+          "Arguments": []
+        },
+        {
+          "Name": "--server",
+          "Description": "If a server process has not been started yet, start the server process and execute inspection with server.  Default is true.  You can specify the server host and port with the $RUBOCOP_SERVER_HOST and the $RUBOCOP_SERVER_PORT environment variables",
+          "Aliases": [],
+          "Arguments": []
+        },
+        {
+          "Name": "--restart-server",
+          "Description": "Restart server process",
+          "Aliases": [],
+          "Arguments": []
+        },
+        {
+          "Name": "--start-server",
+          "Description": "Start server process",
+          "Aliases": [],
+          "Arguments": []
+        },
+        {
+          "Name": "--stop-server",
+          "Description": "Stop server process",
+          "Aliases": [],
+          "Arguments": []
+        },
+        {
+          "Name": "--server-status",
+          "Description": "Show server status",
+          "Aliases": [],
+          "Arguments": []
+        },
+        {
+          "Name": "-f",
+          "Description": "Choose an output formatter. This option can be specified multiple times to enable multiple formatters at the same time",
+          "Aliases": [
+            "--format"
+          ],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "FORMATTER",
+                  "Description": "FORMATTER",
+                  "Type": "String"
+                },
+                {
+                  "Name": "a",
+                  "Description": "FORMATTER"
+                },
+                {
+                  "Name": "c",
+                  "Description": "FORMATTER"
+                },
+                {
+                  "Name": "e",
+                  "Description": "FORMATTER"
+                },
+                {
+                  "Name": "fi",
+                  "Description": "FORMATTER"
+                },
+                {
+                  "Name": "fu",
+                  "Description": "FORMATTER"
+                },
+                {
+                  "Name": "g",
+                  "Description": "FORMATTER"
+                },
+                {
+                  "Name": "h",
+                  "Description": "FORMATTER"
+                },
+                {
+                  "Name": "j",
+                  "Description": "FORMATTER"
+                },
+                {
+                  "Name": "ju",
+                  "Description": "FORMATTER"
+                },
+                {
+                  "Name": "m",
+                  "Description": "FORMATTER"
+                },
+                {
+                  "Name": "o",
+                  "Description": "FORMATTER"
+                },
+                {
+                  "Name": "pa",
+                  "Description": "FORMATTER"
+                },
+                {
+                  "Name": "p",
+                  "Description": "FORMATTER"
+                },
+                {
+                  "Name": "q",
+                  "Description": "FORMATTER"
+                },
+                {
+                  "Name": "s",
+                  "Description": "FORMATTER"
+                },
+                {
+                  "Name": "t",
+                  "Description": "FORMATTER"
+                },
+                {
+                  "Name": "w",
+                  "Description": "FORMATTER"
+                },
+                {
+                  "Name": "[custom]",
+                  "Description": "FORMATTER"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "Name": "-D",
+          "Description": "Display cop names in offense messages.  Default is true",
+          "Aliases": [
+            "--display-cop-names"
+          ],
+          "Arguments": []
+        },
+        {
+          "Name": "--no-display-cop-names",
+          "Description": "Disable displaying cop names in offense messages. Default false",
+          "Aliases": [],
+          "Arguments": []
+        },
+        {
+          "Name": "-E",
+          "Description": "Display extra details in offense messages",
+          "Aliases": [
+            "--extra-details"
+          ],
+          "Arguments": []
+        },
+        {
+          "Name": "-S",
+          "Description": "Display style guide URLs in offense messages",
+          "Aliases": [
+            "--display-style-guide"
+          ],
+          "Arguments": []
+        },
+        {
+          "Name": "-o",
+          "Description": "Write output to a file instead of STDOUT.  This option applies to the previously specified --format, or the default format if no format is specified",
+          "Aliases": [
+            "--out"
+          ],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "FILE",
+                  "Description": "FILE",
+                  "Type": "FileSystemEntry"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "Name": "--stderr",
+          "Description": "Write all output to stderr except for the autocorrected source. This is especially useful when combined with --autocorrect and --stdin",
+          "Aliases": [],
+          "Arguments": []
+        },
+        {
+          "Name": "--display-time",
+          "Description": "Display elapsed time in seconds",
+          "Aliases": [],
+          "Arguments": []
+        },
+        {
+          "Name": "--display-only-failed",
+          "Description": "Only output offense messages. Omit passing cops. Only valid for --format junit",
+          "Aliases": [],
+          "Arguments": []
+        },
+        {
+          "Name": "--display-only-fail-level-offenses",
+          "Description": "Only output offense messages at the specified --fail-level or above",
+          "Aliases": [],
+          "Arguments": []
+        },
+        {
+          "Name": "--display-only-correctable",
+          "Description": "Only output correctable offense messages",
+          "Aliases": [],
+          "Arguments": []
+        },
+        {
+          "Name": "--display-only-safe-correctable",
+          "Description": "Only output safe-correctable offense messages when combined with --display-only-correctable",
+          "Aliases": [],
+          "Arguments": []
+        },
+        {
+          "Name": "-a",
+          "Description": "Autocorrect offenses (only when it\u0027s safe)",
+          "Aliases": [
+            "--autocorrect"
+          ],
+          "Arguments": []
+        },
+        {
+          "Name": "-A",
+          "Description": "Autocorrect offenses (safe and unsafe)",
+          "Aliases": [
+            "--autocorrect-all"
+          ],
+          "Arguments": []
+        },
+        {
+          "Name": "--disable-uncorrectable",
+          "Description": "Annotates any offenses that do not support autocorrect with \u0060rubocop:todo\u0060 comments",
+          "Aliases": [],
+          "Arguments": []
+        },
+        {
+          "Name": "--auto-gen-config",
+          "Description": "Generate a configuration file acting as a TODO list",
+          "Aliases": [],
+          "Arguments": []
+        },
+        {
+          "Name": "--regenerate-todo",
+          "Description": "Regenerate the TODO configuration file using the last configuration. If there is no existing TODO file, acts like --auto-gen-config",
+          "Aliases": [],
+          "Arguments": []
+        },
+        {
+          "Name": "--exclude-limit",
+          "Description": "Set the limit for how many files to explicitly exclude.  If there are more files than the limit, the cop will be disabled instead. Default is 15",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "COUNT",
+                  "Description": "COUNT",
+                  "Type": "String"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "Name": "--offense-counts",
+          "Description": "Include offense counts in configuration file generated by --auto-gen-config.  Default is true",
+          "Aliases": [],
+          "Arguments": []
+        },
+        {
+          "Name": "--auto-gen-only-exclude",
+          "Description": "Generate only Exclude parameters and not Max when running --auto-gen-config, except if the number of files with offenses is bigger than exclude-limit. Default is false",
+          "Aliases": [],
+          "Arguments": []
+        },
+        {
+          "Name": "--auto-gen-timestamp",
+          "Description": "Include the date and time when the --auto-gen-config was run in the file it generates. Default is true",
+          "Aliases": [],
+          "Arguments": []
+        },
+        {
+          "Name": "-L",
+          "Description": "List all files RuboCop will inspect",
+          "Aliases": [
+            "--list-target-files"
+          ],
+          "Arguments": []
+        },
+        {
+          "Name": "--show-cops",
+          "Description": "Shows the given cops, or all cops by default, and their configurations for the current directory",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "COP",
+                  "Description": "COP",
+                  "Type": "CustomArgument",
+                  "Extensions": [],
+                  "CustomCommand": "rubocop --show-cops"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "Name": "--show-docs-url",
+          "Description": "Display url to documentation for the given cops, or base url by default",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "COP",
+                  "Description": "COP",
+                  "Type": "CustomArgument",
+                  "Extensions": [],
+                  "CustomCommand": "rubocop --show-cops"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "Name": "--init",
+          "Description": "Generate a .rubocop.yml file in the current directory",
+          "Aliases": [],
+          "Arguments": []
+        },
+        {
+          "Name": "-c",
+          "Description": "Specify configuration file",
+          "Aliases": [
+            "--config"
+          ],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "file",
+                  "Description": "file",
+                  "Type": "FileSystemEntry"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "Name": "-d",
+          "Description": "Display debug info",
+          "Aliases": [
+            "--debug"
+          ],
+          "Arguments": []
+        },
+        {
+          "Name": "-r",
+          "Description": "Require Ruby file",
+          "Aliases": [
+            "--require"
+          ],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "file",
+                  "Description": "file",
+                  "Type": "FileSystemEntry"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "Name": "--no-color",
+          "Description": "Disable color output",
+          "Aliases": [],
+          "Arguments": []
+        },
+        {
+          "Name": "--color",
+          "Description": "Force color output",
+          "Aliases": [],
+          "Arguments": []
+        },
+        {
+          "Name": "-v",
+          "Description": "Display version",
+          "Aliases": [
+            "--version"
+          ],
+          "Arguments": []
+        },
+        {
+          "Name": "-V",
+          "Description": "Display verbose version",
+          "Aliases": [
+            "--verbose-version"
+          ],
+          "Arguments": []
+        }
+      ],
+      "Optional": true
+    },
+    {
+      "Arguments": [
+        {
+          "Name": "file",
+          "Description": "file",
+          "Type": "FileSystemEntry"
+        }
+      ]
+    }
+  ]
+}

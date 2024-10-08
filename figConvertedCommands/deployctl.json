@@ -1,0 +1,162 @@
+{
+  "Comment": "This command info is generated from fig",
+  "Name": "deployctl",
+  "Description": "Command line tool for Deno Deploy",
+  "Arguments": [
+    {
+      "Arguments": [
+        {
+          "Name": "--help",
+          "Description": "Show help",
+          "Aliases": [
+            "-h"
+          ],
+          "Arguments": []
+        },
+        {
+          "Name": "-V",
+          "Description": "Show the version",
+          "Aliases": [
+            "--version"
+          ],
+          "Arguments": []
+        }
+      ],
+      "Optional": true
+    },
+    {
+      "Arguments": [
+        {
+          "Name": "deploy",
+          "Description": "Deploy a script with static files to Deno Deploy",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "--exclude",
+                  "Description": "Exclude files that match this pattern",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "pattern",
+                          "Description": "pattern",
+                          "Type": "String"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "--include",
+                  "Description": "Only upload files that match this pattern",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "pattern",
+                          "Description": "pattern",
+                          "Type": "String"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "--no-static",
+                  "Description": "Don\u0027t include the files in the CWD as static files",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "--prod",
+                  "Description": "Create a production deployment (default is preview deployment)",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "-p",
+                  "Description": "The project to deploy to",
+                  "Aliases": [
+                    "--project"
+                  ],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "name",
+                          "Description": "name",
+                          "Type": "String"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "--token",
+                  "Description": "The API token to use",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "token",
+                          "Description": "token",
+                          "Type": "String"
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ],
+              "Optional": true
+            },
+            {
+              "Arguments": [
+                {
+                  "Name": "entrypoint",
+                  "Description": "entrypoint",
+                  "Type": "File",
+                  "Extensions": [
+                    "js",
+                    "mjs",
+                    "jsx",
+                    "mjsx",
+                    "ts",
+                    "mts",
+                    "tsx",
+                    "mtsx"
+                  ],
+                  "CustomCommand": ""
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "Name": "upgrade",
+          "Description": "Upgrade deployctl",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "version",
+                  "Description": "version",
+                  "Type": "CustomArgument",
+                  "Extensions": [],
+                  "CustomCommand": "curl -sL https://cdn.deno.land/deploy/meta/versions.json"
+                }
+              ],
+              "Optional": true
+            }
+          ]
+        }
+      ],
+      "DontAllowMultiple": true
+    }
+  ]
+}

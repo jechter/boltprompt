@@ -1,0 +1,695 @@
+{
+  "Comment": "This command info is generated from fig",
+  "Name": "typst",
+  "Description": "The Typst compiler",
+  "Arguments": [
+    {
+      "Arguments": [
+        {
+          "Name": "--cert",
+          "Description": "Path to a custom CA certificate to use when making network requests",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "cert",
+                  "Description": "cert",
+                  "Type": "FileSystemEntry"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "Name": "-v",
+          "Description": "Sets the level of logging verbosity: -v = warning \u0026 error, -vv = info, -vvv = debug, -vvvv = trace",
+          "Aliases": [
+            "--verbosity"
+          ],
+          "Arguments": []
+        },
+        {
+          "Name": "-h",
+          "Description": "Print help",
+          "Aliases": [
+            "--help"
+          ],
+          "Arguments": []
+        },
+        {
+          "Name": "-V",
+          "Description": "Print version",
+          "Aliases": [
+            "--version"
+          ],
+          "Arguments": []
+        }
+      ],
+      "Optional": true
+    },
+    {
+      "Arguments": [
+        {
+          "Name": "compile",
+          "Description": "Compiles an input file into a supported output format",
+          "Aliases": [
+            "c"
+          ],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "--root",
+                  "Description": "Configures the project root (for absolute paths)",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "root",
+                          "Description": "root",
+                          "Type": "Directory"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "--font-path",
+                  "Description": "Adds additional directories to search for fonts",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "font_paths",
+                          "Description": "font_paths",
+                          "Type": "FileSystemEntry"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "--diagnostic-format",
+                  "Description": "The format to emit diagnostics in",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "diagnostic_format",
+                          "Description": "diagnostic_format",
+                          "Type": "String"
+                        },
+                        {
+                          "Name": "human",
+                          "Description": "diagnostic_format"
+                        },
+                        {
+                          "Name": "short",
+                          "Description": "diagnostic_format"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "-f",
+                  "Description": "The format of the output file, inferred from the extension by default",
+                  "Aliases": [
+                    "--format"
+                  ],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "format",
+                          "Description": "format",
+                          "Type": "String"
+                        },
+                        {
+                          "Name": "pdf",
+                          "Description": "format"
+                        },
+                        {
+                          "Name": "png",
+                          "Description": "format"
+                        },
+                        {
+                          "Name": "svg",
+                          "Description": "format"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "--open",
+                  "Description": "Opens the output file using the default viewer after compilation",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "open",
+                          "Description": "open",
+                          "Type": "String"
+                        }
+                      ],
+                      "Optional": true
+                    }
+                  ]
+                },
+                {
+                  "Name": "--ppi",
+                  "Description": "The PPI (pixels per inch) to use for PNG export",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "ppi",
+                          "Description": "ppi",
+                          "Type": "String"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "--flamegraph",
+                  "Description": "Produces a flamegraph of the compilation process",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "flamegraph",
+                          "Description": "flamegraph",
+                          "Type": "FileSystemEntry"
+                        }
+                      ],
+                      "Optional": true
+                    }
+                  ]
+                },
+                {
+                  "Name": "-h",
+                  "Description": "Print help",
+                  "Aliases": [
+                    "--help"
+                  ],
+                  "Arguments": []
+                }
+              ],
+              "Optional": true
+            },
+            {
+              "Arguments": [
+                {
+                  "Name": "input",
+                  "Description": "input",
+                  "Type": "File",
+                  "Extensions": [
+                    "typ"
+                  ],
+                  "CustomCommand": ""
+                }
+              ]
+            },
+            {
+              "Arguments": [
+                {
+                  "Name": "output",
+                  "Description": "output",
+                  "Type": "FileSystemEntry"
+                }
+              ],
+              "Optional": true
+            }
+          ]
+        },
+        {
+          "Name": "watch",
+          "Description": "Watches an input file and recompiles on changes",
+          "Aliases": [
+            "w"
+          ],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "--root",
+                  "Description": "Configures the project root (for absolute paths)",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "root",
+                          "Description": "root",
+                          "Type": "Directory"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "--font-path",
+                  "Description": "Adds additional directories to search for fonts",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "font_paths",
+                          "Description": "font_paths",
+                          "Type": "FileSystemEntry"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "--diagnostic-format",
+                  "Description": "The format to emit diagnostics in",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "diagnostic_format",
+                          "Description": "diagnostic_format",
+                          "Type": "String"
+                        },
+                        {
+                          "Name": "human",
+                          "Description": "diagnostic_format"
+                        },
+                        {
+                          "Name": "short",
+                          "Description": "diagnostic_format"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "-f",
+                  "Description": "The format of the output file, inferred from the extension by default",
+                  "Aliases": [
+                    "--format"
+                  ],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "format",
+                          "Description": "format",
+                          "Type": "String"
+                        },
+                        {
+                          "Name": "pdf",
+                          "Description": "format"
+                        },
+                        {
+                          "Name": "png",
+                          "Description": "format"
+                        },
+                        {
+                          "Name": "svg",
+                          "Description": "format"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "--open",
+                  "Description": "Opens the output file using the default viewer after compilation",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "open",
+                          "Description": "open",
+                          "Type": "String"
+                        }
+                      ],
+                      "Optional": true
+                    }
+                  ]
+                },
+                {
+                  "Name": "--ppi",
+                  "Description": "The PPI (pixels per inch) to use for PNG export",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "ppi",
+                          "Description": "ppi",
+                          "Type": "String"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "--flamegraph",
+                  "Description": "Produces a flamegraph of the compilation process",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "flamegraph",
+                          "Description": "flamegraph",
+                          "Type": "FileSystemEntry"
+                        }
+                      ],
+                      "Optional": true
+                    }
+                  ]
+                },
+                {
+                  "Name": "-h",
+                  "Description": "Print help",
+                  "Aliases": [
+                    "--help"
+                  ],
+                  "Arguments": []
+                }
+              ],
+              "Optional": true
+            },
+            {
+              "Arguments": [
+                {
+                  "Name": "input",
+                  "Description": "input",
+                  "Type": "File",
+                  "Extensions": [
+                    "typ"
+                  ],
+                  "CustomCommand": ""
+                }
+              ]
+            },
+            {
+              "Arguments": [
+                {
+                  "Name": "output",
+                  "Description": "output",
+                  "Type": "FileSystemEntry"
+                }
+              ],
+              "Optional": true
+            }
+          ]
+        },
+        {
+          "Name": "query",
+          "Description": "Processes an input file to extract provided metadata",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "--root",
+                  "Description": "Configures the project root (for absolute paths)",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "root",
+                          "Description": "root",
+                          "Type": "Directory"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "--font-path",
+                  "Description": "Adds additional directories to search for fonts",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "font_paths",
+                          "Description": "font_paths",
+                          "Type": "FileSystemEntry"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "--diagnostic-format",
+                  "Description": "The format to emit diagnostics in",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "diagnostic_format",
+                          "Description": "diagnostic_format",
+                          "Type": "String"
+                        },
+                        {
+                          "Name": "human",
+                          "Description": "diagnostic_format"
+                        },
+                        {
+                          "Name": "short",
+                          "Description": "diagnostic_format"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "--field",
+                  "Description": "Extracts just one field from all retrieved elements",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "field",
+                          "Description": "field",
+                          "Type": "String"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "--format",
+                  "Description": "The format to serialize in",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "format",
+                          "Description": "format",
+                          "Type": "String"
+                        },
+                        {
+                          "Name": "json",
+                          "Description": "format"
+                        },
+                        {
+                          "Name": "yaml",
+                          "Description": "format"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "--one",
+                  "Description": "Expects and retrieves exactly one element",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "-h",
+                  "Description": "Print help",
+                  "Aliases": [
+                    "--help"
+                  ],
+                  "Arguments": []
+                }
+              ],
+              "Optional": true
+            },
+            {
+              "Arguments": [
+                {
+                  "Name": "input",
+                  "Description": "input",
+                  "Type": "File",
+                  "Extensions": [
+                    "typ"
+                  ],
+                  "CustomCommand": ""
+                }
+              ]
+            },
+            {
+              "Arguments": [
+                {
+                  "Name": "selector",
+                  "Description": "selector",
+                  "Type": "String"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "Name": "fonts",
+          "Description": "Lists all discovered fonts in system and custom font paths",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "--font-path",
+                  "Description": "Adds additional directories to search for fonts",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "font_paths",
+                          "Description": "font_paths",
+                          "Type": "FileSystemEntry"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "--variants",
+                  "Description": "Also lists style variants of each font family",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "-h",
+                  "Description": "Print help",
+                  "Aliases": [
+                    "--help"
+                  ],
+                  "Arguments": []
+                }
+              ],
+              "Optional": true
+            }
+          ]
+        },
+        {
+          "Name": "update",
+          "Description": "Self update the Typst CLI (disabled)",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "--force",
+                  "Description": "Forces a downgrade to an older version (required for downgrading)",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "--revert",
+                  "Description": "Reverts to the version from before the last update (only possible if \u0060typst update\u0060 has previously ran)",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "-h",
+                  "Description": "Print help",
+                  "Aliases": [
+                    "--help"
+                  ],
+                  "Arguments": []
+                }
+              ],
+              "Optional": true
+            },
+            {
+              "Arguments": [
+                {
+                  "Name": "version",
+                  "Description": "version",
+                  "Type": "String"
+                }
+              ],
+              "Optional": true
+            }
+          ]
+        },
+        {
+          "Name": "help",
+          "Description": "Print this message or the help of the given subcommand(s)",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "compile",
+                  "Description": "Compiles an input file into a supported output format",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "watch",
+                  "Description": "Watches an input file and recompiles on changes",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "query",
+                  "Description": "Processes an input file to extract provided metadata",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "fonts",
+                  "Description": "Lists all discovered fonts in system and custom font paths",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "update",
+                  "Description": "Self update the Typst CLI (disabled)",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "help",
+                  "Description": "Print this message or the help of the given subcommand(s)",
+                  "Aliases": [],
+                  "Arguments": []
+                }
+              ],
+              "DontAllowMultiple": true
+            }
+          ]
+        }
+      ],
+      "DontAllowMultiple": true
+    }
+  ]
+}

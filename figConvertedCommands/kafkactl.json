@@ -1,0 +1,2253 @@
+{
+  "Comment": "This command info is generated from fig",
+  "Name": "kafkactl",
+  "Description": "Command-line interface for Apache Kafka",
+  "Arguments": [
+    {
+      "Arguments": [
+        {
+          "Name": "--config-file",
+          "Description": "Config file. one of: [$HOME/.config/kafkactl $HOME/.kafkactl $SNAP_REAL_HOME/.config/kafkactl $SNAP_DATA/kafkactl /etc/kafkactl]",
+          "Aliases": [
+            "-C"
+          ],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "config-file",
+                  "Description": "config-file",
+                  "Type": "FileSystemEntry"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "Name": "--verbose",
+          "Description": "Verbose output",
+          "Aliases": [
+            "-V"
+          ],
+          "Arguments": []
+        },
+        {
+          "Name": "--help",
+          "Description": "Display help",
+          "Aliases": [
+            "-h"
+          ],
+          "Arguments": []
+        }
+      ],
+      "Optional": true
+    },
+    {
+      "Arguments": [
+        {
+          "Name": "edit",
+          "Description": "Alter topics, partitions",
+          "Aliases": [
+            "alter"
+          ],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "partition",
+                  "Description": "Alter a partition",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "--replicas",
+                          "Description": "Set replicas for a partition",
+                          "Aliases": [
+                            "-r"
+                          ],
+                          "Arguments": [
+                            {
+                              "Arguments": [
+                                {
+                                  "Name": "replicas",
+                                  "Description": "replicas",
+                                  "Type": "String"
+                                }
+                              ]
+                            }
+                          ]
+                        },
+                        {
+                          "Name": "--validate-only",
+                          "Description": "Validate only",
+                          "Aliases": [
+                            "-v"
+                          ],
+                          "Arguments": []
+                        }
+                      ],
+                      "Optional": true
+                    }
+                  ]
+                },
+                {
+                  "Name": "topic",
+                  "Description": "Alter a topic",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "--config",
+                          "Description": "Configs in format \u0060key=value\u0060",
+                          "Aliases": [
+                            "-c"
+                          ],
+                          "Arguments": [
+                            {
+                              "Arguments": [
+                                {
+                                  "Name": "config",
+                                  "Description": "config",
+                                  "Type": "String"
+                                }
+                              ]
+                            }
+                          ]
+                        },
+                        {
+                          "Name": "--partitions",
+                          "Description": "Number of partitions",
+                          "Aliases": [
+                            "-p"
+                          ],
+                          "Arguments": [
+                            {
+                              "Arguments": [
+                                {
+                                  "Name": "partitions",
+                                  "Description": "partitions",
+                                  "Type": "String"
+                                }
+                              ]
+                            }
+                          ]
+                        },
+                        {
+                          "Name": "--replication-factor",
+                          "Description": "Replication factor",
+                          "Aliases": [
+                            "-r"
+                          ],
+                          "Arguments": [
+                            {
+                              "Arguments": [
+                                {
+                                  "Name": "replication-factor",
+                                  "Description": "replication-factor",
+                                  "Type": "String"
+                                }
+                              ]
+                            }
+                          ]
+                        },
+                        {
+                          "Name": "--validate-only",
+                          "Description": "Validate only",
+                          "Aliases": [
+                            "-v"
+                          ],
+                          "Arguments": []
+                        }
+                      ],
+                      "Optional": true
+                    }
+                  ]
+                }
+              ],
+              "DontAllowMultiple": true
+            }
+          ]
+        },
+        {
+          "Name": "attach",
+          "Description": "Run kafkactl pod in kubernetes and attach to it",
+          "Aliases": [],
+          "Arguments": []
+        },
+        {
+          "Name": "clone",
+          "Description": "Clone topics, consumerGroups",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "cg",
+                  "Description": "Clone existing consumerGroup with all offsets",
+                  "Aliases": [
+                    "consumer-group"
+                  ],
+                  "Arguments": []
+                },
+                {
+                  "Name": "topic",
+                  "Description": "Clone existing topic (number of partitions, replication factor, config entries) to new one",
+                  "Aliases": [],
+                  "Arguments": []
+                }
+              ],
+              "DontAllowMultiple": true
+            }
+          ]
+        },
+        {
+          "Name": "completion",
+          "Description": "Generate shell auto-completion file",
+          "Aliases": [],
+          "Arguments": []
+        },
+        {
+          "Name": "config",
+          "Description": "Show and edit configurations",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "currentContext",
+                  "Description": "Show current context",
+                  "Aliases": [
+                    "current-context"
+                  ],
+                  "Arguments": []
+                },
+                {
+                  "Name": "getContexts",
+                  "Description": "List configured contexts",
+                  "Aliases": [
+                    "get-contexts"
+                  ],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "--output",
+                          "Description": "Output format. One of: compact",
+                          "Aliases": [
+                            "-o"
+                          ],
+                          "Arguments": [
+                            {
+                              "Arguments": [
+                                {
+                                  "Name": "output",
+                                  "Description": "output",
+                                  "Type": "String"
+                                }
+                              ]
+                            }
+                          ]
+                        }
+                      ],
+                      "Optional": true
+                    }
+                  ]
+                },
+                {
+                  "Name": "useContext",
+                  "Description": "Switch active context",
+                  "Aliases": [
+                    "use-context"
+                  ],
+                  "Arguments": []
+                },
+                {
+                  "Name": "view",
+                  "Description": "Show contents of config file",
+                  "Aliases": [],
+                  "Arguments": []
+                }
+              ],
+              "DontAllowMultiple": true
+            }
+          ]
+        },
+        {
+          "Name": "consume",
+          "Description": "Consume messages from a topic",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "--exit",
+                  "Description": "Stop consuming when latest offset is reached",
+                  "Aliases": [
+                    "-e"
+                  ],
+                  "Arguments": []
+                },
+                {
+                  "Name": "--from-beginning",
+                  "Description": "Set offset for consumer to the oldest offset",
+                  "Aliases": [
+                    "-b"
+                  ],
+                  "Arguments": []
+                },
+                {
+                  "Name": "--group",
+                  "Description": "Consumer group to join",
+                  "Aliases": [
+                    "-g"
+                  ],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "group",
+                          "Description": "group",
+                          "Type": "String"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "--key-encoding",
+                  "Description": "Key encoding (auto-detected by default). One of: none|hex|base64",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "key-encoding",
+                          "Description": "key-encoding",
+                          "Type": "String"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "--key-proto-type",
+                  "Description": "Key protobuf message type",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "key-proto-type",
+                          "Description": "key-proto-type",
+                          "Type": "String"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "--max-messages",
+                  "Description": "Stop consuming after n messages have been read",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "max-messages",
+                          "Description": "max-messages",
+                          "Type": "String"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "--offset",
+                  "Description": "Offsets in format \u0060partition=offset (for partitions not specified, other parameters apply)\u0060",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "offset",
+                          "Description": "offset",
+                          "Type": "String"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "--output",
+                  "Description": "Output format. One of: json|yaml",
+                  "Aliases": [
+                    "-o"
+                  ],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "output",
+                          "Description": "output",
+                          "Type": "String"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "--partitions",
+                  "Description": "Partitions to consume. The default is to consume from all partitions",
+                  "Aliases": [
+                    "-p"
+                  ],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "partitions",
+                          "Description": "partitions",
+                          "Type": "String"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "--print-headers",
+                  "Description": "Print message headers",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "--print-keys",
+                  "Description": "Print message keys",
+                  "Aliases": [
+                    "-k"
+                  ],
+                  "Arguments": []
+                },
+                {
+                  "Name": "--print-schema",
+                  "Description": "Print details about avro schema used for decoding",
+                  "Aliases": [
+                    "-a"
+                  ],
+                  "Arguments": []
+                },
+                {
+                  "Name": "--print-timestamps",
+                  "Description": "Print message timestamps",
+                  "Aliases": [
+                    "-t"
+                  ],
+                  "Arguments": []
+                },
+                {
+                  "Name": "--proto-file",
+                  "Description": "Additional protobuf description file for searching message description",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "proto-file",
+                          "Description": "proto-file",
+                          "Type": "FileSystemEntry"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "--proto-import-path",
+                  "Description": "Additional path to search files listed in proto \u0027import\u0027 directive",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "proto-import-path",
+                          "Description": "proto-import-path",
+                          "Type": "Directory"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "--protoset-file",
+                  "Description": "Additional compiled protobuf description file for searching message description",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "protoset-file",
+                          "Description": "protoset-file",
+                          "Type": "FileSystemEntry"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "--separator",
+                  "Description": "Separator to split key and value",
+                  "Aliases": [
+                    "-s"
+                  ],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "separator",
+                          "Description": "separator",
+                          "Type": "String"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "--tail",
+                  "Description": "Show only the last n messages on the topic",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "tail",
+                          "Description": "tail",
+                          "Type": "String"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "--value-encoding",
+                  "Description": "Value encoding (auto-detected by default). One of: none|hex|base64",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "value-encoding",
+                          "Description": "value-encoding",
+                          "Type": "String"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "--value-proto-type",
+                  "Description": "Value protobuf message type",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "value-proto-type",
+                          "Description": "value-proto-type",
+                          "Type": "String"
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ],
+              "Optional": true
+            }
+          ]
+        },
+        {
+          "Name": "create",
+          "Description": "Create topics, consumerGroups, acls",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "acl",
+                  "Description": "Create an acl",
+                  "Aliases": [
+                    "access-control-list"
+                  ],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "--allow",
+                          "Description": "Acl of permissionType \u0027allow\u0027 (choose this or \u0027deny\u0027)",
+                          "Aliases": [
+                            "-a"
+                          ],
+                          "Arguments": []
+                        },
+                        {
+                          "Name": "--cluster",
+                          "Description": "Create acl for the cluster",
+                          "Aliases": [
+                            "-c"
+                          ],
+                          "Arguments": []
+                        },
+                        {
+                          "Name": "--deny",
+                          "Description": "Acl of permissionType \u0027deny\u0027 (choose this or \u0027allow\u0027)",
+                          "Aliases": [
+                            "-d"
+                          ],
+                          "Arguments": []
+                        },
+                        {
+                          "Name": "--group",
+                          "Description": "Create acl for a consumer group",
+                          "Aliases": [
+                            "-g"
+                          ],
+                          "Arguments": [
+                            {
+                              "Arguments": [
+                                {
+                                  "Name": "group",
+                                  "Description": "group",
+                                  "Type": "String"
+                                }
+                              ]
+                            }
+                          ]
+                        },
+                        {
+                          "Name": "--host",
+                          "Description": "Hosts to allow",
+                          "Aliases": [],
+                          "Arguments": [
+                            {
+                              "Arguments": [
+                                {
+                                  "Name": "host",
+                                  "Description": "host",
+                                  "Type": "String"
+                                }
+                              ]
+                            }
+                          ]
+                        },
+                        {
+                          "Name": "--operation",
+                          "Description": "Operations of acl",
+                          "Aliases": [
+                            "-o"
+                          ],
+                          "Arguments": [
+                            {
+                              "Arguments": [
+                                {
+                                  "Name": "operation",
+                                  "Description": "operation",
+                                  "Type": "String"
+                                }
+                              ]
+                            }
+                          ]
+                        },
+                        {
+                          "Name": "--pattern",
+                          "Description": "Pattern type. one of (match, prefixed, literal)",
+                          "Aliases": [],
+                          "Arguments": [
+                            {
+                              "Arguments": [
+                                {
+                                  "Name": "pattern",
+                                  "Description": "pattern",
+                                  "Type": "String"
+                                }
+                              ]
+                            }
+                          ]
+                        },
+                        {
+                          "Name": "--principal",
+                          "Description": "Principal to be authenticated",
+                          "Aliases": [
+                            "-p"
+                          ],
+                          "Arguments": [
+                            {
+                              "Arguments": [
+                                {
+                                  "Name": "principal",
+                                  "Description": "principal",
+                                  "Type": "String"
+                                }
+                              ]
+                            }
+                          ]
+                        },
+                        {
+                          "Name": "--topic",
+                          "Description": "Create acl for a topic",
+                          "Aliases": [
+                            "-t"
+                          ],
+                          "Arguments": [
+                            {
+                              "Arguments": [
+                                {
+                                  "Name": "topic",
+                                  "Description": "topic",
+                                  "Type": "String"
+                                }
+                              ]
+                            }
+                          ]
+                        },
+                        {
+                          "Name": "--validate-only",
+                          "Description": "Validate only",
+                          "Aliases": [
+                            "-v"
+                          ],
+                          "Arguments": []
+                        }
+                      ],
+                      "Optional": true
+                    }
+                  ]
+                },
+                {
+                  "Name": "cg",
+                  "Description": "Create a consumerGroup",
+                  "Aliases": [
+                    "consumer-group"
+                  ],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "--newest",
+                          "Description": "Set the offset to newest offset (for all partitions or the specified partition)",
+                          "Aliases": [],
+                          "Arguments": []
+                        },
+                        {
+                          "Name": "--offset",
+                          "Description": "Set offset to this value. offset with value -1 is ignored",
+                          "Aliases": [],
+                          "Arguments": [
+                            {
+                              "Arguments": [
+                                {
+                                  "Name": "offset",
+                                  "Description": "offset",
+                                  "Type": "String"
+                                }
+                              ]
+                            }
+                          ]
+                        },
+                        {
+                          "Name": "--oldest",
+                          "Description": "Set the offset to oldest offset (for all partitions or the specified partition)",
+                          "Aliases": [],
+                          "Arguments": []
+                        },
+                        {
+                          "Name": "--partition",
+                          "Description": "Partition to create group for. -1 stands for all partitions",
+                          "Aliases": [
+                            "-p"
+                          ],
+                          "Arguments": [
+                            {
+                              "Arguments": [
+                                {
+                                  "Name": "partition",
+                                  "Description": "partition",
+                                  "Type": "String"
+                                }
+                              ]
+                            }
+                          ]
+                        },
+                        {
+                          "Name": "--topic",
+                          "Description": "One or more topics to create group for",
+                          "Aliases": [
+                            "-t"
+                          ],
+                          "Arguments": [
+                            {
+                              "Arguments": [
+                                {
+                                  "Name": "topic",
+                                  "Description": "topic",
+                                  "Type": "String"
+                                }
+                              ]
+                            }
+                          ]
+                        }
+                      ],
+                      "Optional": true
+                    }
+                  ]
+                },
+                {
+                  "Name": "topic",
+                  "Description": "Create a topic",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "--config",
+                          "Description": "Configs in format \u0060key=value\u0060",
+                          "Aliases": [
+                            "-c"
+                          ],
+                          "Arguments": [
+                            {
+                              "Arguments": [
+                                {
+                                  "Name": "config",
+                                  "Description": "config",
+                                  "Type": "String"
+                                }
+                              ]
+                            }
+                          ]
+                        },
+                        {
+                          "Name": "--partitions",
+                          "Description": "Number of partitions",
+                          "Aliases": [
+                            "-p"
+                          ],
+                          "Arguments": [
+                            {
+                              "Arguments": [
+                                {
+                                  "Name": "partitions",
+                                  "Description": "partitions",
+                                  "Type": "String"
+                                }
+                              ]
+                            }
+                          ]
+                        },
+                        {
+                          "Name": "--replication-factor",
+                          "Description": "Replication factor",
+                          "Aliases": [
+                            "-r"
+                          ],
+                          "Arguments": [
+                            {
+                              "Arguments": [
+                                {
+                                  "Name": "replication-factor",
+                                  "Description": "replication-factor",
+                                  "Type": "String"
+                                }
+                              ]
+                            }
+                          ]
+                        },
+                        {
+                          "Name": "--validate-only",
+                          "Description": "Validate only",
+                          "Aliases": [
+                            "-v"
+                          ],
+                          "Arguments": []
+                        }
+                      ],
+                      "Optional": true
+                    }
+                  ]
+                }
+              ],
+              "DontAllowMultiple": true
+            }
+          ]
+        },
+        {
+          "Name": "delete",
+          "Description": "Delete topics, consumerGroups, consumer-group-offset, acls",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "acl",
+                  "Description": "Delete an acl",
+                  "Aliases": [
+                    "access-control-list"
+                  ],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "--allow",
+                          "Description": "Acl of permissionType \u0027allow\u0027",
+                          "Aliases": [
+                            "-a"
+                          ],
+                          "Arguments": []
+                        },
+                        {
+                          "Name": "--cluster",
+                          "Description": "Delete acl for the cluster",
+                          "Aliases": [
+                            "-c"
+                          ],
+                          "Arguments": []
+                        },
+                        {
+                          "Name": "--deny",
+                          "Description": "Acl of permissionType \u0027deny\u0027",
+                          "Aliases": [
+                            "-d"
+                          ],
+                          "Arguments": []
+                        },
+                        {
+                          "Name": "--groups",
+                          "Description": "Delete acl for a consumer group",
+                          "Aliases": [
+                            "-g"
+                          ],
+                          "Arguments": []
+                        },
+                        {
+                          "Name": "--operation",
+                          "Description": "Operation of acl",
+                          "Aliases": [
+                            "-o"
+                          ],
+                          "Arguments": [
+                            {
+                              "Arguments": [
+                                {
+                                  "Name": "operation",
+                                  "Description": "operation",
+                                  "Type": "String"
+                                }
+                              ]
+                            }
+                          ]
+                        },
+                        {
+                          "Name": "--pattern",
+                          "Description": "Pattern type. one of (any, match, prefixed, literal)",
+                          "Aliases": [],
+                          "Arguments": [
+                            {
+                              "Arguments": [
+                                {
+                                  "Name": "pattern",
+                                  "Description": "pattern",
+                                  "Type": "String"
+                                }
+                              ]
+                            }
+                          ]
+                        },
+                        {
+                          "Name": "--topics",
+                          "Description": "Delete acl for a topic",
+                          "Aliases": [
+                            "-t"
+                          ],
+                          "Arguments": []
+                        },
+                        {
+                          "Name": "--validate-only",
+                          "Description": "Validate only",
+                          "Aliases": [
+                            "-v"
+                          ],
+                          "Arguments": []
+                        }
+                      ],
+                      "Optional": true
+                    }
+                  ]
+                },
+                {
+                  "Name": "consumer-groups",
+                  "Description": "Delete a consumer-group",
+                  "Aliases": [
+                    "consumer-group"
+                  ],
+                  "Arguments": []
+                },
+                {
+                  "Name": "cgo",
+                  "Description": "Delete a consumer-group-offset",
+                  "Aliases": [
+                    "offset",
+                    "consumer-group-offset"
+                  ],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "--partition",
+                          "Description": "Delete offset for this partition. -1 stands for all partitions",
+                          "Aliases": [
+                            "-p"
+                          ],
+                          "Arguments": [
+                            {
+                              "Arguments": [
+                                {
+                                  "Name": "partition",
+                                  "Description": "partition",
+                                  "Type": "String"
+                                }
+                              ]
+                            }
+                          ]
+                        },
+                        {
+                          "Name": "--topic",
+                          "Description": "Delete offset for this topic",
+                          "Aliases": [
+                            "-t"
+                          ],
+                          "Arguments": [
+                            {
+                              "Arguments": [
+                                {
+                                  "Name": "topic",
+                                  "Description": "topic",
+                                  "Type": "String"
+                                }
+                              ]
+                            }
+                          ]
+                        }
+                      ],
+                      "Optional": true
+                    }
+                  ]
+                },
+                {
+                  "Name": "topic",
+                  "Description": "Delete a topic",
+                  "Aliases": [],
+                  "Arguments": []
+                }
+              ],
+              "DontAllowMultiple": true
+            }
+          ]
+        },
+        {
+          "Name": "describe",
+          "Description": "Describe topics, consumerGroups, brokers",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "broker",
+                  "Description": "Describe a broker",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "--output",
+                          "Description": "Output format. One of: json|yaml|wide",
+                          "Aliases": [
+                            "-o"
+                          ],
+                          "Arguments": [
+                            {
+                              "Arguments": [
+                                {
+                                  "Name": "output",
+                                  "Description": "output",
+                                  "Type": "String"
+                                }
+                              ]
+                            }
+                          ]
+                        }
+                      ],
+                      "Optional": true
+                    }
+                  ]
+                },
+                {
+                  "Name": "cg",
+                  "Description": "Describe a consumerGroup",
+                  "Aliases": [
+                    "consumer-group"
+                  ],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "--only-with-lag",
+                          "Description": "Show only partitions that have a lag",
+                          "Aliases": [
+                            "-l"
+                          ],
+                          "Arguments": []
+                        },
+                        {
+                          "Name": "--output",
+                          "Description": "Output format. One of: json|yaml|wide",
+                          "Aliases": [
+                            "-o"
+                          ],
+                          "Arguments": [
+                            {
+                              "Arguments": [
+                                {
+                                  "Name": "output",
+                                  "Description": "output",
+                                  "Type": "String"
+                                }
+                              ]
+                            }
+                          ]
+                        },
+                        {
+                          "Name": "--print-members",
+                          "Description": "Print group members",
+                          "Aliases": [
+                            "-m"
+                          ],
+                          "Arguments": []
+                        },
+                        {
+                          "Name": "--print-topics",
+                          "Description": "Print topic details",
+                          "Aliases": [
+                            "-T"
+                          ],
+                          "Arguments": []
+                        },
+                        {
+                          "Name": "--topic",
+                          "Description": "Show group details for given topic only",
+                          "Aliases": [
+                            "-t"
+                          ],
+                          "Arguments": [
+                            {
+                              "Arguments": [
+                                {
+                                  "Name": "topic",
+                                  "Description": "topic",
+                                  "Type": "String"
+                                }
+                              ]
+                            }
+                          ]
+                        }
+                      ],
+                      "Optional": true
+                    }
+                  ]
+                },
+                {
+                  "Name": "topic",
+                  "Description": "Describe a topic",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "--output",
+                          "Description": "Output format. One of: json|yaml|wide",
+                          "Aliases": [
+                            "-o"
+                          ],
+                          "Arguments": [
+                            {
+                              "Arguments": [
+                                {
+                                  "Name": "output",
+                                  "Description": "output",
+                                  "Type": "String"
+                                }
+                              ]
+                            }
+                          ]
+                        },
+                        {
+                          "Name": "--print-configs",
+                          "Description": "Print configs",
+                          "Aliases": [
+                            "-c"
+                          ],
+                          "Arguments": []
+                        },
+                        {
+                          "Name": "--skip-empty",
+                          "Description": "Show only partitions that have a messages",
+                          "Aliases": [
+                            "-s"
+                          ],
+                          "Arguments": []
+                        }
+                      ],
+                      "Optional": true
+                    }
+                  ]
+                }
+              ],
+              "DontAllowMultiple": true
+            }
+          ]
+        },
+        {
+          "Name": "list",
+          "Description": "Get info about topics, consumerGroups, acls, brokers",
+          "Aliases": [
+            "get"
+          ],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "acl",
+                  "Description": "List available acls",
+                  "Aliases": [
+                    "access-control-list"
+                  ],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "--allow",
+                          "Description": "Acl of permissionType \u0027allow\u0027",
+                          "Aliases": [
+                            "-a"
+                          ],
+                          "Arguments": []
+                        },
+                        {
+                          "Name": "--cluster",
+                          "Description": "List acl for the cluster",
+                          "Aliases": [
+                            "-c"
+                          ],
+                          "Arguments": []
+                        },
+                        {
+                          "Name": "--deny",
+                          "Description": "Acl of permissionType \u0027deny\u0027",
+                          "Aliases": [
+                            "-d"
+                          ],
+                          "Arguments": []
+                        },
+                        {
+                          "Name": "--groups",
+                          "Description": "List acl for consumer groups",
+                          "Aliases": [
+                            "-g"
+                          ],
+                          "Arguments": []
+                        },
+                        {
+                          "Name": "--operation",
+                          "Description": "Operation of acl",
+                          "Aliases": [],
+                          "Arguments": [
+                            {
+                              "Arguments": [
+                                {
+                                  "Name": "operation",
+                                  "Description": "operation",
+                                  "Type": "String"
+                                }
+                              ]
+                            }
+                          ]
+                        },
+                        {
+                          "Name": "--output",
+                          "Description": "Output format. One of: json|yaml",
+                          "Aliases": [
+                            "-o"
+                          ],
+                          "Arguments": [
+                            {
+                              "Arguments": [
+                                {
+                                  "Name": "output",
+                                  "Description": "output",
+                                  "Type": "String"
+                                }
+                              ]
+                            }
+                          ]
+                        },
+                        {
+                          "Name": "--pattern",
+                          "Description": "Pattern type. one of (any, match, prefixed, literal)",
+                          "Aliases": [],
+                          "Arguments": [
+                            {
+                              "Arguments": [
+                                {
+                                  "Name": "pattern",
+                                  "Description": "pattern",
+                                  "Type": "String"
+                                }
+                              ]
+                            }
+                          ]
+                        },
+                        {
+                          "Name": "--topics",
+                          "Description": "List acl for topics",
+                          "Aliases": [
+                            "-t"
+                          ],
+                          "Arguments": []
+                        }
+                      ],
+                      "Optional": true
+                    }
+                  ]
+                },
+                {
+                  "Name": "brokers",
+                  "Description": "List brokers",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "--output",
+                          "Description": "Output format. One of: json|yaml|compact",
+                          "Aliases": [
+                            "-o"
+                          ],
+                          "Arguments": [
+                            {
+                              "Arguments": [
+                                {
+                                  "Name": "output",
+                                  "Description": "output",
+                                  "Type": "String"
+                                }
+                              ]
+                            }
+                          ]
+                        }
+                      ],
+                      "Optional": true
+                    }
+                  ]
+                },
+                {
+                  "Name": "cg",
+                  "Description": "List available consumerGroups",
+                  "Aliases": [
+                    "consumer-groups"
+                  ],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "--output",
+                          "Description": "Output format. One of: json|yaml|wide|compact",
+                          "Aliases": [
+                            "-o"
+                          ],
+                          "Arguments": [
+                            {
+                              "Arguments": [
+                                {
+                                  "Name": "output",
+                                  "Description": "output",
+                                  "Type": "String"
+                                }
+                              ]
+                            }
+                          ]
+                        },
+                        {
+                          "Name": "--topic",
+                          "Description": "Show groups for given topic only",
+                          "Aliases": [
+                            "-t"
+                          ],
+                          "Arguments": [
+                            {
+                              "Arguments": [
+                                {
+                                  "Name": "topic",
+                                  "Description": "topic",
+                                  "Type": "String"
+                                }
+                              ]
+                            }
+                          ]
+                        }
+                      ],
+                      "Optional": true
+                    }
+                  ]
+                },
+                {
+                  "Name": "topics",
+                  "Description": "List available topics",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "--output",
+                          "Description": "Output format. One of: json|yaml|wide|compact",
+                          "Aliases": [
+                            "-o"
+                          ],
+                          "Arguments": [
+                            {
+                              "Arguments": [
+                                {
+                                  "Name": "output",
+                                  "Description": "output",
+                                  "Type": "String"
+                                }
+                              ]
+                            }
+                          ]
+                        }
+                      ],
+                      "Optional": true
+                    }
+                  ]
+                }
+              ],
+              "DontAllowMultiple": true
+            }
+          ]
+        },
+        {
+          "Name": "produce",
+          "Description": "Produce messages to a topic",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "--file",
+                  "Description": "File to read input from",
+                  "Aliases": [
+                    "-f"
+                  ],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "file",
+                          "Description": "file",
+                          "Type": "String"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "--header",
+                  "Description": "Headers in format \u0060key:value\u0060",
+                  "Aliases": [
+                    "-H"
+                  ],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "header",
+                          "Description": "header",
+                          "Type": "String"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "--key",
+                  "Description": "Key to use for all messages",
+                  "Aliases": [
+                    "-k"
+                  ],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "key",
+                          "Description": "key",
+                          "Type": "String"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "--key-encoding",
+                  "Description": "Key encoding (none by default). One of: none|hex|base64",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "key-encoding",
+                          "Description": "key-encoding",
+                          "Type": "String"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "--key-proto-type",
+                  "Description": "Key protobuf message type",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "key-proto-type",
+                          "Description": "key-proto-type",
+                          "Type": "String"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "--key-schema-version",
+                  "Description": "Avro schema version that should be used for key serialization (default is latest)",
+                  "Aliases": [
+                    "-K"
+                  ],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "key-schema-version",
+                          "Description": "key-schema-version",
+                          "Type": "String"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "--lineSeparator",
+                  "Description": "Separator to split multiple messages from stdin or file",
+                  "Aliases": [
+                    "-L"
+                  ],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "lineSeparator",
+                          "Description": "lineSeparator",
+                          "Type": "String"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "--max-message-bytes",
+                  "Description": "The maximum permitted size of a message (defaults to 1000000)",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "max-message-bytes",
+                          "Description": "max-message-bytes",
+                          "Type": "String"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "--null-value",
+                  "Description": "Produce a null value (can be used instead of providing a value with --value)",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "--partition",
+                  "Description": "Partition to produce to",
+                  "Aliases": [
+                    "-p"
+                  ],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "partition",
+                          "Description": "partition",
+                          "Type": "String"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "--partitioner",
+                  "Description": "The partitioning scheme to use. Can be \u0060murmur2\u0060, \u0060hash\u0060, \u0060hash-ref\u0060 \u0060manual\u0060, or \u0060random\u0060. (default is murmur2)",
+                  "Aliases": [
+                    "-P"
+                  ],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "partitioner",
+                          "Description": "partitioner",
+                          "Type": "String"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "--proto-file",
+                  "Description": "Additional protobuf description file for searching message description",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "proto-file",
+                          "Description": "proto-file",
+                          "Type": "FileSystemEntry"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "--proto-import-path",
+                  "Description": "Additional path to search files listed in proto \u0027import\u0027 directive",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "proto-import-path",
+                          "Description": "proto-import-path",
+                          "Type": "Directory"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "--protoset-file",
+                  "Description": "Additional compiled protobuf description file for searching message description",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "protoset-file",
+                          "Description": "protoset-file",
+                          "Type": "FileSystemEntry"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "--rate",
+                  "Description": "Amount of messages per second to produce on the topic",
+                  "Aliases": [
+                    "-r"
+                  ],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "rate",
+                          "Description": "rate",
+                          "Type": "String"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "--required-acks",
+                  "Description": "Required acks. One of \u0060NoResponse\u0060, \u0060WaitForLocal\u0060, \u0060WaitForAll\u0060. (default is WaitForLocal)",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "required-acks",
+                          "Description": "required-acks",
+                          "Type": "String"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "--separator",
+                  "Description": "Separator to split key and value from stdin or file",
+                  "Aliases": [
+                    "-S"
+                  ],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "separator",
+                          "Description": "separator",
+                          "Type": "String"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "--silent",
+                  "Description": "Do not write to standard output",
+                  "Aliases": [
+                    "-s"
+                  ],
+                  "Arguments": []
+                },
+                {
+                  "Name": "--value",
+                  "Description": "Value to produce",
+                  "Aliases": [
+                    "-v"
+                  ],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "value",
+                          "Description": "value",
+                          "Type": "String"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "--value-encoding",
+                  "Description": "Value encoding (none by default). One of: none|hex|base64",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "value-encoding",
+                          "Description": "value-encoding",
+                          "Type": "String"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "--value-proto-type",
+                  "Description": "Value protobuf message type",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "value-proto-type",
+                          "Description": "value-proto-type",
+                          "Type": "String"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "--value-schema-version",
+                  "Description": "Avro schema version that should be used for value serialization (default is latest)",
+                  "Aliases": [
+                    "-i"
+                  ],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "value-schema-version",
+                          "Description": "value-schema-version",
+                          "Type": "String"
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ],
+              "Optional": true
+            }
+          ]
+        },
+        {
+          "Name": "reset",
+          "Description": "Reset consumerGroupsOffset",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "cgo",
+                  "Description": "Reset a consumer group offset",
+                  "Aliases": [
+                    "offset",
+                    "consumer-group-offset"
+                  ],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "--all-topics",
+                          "Description": "Do the operation for all topics in the consumer group",
+                          "Aliases": [],
+                          "Arguments": []
+                        },
+                        {
+                          "Name": "--execute",
+                          "Description": "Execute the reset (as default only the results are displayed for validation)",
+                          "Aliases": [
+                            "-e"
+                          ],
+                          "Arguments": []
+                        },
+                        {
+                          "Name": "--newest",
+                          "Description": "Set the offset to newest offset (for all partitions or the specified partition)",
+                          "Aliases": [],
+                          "Arguments": []
+                        },
+                        {
+                          "Name": "--offset",
+                          "Description": "Set offset to this value. offset with value -1 is ignored",
+                          "Aliases": [],
+                          "Arguments": [
+                            {
+                              "Arguments": [
+                                {
+                                  "Name": "offset",
+                                  "Description": "offset",
+                                  "Type": "String"
+                                }
+                              ]
+                            }
+                          ]
+                        },
+                        {
+                          "Name": "--oldest",
+                          "Description": "Set the offset to oldest offset (for all partitions or the specified partition)",
+                          "Aliases": [],
+                          "Arguments": []
+                        },
+                        {
+                          "Name": "--output",
+                          "Description": "Output format. One of: json|yaml",
+                          "Aliases": [
+                            "-o"
+                          ],
+                          "Arguments": [
+                            {
+                              "Arguments": [
+                                {
+                                  "Name": "output",
+                                  "Description": "output",
+                                  "Type": "String"
+                                }
+                              ]
+                            }
+                          ]
+                        },
+                        {
+                          "Name": "--partition",
+                          "Description": "Partition to apply the offset. -1 stands for all partitions",
+                          "Aliases": [
+                            "-p"
+                          ],
+                          "Arguments": [
+                            {
+                              "Arguments": [
+                                {
+                                  "Name": "partition",
+                                  "Description": "partition",
+                                  "Type": "String"
+                                }
+                              ]
+                            }
+                          ]
+                        },
+                        {
+                          "Name": "--topic",
+                          "Description": "One ore more topics to change offset for",
+                          "Aliases": [
+                            "-t"
+                          ],
+                          "Arguments": [
+                            {
+                              "Arguments": [
+                                {
+                                  "Name": "topic",
+                                  "Description": "topic",
+                                  "Type": "String"
+                                }
+                              ]
+                            }
+                          ]
+                        }
+                      ],
+                      "Optional": true
+                    }
+                  ]
+                }
+              ],
+              "DontAllowMultiple": true
+            }
+          ]
+        },
+        {
+          "Name": "version",
+          "Description": "Print the version of kafkactl",
+          "Aliases": [],
+          "Arguments": []
+        },
+        {
+          "Name": "help",
+          "Description": "Help about any command",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "edit",
+                  "Description": "Alter topics, partitions",
+                  "Aliases": [
+                    "alter"
+                  ],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "partition",
+                          "Description": "Alter a partition",
+                          "Aliases": [],
+                          "Arguments": []
+                        },
+                        {
+                          "Name": "topic",
+                          "Description": "Alter a topic",
+                          "Aliases": [],
+                          "Arguments": []
+                        }
+                      ],
+                      "DontAllowMultiple": true
+                    }
+                  ]
+                },
+                {
+                  "Name": "attach",
+                  "Description": "Run kafkactl pod in kubernetes and attach to it",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "clone",
+                  "Description": "Clone topics, consumerGroups",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "cg",
+                          "Description": "Clone existing consumerGroup with all offsets",
+                          "Aliases": [
+                            "consumer-group"
+                          ],
+                          "Arguments": []
+                        },
+                        {
+                          "Name": "topic",
+                          "Description": "Clone existing topic (number of partitions, replication factor, config entries) to new one",
+                          "Aliases": [],
+                          "Arguments": []
+                        }
+                      ],
+                      "DontAllowMultiple": true
+                    }
+                  ]
+                },
+                {
+                  "Name": "completion",
+                  "Description": "Generate shell auto-completion file",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "config",
+                  "Description": "Show and edit configurations",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "currentContext",
+                          "Description": "Show current context",
+                          "Aliases": [
+                            "current-context"
+                          ],
+                          "Arguments": []
+                        },
+                        {
+                          "Name": "getContexts",
+                          "Description": "List configured contexts",
+                          "Aliases": [
+                            "get-contexts"
+                          ],
+                          "Arguments": []
+                        },
+                        {
+                          "Name": "useContext",
+                          "Description": "Switch active context",
+                          "Aliases": [
+                            "use-context"
+                          ],
+                          "Arguments": []
+                        },
+                        {
+                          "Name": "view",
+                          "Description": "Show contents of config file",
+                          "Aliases": [],
+                          "Arguments": []
+                        }
+                      ],
+                      "DontAllowMultiple": true
+                    }
+                  ]
+                },
+                {
+                  "Name": "consume",
+                  "Description": "Consume messages from a topic",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "create",
+                  "Description": "Create topics, consumerGroups, acls",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "acl",
+                          "Description": "Create an acl",
+                          "Aliases": [
+                            "access-control-list"
+                          ],
+                          "Arguments": []
+                        },
+                        {
+                          "Name": "cg",
+                          "Description": "Create a consumerGroup",
+                          "Aliases": [
+                            "consumer-group"
+                          ],
+                          "Arguments": []
+                        },
+                        {
+                          "Name": "topic",
+                          "Description": "Create a topic",
+                          "Aliases": [],
+                          "Arguments": []
+                        }
+                      ],
+                      "DontAllowMultiple": true
+                    }
+                  ]
+                },
+                {
+                  "Name": "delete",
+                  "Description": "Delete topics, consumerGroups, consumer-group-offset, acls",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "acl",
+                          "Description": "Delete an acl",
+                          "Aliases": [
+                            "access-control-list"
+                          ],
+                          "Arguments": []
+                        },
+                        {
+                          "Name": "consumer-groups",
+                          "Description": "Delete a consumer-group",
+                          "Aliases": [
+                            "consumer-group"
+                          ],
+                          "Arguments": []
+                        },
+                        {
+                          "Name": "cgo",
+                          "Description": "Delete a consumer-group-offset",
+                          "Aliases": [
+                            "offset",
+                            "consumer-group-offset"
+                          ],
+                          "Arguments": []
+                        },
+                        {
+                          "Name": "topic",
+                          "Description": "Delete a topic",
+                          "Aliases": [],
+                          "Arguments": []
+                        }
+                      ],
+                      "DontAllowMultiple": true
+                    }
+                  ]
+                },
+                {
+                  "Name": "describe",
+                  "Description": "Describe topics, consumerGroups, brokers",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "broker",
+                          "Description": "Describe a broker",
+                          "Aliases": [],
+                          "Arguments": []
+                        },
+                        {
+                          "Name": "cg",
+                          "Description": "Describe a consumerGroup",
+                          "Aliases": [
+                            "consumer-group"
+                          ],
+                          "Arguments": []
+                        },
+                        {
+                          "Name": "topic",
+                          "Description": "Describe a topic",
+                          "Aliases": [],
+                          "Arguments": []
+                        }
+                      ],
+                      "DontAllowMultiple": true
+                    }
+                  ]
+                },
+                {
+                  "Name": "list",
+                  "Description": "Get info about topics, consumerGroups, acls, brokers",
+                  "Aliases": [
+                    "get"
+                  ],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "acl",
+                          "Description": "List available acls",
+                          "Aliases": [
+                            "access-control-list"
+                          ],
+                          "Arguments": []
+                        },
+                        {
+                          "Name": "brokers",
+                          "Description": "List brokers",
+                          "Aliases": [],
+                          "Arguments": []
+                        },
+                        {
+                          "Name": "cg",
+                          "Description": "List available consumerGroups",
+                          "Aliases": [
+                            "consumer-groups"
+                          ],
+                          "Arguments": []
+                        },
+                        {
+                          "Name": "topics",
+                          "Description": "List available topics",
+                          "Aliases": [],
+                          "Arguments": []
+                        }
+                      ],
+                      "DontAllowMultiple": true
+                    }
+                  ]
+                },
+                {
+                  "Name": "produce",
+                  "Description": "Produce messages to a topic",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "reset",
+                  "Description": "Reset consumerGroupsOffset",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "cgo",
+                          "Description": "Reset a consumer group offset",
+                          "Aliases": [
+                            "offset",
+                            "consumer-group-offset"
+                          ],
+                          "Arguments": []
+                        }
+                      ],
+                      "DontAllowMultiple": true
+                    }
+                  ]
+                },
+                {
+                  "Name": "version",
+                  "Description": "Print the version of kafkactl",
+                  "Aliases": [],
+                  "Arguments": []
+                }
+              ],
+              "DontAllowMultiple": true
+            }
+          ]
+        }
+      ],
+      "DontAllowMultiple": true
+    }
+  ]
+}

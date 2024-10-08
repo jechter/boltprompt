@@ -1,0 +1,825 @@
+{
+  "Comment": "This command info is generated from fig",
+  "Name": "rancher",
+  "Description": "The Rancher CLI (Command Line Interface) is a unified tool that you can use to interact with Rancher",
+  "Arguments": [
+    {
+      "Arguments": [
+        {
+          "Name": "--debug",
+          "Description": "Debug logging",
+          "Aliases": [],
+          "Arguments": []
+        },
+        {
+          "Name": "--config",
+          "Description": "Path to rancher config (default: \u0060$home/.rancher\u0060) [$RANCHER_CONFIG_DIR]",
+          "Aliases": [
+            "-c"
+          ],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "RANCHER_CONFIG_PATH",
+                  "Description": "RANCHER_CONFIG_PATH",
+                  "Type": "Directory"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "Name": "--help",
+          "Description": "Show help for rancher cli",
+          "Aliases": [
+            "-h"
+          ],
+          "Arguments": []
+        },
+        {
+          "Name": "--version",
+          "Description": "Print the version",
+          "Aliases": [
+            "-v"
+          ],
+          "Arguments": []
+        }
+      ],
+      "Optional": true
+    },
+    {
+      "Arguments": [
+        {
+          "Name": "apps",
+          "Description": "Operations with apps. Uses helm. Flags are prepended with \u0027helm\u0027 can also be accurately described by helm documentation",
+          "Aliases": [
+            "app"
+          ],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "--format",
+                  "Description": "Output format: \u0027json\u0027, \u0027yaml\u0027 or custom format",
+                  "Aliases": [
+                    "-o"
+                  ],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "format",
+                          "Description": "format",
+                          "Type": "String"
+                        },
+                        {
+                          "Name": "json",
+                          "Description": "format"
+                        },
+                        {
+                          "Name": "yaml",
+                          "Description": "format"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "--quiet",
+                  "Description": "Only display IDs or suppress help text",
+                  "Aliases": [
+                    "-q"
+                  ],
+                  "Arguments": []
+                },
+                {
+                  "Name": "--help",
+                  "Description": "Show help",
+                  "Aliases": [
+                    "-h"
+                  ],
+                  "Arguments": []
+                }
+              ],
+              "Optional": true
+            },
+            {
+              "Arguments": [
+                {
+                  "Name": "ls",
+                  "Description": "List all apps in the current Rancher server",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "delete",
+                  "Description": "Delete an app",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "APP_NAME/APP_ID",
+                          "Description": "APP_NAME/APP_ID",
+                          "Type": "String"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "install",
+                  "Description": "Install an app template",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "--answers",
+                          "Description": "Path to an answers file, the format of the file is a map with key:value. This supports JSON and YAML",
+                          "Aliases": [
+                            "-a"
+                          ],
+                          "Arguments": [
+                            {
+                              "Arguments": [
+                                {
+                                  "Name": "answers-file-path",
+                                  "Description": "answers-file-path",
+                                  "Type": "File",
+                                  "Extensions": [
+                                    "json",
+                                    "yaml"
+                                  ],
+                                  "CustomCommand": ""
+                                }
+                              ]
+                            }
+                          ]
+                        },
+                        {
+                          "Name": "--values",
+                          "Description": "Path to a helm values file",
+                          "Aliases": [
+                            "-v"
+                          ],
+                          "Arguments": [
+                            {
+                              "Arguments": [
+                                {
+                                  "Name": "values-file-path",
+                                  "Description": "values-file-path",
+                                  "Type": "FileSystemEntry"
+                                }
+                              ]
+                            }
+                          ]
+                        },
+                        {
+                          "Name": "--namespace",
+                          "Description": "Namespace to install the app into",
+                          "Aliases": [
+                            "-n"
+                          ],
+                          "Arguments": [
+                            {
+                              "Arguments": [
+                                {
+                                  "Name": "namespace",
+                                  "Description": "namespace",
+                                  "Type": "String"
+                                }
+                              ]
+                            }
+                          ]
+                        },
+                        {
+                          "Name": "--set",
+                          "Description": "Set answers for the template, can be used multiple times. Example: --set foo=bar",
+                          "Aliases": [],
+                          "Arguments": [
+                            {
+                              "Arguments": [
+                                {
+                                  "Name": "key=value",
+                                  "Description": "key=value",
+                                  "Type": "String"
+                                }
+                              ]
+                            }
+                          ]
+                        },
+                        {
+                          "Name": "--set-string",
+                          "Description": "Set string answers for the template (Skips Helm\u0027s type conversion), can be used multiple times. Example: --set-string foo=bar",
+                          "Aliases": [],
+                          "Arguments": [
+                            {
+                              "Arguments": [
+                                {
+                                  "Name": "key=value",
+                                  "Description": "key=value",
+                                  "Type": "String"
+                                }
+                              ]
+                            }
+                          ]
+                        },
+                        {
+                          "Name": "--version",
+                          "Description": "Version of the template to use",
+                          "Aliases": [],
+                          "Arguments": [
+                            {
+                              "Arguments": [
+                                {
+                                  "Name": "version",
+                                  "Description": "version",
+                                  "Type": "String"
+                                }
+                              ]
+                            }
+                          ]
+                        },
+                        {
+                          "Name": "--no-prompt",
+                          "Description": "Suppress asking questions and use the default values when required answers are not provided",
+                          "Aliases": [],
+                          "Arguments": []
+                        },
+                        {
+                          "Name": "--helm-timeout",
+                          "Description": "Amount of time for helm to wait for k8s commands (default is 300 secs). Example: --helm-timeout 600 (default: 300)",
+                          "Aliases": [],
+                          "Arguments": [
+                            {
+                              "Arguments": [
+                                {
+                                  "Name": "seconds",
+                                  "Description": "seconds",
+                                  "Type": "String"
+                                }
+                              ]
+                            }
+                          ]
+                        },
+                        {
+                          "Name": "--helm-wait",
+                          "Description": "Helm will wait for as long as timeout value, for installed resources to be ready (pods, PVCs, deployments, etc.). Example: --helm-wait",
+                          "Aliases": [],
+                          "Arguments": []
+                        }
+                      ],
+                      "Optional": true
+                    },
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "TEMPLATE_NAME/TEMPLATE_PATH",
+                          "Description": "TEMPLATE_NAME/TEMPLATE_PATH",
+                          "Type": "String"
+                        }
+                      ]
+                    },
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "APP_NAME",
+                          "Description": "APP_NAME",
+                          "Type": "String"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "rollback",
+                  "Description": "Rollback an app to a previous version",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "APP_NAME/APP_ID",
+                          "Description": "APP_NAME/APP_ID",
+                          "Type": "String"
+                        }
+                      ]
+                    },
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "REVISION_ID/REVISION_NAME",
+                          "Description": "REVISION_ID/REVISION_NAME",
+                          "Type": "String"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "upgrade",
+                  "Description": "Upgrade an existing app to a newer version",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "list-templates",
+                  "Description": "List templates available for installation",
+                  "Aliases": [
+                    "lt"
+                  ],
+                  "Arguments": []
+                },
+                {
+                  "Name": "show-tempate",
+                  "Description": "Show versions available to install for an app template",
+                  "Aliases": [
+                    "st"
+                  ],
+                  "Arguments": []
+                },
+                {
+                  "Name": "show-app",
+                  "Description": "Show an app\u0027s available versions and revisions",
+                  "Aliases": [
+                    "sa"
+                  ],
+                  "Arguments": []
+                },
+                {
+                  "Name": "show-notes",
+                  "Description": "Show contents of apps notes.txt",
+                  "Aliases": [],
+                  "Arguments": []
+                }
+              ],
+              "DontAllowMultiple": true
+            }
+          ]
+        },
+        {
+          "Name": "catalog",
+          "Description": "Operations with catalogs",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "ls",
+                  "Description": "List all catalogs in the current Rancher server",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "--format",
+                          "Description": "Output format: \u0027json\u0027, \u0027yaml\u0027 or custom format",
+                          "Aliases": [
+                            "-o"
+                          ],
+                          "Arguments": [
+                            {
+                              "Arguments": [
+                                {
+                                  "Name": "format",
+                                  "Description": "format",
+                                  "Type": "String"
+                                },
+                                {
+                                  "Name": "json",
+                                  "Description": "format"
+                                },
+                                {
+                                  "Name": "yaml",
+                                  "Description": "format"
+                                }
+                              ]
+                            }
+                          ]
+                        },
+                        {
+                          "Name": "--quiet",
+                          "Description": "Only display IDs or suppress help text",
+                          "Aliases": [
+                            "-q"
+                          ],
+                          "Arguments": []
+                        },
+                        {
+                          "Name": "--help",
+                          "Description": "Show help",
+                          "Aliases": [
+                            "-h"
+                          ],
+                          "Arguments": []
+                        },
+                        {
+                          "Name": "--verbose",
+                          "Description": "",
+                          "Aliases": [
+                            "-v"
+                          ],
+                          "Arguments": []
+                        }
+                      ],
+                      "Optional": true
+                    }
+                  ]
+                },
+                {
+                  "Name": "add",
+                  "Description": "Add a catalog",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "--branch",
+                          "Description": "Branch from the url to use (default: \u0027master\u0027)",
+                          "Aliases": [],
+                          "Arguments": [
+                            {
+                              "Arguments": [
+                                {
+                                  "Name": "branch name",
+                                  "Description": "branch name",
+                                  "Type": "String"
+                                }
+                              ]
+                            }
+                          ]
+                        },
+                        {
+                          "Name": "--helm-version",
+                          "Description": "Version of helm the app(s) in your catalog will use for deployment. Use \u0027v2\u0027 for helm 2 or \u0027v3\u0027 for helm 3 (default: \u0027v2\u0027)",
+                          "Aliases": [],
+                          "Arguments": [
+                            {
+                              "Arguments": [
+                                {
+                                  "Name": "version",
+                                  "Description": "version",
+                                  "Type": "String"
+                                }
+                              ]
+                            }
+                          ]
+                        }
+                      ],
+                      "Optional": true
+                    },
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "CATALOG_NAME",
+                          "Description": "CATALOG_NAME",
+                          "Type": "String"
+                        }
+                      ]
+                    },
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "CATALOG_URL",
+                          "Description": "CATALOG_URL",
+                          "Type": "String"
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ],
+              "DontAllowMultiple": true
+            }
+          ]
+        },
+        {
+          "Name": "clusters",
+          "Description": "Operations on clusters",
+          "Aliases": [
+            "cluster"
+          ],
+          "Arguments": []
+        },
+        {
+          "Name": "context",
+          "Description": "Operations for the context",
+          "Aliases": [],
+          "Arguments": []
+        },
+        {
+          "Name": "globaldns",
+          "Description": "Operations on global DNS providers and entries",
+          "Aliases": [],
+          "Arguments": []
+        },
+        {
+          "Name": "inspect",
+          "Description": "View details of resources",
+          "Aliases": [],
+          "Arguments": []
+        },
+        {
+          "Name": "kubectl",
+          "Description": "Run kubectl commands",
+          "Aliases": [],
+          "Arguments": []
+        },
+        {
+          "Name": "login",
+          "Description": "Login to a Rancher server",
+          "Aliases": [
+            "-l"
+          ],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "--token",
+                  "Description": "API Bearer Token to authenticate Rancher CLI to your Rancher server",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "BEARER_TOKEN",
+                          "Description": "BEARER_TOKEN",
+                          "Type": "String"
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ],
+              "Optional": true
+            },
+            {
+              "Arguments": [
+                {
+                  "Name": "SERVER_URL",
+                  "Description": "SERVER_URL",
+                  "Type": "String"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "Name": "machines",
+          "Description": "Operations on machines",
+          "Aliases": [
+            "machine"
+          ],
+          "Arguments": []
+        },
+        {
+          "Name": "multiclusterapps",
+          "Description": "Operations with multi-cluster apps",
+          "Aliases": [
+            "multiclusterapp"
+          ],
+          "Arguments": []
+        },
+        {
+          "Name": "namespaces",
+          "Description": "Operations on namespaces",
+          "Aliases": [
+            "namespace"
+          ],
+          "Arguments": []
+        },
+        {
+          "Name": "nodes",
+          "Description": "Operations on nodes",
+          "Aliases": [
+            "node"
+          ],
+          "Arguments": []
+        },
+        {
+          "Name": "projects",
+          "Description": "Operations on projects",
+          "Aliases": [
+            "project"
+          ],
+          "Arguments": []
+        },
+        {
+          "Name": "ps",
+          "Description": "Show workloads in a project",
+          "Aliases": [],
+          "Arguments": []
+        },
+        {
+          "Name": "server",
+          "Description": "Operations for the server",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "current",
+                  "Description": "Display the current server",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "delete",
+                  "Description": "\u26A0\uFE0F Delete a server from the local config",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "SERVER_NAME",
+                          "Description": "SERVER_NAME",
+                          "Type": "CustomArgument",
+                          "Extensions": [],
+                          "CustomCommand": "rancher server ls"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "ls",
+                  "Description": "List all servers",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "switch",
+                  "Description": "Switch to a new server",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "SERVER_NAME",
+                          "Description": "SERVER_NAME",
+                          "Type": "CustomArgument",
+                          "Extensions": [],
+                          "CustomCommand": "rancher server ls"
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ],
+              "DontAllowMultiple": true
+            }
+          ]
+        },
+        {
+          "Name": "settings",
+          "Description": "Show settings for the current server",
+          "Aliases": [
+            "setting"
+          ],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "ls",
+                  "Description": "List settings",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "get",
+                  "Description": "Print a setting",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "SETTING_NAME",
+                          "Description": "SETTING_NAME",
+                          "Type": "String"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "set",
+                  "Description": "Set the value for a setting",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "--format",
+                          "Description": "Output format: \u0027json\u0027, \u0027yaml\u0027 or custom format",
+                          "Aliases": [
+                            "-o"
+                          ],
+                          "Arguments": [
+                            {
+                              "Arguments": [
+                                {
+                                  "Name": "format",
+                                  "Description": "format",
+                                  "Type": "String"
+                                },
+                                {
+                                  "Name": "json",
+                                  "Description": "format"
+                                },
+                                {
+                                  "Name": "yaml",
+                                  "Description": "format"
+                                }
+                              ]
+                            }
+                          ]
+                        },
+                        {
+                          "Name": "--quiet",
+                          "Description": "Only display IDs or suppress help text",
+                          "Aliases": [
+                            "-q"
+                          ],
+                          "Arguments": []
+                        },
+                        {
+                          "Name": "--help",
+                          "Description": "Show help",
+                          "Aliases": [
+                            "-h"
+                          ],
+                          "Arguments": []
+                        },
+                        {
+                          "Name": "--default",
+                          "Description": "Reset the setting back to it\u0027s default value. If the default value is (blank) it will be set to that",
+                          "Aliases": [],
+                          "Arguments": []
+                        }
+                      ],
+                      "Optional": true
+                    },
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "SETTINGNAME",
+                          "Description": "SETTINGNAME",
+                          "Type": "String"
+                        }
+                      ]
+                    },
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "SETTING_VALUE",
+                          "Description": "SETTING_VALUE",
+                          "Type": "String"
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ],
+              "DontAllowMultiple": true
+            }
+          ]
+        },
+        {
+          "Name": "ssh",
+          "Description": "SSH into a node",
+          "Aliases": [],
+          "Arguments": []
+        },
+        {
+          "Name": "up",
+          "Description": "Apply compose config",
+          "Aliases": [],
+          "Arguments": []
+        },
+        {
+          "Name": "wait",
+          "Description": "Wait for resources cluster, app, project, multiClusterApp",
+          "Aliases": [],
+          "Arguments": []
+        },
+        {
+          "Name": "token",
+          "Description": "Authenticate and generate new kubeconfig token",
+          "Aliases": [],
+          "Arguments": []
+        },
+        {
+          "Name": "help",
+          "Description": "Shows a list of commands or help for one command",
+          "Aliases": [
+            "h"
+          ],
+          "Arguments": []
+        }
+      ],
+      "DontAllowMultiple": true
+    }
+  ]
+}

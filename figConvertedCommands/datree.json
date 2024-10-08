@@ -1,0 +1,461 @@
+{
+  "Comment": "This command info is generated from fig",
+  "Name": "datree",
+  "Description": "Datree can be used on the command line to run policies against Kubernetes manifests YAML files or Helm charts",
+  "Arguments": [
+    {
+      "Arguments": [
+        {
+          "Name": "--help",
+          "Description": "Show help for datree",
+          "Aliases": [
+            "-h"
+          ],
+          "Arguments": []
+        }
+      ],
+      "Optional": true
+    },
+    {
+      "Arguments": [
+        {
+          "Name": "completion",
+          "Description": "Generate completion script for bash,zsh,fish,powershell",
+          "Aliases": [],
+          "Arguments": []
+        },
+        {
+          "Name": "config",
+          "Description": "Internal configuration management for datree config file",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "-h",
+                  "Description": "Help for config",
+                  "Aliases": [
+                    "--help"
+                  ],
+                  "Arguments": []
+                }
+              ],
+              "Optional": true
+            },
+            {
+              "Arguments": [
+                {
+                  "Name": "get",
+                  "Description": "Get configuration value",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "-h",
+                          "Description": "Get value for specific key from datree config.yaml file. Defaults to $HOME/.datree/config.yaml",
+                          "Aliases": [
+                            "--help"
+                          ],
+                          "Arguments": []
+                        }
+                      ],
+                      "Optional": true
+                    }
+                  ]
+                },
+                {
+                  "Name": "set",
+                  "Description": "Set configuration value",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "-h",
+                          "Description": "Apply value for specific key in datree config.yaml file. Defaults to $HOME/.datree/config.yaml",
+                          "Aliases": [
+                            "--help"
+                          ],
+                          "Arguments": []
+                        }
+                      ],
+                      "Optional": true
+                    }
+                  ]
+                }
+              ],
+              "DontAllowMultiple": true
+            }
+          ]
+        },
+        {
+          "Name": "help",
+          "Description": "Help about any command",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "String",
+                  "Description": "",
+                  "Type": "String"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "Name": "kustomize",
+          "Description": "Generate kustomization files from manifests",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "-h",
+                  "Description": "Help for kustomize",
+                  "Aliases": [
+                    "--help"
+                  ],
+                  "Arguments": []
+                }
+              ],
+              "Optional": true
+            },
+            {
+              "Arguments": [
+                {
+                  "Name": "test",
+                  "Description": "Test kustomization files",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "--help",
+                          "Description": "Help for \u0027test\u0027",
+                          "Aliases": [
+                            "-h"
+                          ],
+                          "Arguments": []
+                        },
+                        {
+                          "Name": "--ignore-missing-schemas",
+                          "Description": "Ignore missing schemas when executing schema validation step",
+                          "Aliases": [],
+                          "Arguments": []
+                        },
+                        {
+                          "Name": "--no-record",
+                          "Description": "Do not send policy checks metadata to the backend",
+                          "Aliases": [],
+                          "Arguments": []
+                        },
+                        {
+                          "Name": "--only-k8s-files",
+                          "Description": "Evaluate only valid yaml files with the properties \u0027apiVersion\u0027 and \u0027kind\u0027. Ignore everything else",
+                          "Aliases": [],
+                          "Arguments": []
+                        },
+                        {
+                          "Name": "-o",
+                          "Description": "Define output format (simple, yaml, json, xml, JUnit)",
+                          "Aliases": [
+                            "--output"
+                          ],
+                          "Arguments": [
+                            {
+                              "Arguments": [
+                                {
+                                  "Name": "output",
+                                  "Description": "output",
+                                  "Type": "String"
+                                },
+                                {
+                                  "Name": "simple",
+                                  "Description": "Simple output without colors"
+                                },
+                                {
+                                  "Name": "yaml",
+                                  "Description": "YAML output"
+                                },
+                                {
+                                  "Name": "json",
+                                  "Description": "JSON output"
+                                },
+                                {
+                                  "Name": "xml",
+                                  "Description": "XML output"
+                                },
+                                {
+                                  "Name": "junit",
+                                  "Description": "JUnit output"
+                                }
+                              ]
+                            }
+                          ]
+                        },
+                        {
+                          "Name": "-p",
+                          "Description": "Policy name to run against",
+                          "Aliases": [
+                            "--policy"
+                          ],
+                          "Arguments": [
+                            {
+                              "Arguments": [
+                                {
+                                  "Name": "policy",
+                                  "Description": "policy",
+                                  "Type": "String"
+                                }
+                              ]
+                            }
+                          ]
+                        },
+                        {
+                          "Name": "--policy-config",
+                          "Description": "Path for local policies configuration file",
+                          "Aliases": [],
+                          "Arguments": [
+                            {
+                              "Arguments": [
+                                {
+                                  "Name": "FileSystemEntry",
+                                  "Description": "",
+                                  "Type": "FileSystemEntry"
+                                }
+                              ]
+                            }
+                          ]
+                        },
+                        {
+                          "Name": "--schema-location",
+                          "Description": "Override schemas location search path (can be specified multiple times)",
+                          "Aliases": [],
+                          "Arguments": [
+                            {
+                              "Arguments": [
+                                {
+                                  "Name": "stringArray",
+                                  "Description": "stringArray",
+                                  "Type": "String"
+                                }
+                              ]
+                            }
+                          ]
+                        },
+                        {
+                          "Name": "-s",
+                          "Description": "Set kubernetes version to validate against. Defaults to 1.19.0",
+                          "Aliases": [
+                            "--schema-version"
+                          ],
+                          "Arguments": []
+                        },
+                        {
+                          "Name": "--verbose",
+                          "Description": "Display \u0027How to Fix\u0027 link",
+                          "Aliases": [],
+                          "Arguments": []
+                        }
+                      ],
+                      "Optional": true
+                    }
+                  ]
+                }
+              ],
+              "DontAllowMultiple": true
+            }
+          ]
+        },
+        {
+          "Name": "publish",
+          "Description": "Publish policies configuration for given \u003CfileName\u003E. Input should be the path to the Policy-as-Code yaml configuration file. ## Note You need to first enable Policy-as-Code (PaC) on the settings page in the dashboard",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "-h",
+                  "Description": "Help for publish",
+                  "Aliases": [
+                    "--help"
+                  ],
+                  "Arguments": []
+                }
+              ],
+              "Optional": true
+            },
+            {
+              "Arguments": [
+                {
+                  "Name": "file path",
+                  "Description": "file path",
+                  "Type": "FileSystemEntry"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "Name": "test",
+          "Description": "Trigger a policy check, provide a Kubernetes configuration file path or a glob pattern",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "--help",
+                  "Description": "Help for \u0027test\u0027",
+                  "Aliases": [
+                    "-h"
+                  ],
+                  "Arguments": []
+                },
+                {
+                  "Name": "--ignore-missing-schemas",
+                  "Description": "Ignore missing schemas when executing schema validation step",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "--no-record",
+                  "Description": "Do not send policy checks metadata to the backend",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "--only-k8s-files",
+                  "Description": "Evaluate only valid yaml files with the properties \u0027apiVersion\u0027 and \u0027kind\u0027. Ignore everything else",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "-o",
+                  "Description": "Define output format (simple, yaml, json, xml, JUnit)",
+                  "Aliases": [
+                    "--output"
+                  ],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "output",
+                          "Description": "output",
+                          "Type": "String"
+                        },
+                        {
+                          "Name": "simple",
+                          "Description": "Simple output without colors"
+                        },
+                        {
+                          "Name": "yaml",
+                          "Description": "YAML output"
+                        },
+                        {
+                          "Name": "json",
+                          "Description": "JSON output"
+                        },
+                        {
+                          "Name": "xml",
+                          "Description": "XML output"
+                        },
+                        {
+                          "Name": "junit",
+                          "Description": "JUnit output"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "-p",
+                  "Description": "Policy name to run against",
+                  "Aliases": [
+                    "--policy"
+                  ],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "policy",
+                          "Description": "policy",
+                          "Type": "String"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "--policy-config",
+                  "Description": "Path for local policies configuration file",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "FileSystemEntry",
+                          "Description": "",
+                          "Type": "FileSystemEntry"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "--schema-location",
+                  "Description": "Override schemas location search path (can be specified multiple times)",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "stringArray",
+                          "Description": "stringArray",
+                          "Type": "String"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "-s",
+                  "Description": "Set kubernetes version to validate against. Defaults to 1.19.0",
+                  "Aliases": [
+                    "--schema-version"
+                  ],
+                  "Arguments": []
+                },
+                {
+                  "Name": "--verbose",
+                  "Description": "Display \u0027How to Fix\u0027 link",
+                  "Aliases": [],
+                  "Arguments": []
+                }
+              ],
+              "Optional": true
+            },
+            {
+              "Arguments": [
+                {
+                  "Name": "file path",
+                  "Description": "file path",
+                  "Type": "FileSystemEntry"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "Name": "version",
+          "Description": "Print the version number",
+          "Aliases": [],
+          "Arguments": []
+        }
+      ],
+      "DontAllowMultiple": true
+    }
+  ]
+}

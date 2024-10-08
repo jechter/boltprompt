@@ -1,0 +1,784 @@
+{
+  "Comment": "This command info is generated from fig",
+  "Name": "tailscale",
+  "Description": "",
+  "Arguments": [
+    {
+      "Arguments": [
+        {
+          "Name": "--socket",
+          "Description": "Path to tailscaled\u0027s unix socket",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "socket",
+                  "Description": "socket",
+                  "Type": "String"
+                }
+              ]
+            }
+          ]
+        }
+      ],
+      "Optional": true
+    },
+    {
+      "Arguments": [
+        {
+          "Name": "up",
+          "Description": "Connect to Tailscale, logging in if needed",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "--accept-dns",
+                  "Description": "Accept DNS configuration from the admin panel",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "--accept-routes",
+                  "Description": "Accept routes advertised by other Tailscale nodes",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "--advertise-exit-node",
+                  "Description": "Offer to be an exit node for internet traffic for the tailnet",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "--advertise-routes",
+                  "Description": "Routes to advertise to other nodes (comma-separated, e.g. \u002210.0.0.0/8,192.168.0.0/24\u0022) or empty string to not advertise routes",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "routes",
+                          "Description": "routes",
+                          "Type": "String"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "--advertise-tags",
+                  "Description": "Comma-separated ACL tags to request; each must start with \u0022tag:\u0022 (e.g. \u0022tag:eng,tag:montreal,tag:ssh\u0022)",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "tags",
+                          "Description": "tags",
+                          "Type": "String"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "--auth-key",
+                  "Description": "Node authorization key; if it begins with \u0022file:\u0022, then it\u0027s a path to a file containing the authkey",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "authkey",
+                          "Description": "authkey",
+                          "Type": "String"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "--exit-node",
+                  "Description": "Tailscale exit node (IP or base name) for internet traffic, or empty string to not use an exit node",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "exitnode",
+                          "Description": "exitnode",
+                          "Type": "String"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "--exit-node-allow-lan-access",
+                  "Description": "Allow direct access to the local network when routing traffic via an exit node",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "--force-reauth",
+                  "Description": "Force reauthentication",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "--host-routes",
+                  "Description": "Install host routes to other Tailscale nodes",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "--hostname",
+                  "Description": "Hostname to use instead of the one provided by the OS",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "--json",
+                  "Description": "Output in JSON format",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "--login-server",
+                  "Description": "Login server to use",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "--operator",
+                  "Description": "Unix username to allow to operate on tailscaled without sudo",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "username",
+                          "Description": "username",
+                          "Type": "String"
+                        },
+                        {
+                          "Name": "$USER",
+                          "Description": "username"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "--qr",
+                  "Description": "Show QR code for login URLs",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "--reset",
+                  "Description": "Reset unspecified settings to their default values",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "--shields-up",
+                  "Description": "Don\u0027t allow incoming connections",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "--ssh",
+                  "Description": "Run an SSH server, permitting access per tailnet admin\u0027s declared policy",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "--help",
+                  "Description": "Show help message",
+                  "Aliases": [],
+                  "Arguments": []
+                }
+              ],
+              "Optional": true
+            }
+          ]
+        },
+        {
+          "Name": "down",
+          "Description": "Disconnect from Tailscale",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "--help",
+                  "Description": "Show help message",
+                  "Aliases": [],
+                  "Arguments": []
+                }
+              ],
+              "Optional": true
+            }
+          ]
+        },
+        {
+          "Name": "logout",
+          "Description": "Disconnect from Tailscale and expire current node key",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "--help",
+                  "Description": "Show help message",
+                  "Aliases": [],
+                  "Arguments": []
+                }
+              ],
+              "Optional": true
+            }
+          ]
+        },
+        {
+          "Name": "netcheck",
+          "Description": "Print an analysis of local network conditions",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "--every",
+                  "Description": "If non-zero, do an incremental report with the given frequency",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "--format",
+                  "Description": "Output format",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "format",
+                          "Description": "format",
+                          "Type": "String"
+                        },
+                        {
+                          "Name": "json",
+                          "Description": "format"
+                        },
+                        {
+                          "Name": "json-line",
+                          "Description": "format"
+                        },
+                        {
+                          "Name": "human-readable",
+                          "Description": "format"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "--verbose",
+                  "Description": "Verbose logs",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "--help",
+                  "Description": "Show help message",
+                  "Aliases": [],
+                  "Arguments": []
+                }
+              ],
+              "Optional": true
+            }
+          ]
+        },
+        {
+          "Name": "ip",
+          "Description": "Show Tailscale IP addresses",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "--1",
+                  "Description": "Only print one IP address",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "--4",
+                  "Description": "Only print IPv4 address",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "--6",
+                  "Description": "Only print IPv6 address",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "--help",
+                  "Description": "Show help message",
+                  "Aliases": [],
+                  "Arguments": []
+                }
+              ],
+              "Optional": true
+            },
+            {
+              "Arguments": [
+                {
+                  "Name": "CustomArgument",
+                  "Description": "",
+                  "Type": "CustomArgument",
+                  "Extensions": [],
+                  "CustomCommand": "tailscale status --json"
+                }
+              ],
+              "Optional": true
+            }
+          ]
+        },
+        {
+          "Name": "status",
+          "Description": "Show state of tailscaled and its connections",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "--active",
+                  "Description": "Filter output to only peers with active sessions",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "--browser",
+                  "Description": "Open a browser in web mode",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "--json",
+                  "Description": "Output in JSON format",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "--listen",
+                  "Description": "Listen address for web mode; use port 0 for automatic (default 127.0.0.1:8384)",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "address",
+                          "Description": "address",
+                          "Type": "String"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "--peers",
+                  "Description": "Show status of peers",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "--self",
+                  "Description": "Show status of local machine",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "--web",
+                  "Description": "Run webserver with HTML showing status",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "--help",
+                  "Description": "Show help message",
+                  "Aliases": [],
+                  "Arguments": []
+                }
+              ],
+              "Optional": true
+            }
+          ]
+        },
+        {
+          "Name": "ping",
+          "Description": "Ping a host at the Tailscale layer, see how it routed",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "--c",
+                  "Description": "Max number of pings to send",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "count",
+                          "Description": "count",
+                          "Type": "String"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "--timeout",
+                  "Description": "Timeout before giving up on a ping",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "timeout",
+                          "Description": "timeout",
+                          "Type": "String"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "--tsmp",
+                  "Description": "Do a TSMP-level ping (through IP \u002B wireguard, but not involving host OS stack)",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "--until-direct",
+                  "Description": "Stop once a direct path is established",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "--verbose",
+                  "Description": "Verbose logs",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "--help",
+                  "Description": "Show help message",
+                  "Aliases": [],
+                  "Arguments": []
+                }
+              ],
+              "Optional": true
+            }
+          ]
+        },
+        {
+          "Name": "nc",
+          "Description": "Connect to a port on a host, connected to stdin/stdout",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "--help",
+                  "Description": "Show help message",
+                  "Aliases": [],
+                  "Arguments": []
+                }
+              ],
+              "Optional": true
+            },
+            {
+              "Arguments": [
+                {
+                  "Name": "hosname-or-ip",
+                  "Description": "hosname-or-ip",
+                  "Type": "String"
+                }
+              ]
+            },
+            {
+              "Arguments": [
+                {
+                  "Name": "port",
+                  "Description": "port",
+                  "Type": "String"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "Name": "ssh",
+          "Description": "SSH to a Tailscale machine",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "--help",
+                  "Description": "Show help message",
+                  "Aliases": [],
+                  "Arguments": []
+                }
+              ],
+              "Optional": true
+            },
+            {
+              "Arguments": [
+                {
+                  "Name": "[user@]\u003Chost\u003E",
+                  "Description": "[user@]\u003Chost\u003E",
+                  "Type": "String"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "Name": "version",
+          "Description": "Print Tailscale version",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "--daemon",
+                  "Description": "Also print local node\u0027s daemon version",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "--help",
+                  "Description": "Show help message",
+                  "Aliases": [],
+                  "Arguments": []
+                }
+              ],
+              "Optional": true
+            }
+          ]
+        },
+        {
+          "Name": "web",
+          "Description": "Run a web server for controlling Tailscale",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "--cgi",
+                  "Description": "Run as CGI script",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "--listen",
+                  "Description": "Listen address; use port 0 for automatic (default localhost:8088)",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "address",
+                          "Description": "address",
+                          "Type": "String"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "--help",
+                  "Description": "Show help message",
+                  "Aliases": [],
+                  "Arguments": []
+                }
+              ],
+              "Optional": true
+            }
+          ]
+        },
+        {
+          "Name": "file",
+          "Description": "Send or receive files",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "--help",
+                  "Description": "Show help message",
+                  "Aliases": [],
+                  "Arguments": []
+                }
+              ],
+              "Optional": true
+            },
+            {
+              "Arguments": [
+                {
+                  "Name": "cp",
+                  "Description": "Copy file(s) to a host",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "file",
+                          "Description": "file",
+                          "Type": "FileSystemEntry"
+                        }
+                      ]
+                    },
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "file or host",
+                          "Description": "file or host",
+                          "Type": "CustomArgument",
+                          "Extensions": [],
+                          "CustomCommand": "tailscale status --json"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "get",
+                  "Description": "Move files out of the Tailscale file inbox",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "target-directory",
+                          "Description": "target-directory",
+                          "Type": "Directory"
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ],
+              "DontAllowMultiple": true
+            }
+          ]
+        },
+        {
+          "Name": "bugreport",
+          "Description": "Print a shareable identifier to help diagnose issues",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "--help",
+                  "Description": "Show help message",
+                  "Aliases": [],
+                  "Arguments": []
+                }
+              ],
+              "Optional": true
+            },
+            {
+              "Arguments": [
+                {
+                  "Name": "note",
+                  "Description": "note",
+                  "Type": "String"
+                }
+              ],
+              "Optional": true
+            }
+          ]
+        },
+        {
+          "Name": "cert",
+          "Description": "Get TLS certs",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "--cert-file",
+                  "Description": "Output cert file or \u0022-\u0022 for stdout",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "file",
+                          "Description": "file",
+                          "Type": "FileSystemEntry"
+                        },
+                        {
+                          "Name": "-",
+                          "Description": "Stdout"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "--key-file",
+                  "Description": "Output cert file or \u0022-\u0022 for stdout",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "file",
+                          "Description": "file",
+                          "Type": "FileSystemEntry"
+                        },
+                        {
+                          "Name": "-",
+                          "Description": "Stdout"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "--serve-demo",
+                  "Description": "Serve on port :443 using the cert as a demo, instead of writing out the files to disk",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "--help",
+                  "Description": "Show help message",
+                  "Aliases": [],
+                  "Arguments": []
+                }
+              ],
+              "Optional": true
+            }
+          ]
+        },
+        {
+          "Name": "help",
+          "Description": "Print help message",
+          "Aliases": [],
+          "Arguments": []
+        }
+      ],
+      "DontAllowMultiple": true
+    }
+  ]
+}

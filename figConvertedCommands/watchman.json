@@ -1,0 +1,521 @@
+{
+  "Comment": "This command info is generated from fig",
+  "Name": "watchman",
+  "Description": "A file watching service",
+  "Arguments": [
+    {
+      "Arguments": [
+        {
+          "Name": "--help",
+          "Description": "Show help for watchman",
+          "Aliases": [
+            "-h"
+          ],
+          "Arguments": []
+        },
+        {
+          "Name": "--inetd",
+          "Description": "Spawning from an inetd style supervisor",
+          "Aliases": [],
+          "Arguments": []
+        },
+        {
+          "Name": "-S",
+          "Description": "Don\u0027t use the site or system spawner",
+          "Aliases": [
+            "--no-site-spawner"
+          ],
+          "Arguments": []
+        },
+        {
+          "Name": "-v",
+          "Description": "Show version number for watchman",
+          "Aliases": [
+            "--version"
+          ],
+          "Arguments": []
+        },
+        {
+          "Name": "--named-pipe-path",
+          "Description": "Specify alternate named pipe path",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "path",
+                  "Description": "path",
+                  "Type": "String"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "Name": "u",
+          "Description": "Specify alternate unix domain socket path",
+          "Type": "Flag",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "path",
+                  "Description": "path",
+                  "Type": "String"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "Name": "--unix-listener-path",
+          "Description": "Specify alternate unix domain socket path",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "path",
+                  "Description": "path",
+                  "Type": "String"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "Name": "o",
+          "Description": "Specify the path to logfile",
+          "Type": "Flag",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "path",
+                  "Description": "path",
+                  "Type": "String"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "Name": "--logfile",
+          "Description": "Specify the path to logfile",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "path",
+                  "Description": "path",
+                  "Type": "String"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "Name": "--log-level",
+          "Description": "Set the log level",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "level",
+                  "Description": "level",
+                  "Type": "String"
+                },
+                {
+                  "Name": "0",
+                  "Description": "level"
+                },
+                {
+                  "Name": "1",
+                  "Description": "level"
+                },
+                {
+                  "Name": "2",
+                  "Description": "level"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "Name": "--pidfile",
+          "Description": "Specify path to pidfile",
+          "Aliases": [],
+          "Arguments": []
+        },
+        {
+          "Name": "-p",
+          "Description": "Persist and wait for further responses",
+          "Aliases": [
+            "--persistent"
+          ],
+          "Arguments": []
+        },
+        {
+          "Name": "-n",
+          "Description": "Don\u0027t save state between invocations",
+          "Aliases": [
+            "--no-save-state"
+          ],
+          "Arguments": []
+        },
+        {
+          "Name": "--statefile",
+          "Description": "Specify path to file to hold watch and trigger state",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "path",
+                  "Description": "path",
+                  "Type": "String"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "Name": "-j",
+          "Description": "Instead of parsing CLI arguments, take a single json object from stdin",
+          "Aliases": [
+            "--json-command"
+          ],
+          "Arguments": []
+        },
+        {
+          "Name": "--output-encoding",
+          "Description": "CLI output encoding",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "encoding",
+                  "Description": "encoding",
+                  "Type": "String"
+                },
+                {
+                  "Name": "json",
+                  "Description": "encoding"
+                },
+                {
+                  "Name": "bser",
+                  "Description": "encoding"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "Name": "--server-encoding",
+          "Description": "CLI\u003C-\u003Eserver encoding",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "encoding",
+                  "Description": "encoding",
+                  "Type": "String"
+                },
+                {
+                  "Name": "bser",
+                  "Description": "encoding"
+                },
+                {
+                  "Name": "json",
+                  "Description": "encoding"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "Name": "-f",
+          "Description": "Run the service in the foreground",
+          "Aliases": [
+            "--foreground"
+          ],
+          "Arguments": []
+        },
+        {
+          "Name": "--no-pretty",
+          "Description": "Don\u0027t pretty print JSON",
+          "Aliases": [],
+          "Arguments": []
+        },
+        {
+          "Name": "--no-spawn",
+          "Description": "Don\u0027t try to start the service if it is not available",
+          "Aliases": [],
+          "Arguments": []
+        },
+        {
+          "Name": "--no-local",
+          "Description": "When no-spawn is enabled, don\u0027t try to handle request in client mode if service is unavailable",
+          "Aliases": [],
+          "Arguments": []
+        }
+      ],
+      "Optional": true
+    },
+    {
+      "Arguments": [
+        {
+          "Name": "clock",
+          "Description": "Returns the current clock value for a watched root",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "path",
+                  "Description": "path",
+                  "Type": "Directory"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "Name": "find",
+          "Description": "Finds all files that match the optional list of patterns under the specified dir",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "path",
+                  "Description": "path",
+                  "Type": "Directory"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "Name": "flush-subscriptions",
+          "Description": "This is designed to be used by interactive programs that have a background process or daemon maintaining a subscription to Watchman",
+          "Aliases": [],
+          "Arguments": []
+        },
+        {
+          "Name": "get-config",
+          "Description": "Returns the .watchmanconfig for the root",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "path",
+                  "Description": "The path to root",
+                  "Aliases": [],
+                  "Arguments": []
+                }
+              ],
+              "DontAllowMultiple": true
+            }
+          ]
+        },
+        {
+          "Name": "get-sockname",
+          "Description": "Get socket path",
+          "Aliases": [],
+          "Arguments": []
+        },
+        {
+          "Name": "list-capabilities",
+          "Description": "Returns the full list of supported capabilities offered by the watchman server",
+          "Aliases": [],
+          "Arguments": []
+        },
+        {
+          "Name": "log",
+          "Description": "Generates a log line in the watchman log",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "level",
+                  "Description": "level",
+                  "Type": "String"
+                },
+                {
+                  "Name": "debug",
+                  "Description": "level"
+                },
+                {
+                  "Name": "error",
+                  "Description": "level"
+                },
+                {
+                  "Name": "off",
+                  "Description": "level"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "Name": "log-level",
+          "Description": "Changes the log level of your connection to the watchman service",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "level",
+                  "Description": "level",
+                  "Type": "String"
+                },
+                {
+                  "Name": "debug",
+                  "Description": "level"
+                },
+                {
+                  "Name": "error",
+                  "Description": "level"
+                },
+                {
+                  "Name": "off",
+                  "Description": "level"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "Name": "query",
+          "Description": "Executes a query against the specified root",
+          "Aliases": [],
+          "Arguments": []
+        },
+        {
+          "Name": "shutdown-server",
+          "Description": "This causes your watchman service to exit with a normal status code",
+          "Aliases": [],
+          "Arguments": []
+        },
+        {
+          "Name": "since",
+          "Description": "Finds all files that were modified since the specified clockspec that match the optional list of patterns",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "path",
+                  "Description": "path",
+                  "Type": "Directory"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "Name": "state-enter",
+          "Description": "This causes a watch to be marked as being in a particular named state",
+          "Aliases": [],
+          "Arguments": []
+        },
+        {
+          "Name": "state-leave",
+          "Description": "This causes a watch to no longer be marked as being in a particular named state",
+          "Aliases": [],
+          "Arguments": []
+        },
+        {
+          "Name": "subscribe",
+          "Description": "Subscribes to changes against a specified root and requests that they be sent to the client via its connection",
+          "Aliases": [],
+          "Arguments": []
+        },
+        {
+          "Name": "trigger",
+          "Description": "This will create or replace a trigger",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "path",
+                  "Description": "path",
+                  "Type": "Directory"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "Name": "trigger-del",
+          "Description": "Deletes a named trigger from the list of registered triggers",
+          "Aliases": [],
+          "Arguments": []
+        },
+        {
+          "Name": "trigger-list",
+          "Description": "Returns the set of registered triggers associated with a root directory",
+          "Aliases": [],
+          "Arguments": []
+        },
+        {
+          "Name": "unsubscribe",
+          "Description": "Cancels a named subscription against the specified root",
+          "Aliases": [],
+          "Arguments": []
+        },
+        {
+          "Name": "version",
+          "Description": "The version and build information for the currently running watchman service",
+          "Aliases": [],
+          "Arguments": []
+        },
+        {
+          "Name": "watch-del",
+          "Description": "Removes a watch and any associated triggers",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "path",
+                  "Description": "path",
+                  "Type": "Directory"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "Name": "watch-del-all",
+          "Description": "Removes all watches and associated triggers",
+          "Aliases": [],
+          "Arguments": []
+        },
+        {
+          "Name": "watch-list",
+          "Description": "Returns a list of watched dirs",
+          "Aliases": [],
+          "Arguments": []
+        },
+        {
+          "Name": "watch-project",
+          "Description": "Requests that the project containing the requested dir is watched for changes",
+          "Aliases": [],
+          "Arguments": []
+        }
+      ],
+      "DontAllowMultiple": true
+    }
+  ]
+}

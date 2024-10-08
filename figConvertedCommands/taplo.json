@@ -1,0 +1,720 @@
+{
+  "Comment": "This command info is generated from fig",
+  "Name": "taplo",
+  "Description": "Tool for validation, formatting, and querying TOML documents with a jq-like fashion",
+  "Arguments": [
+    {
+      "Arguments": [
+        {
+          "Name": "--help",
+          "Description": "Print help information for taplo",
+          "Aliases": [
+            "-h"
+          ],
+          "Arguments": []
+        },
+        {
+          "Name": "--version",
+          "Description": "Print version information for taplo",
+          "Aliases": [
+            "-V"
+          ],
+          "Arguments": []
+        },
+        {
+          "Name": "--verbose",
+          "Description": "Enable verbose logging format",
+          "Aliases": [],
+          "Arguments": []
+        },
+        {
+          "Name": "--colors",
+          "Description": "",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "String",
+                  "Description": "",
+                  "Type": "String"
+                },
+                {
+                  "Name": "auto",
+                  "Description": ""
+                },
+                {
+                  "Name": "always",
+                  "Description": ""
+                },
+                {
+                  "Name": "never",
+                  "Description": ""
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "Name": "--log-spans",
+          "Description": "Enable logging spans",
+          "Aliases": [],
+          "Arguments": []
+        }
+      ],
+      "Optional": true
+    },
+    {
+      "Arguments": [
+        {
+          "Name": "config",
+          "Description": "Operations with the Taplo config file",
+          "Aliases": [
+            "cfg"
+          ],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "--help",
+                  "Description": "Print help information for config",
+                  "Aliases": [
+                    "-h"
+                  ],
+                  "Arguments": []
+                },
+                {
+                  "Name": "--log-spans",
+                  "Description": "Enable logging spans",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "--verbose",
+                  "Description": "Enable verbose logging format",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "--colors",
+                  "Description": "Set color values for the output",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "COLORS",
+                          "Description": "COLORS",
+                          "Type": "String"
+                        },
+                        {
+                          "Name": "auto",
+                          "Description": "COLORS"
+                        },
+                        {
+                          "Name": "always",
+                          "Description": "COLORS"
+                        },
+                        {
+                          "Name": "never",
+                          "Description": "COLORS"
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ],
+              "Optional": true
+            },
+            {
+              "Arguments": [
+                {
+                  "Name": "default",
+                  "Description": "Print the default \u0060.taplo.toml\u0060 configuration file",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "help",
+                  "Description": "Print this message or the help of the given subcommand(s)",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "String",
+                          "Description": "",
+                          "Type": "String"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "schema",
+                  "Description": "Print the JSON schema of the \u0060.taplo.toml\u0060 configuration file",
+                  "Aliases": [],
+                  "Arguments": []
+                }
+              ],
+              "DontAllowMultiple": true
+            }
+          ]
+        },
+        {
+          "Name": "format",
+          "Description": "Format TOML documents",
+          "Aliases": [
+            "fmt"
+          ],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "--config",
+                  "Description": "Path to the Taplo configuration file",
+                  "Aliases": [
+                    "-c"
+                  ],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "CONFIG",
+                          "Description": "CONFIG",
+                          "Type": "FileSystemEntry"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "--cache-path",
+                  "Description": "Set a cache path",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "CACHE_PATH",
+                          "Description": "CACHE_PATH",
+                          "Type": "FileSystemEntry"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "--check",
+                  "Description": "Report any files that are not correctly formatted",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "CACHE_PATH",
+                          "Description": "CACHE_PATH",
+                          "Type": "FileSystemEntry"
+                        }
+                      ],
+                      "Optional": true
+                    }
+                  ]
+                },
+                {
+                  "Name": "--colors",
+                  "Description": "Set color values for the output",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "COLORS",
+                          "Description": "COLORS",
+                          "Type": "String"
+                        },
+                        {
+                          "Name": "auto",
+                          "Description": "COLORS"
+                        },
+                        {
+                          "Name": "always",
+                          "Description": "COLORS"
+                        },
+                        {
+                          "Name": "never",
+                          "Description": "COLORS"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "--diff",
+                  "Description": "Print the differences in patch formatting to \u0060stdout\u0060",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "f",
+                  "Description": "Force formatting of files",
+                  "Aliases": [
+                    "--force"
+                  ],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "FILES ...",
+                          "Description": "FILES ...",
+                          "Type": "FileSystemEntry"
+                        }
+                      ],
+                      "Optional": true
+                    }
+                  ]
+                },
+                {
+                  "Name": "--help",
+                  "Description": "Print help information for format",
+                  "Aliases": [
+                    "-h"
+                  ],
+                  "Arguments": []
+                },
+                {
+                  "Name": "--log-spans",
+                  "Description": "Enable logging spans",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "--no-auto-config",
+                  "Description": "Do not search for a configuration file",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "--option",
+                  "Description": "A formatter option given as a \u0027key=value\u0027, can be set multiple times",
+                  "Aliases": [
+                    "-o"
+                  ],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "OPTIONS",
+                          "Description": "OPTIONS",
+                          "Type": "String"
+                        },
+                        {
+                          "Name": "indent_tables=true",
+                          "Description": "OPTIONS"
+                        },
+                        {
+                          "Name": "indent_tables=false",
+                          "Description": "OPTIONS"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "--stdin-filepath",
+                  "Description": "A path to the file that the taplo will treat like stdin",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "STDIN_FILEPATH",
+                          "Description": "STDIN_FILEPATH",
+                          "Type": "FileSystemEntry"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "--verbose",
+                  "Description": "Enable verbose logging format",
+                  "Aliases": [],
+                  "Arguments": []
+                }
+              ],
+              "Optional": true
+            },
+            {
+              "Arguments": [
+                {
+                  "Name": "FILES ...",
+                  "Description": "FILES ...",
+                  "Type": "FileSystemEntry"
+                }
+              ],
+              "Optional": true
+            }
+          ]
+        },
+        {
+          "Name": "get",
+          "Description": "Extract a value from the given TOML document",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "--file-path",
+                  "Description": "Path to the TOML document",
+                  "Aliases": [
+                    "-f"
+                  ],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "FILE_PATH",
+                          "Description": "FILE_PATH",
+                          "Type": "FileSystemEntry"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "--colors",
+                  "Description": "Set color values for the output",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "COLORS",
+                          "Description": "COLORS",
+                          "Type": "String"
+                        },
+                        {
+                          "Name": "auto",
+                          "Description": "COLORS"
+                        },
+                        {
+                          "Name": "always",
+                          "Description": "COLORS"
+                        },
+                        {
+                          "Name": "never",
+                          "Description": "COLORS"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "--help",
+                  "Description": "Print help information for get",
+                  "Aliases": [
+                    "-h"
+                  ],
+                  "Arguments": []
+                },
+                {
+                  "Name": "--log-spans",
+                  "Description": "Enable logging spans",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "-o",
+                  "Description": "The format specifying how the output is printed",
+                  "Aliases": [
+                    "--output-format"
+                  ],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "OUTPUT_FORMAT",
+                          "Description": "OUTPUT_FORMAT",
+                          "Type": "String"
+                        },
+                        {
+                          "Name": "value",
+                          "Description": "OUTPUT_FORMAT"
+                        },
+                        {
+                          "Name": "json",
+                          "Description": "OUTPUT_FORMAT"
+                        },
+                        {
+                          "Name": "toml",
+                          "Description": "OUTPUT_FORMAT"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "--strip-newline",
+                  "Description": "Strip the trailing newline from the output",
+                  "Aliases": [
+                    "-s"
+                  ],
+                  "Arguments": []
+                },
+                {
+                  "Name": "--verbose",
+                  "Description": "Enable verbose logging format",
+                  "Aliases": [],
+                  "Arguments": []
+                }
+              ],
+              "Optional": true
+            }
+          ]
+        },
+        {
+          "Name": "help",
+          "Description": "Print help information for taplo",
+          "Aliases": [],
+          "Arguments": []
+        },
+        {
+          "Name": "lint",
+          "Description": "Lint a TOML documents",
+          "Aliases": [
+            "check",
+            "validate"
+          ],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "--config",
+                  "Description": "Path to the Taplo configuration file",
+                  "Aliases": [
+                    "-c"
+                  ],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "CONFIG",
+                          "Description": "CONFIG",
+                          "Type": "FileSystemEntry"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "--cache-path",
+                  "Description": "Set a cache path",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "CACHE_PATH",
+                          "Description": "CACHE_PATH",
+                          "Type": "FileSystemEntry"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "--colors",
+                  "Description": "Set color values for the output",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "COLORS",
+                          "Description": "COLORS",
+                          "Type": "String"
+                        },
+                        {
+                          "Name": "auto",
+                          "Description": "COLORS"
+                        },
+                        {
+                          "Name": "always",
+                          "Description": "COLORS"
+                        },
+                        {
+                          "Name": "never",
+                          "Description": "COLORS"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "--default-schema-catalogs",
+                  "Description": "Use the default online catalogs for schemas",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "--help",
+                  "Description": "Print help information for lint",
+                  "Aliases": [
+                    "-h"
+                  ],
+                  "Arguments": []
+                },
+                {
+                  "Name": "--log-spans",
+                  "Description": "Enable logging spans",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "--no-schema",
+                  "Description": "Disable all schema validation",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "--schema",
+                  "Description": "URL to the schema to be used for validation",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "SCHEMA",
+                          "Description": "SCHEMA",
+                          "Type": "String"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "--schema-catalog",
+                  "Description": "URL to the schema catalog to be used for validation",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "SCHEMA_CATALOG",
+                          "Description": "SCHEMA_CATALOG",
+                          "Type": "String"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "--verbose",
+                  "Description": "Enable verbose logging format",
+                  "Aliases": [],
+                  "Arguments": []
+                }
+              ],
+              "Optional": true
+            },
+            {
+              "Arguments": [
+                {
+                  "Name": "FILES ...",
+                  "Description": "FILES ...",
+                  "Type": "FileSystemEntry"
+                }
+              ],
+              "Optional": true
+            }
+          ]
+        },
+        {
+          "Name": "lsp",
+          "Description": "Language server operations",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "--colors",
+                  "Description": "Set color values for the output",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "COLORS",
+                          "Description": "COLORS",
+                          "Type": "String"
+                        },
+                        {
+                          "Name": "auto",
+                          "Description": "COLORS"
+                        },
+                        {
+                          "Name": "always",
+                          "Description": "COLORS"
+                        },
+                        {
+                          "Name": "never",
+                          "Description": "COLORS"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "--help",
+                  "Description": "Print help information for lsp",
+                  "Aliases": [
+                    "-h"
+                  ],
+                  "Arguments": []
+                },
+                {
+                  "Name": "--log-spans",
+                  "Description": "Enable logging spans",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "--verbose",
+                  "Description": "Enable verbose logging format",
+                  "Aliases": [],
+                  "Arguments": []
+                }
+              ],
+              "Optional": true
+            },
+            {
+              "Arguments": [
+                {
+                  "Name": "help",
+                  "Description": "Print help information for lsp",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "stdio",
+                  "Description": "Run the language server over the standard input and output",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "tcp",
+                  "Description": "Run the language server and listen on a TCP address",
+                  "Aliases": [],
+                  "Arguments": []
+                }
+              ],
+              "DontAllowMultiple": true
+            }
+          ]
+        }
+      ],
+      "DontAllowMultiple": true
+    }
+  ]
+}

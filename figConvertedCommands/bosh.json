@@ -1,0 +1,1359 @@
+{
+  "Comment": "This command info is generated from fig",
+  "Name": "bosh",
+  "Description": "Bosh cli to managed your bosh deployment",
+  "Arguments": [
+    {
+      "Arguments": [
+        {
+          "Name": "--version",
+          "Description": "Show CLI version",
+          "Aliases": [],
+          "Arguments": []
+        },
+        {
+          "Name": "--config",
+          "Description": "Config file path (default: ~/.bosh/config)",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "PATH",
+                  "Description": "PATH",
+                  "Type": "FileSystemEntry"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "Name": "-e",
+          "Description": "Director environment name or URL",
+          "Aliases": [
+            "--environment"
+          ],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "name",
+                  "Description": "name",
+                  "Type": "String"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "Name": "--ca-cert",
+          "Description": "Director CA certificate path or value",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "PATH",
+                  "Description": "PATH",
+                  "Type": "FileSystemEntry"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "Name": "--sha2",
+          "Description": "Use SHA256 checksums",
+          "Aliases": [],
+          "Arguments": []
+        },
+        {
+          "Name": "--parallel",
+          "Description": "The max number of parallel operations (default: 5)",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "amount",
+                  "Description": "amount",
+                  "Type": "String"
+                },
+                {
+                  "Name": "1",
+                  "Description": "amount"
+                },
+                {
+                  "Name": "2",
+                  "Description": "amount"
+                },
+                {
+                  "Name": "3",
+                  "Description": "amount"
+                },
+                {
+                  "Name": "4",
+                  "Description": "amount"
+                },
+                {
+                  "Name": "5",
+                  "Description": "amount"
+                },
+                {
+                  "Name": "6",
+                  "Description": "amount"
+                },
+                {
+                  "Name": "7",
+                  "Description": "amount"
+                },
+                {
+                  "Name": "8",
+                  "Description": "amount"
+                },
+                {
+                  "Name": "9",
+                  "Description": "amount"
+                },
+                {
+                  "Name": "10",
+                  "Description": "amount"
+                },
+                {
+                  "Name": "11",
+                  "Description": "amount"
+                },
+                {
+                  "Name": "12",
+                  "Description": "amount"
+                },
+                {
+                  "Name": "13",
+                  "Description": "amount"
+                },
+                {
+                  "Name": "14",
+                  "Description": "amount"
+                },
+                {
+                  "Name": "15",
+                  "Description": "amount"
+                },
+                {
+                  "Name": "16",
+                  "Description": "amount"
+                },
+                {
+                  "Name": "17",
+                  "Description": "amount"
+                },
+                {
+                  "Name": "18",
+                  "Description": "amount"
+                },
+                {
+                  "Name": "19",
+                  "Description": "amount"
+                },
+                {
+                  "Name": "20",
+                  "Description": "amount"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "Name": "--client",
+          "Description": "Override username or UAA client [$BOSH_CLIENT]",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "name",
+                  "Description": "name",
+                  "Type": "String"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "Name": "--client-secret",
+          "Description": "Override password or UAA client secret [$BOSH_CLIENT_SECRET]",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "secret",
+                  "Description": "secret",
+                  "Type": "String"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "Name": "--deployment",
+          "Description": "Deployment name [$BOSH_DEPLOYMENT]",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "CustomArgument",
+                  "Description": "",
+                  "Type": "CustomArgument",
+                  "Extensions": [],
+                  "CustomCommand": "bosh --json deployments"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "Name": "--column",
+          "Description": "Filter to show only given column(s)",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "name",
+                  "Description": "name",
+                  "Type": "String"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "Name": "--json",
+          "Description": "Output as JSON",
+          "Aliases": [],
+          "Arguments": []
+        },
+        {
+          "Name": "--tty",
+          "Description": "Force TTY-like output",
+          "Aliases": [],
+          "Arguments": []
+        },
+        {
+          "Name": "--no-color",
+          "Description": "Toggle colorized output",
+          "Aliases": [],
+          "Arguments": []
+        },
+        {
+          "Name": "-n",
+          "Description": "Don\u0027t ask for user input [$BOSH_NON_INTERACTIVE]",
+          "Aliases": [
+            "--non-interactive"
+          ],
+          "Arguments": []
+        }
+      ],
+      "Optional": true
+    },
+    {
+      "Arguments": [
+        {
+          "Name": "add-blob",
+          "Description": "Add blob",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "PATH",
+                  "Description": "PATH",
+                  "Type": "FileSystemEntry"
+                }
+              ]
+            },
+            {
+              "Arguments": [
+                {
+                  "Name": "BLOBS-PATH",
+                  "Description": "BLOBS-PATH",
+                  "Type": "FileSystemEntry"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "Name": "unignore",
+          "Description": "Unignore an instance",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "INSTANCE-GROUP/INSTANCE-ID",
+                  "Description": "INSTANCE-GROUP/INSTANCE-ID",
+                  "Type": "String"
+                }
+              ],
+              "Optional": true
+            }
+          ]
+        },
+        {
+          "Name": "update-cloud-config",
+          "Description": "Update current cloud config",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "PATH",
+                  "Description": "PATH",
+                  "Type": "FileSystemEntry"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "Name": "update-config",
+          "Description": "Update config",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "PATH",
+                  "Description": "PATH",
+                  "Type": "FileSystemEntry"
+                }
+              ],
+              "Optional": true
+            }
+          ]
+        },
+        {
+          "Name": "update-cpi-config",
+          "Description": "Update current CPI config",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "PATH",
+                  "Description": "PATH",
+                  "Type": "FileSystemEntry"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "Name": "update-resurrection",
+          "Description": "Enable/disable resurrection",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "String",
+                  "Description": "",
+                  "Type": "String"
+                },
+                {
+                  "Name": "on",
+                  "Description": ""
+                },
+                {
+                  "Name": "off",
+                  "Description": ""
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "Name": "update-runtime-config",
+          "Description": "Update current runtime config",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "PATH",
+                  "Description": "PATH",
+                  "Type": "FileSystemEntry"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "Name": "upload-blobs",
+          "Description": "Upload blobs",
+          "Aliases": [],
+          "Arguments": []
+        },
+        {
+          "Name": "upload-release",
+          "Description": "Upload release",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "URL",
+                  "Description": "URL",
+                  "Type": "String"
+                }
+              ],
+              "Optional": true
+            }
+          ]
+        },
+        {
+          "Name": "upload-stemcell",
+          "Description": "Upload stemcell",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "fileOrUrl",
+                  "Description": "fileOrUrl",
+                  "Type": "FileSystemEntry"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "Name": "variables",
+          "Description": "List variables",
+          "Aliases": [],
+          "Arguments": []
+        },
+        {
+          "Name": "vendor-package",
+          "Description": "Vendor package",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "PACKAGE",
+                  "Description": "PACKAGE",
+                  "Type": "String"
+                }
+              ]
+            },
+            {
+              "Arguments": [
+                {
+                  "Name": "SRC-DIR",
+                  "Description": "SRC-DIR",
+                  "Type": "Directory"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "Name": "vms",
+          "Description": "List all VMs in all deployments",
+          "Aliases": [],
+          "Arguments": []
+        },
+        {
+          "Name": "orphan-disk",
+          "Description": "Orphan disk",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "CID",
+                  "Description": "CID",
+                  "Type": "String"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "Name": "networks",
+          "Description": "List networks",
+          "Aliases": [],
+          "Arguments": []
+        },
+        {
+          "Name": "manifest",
+          "Description": "Show deployment manifest",
+          "Aliases": [],
+          "Arguments": []
+        },
+        {
+          "Name": "tasks",
+          "Description": "List running or recent tasks",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "ID",
+                  "Description": "ID",
+                  "Type": "String"
+                }
+              ],
+              "Optional": true
+            }
+          ]
+        },
+        {
+          "Name": "task",
+          "Description": "Show task status and start tracking its output",
+          "Aliases": [],
+          "Arguments": []
+        },
+        {
+          "Name": "take-snapshot",
+          "Description": "Take snapshot",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "INSTANCE-GROUP/INSTANCE-ID",
+                  "Description": "INSTANCE-GROUP/INSTANCE-ID",
+                  "Type": "String"
+                }
+              ],
+              "Optional": true
+            }
+          ]
+        },
+        {
+          "Name": "sync-blobs",
+          "Description": "Sync blobs",
+          "Aliases": [],
+          "Arguments": []
+        },
+        {
+          "Name": "stop-env",
+          "Description": "Stop BOSH environment",
+          "Aliases": [],
+          "Arguments": []
+        },
+        {
+          "Name": "stop",
+          "Description": "Stop instance(s)",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "INSTANCE-GROUP/INSTANCE-ID",
+                  "Description": "INSTANCE-GROUP/INSTANCE-ID",
+                  "Type": "String"
+                }
+              ],
+              "Optional": true
+            }
+          ]
+        },
+        {
+          "Name": "stemcells",
+          "Description": "List stemcells",
+          "Aliases": [],
+          "Arguments": []
+        },
+        {
+          "Name": "start-env",
+          "Description": "Start BOSH environment",
+          "Aliases": [],
+          "Arguments": []
+        },
+        {
+          "Name": "start",
+          "Description": "Start instance(s)",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "INSTANCE-GROUP/INSTANCE-ID",
+                  "Description": "INSTANCE-GROUP/INSTANCE-ID",
+                  "Type": "String"
+                }
+              ],
+              "Optional": true
+            }
+          ]
+        },
+        {
+          "Name": "ssh",
+          "Description": "SSH into instance(s)",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "INSTANCE-GROUP/INSTANCE-ID",
+                  "Description": "INSTANCE-GROUP/INSTANCE-ID",
+                  "Type": "String"
+                }
+              ],
+              "Optional": true
+            }
+          ]
+        },
+        {
+          "Name": "snapshots",
+          "Description": "List snapshots",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "INSTANCE-GROUP/INSTANCE-ID",
+                  "Description": "INSTANCE-GROUP/INSTANCE-ID",
+                  "Type": "String"
+                }
+              ],
+              "Optional": true
+            }
+          ]
+        },
+        {
+          "Name": "sha2ify-release",
+          "Description": "Convert release tarball to use SHA256",
+          "Aliases": [],
+          "Arguments": []
+        },
+        {
+          "Name": "sha1ify-release",
+          "Description": "Convert release tarball to use SHA1",
+          "Aliases": [],
+          "Arguments": []
+        },
+        {
+          "Name": "runtime-config",
+          "Description": "Show current runtime config",
+          "Aliases": [],
+          "Arguments": []
+        },
+        {
+          "Name": "run-errand",
+          "Description": "Run errand",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "NAME",
+                  "Description": "NAME",
+                  "Type": "String"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "Name": "restart",
+          "Description": "Restart instance(s)",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "INSTANCE-GROUP/INSTANCE-ID",
+                  "Description": "INSTANCE-GROUP/INSTANCE-ID",
+                  "Type": "String"
+                }
+              ],
+              "Optional": true
+            }
+          ]
+        },
+        {
+          "Name": "reset-release",
+          "Description": "Reset release",
+          "Aliases": [],
+          "Arguments": []
+        },
+        {
+          "Name": "repack-stemcell",
+          "Description": "Repack stemcell",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "Path-to-Stemcell",
+                  "Description": "Path-to-Stemcell",
+                  "Type": "FileSystemEntry"
+                }
+              ]
+            },
+            {
+              "Arguments": [
+                {
+                  "Name": "Path-to-Result",
+                  "Description": "Path-to-Result",
+                  "Type": "FileSystemEntry"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "Name": "remove-blob",
+          "Description": "Remove blob",
+          "Aliases": [],
+          "Arguments": []
+        },
+        {
+          "Name": "releases",
+          "Description": "List releases",
+          "Aliases": [],
+          "Arguments": []
+        },
+        {
+          "Name": "recreate",
+          "Description": "Recreate instance(s)",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "INSTANCE-GROUP/INSTANCE-ID",
+                  "Description": "INSTANCE-GROUP/INSTANCE-ID",
+                  "Type": "String"
+                }
+              ],
+              "Optional": true
+            }
+          ]
+        },
+        {
+          "Name": "orphaned-vms",
+          "Description": "List all the orphaned VMs in all deployments",
+          "Aliases": [],
+          "Arguments": []
+        },
+        {
+          "Name": "scp",
+          "Description": "SCP to/from instance(s)",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "PATH...",
+                  "Description": "PATH...",
+                  "Type": "FileSystemEntry"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "Name": "help",
+          "Description": "Show this help message",
+          "Aliases": [],
+          "Arguments": []
+        },
+        {
+          "Name": "ignore",
+          "Description": "Ignore an instance",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "INSTANCE-GROUP/INSTANCE-ID",
+                  "Description": "INSTANCE-GROUP/INSTANCE-ID",
+                  "Type": "String"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "Name": "init-release",
+          "Description": "Initialize release",
+          "Aliases": [],
+          "Arguments": []
+        },
+        {
+          "Name": "inspect-local-release",
+          "Description": "Display information from release metadata",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "PATH",
+                  "Description": "PATH",
+                  "Type": "FileSystemEntry"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "Name": "inspect-local-stemcell",
+          "Description": "Display information from stemcell metadata",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "PATH-TO-STEMCELL",
+                  "Description": "PATH-TO-STEMCELL",
+                  "Type": "FileSystemEntry"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "Name": "inspect-release",
+          "Description": "List release contents such as jobs",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "NAME/VERSION",
+                  "Description": "NAME/VERSION",
+                  "Type": "String"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "Name": "instances",
+          "Description": "List all instances in a deployment",
+          "Aliases": [],
+          "Arguments": []
+        },
+        {
+          "Name": "interpolate",
+          "Description": "Interpolates variables into a manifest",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "PATH",
+                  "Description": "PATH",
+                  "Type": "FileSystemEntry"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "Name": "locks",
+          "Description": "List current locks",
+          "Aliases": [],
+          "Arguments": []
+        },
+        {
+          "Name": "log-in",
+          "Description": "Login",
+          "Aliases": [],
+          "Arguments": []
+        },
+        {
+          "Name": "log-out",
+          "Description": "Log out",
+          "Aliases": [],
+          "Arguments": []
+        },
+        {
+          "Name": "logs",
+          "Description": "Fetch logs from instance(s)",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "INSTANCE-GROUP/INSTANCE-ID",
+                  "Description": "INSTANCE-GROUP/INSTANCE-ID",
+                  "Type": "String"
+                }
+              ],
+              "Optional": true
+            }
+          ]
+        },
+        {
+          "Name": "deployment",
+          "Description": "Show deployment information",
+          "Aliases": [],
+          "Arguments": []
+        },
+        {
+          "Name": "deployments",
+          "Description": "List deployments",
+          "Aliases": [],
+          "Arguments": []
+        },
+        {
+          "Name": "diff-config",
+          "Description": "Diff two configs by ID or content",
+          "Aliases": [],
+          "Arguments": []
+        },
+        {
+          "Name": "disks",
+          "Description": "List disks",
+          "Aliases": [],
+          "Arguments": []
+        },
+        {
+          "Name": "environment",
+          "Description": "Show environment",
+          "Aliases": [],
+          "Arguments": []
+        },
+        {
+          "Name": "environments",
+          "Description": "List environments",
+          "Aliases": [],
+          "Arguments": []
+        },
+        {
+          "Name": "errands",
+          "Description": "List errands",
+          "Aliases": [],
+          "Arguments": []
+        },
+        {
+          "Name": "event",
+          "Description": "Show event details",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "ID",
+                  "Description": "ID",
+                  "Type": "String"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "Name": "events",
+          "Description": "List events",
+          "Aliases": [],
+          "Arguments": []
+        },
+        {
+          "Name": "export-release",
+          "Description": "Export the compiled release to a tarball",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "NAME/VERSION",
+                  "Description": "NAME/VERSION",
+                  "Type": "String"
+                }
+              ]
+            },
+            {
+              "Arguments": [
+                {
+                  "Name": "OS/VERSION",
+                  "Description": "OS/VERSION",
+                  "Type": "String"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "Name": "finalize-release",
+          "Description": "Create final release from dev release tarball",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "PATH",
+                  "Description": "PATH",
+                  "Type": "FileSystemEntry"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "Name": "generate-job",
+          "Description": "Generate job",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "NAME",
+                  "Description": "NAME",
+                  "Type": "String"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "Name": "generate-package",
+          "Description": "Generate package",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "NAME",
+                  "Description": "NAME",
+                  "Type": "String"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "Name": "create-release",
+          "Description": "Create release",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "PATH",
+                  "Description": "PATH",
+                  "Type": "FileSystemEntry"
+                }
+              ],
+              "Optional": true
+            }
+          ]
+        },
+        {
+          "Name": "curl",
+          "Description": "Make an HTTP request to the Director",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "PATH",
+                  "Description": "PATH",
+                  "Type": "FileSystemEntry"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "Name": "delete-config",
+          "Description": "Delete config",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "ID",
+                  "Description": "ID",
+                  "Type": "String"
+                }
+              ],
+              "Optional": true
+            }
+          ]
+        },
+        {
+          "Name": "delete-deployment",
+          "Description": "Delete deployment",
+          "Aliases": [],
+          "Arguments": []
+        },
+        {
+          "Name": "delete-disk",
+          "Description": "Delete disk",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "CID",
+                  "Description": "CID",
+                  "Type": "String"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "Name": "delete-env",
+          "Description": "Delete BOSH environment",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "PATH",
+                  "Description": "PATH",
+                  "Type": "FileSystemEntry"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "Name": "delete-network",
+          "Description": "Delete network",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "NAME",
+                  "Description": "NAME",
+                  "Type": "String"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "Name": "delete-release",
+          "Description": "Delete release",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "NAME/VERSION",
+                  "Description": "NAME/VERSION",
+                  "Type": "String"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "Name": "delete-snapshot",
+          "Description": "Delete snapshot",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "CID",
+                  "Description": "CID",
+                  "Type": "String"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "Name": "delete-snapshots",
+          "Description": "Delete all snapshots in a deployment",
+          "Aliases": [],
+          "Arguments": []
+        },
+        {
+          "Name": "delete-stemcell",
+          "Description": "Delete stemcell",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "String",
+                  "Description": "",
+                  "Type": "String"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "Name": "delete-vm",
+          "Description": "Delete VM",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "CID",
+                  "Description": "CID",
+                  "Type": "String"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "Name": "deploy",
+          "Description": "Update deployment",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "PATH",
+                  "Description": "PATH",
+                  "Type": "FileSystemEntry"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "Name": "alias-env",
+          "Description": "Alias environment to save URL and CA certificate",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "String",
+                  "Description": "",
+                  "Type": "String"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "Name": "attach-disk",
+          "Description": "Attach disk to an instance",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "INSTANCE-GROUP/INSTANCE-ID",
+                  "Description": "INSTANCE-GROUP/INSTANCE-ID",
+                  "Type": "String"
+                }
+              ]
+            },
+            {
+              "Arguments": [
+                {
+                  "Name": "DISK-CID",
+                  "Description": "DISK-CID",
+                  "Type": "String"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "Name": "blobs",
+          "Description": "List blobs",
+          "Aliases": [],
+          "Arguments": []
+        },
+        {
+          "Name": "cancel-task",
+          "Description": "Cancel task at its next checkpoint",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "ID",
+                  "Description": "ID",
+                  "Type": "String"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "Name": "cancel-tasks",
+          "Description": "Cancel tasks at their next checkpoints",
+          "Aliases": [],
+          "Arguments": []
+        },
+        {
+          "Name": "clean-up",
+          "Description": "Clean up old unused resources except orphaned disks",
+          "Aliases": [],
+          "Arguments": []
+        },
+        {
+          "Name": "cloud-check",
+          "Description": "Cloud consistency check and interactive repair",
+          "Aliases": [],
+          "Arguments": []
+        },
+        {
+          "Name": "cloud-config",
+          "Description": "Show current cloud config",
+          "Aliases": [],
+          "Arguments": []
+        },
+        {
+          "Name": "config",
+          "Description": "Show current config for either ID or both type and name",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "ID",
+                  "Description": "ID",
+                  "Type": "String"
+                }
+              ],
+              "Optional": true
+            }
+          ]
+        },
+        {
+          "Name": "configs",
+          "Description": "List configs",
+          "Aliases": [],
+          "Arguments": []
+        },
+        {
+          "Name": "cpi-config",
+          "Description": "Show current CPI config",
+          "Aliases": [],
+          "Arguments": []
+        },
+        {
+          "Name": "create-env",
+          "Description": "Create or update BOSH environment",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "PATH",
+                  "Description": "PATH",
+                  "Type": "FileSystemEntry"
+                }
+              ]
+            }
+          ]
+        }
+      ],
+      "DontAllowMultiple": true
+    }
+  ]
+}

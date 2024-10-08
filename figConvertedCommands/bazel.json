@@ -1,0 +1,455 @@
+{
+  "Comment": "This command info is generated from fig",
+  "Name": "bazel",
+  "Description": "Bazel the build system!",
+  "Arguments": [
+    {
+      "Arguments": [
+        {
+          "Name": "--autodetect_server_javabase",
+          "Description": "Back to the local JDK for running the bazel server and instead exits",
+          "Aliases": [],
+          "Arguments": []
+        },
+        {
+          "Name": "--noautodetect_server_javabase",
+          "Description": "Does not fall back to the local JDK for running the bazel server and instead exits",
+          "Aliases": [],
+          "Arguments": []
+        },
+        {
+          "Name": "--batch",
+          "Description": "Run as just a client process without a server",
+          "Aliases": [],
+          "Arguments": []
+        },
+        {
+          "Name": "--nobatch",
+          "Description": "Run with a server",
+          "Aliases": [],
+          "Arguments": []
+        },
+        {
+          "Name": "--batch_cpu_scheduling",
+          "Description": "Only on Linux; use \u0027batch\u0027 CPU scheduling for Bazel",
+          "Aliases": [],
+          "Arguments": []
+        },
+        {
+          "Name": "--nobatch_cpu_scheduling",
+          "Description": "Only on Linux; Bazel does not perform a system call",
+          "Aliases": [],
+          "Arguments": []
+        },
+        {
+          "Name": "--bazelrc",
+          "Description": "The location of the user .bazelrc file containing default values of Bazel options",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "bazelrc path",
+                  "Description": "bazelrc path",
+                  "Type": "FileSystemEntry"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "Name": "--block_for_lock",
+          "Description": "Wait for a running command to complete",
+          "Aliases": [],
+          "Arguments": []
+        },
+        {
+          "Name": "--noblock_for_lock",
+          "Description": "Bazel does not wait for a running command to complete, but instead exits immediately",
+          "Aliases": [],
+          "Arguments": []
+        },
+        {
+          "Name": "--client_debug",
+          "Description": "Log debug information from the client to stderr. Changing this option will not cause the server to restart",
+          "Aliases": [],
+          "Arguments": []
+        },
+        {
+          "Name": "--noclient_debug",
+          "Description": "Don\u0027t log debug information from the client to stderr",
+          "Aliases": [],
+          "Arguments": []
+        },
+        {
+          "Name": "--connect_timeout_secs",
+          "Description": "The amount of time the client waits for each attempt to connect to the server",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "time",
+                  "Description": "time",
+                  "Type": "String"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "Name": "--expand_configs_in_place",
+          "Description": "Changed the expansion of --config flags to be done in-place",
+          "Aliases": [],
+          "Arguments": []
+        },
+        {
+          "Name": "--noexpand_configs_in_place",
+          "Description": "--config flags in a fixed point expansion between normal rc options and command-line specified options",
+          "Aliases": [],
+          "Arguments": []
+        },
+        {
+          "Name": "--failure_detail_out",
+          "Description": "Specifies a location to write a failure_detail protobuf message if the server experiences a failure and cannot report it via gRPC, as normal. Otherwise, the location will be ${OUTPUT_BASE}/failure_detail.rawproto",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "path",
+                  "Description": "path",
+                  "Type": "FileSystemEntry"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "Name": "--home_rc",
+          "Description": "Look for the home bazelrc file at $HOME/.bazelrc",
+          "Aliases": [],
+          "Arguments": []
+        },
+        {
+          "Name": "--nohome_rc",
+          "Description": "Don\u0027t look for the home bazelrc file at $HOME/.bazelrc",
+          "Aliases": [],
+          "Arguments": []
+        },
+        {
+          "Name": "--idle_server_tasks",
+          "Description": "Run System.gc() when the server is idle",
+          "Aliases": [],
+          "Arguments": []
+        },
+        {
+          "Name": "--noidle_server_tasks",
+          "Description": "Don\u0027t run System.gc() when the server is idle",
+          "Aliases": [],
+          "Arguments": []
+        },
+        {
+          "Name": "--ignore_all_rc_files",
+          "Description": "Disables all rc files, regardless of the values of other rc-modifying flags, even if these flags come later in the list of startup options",
+          "Aliases": [],
+          "Arguments": []
+        },
+        {
+          "Name": "--noignore_all_rc_files",
+          "Description": "Enables all rc files",
+          "Aliases": [],
+          "Arguments": []
+        },
+        {
+          "Name": "--io_nice_level",
+          "Description": "Only on Linux; set a level from 0-7 for best-effort IO scheduling using the sys_ioprio_set system call. 0 is highest priority, 7 is lowest",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "io-level",
+                  "Description": "io-level",
+                  "Type": "String"
+                },
+                {
+                  "Name": "0",
+                  "Description": "io-level"
+                },
+                {
+                  "Name": "1",
+                  "Description": "io-level"
+                },
+                {
+                  "Name": "2",
+                  "Description": "io-level"
+                },
+                {
+                  "Name": "3",
+                  "Description": "io-level"
+                },
+                {
+                  "Name": "4",
+                  "Description": "io-level"
+                },
+                {
+                  "Name": "5",
+                  "Description": "io-level"
+                },
+                {
+                  "Name": "6",
+                  "Description": "io-level"
+                },
+                {
+                  "Name": "7",
+                  "Description": "io-level"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "Name": "--local_startup_timeout_secs",
+          "Description": "The maximum amount of time the client waits to connect to the server",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "seconds",
+                  "Description": "seconds",
+                  "Type": "String"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "Name": "--macos_qos_class",
+          "Description": "Sets the QoS service class of the bazel server when running on macOS",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "QoS service class",
+                  "Description": "QoS service class",
+                  "Type": "String"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "Name": "--max_idle_secs",
+          "Description": "The number of seconds the build server will wait idling before shutting down",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "seconds",
+                  "Description": "seconds",
+                  "Type": "String"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "Name": "--output_base",
+          "Description": "Specifies the output location to which all build output will be written",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "Path",
+                  "Description": "Path",
+                  "Type": "FileSystemEntry"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "Name": "--output_base_root",
+          "Description": "The user-specific directory beneath which all build outputs are written",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "Path",
+                  "Description": "Path",
+                  "Type": "FileSystemEntry"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "Name": "--preemptible",
+          "Description": "If true, the command can be preempted if another command is started",
+          "Aliases": [],
+          "Arguments": []
+        },
+        {
+          "Name": "--nopreemptible",
+          "Description": "If true, the command can be preempted if another command is started",
+          "Aliases": [],
+          "Arguments": []
+        },
+        {
+          "Name": "--server_jvm_out",
+          "Description": "The location to write the server\u0027s JVM\u0027s output",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "Path",
+                  "Description": "Path",
+                  "Type": "FileSystemEntry"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "Name": "--shutdown_on_low_sys_mem",
+          "Description": "Linux only. If max_idle_secs is set and the build server has been idle for a while, shut down the server when the system is low on free RAM",
+          "Aliases": [],
+          "Arguments": []
+        },
+        {
+          "Name": "--noshutdown_on_low_sys_mem",
+          "Description": "Linux only. Don\u0027t shut down the server when the system is low on free RAM",
+          "Aliases": [],
+          "Arguments": []
+        },
+        {
+          "Name": "--system_rc",
+          "Description": "Look for the system-wide bazelrc",
+          "Aliases": [],
+          "Arguments": []
+        },
+        {
+          "Name": "--nosystem_rc",
+          "Description": "Don\u0027t look for the system-wide bazelrc",
+          "Aliases": [],
+          "Arguments": []
+        },
+        {
+          "Name": "--unlimit_coredumps",
+          "Description": "Raises the soft coredump limit to the hard limit to make coredumps of the server (including the JVM) and the client possible under common conditions",
+          "Aliases": [],
+          "Arguments": []
+        },
+        {
+          "Name": "--nounlimit_coredumps",
+          "Description": "Don\u0027t raise the soft coredump limit to the hard limit to make coredumps of the server (including the JVM) and the client possible under common conditions",
+          "Aliases": [],
+          "Arguments": []
+        },
+        {
+          "Name": "--watchfs",
+          "Description": "Use the operating system\u0027s file watch service for local changes instead of scanning every file for a change",
+          "Aliases": [],
+          "Arguments": []
+        },
+        {
+          "Name": "--nowatchfs",
+          "Description": "Scan every file for a change",
+          "Aliases": [],
+          "Arguments": []
+        },
+        {
+          "Name": "--windows_enable_symlinks",
+          "Description": "Real symbolic links will be created on Windows instead of file copying",
+          "Aliases": [],
+          "Arguments": []
+        },
+        {
+          "Name": "--nowindows_enable_symlinks",
+          "Description": "Real symbolic links will be created via file copying",
+          "Aliases": [],
+          "Arguments": []
+        },
+        {
+          "Name": "--workspace_rc",
+          "Description": "Look for the workspace bazelrc file at $workspace/.bazelrc",
+          "Aliases": [],
+          "Arguments": []
+        },
+        {
+          "Name": "--noworkspace_rc",
+          "Description": "Don\u0027t look for the workspace bazelrc file at $workspace/.bazelrc",
+          "Aliases": [],
+          "Arguments": []
+        }
+      ],
+      "Optional": true
+    },
+    {
+      "Arguments": [
+        {
+          "Name": "run",
+          "Description": "Runs the specified target",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "BUILD file",
+                  "Description": "BUILD file",
+                  "Type": "CustomArgument",
+                  "Extensions": [],
+                  "CustomCommand": "bash -c FILES=( $(find ./ -name BUILD) ); for f in $FILES; do echo \u0022----$f\u0022; \\cat \u0022$f\u0022; done"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "Name": "test",
+          "Description": "Builds and runs the specified test targets",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "BUILD file",
+                  "Description": "BUILD file",
+                  "Type": "CustomArgument",
+                  "Extensions": [],
+                  "CustomCommand": "bash -c FILES=( $(find ./ -name BUILD) ); for f in $FILES; do echo \u0022----$f\u0022; \\cat \u0022$f\u0022; done"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "Name": "build",
+          "Description": "Builds the specified targets",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "BUILD file",
+                  "Description": "BUILD file",
+                  "Type": "CustomArgument",
+                  "Extensions": [],
+                  "CustomCommand": "bash -c FILES=( $(find ./ -name BUILD) ); for f in $FILES; do echo \u0022----$f\u0022; \\cat \u0022$f\u0022; done"
+                }
+              ]
+            }
+          ]
+        }
+      ],
+      "DontAllowMultiple": true
+    }
+  ]
+}

@@ -1,0 +1,3093 @@
+{
+  "Comment": "This command info is generated from fig",
+  "Name": "dapr",
+  "Description": "Dapr CLI",
+  "Arguments": [
+    {
+      "Arguments": [
+        {
+          "Name": "--version",
+          "Description": "Version for dapr",
+          "Aliases": [
+            "-v"
+          ],
+          "Arguments": []
+        },
+        {
+          "Name": "--log-as-json",
+          "Description": "Log output in JSON format",
+          "Aliases": [],
+          "Arguments": []
+        },
+        {
+          "Name": "--runtime-path",
+          "Description": "The path to the dapr runtime installation directory",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "runtime-path",
+                  "Description": "runtime-path",
+                  "Type": "Directory"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "Name": "--help",
+          "Description": "Display help",
+          "Aliases": [
+            "-h"
+          ],
+          "Arguments": []
+        }
+      ],
+      "Optional": true
+    },
+    {
+      "Arguments": [
+        {
+          "Name": "annotate",
+          "Description": "Add dapr annotations to a Kubernetes configuration. Supported platforms: Kubernetes",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "--api-token-secret",
+                  "Description": "The secret to use for the API token",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "api-token-secret",
+                          "Description": "api-token-secret",
+                          "Type": "String"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "--app-id",
+                  "Description": "The app id to annotate",
+                  "Aliases": [
+                    "-a"
+                  ],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "app-id",
+                          "Description": "app-id",
+                          "Type": "CustomArgument",
+                          "Extensions": [],
+                          "CustomCommand": "dapr list -A -o json"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "--app-max-concurrency",
+                  "Description": "The maximum number of concurrent requests to allow",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "app-max-concurrency",
+                          "Description": "app-max-concurrency",
+                          "Type": "String"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "--app-port",
+                  "Description": "The port to expose the app on",
+                  "Aliases": [
+                    "-p"
+                  ],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "app-port",
+                          "Description": "app-port",
+                          "Type": "String"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "--app-protocol",
+                  "Description": "The protocol to use for the app. Allowed values http, https, h2c, grpc, grpcs",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "app-protocol",
+                          "Description": "app-protocol",
+                          "Type": "String"
+                        },
+                        {
+                          "Name": "http",
+                          "Description": "app-protocol"
+                        },
+                        {
+                          "Name": "https",
+                          "Description": "app-protocol"
+                        },
+                        {
+                          "Name": "h2c",
+                          "Description": "app-protocol"
+                        },
+                        {
+                          "Name": "grpc",
+                          "Description": "app-protocol"
+                        },
+                        {
+                          "Name": "grpcs",
+                          "Description": "app-protocol"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "--app-ssl",
+                  "Description": "Enable SSL for the app",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "--app-token-secret",
+                  "Description": "The secret to use for the app token",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "app-token-secret",
+                          "Description": "app-token-secret",
+                          "Type": "String"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "--config",
+                  "Description": "The config file to annotate",
+                  "Aliases": [
+                    "-c"
+                  ],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "config",
+                          "Description": "config",
+                          "Type": "File",
+                          "Extensions": [
+                            "yaml",
+                            "yml"
+                          ],
+                          "CustomCommand": ""
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "--cpu-limit",
+                  "Description": "The CPU limit to set",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "cpu-limit",
+                          "Description": "cpu-limit",
+                          "Type": "String"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "--cpu-request",
+                  "Description": "The CPU request to set",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "cpu-request",
+                          "Description": "cpu-request",
+                          "Type": "String"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "--dapr-image",
+                  "Description": "The image to use for the dapr sidecar container",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "dapr-image",
+                          "Description": "dapr-image",
+                          "Type": "String"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "--disable-builtin-k8s-secret-store",
+                  "Description": "Disable the built-in k8s secret store",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "--enable-api-logging",
+                  "Description": "Enable API logging for the Dapr sidecar",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "--enable-debug",
+                  "Description": "Enable debug",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "--enable-metrics",
+                  "Description": "Enable metrics",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "--enable-profile",
+                  "Description": "Enable profiling",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "--env",
+                  "Description": "Environment variables to set (key value pairs, comma separated)",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "env",
+                          "Description": "env",
+                          "Type": "String"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "--graceful-shutdown-seconds",
+                  "Description": "The number of seconds to wait for the app to shutdown",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "graceful-shutdown-seconds",
+                          "Description": "graceful-shutdown-seconds",
+                          "Type": "String"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "--http-read-buffer-size",
+                  "Description": "The maximum size of HTTP header read buffer in kilobytes",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "http-read-buffer-size",
+                          "Description": "http-read-buffer-size",
+                          "Type": "String"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "--http-stream-request-body",
+                  "Description": "Enable streaming request body for HTTP",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "--kubernetes",
+                  "Description": "Apply annotations to Kubernetes resources",
+                  "Aliases": [
+                    "-k"
+                  ],
+                  "Arguments": []
+                },
+                {
+                  "Name": "--listen-addresses",
+                  "Description": "The addresses to listen on",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "listen-addresses",
+                          "Description": "listen-addresses",
+                          "Type": "String"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "--liveness-probe-delay",
+                  "Description": "The delay to use for the liveness probe",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "liveness-probe-delay",
+                          "Description": "liveness-probe-delay",
+                          "Type": "String"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "--liveness-probe-period",
+                  "Description": "The period to use for the liveness probe",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "liveness-probe-period",
+                          "Description": "liveness-probe-period",
+                          "Type": "String"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "--liveness-probe-threshold",
+                  "Description": "The threshold to use for the liveness probe",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "liveness-probe-threshold",
+                          "Description": "liveness-probe-threshold",
+                          "Type": "String"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "--liveness-probe-timeout",
+                  "Description": "The timeout to use for the liveness probe",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "liveness-probe-timeout",
+                          "Description": "liveness-probe-timeout",
+                          "Type": "String"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "--log-as-json",
+                  "Description": "Log as JSON",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "--log-level",
+                  "Description": "The log level to use",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "log-level",
+                          "Description": "log-level",
+                          "Type": "String"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "--max-request-body-size",
+                  "Description": "The maximum request body size to use",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "max-request-body-size",
+                          "Description": "max-request-body-size",
+                          "Type": "String"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "--memory-limit",
+                  "Description": "The memory limit to set",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "memory-limit",
+                          "Description": "memory-limit",
+                          "Type": "String"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "--memory-request",
+                  "Description": "The memory request to set",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "memory-request",
+                          "Description": "memory-request",
+                          "Type": "String"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "--metrics-port",
+                  "Description": "The port to expose the metrics on",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "metrics-port",
+                          "Description": "metrics-port",
+                          "Type": "String"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "--namespace",
+                  "Description": "The namespace the resource target is in (can only be set if --resource is also set)",
+                  "Aliases": [
+                    "-n"
+                  ],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "namespace",
+                          "Description": "namespace",
+                          "Type": "String"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "--placement-host-address",
+                  "Description": "Comma separated list of addresses for Dapr actor placement servers",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "placement-host-address",
+                          "Description": "placement-host-address",
+                          "Type": "String"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "--readiness-probe-delay",
+                  "Description": "The delay to use for the readiness probe",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "readiness-probe-delay",
+                          "Description": "readiness-probe-delay",
+                          "Type": "String"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "--readiness-probe-period",
+                  "Description": "The period to use for the readiness probe",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "readiness-probe-period",
+                          "Description": "readiness-probe-period",
+                          "Type": "String"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "--readiness-probe-threshold",
+                  "Description": "The threshold to use for the readiness probe",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "readiness-probe-threshold",
+                          "Description": "readiness-probe-threshold",
+                          "Type": "String"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "--readiness-probe-timeout",
+                  "Description": "The timeout to use for the readiness probe",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "readiness-probe-timeout",
+                          "Description": "readiness-probe-timeout",
+                          "Type": "String"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "--resource",
+                  "Description": "The resource to target to annotate",
+                  "Aliases": [
+                    "-r"
+                  ],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "resource",
+                          "Description": "resource",
+                          "Type": "String"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "--unix-domain-socket-path",
+                  "Description": "Linux domain socket path to use for communicating with the Dapr sidecar",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "unix-domain-socket-path",
+                          "Description": "unix-domain-socket-path",
+                          "Type": "String"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "--volume-mounts",
+                  "Description": "List of pod volumes to be mounted to the sidecar container in read-only mode",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "volume-mounts",
+                          "Description": "volume-mounts",
+                          "Type": "String"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "--volume-mounts-rw",
+                  "Description": "List of pod volumes to be mounted to the sidecar container in read-write mode",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "volume-mounts-rw",
+                          "Description": "volume-mounts-rw",
+                          "Type": "String"
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ],
+              "Optional": true
+            },
+            {
+              "Arguments": [
+                {
+                  "Name": "config",
+                  "Description": "config",
+                  "Type": "File",
+                  "Extensions": [
+                    "yaml",
+                    "yml"
+                  ],
+                  "CustomCommand": ""
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "Name": "build-info",
+          "Description": "Print build info of Dapr CLI and runtime",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "--help",
+                  "Description": "Print this help message",
+                  "Aliases": [
+                    "-h"
+                  ],
+                  "Arguments": []
+                }
+              ],
+              "Optional": true
+            }
+          ]
+        },
+        {
+          "Name": "completion",
+          "Description": "Generates shell completion scripts",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "--help",
+                  "Description": "Print this help message",
+                  "Aliases": [
+                    "-h"
+                  ],
+                  "Arguments": []
+                }
+              ],
+              "Optional": true
+            },
+            {
+              "Arguments": [
+                {
+                  "Name": "bash",
+                  "Description": "Generates bash completion scripts",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "--help",
+                          "Description": "Print this help message",
+                          "Aliases": [
+                            "-h"
+                          ],
+                          "Arguments": []
+                        }
+                      ],
+                      "Optional": true
+                    }
+                  ]
+                },
+                {
+                  "Name": "fish",
+                  "Description": "Generates fish completion scripts",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "--help",
+                          "Description": "Print this help message",
+                          "Aliases": [
+                            "-h"
+                          ],
+                          "Arguments": []
+                        }
+                      ],
+                      "Optional": true
+                    }
+                  ]
+                },
+                {
+                  "Name": "powershell",
+                  "Description": "Generates powershell completion scripts",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "--help",
+                          "Description": "Print this help message",
+                          "Aliases": [
+                            "-h"
+                          ],
+                          "Arguments": []
+                        }
+                      ],
+                      "Optional": true
+                    }
+                  ]
+                },
+                {
+                  "Name": "zsh",
+                  "Description": "Generates zsh completion scripts",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "--help",
+                          "Description": "Print this help message",
+                          "Aliases": [
+                            "-h"
+                          ],
+                          "Arguments": []
+                        }
+                      ],
+                      "Optional": true
+                    }
+                  ]
+                }
+              ],
+              "DontAllowMultiple": true
+            }
+          ]
+        },
+        {
+          "Name": "components",
+          "Description": "List all Dapr components. Supported platforms: Kubernetes",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "--all-namespaces",
+                  "Description": "If true, list all Dapr components in all namespaces",
+                  "Aliases": [
+                    "-A"
+                  ],
+                  "Arguments": []
+                },
+                {
+                  "Name": "--help",
+                  "Description": "Print this help message",
+                  "Aliases": [
+                    "-h"
+                  ],
+                  "Arguments": []
+                },
+                {
+                  "Name": "--kubernetes",
+                  "Description": "List all Dapr components in a Kubernetes cluster",
+                  "Aliases": [
+                    "-k"
+                  ],
+                  "Arguments": []
+                },
+                {
+                  "Name": "--name",
+                  "Description": "The components name to be printed (optional)",
+                  "Aliases": [
+                    "-n"
+                  ],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "name",
+                          "Description": "name",
+                          "Type": "String"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "--namespace",
+                  "Description": "List all namespace components in a Kubernetes cluster",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "namespace",
+                          "Description": "namespace",
+                          "Type": "String"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "--output",
+                  "Description": "Output format (options: json or yaml or list)",
+                  "Aliases": [
+                    "-o"
+                  ],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "output",
+                          "Description": "output",
+                          "Type": "String"
+                        },
+                        {
+                          "Name": "json",
+                          "Description": "output"
+                        },
+                        {
+                          "Name": "yaml",
+                          "Description": "output"
+                        },
+                        {
+                          "Name": "list",
+                          "Description": "output"
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ],
+              "Optional": true
+            }
+          ]
+        },
+        {
+          "Name": "configurations",
+          "Description": "List all Dapr configurations. Supported platforms: Kubernetes",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "--all-namespaces",
+                  "Description": "If true, list all Dapr configurations in all namespaces",
+                  "Aliases": [
+                    "-A"
+                  ],
+                  "Arguments": []
+                },
+                {
+                  "Name": "--help",
+                  "Description": "Print this help message",
+                  "Aliases": [
+                    "-h"
+                  ],
+                  "Arguments": []
+                },
+                {
+                  "Name": "--kubernetes",
+                  "Description": "List all Dapr configurations in a Kubernetes cluster",
+                  "Aliases": [
+                    "-k"
+                  ],
+                  "Arguments": []
+                },
+                {
+                  "Name": "--name",
+                  "Description": "The configuration name to be printed (optional)",
+                  "Aliases": [
+                    "-n"
+                  ],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "name",
+                          "Description": "name",
+                          "Type": "String"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "--namespace",
+                  "Description": "List Define namespace configurations in a Kubernetes cluster",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "namespace",
+                          "Description": "namespace",
+                          "Type": "String"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "--output",
+                  "Description": "Output format (options: json or yaml or list)",
+                  "Aliases": [
+                    "-o"
+                  ],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "output",
+                          "Description": "output",
+                          "Type": "String"
+                        },
+                        {
+                          "Name": "json",
+                          "Description": "output"
+                        },
+                        {
+                          "Name": "yaml",
+                          "Description": "output"
+                        },
+                        {
+                          "Name": "list",
+                          "Description": "output"
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ],
+              "Optional": true
+            }
+          ]
+        },
+        {
+          "Name": "dashboard",
+          "Description": "Start Dapr dashboard. Supported platforms: Kubernetes and self-hosted",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "--address",
+                  "Description": "Address to listen on. Only accepts IP address or localhost as a value",
+                  "Aliases": [
+                    "-a"
+                  ],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "address",
+                          "Description": "address",
+                          "Type": "String"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "--help",
+                  "Description": "Print this help message",
+                  "Aliases": [
+                    "-h"
+                  ],
+                  "Arguments": []
+                },
+                {
+                  "Name": "--kubernetes",
+                  "Description": "Opens Dapr dashboard in local browser via local proxy to Kubernetes cluster",
+                  "Aliases": [
+                    "-k"
+                  ],
+                  "Arguments": []
+                },
+                {
+                  "Name": "--namespace",
+                  "Description": "The namespace where Dapr dashboard is running",
+                  "Aliases": [
+                    "-n"
+                  ],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "namespace",
+                          "Description": "namespace",
+                          "Type": "String"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "--port",
+                  "Description": "The local port on which to serve Dapr dashboard",
+                  "Aliases": [
+                    "-p"
+                  ],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "port",
+                          "Description": "port",
+                          "Type": "String"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "--version",
+                  "Description": "Print the version for Dapr dashboard",
+                  "Aliases": [
+                    "-v"
+                  ],
+                  "Arguments": []
+                }
+              ],
+              "Optional": true
+            }
+          ]
+        },
+        {
+          "Name": "init",
+          "Description": "Install Dapr on supported hosting platforms. Supported platforms: Kubernetes and self-hosted",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "--ca-root-certificate",
+                  "Description": "The root certificate file",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "ca-root-certificate",
+                          "Description": "ca-root-certificate",
+                          "Type": "String"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "--container-runtime",
+                  "Description": "The container runtime to use. Supported values are docker (default) and podman",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "container-runtime",
+                          "Description": "container-runtime",
+                          "Type": "String"
+                        },
+                        {
+                          "Name": "docker",
+                          "Description": "container-runtime"
+                        },
+                        {
+                          "Name": "podman",
+                          "Description": "container-runtime"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "--dashboard-version",
+                  "Description": "The version of the Dapr dashboard to install, for example: 0.13.0",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "dashboard-version",
+                          "Description": "dashboard-version",
+                          "Type": "String"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "--dev",
+                  "Description": "Use Dev mode. Deploy Redis, Zipkin also in the Kubernetes cluster",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "--enable-ha",
+                  "Description": "Enable high availability (HA) mode",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "--enable-mtls",
+                  "Description": "Enable mTLS in your cluster",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "--from-dir",
+                  "Description": "Use Dapr artifacts from local directory for self-hosted installation",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "from-dir",
+                          "Description": "from-dir",
+                          "Type": "String"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "--help",
+                  "Description": "Print this help message",
+                  "Aliases": [
+                    "-h"
+                  ],
+                  "Arguments": []
+                },
+                {
+                  "Name": "--image-registry",
+                  "Description": "Custom/private docker image repository URL",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "image-registry",
+                          "Description": "image-registry",
+                          "Type": "String"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "--image-variant",
+                  "Description": "The image variant to use for the Dapr runtime, for example: mariner",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "image-variant",
+                          "Description": "image-variant",
+                          "Type": "String"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "--issuer-private-key",
+                  "Description": "The issuer certificate private key",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "issuer-private-key",
+                          "Description": "issuer-private-key",
+                          "Type": "String"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "--issuer-public-certificate",
+                  "Description": "The issuer certificate",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "issuer-public-certificate",
+                          "Description": "issuer-public-certificate",
+                          "Type": "String"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "--kubernetes",
+                  "Description": "Deploy Dapr to a Kubernetes cluster",
+                  "Aliases": [
+                    "-k"
+                  ],
+                  "Arguments": []
+                },
+                {
+                  "Name": "--namespace",
+                  "Description": "The Kubernetes namespace to install Dapr in",
+                  "Aliases": [
+                    "-n"
+                  ],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "namespace",
+                          "Description": "namespace",
+                          "Type": "String"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "--network",
+                  "Description": "The Docker network on which to deploy the Dapr runtime",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "network",
+                          "Description": "network",
+                          "Type": "String"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "--runtime-version",
+                  "Description": "The version of the Dapr runtime to install, for example: 1.0.0",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "runtime-version",
+                          "Description": "runtime-version",
+                          "Type": "String",
+                          "Extensions": [],
+                          "CustomCommand": ""
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "--set",
+                  "Description": "Set values on the command line (can specify multiple or separate values with commas: key1=val1,key2=val2)",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "set",
+                          "Description": "set",
+                          "Type": "String"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "--slim",
+                  "Description": "Exclude placement service, Redis and Zipkin containers from self-hosted installation",
+                  "Aliases": [
+                    "-s"
+                  ],
+                  "Arguments": []
+                },
+                {
+                  "Name": "--timeout",
+                  "Description": "The wait timeout for the Kubernetes installation",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "timeout",
+                          "Description": "timeout",
+                          "Type": "String"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "--wait",
+                  "Description": "Wait for Kubernetes initialization to complete",
+                  "Aliases": [],
+                  "Arguments": []
+                }
+              ],
+              "Optional": true
+            }
+          ]
+        },
+        {
+          "Name": "invoke",
+          "Description": "Invoke a method on a given Dapr application. Supported platforms: Self-hosted",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "--app-id",
+                  "Description": "The application id to invoke",
+                  "Aliases": [
+                    "-a"
+                  ],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "app-id",
+                          "Description": "app-id",
+                          "Type": "CustomArgument",
+                          "Extensions": [],
+                          "CustomCommand": "dapr list -A -o json"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "--data",
+                  "Description": "The JSON serialized data string (optional)",
+                  "Aliases": [
+                    "-d"
+                  ],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "data",
+                          "Description": "data",
+                          "Type": "String"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "--data-file",
+                  "Description": "A file containing the JSON serialized data (optional)",
+                  "Aliases": [
+                    "-f"
+                  ],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "data-file",
+                          "Description": "data-file",
+                          "Type": "FileSystemEntry"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "--help",
+                  "Description": "Print this help message",
+                  "Aliases": [
+                    "-h"
+                  ],
+                  "Arguments": []
+                },
+                {
+                  "Name": "--method",
+                  "Description": "The method to invoke",
+                  "Aliases": [
+                    "-m"
+                  ],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "method",
+                          "Description": "method",
+                          "Type": "String"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "--unix-domain-socket",
+                  "Description": "Path to a unix domain socket dir. If specified, Dapr API servers will use Unix Domain Sockets",
+                  "Aliases": [
+                    "-u"
+                  ],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "unix-domain-socket",
+                          "Description": "unix-domain-socket",
+                          "Type": "String"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "--verb",
+                  "Description": "The HTTP verb to use",
+                  "Aliases": [
+                    "-v"
+                  ],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "verb",
+                          "Description": "verb",
+                          "Type": "String"
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ],
+              "Optional": true
+            }
+          ]
+        },
+        {
+          "Name": "list",
+          "Description": "List all Dapr instances. Supported platforms: Kubernetes and self-hosted",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "--all-namespaces",
+                  "Description": "If true, list all Dapr pods in all namespaces",
+                  "Aliases": [
+                    "-A"
+                  ],
+                  "Arguments": []
+                },
+                {
+                  "Name": "--help",
+                  "Description": "Print this help message",
+                  "Aliases": [
+                    "-h"
+                  ],
+                  "Arguments": []
+                },
+                {
+                  "Name": "--kubernetes",
+                  "Description": "List all Dapr pods in a Kubernetes cluster",
+                  "Aliases": [
+                    "-k"
+                  ],
+                  "Arguments": []
+                },
+                {
+                  "Name": "--namespace",
+                  "Description": "List define namespace pod in a Kubernetes cluster",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "namespace",
+                          "Description": "namespace",
+                          "Type": "String"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "--output",
+                  "Description": "The output format of the list. Valid values are: json, yaml, or table (default)",
+                  "Aliases": [
+                    "-o"
+                  ],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "output",
+                          "Description": "output",
+                          "Type": "String"
+                        },
+                        {
+                          "Name": "json",
+                          "Description": "output"
+                        },
+                        {
+                          "Name": "yaml",
+                          "Description": "output"
+                        },
+                        {
+                          "Name": "table",
+                          "Description": "output"
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ],
+              "Optional": true
+            }
+          ]
+        },
+        {
+          "Name": "logs",
+          "Description": "Get Dapr sidecar logs for an application. Supported platforms: Kubernetes",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "--app-id",
+                  "Description": "The application id for which logs are needed",
+                  "Aliases": [
+                    "-a"
+                  ],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "app-id",
+                          "Description": "app-id",
+                          "Type": "CustomArgument",
+                          "Extensions": [],
+                          "CustomCommand": "dapr list -A -o json"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "--help",
+                  "Description": "Print this help message",
+                  "Aliases": [
+                    "-h"
+                  ],
+                  "Arguments": []
+                },
+                {
+                  "Name": "--kubernetes",
+                  "Description": "Get logs from a Kubernetes cluster",
+                  "Aliases": [
+                    "-k"
+                  ],
+                  "Arguments": []
+                },
+                {
+                  "Name": "--namespace",
+                  "Description": "The Kubernetes namespace in which your application is deployed",
+                  "Aliases": [
+                    "-n"
+                  ],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "namespace",
+                          "Description": "namespace",
+                          "Type": "String"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "--pod-name",
+                  "Description": "The name of the pod in Kubernetes, in case your application has multiple pods (optional)",
+                  "Aliases": [
+                    "-p"
+                  ],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "pod-name",
+                          "Description": "pod-name",
+                          "Type": "String"
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ],
+              "Optional": true
+            }
+          ]
+        },
+        {
+          "Name": "mtls",
+          "Description": "Check if mTLS is enabled. Supported platforms: Kubernetes",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "--help",
+                  "Description": "Print this help message",
+                  "Aliases": [
+                    "-h"
+                  ],
+                  "Arguments": []
+                },
+                {
+                  "Name": "--kubernetes",
+                  "Description": "Check if mTLS is enabled in a Kubernetes cluster",
+                  "Aliases": [
+                    "-k"
+                  ],
+                  "Arguments": []
+                }
+              ],
+              "Optional": true
+            },
+            {
+              "Arguments": [
+                {
+                  "Name": "expiry",
+                  "Description": "Checks the expiry of the root certificate",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "export",
+                  "Description": "Export the root CA, issuer cert and key from Kubernetes to local files",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "--help",
+                          "Description": "Print this help message",
+                          "Aliases": [
+                            "-h"
+                          ],
+                          "Arguments": []
+                        },
+                        {
+                          "Name": "--out",
+                          "Description": "The output directory path to save the certs",
+                          "Aliases": [
+                            "-o"
+                          ],
+                          "Arguments": [
+                            {
+                              "Arguments": [
+                                {
+                                  "Name": "out",
+                                  "Description": "out",
+                                  "Type": "String"
+                                }
+                              ]
+                            }
+                          ]
+                        }
+                      ],
+                      "Optional": true
+                    }
+                  ]
+                },
+                {
+                  "Name": "renew-cert",
+                  "Description": "Rotates the Dapr root certificate on your Kubernetes cluster",
+                  "Aliases": [
+                    "rnc",
+                    "renew-certificate"
+                  ],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "--ca-root-certificate",
+                          "Description": "The root certificate file",
+                          "Aliases": [],
+                          "Arguments": [
+                            {
+                              "Arguments": [
+                                {
+                                  "Name": "ca-root-certificate",
+                                  "Description": "ca-root-certificate",
+                                  "Type": "String"
+                                }
+                              ]
+                            }
+                          ]
+                        },
+                        {
+                          "Name": "--image-variant",
+                          "Description": "The image variant to use for the Dapr runtime, for example: mariner",
+                          "Aliases": [],
+                          "Arguments": [
+                            {
+                              "Arguments": [
+                                {
+                                  "Name": "image-variant",
+                                  "Description": "image-variant",
+                                  "Type": "String"
+                                }
+                              ]
+                            }
+                          ]
+                        },
+                        {
+                          "Name": "--issuer-private-key",
+                          "Description": "The issuer certificate private key",
+                          "Aliases": [],
+                          "Arguments": [
+                            {
+                              "Arguments": [
+                                {
+                                  "Name": "issuer-private-key",
+                                  "Description": "issuer-private-key",
+                                  "Type": "String"
+                                }
+                              ]
+                            }
+                          ]
+                        },
+                        {
+                          "Name": "--issuer-public-certificate",
+                          "Description": "The issuer certificate",
+                          "Aliases": [],
+                          "Arguments": [
+                            {
+                              "Arguments": [
+                                {
+                                  "Name": "issuer-public-certificate",
+                                  "Description": "issuer-public-certificate",
+                                  "Type": "String"
+                                }
+                              ]
+                            }
+                          ]
+                        },
+                        {
+                          "Name": "--kubernetes",
+                          "Description": "Renews root and issuer certificates of Dapr in a Kubernetes cluster",
+                          "Aliases": [
+                            "-k"
+                          ],
+                          "Arguments": []
+                        },
+                        {
+                          "Name": "--private-key",
+                          "Description": "The root.key file which is used to generate root certificate",
+                          "Aliases": [],
+                          "Arguments": [
+                            {
+                              "Arguments": [
+                                {
+                                  "Name": "private-key",
+                                  "Description": "private-key",
+                                  "Type": "String"
+                                }
+                              ]
+                            }
+                          ]
+                        },
+                        {
+                          "Name": "--restart",
+                          "Description": "Restart Dapr control plane services",
+                          "Aliases": [],
+                          "Arguments": []
+                        },
+                        {
+                          "Name": "--timeout",
+                          "Description": "The timeout for the certificate renewal",
+                          "Aliases": [],
+                          "Arguments": [
+                            {
+                              "Arguments": [
+                                {
+                                  "Name": "timeout",
+                                  "Description": "timeout",
+                                  "Type": "String"
+                                }
+                              ]
+                            }
+                          ]
+                        },
+                        {
+                          "Name": "--valid-until",
+                          "Description": "Max days before certificate expires",
+                          "Aliases": [],
+                          "Arguments": [
+                            {
+                              "Arguments": [
+                                {
+                                  "Name": "valid-until",
+                                  "Description": "valid-until",
+                                  "Type": "String"
+                                }
+                              ]
+                            }
+                          ]
+                        }
+                      ],
+                      "Optional": true
+                    }
+                  ]
+                }
+              ],
+              "DontAllowMultiple": true
+            }
+          ]
+        },
+        {
+          "Name": "publish",
+          "Description": "Publish a pub-sub event. Supported platforms: Self-hosted",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "--data",
+                  "Description": "The JSON serialized data string (optional)",
+                  "Aliases": [
+                    "-d"
+                  ],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "data",
+                          "Description": "data",
+                          "Type": "String"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "--data-file",
+                  "Description": "A file containing the JSON serialized data (optional)",
+                  "Aliases": [
+                    "-f"
+                  ],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "data-file",
+                          "Description": "data-file",
+                          "Type": "String"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "--help",
+                  "Description": "Print this help message",
+                  "Aliases": [
+                    "-h"
+                  ],
+                  "Arguments": []
+                },
+                {
+                  "Name": "--metadata",
+                  "Description": "The JSON serialized publish metadata (optional)",
+                  "Aliases": [
+                    "-m"
+                  ],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "metadata",
+                          "Description": "metadata",
+                          "Type": "String"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "--publish-app-id",
+                  "Description": "The ID of the publishing app",
+                  "Aliases": [
+                    "-i"
+                  ],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "publish-app-id",
+                          "Description": "publish-app-id",
+                          "Type": "String"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "--pubsub",
+                  "Description": "The name of the pub/sub component",
+                  "Aliases": [
+                    "-p"
+                  ],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "pubsub",
+                          "Description": "pubsub",
+                          "Type": "String"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "--topic",
+                  "Description": "The topic to be published to",
+                  "Aliases": [
+                    "-t"
+                  ],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "topic",
+                          "Description": "topic",
+                          "Type": "String"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "--unix-domain-socket",
+                  "Description": "Path to a unix domain socket dir. If specified, Dapr API servers will use Unix Domain Sockets",
+                  "Aliases": [
+                    "-u"
+                  ],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "unix-domain-socket",
+                          "Description": "unix-domain-socket",
+                          "Type": "String"
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ],
+              "Optional": true
+            }
+          ]
+        },
+        {
+          "Name": "run",
+          "Description": "Run Dapr and (optionally) your application side by side. Supported platforms: Self-hosted",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "--app-channel-address",
+                  "Description": "The network address the application listens on",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "app-channel-address",
+                          "Description": "app-channel-address",
+                          "Type": "String"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "--app-health-check-path",
+                  "Description": "Path used for health checks; HTTP only",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "app-health-check-path",
+                          "Description": "app-health-check-path",
+                          "Type": "String"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "--app-health-probe-interval",
+                  "Description": "Interval to probe for the health of the app in seconds",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "app-health-probe-interval",
+                          "Description": "app-health-probe-interval",
+                          "Type": "String"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "--app-health-probe-timeout",
+                  "Description": "Timeout for app health probes in milliseconds",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "app-health-probe-timeout",
+                          "Description": "app-health-probe-timeout",
+                          "Type": "String"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "--app-health-threshold",
+                  "Description": "Number of consecutive failures for the app to be considered unhealthy",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "app-health-threshold",
+                          "Description": "app-health-threshold",
+                          "Type": "String"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "--app-id",
+                  "Description": "The id for your application, used for service discovery",
+                  "Aliases": [
+                    "-a"
+                  ],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "app-id",
+                          "Description": "app-id",
+                          "Type": "String"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "--app-max-concurrency",
+                  "Description": "The concurrency level of the application, otherwise is unlimited",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "app-max-concurrency",
+                          "Description": "app-max-concurrency",
+                          "Type": "String"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "--app-port",
+                  "Description": "The port your application is listening on",
+                  "Aliases": [
+                    "-p"
+                  ],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "app-port",
+                          "Description": "app-port",
+                          "Type": "String"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "--app-protocol",
+                  "Description": "The protocol (grpc, grpcs, http, https, h2c) Dapr uses to talk to the application",
+                  "Aliases": [
+                    "-P"
+                  ],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "app-protocol",
+                          "Description": "app-protocol",
+                          "Type": "String"
+                        },
+                        {
+                          "Name": "http",
+                          "Description": "app-protocol"
+                        },
+                        {
+                          "Name": "https",
+                          "Description": "app-protocol"
+                        },
+                        {
+                          "Name": "h2c",
+                          "Description": "app-protocol"
+                        },
+                        {
+                          "Name": "grpc",
+                          "Description": "app-protocol"
+                        },
+                        {
+                          "Name": "grpcs",
+                          "Description": "app-protocol"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "--app-ssl",
+                  "Description": "Enable https when Dapr invokes the application",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "--components-path",
+                  "Description": "The path for components directory. Default is $HOME/.dapr/components or %USERPROFILE%.daprcomponents",
+                  "Aliases": [
+                    "-d"
+                  ],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "components-path",
+                          "Description": "components-path",
+                          "Type": "Directory"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "--config",
+                  "Description": "Dapr configuration file",
+                  "Aliases": [
+                    "-c"
+                  ],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "config",
+                          "Description": "config",
+                          "Type": "File",
+                          "Extensions": [
+                            "yaml",
+                            "yml"
+                          ],
+                          "CustomCommand": ""
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "--dapr-grpc-port",
+                  "Description": "The gRPC port for Dapr to listen on",
+                  "Aliases": [
+                    "-G"
+                  ],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "dapr-grpc-port",
+                          "Description": "dapr-grpc-port",
+                          "Type": "String"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "--dapr-http-max-request-size",
+                  "Description": "Max size of request body in MB",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "dapr-http-max-request-size",
+                          "Description": "dapr-http-max-request-size",
+                          "Type": "String"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "--dapr-http-port",
+                  "Description": "The HTTP port for Dapr to listen on",
+                  "Aliases": [
+                    "-H"
+                  ],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "dapr-http-port",
+                          "Description": "dapr-http-port",
+                          "Type": "String"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "--dapr-http-read-buffer-size",
+                  "Description": "HTTP header read buffer in KB",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "dapr-http-read-buffer-size",
+                          "Description": "dapr-http-read-buffer-size",
+                          "Type": "String"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "--dapr-internal-grpc-port",
+                  "Description": "The gRPC port for the Dapr internal API to listen on",
+                  "Aliases": [
+                    "-I"
+                  ],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "dapr-internal-grpc-port",
+                          "Description": "dapr-internal-grpc-port",
+                          "Type": "String"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "--dapr-listen-addresses",
+                  "Description": "Comma separated list of IP addresses that sidecar will listen to",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "dapr-listen-addresses",
+                          "Description": "dapr-listen-addresses",
+                          "Type": "String"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "--enable-api-logging",
+                  "Description": "Log API calls at INFO verbosity. Valid values are: true or false",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "--enable-app-health-check",
+                  "Description": "Enable health checks for the application using the protocol defined with app-protocol",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "--enable-profiling",
+                  "Description": "Enable pprof profiling via an HTTP endpoint",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "--help",
+                  "Description": "Print this help message",
+                  "Aliases": [
+                    "-h"
+                  ],
+                  "Arguments": []
+                },
+                {
+                  "Name": "--kubernetes",
+                  "Description": "Run the multi-app run template against Kubernetes environment",
+                  "Aliases": [
+                    "-k"
+                  ],
+                  "Arguments": []
+                },
+                {
+                  "Name": "--log-level",
+                  "Description": "The log verbosity. Valid values are: debug, info, warn, error, fatal, or panic",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "log-level",
+                          "Description": "log-level",
+                          "Type": "String"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "--metrics-port",
+                  "Description": "The port of metrics on dapr",
+                  "Aliases": [
+                    "-M"
+                  ],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "metrics-port",
+                          "Description": "metrics-port",
+                          "Type": "String"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "--placement-host-address",
+                  "Description": "The address of the placement service. Format is either \u003Chostname\u003E for default port or \u003Chostname\u003E:\u003Cport\u003E for custom port",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "placement-host-address",
+                          "Description": "placement-host-address",
+                          "Type": "String"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "--profile-port",
+                  "Description": "The port for the profile server to listen on",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "profile-port",
+                          "Description": "profile-port",
+                          "Type": "String"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "--resources-path",
+                  "Description": "The path for resources directory",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "resources-path",
+                          "Description": "resources-path",
+                          "Type": "Directory"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "--run-file",
+                  "Description": "Path to the run template file for the list of apps to run",
+                  "Aliases": [
+                    "-f"
+                  ],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "run-file",
+                          "Description": "run-file",
+                          "Type": "File",
+                          "Extensions": [
+                            "yaml",
+                            "yml"
+                          ],
+                          "CustomCommand": ""
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "--unix-domain-socket",
+                  "Description": "Path to a unix domain socket dir. If specified, Dapr API servers will use Unix Domain Sockets",
+                  "Aliases": [
+                    "-u"
+                  ],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "unix-domain-socket",
+                          "Description": "unix-domain-socket",
+                          "Type": "String"
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ],
+              "Optional": true
+            }
+          ]
+        },
+        {
+          "Name": "status",
+          "Description": "Show the health status of Dapr services. Supported platforms: Kubernetes",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "--help",
+                  "Description": "Print this help message",
+                  "Aliases": [
+                    "-h"
+                  ],
+                  "Arguments": []
+                },
+                {
+                  "Name": "--kubernetes",
+                  "Description": "Show the health status of Dapr services on Kubernetes cluster",
+                  "Aliases": [
+                    "-k"
+                  ],
+                  "Arguments": []
+                }
+              ],
+              "Optional": true
+            }
+          ]
+        },
+        {
+          "Name": "stop",
+          "Description": "Stop Dapr instances and their associated apps. Supported platforms: Self-hosted",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "--app-id",
+                  "Description": "The application id to be stopped",
+                  "Aliases": [
+                    "-a"
+                  ],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "app-id",
+                          "Description": "app-id",
+                          "Type": "CustomArgument",
+                          "Extensions": [],
+                          "CustomCommand": "dapr list -A -o json"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "--help",
+                  "Description": "Print this help message",
+                  "Aliases": [
+                    "-h"
+                  ],
+                  "Arguments": []
+                },
+                {
+                  "Name": "--kubernetes",
+                  "Description": "Stop deployments in Kunernetes based on multi-app run file",
+                  "Aliases": [
+                    "-k"
+                  ],
+                  "Arguments": []
+                },
+                {
+                  "Name": "--run-file",
+                  "Description": "Path to the run template file for the list of apps to stop",
+                  "Aliases": [
+                    "-f"
+                  ],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "run-file",
+                          "Description": "run-file",
+                          "Type": "File",
+                          "Extensions": [
+                            "yaml",
+                            "yml"
+                          ],
+                          "CustomCommand": ""
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ],
+              "Optional": true
+            }
+          ]
+        },
+        {
+          "Name": "uninstall",
+          "Description": "Uninstall Dapr runtime. Supported platforms: Kubernetes and self-hosted",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "--all",
+                  "Description": "Remove .dapr directory, Redis, Placement and Zipkin containers on local machine, and CRDs on a Kubernetes cluster",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "--container-runtime",
+                  "Description": "The container runtime to use. Supported values are docker (default) and podman",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "container-runtime",
+                          "Description": "container-runtime",
+                          "Type": "String"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "--dev",
+                  "Description": "Uninstall Dapr Redis and Zipking installations from Kubernetes cluster",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "--help",
+                  "Description": "Print this help message",
+                  "Aliases": [
+                    "-h"
+                  ],
+                  "Arguments": []
+                },
+                {
+                  "Name": "--kubernetes",
+                  "Description": "Uninstall Dapr from a Kubernetes cluster",
+                  "Aliases": [
+                    "-k"
+                  ],
+                  "Arguments": []
+                },
+                {
+                  "Name": "--namespace",
+                  "Description": "The Kubernetes namespace to uninstall Dapr from",
+                  "Aliases": [
+                    "-n"
+                  ],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "namespace",
+                          "Description": "namespace",
+                          "Type": "String"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "--network",
+                  "Description": "The Docker network from which to remove the Dapr runtime",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "network",
+                          "Description": "network",
+                          "Type": "String"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "--timeout",
+                  "Description": "The timeout for the Kubernetes uninstall",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "timeout",
+                          "Description": "timeout",
+                          "Type": "String"
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ],
+              "Optional": true
+            }
+          ]
+        },
+        {
+          "Name": "upgrade",
+          "Description": "Upgrades or downgrades a Dapr control plane installation in a cluster. Supported platforms: Kubernetes",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "--dashboard-version",
+                  "Description": "The version of the Dapr dashboard to upgrade or downgrade to, for example: 0.13.0",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "dashboard-version",
+                          "Description": "dashboard-version",
+                          "Type": "String"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "--help",
+                  "Description": "Print this help message",
+                  "Aliases": [
+                    "-h"
+                  ],
+                  "Arguments": []
+                },
+                {
+                  "Name": "--image-registry",
+                  "Description": "Custom/Private docker image repository URL",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "image-registry",
+                          "Description": "image-registry",
+                          "Type": "String"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "--image-variant",
+                  "Description": "The image variant to use for the Dapr runtime, for example: mariner",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "image-variant",
+                          "Description": "image-variant",
+                          "Type": "String"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "--kubernetes",
+                  "Description": "Upgrade or downgrade Dapr in a Kubernetes cluster",
+                  "Aliases": [
+                    "-k"
+                  ],
+                  "Arguments": []
+                },
+                {
+                  "Name": "--runtime-version",
+                  "Description": "The version of the Dapr runtime to upgrade or downgrade to, for example: 1.0.0",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "runtime-version",
+                          "Description": "runtime-version",
+                          "Type": "String"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "--set",
+                  "Description": "Set values on the command line (can specify multiple or separate values with commas: key1=val1,key2=val2)",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "set",
+                          "Description": "set",
+                          "Type": "String"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "--timeout",
+                  "Description": "The timeout for the Kubernetes upgrade",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "timeout",
+                          "Description": "timeout",
+                          "Type": "String"
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ],
+              "Optional": true
+            }
+          ]
+        },
+        {
+          "Name": "version",
+          "Description": "Print the Dapr runtime and CLI version",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "--help",
+                  "Description": "Print this help message",
+                  "Aliases": [
+                    "-h"
+                  ],
+                  "Arguments": []
+                },
+                {
+                  "Name": "--output",
+                  "Description": "The output format of the version command. Valid values are: json",
+                  "Aliases": [
+                    "-o"
+                  ],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "output",
+                          "Description": "output",
+                          "Type": "String"
+                        },
+                        {
+                          "Name": "json",
+                          "Description": "output"
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ],
+              "Optional": true
+            }
+          ]
+        },
+        {
+          "Name": "help",
+          "Description": "Help about any command",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "annotate",
+                  "Description": "Add dapr annotations to a Kubernetes configuration. Supported platforms: Kubernetes",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "build-info",
+                  "Description": "Print build info of Dapr CLI and runtime",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "completion",
+                  "Description": "Generates shell completion scripts",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "bash",
+                          "Description": "Generates bash completion scripts",
+                          "Aliases": [],
+                          "Arguments": []
+                        },
+                        {
+                          "Name": "fish",
+                          "Description": "Generates fish completion scripts",
+                          "Aliases": [],
+                          "Arguments": []
+                        },
+                        {
+                          "Name": "powershell",
+                          "Description": "Generates powershell completion scripts",
+                          "Aliases": [],
+                          "Arguments": []
+                        },
+                        {
+                          "Name": "zsh",
+                          "Description": "Generates zsh completion scripts",
+                          "Aliases": [],
+                          "Arguments": []
+                        }
+                      ],
+                      "DontAllowMultiple": true
+                    }
+                  ]
+                },
+                {
+                  "Name": "components",
+                  "Description": "List all Dapr components. Supported platforms: Kubernetes",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "configurations",
+                  "Description": "List all Dapr configurations. Supported platforms: Kubernetes",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "dashboard",
+                  "Description": "Start Dapr dashboard. Supported platforms: Kubernetes and self-hosted",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "init",
+                  "Description": "Install Dapr on supported hosting platforms. Supported platforms: Kubernetes and self-hosted",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "invoke",
+                  "Description": "Invoke a method on a given Dapr application. Supported platforms: Self-hosted",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "list",
+                  "Description": "List all Dapr instances. Supported platforms: Kubernetes and self-hosted",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "logs",
+                  "Description": "Get Dapr sidecar logs for an application. Supported platforms: Kubernetes",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "mtls",
+                  "Description": "Check if mTLS is enabled. Supported platforms: Kubernetes",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "expiry",
+                          "Description": "Checks the expiry of the root certificate",
+                          "Aliases": [],
+                          "Arguments": []
+                        },
+                        {
+                          "Name": "export",
+                          "Description": "Export the root CA, issuer cert and key from Kubernetes to local files",
+                          "Aliases": [],
+                          "Arguments": []
+                        },
+                        {
+                          "Name": "renew-cert",
+                          "Description": "Rotates the Dapr root certificate on your Kubernetes cluster",
+                          "Aliases": [
+                            "rnc",
+                            "renew-certificate"
+                          ],
+                          "Arguments": []
+                        }
+                      ],
+                      "DontAllowMultiple": true
+                    }
+                  ]
+                },
+                {
+                  "Name": "publish",
+                  "Description": "Publish a pub-sub event. Supported platforms: Self-hosted",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "run",
+                  "Description": "Run Dapr and (optionally) your application side by side. Supported platforms: Self-hosted",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "status",
+                  "Description": "Show the health status of Dapr services. Supported platforms: Kubernetes",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "stop",
+                  "Description": "Stop Dapr instances and their associated apps. Supported platforms: Self-hosted",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "uninstall",
+                  "Description": "Uninstall Dapr runtime. Supported platforms: Kubernetes and self-hosted",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "upgrade",
+                  "Description": "Upgrades or downgrades a Dapr control plane installation in a cluster. Supported platforms: Kubernetes",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "version",
+                  "Description": "Print the Dapr runtime and CLI version",
+                  "Aliases": [],
+                  "Arguments": []
+                }
+              ],
+              "DontAllowMultiple": true
+            }
+          ]
+        }
+      ],
+      "DontAllowMultiple": true
+    }
+  ]
+}

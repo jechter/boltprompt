@@ -1,0 +1,2570 @@
+{
+  "Comment": "This command info is generated from fig",
+  "Name": "redwood",
+  "Description": "Redwood provides a first-class CLI that helps you at every stage of development, from your first commit to your first deploy",
+  "Arguments": [
+    {
+      "Arguments": [
+        {
+          "Name": "--help",
+          "Description": "Show help for redwood",
+          "Aliases": [
+            "-h"
+          ],
+          "Arguments": []
+        }
+      ],
+      "Optional": true
+    },
+    {
+      "Arguments": [
+        {
+          "Name": "dev",
+          "Description": "Start development servers for api and web",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "--forward",
+                  "Description": "String of one or more Webpack Dev Server config options",
+                  "Aliases": [
+                    "--fwd"
+                  ],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "options",
+                          "Description": "options",
+                          "Type": "String"
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ],
+              "Optional": true
+            },
+            {
+              "Arguments": [
+                {
+                  "Name": "side",
+                  "Description": "side",
+                  "Type": "String"
+                },
+                {
+                  "Name": "api",
+                  "Description": "Build the api server"
+                },
+                {
+                  "Name": "web",
+                  "Description": "Build the web server"
+                }
+              ],
+              "Optional": true
+            }
+          ]
+        },
+        {
+          "Name": "deploy",
+          "Description": "Deploy your redwood project to a hosting provider target",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "aws",
+                  "Description": "Deploy to AWS using the selected provider",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "--side",
+                          "Description": "Show help for command",
+                          "Aliases": [],
+                          "Arguments": [
+                            {
+                              "Arguments": [
+                                {
+                                  "Name": "side",
+                                  "Description": "side",
+                                  "Type": "String"
+                                },
+                                {
+                                  "Name": "api",
+                                  "Description": "Deploy the api server"
+                                },
+                                {
+                                  "Name": "web",
+                                  "Description": "Deploy the web server"
+                                }
+                              ]
+                            }
+                          ]
+                        }
+                      ],
+                      "Optional": true
+                    },
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "provider",
+                          "Description": "provider",
+                          "Type": "String"
+                        },
+                        {
+                          "Name": "serverless",
+                          "Description": "provider"
+                        }
+                      ],
+                      "Optional": true
+                    }
+                  ]
+                },
+                {
+                  "Name": "netlify",
+                  "Description": "Build command for Netlify deploy",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "--build",
+                          "Description": "Build for production [default: \u0022true\u0022]",
+                          "Aliases": [],
+                          "Arguments": []
+                        },
+                        {
+                          "Name": "--prisma",
+                          "Description": "Apply database migrations [default: \u0022true\u0022]",
+                          "Aliases": [],
+                          "Arguments": []
+                        },
+                        {
+                          "Name": "--data-migrate",
+                          "Description": "Migrate the data in your database [default: \u0022true\u0022]",
+                          "Aliases": [
+                            "--dm"
+                          ],
+                          "Arguments": []
+                        }
+                      ],
+                      "Optional": true
+                    }
+                  ]
+                },
+                {
+                  "Name": "render",
+                  "Description": "Build (web) and Start (api) command for Render deploy",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "--serve",
+                          "Description": "Run server for api in production [default: \u0022true\u0022]",
+                          "Aliases": [],
+                          "Arguments": []
+                        },
+                        {
+                          "Name": "--prisma",
+                          "Description": "Apply database migrations [default: \u0022true\u0022]",
+                          "Aliases": [],
+                          "Arguments": []
+                        },
+                        {
+                          "Name": "--data-migrate",
+                          "Description": "Migrate the data in your database [default: \u0022true\u0022]",
+                          "Aliases": [
+                            "--dm"
+                          ],
+                          "Arguments": []
+                        }
+                      ],
+                      "Optional": true
+                    },
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "side",
+                          "Description": "side",
+                          "Type": "String"
+                        },
+                        {
+                          "Name": "api",
+                          "Description": "side"
+                        },
+                        {
+                          "Name": "web",
+                          "Description": "side"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "vercel",
+                  "Description": "Build command for Vercel deploy",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "--build",
+                          "Description": "Build for production [default: \u0022true\u0022]",
+                          "Aliases": [],
+                          "Arguments": []
+                        },
+                        {
+                          "Name": "--prisma",
+                          "Description": "Apply database migrations [default: \u0022true\u0022]",
+                          "Aliases": [],
+                          "Arguments": []
+                        },
+                        {
+                          "Name": "--data-migrate",
+                          "Description": "Migrate the data in your database [default: \u0022true\u0022]",
+                          "Aliases": [
+                            "--dm"
+                          ],
+                          "Arguments": []
+                        }
+                      ],
+                      "Optional": true
+                    }
+                  ]
+                }
+              ],
+              "DontAllowMultiple": true
+            }
+          ]
+        },
+        {
+          "Name": "destroy",
+          "Description": "Rollback changes made by the generate command",
+          "Aliases": [
+            "d"
+          ],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "cell",
+                  "Description": "Destroy a cell component",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "name",
+                          "Description": "name",
+                          "Type": "String"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "component",
+                  "Description": "Destroy a component",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "name",
+                          "Description": "name",
+                          "Type": "String"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "function",
+                  "Description": "Destroy a Function",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "name",
+                          "Description": "name",
+                          "Type": "String"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "layout",
+                  "Description": "Destroy a layout component",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "name",
+                          "Description": "name",
+                          "Type": "String"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "page",
+                  "Description": "Destroy a page and route component",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "name",
+                          "Description": "name",
+                          "Type": "String"
+                        }
+                      ]
+                    },
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "path",
+                          "Description": "path",
+                          "Type": "String"
+                        }
+                      ],
+                      "Optional": true
+                    }
+                  ]
+                },
+                {
+                  "Name": "scaffold",
+                  "Description": "Destroy pages, SDL, and Services files based on a given DB schema Model",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "name",
+                          "Description": "name",
+                          "Type": "String"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "sdl",
+                  "Description": "Destroy a GraphQL schema and service component based on a given DB schema Model",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "name",
+                          "Description": "name",
+                          "Type": "String"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "service",
+                  "Description": "Destroy a service component",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "name",
+                          "Description": "name",
+                          "Type": "String"
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ],
+              "DontAllowMultiple": true
+            }
+          ]
+        },
+        {
+          "Name": "generate",
+          "Description": "Save time by generating boilerplate code",
+          "Aliases": [
+            "g"
+          ],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "cell",
+                  "Description": "Generate a cell component",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "--force",
+                          "Description": "Overwrite existing files",
+                          "Aliases": [
+                            "-f"
+                          ],
+                          "Arguments": []
+                        },
+                        {
+                          "Name": "--typescript",
+                          "Description": "Generate TypeScript files Enabled by default if we detect your project is TypeScript",
+                          "Aliases": [
+                            "--ts"
+                          ],
+                          "Arguments": []
+                        },
+                        {
+                          "Name": "--list",
+                          "Description": "Use this flag to generate a list cell. This flag is needed when dealing with irregular words whose plural and singular is identical such as equipment or pokemon",
+                          "Aliases": [],
+                          "Arguments": []
+                        },
+                        {
+                          "Name": "--tests",
+                          "Description": "Generate test files [default: true]",
+                          "Aliases": [],
+                          "Arguments": []
+                        },
+                        {
+                          "Name": "--stories",
+                          "Description": "Generate Storybook files [default: true]",
+                          "Aliases": [],
+                          "Arguments": []
+                        }
+                      ],
+                      "Optional": true
+                    },
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "name",
+                          "Description": "name",
+                          "Type": "String"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "component",
+                  "Description": "Generate a component component",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "--force",
+                          "Description": "Overwrite existing files",
+                          "Aliases": [
+                            "-f"
+                          ],
+                          "Arguments": []
+                        },
+                        {
+                          "Name": "--typescript",
+                          "Description": "Generate TypeScript files Enabled by default if we detect your project is TypeScript",
+                          "Aliases": [
+                            "--ts"
+                          ],
+                          "Arguments": []
+                        },
+                        {
+                          "Name": "--tests",
+                          "Description": "Generate test files [default: true]",
+                          "Aliases": [],
+                          "Arguments": []
+                        },
+                        {
+                          "Name": "--stories",
+                          "Description": "Generate Storybook files [default: true]",
+                          "Aliases": [],
+                          "Arguments": []
+                        }
+                      ],
+                      "Optional": true
+                    },
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "name",
+                          "Description": "name",
+                          "Type": "String"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "dataMigration",
+                  "Description": "Generate a data migration component",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "name",
+                          "Description": "name",
+                          "Type": "String"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "directive",
+                  "Description": "Generate a directive",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "--force",
+                          "Description": "Overwrite existing files",
+                          "Aliases": [
+                            "-f"
+                          ],
+                          "Arguments": []
+                        },
+                        {
+                          "Name": "--typescript",
+                          "Description": "Generate TypeScript files Enabled by default if we detect your project is TypeScript",
+                          "Aliases": [
+                            "--ts"
+                          ],
+                          "Arguments": []
+                        },
+                        {
+                          "Name": "--type",
+                          "Description": "Directive type [Choices: \u0022validator\u0022, \u0022transformer\u0022]",
+                          "Aliases": [],
+                          "Arguments": []
+                        }
+                      ],
+                      "Optional": true
+                    },
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "name",
+                          "Description": "name",
+                          "Type": "String"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "function",
+                  "Description": "Generate a Function",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "--force",
+                          "Description": "Overwrite existing files",
+                          "Aliases": [
+                            "-f"
+                          ],
+                          "Arguments": []
+                        },
+                        {
+                          "Name": "--typescript",
+                          "Description": "Generate TypeScript files Enabled by default if we detect your project is TypeScript",
+                          "Aliases": [
+                            "--ts"
+                          ],
+                          "Arguments": []
+                        }
+                      ],
+                      "Optional": true
+                    },
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "name",
+                          "Description": "name",
+                          "Type": "String"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "layout",
+                  "Description": "Generate a layout component",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "--force",
+                          "Description": "Overwrite existing files",
+                          "Aliases": [
+                            "-f"
+                          ],
+                          "Arguments": []
+                        },
+                        {
+                          "Name": "--typescript",
+                          "Description": "Generate TypeScript files Enabled by default if we detect your project is TypeScript",
+                          "Aliases": [
+                            "--ts"
+                          ],
+                          "Arguments": []
+                        },
+                        {
+                          "Name": "--tests",
+                          "Description": "Generate test files [default: true]",
+                          "Aliases": [],
+                          "Arguments": []
+                        },
+                        {
+                          "Name": "--stories",
+                          "Description": "Generate Storybook files [default: true]",
+                          "Aliases": [],
+                          "Arguments": []
+                        },
+                        {
+                          "Name": "--skipLink",
+                          "Description": "Generate a layout with a skip link [default: false]",
+                          "Aliases": [],
+                          "Arguments": []
+                        }
+                      ],
+                      "Optional": true
+                    },
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "name",
+                          "Description": "name",
+                          "Type": "String"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "page",
+                  "Description": "Generate a page component",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "--force",
+                          "Description": "Overwrite existing files",
+                          "Aliases": [
+                            "-f"
+                          ],
+                          "Arguments": []
+                        },
+                        {
+                          "Name": "--typescript",
+                          "Description": "Generate TypeScript files Enabled by default if we detect your project is TypeScript",
+                          "Aliases": [
+                            "--ts"
+                          ],
+                          "Arguments": []
+                        },
+                        {
+                          "Name": "--tests",
+                          "Description": "Generate test files [default: true]",
+                          "Aliases": [],
+                          "Arguments": []
+                        },
+                        {
+                          "Name": "--stories",
+                          "Description": "Generate Storybook files [default: true]",
+                          "Aliases": [],
+                          "Arguments": []
+                        }
+                      ],
+                      "Optional": true
+                    },
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "name",
+                          "Description": "name",
+                          "Type": "String"
+                        }
+                      ]
+                    },
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "path",
+                          "Description": "path",
+                          "Type": "String"
+                        }
+                      ],
+                      "Optional": true
+                    }
+                  ]
+                },
+                {
+                  "Name": "scaffold",
+                  "Description": "Generate Pages, SDL, and Services files based on a given DB schema Model. Also accepts \u003Cpath/model\u003E",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "--force",
+                          "Description": "Overwrite existing files",
+                          "Aliases": [
+                            "-f"
+                          ],
+                          "Arguments": []
+                        },
+                        {
+                          "Name": "--typescript",
+                          "Description": "Generate TypeScript files Enabled by default if we detect your project is TypeScript",
+                          "Aliases": [
+                            "--ts"
+                          ],
+                          "Arguments": []
+                        }
+                      ],
+                      "Optional": true
+                    },
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "model",
+                          "Description": "model",
+                          "Type": "String"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "sdl",
+                  "Description": "Generate a GraphQL schema and service object",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "--force",
+                          "Description": "Overwrite existing files",
+                          "Aliases": [
+                            "-f"
+                          ],
+                          "Arguments": []
+                        },
+                        {
+                          "Name": "--typescript",
+                          "Description": "Generate TypeScript files Enabled by default if we detect your project is TypeScript",
+                          "Aliases": [
+                            "--ts"
+                          ],
+                          "Arguments": []
+                        },
+                        {
+                          "Name": "--crud",
+                          "Description": "Also generate mutations",
+                          "Aliases": [],
+                          "Arguments": []
+                        }
+                      ],
+                      "Optional": true
+                    },
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "model",
+                          "Description": "model",
+                          "Type": "String"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "service",
+                  "Description": "Generate a service component",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "--force",
+                          "Description": "Overwrite existing files",
+                          "Aliases": [
+                            "-f"
+                          ],
+                          "Arguments": []
+                        },
+                        {
+                          "Name": "--typescript",
+                          "Description": "Generate TypeScript files Enabled by default if we detect your project is TypeScript",
+                          "Aliases": [
+                            "--ts"
+                          ],
+                          "Arguments": []
+                        },
+                        {
+                          "Name": "--tests",
+                          "Description": "Generate test files [default: true]",
+                          "Aliases": [],
+                          "Arguments": []
+                        },
+                        {
+                          "Name": "--stories",
+                          "Description": "Generate Storybook files [default: true]",
+                          "Aliases": [],
+                          "Arguments": []
+                        }
+                      ],
+                      "Optional": true
+                    },
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "name",
+                          "Description": "name",
+                          "Type": "String"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "types",
+                  "Description": "Generate types and supplementary code",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "script",
+                  "Description": "Generate a script that can use your services/libs to execute with redwood exec script \u003Cname\u003E",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "--typescript",
+                          "Description": "Generate TypeScript files Enabled by default if we detect your project is TypeScript",
+                          "Aliases": [
+                            "--ts"
+                          ],
+                          "Arguments": []
+                        }
+                      ],
+                      "Optional": true
+                    },
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "name",
+                          "Description": "name",
+                          "Type": "String"
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ],
+              "DontAllowMultiple": true
+            }
+          ]
+        },
+        {
+          "Name": "exec",
+          "Description": "Execute scripts generated by yarn redwood generate script to run one-off operations, long-running jobs, or utility scripts",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "script",
+                  "Description": "script",
+                  "Type": "CustomArgument",
+                  "Extensions": [],
+                  "CustomCommand": "bash -c until [[ -f redwood.toml ]] || [[ $PWD = \u0027/\u0027 ]]; do cd ..; done; ls -1p scripts/"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "Name": "build",
+          "Description": "Build the api and web",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "--stats",
+                  "Description": "Use Webpack Bundle Analyzer to visualize the size of Webpack output files via an interactive zoomable treemap",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "--verbose",
+                  "Description": "Print more information while building",
+                  "Aliases": [
+                    "-v"
+                  ],
+                  "Arguments": []
+                }
+              ],
+              "Optional": true
+            },
+            {
+              "Arguments": [
+                {
+                  "Name": "side",
+                  "Description": "side",
+                  "Type": "String"
+                },
+                {
+                  "Name": "api",
+                  "Description": "Build the api server"
+                },
+                {
+                  "Name": "web",
+                  "Description": "Build the web server"
+                }
+              ],
+              "Optional": true
+            }
+          ]
+        },
+        {
+          "Name": "diagnostics",
+          "Description": "Get structural diagnostics for a Redwood project (experimental)",
+          "Aliases": [
+            "check"
+          ],
+          "Arguments": []
+        },
+        {
+          "Name": "console",
+          "Description": "Launch an interactive Redwood shell (experimental)",
+          "Aliases": [
+            "c"
+          ],
+          "Arguments": []
+        },
+        {
+          "Name": "info",
+          "Description": "Print your system environment information",
+          "Aliases": [],
+          "Arguments": []
+        },
+        {
+          "Name": "upgrade",
+          "Description": "Upgrade all @redwoodjs packages via an interactive CLI",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "--dry-run",
+                  "Description": "Check for outdated packages without upgrading",
+                  "Aliases": [
+                    "-d"
+                  ],
+                  "Arguments": []
+                },
+                {
+                  "Name": "--tag",
+                  "Description": "Choices are \u0022canary\u0022, \u0022rc\u0022, or a specific version (e.g. \u00220.19.3\u0022). WARNING: Unstable releases in the case of \u0022canary\u0022 and \u0022rc\u0022, which will force upgrade packages to the most recent release of the specified tag",
+                  "Aliases": [
+                    "-t"
+                  ],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "tag",
+                          "Description": "tag",
+                          "Type": "String"
+                        },
+                        {
+                          "Name": "canary",
+                          "Description": "Upgrade to the latest canary release"
+                        },
+                        {
+                          "Name": "rc",
+                          "Description": "Upgrade to the latest RC release"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "--pr",
+                  "Description": "Installs packages for the given PR",
+                  "Aliases": [],
+                  "Arguments": []
+                }
+              ],
+              "Optional": true
+            }
+          ]
+        },
+        {
+          "Name": "serve",
+          "Description": "Runs a server that serves both the api and the web sides",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "--port",
+                  "Description": "What port should the server run on [default: 8911]",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "port",
+                          "Description": "port",
+                          "Type": "String"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "--socket",
+                  "Description": "The socket the server should run. This takes precedence over port",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "socket",
+                          "Description": "socket",
+                          "Type": "String"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "--apiRootPath",
+                  "Description": "The root path where your api functions are served",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "apiRootPath",
+                          "Description": "apiRootPath",
+                          "Type": "Directory"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "--apiHost",
+                  "Description": "Forwards requests from the apiProxyPath (defined in redwood.toml) to the specified host",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "apiHost",
+                          "Description": "apiHost",
+                          "Type": "String"
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ],
+              "Optional": true
+            },
+            {
+              "Arguments": [
+                {
+                  "Name": "side",
+                  "Description": "side",
+                  "Type": "String"
+                },
+                {
+                  "Name": "api",
+                  "Description": "Check the api server"
+                },
+                {
+                  "Name": "web",
+                  "Description": "Check the web server"
+                }
+              ],
+              "Optional": true
+            }
+          ]
+        },
+        {
+          "Name": "type-check",
+          "Description": "Runs a TypeScript compiler check on both the api and the web sides",
+          "Aliases": [
+            "tsc",
+            "tc"
+          ],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "side",
+                  "Description": "side",
+                  "Type": "String"
+                },
+                {
+                  "Name": "api",
+                  "Description": "Check the api server"
+                },
+                {
+                  "Name": "web",
+                  "Description": "Check the web server"
+                }
+              ],
+              "Optional": true
+            }
+          ]
+        },
+        {
+          "Name": "test",
+          "Description": "Run Jest tests for api and web",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "--help",
+                  "Description": "Show help",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "--version",
+                  "Description": "Show version number",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "--watch",
+                  "Description": "Run tests related to changed files based on hg/git (uncommitted files). Specify the name or path to a file to focus on a specific set of tests [default: true]",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "--watchAll",
+                  "Description": "Run all tests",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "--collectCoverage",
+                  "Description": "Show test coverage summary and output info to coverage directory in project root. See this directory for an .html coverage report",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "--clearCache",
+                  "Description": "Delete the Jest cache directory and exit without running tests",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "--db-push",
+                  "Description": "Syncs the test database with your Prisma schema without requiring a migration. It creates a test database if it doesn\u0027t already exist [default: true]. This flag is ignored if your project doesn\u0027t have an api side",
+                  "Aliases": [],
+                  "Arguments": []
+                }
+              ],
+              "Optional": true
+            },
+            {
+              "Arguments": [
+                {
+                  "Name": "sides or filter",
+                  "Description": "sides or filter",
+                  "Type": "String"
+                },
+                {
+                  "Name": "api",
+                  "Description": "sides or filter"
+                },
+                {
+                  "Name": "web",
+                  "Description": "sides or filter"
+                }
+              ],
+              "Optional": true
+            }
+          ]
+        },
+        {
+          "Name": "storybook",
+          "Description": "Starts Storybook locally",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "--open",
+                  "Description": "Open Storybook in your browser on start",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "--build",
+                  "Description": "Build Storybook",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "--port",
+                  "Description": "Which port to run Storybook on (defaults to 7910)",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "port",
+                          "Description": "port",
+                          "Type": "String"
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ],
+              "Optional": true
+            }
+          ]
+        },
+        {
+          "Name": "lint",
+          "Description": "Lint your files",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "--fix",
+                  "Description": "Try to fix linting errors",
+                  "Aliases": [],
+                  "Arguments": []
+                }
+              ],
+              "Optional": true
+            }
+          ]
+        },
+        {
+          "Name": "open",
+          "Description": "Open your project in your browser",
+          "Aliases": [],
+          "Arguments": []
+        },
+        {
+          "Name": "setup",
+          "Description": "Initialize project config and install packages",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "auth",
+                  "Description": "Setup auth configuration for a provider",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "--force",
+                          "Description": "Overwrite existing files",
+                          "Aliases": [
+                            "-f"
+                          ],
+                          "Arguments": []
+                        }
+                      ],
+                      "Optional": true
+                    },
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "provider",
+                          "Description": "provider",
+                          "Type": "String"
+                        },
+                        {
+                          "Name": "auth0",
+                          "Description": "provider"
+                        },
+                        {
+                          "Name": "firebase",
+                          "Description": "provider"
+                        },
+                        {
+                          "Name": "goTrue",
+                          "Description": "provider"
+                        },
+                        {
+                          "Name": "magicLink",
+                          "Description": "provider"
+                        },
+                        {
+                          "Name": "netlify",
+                          "Description": "provider"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "custom-web-index",
+                  "Description": "Setup an index.js file in web/src so you can customize how your Redwood App mounts to the DOM",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "--force",
+                          "Description": "Overwrite existing files",
+                          "Aliases": [
+                            "-f"
+                          ],
+                          "Arguments": []
+                        }
+                      ],
+                      "Optional": true
+                    }
+                  ]
+                },
+                {
+                  "Name": "generator",
+                  "Description": "SCopies a given generator\u0027s template files to your local app for customization. The next time you generate that type again, it will use your custom template instead of Redwood\u0027s default",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "--force",
+                          "Description": "Overwrite existing copied template files",
+                          "Aliases": [
+                            "-f"
+                          ],
+                          "Arguments": []
+                        }
+                      ],
+                      "Optional": true
+                    },
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "name",
+                          "Description": "name",
+                          "Type": "String"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "tsconfig",
+                  "Description": "Setup tsconfig.json on both web and api sides",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "--force",
+                          "Description": "Overwrite existing files",
+                          "Aliases": [
+                            "-f"
+                          ],
+                          "Arguments": []
+                        }
+                      ],
+                      "Optional": true
+                    }
+                  ]
+                },
+                {
+                  "Name": "deploy",
+                  "Description": "Setup auth configuration for a provider",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "--database",
+                          "Description": "Database deployment for Render only  [default: \u0022postgresql\u0022]",
+                          "Aliases": [
+                            "-d"
+                          ],
+                          "Arguments": [
+                            {
+                              "Arguments": [
+                                {
+                                  "Name": "database",
+                                  "Description": "database",
+                                  "Type": "String"
+                                },
+                                {
+                                  "Name": "none",
+                                  "Description": "database"
+                                },
+                                {
+                                  "Name": "postgresql",
+                                  "Description": "database"
+                                },
+                                {
+                                  "Name": "sqlite",
+                                  "Description": "database"
+                                }
+                              ],
+                              "Optional": true
+                            }
+                          ]
+                        },
+                        {
+                          "Name": "--force",
+                          "Description": "Overwrite existing files",
+                          "Aliases": [
+                            "-f"
+                          ],
+                          "Arguments": []
+                        }
+                      ],
+                      "Optional": true
+                    },
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "provider",
+                          "Description": "provider",
+                          "Type": "String"
+                        },
+                        {
+                          "Name": "aws-serverless",
+                          "Description": "provider"
+                        },
+                        {
+                          "Name": "netlify",
+                          "Description": "provider"
+                        },
+                        {
+                          "Name": "render",
+                          "Description": "provider"
+                        },
+                        {
+                          "Name": "vercel",
+                          "Description": "provider"
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ],
+              "DontAllowMultiple": true
+            }
+          ]
+        },
+        {
+          "Name": "data-migrate",
+          "Description": "Data migration tools",
+          "Aliases": [
+            "dm",
+            "dataMigrate"
+          ],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "command",
+                  "Description": "command",
+                  "Type": "String"
+                },
+                {
+                  "Name": "install",
+                  "Description": "Appends DataMigration model to schema.prisma, creates api/db/dataMigrations directory"
+                },
+                {
+                  "Name": "up",
+                  "Description": "Executes outstanding data migrations"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "Name": "prisma",
+          "Description": "Prisma commands",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "init",
+                  "Description": "Setup Prisma for your app",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "-h",
+                          "Description": "Display this help message",
+                          "Aliases": [
+                            "--help"
+                          ],
+                          "Arguments": []
+                        },
+                        {
+                          "Name": "--datasource-provider",
+                          "Description": "Define the datasource provider to use",
+                          "Aliases": [],
+                          "Arguments": [
+                            {
+                              "Arguments": [
+                                {
+                                  "Name": "String",
+                                  "Description": "",
+                                  "Type": "String"
+                                },
+                                {
+                                  "Name": "PostgreSQL",
+                                  "Description": ""
+                                },
+                                {
+                                  "Name": "MySQL",
+                                  "Description": ""
+                                },
+                                {
+                                  "Name": "SQLite",
+                                  "Description": ""
+                                },
+                                {
+                                  "Name": "SQLServer",
+                                  "Description": ""
+                                },
+                                {
+                                  "Name": "MongoDB",
+                                  "Description": ""
+                                },
+                                {
+                                  "Name": "CockroachDB",
+                                  "Description": ""
+                                }
+                              ]
+                            }
+                          ]
+                        },
+                        {
+                          "Name": "--url",
+                          "Description": "Define a custom datasource url",
+                          "Aliases": [],
+                          "Arguments": [
+                            {
+                              "Arguments": [
+                                {
+                                  "Name": "full url",
+                                  "Description": "full url",
+                                  "Type": "FileSystemEntry"
+                                }
+                              ]
+                            }
+                          ]
+                        }
+                      ],
+                      "Optional": true
+                    }
+                  ]
+                },
+                {
+                  "Name": "generate",
+                  "Description": "Generate artifacts (e.g. Prisma Client)",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "-h",
+                          "Description": "Display this help message",
+                          "Aliases": [
+                            "--help"
+                          ],
+                          "Arguments": []
+                        },
+                        {
+                          "Name": "--schema",
+                          "Description": "Custom path to your Prisma schema",
+                          "Aliases": [],
+                          "Arguments": [
+                            {
+                              "Arguments": [
+                                {
+                                  "Name": "Schema path",
+                                  "Description": "Schema path",
+                                  "Type": "FileSystemEntry"
+                                }
+                              ]
+                            }
+                          ]
+                        },
+                        {
+                          "Name": "--data-proxy",
+                          "Description": "Enable the Data Proxy in the Prisma Client",
+                          "Aliases": [],
+                          "Arguments": []
+                        },
+                        {
+                          "Name": "--no-hints",
+                          "Description": "Hides the hint messages but still outputs errors and warnings",
+                          "Aliases": [],
+                          "Arguments": []
+                        },
+                        {
+                          "Name": "--no-engine",
+                          "Description": "Generate a client for use with Accelerate only",
+                          "Aliases": [],
+                          "Arguments": []
+                        },
+                        {
+                          "Name": "--watch",
+                          "Description": "Watch the Prisma schema and rerun after a change",
+                          "Aliases": [],
+                          "Arguments": []
+                        },
+                        {
+                          "Name": "--allow-no-models",
+                          "Description": "Allow generating a client without models",
+                          "Aliases": [],
+                          "Arguments": []
+                        }
+                      ],
+                      "Optional": true
+                    }
+                  ]
+                },
+                {
+                  "Name": "studio",
+                  "Description": "Open Prisma Studio",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "-h",
+                          "Description": "Display this help message",
+                          "Aliases": [
+                            "--help"
+                          ],
+                          "Arguments": []
+                        },
+                        {
+                          "Name": "--schema",
+                          "Description": "Custom path to your Prisma schema",
+                          "Aliases": [],
+                          "Arguments": [
+                            {
+                              "Arguments": [
+                                {
+                                  "Name": "Schema path",
+                                  "Description": "Schema path",
+                                  "Type": "FileSystemEntry"
+                                }
+                              ]
+                            }
+                          ]
+                        },
+                        {
+                          "Name": "-p",
+                          "Description": "Port to start Studio on",
+                          "Aliases": [
+                            "--port"
+                          ],
+                          "Arguments": [
+                            {
+                              "Arguments": [
+                                {
+                                  "Name": "port",
+                                  "Description": "port",
+                                  "Type": "String"
+                                }
+                              ]
+                            }
+                          ]
+                        },
+                        {
+                          "Name": "-b",
+                          "Description": "Browser to open Studio in",
+                          "Aliases": [
+                            "--browser"
+                          ],
+                          "Arguments": [
+                            {
+                              "Arguments": [
+                                {
+                                  "Name": "Browser choice",
+                                  "Description": "Browser choice",
+                                  "Type": "String"
+                                },
+                                {
+                                  "Name": "firefox",
+                                  "Description": "Browser choice"
+                                },
+                                {
+                                  "Name": "chrome",
+                                  "Description": "Browser choice"
+                                },
+                                {
+                                  "Name": "safari",
+                                  "Description": "Browser choice"
+                                },
+                                {
+                                  "Name": "none",
+                                  "Description": "Browser choice"
+                                }
+                              ]
+                            }
+                          ]
+                        },
+                        {
+                          "Name": "-n",
+                          "Description": "Hostname to bind the Express server to",
+                          "Aliases": [
+                            "--hostname"
+                          ],
+                          "Arguments": [
+                            {
+                              "Arguments": [
+                                {
+                                  "Name": "port",
+                                  "Description": "port",
+                                  "Type": "String"
+                                }
+                              ]
+                            }
+                          ]
+                        }
+                      ],
+                      "Optional": true
+                    }
+                  ]
+                },
+                {
+                  "Name": "format",
+                  "Description": "Format your schema",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "-h",
+                          "Description": "Display this help message",
+                          "Aliases": [
+                            "--help"
+                          ],
+                          "Arguments": []
+                        },
+                        {
+                          "Name": "--schema",
+                          "Description": "Custom path to your Prisma schema",
+                          "Aliases": [],
+                          "Arguments": [
+                            {
+                              "Arguments": [
+                                {
+                                  "Name": "Schema path",
+                                  "Description": "Schema path",
+                                  "Type": "FileSystemEntry"
+                                }
+                              ]
+                            }
+                          ]
+                        }
+                      ],
+                      "Optional": true
+                    }
+                  ]
+                },
+                {
+                  "Name": "migrate",
+                  "Description": "Migrate your database",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "dev",
+                          "Description": "The migrate dev command updates your database using migrations files during development",
+                          "Aliases": [],
+                          "Arguments": [
+                            {
+                              "Arguments": [
+                                {
+                                  "Name": "-h",
+                                  "Description": "Display this help message",
+                                  "Aliases": [
+                                    "--help"
+                                  ],
+                                  "Arguments": []
+                                },
+                                {
+                                  "Name": "--schema",
+                                  "Description": "Custom path to your Prisma schema",
+                                  "Aliases": [],
+                                  "Arguments": [
+                                    {
+                                      "Arguments": [
+                                        {
+                                          "Name": "Schema path",
+                                          "Description": "Schema path",
+                                          "Type": "FileSystemEntry"
+                                        }
+                                      ]
+                                    }
+                                  ]
+                                },
+                                {
+                                  "Name": "--skip-seed",
+                                  "Description": "Skip triggering seed",
+                                  "Aliases": [],
+                                  "Arguments": []
+                                },
+                                {
+                                  "Name": "--skip-generate",
+                                  "Description": "Skip triggering generators (e.g. Prisma Client)",
+                                  "Aliases": [],
+                                  "Arguments": []
+                                },
+                                {
+                                  "Name": "--create-only",
+                                  "Description": "Create a new migration but do not apply it. The migration will be empty if there are no changes in Prisma schema",
+                                  "Aliases": [],
+                                  "Arguments": []
+                                },
+                                {
+                                  "Name": "-n",
+                                  "Description": "The name of the migration. If no name is provided, the CLI will prompt you",
+                                  "Aliases": [
+                                    "--name"
+                                  ],
+                                  "Arguments": [
+                                    {
+                                      "Arguments": [
+                                        {
+                                          "Name": "filename",
+                                          "Description": "filename",
+                                          "Type": "String"
+                                        }
+                                      ],
+                                      "Optional": true
+                                    }
+                                  ]
+                                }
+                              ],
+                              "Optional": true
+                            }
+                          ]
+                        },
+                        {
+                          "Name": "reset",
+                          "Description": "Reset your database and apply all migrations, all data will be lost",
+                          "Aliases": [],
+                          "Arguments": [
+                            {
+                              "Arguments": [
+                                {
+                                  "Name": "-h",
+                                  "Description": "Display this help message",
+                                  "Aliases": [
+                                    "--help"
+                                  ],
+                                  "Arguments": []
+                                },
+                                {
+                                  "Name": "--schema",
+                                  "Description": "Custom path to your Prisma schema",
+                                  "Aliases": [],
+                                  "Arguments": [
+                                    {
+                                      "Arguments": [
+                                        {
+                                          "Name": "Schema path",
+                                          "Description": "Schema path",
+                                          "Type": "FileSystemEntry"
+                                        }
+                                      ]
+                                    }
+                                  ]
+                                },
+                                {
+                                  "Name": "--skip-seed",
+                                  "Description": "Skip triggering seed",
+                                  "Aliases": [],
+                                  "Arguments": []
+                                },
+                                {
+                                  "Name": "--skip-generate",
+                                  "Description": "Skip triggering generators (e.g. Prisma Client)",
+                                  "Aliases": [],
+                                  "Arguments": []
+                                },
+                                {
+                                  "Name": "-f",
+                                  "Description": "Skip the confirmation prompt",
+                                  "Aliases": [
+                                    "--force"
+                                  ],
+                                  "Arguments": []
+                                }
+                              ],
+                              "Optional": true
+                            }
+                          ]
+                        },
+                        {
+                          "Name": "deploy",
+                          "Description": "Apply pending migrations to update the database schema in production/staging",
+                          "Aliases": [],
+                          "Arguments": [
+                            {
+                              "Arguments": [
+                                {
+                                  "Name": "-h",
+                                  "Description": "Display this help message",
+                                  "Aliases": [
+                                    "--help"
+                                  ],
+                                  "Arguments": []
+                                },
+                                {
+                                  "Name": "--schema",
+                                  "Description": "Custom path to your Prisma schema",
+                                  "Aliases": [],
+                                  "Arguments": [
+                                    {
+                                      "Arguments": [
+                                        {
+                                          "Name": "Schema path",
+                                          "Description": "Schema path",
+                                          "Type": "FileSystemEntry"
+                                        }
+                                      ]
+                                    }
+                                  ]
+                                }
+                              ],
+                              "Optional": true
+                            }
+                          ]
+                        },
+                        {
+                          "Name": "resolve",
+                          "Description": "Resolve issues with database migrations in deployment databases",
+                          "Aliases": [],
+                          "Arguments": [
+                            {
+                              "Arguments": [
+                                {
+                                  "Name": "-h",
+                                  "Description": "Display this help message",
+                                  "Aliases": [
+                                    "--help"
+                                  ],
+                                  "Arguments": []
+                                },
+                                {
+                                  "Name": "--schema",
+                                  "Description": "Custom path to your Prisma schema",
+                                  "Aliases": [],
+                                  "Arguments": [
+                                    {
+                                      "Arguments": [
+                                        {
+                                          "Name": "Schema path",
+                                          "Description": "Schema path",
+                                          "Type": "FileSystemEntry"
+                                        }
+                                      ]
+                                    }
+                                  ]
+                                },
+                                {
+                                  "Name": "--applied",
+                                  "Description": "Record a specific migration as applied",
+                                  "Aliases": [],
+                                  "Arguments": [
+                                    {
+                                      "Arguments": [
+                                        {
+                                          "Name": "migration file path",
+                                          "Description": "migration file path",
+                                          "Type": "FileSystemEntry"
+                                        }
+                                      ]
+                                    }
+                                  ]
+                                },
+                                {
+                                  "Name": "--rolled-back",
+                                  "Description": "Record a specific migration as rolled back",
+                                  "Aliases": [],
+                                  "Arguments": [
+                                    {
+                                      "Arguments": [
+                                        {
+                                          "Name": "migration file path",
+                                          "Description": "migration file path",
+                                          "Type": "FileSystemEntry"
+                                        }
+                                      ]
+                                    }
+                                  ]
+                                }
+                              ],
+                              "Optional": true
+                            }
+                          ]
+                        },
+                        {
+                          "Name": "status",
+                          "Description": "Check the status of your database migrations",
+                          "Aliases": [],
+                          "Arguments": [
+                            {
+                              "Arguments": [
+                                {
+                                  "Name": "-h",
+                                  "Description": "Display this help message",
+                                  "Aliases": [
+                                    "--help"
+                                  ],
+                                  "Arguments": []
+                                },
+                                {
+                                  "Name": "--schema",
+                                  "Description": "Custom path to your Prisma schema",
+                                  "Aliases": [],
+                                  "Arguments": [
+                                    {
+                                      "Arguments": [
+                                        {
+                                          "Name": "Schema path",
+                                          "Description": "Schema path",
+                                          "Type": "FileSystemEntry"
+                                        }
+                                      ]
+                                    }
+                                  ]
+                                }
+                              ],
+                              "Optional": true
+                            }
+                          ]
+                        },
+                        {
+                          "Name": "diff",
+                          "Description": "Compares the database schema from two arbitrary sources, and outputs the differences either as a human-readable summary (by default) or an executable script",
+                          "Aliases": [],
+                          "Arguments": [
+                            {
+                              "Arguments": [
+                                {
+                                  "Name": "-h",
+                                  "Description": "Display this help message",
+                                  "Aliases": [
+                                    "--help"
+                                  ],
+                                  "Arguments": []
+                                },
+                                {
+                                  "Name": "--from-url",
+                                  "Description": "A datasource url",
+                                  "Aliases": [],
+                                  "Arguments": [
+                                    {
+                                      "Arguments": [
+                                        {
+                                          "Name": "full url",
+                                          "Description": "full url",
+                                          "Type": "FileSystemEntry"
+                                        }
+                                      ]
+                                    }
+                                  ]
+                                },
+                                {
+                                  "Name": "--to-url",
+                                  "Description": "A datasource url",
+                                  "Aliases": [],
+                                  "Arguments": [
+                                    {
+                                      "Arguments": [
+                                        {
+                                          "Name": "full url",
+                                          "Description": "full url",
+                                          "Type": "FileSystemEntry"
+                                        }
+                                      ]
+                                    }
+                                  ]
+                                },
+                                {
+                                  "Name": "--from-empty",
+                                  "Description": "Flag to assume from is an empty datamodel",
+                                  "Aliases": [],
+                                  "Arguments": []
+                                },
+                                {
+                                  "Name": "--to-empty",
+                                  "Description": "Flag to assume to is an empty datamodel",
+                                  "Aliases": [],
+                                  "Arguments": []
+                                },
+                                {
+                                  "Name": "--from-schema-datamodel",
+                                  "Description": "Path to a Prisma schema file, uses the \u0027datamodel\u0027 for the diff",
+                                  "Aliases": [],
+                                  "Arguments": [
+                                    {
+                                      "Arguments": [
+                                        {
+                                          "Name": "filepath",
+                                          "Description": "filepath",
+                                          "Type": "FileSystemEntry"
+                                        }
+                                      ]
+                                    }
+                                  ]
+                                },
+                                {
+                                  "Name": "--to-schema-datamodel",
+                                  "Description": "Path to a Prisma schema file, uses the \u0027datamodel\u0027 for the diff",
+                                  "Aliases": [],
+                                  "Arguments": [
+                                    {
+                                      "Arguments": [
+                                        {
+                                          "Name": "filepath",
+                                          "Description": "filepath",
+                                          "Type": "FileSystemEntry"
+                                        }
+                                      ]
+                                    }
+                                  ]
+                                },
+                                {
+                                  "Name": "--from-schema-datasource",
+                                  "Description": "Path to a Prisma schema file, uses the \u0027datasource url\u0027 for the diff",
+                                  "Aliases": [],
+                                  "Arguments": [
+                                    {
+                                      "Arguments": [
+                                        {
+                                          "Name": "filepath",
+                                          "Description": "filepath",
+                                          "Type": "FileSystemEntry"
+                                        }
+                                      ]
+                                    }
+                                  ]
+                                },
+                                {
+                                  "Name": "--to-schema-datasource",
+                                  "Description": "Path to a Prisma schema file, uses the \u0027datasource url\u0027 for the diff",
+                                  "Aliases": [],
+                                  "Arguments": [
+                                    {
+                                      "Arguments": [
+                                        {
+                                          "Name": "filepath",
+                                          "Description": "filepath",
+                                          "Type": "FileSystemEntry"
+                                        }
+                                      ]
+                                    }
+                                  ]
+                                },
+                                {
+                                  "Name": "--from-migrations",
+                                  "Description": "Path to the Prisma Migrate migrations directory",
+                                  "Aliases": [],
+                                  "Arguments": [
+                                    {
+                                      "Arguments": [
+                                        {
+                                          "Name": "folder",
+                                          "Description": "folder",
+                                          "Type": "Directory"
+                                        }
+                                      ]
+                                    }
+                                  ]
+                                },
+                                {
+                                  "Name": "--to-migrations",
+                                  "Description": "Path to the Prisma Migrate migrations directory",
+                                  "Aliases": [],
+                                  "Arguments": [
+                                    {
+                                      "Arguments": [
+                                        {
+                                          "Name": "folder",
+                                          "Description": "folder",
+                                          "Type": "Directory"
+                                        }
+                                      ]
+                                    }
+                                  ]
+                                },
+                                {
+                                  "Name": "--shadow-database-url",
+                                  "Description": "URL for the shadow database. Only required if using --from-migrations or --to-migrations",
+                                  "Aliases": [],
+                                  "Arguments": [
+                                    {
+                                      "Arguments": [
+                                        {
+                                          "Name": "full url",
+                                          "Description": "full url",
+                                          "Type": "FileSystemEntry"
+                                        }
+                                      ]
+                                    }
+                                  ]
+                                },
+                                {
+                                  "Name": "--script",
+                                  "Description": "Render a SQL script to stdout instead of the default human readable summary (not supported on MongoDB)",
+                                  "Aliases": [],
+                                  "Arguments": [
+                                    {
+                                      "Arguments": [
+                                        {
+                                          "Name": "filepath",
+                                          "Description": "filepath",
+                                          "Type": "FileSystemEntry"
+                                        }
+                                      ]
+                                    }
+                                  ]
+                                },
+                                {
+                                  "Name": "--exit-code",
+                                  "Description": "Change the exit code behavior to signal if the diff is empty or not (Empty: 0, Error: 1, Not empty: 2). Default behavior is Success: 0, Error: 1.\u0060",
+                                  "Aliases": [],
+                                  "Arguments": []
+                                }
+                              ],
+                              "Optional": true
+                            }
+                          ]
+                        }
+                      ],
+                      "DontAllowMultiple": true
+                    }
+                  ]
+                },
+                {
+                  "Name": "db",
+                  "Description": "Manage your database schema and lifecycle (Preview)",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "pull",
+                          "Description": "",
+                          "Aliases": [],
+                          "Arguments": [
+                            {
+                              "Arguments": [
+                                {
+                                  "Name": "-h",
+                                  "Description": "Display this help message",
+                                  "Aliases": [
+                                    "--help"
+                                  ],
+                                  "Arguments": []
+                                },
+                                {
+                                  "Name": "--schema",
+                                  "Description": "Custom path to your Prisma schema",
+                                  "Aliases": [],
+                                  "Arguments": [
+                                    {
+                                      "Arguments": [
+                                        {
+                                          "Name": "Schema path",
+                                          "Description": "Schema path",
+                                          "Type": "FileSystemEntry"
+                                        }
+                                      ]
+                                    }
+                                  ]
+                                },
+                                {
+                                  "Name": "--force",
+                                  "Description": "Ignore current Prisma schema file",
+                                  "Aliases": [],
+                                  "Arguments": []
+                                },
+                                {
+                                  "Name": "--print",
+                                  "Description": "Print the introspected Prisma schema to stdout",
+                                  "Aliases": [],
+                                  "Arguments": []
+                                },
+                                {
+                                  "Name": "--url",
+                                  "Description": "The datasource url",
+                                  "Aliases": [],
+                                  "Arguments": [
+                                    {
+                                      "Arguments": [
+                                        {
+                                          "Name": "full url",
+                                          "Description": "full url",
+                                          "Type": "FileSystemEntry"
+                                        }
+                                      ]
+                                    }
+                                  ]
+                                },
+                                {
+                                  "Name": "--composite-type-depth",
+                                  "Description": "Specify the depth for introspecting composite types (e.g. Embedded Documents in MongoDB). Number, default is -1 for infinite depth, 0 = off",
+                                  "Aliases": [],
+                                  "Arguments": [
+                                    {
+                                      "Arguments": [
+                                        {
+                                          "Name": "number",
+                                          "Description": "number",
+                                          "Type": "String"
+                                        }
+                                      ]
+                                    }
+                                  ]
+                                }
+                              ],
+                              "Optional": true
+                            }
+                          ]
+                        },
+                        {
+                          "Name": "push",
+                          "Description": "This command pushes the state of your Prisma schema file to the database without using migrations files",
+                          "Aliases": [],
+                          "Arguments": [
+                            {
+                              "Arguments": [
+                                {
+                                  "Name": "-h",
+                                  "Description": "Display this help message",
+                                  "Aliases": [
+                                    "--help"
+                                  ],
+                                  "Arguments": []
+                                },
+                                {
+                                  "Name": "--schema",
+                                  "Description": "Custom path to your Prisma schema",
+                                  "Aliases": [],
+                                  "Arguments": [
+                                    {
+                                      "Arguments": [
+                                        {
+                                          "Name": "Schema path",
+                                          "Description": "Schema path",
+                                          "Type": "FileSystemEntry"
+                                        }
+                                      ]
+                                    }
+                                  ]
+                                },
+                                {
+                                  "Name": "--skip-generate",
+                                  "Description": "Skip generation of artifacts such as Prisma Client",
+                                  "Aliases": [],
+                                  "Arguments": []
+                                },
+                                {
+                                  "Name": "--force-reset",
+                                  "Description": "Resets the database and then updates the schema - useful if you need to start from scratch due to unexecutable migrations",
+                                  "Aliases": [],
+                                  "Arguments": []
+                                },
+                                {
+                                  "Name": "--accept-data-loss",
+                                  "Description": "Ignore data loss warnings. This option is required if as a result of making the schema changes, data may be lost",
+                                  "Aliases": [],
+                                  "Arguments": []
+                                }
+                              ],
+                              "Optional": true
+                            }
+                          ]
+                        },
+                        {
+                          "Name": "seed",
+                          "Description": "Seed your database",
+                          "Aliases": [],
+                          "Arguments": [
+                            {
+                              "Arguments": [
+                                {
+                                  "Name": "-h",
+                                  "Description": "Display this help message",
+                                  "Aliases": [
+                                    "--help"
+                                  ],
+                                  "Arguments": []
+                                },
+                                {
+                                  "Name": "--schema",
+                                  "Description": "Custom path to your Prisma schema",
+                                  "Aliases": [],
+                                  "Arguments": [
+                                    {
+                                      "Arguments": [
+                                        {
+                                          "Name": "Schema path",
+                                          "Description": "Schema path",
+                                          "Type": "FileSystemEntry"
+                                        }
+                                      ]
+                                    }
+                                  ]
+                                }
+                              ],
+                              "Optional": true
+                            }
+                          ]
+                        },
+                        {
+                          "Name": "execute",
+                          "Description": "Execute native commands to your database",
+                          "Aliases": [],
+                          "Arguments": [
+                            {
+                              "Arguments": [
+                                {
+                                  "Name": "-h",
+                                  "Description": "Display this help message",
+                                  "Aliases": [
+                                    "--help"
+                                  ],
+                                  "Arguments": []
+                                },
+                                {
+                                  "Name": "--schema",
+                                  "Description": "Custom path to your Prisma schema",
+                                  "Aliases": [],
+                                  "Arguments": [
+                                    {
+                                      "Arguments": [
+                                        {
+                                          "Name": "Schema path",
+                                          "Description": "Schema path",
+                                          "Type": "FileSystemEntry"
+                                        }
+                                      ]
+                                    }
+                                  ]
+                                },
+                                {
+                                  "Name": "--url",
+                                  "Description": "The datasource url",
+                                  "Aliases": [],
+                                  "Arguments": [
+                                    {
+                                      "Arguments": [
+                                        {
+                                          "Name": "full url",
+                                          "Description": "full url",
+                                          "Type": "FileSystemEntry"
+                                        }
+                                      ]
+                                    }
+                                  ]
+                                },
+                                {
+                                  "Name": "--file",
+                                  "Description": "Path to a file. The content will be sent as the script to be executed",
+                                  "Aliases": [],
+                                  "Arguments": [
+                                    {
+                                      "Arguments": [
+                                        {
+                                          "Name": "filepath",
+                                          "Description": "filepath",
+                                          "Type": "FileSystemEntry"
+                                        }
+                                      ]
+                                    }
+                                  ]
+                                },
+                                {
+                                  "Name": "--stdin",
+                                  "Description": "Use the terminal standard input as the script to be executed",
+                                  "Aliases": [],
+                                  "Arguments": []
+                                }
+                              ],
+                              "Optional": true
+                            }
+                          ]
+                        }
+                      ],
+                      "DontAllowMultiple": true
+                    }
+                  ]
+                },
+                {
+                  "Name": "version",
+                  "Description": "Print current version of Prisma components",
+                  "Aliases": [
+                    "-v"
+                  ],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "--json",
+                          "Description": "Output JSON",
+                          "Aliases": [],
+                          "Arguments": []
+                        }
+                      ],
+                      "DontAllowMultiple": true
+                    }
+                  ]
+                }
+              ],
+              "DontAllowMultiple": true
+            }
+          ]
+        }
+      ],
+      "DontAllowMultiple": true
+    }
+  ]
+}

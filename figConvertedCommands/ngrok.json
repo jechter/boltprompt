@@ -1,0 +1,1429 @@
+{
+  "Comment": "This command info is generated from fig",
+  "Name": "ngrok",
+  "Description": "Tunnel local ports to public URLs and inspect traffic",
+  "Arguments": [
+    {
+      "Arguments": [
+        {
+          "Name": "help",
+          "Description": "Shows a list of commands or help for one command",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "command",
+                  "Description": "command",
+                  "Type": "String"
+                },
+                {
+                  "Name": "authtoken",
+                  "Description": "Save authtoken to configuration file"
+                },
+                {
+                  "Name": "credits",
+                  "Description": "Prints author and licensing information"
+                },
+                {
+                  "Name": "http",
+                  "Description": "Start an HTTP tunnel"
+                },
+                {
+                  "Name": "start",
+                  "Description": "Start tunnels by name from the configuration file"
+                },
+                {
+                  "Name": "tcp",
+                  "Description": "Start a TCP tunnel"
+                },
+                {
+                  "Name": "tls",
+                  "Description": "Start a TLS tunnel"
+                },
+                {
+                  "Name": "update",
+                  "Description": "Update ngrok to the latest version"
+                },
+                {
+                  "Name": "version",
+                  "Description": "Print the version string"
+                },
+                {
+                  "Name": "help",
+                  "Description": "Shows a list of commands or help for one command"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "Name": "http",
+          "Description": "Start an HTTP tunnel",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "--log",
+                  "Description": "Path to log file, \u0027stdout\u0027, \u0027stderr\u0027 or \u0027false\u0027",
+                  "Aliases": [
+                    "-log"
+                  ],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "value",
+                          "Description": "value",
+                          "Type": "FileSystemEntry"
+                        },
+                        {
+                          "Name": "stdout",
+                          "Description": "value"
+                        },
+                        {
+                          "Name": "stderr",
+                          "Description": "value"
+                        },
+                        {
+                          "Name": "false",
+                          "Description": "value"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "--log-format",
+                  "Description": "Log record format: \u0027term\u0027, \u0027logfmt\u0027, \u0027json\u0027",
+                  "Aliases": [
+                    "-log-format"
+                  ],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "String",
+                          "Description": "",
+                          "Type": "String"
+                        },
+                        {
+                          "Name": "term",
+                          "Description": ""
+                        },
+                        {
+                          "Name": "logfmt",
+                          "Description": ""
+                        },
+                        {
+                          "Name": "json",
+                          "Description": ""
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "--log-level",
+                  "Description": "Logging level",
+                  "Aliases": [
+                    "-log-level"
+                  ],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "level",
+                          "Description": "level",
+                          "Type": "String"
+                        },
+                        {
+                          "Name": "crit",
+                          "Description": "level"
+                        },
+                        {
+                          "Name": "warn",
+                          "Description": "level"
+                        },
+                        {
+                          "Name": "error",
+                          "Description": "level"
+                        },
+                        {
+                          "Name": "info",
+                          "Description": "level"
+                        },
+                        {
+                          "Name": "debug",
+                          "Description": "level"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "--config",
+                  "Description": "Path to config files; they are merged if multiple",
+                  "Aliases": [
+                    "-config"
+                  ],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "config file",
+                          "Description": "config file",
+                          "Type": "FileSystemEntry"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "--region",
+                  "Description": "Ngrok server region [us, eu, au, ap, sa, jp, in] (default: us)",
+                  "Aliases": [
+                    "-region"
+                  ],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "String",
+                          "Description": "",
+                          "Type": "String"
+                        },
+                        {
+                          "Name": "us",
+                          "Description": ""
+                        },
+                        {
+                          "Name": "eu",
+                          "Description": ""
+                        },
+                        {
+                          "Name": "au",
+                          "Description": ""
+                        },
+                        {
+                          "Name": "ap",
+                          "Description": ""
+                        },
+                        {
+                          "Name": "sa",
+                          "Description": ""
+                        },
+                        {
+                          "Name": "jp",
+                          "Description": ""
+                        },
+                        {
+                          "Name": "in",
+                          "Description": ""
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "--authtoken",
+                  "Description": "Ngrok.com authtoken identifying a user",
+                  "Aliases": [
+                    "-authtoken"
+                  ],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "authtoken",
+                          "Description": "authtoken",
+                          "Type": "String"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "--hostname",
+                  "Description": "Host tunnel on custom hostname (requires DNS CNAME)",
+                  "Aliases": [
+                    "-hostname"
+                  ],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "hostname",
+                          "Description": "hostname",
+                          "Type": "String"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "--subdomain",
+                  "Description": "Host tunnel on a custom subdomain",
+                  "Aliases": [
+                    "-subdomain"
+                  ],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "subdomain",
+                          "Description": "subdomain",
+                          "Type": "String"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "--auth",
+                  "Description": "Enforce basic auth on tunnel endpoint, \u0027user:password\u0027",
+                  "Aliases": [
+                    "-auth"
+                  ],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "user:password",
+                          "Description": "user:password",
+                          "Type": "String"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "--bind-tls",
+                  "Description": "Listen for http, https or both: true/false/both",
+                  "Aliases": [
+                    "-bind-tls"
+                  ],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "true/false/both",
+                          "Description": "true/false/both",
+                          "Type": "String"
+                        },
+                        {
+                          "Name": "true",
+                          "Description": "true/false/both"
+                        },
+                        {
+                          "Name": "false",
+                          "Description": "true/false/both"
+                        },
+                        {
+                          "Name": "both",
+                          "Description": "true/false/both"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "--host-header",
+                  "Description": "Set Host header; if \u0027rewrite\u0027 use local address hostname",
+                  "Aliases": [
+                    "-host-header"
+                  ],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "String",
+                          "Description": "",
+                          "Type": "String"
+                        },
+                        {
+                          "Name": "rewrite",
+                          "Description": ""
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "--introspection",
+                  "Description": "Enable/disable http introspection",
+                  "Aliases": [
+                    "-introspection"
+                  ],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "String",
+                          "Description": "",
+                          "Type": "String"
+                        },
+                        {
+                          "Name": "true",
+                          "Description": ""
+                        },
+                        {
+                          "Name": "false",
+                          "Description": ""
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ],
+              "Optional": true
+            },
+            {
+              "Arguments": [
+                {
+                  "Name": "host",
+                  "Description": "host",
+                  "Type": "String"
+                },
+                {
+                  "Name": "8080",
+                  "Description": "Port"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "Name": "authtoken",
+          "Description": "Save authtoken to configuration file",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "--log",
+                  "Description": "Path to log file, \u0027stdout\u0027, \u0027stderr\u0027 or \u0027false\u0027",
+                  "Aliases": [
+                    "-log"
+                  ],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "value",
+                          "Description": "value",
+                          "Type": "FileSystemEntry"
+                        },
+                        {
+                          "Name": "stdout",
+                          "Description": "value"
+                        },
+                        {
+                          "Name": "stderr",
+                          "Description": "value"
+                        },
+                        {
+                          "Name": "false",
+                          "Description": "value"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "--log-format",
+                  "Description": "Log record format: \u0027term\u0027, \u0027logfmt\u0027, \u0027json\u0027",
+                  "Aliases": [
+                    "-log-format"
+                  ],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "String",
+                          "Description": "",
+                          "Type": "String"
+                        },
+                        {
+                          "Name": "term",
+                          "Description": ""
+                        },
+                        {
+                          "Name": "logfmt",
+                          "Description": ""
+                        },
+                        {
+                          "Name": "json",
+                          "Description": ""
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "--log-level",
+                  "Description": "Logging level",
+                  "Aliases": [
+                    "-log-level"
+                  ],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "level",
+                          "Description": "level",
+                          "Type": "String"
+                        },
+                        {
+                          "Name": "crit",
+                          "Description": "level"
+                        },
+                        {
+                          "Name": "warn",
+                          "Description": "level"
+                        },
+                        {
+                          "Name": "error",
+                          "Description": "level"
+                        },
+                        {
+                          "Name": "info",
+                          "Description": "level"
+                        },
+                        {
+                          "Name": "debug",
+                          "Description": "level"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "--config",
+                  "Description": "Path to config files; they are merged if multiple",
+                  "Aliases": [
+                    "-config"
+                  ],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "config file",
+                          "Description": "config file",
+                          "Type": "FileSystemEntry"
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ],
+              "Optional": true
+            },
+            {
+              "Arguments": [
+                {
+                  "Name": "authtoken",
+                  "Description": "authtoken",
+                  "Type": "String"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "Name": "credits",
+          "Description": "Prints author and licensing information",
+          "Aliases": [],
+          "Arguments": []
+        },
+        {
+          "Name": "start",
+          "Description": "Start tunnels by name from the configuration file",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "--log",
+                  "Description": "Path to log file, \u0027stdout\u0027, \u0027stderr\u0027 or \u0027false\u0027",
+                  "Aliases": [
+                    "-log"
+                  ],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "value",
+                          "Description": "value",
+                          "Type": "FileSystemEntry"
+                        },
+                        {
+                          "Name": "stdout",
+                          "Description": "value"
+                        },
+                        {
+                          "Name": "stderr",
+                          "Description": "value"
+                        },
+                        {
+                          "Name": "false",
+                          "Description": "value"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "--log-format",
+                  "Description": "Log record format: \u0027term\u0027, \u0027logfmt\u0027, \u0027json\u0027",
+                  "Aliases": [
+                    "-log-format"
+                  ],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "String",
+                          "Description": "",
+                          "Type": "String"
+                        },
+                        {
+                          "Name": "term",
+                          "Description": ""
+                        },
+                        {
+                          "Name": "logfmt",
+                          "Description": ""
+                        },
+                        {
+                          "Name": "json",
+                          "Description": ""
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "--log-level",
+                  "Description": "Logging level",
+                  "Aliases": [
+                    "-log-level"
+                  ],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "level",
+                          "Description": "level",
+                          "Type": "String"
+                        },
+                        {
+                          "Name": "crit",
+                          "Description": "level"
+                        },
+                        {
+                          "Name": "warn",
+                          "Description": "level"
+                        },
+                        {
+                          "Name": "error",
+                          "Description": "level"
+                        },
+                        {
+                          "Name": "info",
+                          "Description": "level"
+                        },
+                        {
+                          "Name": "debug",
+                          "Description": "level"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "--config",
+                  "Description": "Path to config files; they are merged if multiple",
+                  "Aliases": [
+                    "-config"
+                  ],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "config file",
+                          "Description": "config file",
+                          "Type": "FileSystemEntry"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "--region",
+                  "Description": "Ngrok server region [us, eu, au, ap, sa, jp, in] (default: us)",
+                  "Aliases": [
+                    "-region"
+                  ],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "String",
+                          "Description": "",
+                          "Type": "String"
+                        },
+                        {
+                          "Name": "us",
+                          "Description": ""
+                        },
+                        {
+                          "Name": "eu",
+                          "Description": ""
+                        },
+                        {
+                          "Name": "au",
+                          "Description": ""
+                        },
+                        {
+                          "Name": "ap",
+                          "Description": ""
+                        },
+                        {
+                          "Name": "sa",
+                          "Description": ""
+                        },
+                        {
+                          "Name": "jp",
+                          "Description": ""
+                        },
+                        {
+                          "Name": "in",
+                          "Description": ""
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "--authtoken",
+                  "Description": "Ngrok.com authtoken identifying a user",
+                  "Aliases": [
+                    "-authtoken"
+                  ],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "authtoken",
+                          "Description": "authtoken",
+                          "Type": "String"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "--all",
+                  "Description": "Start all tunnels in the configuration file",
+                  "Aliases": [
+                    "-all"
+                  ],
+                  "Arguments": []
+                },
+                {
+                  "Name": "--none",
+                  "Description": "Start running no tunnels",
+                  "Aliases": [
+                    "-none"
+                  ],
+                  "Arguments": []
+                }
+              ],
+              "Optional": true
+            },
+            {
+              "Arguments": [
+                {
+                  "Name": "tunnels",
+                  "Description": "tunnels",
+                  "Type": "String"
+                },
+                {
+                  "Name": "dev",
+                  "Description": "tunnels"
+                },
+                {
+                  "Name": "web",
+                  "Description": "tunnels"
+                },
+                {
+                  "Name": "blog",
+                  "Description": "tunnels"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "Name": "tcp",
+          "Description": "Start a TCP tunnel",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "--log",
+                  "Description": "Path to log file, \u0027stdout\u0027, \u0027stderr\u0027 or \u0027false\u0027",
+                  "Aliases": [
+                    "-log"
+                  ],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "value",
+                          "Description": "value",
+                          "Type": "FileSystemEntry"
+                        },
+                        {
+                          "Name": "stdout",
+                          "Description": "value"
+                        },
+                        {
+                          "Name": "stderr",
+                          "Description": "value"
+                        },
+                        {
+                          "Name": "false",
+                          "Description": "value"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "--log-format",
+                  "Description": "Log record format: \u0027term\u0027, \u0027logfmt\u0027, \u0027json\u0027",
+                  "Aliases": [
+                    "-log-format"
+                  ],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "String",
+                          "Description": "",
+                          "Type": "String"
+                        },
+                        {
+                          "Name": "term",
+                          "Description": ""
+                        },
+                        {
+                          "Name": "logfmt",
+                          "Description": ""
+                        },
+                        {
+                          "Name": "json",
+                          "Description": ""
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "--log-level",
+                  "Description": "Logging level",
+                  "Aliases": [
+                    "-log-level"
+                  ],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "level",
+                          "Description": "level",
+                          "Type": "String"
+                        },
+                        {
+                          "Name": "crit",
+                          "Description": "level"
+                        },
+                        {
+                          "Name": "warn",
+                          "Description": "level"
+                        },
+                        {
+                          "Name": "error",
+                          "Description": "level"
+                        },
+                        {
+                          "Name": "info",
+                          "Description": "level"
+                        },
+                        {
+                          "Name": "debug",
+                          "Description": "level"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "--config",
+                  "Description": "Path to config files; they are merged if multiple",
+                  "Aliases": [
+                    "-config"
+                  ],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "config file",
+                          "Description": "config file",
+                          "Type": "FileSystemEntry"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "--authtoken",
+                  "Description": "Ngrok.com authtoken identifying a user",
+                  "Aliases": [
+                    "-authtoken"
+                  ],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "authtoken",
+                          "Description": "authtoken",
+                          "Type": "String"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "--region",
+                  "Description": "Ngrok server region [us, eu, au, ap, sa, jp, in] (default: us)",
+                  "Aliases": [
+                    "-region"
+                  ],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "String",
+                          "Description": "",
+                          "Type": "String"
+                        },
+                        {
+                          "Name": "us",
+                          "Description": ""
+                        },
+                        {
+                          "Name": "eu",
+                          "Description": ""
+                        },
+                        {
+                          "Name": "au",
+                          "Description": ""
+                        },
+                        {
+                          "Name": "ap",
+                          "Description": ""
+                        },
+                        {
+                          "Name": "sa",
+                          "Description": ""
+                        },
+                        {
+                          "Name": "jp",
+                          "Description": ""
+                        },
+                        {
+                          "Name": "in",
+                          "Description": ""
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "--remote-addr",
+                  "Description": "Bind remote address (requires you reserve an address)",
+                  "Aliases": [
+                    "-remote-addr"
+                  ],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "remote address",
+                          "Description": "remote address",
+                          "Type": "String"
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ],
+              "Optional": true
+            },
+            {
+              "Arguments": [
+                {
+                  "Name": "port",
+                  "Description": "port",
+                  "Type": "String"
+                },
+                {
+                  "Name": "22",
+                  "Description": "port"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "Name": "tls",
+          "Description": "Start a TLS tunnel",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "--log",
+                  "Description": "Path to log file, \u0027stdout\u0027, \u0027stderr\u0027 or \u0027false\u0027",
+                  "Aliases": [
+                    "-log"
+                  ],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "value",
+                          "Description": "value",
+                          "Type": "FileSystemEntry"
+                        },
+                        {
+                          "Name": "stdout",
+                          "Description": "value"
+                        },
+                        {
+                          "Name": "stderr",
+                          "Description": "value"
+                        },
+                        {
+                          "Name": "false",
+                          "Description": "value"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "--log-format",
+                  "Description": "Log record format: \u0027term\u0027, \u0027logfmt\u0027, \u0027json\u0027",
+                  "Aliases": [
+                    "-log-format"
+                  ],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "String",
+                          "Description": "",
+                          "Type": "String"
+                        },
+                        {
+                          "Name": "term",
+                          "Description": ""
+                        },
+                        {
+                          "Name": "logfmt",
+                          "Description": ""
+                        },
+                        {
+                          "Name": "json",
+                          "Description": ""
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "--log-level",
+                  "Description": "Logging level",
+                  "Aliases": [
+                    "-log-level"
+                  ],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "level",
+                          "Description": "level",
+                          "Type": "String"
+                        },
+                        {
+                          "Name": "crit",
+                          "Description": "level"
+                        },
+                        {
+                          "Name": "warn",
+                          "Description": "level"
+                        },
+                        {
+                          "Name": "error",
+                          "Description": "level"
+                        },
+                        {
+                          "Name": "info",
+                          "Description": "level"
+                        },
+                        {
+                          "Name": "debug",
+                          "Description": "level"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "--config",
+                  "Description": "Path to config files; they are merged if multiple",
+                  "Aliases": [
+                    "-config"
+                  ],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "config file",
+                          "Description": "config file",
+                          "Type": "FileSystemEntry"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "--authtoken",
+                  "Description": "Ngrok.com authtoken identifying a user",
+                  "Aliases": [
+                    "-authtoken"
+                  ],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "authtoken",
+                          "Description": "authtoken",
+                          "Type": "String"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "--region",
+                  "Description": "Ngrok server region [us, eu, au, ap, sa, jp, in] (default: us)",
+                  "Aliases": [
+                    "-region"
+                  ],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "String",
+                          "Description": "",
+                          "Type": "String"
+                        },
+                        {
+                          "Name": "us",
+                          "Description": ""
+                        },
+                        {
+                          "Name": "eu",
+                          "Description": ""
+                        },
+                        {
+                          "Name": "au",
+                          "Description": ""
+                        },
+                        {
+                          "Name": "ap",
+                          "Description": ""
+                        },
+                        {
+                          "Name": "sa",
+                          "Description": ""
+                        },
+                        {
+                          "Name": "jp",
+                          "Description": ""
+                        },
+                        {
+                          "Name": "in",
+                          "Description": ""
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "--hostname",
+                  "Description": "Host tunnel on custom hostname (requires DNS CNAME)",
+                  "Aliases": [
+                    "-hostname"
+                  ],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "hostname",
+                          "Description": "hostname",
+                          "Type": "String"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "--subdomain",
+                  "Description": "Host tunnel on a custom subdomain",
+                  "Aliases": [
+                    "-subdomain"
+                  ],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "subdomain",
+                          "Description": "subdomain",
+                          "Type": "String"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "--client-cas",
+                  "Description": "",
+                  "Aliases": [
+                    "-client-cas"
+                  ],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "certificate",
+                          "Description": "certificate",
+                          "Type": "FileSystemEntry"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "--crt",
+                  "Description": "",
+                  "Aliases": [
+                    "-crt"
+                  ],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "certificate",
+                          "Description": "certificate",
+                          "Type": "FileSystemEntry"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "--key",
+                  "Description": "",
+                  "Aliases": [
+                    "-key"
+                  ],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "certificate",
+                          "Description": "certificate",
+                          "Type": "FileSystemEntry"
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ],
+              "Optional": true
+            },
+            {
+              "Arguments": [
+                {
+                  "Name": "port",
+                  "Description": "port",
+                  "Type": "String"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "Name": "update",
+          "Description": "Update ngrok to the latest version",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "--log",
+                  "Description": "Path to log file, \u0027stdout\u0027, \u0027stderr\u0027 or \u0027false\u0027",
+                  "Aliases": [
+                    "-log"
+                  ],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "value",
+                          "Description": "value",
+                          "Type": "FileSystemEntry"
+                        },
+                        {
+                          "Name": "stdout",
+                          "Description": "value"
+                        },
+                        {
+                          "Name": "stderr",
+                          "Description": "value"
+                        },
+                        {
+                          "Name": "false",
+                          "Description": "value"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "--log-format",
+                  "Description": "Log record format: \u0027term\u0027, \u0027logfmt\u0027, \u0027json\u0027",
+                  "Aliases": [
+                    "-log-format"
+                  ],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "String",
+                          "Description": "",
+                          "Type": "String"
+                        },
+                        {
+                          "Name": "term",
+                          "Description": ""
+                        },
+                        {
+                          "Name": "logfmt",
+                          "Description": ""
+                        },
+                        {
+                          "Name": "json",
+                          "Description": ""
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "--log-level",
+                  "Description": "Logging level",
+                  "Aliases": [
+                    "-log-level"
+                  ],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "level",
+                          "Description": "level",
+                          "Type": "String"
+                        },
+                        {
+                          "Name": "crit",
+                          "Description": "level"
+                        },
+                        {
+                          "Name": "warn",
+                          "Description": "level"
+                        },
+                        {
+                          "Name": "error",
+                          "Description": "level"
+                        },
+                        {
+                          "Name": "info",
+                          "Description": "level"
+                        },
+                        {
+                          "Name": "debug",
+                          "Description": "level"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "--channel",
+                  "Description": "Update channel (stable, beta)",
+                  "Aliases": [
+                    "-channel"
+                  ],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "channel",
+                          "Description": "channel",
+                          "Type": "String"
+                        },
+                        {
+                          "Name": "stable",
+                          "Description": "channel"
+                        },
+                        {
+                          "Name": "beta",
+                          "Description": "channel"
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ],
+              "Optional": true
+            }
+          ]
+        },
+        {
+          "Name": "version",
+          "Description": "Print the version string",
+          "Aliases": [],
+          "Arguments": []
+        }
+      ],
+      "DontAllowMultiple": true
+    }
+  ]
+}

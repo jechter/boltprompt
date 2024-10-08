@@ -1,0 +1,2135 @@
+{
+  "Comment": "This command info is generated from fig",
+  "Name": "cci",
+  "Description": "CumulusCI command line interface",
+  "Arguments": [
+    {
+      "Arguments": [
+        {
+          "Name": "--help",
+          "Description": "Help for cci",
+          "Aliases": [],
+          "Arguments": []
+        }
+      ],
+      "Optional": true
+    },
+    {
+      "Arguments": [
+        {
+          "Name": "flow",
+          "Description": "Commands for finding and running flows for a project",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "doc",
+                  "Description": "Exports RST format documentation for all flows",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "--project",
+                          "Description": "Include project-specific flows only",
+                          "Aliases": [],
+                          "Arguments": []
+                        },
+                        {
+                          "Name": "--help",
+                          "Description": "Help for flow doc",
+                          "Aliases": [],
+                          "Arguments": []
+                        }
+                      ],
+                      "Optional": true
+                    }
+                  ]
+                },
+                {
+                  "Name": "info",
+                  "Description": "Displays information for a flow",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "--help",
+                          "Description": "Help for flow info",
+                          "Aliases": [],
+                          "Arguments": []
+                        }
+                      ],
+                      "Optional": true
+                    },
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "FLOW_NAME",
+                          "Description": "FLOW_NAME",
+                          "Type": "String"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "list",
+                  "Description": "List available flows for the current context",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "--plain",
+                          "Description": "Print the table using plain ascii",
+                          "Aliases": [],
+                          "Arguments": []
+                        },
+                        {
+                          "Name": "--json",
+                          "Description": "Print a json string",
+                          "Aliases": [],
+                          "Arguments": []
+                        },
+                        {
+                          "Name": "--help",
+                          "Description": "Help for flow list",
+                          "Aliases": [],
+                          "Arguments": []
+                        }
+                      ],
+                      "Optional": true
+                    }
+                  ]
+                },
+                {
+                  "Name": "run",
+                  "Description": "Runs a flow",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "--org",
+                          "Description": "Specify the target org. By default, runs against the current default org",
+                          "Aliases": [],
+                          "Arguments": [
+                            {
+                              "Arguments": [
+                                {
+                                  "Name": "TEXT",
+                                  "Description": "TEXT",
+                                  "Type": "String"
+                                }
+                              ]
+                            }
+                          ]
+                        },
+                        {
+                          "Name": "--delete-org",
+                          "Description": "If set, deletes the scratch org after the flow completes",
+                          "Aliases": [],
+                          "Arguments": []
+                        },
+                        {
+                          "Name": "--debug",
+                          "Description": "Drops into pdb, the Python debugger, on an exception",
+                          "Aliases": [],
+                          "Arguments": []
+                        },
+                        {
+                          "Name": "o",
+                          "Description": "Pass task specific options for the task as \u0027-o taskname__option value\u0027. You can specify more than one option by using -o more than once",
+                          "Type": "Flag",
+                          "Aliases": [],
+                          "Arguments": [
+                            {
+                              "Arguments": [
+                                {
+                                  "Name": "TEXT",
+                                  "Description": "TEXT",
+                                  "Type": "String"
+                                }
+                              ]
+                            }
+                          ]
+                        },
+                        {
+                          "Name": "--no-prompt",
+                          "Description": "Disables all prompts. Set for non-interactive mode use such as calling from scripts or CI systems",
+                          "Aliases": [],
+                          "Arguments": []
+                        },
+                        {
+                          "Name": "--help",
+                          "Description": "Help for flow run",
+                          "Aliases": [],
+                          "Arguments": []
+                        }
+                      ],
+                      "Optional": true
+                    },
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "FLOW_NAME",
+                          "Description": "FLOW_NAME",
+                          "Type": "String"
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ],
+              "DontAllowMultiple": true
+            }
+          ]
+        },
+        {
+          "Name": "org",
+          "Description": "Commands for connecting and interacting with Salesforce orgs",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "browser",
+                  "Description": "Opens a browser window and logs into the org using the stored OAuth credentials",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "--org",
+                          "Description": "Alternate way to specify the target org. By default, runs against the current default org",
+                          "Aliases": [],
+                          "Arguments": [
+                            {
+                              "Arguments": [
+                                {
+                                  "Name": "TEXT",
+                                  "Description": "TEXT",
+                                  "Type": "String"
+                                }
+                              ]
+                            }
+                          ]
+                        },
+                        {
+                          "Name": "-p",
+                          "Description": "Navigate to the specified page after logging in",
+                          "Aliases": [
+                            "--path"
+                          ],
+                          "Arguments": [
+                            {
+                              "Arguments": [
+                                {
+                                  "Name": "TEXT",
+                                  "Description": "TEXT",
+                                  "Type": "FileSystemEntry"
+                                }
+                              ]
+                            }
+                          ]
+                        },
+                        {
+                          "Name": "-r",
+                          "Description": "Display the target URL, but don\u0027t open a browser",
+                          "Aliases": [
+                            "--url-only"
+                          ],
+                          "Arguments": []
+                        },
+                        {
+                          "Name": "--help",
+                          "Description": "Help for org browser",
+                          "Aliases": [],
+                          "Arguments": []
+                        }
+                      ],
+                      "Optional": true
+                    },
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "ORGNAME",
+                          "Description": "ORGNAME",
+                          "Type": "String"
+                        }
+                      ],
+                      "Optional": true
+                    }
+                  ]
+                },
+                {
+                  "Name": "connect",
+                  "Description": "Connects a new org\u0027s credentials using OAuth Web Flow",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "--org",
+                          "Description": "Alternate way to specify the target org. One of ORGNAME (see above) or --org is required",
+                          "Aliases": [],
+                          "Arguments": [
+                            {
+                              "Arguments": [
+                                {
+                                  "Name": "TEXT",
+                                  "Description": "TEXT",
+                                  "Type": "String"
+                                }
+                              ]
+                            }
+                          ]
+                        },
+                        {
+                          "Name": "--connected-app",
+                          "Description": "Name of the connected_app service to use",
+                          "Aliases": [],
+                          "Arguments": [
+                            {
+                              "Arguments": [
+                                {
+                                  "Name": "TEXT",
+                                  "Description": "TEXT",
+                                  "Type": "String"
+                                }
+                              ]
+                            }
+                          ]
+                        },
+                        {
+                          "Name": "--sandbox",
+                          "Description": "If set, connects to a Salesforce sandbox org",
+                          "Aliases": [],
+                          "Arguments": []
+                        },
+                        {
+                          "Name": "--login-url",
+                          "Description": "If set, login to this hostname",
+                          "Aliases": [],
+                          "Arguments": [
+                            {
+                              "Arguments": [
+                                {
+                                  "Name": "TEXT",
+                                  "Description": "TEXT",
+                                  "Type": "String"
+                                }
+                              ]
+                            }
+                          ]
+                        },
+                        {
+                          "Name": "--default",
+                          "Description": "If set, sets the connected org as the new default org",
+                          "Aliases": [],
+                          "Arguments": []
+                        },
+                        {
+                          "Name": "--global-org",
+                          "Description": "If set, the connected org is available to all CumulusCI projects",
+                          "Aliases": [],
+                          "Arguments": []
+                        },
+                        {
+                          "Name": "--help",
+                          "Description": "Show this message and exit",
+                          "Aliases": [],
+                          "Arguments": []
+                        }
+                      ],
+                      "Optional": true
+                    },
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "ORGNAME",
+                          "Description": "ORGNAME",
+                          "Type": "String"
+                        }
+                      ],
+                      "Optional": true
+                    }
+                  ]
+                },
+                {
+                  "Name": "default",
+                  "Description": "Sets an org as the default org for tasks and flows",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "--org",
+                          "Description": "Alternate way to specify the target org. By default, runs against the current default org",
+                          "Aliases": [],
+                          "Arguments": [
+                            {
+                              "Arguments": [
+                                {
+                                  "Name": "TEXT",
+                                  "Description": "TEXT",
+                                  "Type": "String"
+                                }
+                              ]
+                            }
+                          ]
+                        },
+                        {
+                          "Name": "--unset",
+                          "Description": "Unset the org as the default org leaving no default org selected",
+                          "Aliases": [],
+                          "Arguments": []
+                        },
+                        {
+                          "Name": "--help",
+                          "Description": "Show this message and exit",
+                          "Aliases": [],
+                          "Arguments": []
+                        }
+                      ],
+                      "Optional": true
+                    },
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "ORGNAME",
+                          "Description": "ORGNAME",
+                          "Type": "String"
+                        }
+                      ],
+                      "Optional": true
+                    }
+                  ]
+                },
+                {
+                  "Name": "import",
+                  "Description": "Import an org from Salesforce DX",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "--org",
+                          "Description": "Alternate way to specify the target org. One of ORGNAME (see above) or --org is required",
+                          "Aliases": [],
+                          "Arguments": [
+                            {
+                              "Arguments": [
+                                {
+                                  "Name": "TEXT",
+                                  "Description": "TEXT",
+                                  "Type": "String"
+                                }
+                              ]
+                            }
+                          ]
+                        },
+                        {
+                          "Name": "--help",
+                          "Description": "Show this message and exit",
+                          "Aliases": [],
+                          "Arguments": []
+                        }
+                      ],
+                      "Optional": true
+                    },
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "USERNAME_OR_ALIAS",
+                          "Description": "USERNAME_OR_ALIAS",
+                          "Type": "String"
+                        }
+                      ]
+                    },
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "ORGNAME",
+                          "Description": "ORGNAME",
+                          "Type": "String"
+                        }
+                      ],
+                      "Optional": true
+                    }
+                  ]
+                },
+                {
+                  "Name": "info",
+                  "Description": "Display information for a connected org",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "--org",
+                          "Description": "Alternate way to specify the target org. By default, runs against the current default org",
+                          "Aliases": [],
+                          "Arguments": [
+                            {
+                              "Arguments": [
+                                {
+                                  "Name": "TEXT",
+                                  "Description": "TEXT",
+                                  "Type": "String"
+                                }
+                              ]
+                            }
+                          ]
+                        },
+                        {
+                          "Name": "--json",
+                          "Description": "Print as JSON. Includes access token",
+                          "Aliases": [],
+                          "Arguments": []
+                        },
+                        {
+                          "Name": "--help",
+                          "Description": "Show this message and exit",
+                          "Aliases": [],
+                          "Arguments": []
+                        }
+                      ],
+                      "Optional": true
+                    },
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "ORGNAME",
+                          "Description": "ORGNAME",
+                          "Type": "String"
+                        }
+                      ],
+                      "Optional": true
+                    }
+                  ]
+                },
+                {
+                  "Name": "list",
+                  "Description": "Lists all orgs in scope for the current project",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "--plain",
+                          "Description": "Print the table using plain ascii",
+                          "Aliases": [],
+                          "Arguments": []
+                        },
+                        {
+                          "Name": "--json",
+                          "Description": "Output results in JSON format",
+                          "Aliases": [],
+                          "Arguments": []
+                        },
+                        {
+                          "Name": "--help",
+                          "Description": "Show this message and exit",
+                          "Aliases": [],
+                          "Arguments": []
+                        }
+                      ],
+                      "Optional": true
+                    }
+                  ]
+                },
+                {
+                  "Name": "prune",
+                  "Description": "Removes all expired scratch orgs from the current project",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "--include-active",
+                          "Description": "Remove all scratch orgs, regardless of expiry",
+                          "Aliases": [],
+                          "Arguments": []
+                        },
+                        {
+                          "Name": "--help",
+                          "Description": "Show this message and exit",
+                          "Aliases": [],
+                          "Arguments": []
+                        }
+                      ],
+                      "Optional": true
+                    }
+                  ]
+                },
+                {
+                  "Name": "remove",
+                  "Description": "Removes an org from the keychain",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "--org",
+                          "Description": "Alternate way to specify the target org. One of ORGNAME (see above) or --org is required",
+                          "Aliases": [],
+                          "Arguments": [
+                            {
+                              "Arguments": [
+                                {
+                                  "Name": "TEXT",
+                                  "Description": "TEXT",
+                                  "Type": "String"
+                                }
+                              ]
+                            }
+                          ]
+                        },
+                        {
+                          "Name": "--global-org",
+                          "Description": "Set this option to force remove a global org. Default behavior is to error if you attempt to delete a global org",
+                          "Aliases": [],
+                          "Arguments": []
+                        },
+                        {
+                          "Name": "--help",
+                          "Description": "Show this message and exit",
+                          "Aliases": [],
+                          "Arguments": []
+                        }
+                      ],
+                      "Optional": true
+                    },
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "ORGNAME",
+                          "Description": "ORGNAME",
+                          "Type": "String"
+                        }
+                      ],
+                      "Optional": true
+                    }
+                  ]
+                },
+                {
+                  "Name": "scratch",
+                  "Description": "Connects a Salesforce DX Scratch Org to the keychain",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "--org",
+                          "Description": "Alternate way to specify the target org. One of ORGNAME (see above) or --org is required",
+                          "Aliases": [],
+                          "Arguments": [
+                            {
+                              "Arguments": [
+                                {
+                                  "Name": "TEXT",
+                                  "Description": "TEXT",
+                                  "Type": "String"
+                                }
+                              ]
+                            }
+                          ]
+                        },
+                        {
+                          "Name": "--default",
+                          "Description": "If set, sets the connected org as the new default org",
+                          "Aliases": [],
+                          "Arguments": []
+                        },
+                        {
+                          "Name": "--devhub",
+                          "Description": "If provided, overrides the devhub used to create the scratch org",
+                          "Aliases": [],
+                          "Arguments": [
+                            {
+                              "Arguments": [
+                                {
+                                  "Name": "TEXT",
+                                  "Description": "TEXT",
+                                  "Type": "String"
+                                }
+                              ]
+                            }
+                          ]
+                        },
+                        {
+                          "Name": "--days",
+                          "Description": "If provided, overrides the scratch config default days value for how many days the scratch org should persist",
+                          "Aliases": [],
+                          "Arguments": [
+                            {
+                              "Arguments": [
+                                {
+                                  "Name": "TEXT",
+                                  "Description": "TEXT",
+                                  "Type": "String"
+                                }
+                              ]
+                            }
+                          ]
+                        },
+                        {
+                          "Name": "--no-password",
+                          "Description": "If set, don\u0027t set a password for the org",
+                          "Aliases": [],
+                          "Arguments": []
+                        },
+                        {
+                          "Name": "--help",
+                          "Description": "Show this message and exit",
+                          "Aliases": [],
+                          "Arguments": []
+                        }
+                      ],
+                      "Optional": true
+                    },
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "CONFIG_NAME",
+                          "Description": "CONFIG_NAME",
+                          "Type": "String"
+                        }
+                      ]
+                    },
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "ORGNAME",
+                          "Description": "ORGNAME",
+                          "Type": "String"
+                        }
+                      ],
+                      "Optional": true
+                    }
+                  ]
+                },
+                {
+                  "Name": "scratch_delete",
+                  "Description": "Deletes a Salesforce DX Scratch Org leaving the config in the keychain for regeneration",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "--org",
+                          "Description": "Alternate way to specify the target org. One of ORGNAME (see above) or --org is required",
+                          "Aliases": [],
+                          "Arguments": [
+                            {
+                              "Arguments": [
+                                {
+                                  "Name": "TEXT",
+                                  "Description": "TEXT",
+                                  "Type": "String"
+                                }
+                              ]
+                            }
+                          ]
+                        },
+                        {
+                          "Name": "--help",
+                          "Description": "Show this message and exit",
+                          "Aliases": [],
+                          "Arguments": []
+                        }
+                      ],
+                      "Optional": true
+                    },
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "ORGNAME",
+                          "Description": "ORGNAME",
+                          "Type": "String"
+                        }
+                      ],
+                      "Optional": true
+                    }
+                  ]
+                },
+                {
+                  "Name": "shell",
+                  "Description": "Drop into a Python shell with a simple_salesforce connection in \u0060sf\u0060, as well as the \u0060org_config\u0060 and \u0060project_config\u0060",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "--org",
+                          "Description": "Alternate way to specify the target org. By default, runs against the current default org",
+                          "Aliases": [],
+                          "Arguments": [
+                            {
+                              "Arguments": [
+                                {
+                                  "Name": "TEXT",
+                                  "Description": "TEXT",
+                                  "Type": "String"
+                                }
+                              ]
+                            }
+                          ]
+                        },
+                        {
+                          "Name": "--script",
+                          "Description": "Path to a script to run",
+                          "Aliases": [],
+                          "Arguments": [
+                            {
+                              "Arguments": [
+                                {
+                                  "Name": "PATH",
+                                  "Description": "PATH",
+                                  "Type": "String"
+                                }
+                              ]
+                            }
+                          ]
+                        },
+                        {
+                          "Name": "--python",
+                          "Description": "Python code to run directly",
+                          "Aliases": [],
+                          "Arguments": [
+                            {
+                              "Arguments": [
+                                {
+                                  "Name": "TEXT",
+                                  "Description": "TEXT",
+                                  "Type": "String"
+                                }
+                              ]
+                            }
+                          ]
+                        },
+                        {
+                          "Name": "--help",
+                          "Description": "Show this message and exit",
+                          "Aliases": [],
+                          "Arguments": []
+                        }
+                      ],
+                      "Optional": true
+                    },
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "ORGNAME",
+                          "Description": "ORGNAME",
+                          "Type": "String"
+                        }
+                      ],
+                      "Optional": true
+                    }
+                  ]
+                }
+              ],
+              "DontAllowMultiple": true
+            }
+          ]
+        },
+        {
+          "Name": "plan",
+          "Description": "Commands for getting information about MetaDeploy plans",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "info",
+                  "Description": "Displays information for a MetaDeploy plan",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "--messages",
+                          "Description": "Show only plan messages",
+                          "Aliases": [],
+                          "Arguments": []
+                        },
+                        {
+                          "Name": "--help",
+                          "Description": "Help for plan info",
+                          "Aliases": [],
+                          "Arguments": []
+                        }
+                      ],
+                      "Optional": true
+                    },
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "PLAN_NAME",
+                          "Description": "PLAN_NAME",
+                          "Type": "String"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "list",
+                  "Description": "List available plans for the current context",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "--json",
+                          "Description": "Return the list of plans in JSON format",
+                          "Aliases": [],
+                          "Arguments": []
+                        },
+                        {
+                          "Name": "--help",
+                          "Description": "Help for plan list",
+                          "Aliases": [],
+                          "Arguments": []
+                        }
+                      ],
+                      "Optional": true
+                    }
+                  ]
+                }
+              ],
+              "DontAllowMultiple": true
+            }
+          ]
+        },
+        {
+          "Name": "robot",
+          "Description": "Commands for working with Robot Framework",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "install_playwright",
+                  "Description": "Install libraries necessary to use playwright with robot framework",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "-n",
+                          "Description": "Dry run",
+                          "Aliases": [
+                            "--dry_run"
+                          ],
+                          "Arguments": []
+                        },
+                        {
+                          "Name": "--help",
+                          "Description": "Help for install_playwright",
+                          "Aliases": [],
+                          "Arguments": []
+                        }
+                      ],
+                      "Optional": true
+                    }
+                  ]
+                },
+                {
+                  "Name": "uninstall_playwright",
+                  "Description": "Uninstalls the robotframework-browser package and node modules",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "--help",
+                          "Description": "Help for uninstall_playwright",
+                          "Aliases": [],
+                          "Arguments": []
+                        }
+                      ],
+                      "Optional": true
+                    }
+                  ]
+                }
+              ],
+              "DontAllowMultiple": true
+            }
+          ]
+        },
+        {
+          "Name": "service",
+          "Description": "Commands for connecting services to the keychain",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "connect",
+                  "Description": "Connect an external service to CumulusCI",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "connected_app",
+                          "Description": "Connect a Connected App service to CumulusCI",
+                          "Aliases": [],
+                          "Arguments": [
+                            {
+                              "Arguments": [
+                                {
+                                  "Name": "--login_url",
+                                  "Description": "Default Salesforce Login URL to be used with this Connected App",
+                                  "Aliases": [],
+                                  "Arguments": [
+                                    {
+                                      "Arguments": [
+                                        {
+                                          "Name": "login_url",
+                                          "Description": "login_url",
+                                          "Type": "String"
+                                        }
+                                      ]
+                                    }
+                                  ]
+                                },
+                                {
+                                  "Name": "--callback_url",
+                                  "Description": "Callback URL configured on the Connected App",
+                                  "Aliases": [],
+                                  "Arguments": [
+                                    {
+                                      "Arguments": [
+                                        {
+                                          "Name": "callback_url",
+                                          "Description": "callback_url",
+                                          "Type": "String"
+                                        }
+                                      ]
+                                    }
+                                  ]
+                                },
+                                {
+                                  "Name": "--client_id",
+                                  "Description": "Client ID/Consumer Key from the Connected App",
+                                  "Aliases": [],
+                                  "Arguments": [
+                                    {
+                                      "Arguments": [
+                                        {
+                                          "Name": "client_id",
+                                          "Description": "client_id",
+                                          "Type": "String"
+                                        }
+                                      ]
+                                    }
+                                  ]
+                                },
+                                {
+                                  "Name": "--client_secret",
+                                  "Description": "Client Secret/Consumer Secret from the Connected App",
+                                  "Aliases": [],
+                                  "Arguments": [
+                                    {
+                                      "Arguments": [
+                                        {
+                                          "Name": "client_secret",
+                                          "Description": "client_secret",
+                                          "Type": "String"
+                                        }
+                                      ]
+                                    }
+                                  ]
+                                },
+                                {
+                                  "Name": "--default",
+                                  "Description": "Set this service as the global default",
+                                  "Aliases": [],
+                                  "Arguments": []
+                                },
+                                {
+                                  "Name": "--help",
+                                  "Description": "Help for cci service connect connected_app",
+                                  "Aliases": [],
+                                  "Arguments": []
+                                }
+                              ],
+                              "Optional": true
+                            },
+                            {
+                              "Arguments": [
+                                {
+                                  "Name": "SERVICE_NAME",
+                                  "Description": "SERVICE_NAME",
+                                  "Type": "String"
+                                }
+                              ],
+                              "Optional": true
+                            }
+                          ]
+                        },
+                        {
+                          "Name": "devhub",
+                          "Description": "Connect a DevHub service to CumulusCI",
+                          "Aliases": [],
+                          "Arguments": [
+                            {
+                              "Arguments": [
+                                {
+                                  "Name": "--username",
+                                  "Description": "Username or alias of the SFDX org to use as a Dev Hub",
+                                  "Aliases": [],
+                                  "Arguments": [
+                                    {
+                                      "Arguments": [
+                                        {
+                                          "Name": "TEXT",
+                                          "Description": "TEXT",
+                                          "Type": "String"
+                                        }
+                                      ]
+                                    }
+                                  ]
+                                },
+                                {
+                                  "Name": "--default",
+                                  "Description": "Set this service as the global default",
+                                  "Aliases": [],
+                                  "Arguments": []
+                                },
+                                {
+                                  "Name": "--help",
+                                  "Description": "Show this message and exit",
+                                  "Aliases": [],
+                                  "Arguments": []
+                                }
+                              ],
+                              "Optional": true
+                            },
+                            {
+                              "Arguments": [
+                                {
+                                  "Name": "SERVICE_NAME",
+                                  "Description": "SERVICE_NAME",
+                                  "Type": "String"
+                                }
+                              ],
+                              "Optional": true
+                            }
+                          ]
+                        },
+                        {
+                          "Name": "github",
+                          "Description": "Connect a GitHub service to CumulusCI",
+                          "Aliases": [],
+                          "Arguments": [
+                            {
+                              "Arguments": [
+                                {
+                                  "Name": "--username",
+                                  "Description": "The Github username to use for tasks",
+                                  "Aliases": [],
+                                  "Arguments": [
+                                    {
+                                      "Arguments": [
+                                        {
+                                          "Name": "TEXT",
+                                          "Description": "TEXT",
+                                          "Type": "String"
+                                        }
+                                      ]
+                                    }
+                                  ]
+                                },
+                                {
+                                  "Name": "--email",
+                                  "Description": "The email address to used by Github tasks when an operation requires an email address",
+                                  "Aliases": [],
+                                  "Arguments": [
+                                    {
+                                      "Arguments": [
+                                        {
+                                          "Name": "TEXT",
+                                          "Description": "TEXT",
+                                          "Type": "String"
+                                        }
+                                      ]
+                                    }
+                                  ]
+                                },
+                                {
+                                  "Name": "--token",
+                                  "Description": "Personal Access Token for GitHub. Leave blank to log in via browser",
+                                  "Aliases": [],
+                                  "Arguments": [
+                                    {
+                                      "Arguments": [
+                                        {
+                                          "Name": "TEXT",
+                                          "Description": "TEXT",
+                                          "Type": "String"
+                                        }
+                                      ]
+                                    }
+                                  ]
+                                },
+                                {
+                                  "Name": "--default",
+                                  "Description": "Set this service as the global default",
+                                  "Aliases": [],
+                                  "Arguments": []
+                                },
+                                {
+                                  "Name": "--help",
+                                  "Description": "Show this message and exit",
+                                  "Aliases": [],
+                                  "Arguments": []
+                                }
+                              ],
+                              "Optional": true
+                            },
+                            {
+                              "Arguments": [
+                                {
+                                  "Name": "SERVICE_NAME",
+                                  "Description": "SERVICE_NAME",
+                                  "Type": "String"
+                                }
+                              ],
+                              "Optional": true
+                            }
+                          ]
+                        },
+                        {
+                          "Name": "github_enterprise",
+                          "Description": "Connect a GitHub Enterprise service to CumulusCI",
+                          "Aliases": [],
+                          "Arguments": [
+                            {
+                              "Arguments": [
+                                {
+                                  "Name": "--username",
+                                  "Description": "The GitHub Enterprise username to use for tasks",
+                                  "Aliases": [],
+                                  "Arguments": [
+                                    {
+                                      "Arguments": [
+                                        {
+                                          "Name": "TEXT",
+                                          "Description": "TEXT",
+                                          "Type": "String"
+                                        }
+                                      ]
+                                    }
+                                  ]
+                                },
+                                {
+                                  "Name": "--email",
+                                  "Description": "The email address to used by GitHub tasks when an operation requires an email address",
+                                  "Aliases": [],
+                                  "Arguments": [
+                                    {
+                                      "Arguments": [
+                                        {
+                                          "Name": "TEXT",
+                                          "Description": "TEXT",
+                                          "Type": "String"
+                                        }
+                                      ]
+                                    }
+                                  ]
+                                },
+                                {
+                                  "Name": "--server_domain",
+                                  "Description": "GitHub Enterprise domain (Example: git.ent.domain.com)",
+                                  "Aliases": [],
+                                  "Arguments": [
+                                    {
+                                      "Arguments": [
+                                        {
+                                          "Name": "TEXT",
+                                          "Description": "TEXT",
+                                          "Type": "String"
+                                        }
+                                      ]
+                                    }
+                                  ]
+                                },
+                                {
+                                  "Name": "--token",
+                                  "Description": "Personal Access Token",
+                                  "Aliases": [],
+                                  "Arguments": [
+                                    {
+                                      "Arguments": [
+                                        {
+                                          "Name": "TEXT",
+                                          "Description": "TEXT",
+                                          "Type": "String"
+                                        }
+                                      ]
+                                    }
+                                  ]
+                                },
+                                {
+                                  "Name": "--default",
+                                  "Description": "Set this service as the global default",
+                                  "Aliases": [],
+                                  "Arguments": []
+                                },
+                                {
+                                  "Name": "--help",
+                                  "Description": "Show this message and exit",
+                                  "Aliases": [],
+                                  "Arguments": []
+                                }
+                              ],
+                              "Optional": true
+                            },
+                            {
+                              "Arguments": [
+                                {
+                                  "Name": "SERVICE_NAME",
+                                  "Description": "SERVICE_NAME",
+                                  "Type": "String"
+                                }
+                              ],
+                              "Optional": true
+                            }
+                          ]
+                        },
+                        {
+                          "Name": "marketing_cloud",
+                          "Description": "Connect a Marketing Cloud service to CumulusCI",
+                          "Aliases": [],
+                          "Arguments": [
+                            {
+                              "Arguments": [
+                                {
+                                  "Name": "--oauth2_client",
+                                  "Description": "The name of the oauth2_client service with which to establish a connection to Marketing Cloud",
+                                  "Aliases": [],
+                                  "Arguments": [
+                                    {
+                                      "Arguments": [
+                                        {
+                                          "Name": "TEXT",
+                                          "Description": "TEXT",
+                                          "Type": "String"
+                                        }
+                                      ]
+                                    }
+                                  ]
+                                },
+                                {
+                                  "Name": "--default",
+                                  "Description": "Set this service as the global default",
+                                  "Aliases": [],
+                                  "Arguments": []
+                                },
+                                {
+                                  "Name": "--help",
+                                  "Description": "Show this message and exit",
+                                  "Aliases": [],
+                                  "Arguments": []
+                                }
+                              ],
+                              "Optional": true
+                            },
+                            {
+                              "Arguments": [
+                                {
+                                  "Name": "SERVICE_NAME",
+                                  "Description": "SERVICE_NAME",
+                                  "Type": "String"
+                                }
+                              ],
+                              "Optional": true
+                            }
+                          ]
+                        },
+                        {
+                          "Name": "metaci",
+                          "Description": "Connect a MetaCI service to CumulusCI",
+                          "Aliases": [],
+                          "Arguments": [
+                            {
+                              "Arguments": [
+                                {
+                                  "Name": "--app_name",
+                                  "Description": "The Heroku app name",
+                                  "Aliases": [],
+                                  "Arguments": [
+                                    {
+                                      "Arguments": [
+                                        {
+                                          "Name": "TEXT",
+                                          "Description": "TEXT",
+                                          "Type": "String"
+                                        }
+                                      ]
+                                    }
+                                  ]
+                                },
+                                {
+                                  "Name": "--url",
+                                  "Description": "The main url to the MetaCI site",
+                                  "Aliases": [],
+                                  "Arguments": [
+                                    {
+                                      "Arguments": [
+                                        {
+                                          "Name": "TEXT",
+                                          "Description": "TEXT",
+                                          "Type": "String"
+                                        }
+                                      ]
+                                    }
+                                  ]
+                                },
+                                {
+                                  "Name": "--token",
+                                  "Description": "Your API token to the MetaCI site (get from SITE_URL/api/token)",
+                                  "Aliases": [],
+                                  "Arguments": [
+                                    {
+                                      "Arguments": [
+                                        {
+                                          "Name": "TEXT",
+                                          "Description": "TEXT",
+                                          "Type": "String"
+                                        }
+                                      ]
+                                    }
+                                  ]
+                                },
+                                {
+                                  "Name": "--default",
+                                  "Description": "Set this service as the global default",
+                                  "Aliases": [],
+                                  "Arguments": []
+                                },
+                                {
+                                  "Name": "--help",
+                                  "Description": "Show this message and exit",
+                                  "Aliases": [],
+                                  "Arguments": []
+                                }
+                              ],
+                              "Optional": true
+                            },
+                            {
+                              "Arguments": [
+                                {
+                                  "Name": "SERVICE_NAME",
+                                  "Description": "SERVICE_NAME",
+                                  "Type": "String"
+                                }
+                              ],
+                              "Optional": true
+                            }
+                          ]
+                        },
+                        {
+                          "Name": "metadeploy",
+                          "Description": "Connect a MetaDeploy service to CumulusCI",
+                          "Aliases": [],
+                          "Arguments": [
+                            {
+                              "Arguments": [
+                                {
+                                  "Name": "--url",
+                                  "Description": "The main url for your MetaDeploy instance",
+                                  "Aliases": [],
+                                  "Arguments": [
+                                    {
+                                      "Arguments": [
+                                        {
+                                          "Name": "TEXT",
+                                          "Description": "TEXT",
+                                          "Type": "String"
+                                        }
+                                      ]
+                                    }
+                                  ]
+                                },
+                                {
+                                  "Name": "--token",
+                                  "Description": "Your API token to the MetaDeploy site (get from SITE_URL/admin/authtoken/token)",
+                                  "Aliases": [],
+                                  "Arguments": [
+                                    {
+                                      "Arguments": [
+                                        {
+                                          "Name": "TEXT",
+                                          "Description": "TEXT",
+                                          "Type": "String"
+                                        }
+                                      ]
+                                    }
+                                  ]
+                                },
+                                {
+                                  "Name": "--default",
+                                  "Description": "Set this service as the global default",
+                                  "Aliases": [],
+                                  "Arguments": []
+                                },
+                                {
+                                  "Name": "--help",
+                                  "Description": "Show this message and exit",
+                                  "Aliases": [],
+                                  "Arguments": []
+                                }
+                              ],
+                              "Optional": true
+                            },
+                            {
+                              "Arguments": [
+                                {
+                                  "Name": "SERVICE_NAME",
+                                  "Description": "SERVICE_NAME",
+                                  "Type": "String"
+                                }
+                              ],
+                              "Optional": true
+                            }
+                          ]
+                        },
+                        {
+                          "Name": "oauth2_client",
+                          "Description": "Connect an OAuth2 Client service to CumulusCI",
+                          "Aliases": [],
+                          "Arguments": [
+                            {
+                              "Arguments": [
+                                {
+                                  "Name": "--client_id",
+                                  "Description": "The client Id",
+                                  "Aliases": [],
+                                  "Arguments": [
+                                    {
+                                      "Arguments": [
+                                        {
+                                          "Name": "TEXT",
+                                          "Description": "TEXT",
+                                          "Type": "String"
+                                        }
+                                      ]
+                                    }
+                                  ]
+                                },
+                                {
+                                  "Name": "--client_secret",
+                                  "Description": "The client secret",
+                                  "Aliases": [],
+                                  "Arguments": [
+                                    {
+                                      "Arguments": [
+                                        {
+                                          "Name": "TEXT",
+                                          "Description": "TEXT",
+                                          "Type": "String"
+                                        }
+                                      ]
+                                    }
+                                  ]
+                                },
+                                {
+                                  "Name": "--auth_uri",
+                                  "Description": "The URI for where users are directed to login",
+                                  "Aliases": [],
+                                  "Arguments": [
+                                    {
+                                      "Arguments": [
+                                        {
+                                          "Name": "TEXT",
+                                          "Description": "TEXT",
+                                          "Type": "String"
+                                        }
+                                      ]
+                                    }
+                                  ]
+                                },
+                                {
+                                  "Name": "--token_uri",
+                                  "Description": "The URI for where we request an access token",
+                                  "Aliases": [],
+                                  "Arguments": [
+                                    {
+                                      "Arguments": [
+                                        {
+                                          "Name": "TEXT",
+                                          "Description": "TEXT",
+                                          "Type": "String"
+                                        }
+                                      ]
+                                    }
+                                  ]
+                                },
+                                {
+                                  "Name": "--callback_url",
+                                  "Description": "The URL that the auth server will callback to after authentication of the user",
+                                  "Aliases": [],
+                                  "Arguments": [
+                                    {
+                                      "Arguments": [
+                                        {
+                                          "Name": "TEXT",
+                                          "Description": "TEXT",
+                                          "Type": "String"
+                                        }
+                                      ]
+                                    }
+                                  ]
+                                },
+                                {
+                                  "Name": "--default",
+                                  "Description": "Set this service as the global default",
+                                  "Aliases": [],
+                                  "Arguments": []
+                                },
+                                {
+                                  "Name": "--help",
+                                  "Description": "Show this message and exit",
+                                  "Aliases": [],
+                                  "Arguments": []
+                                }
+                              ],
+                              "Optional": true
+                            },
+                            {
+                              "Arguments": [
+                                {
+                                  "Name": "SERVICE_NAME",
+                                  "Description": "SERVICE_NAME",
+                                  "Type": "String"
+                                }
+                              ],
+                              "Optional": true
+                            }
+                          ]
+                        }
+                      ],
+                      "DontAllowMultiple": true
+                    }
+                  ]
+                },
+                {
+                  "Name": "default",
+                  "Description": "Set the default service for a given service type",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "--project",
+                          "Description": "Sets the service as the default for the current project",
+                          "Aliases": [],
+                          "Arguments": []
+                        },
+                        {
+                          "Name": "--help",
+                          "Description": "Help for cci service default",
+                          "Aliases": [],
+                          "Arguments": []
+                        }
+                      ],
+                      "Optional": true
+                    },
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "SERVICE_TYPE",
+                          "Description": "SERVICE_TYPE",
+                          "Type": "String"
+                        }
+                      ]
+                    },
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "SERVICE_NAME",
+                          "Description": "SERVICE_NAME",
+                          "Type": "String"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "info",
+                  "Description": "Show the details of a connected service",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "--json",
+                          "Description": "Print a json string",
+                          "Aliases": [],
+                          "Arguments": []
+                        },
+                        {
+                          "Name": "--help",
+                          "Description": "Help for cci service info",
+                          "Aliases": [],
+                          "Arguments": []
+                        }
+                      ],
+                      "Optional": true
+                    },
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "SERVICE_TYPE",
+                          "Description": "SERVICE_TYPE",
+                          "Type": "String"
+                        }
+                      ]
+                    },
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "SERVICE_NAME",
+                          "Description": "SERVICE_NAME",
+                          "Type": "String"
+                        }
+                      ],
+                      "Optional": true
+                    }
+                  ]
+                },
+                {
+                  "Name": "list",
+                  "Description": "List services available for configuration and use",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "--plain",
+                          "Description": "Print the table using plain ascii",
+                          "Aliases": [],
+                          "Arguments": []
+                        },
+                        {
+                          "Name": "--json",
+                          "Description": "Print a json string",
+                          "Aliases": [],
+                          "Arguments": []
+                        },
+                        {
+                          "Name": "--help",
+                          "Description": "Help for cci service list",
+                          "Aliases": [],
+                          "Arguments": []
+                        }
+                      ],
+                      "Optional": true
+                    }
+                  ]
+                },
+                {
+                  "Name": "remove",
+                  "Description": "Remove a service",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "--help",
+                          "Description": "Help for cci service remove",
+                          "Aliases": [],
+                          "Arguments": []
+                        }
+                      ],
+                      "Optional": true
+                    },
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "SERVICE_TYPE",
+                          "Description": "SERVICE_TYPE",
+                          "Type": "String"
+                        }
+                      ]
+                    },
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "SERVICE_NAME",
+                          "Description": "SERVICE_NAME",
+                          "Type": "String"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "rename",
+                  "Description": "Rename a service",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "--help",
+                          "Description": "Help for cci service remove",
+                          "Aliases": [],
+                          "Arguments": []
+                        }
+                      ],
+                      "Optional": true
+                    },
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "SERVICE_TYPE",
+                          "Description": "SERVICE_TYPE",
+                          "Type": "String"
+                        }
+                      ]
+                    },
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "SERVICE_NAME",
+                          "Description": "SERVICE_NAME",
+                          "Type": "String"
+                        }
+                      ]
+                    },
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "NEW_NAME",
+                          "Description": "NEW_NAME",
+                          "Type": "String"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "update",
+                  "Description": "Allow users to update attribute values of a particular service",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "-s",
+                          "Description": "Provide values to update the service with directly. Using \u0060--attribute foo var\u0060 will set the \u0027foo\u0027 attribute to a value of \u0027bar\u0027 on the specified service",
+                          "Aliases": [
+                            "--attribute"
+                          ],
+                          "Arguments": [
+                            {
+                              "Arguments": [
+                                {
+                                  "Name": "TEXT TEXT",
+                                  "Description": "TEXT TEXT",
+                                  "Type": "String"
+                                }
+                              ]
+                            }
+                          ]
+                        },
+                        {
+                          "Name": "--help",
+                          "Description": "Help for cci service remove",
+                          "Aliases": [],
+                          "Arguments": []
+                        }
+                      ],
+                      "Optional": true
+                    },
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "SERVICE_TYPE",
+                          "Description": "SERVICE_TYPE",
+                          "Type": "String"
+                        }
+                      ]
+                    },
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "SERVICE_NAME",
+                          "Description": "SERVICE_NAME",
+                          "Type": "String"
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ],
+              "DontAllowMultiple": true
+            }
+          ]
+        },
+        {
+          "Name": "shell",
+          "Description": "Drop into a Python shell",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "--script",
+                  "Description": "Path to a script to run",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "PATH",
+                          "Description": "PATH",
+                          "Type": "FileSystemEntry"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "--python",
+                  "Description": "Python code to run directly",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "TEXT",
+                          "Description": "TEXT",
+                          "Type": "String"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "--help",
+                  "Description": "Show this message and exit",
+                  "Aliases": [],
+                  "Arguments": []
+                }
+              ],
+              "Optional": true
+            }
+          ]
+        },
+        {
+          "Name": "task",
+          "Description": "Commands for finding and running tasks for a project",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "--help",
+                  "Description": "Show this message and exit",
+                  "Aliases": [],
+                  "Arguments": []
+                }
+              ],
+              "Optional": true
+            },
+            {
+              "Arguments": [
+                {
+                  "Name": "doc",
+                  "Description": "Exports RST format documentation for all tasks",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "info",
+                  "Description": "Displays information for a task",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "TASK_NAME",
+                          "Description": "TASK_NAME",
+                          "Type": "String"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "list",
+                  "Description": "List available tasks for the current context",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "run",
+                  "Description": "Runs a task",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "TASK_NAME",
+                          "Description": "TASK_NAME",
+                          "Type": "String"
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ],
+              "DontAllowMultiple": true
+            }
+          ]
+        },
+        {
+          "Name": "version",
+          "Description": "Print the current version of CumulusCI",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "--help",
+                  "Description": "Show this message and exit",
+                  "Aliases": [],
+                  "Arguments": []
+                }
+              ],
+              "Optional": true
+            }
+          ]
+        },
+        {
+          "Name": "error",
+          "Description": "Get or share information about an error",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "--help",
+                  "Description": "Show this message and exit",
+                  "Aliases": [],
+                  "Arguments": []
+                }
+              ],
+              "Optional": true
+            },
+            {
+              "Arguments": [
+                {
+                  "Name": "gist",
+                  "Description": "Creates a GitHub gist from the latest logfile",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "info",
+                  "Description": "Outputs the most recent traceback (if one exists in the most recent logfile)",
+                  "Aliases": [],
+                  "Arguments": []
+                }
+              ],
+              "DontAllowMultiple": true
+            }
+          ]
+        },
+        {
+          "Name": "project",
+          "Description": "Commands for interacting with project repository configurations",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "dependencies",
+                  "Description": "Displays the current dependencies for the project. If the dependencies section has references to other github repositories, the repositories are inspected and a static list of dependencies is created",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "--resolution-strategy",
+                          "Description": "The resolution strategy to use. Defaults to production",
+                          "Aliases": [],
+                          "Arguments": [
+                            {
+                              "Arguments": [
+                                {
+                                  "Name": "TEXT",
+                                  "Description": "TEXT",
+                                  "Type": "String"
+                                }
+                              ]
+                            }
+                          ]
+                        },
+                        {
+                          "Name": "--help",
+                          "Description": "Show this message and exit",
+                          "Aliases": [],
+                          "Arguments": []
+                        }
+                      ],
+                      "Optional": true
+                    }
+                  ]
+                },
+                {
+                  "Name": "info",
+                  "Description": "Display information about the current project\u0027s configuration",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "--help",
+                          "Description": "Show this message and exit",
+                          "Aliases": [],
+                          "Arguments": []
+                        }
+                      ],
+                      "Optional": true
+                    }
+                  ]
+                },
+                {
+                  "Name": "init",
+                  "Description": "Initialize a new project for use with the cumulusci toolbelt",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "--help",
+                          "Description": "Show this message and exit",
+                          "Aliases": [],
+                          "Arguments": []
+                        }
+                      ],
+                      "Optional": true
+                    }
+                  ]
+                }
+              ],
+              "DontAllowMultiple": true
+            }
+          ]
+        }
+      ],
+      "DontAllowMultiple": true
+    }
+  ]
+}

@@ -1,0 +1,291 @@
+{
+  "Comment": "This command info is generated from fig",
+  "Name": "tangram",
+  "Description": "",
+  "Arguments": [
+    {
+      "Arguments": [
+        {
+          "Name": "--help",
+          "Description": "Print help information",
+          "Aliases": [
+            "-h"
+          ],
+          "Arguments": []
+        },
+        {
+          "Name": "--version",
+          "Description": "Print version information",
+          "Aliases": [
+            "-v"
+          ],
+          "Arguments": []
+        }
+      ],
+      "Optional": true
+    },
+    {
+      "Arguments": [
+        {
+          "Name": "app",
+          "Description": "Run the app",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "-c",
+                  "Description": "The path to a config file",
+                  "Aliases": [
+                    "--config"
+                  ],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "CONFIG",
+                          "Description": "CONFIG",
+                          "Type": "FileSystemEntry"
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ],
+              "Optional": true
+            }
+          ]
+        },
+        {
+          "Name": "migrate",
+          "Description": "Migrate your app database",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "--database-url",
+                  "Description": "",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "DATABASE_URL",
+                          "Description": "DATABASE_URL",
+                          "Type": "String"
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ],
+              "Optional": true
+            }
+          ]
+        },
+        {
+          "Name": "predict",
+          "Description": "Make predictions with a model",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "-f",
+                  "Description": "The path to read examples from, defaults to stdin",
+                  "Aliases": [
+                    "--file"
+                  ],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "FILE",
+                          "Description": "FILE",
+                          "Type": "FileSystemEntry"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "-m",
+                  "Description": "The path to the model to make predictions with",
+                  "Aliases": [
+                    "--model"
+                  ],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "MODEL",
+                          "Description": "MODEL",
+                          "Type": "FileSystemEntry"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "-o",
+                  "Description": "The path to write the predictions to, defaults to stdout",
+                  "Aliases": [
+                    "--output"
+                  ],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "OUTPUT",
+                          "Description": "OUTPUT",
+                          "Type": "FileSystemEntry"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "-p",
+                  "Description": "Output probabilities instead of class labels, only relevant for classifier models",
+                  "Aliases": [
+                    "--probabilities"
+                  ],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "PROBABILITIES",
+                          "Description": "PROBABILITIES",
+                          "Type": "String"
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ],
+              "Optional": true
+            }
+          ]
+        },
+        {
+          "Name": "train",
+          "Description": "Train a model",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "-c",
+                  "Description": "The path to a config file",
+                  "Aliases": [
+                    "--config"
+                  ],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "CONFIG",
+                          "Description": "CONFIG",
+                          "Type": "FileSystemEntry"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "-f",
+                  "Description": "The path to your .csv file",
+                  "Aliases": [
+                    "--file"
+                  ],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "FILE",
+                          "Description": "FILE",
+                          "Type": "FileSystemEntry"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "--file-test",
+                  "Description": "The path to your .csv file used for testing",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "FILE_TEST",
+                          "Description": "FILE_TEST",
+                          "Type": "FileSystemEntry"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "--file-train",
+                  "Description": "The path to your .csv file used for training",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "FILE_TRAIN",
+                          "Description": "FILE_TRAIN",
+                          "Type": "FileSystemEntry"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "-o",
+                  "Description": "The path to write the .tangram file to",
+                  "Aliases": [
+                    "--output"
+                  ],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "OUTPUT",
+                          "Description": "OUTPUT",
+                          "Type": "FileSystemEntry"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "-t",
+                  "Description": "The name of the column to predict",
+                  "Aliases": [
+                    "--target"
+                  ],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "TARGET",
+                          "Description": "TARGET",
+                          "Type": "String"
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ],
+              "Optional": true
+            }
+          ]
+        }
+      ],
+      "DontAllowMultiple": true
+    }
+  ]
+}

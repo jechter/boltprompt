@@ -1,0 +1,173 @@
+{
+  "Comment": "This command info is generated from fig",
+  "Name": "rake",
+  "Description": "A ruby build program with capabilities similar to make",
+  "Arguments": [
+    {
+      "Arguments": [
+        {
+          "Name": "-n",
+          "Description": "Do a dry run without executing actions",
+          "Aliases": [
+            "--dry-run"
+          ],
+          "Arguments": []
+        },
+        {
+          "Name": "-h",
+          "Description": "Display this help message",
+          "Aliases": [
+            "-H",
+            "--help"
+          ],
+          "Arguments": []
+        },
+        {
+          "Name": "-I",
+          "Description": "Include LIBDIR in the search path for required modules",
+          "Aliases": [
+            "--libdir"
+          ],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "LIBDIR",
+                  "Description": "LIBDIR",
+                  "Type": "Directory"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "Name": "-P",
+          "Description": "Display the tasks and dependencies, then exit",
+          "Aliases": [
+            "--prereqs"
+          ],
+          "Arguments": []
+        },
+        {
+          "Name": "-q",
+          "Description": "Do not log messages to standard output",
+          "Aliases": [
+            "--quiet"
+          ],
+          "Arguments": []
+        },
+        {
+          "Name": "-f",
+          "Description": "Use FILE as the rakefile",
+          "Aliases": [
+            "--rakefile"
+          ],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "FILE",
+                  "Description": "FILE",
+                  "Type": "FileSystemEntry"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "Name": "-r",
+          "Description": "Require MODULE before executing rakefile",
+          "Aliases": [
+            "--require"
+          ],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "MODULE",
+                  "Description": "MODULE",
+                  "Type": "String"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "Name": "-s",
+          "Description": "Like --quiet, but also suppresses the \u0027in directory\u0027 announcement",
+          "Aliases": [
+            "--silent"
+          ],
+          "Arguments": []
+        },
+        {
+          "Name": "-T",
+          "Description": "Display the tasks and dependencies, then exit",
+          "Aliases": [
+            "--tasks"
+          ],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "pattern",
+                  "Description": "pattern",
+                  "Type": "String"
+                }
+              ],
+              "Optional": true
+            }
+          ]
+        },
+        {
+          "Name": "-t",
+          "Description": "Turn on invoke/execute tracing, enable full backtrace",
+          "Aliases": [
+            "--trace"
+          ],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "output",
+                  "Description": "output",
+                  "Type": "String"
+                }
+              ],
+              "Optional": true
+            }
+          ]
+        },
+        {
+          "Name": "-v",
+          "Description": "Log message to standard output (default)",
+          "Aliases": [
+            "--verbose"
+          ],
+          "Arguments": []
+        },
+        {
+          "Name": "-V",
+          "Description": "Display the program version",
+          "Aliases": [
+            "--version"
+          ],
+          "Arguments": []
+        }
+      ],
+      "Optional": true
+    },
+    {
+      "Arguments": [
+        {
+          "Name": "targets",
+          "Description": "targets",
+          "Type": "CustomArgument",
+          "Extensions": [],
+          "CustomCommand": "rake --tasks --silent"
+        }
+      ],
+      "Optional": true
+    }
+  ]
+}

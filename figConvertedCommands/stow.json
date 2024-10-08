@@ -1,0 +1,204 @@
+{
+  "Comment": "This command info is generated from fig",
+  "Name": "stow",
+  "Description": "Manage farms of symbolic links",
+  "Arguments": [
+    {
+      "Arguments": [
+        {
+          "Name": "-n",
+          "Description": "Do not perform any operations that modify the filesystem; merely show what would happen",
+          "Aliases": [
+            "--no"
+          ],
+          "Arguments": []
+        },
+        {
+          "Name": "-d",
+          "Description": "Set the stow directory to \u0027DIR\u0027 instead of the current directory. This also has the effect of making the default target directory be the parent of \u0027DIR\u0027",
+          "Aliases": [
+            "--dir"
+          ],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "DIR",
+                  "Description": "DIR",
+                  "Type": "Directory"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "Name": "-t",
+          "Description": "Set the target directory to \u0027DIR\u0027 instead of the parent of the stow directory",
+          "Aliases": [
+            "--target"
+          ],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "DIR",
+                  "Description": "DIR",
+                  "Type": "Directory"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "Name": "-v",
+          "Description": "Send verbose output to standard error describing what Stow is doing. Verbosity levels are from 0 to 5; 0 is the default. Using \u0027-v\u0027 or \u0027--verbose\u0027 increases the verbosity by one; using \u0060--verbose=N\u0027 sets it to N",
+          "Aliases": [
+            "--verbose"
+          ],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "level",
+                  "Description": "level",
+                  "Type": "String"
+                },
+                {
+                  "Name": "0",
+                  "Description": "level"
+                },
+                {
+                  "Name": "1",
+                  "Description": "level"
+                },
+                {
+                  "Name": "2",
+                  "Description": "level"
+                },
+                {
+                  "Name": "3",
+                  "Description": "level"
+                },
+                {
+                  "Name": "4",
+                  "Description": "level"
+                },
+                {
+                  "Name": "5",
+                  "Description": "level"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "Name": "-S",
+          "Description": "Stow the packages that follow this option into the target directory. This is the default action and so can be omitted if you are only stowing packages rather than performing a mixture of stow/delete/restow actions",
+          "Aliases": [
+            "--stow"
+          ],
+          "Arguments": []
+        },
+        {
+          "Name": "-D",
+          "Description": "Unstow the packages that follow this option from the target directory rather than installing them",
+          "Aliases": [
+            "--delete"
+          ],
+          "Arguments": []
+        },
+        {
+          "Name": "-R",
+          "Description": "Restow packages (first unstow, then stow again). This is useful for pruning obsolete symlinks from the target tree after updating the software in a package",
+          "Aliases": [
+            "--restow"
+          ],
+          "Arguments": []
+        },
+        {
+          "Name": "--adopt",
+          "Description": "This behaviour is specifically intended to alter the contents of your stow directory.  If you do not want that, this option is not for you",
+          "Aliases": [],
+          "Arguments": []
+        },
+        {
+          "Name": "--no-folding",
+          "Description": "Disable folding of newly stowed directories when stowing, and refolding of newly foldable directories when unstowing",
+          "Aliases": [],
+          "Arguments": []
+        },
+        {
+          "Name": "--ignore",
+          "Description": "Ignore files ending in this Perl regex",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "REGEX",
+                  "Description": "REGEX",
+                  "Type": "String"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "Name": "--defer",
+          "Description": "Don\u0027t stow files beginning with this Perl regex if the file is already stowed to another package",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "REGEX",
+                  "Description": "REGEX",
+                  "Type": "String"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "Name": "--override",
+          "Description": "Force stowing files beginning with this Perl regex if the file is already stowed to another package",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "REGEX",
+                  "Description": "REGEX",
+                  "Type": "String"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "Name": "--dotfiles",
+          "Description": "Enable special handling for \u0027dotfiles\u0027 (files or folders whose name begins with a period) in the package directory. If this option is enabled, Stow will add a preprocessing step for each file or folder whose name begins with \u0027dot - \u0027, and replace the \u0027dot- \u0027 prefix in the name by a period (.). This is useful when Stow is used to manage collections of dotfiles, to avoid having a package directory full of hidden files",
+          "Aliases": [],
+          "Arguments": []
+        },
+        {
+          "Name": "-V",
+          "Description": "Show Stow version, and exit",
+          "Aliases": [
+            "--version"
+          ],
+          "Arguments": []
+        },
+        {
+          "Name": "-h",
+          "Description": "Show Stow command syntax, and exit",
+          "Aliases": [
+            "--help"
+          ],
+          "Arguments": []
+        }
+      ],
+      "Optional": true
+    }
+  ]
+}

@@ -1,0 +1,1256 @@
+{
+  "Comment": "This command info is generated from fig",
+  "Name": "snaplet",
+  "Description": "Create and share PostgreSQL snapshots with schema, data transformation, and preview databases for collaborative development (see: https://docs.snaplet.dev)",
+  "Arguments": [
+    {
+      "Arguments": [
+        {
+          "Name": "--help",
+          "Description": "Show help for snaplet",
+          "Aliases": [
+            "-h"
+          ],
+          "Arguments": []
+        },
+        {
+          "Name": "--version",
+          "Description": "Show version number",
+          "Aliases": [
+            "-v"
+          ],
+          "Arguments": []
+        }
+      ],
+      "Optional": true
+    },
+    {
+      "Arguments": [
+        {
+          "Name": "auth",
+          "Description": "Manage auth state",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "login",
+                  "Description": "Login with an access token",
+                  "Aliases": [
+                    "setup"
+                  ],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "access-token",
+                          "Description": "access-token",
+                          "Type": "String"
+                        }
+                      ],
+                      "Optional": true
+                    }
+                  ]
+                }
+              ],
+              "DontAllowMultiple": true
+            }
+          ]
+        },
+        {
+          "Name": "config",
+          "Description": "Manage configuration",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "generate",
+                  "Description": "Generate transform files",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "--dry-run",
+                          "Description": "",
+                          "Aliases": [],
+                          "Arguments": []
+                        },
+                        {
+                          "Name": "--type",
+                          "Description": "",
+                          "Aliases": [
+                            "-t"
+                          ],
+                          "Arguments": [
+                            {
+                              "Arguments": [
+                                {
+                                  "Name": "String",
+                                  "Description": "",
+                                  "Type": "String"
+                                },
+                                {
+                                  "Name": "typedefs",
+                                  "Description": ""
+                                },
+                                {
+                                  "Name": "transform",
+                                  "Description": ""
+                                },
+                                {
+                                  "Name": "keys",
+                                  "Description": ""
+                                },
+                                {
+                                  "Name": "seed",
+                                  "Description": ""
+                                }
+                              ]
+                            }
+                          ]
+                        }
+                      ],
+                      "Optional": true
+                    }
+                  ]
+                },
+                {
+                  "Name": "list",
+                  "Description": "List config variables",
+                  "Aliases": [
+                    "ls"
+                  ],
+                  "Arguments": []
+                },
+                {
+                  "Name": "pull",
+                  "Description": "Pull cloud project config to local",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "--type",
+                          "Description": "",
+                          "Aliases": [
+                            "-t"
+                          ],
+                          "Arguments": [
+                            {
+                              "Arguments": [
+                                {
+                                  "Name": "String",
+                                  "Description": "",
+                                  "Type": "String"
+                                },
+                                {
+                                  "Name": "typedefs",
+                                  "Description": ""
+                                },
+                                {
+                                  "Name": "transform",
+                                  "Description": ""
+                                },
+                                {
+                                  "Name": "keys",
+                                  "Description": ""
+                                },
+                                {
+                                  "Name": "seed",
+                                  "Description": ""
+                                }
+                              ]
+                            }
+                          ]
+                        }
+                      ],
+                      "Optional": true
+                    }
+                  ]
+                },
+                {
+                  "Name": "push",
+                  "Description": "Push local project config to cloud",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "--type",
+                          "Description": "",
+                          "Aliases": [
+                            "-t"
+                          ],
+                          "Arguments": [
+                            {
+                              "Arguments": [
+                                {
+                                  "Name": "String",
+                                  "Description": "",
+                                  "Type": "String"
+                                },
+                                {
+                                  "Name": "typedefs",
+                                  "Description": ""
+                                },
+                                {
+                                  "Name": "transform",
+                                  "Description": ""
+                                },
+                                {
+                                  "Name": "keys",
+                                  "Description": ""
+                                },
+                                {
+                                  "Name": "seed",
+                                  "Description": ""
+                                }
+                              ]
+                            }
+                          ]
+                        }
+                      ],
+                      "Optional": true
+                    }
+                  ]
+                },
+                {
+                  "Name": "setup",
+                  "Description": "Setup local project configuration",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "--generate",
+                          "Description": "",
+                          "Aliases": [],
+                          "Arguments": []
+                        },
+                        {
+                          "Name": "--no-generate",
+                          "Description": "",
+                          "Aliases": [],
+                          "Arguments": []
+                        },
+                        {
+                          "Name": "--yes",
+                          "Description": "Automatically accept any prompt, useful for scripts",
+                          "Aliases": [],
+                          "Arguments": []
+                        }
+                      ],
+                      "Optional": true
+                    },
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "targetDatabaseUrl",
+                          "Description": "targetDatabaseUrl",
+                          "Type": "String"
+                        }
+                      ],
+                      "Optional": true
+                    }
+                  ]
+                }
+              ],
+              "DontAllowMultiple": true
+            }
+          ]
+        },
+        {
+          "Name": "database",
+          "Description": "Manage preview database",
+          "Aliases": [
+            "db"
+          ],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "cache",
+                  "Description": "Cache a snapshot into the preview database server",
+                  "Aliases": [
+                    "ca"
+                  ],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "--tags",
+                          "Description": "Filter snapshots by tags",
+                          "Aliases": [],
+                          "Arguments": [
+                            {
+                              "Arguments": [
+                                {
+                                  "Name": "tags-list",
+                                  "Description": "tags-list",
+                                  "Type": "String"
+                                }
+                              ]
+                            }
+                          ]
+                        },
+                        {
+                          "Name": "--latest",
+                          "Description": "Select the latest snapshot captured to cache in the preview database server",
+                          "Aliases": [],
+                          "Arguments": []
+                        },
+                        {
+                          "Name": "--clear",
+                          "Description": "Remove the snapshot from the preview database server cache",
+                          "Aliases": [],
+                          "Arguments": []
+                        }
+                      ],
+                      "Optional": true
+                    },
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "snapshot",
+                          "Description": "snapshot",
+                          "Type": "CustomArgument",
+                          "Extensions": [],
+                          "CustomCommand": "snaplet snapshot ls"
+                        }
+                      ],
+                      "Optional": true
+                    }
+                  ]
+                },
+                {
+                  "Name": "create",
+                  "Description": "Create a preview database from a snapshot",
+                  "Aliases": [
+                    "c"
+                  ],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "--tags",
+                          "Description": "Filter snapshots by tags",
+                          "Aliases": [],
+                          "Arguments": [
+                            {
+                              "Arguments": [
+                                {
+                                  "Name": "tags-list",
+                                  "Description": "tags-list",
+                                  "Type": "String"
+                                }
+                              ]
+                            }
+                          ]
+                        },
+                        {
+                          "Name": "--latest",
+                          "Description": "Restore the latest snapshot",
+                          "Aliases": [],
+                          "Arguments": []
+                        },
+                        {
+                          "Name": "--git",
+                          "Description": "Infer the database name from the current git branch",
+                          "Aliases": [],
+                          "Arguments": []
+                        },
+                        {
+                          "Name": "--no-snapshot",
+                          "Description": "Create an empty database not based on a snapshot",
+                          "Aliases": [],
+                          "Arguments": []
+                        },
+                        {
+                          "Name": "--force",
+                          "Description": "Force the database creation, it will drop and recreate the existing database if present",
+                          "Aliases": [],
+                          "Arguments": []
+                        }
+                      ],
+                      "Optional": true
+                    },
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "database-name",
+                          "Description": "database-name",
+                          "Type": "String"
+                        }
+                      ]
+                    },
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "snapshot",
+                          "Description": "snapshot",
+                          "Type": "CustomArgument",
+                          "Extensions": [],
+                          "CustomCommand": "snaplet snapshot ls"
+                        }
+                      ],
+                      "Optional": true
+                    }
+                  ]
+                },
+                {
+                  "Name": "drop",
+                  "Description": "Drop a preview database",
+                  "Aliases": [
+                    "delete",
+                    "d"
+                  ],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "--git",
+                          "Description": "Infer the database name from the current git branch",
+                          "Aliases": [],
+                          "Arguments": []
+                        }
+                      ],
+                      "Optional": true
+                    },
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "database-name",
+                          "Description": "database-name",
+                          "Type": "CustomArgument",
+                          "Extensions": [],
+                          "CustomCommand": "snaplet database ls"
+                        }
+                      ],
+                      "Optional": true
+                    }
+                  ]
+                },
+                {
+                  "Name": "url",
+                  "Description": "Show a preview database url",
+                  "Aliases": [
+                    "u"
+                  ],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "--git",
+                          "Description": "Infer the database name from the current git branch",
+                          "Aliases": [],
+                          "Arguments": []
+                        }
+                      ],
+                      "Optional": true
+                    },
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "database-name",
+                          "Description": "database-name",
+                          "Type": "CustomArgument",
+                          "Extensions": [],
+                          "CustomCommand": "snaplet database ls"
+                        }
+                      ],
+                      "Optional": true
+                    }
+                  ]
+                },
+                {
+                  "Name": "destroy",
+                  "Description": "Destroy the database server",
+                  "Aliases": [
+                    "ds"
+                  ],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "--yes",
+                          "Description": "Automatically accept any prompt, useful for scripts",
+                          "Aliases": [],
+                          "Arguments": []
+                        }
+                      ],
+                      "Optional": true
+                    }
+                  ]
+                },
+                {
+                  "Name": "setup",
+                  "Description": "Create a preview database server",
+                  "Aliases": [
+                    "s"
+                  ],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "--region",
+                          "Description": "Fly.io region where the preview database server should be created",
+                          "Aliases": [],
+                          "Arguments": [
+                            {
+                              "Arguments": [
+                                {
+                                  "Name": "String",
+                                  "Description": "",
+                                  "Type": "String"
+                                },
+                                {
+                                  "Name": "ams",
+                                  "Description": "Amsterdam, Netherlands"
+                                },
+                                {
+                                  "Name": "cdg",
+                                  "Description": "Paris, France"
+                                },
+                                {
+                                  "Name": "den",
+                                  "Description": "Denver, Colorado (US)"
+                                },
+                                {
+                                  "Name": "dfw",
+                                  "Description": "Dallas, Texas (US)"
+                                },
+                                {
+                                  "Name": "ewr",
+                                  "Description": "Secaucus, NJ (US)"
+                                },
+                                {
+                                  "Name": "fra",
+                                  "Description": "Frankfurt, Germany"
+                                },
+                                {
+                                  "Name": "gru",
+                                  "Description": "S\u00E3o Paulo"
+                                },
+                                {
+                                  "Name": "hkg",
+                                  "Description": "Hong Kong, Hong Kong"
+                                },
+                                {
+                                  "Name": "iad",
+                                  "Description": "Ashburn, Virginia (US)"
+                                },
+                                {
+                                  "Name": "jnb",
+                                  "Description": "Johannesburg, South Africa"
+                                },
+                                {
+                                  "Name": "lax",
+                                  "Description": "Los Angeles, California (US)"
+                                },
+                                {
+                                  "Name": "lhr",
+                                  "Description": "London, United Kingdom"
+                                },
+                                {
+                                  "Name": "maa",
+                                  "Description": "Chennai (Madras), India"
+                                },
+                                {
+                                  "Name": "mad",
+                                  "Description": "Madrid, Spain"
+                                },
+                                {
+                                  "Name": "mia",
+                                  "Description": "Miami, Florida (US)"
+                                },
+                                {
+                                  "Name": "nrt",
+                                  "Description": "Tokyo, Japan"
+                                },
+                                {
+                                  "Name": "ord",
+                                  "Description": "Chicago, Illinois (US)"
+                                },
+                                {
+                                  "Name": "otp",
+                                  "Description": "Bucharest, Romania"
+                                },
+                                {
+                                  "Name": "scl",
+                                  "Description": "Santiago, Chile"
+                                },
+                                {
+                                  "Name": "sea",
+                                  "Description": "Seattle, Washington (US)"
+                                },
+                                {
+                                  "Name": "sin",
+                                  "Description": "Singapore"
+                                },
+                                {
+                                  "Name": "sjc",
+                                  "Description": "Sunnyvale, California (US)"
+                                },
+                                {
+                                  "Name": "syd",
+                                  "Description": "Sydney, Australia"
+                                },
+                                {
+                                  "Name": "waw",
+                                  "Description": "Warsaw, Poland"
+                                },
+                                {
+                                  "Name": "yul",
+                                  "Description": "Montreal, Canada"
+                                },
+                                {
+                                  "Name": "yyz",
+                                  "Description": "Toronto, Canada"
+                                }
+                              ]
+                            }
+                          ]
+                        }
+                      ],
+                      "Optional": true
+                    }
+                  ]
+                },
+                {
+                  "Name": "list",
+                  "Description": "List preview databases",
+                  "Aliases": [
+                    "ls"
+                  ],
+                  "Arguments": []
+                }
+              ],
+              "DontAllowMultiple": true
+            }
+          ]
+        },
+        {
+          "Name": "discord",
+          "Description": "Open the Snaplet Discord chat window in your browser",
+          "Aliases": [
+            "chat"
+          ],
+          "Arguments": []
+        },
+        {
+          "Name": "documentation",
+          "Description": "Opens the Snaplet Documentation in your browser",
+          "Aliases": [
+            "docs"
+          ],
+          "Arguments": []
+        },
+        {
+          "Name": "project",
+          "Description": "Manage project configuration",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "create",
+                  "Description": "Create a new project",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "--team",
+                          "Description": "",
+                          "Aliases": [
+                            "-t"
+                          ],
+                          "Arguments": [
+                            {
+                              "Arguments": [
+                                {
+                                  "Name": "team-name",
+                                  "Description": "team-name",
+                                  "Type": "String"
+                                }
+                              ]
+                            }
+                          ]
+                        }
+                      ],
+                      "Optional": true
+                    },
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "name",
+                          "Description": "name",
+                          "Type": "String"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "invite",
+                  "Description": "Create an invite URL for this project",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "setup",
+                  "Description": "Set up a project",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "project-id",
+                          "Description": "project-id",
+                          "Type": "String"
+                        }
+                      ],
+                      "Optional": true
+                    }
+                  ]
+                }
+              ],
+              "DontAllowMultiple": true
+            }
+          ]
+        },
+        {
+          "Name": "proxy",
+          "Description": "Start a database proxy",
+          "Aliases": [
+            "dev"
+          ],
+          "Arguments": []
+        },
+        {
+          "Name": "seed",
+          "Description": "Populates an empty database with generated data",
+          "Aliases": [
+            "gen",
+            "generate"
+          ],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "-i",
+                  "Description": "Show interactive prompts to customise seeding",
+                  "Aliases": [
+                    "--interactive"
+                  ],
+                  "Arguments": []
+                },
+                {
+                  "Name": "-n",
+                  "Description": "",
+                  "Aliases": [
+                    "--entriesPerTable"
+                  ],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "number",
+                          "Description": "number",
+                          "Type": "String"
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ],
+              "Optional": true
+            }
+          ]
+        },
+        {
+          "Name": "snapshot",
+          "Description": "Manage snapshots",
+          "Aliases": [
+            "ss"
+          ],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "capture",
+                  "Description": "Capture a new snapshot",
+                  "Aliases": [
+                    "c"
+                  ],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "--env",
+                          "Description": "Environment to use when capturing the snapshot",
+                          "Aliases": [
+                            "--environment"
+                          ],
+                          "Arguments": [
+                            {
+                              "Arguments": [
+                                {
+                                  "Name": "environment-name",
+                                  "Description": "environment-name",
+                                  "Type": "String"
+                                },
+                                {
+                                  "Name": "cloud",
+                                  "Description": "environment-name"
+                                },
+                                {
+                                  "Name": "local",
+                                  "Description": "environment-name"
+                                }
+                              ]
+                            }
+                          ]
+                        },
+                        {
+                          "Name": "-m",
+                          "Description": "Attach a message to the snapshot",
+                          "Aliases": [
+                            "--message"
+                          ],
+                          "Arguments": [
+                            {
+                              "Arguments": [
+                                {
+                                  "Name": "message",
+                                  "Description": "message",
+                                  "Type": "String"
+                                }
+                              ]
+                            }
+                          ]
+                        },
+                        {
+                          "Name": "--subset-path",
+                          "Description": "Path to a subset config file",
+                          "Aliases": [
+                            "--subset"
+                          ],
+                          "Arguments": [
+                            {
+                              "Arguments": [
+                                {
+                                  "Name": "path",
+                                  "Description": "path",
+                                  "Type": "FileSystemEntry"
+                                }
+                              ]
+                            }
+                          ]
+                        },
+                        {
+                          "Name": "--tags",
+                          "Description": "Attach tags to the snapshot",
+                          "Aliases": [],
+                          "Arguments": [
+                            {
+                              "Arguments": [
+                                {
+                                  "Name": "tags-list",
+                                  "Description": "tags-list",
+                                  "Type": "String"
+                                }
+                              ]
+                            }
+                          ]
+                        },
+                        {
+                          "Name": "-t",
+                          "Description": "Transformation mode to apply to the snapshot",
+                          "Aliases": [
+                            "--transform-mode"
+                          ],
+                          "Arguments": [
+                            {
+                              "Arguments": [
+                                {
+                                  "Name": "transformation-mode",
+                                  "Description": "transformation-mode",
+                                  "Type": "String"
+                                },
+                                {
+                                  "Name": "strict",
+                                  "Description": "transformation-mode"
+                                },
+                                {
+                                  "Name": "unsafe",
+                                  "Description": "transformation-mode"
+                                },
+                                {
+                                  "Name": "auto",
+                                  "Description": "transformation-mode"
+                                }
+                              ]
+                            }
+                          ]
+                        }
+                      ],
+                      "Optional": true
+                    },
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "destination-path",
+                          "Description": "destination-path",
+                          "Type": "Directory"
+                        }
+                      ],
+                      "Optional": true
+                    }
+                  ]
+                },
+                {
+                  "Name": "create",
+                  "Description": "Create a snapshot in cloud",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "--json",
+                          "Description": "",
+                          "Aliases": [],
+                          "Arguments": []
+                        }
+                      ],
+                      "Optional": true
+                    }
+                  ]
+                },
+                {
+                  "Name": "list",
+                  "Description": "List all snapshots",
+                  "Aliases": [
+                    "ls"
+                  ],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "--tags",
+                          "Description": "Filter snapshots by tags",
+                          "Aliases": [],
+                          "Arguments": [
+                            {
+                              "Arguments": [
+                                {
+                                  "Name": "tags-list",
+                                  "Description": "tags-list",
+                                  "Type": "String"
+                                }
+                              ]
+                            }
+                          ]
+                        }
+                      ],
+                      "Optional": true
+                    }
+                  ]
+                },
+                {
+                  "Name": "restore",
+                  "Description": "Restore a snapshot",
+                  "Aliases": [
+                    "r"
+                  ],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "data",
+                          "Description": "Restore data on the database (skip with --no-data)",
+                          "Aliases": [
+                            "--no-data"
+                          ],
+                          "Arguments": []
+                        },
+                        {
+                          "Name": "schema",
+                          "Description": "Restore schema on the database (skip with --no-schema)",
+                          "Aliases": [
+                            "--no-schema"
+                          ],
+                          "Arguments": []
+                        },
+                        {
+                          "Name": "reset",
+                          "Description": "Drop destination database before restoring schemas (skip with --no-reset)",
+                          "Aliases": [
+                            "--no-reset"
+                          ],
+                          "Arguments": []
+                        },
+                        {
+                          "Name": "--tags",
+                          "Description": "Filter snapshots by tags",
+                          "Aliases": [],
+                          "Arguments": [
+                            {
+                              "Arguments": [
+                                {
+                                  "Name": "tags-list",
+                                  "Description": "tags-list",
+                                  "Type": "String"
+                                }
+                              ]
+                            }
+                          ]
+                        },
+                        {
+                          "Name": "--latest",
+                          "Description": "Restore the latest snapshot",
+                          "Aliases": [],
+                          "Arguments": []
+                        },
+                        {
+                          "Name": "-y",
+                          "Description": "Performs a restore without a confirmation message",
+                          "Aliases": [
+                            "--yes"
+                          ],
+                          "Arguments": []
+                        },
+                        {
+                          "Name": "--schema-only",
+                          "Description": "Skip data, only restore schema",
+                          "Aliases": [],
+                          "Arguments": []
+                        },
+                        {
+                          "Name": "--data-only",
+                          "Description": "Restore data only (keep the current schema and indexes)",
+                          "Aliases": [],
+                          "Arguments": []
+                        }
+                      ],
+                      "Optional": true
+                    },
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "snapshot-name",
+                          "Description": "snapshot-name",
+                          "Type": "CustomArgument",
+                          "Extensions": [],
+                          "CustomCommand": "snaplet snapshot ls"
+                        }
+                      ],
+                      "Optional": true
+                    }
+                  ]
+                },
+                {
+                  "Name": "share",
+                  "Description": "Share a snapshot",
+                  "Aliases": [
+                    "upload"
+                  ],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "--no-encrypt",
+                          "Description": "Disable encryption",
+                          "Aliases": [],
+                          "Arguments": []
+                        },
+                        {
+                          "Name": "--tags",
+                          "Description": "Filter snapshots by tags",
+                          "Aliases": [],
+                          "Arguments": [
+                            {
+                              "Arguments": [
+                                {
+                                  "Name": "tags-list",
+                                  "Description": "tags-list",
+                                  "Type": "String"
+                                }
+                              ]
+                            }
+                          ]
+                        },
+                        {
+                          "Name": "--latest",
+                          "Description": "Share the latest snapshot",
+                          "Aliases": [],
+                          "Arguments": []
+                        }
+                      ],
+                      "Optional": true
+                    },
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "snapshot-name",
+                          "Description": "snapshot-name",
+                          "Type": "CustomArgument",
+                          "Extensions": [],
+                          "CustomCommand": "snaplet snapshot ls"
+                        }
+                      ],
+                      "Optional": true
+                    }
+                  ]
+                },
+                {
+                  "Name": "sample",
+                  "Description": "Create a sample of a database",
+                  "Aliases": [
+                    "s"
+                  ],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "--env",
+                          "Description": "Environment to use when slicing the snapshot",
+                          "Aliases": [
+                            "--environment"
+                          ],
+                          "Arguments": [
+                            {
+                              "Arguments": [
+                                {
+                                  "Name": "environment-name",
+                                  "Description": "environment-name",
+                                  "Type": "String"
+                                },
+                                {
+                                  "Name": "cloud",
+                                  "Description": "environment-name"
+                                },
+                                {
+                                  "Name": "local",
+                                  "Description": "environment-name"
+                                }
+                              ]
+                            }
+                          ]
+                        },
+                        {
+                          "Name": "--sample-config-path",
+                          "Description": "Path to a sample config file",
+                          "Aliases": [
+                            "--subset-path"
+                          ],
+                          "Arguments": [
+                            {
+                              "Arguments": [
+                                {
+                                  "Name": "FileSystemEntry",
+                                  "Description": "",
+                                  "Type": "FileSystemEntry"
+                                }
+                              ]
+                            }
+                          ]
+                        },
+                        {
+                          "Name": "-f",
+                          "Description": "Force overwrite existing sample file",
+                          "Aliases": [
+                            "--force"
+                          ],
+                          "Arguments": []
+                        }
+                      ],
+                      "Optional": true
+                    },
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "destination-path",
+                          "Description": "destination-path",
+                          "Type": "Directory"
+                        }
+                      ],
+                      "Optional": true
+                    }
+                  ]
+                }
+              ],
+              "DontAllowMultiple": true
+            }
+          ]
+        },
+        {
+          "Name": "subset",
+          "Description": "Manage subsetting",
+          "Aliases": [
+            "subsetting"
+          ],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "setup",
+                  "Description": "Configure subsetting",
+                  "Aliases": [
+                    "configure",
+                    "config"
+                  ],
+                  "Arguments": []
+                }
+              ],
+              "DontAllowMultiple": true
+            }
+          ]
+        },
+        {
+          "Name": "team",
+          "Description": "Manage team configuration",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "create",
+                  "Description": "Create a new team",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "team-name",
+                          "Description": "team-name",
+                          "Type": "String"
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ],
+              "DontAllowMultiple": true
+            }
+          ]
+        },
+        {
+          "Name": "upgrade",
+          "Description": "Upgrade this binary",
+          "Aliases": [],
+          "Arguments": []
+        },
+        {
+          "Name": "completion",
+          "Description": "Generate completion script",
+          "Aliases": [],
+          "Arguments": []
+        }
+      ],
+      "DontAllowMultiple": true
+    }
+  ]
+}

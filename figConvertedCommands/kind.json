@@ -1,0 +1,591 @@
+{
+  "Comment": "This command info is generated from fig",
+  "Name": "kind",
+  "Description": "Kubernetes IN Docker - local clusters for testing Kubernetes",
+  "Arguments": [
+    {
+      "Arguments": [
+        {
+          "Name": "-h",
+          "Description": "Help for kind",
+          "Aliases": [
+            "--help"
+          ],
+          "Arguments": []
+        },
+        {
+          "Name": "-q",
+          "Description": "Silence all stderr output",
+          "Aliases": [
+            "--quiet"
+          ],
+          "Arguments": []
+        },
+        {
+          "Name": "-v",
+          "Description": "Info log verbosity, higher value produces more output",
+          "Aliases": [
+            "--verbosity"
+          ],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "int",
+                  "Description": "int",
+                  "Type": "String"
+                }
+              ]
+            }
+          ]
+        }
+      ],
+      "Optional": true
+    },
+    {
+      "Arguments": [
+        {
+          "Name": "Build",
+          "Description": "Build one of [node-image]",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "node-image",
+                  "Description": "Builds a node image",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "--arch",
+                          "Description": "Architecture to build for, defaults to the host architecture",
+                          "Aliases": [],
+                          "Arguments": [
+                            {
+                              "Arguments": [
+                                {
+                                  "Name": "architecture",
+                                  "Description": "architecture",
+                                  "Type": "String"
+                                }
+                              ]
+                            }
+                          ]
+                        },
+                        {
+                          "Name": "--base-image",
+                          "Description": "Base image to use for the node image",
+                          "Aliases": [],
+                          "Arguments": [
+                            {
+                              "Arguments": [
+                                {
+                                  "Name": "base image",
+                                  "Description": "base image",
+                                  "Type": "String"
+                                }
+                              ]
+                            }
+                          ]
+                        },
+                        {
+                          "Name": "--image",
+                          "Description": "Name:tag of the resulting image to be built",
+                          "Aliases": [],
+                          "Arguments": [
+                            {
+                              "Arguments": [
+                                {
+                                  "Name": "name:tag",
+                                  "Description": "name:tag",
+                                  "Type": "String"
+                                }
+                              ]
+                            }
+                          ]
+                        },
+                        {
+                          "Name": "--kube-root",
+                          "Description": "Path to the Kubernetes source directory",
+                          "Aliases": [],
+                          "Arguments": [
+                            {
+                              "Arguments": [
+                                {
+                                  "Name": "path",
+                                  "Description": "path",
+                                  "Type": "String"
+                                }
+                              ]
+                            }
+                          ]
+                        },
+                        {
+                          "Name": "--type",
+                          "Description": "Type of node image to build",
+                          "Aliases": [],
+                          "Arguments": [
+                            {
+                              "Arguments": [
+                                {
+                                  "Name": "type",
+                                  "Description": "type",
+                                  "Type": "String"
+                                }
+                              ]
+                            }
+                          ]
+                        }
+                      ],
+                      "Optional": true
+                    }
+                  ]
+                }
+              ],
+              "DontAllowMultiple": true
+            }
+          ]
+        },
+        {
+          "Name": "create",
+          "Description": "Creates a cluster",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "cluster",
+                  "Description": "Creates a cluster",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "--config",
+                          "Description": "Path to a kind config file",
+                          "Aliases": [],
+                          "Arguments": []
+                        },
+                        {
+                          "Name": "--image",
+                          "Description": "Node docker image to use for booting the cluster",
+                          "Aliases": [],
+                          "Arguments": []
+                        },
+                        {
+                          "Name": "--kubeconfig",
+                          "Description": "Sets kubeconfig path instead of $KUBECONFIG or $HOME/.kube/config",
+                          "Aliases": [],
+                          "Arguments": []
+                        },
+                        {
+                          "Name": "--name",
+                          "Description": "Cluster name",
+                          "Aliases": [],
+                          "Arguments": []
+                        },
+                        {
+                          "Name": "--retain",
+                          "Description": "Retain nodes for debugging when cluster creation fails",
+                          "Aliases": [],
+                          "Arguments": []
+                        },
+                        {
+                          "Name": "--wait",
+                          "Description": "Wait for control-plane node to be ready",
+                          "Aliases": [],
+                          "Arguments": []
+                        }
+                      ],
+                      "Optional": true
+                    }
+                  ]
+                }
+              ],
+              "DontAllowMultiple": true
+            }
+          ]
+        },
+        {
+          "Name": "completion",
+          "Description": "Generates shell completion scripts",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "bash",
+                  "Description": "Output shell completions for bash",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "fish",
+                  "Description": "Output shell completions for fish",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "zsh",
+                  "Description": "Output shell completions for zsh",
+                  "Aliases": [],
+                  "Arguments": []
+                }
+              ],
+              "DontAllowMultiple": true
+            }
+          ]
+        },
+        {
+          "Name": "delete",
+          "Description": "Deletes one or more clusters",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "cluster",
+                  "Description": "Delete Cluster",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "--name",
+                          "Description": "Cluster name",
+                          "Aliases": [],
+                          "Arguments": [
+                            {
+                              "Arguments": [
+                                {
+                                  "Name": "cluster name",
+                                  "Description": "cluster name",
+                                  "Type": "CustomArgument",
+                                  "Extensions": [],
+                                  "CustomCommand": "kind get clusters"
+                                }
+                              ]
+                            }
+                          ]
+                        }
+                      ],
+                      "Optional": true
+                    }
+                  ]
+                },
+                {
+                  "Name": "clusters",
+                  "Description": "Delete Clusters",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "-A",
+                          "Description": "Delete all clusters",
+                          "Aliases": [
+                            "--all"
+                          ],
+                          "Arguments": []
+                        },
+                        {
+                          "Name": "--kubeconfig",
+                          "Description": "Sets kubeconfig path instead of $KUBECONFIG or $HOME/.kube/config",
+                          "Aliases": [],
+                          "Arguments": []
+                        }
+                      ],
+                      "Optional": true
+                    }
+                  ]
+                }
+              ],
+              "DontAllowMultiple": true
+            }
+          ]
+        },
+        {
+          "Name": "export",
+          "Description": "Exports a cluster\u0027s kubeconfig",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "kubeconfig",
+                  "Description": "Exports a cluster\u0027s kubeconfig",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "--name",
+                          "Description": "Cluster name",
+                          "Aliases": [],
+                          "Arguments": []
+                        },
+                        {
+                          "Name": "--internal",
+                          "Description": "Use internal address instead of externalt",
+                          "Aliases": [],
+                          "Arguments": []
+                        },
+                        {
+                          "Name": "--kubeconfig",
+                          "Description": "Sets kubeconfig path instead of $KUBECONFIG or $HOME/.kube/config",
+                          "Aliases": [],
+                          "Arguments": []
+                        }
+                      ],
+                      "Optional": true
+                    }
+                  ]
+                },
+                {
+                  "Name": "logs",
+                  "Description": "Exports logs to a tempdir or [output-dir] if specified",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "--name",
+                          "Description": "Cluster name",
+                          "Aliases": [],
+                          "Arguments": [
+                            {
+                              "Arguments": [
+                                {
+                                  "Name": "cluster name",
+                                  "Description": "cluster name",
+                                  "Type": "CustomArgument",
+                                  "Extensions": [],
+                                  "CustomCommand": "kind get clusters"
+                                }
+                              ]
+                            }
+                          ]
+                        }
+                      ],
+                      "Optional": true
+                    }
+                  ]
+                }
+              ],
+              "DontAllowMultiple": true
+            }
+          ]
+        },
+        {
+          "Name": "get",
+          "Description": "Gets one of [clusters, nodes, kubeconfig]",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "clusters",
+                  "Description": "Lists existing kind clusters by their name",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "kubeconfig",
+                  "Description": "Prints cluster kubeconfig",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "--name",
+                          "Description": "Cluster name",
+                          "Aliases": [],
+                          "Arguments": [
+                            {
+                              "Arguments": [
+                                {
+                                  "Name": "cluster name",
+                                  "Description": "cluster name",
+                                  "Type": "CustomArgument",
+                                  "Extensions": [],
+                                  "CustomCommand": "kind get clusters"
+                                }
+                              ]
+                            }
+                          ]
+                        },
+                        {
+                          "Name": "--internal",
+                          "Description": "Use internal address instead of external",
+                          "Aliases": [],
+                          "Arguments": []
+                        }
+                      ],
+                      "Optional": true
+                    }
+                  ]
+                },
+                {
+                  "Name": "nodes",
+                  "Description": "Lists existing kind nodes by their name",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "-A",
+                          "Description": "List all nodes",
+                          "Aliases": [
+                            "--all"
+                          ],
+                          "Arguments": []
+                        },
+                        {
+                          "Name": "--name",
+                          "Description": "Cluster name",
+                          "Aliases": [],
+                          "Arguments": [
+                            {
+                              "Arguments": [
+                                {
+                                  "Name": "cluster name",
+                                  "Description": "cluster name",
+                                  "Type": "CustomArgument",
+                                  "Extensions": [],
+                                  "CustomCommand": "kind get clusters"
+                                }
+                              ]
+                            }
+                          ]
+                        }
+                      ],
+                      "Optional": true
+                    }
+                  ]
+                }
+              ],
+              "DontAllowMultiple": true
+            }
+          ]
+        },
+        {
+          "Name": "load",
+          "Description": "Loads images into node from an archive or image on host",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "docker-image",
+                  "Description": "Loads docker images from host into all or specified nodes by name",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "--name",
+                          "Description": "Cluster name",
+                          "Aliases": [],
+                          "Arguments": [
+                            {
+                              "Arguments": [
+                                {
+                                  "Name": "cluster name",
+                                  "Description": "cluster name",
+                                  "Type": "CustomArgument",
+                                  "Extensions": [],
+                                  "CustomCommand": "kind get clusters"
+                                }
+                              ]
+                            }
+                          ]
+                        },
+                        {
+                          "Name": "--nodes",
+                          "Description": "Comma separated list of nodes to load images into",
+                          "Aliases": [],
+                          "Arguments": [
+                            {
+                              "Arguments": [
+                                {
+                                  "Name": "nodes",
+                                  "Description": "nodes",
+                                  "Type": "CustomArgument",
+                                  "Extensions": [],
+                                  "CustomCommand": "kind get nodes -A"
+                                }
+                              ]
+                            }
+                          ]
+                        }
+                      ],
+                      "Optional": true
+                    }
+                  ]
+                },
+                {
+                  "Name": "image-archive",
+                  "Description": "Loads docker images from archive into all or specified nodes by name",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "--name",
+                          "Description": "Cluster name",
+                          "Aliases": [],
+                          "Arguments": [
+                            {
+                              "Arguments": [
+                                {
+                                  "Name": "cluster name",
+                                  "Description": "cluster name",
+                                  "Type": "CustomArgument",
+                                  "Extensions": [],
+                                  "CustomCommand": "kind get clusters"
+                                }
+                              ]
+                            }
+                          ]
+                        },
+                        {
+                          "Name": "--nodes",
+                          "Description": "Comma separated list of nodes to load images into",
+                          "Aliases": [],
+                          "Arguments": [
+                            {
+                              "Arguments": [
+                                {
+                                  "Name": "nodes",
+                                  "Description": "nodes",
+                                  "Type": "CustomArgument",
+                                  "Extensions": [],
+                                  "CustomCommand": "kind get nodes -A"
+                                }
+                              ]
+                            }
+                          ]
+                        }
+                      ],
+                      "Optional": true
+                    }
+                  ]
+                }
+              ],
+              "DontAllowMultiple": true
+            }
+          ]
+        },
+        {
+          "Name": "version",
+          "Description": "Prints the kind CLI version",
+          "Aliases": [],
+          "Arguments": []
+        }
+      ],
+      "DontAllowMultiple": true
+    }
+  ]
+}

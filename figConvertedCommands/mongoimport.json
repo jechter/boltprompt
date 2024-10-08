@@ -1,0 +1,656 @@
+{
+  "Comment": "This command info is generated from fig",
+  "Name": "mongoimport",
+  "Description": "Import data from a JSON, CSV, or TSV file into a MongoDB instance",
+  "Arguments": [
+    {
+      "Arguments": [
+        {
+          "Name": "--help",
+          "Description": "Returns information on the options and use of mongoimport",
+          "Aliases": [],
+          "Arguments": []
+        },
+        {
+          "Name": "--verbose",
+          "Description": "Increases the amount of internal reporting returned on standard output or in log files",
+          "Aliases": [
+            "-v"
+          ],
+          "Arguments": []
+        },
+        {
+          "Name": "--quiet",
+          "Description": "Runs mongoimport in a quiet mode that attempts to limit the amount of output",
+          "Aliases": [],
+          "Arguments": []
+        },
+        {
+          "Name": "--version",
+          "Description": "Returns the mongoimport release number",
+          "Aliases": [],
+          "Arguments": []
+        },
+        {
+          "Name": "--config",
+          "Description": "Specifies the full path to a YAML configuration file containing sensitive values for the following options to mongoimport",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "filename",
+                  "Description": "filename",
+                  "Type": "File",
+                  "Extensions": [
+                    "yaml",
+                    "yml"
+                  ],
+                  "CustomCommand": ""
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "Name": "--uri",
+          "Description": "Specifies the resolvable URI connection string of the MongoDB deployment",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "connectionString",
+                  "Description": "connectionString",
+                  "Type": "String"
+                },
+                {
+                  "Name": "mongodb://localhost:27017",
+                  "Description": "Default Connection String"
+                },
+                {
+                  "Name": "mongodb\u002Bsrv://username:password@cluster0.example.mongodb.net/database",
+                  "Description": "Atlas Connection String Example"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "Name": "--host",
+          "Description": "Specifies the resolvable hostname of the MongoDB deployment",
+          "Aliases": [
+            "-h"
+          ],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "hostname:port",
+                  "Description": "hostname:port",
+                  "Type": "String"
+                },
+                {
+                  "Name": "localhost:27017",
+                  "Description": "Default host"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "Name": "--port",
+          "Description": "Specifies the TCP port on which the MongoDB instance listens for client connections",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "port",
+                  "Description": "port",
+                  "Type": "String"
+                },
+                {
+                  "Name": "27017",
+                  "Description": "Default port"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "Name": "--ssl",
+          "Description": "Enables connection to a mongod or mongos that has TLS/SSL support enabled",
+          "Aliases": [],
+          "Arguments": []
+        },
+        {
+          "Name": "--sslCAFile",
+          "Description": "Specifies the .pem file that contains the root certificate chain from the Certificate Authority",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "filename",
+                  "Description": "filename",
+                  "Type": "File",
+                  "Extensions": [
+                    "pem"
+                  ],
+                  "CustomCommand": ""
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "Name": "--sslPEMKeyFile",
+          "Description": "Specifies the .pem file that contains both the TLS/SSL certificate and key",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "filename",
+                  "Description": "filename",
+                  "Type": "File",
+                  "Extensions": [
+                    "pem"
+                  ],
+                  "CustomCommand": ""
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "Name": "--sslPEMKeyPassword",
+          "Description": "Specifies the password to de-crypt the certificate-key file (i.e. --sslPEMKeyFile)",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "value",
+                  "Description": "value",
+                  "Type": "String"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "Name": "--sslCRLFile",
+          "Description": "Specifies the .pem file that contains the Certificate Revocation List",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "filename",
+                  "Description": "filename",
+                  "Type": "File",
+                  "Extensions": [
+                    "pem"
+                  ],
+                  "CustomCommand": ""
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "Name": "--sslAllowInvalidCertificates",
+          "Description": "Bypasses the validation checks for server certificates and allows the use of invalid certificates",
+          "Aliases": [],
+          "Arguments": []
+        },
+        {
+          "Name": "--sslAllowInvalidHostnames",
+          "Description": "Disables the validation of the hostnames in TLS/SSL certificates",
+          "Aliases": [],
+          "Arguments": []
+        },
+        {
+          "Name": "--username",
+          "Description": "Specifies a username with which to authenticate to a MongoDB database that uses authentication",
+          "Aliases": [
+            "-u"
+          ],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "username",
+                  "Description": "username",
+                  "Type": "String"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "Name": "--password",
+          "Description": "Specifies a password with which to authenticate to a MongoDB database that uses authentication",
+          "Aliases": [
+            "-p"
+          ],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "password",
+                  "Description": "password",
+                  "Type": "String"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "Name": "--awsSessionToken",
+          "Description": "Specifies the session token for MONGODB-AWS authentication mechanism",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "AWS Session Token",
+                  "Description": "AWS Session Token",
+                  "Type": "String"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "Name": "--authenticationDatabase",
+          "Description": "Specifies the authentication database where the specified --username has been created",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "dbname",
+                  "Description": "dbname",
+                  "Type": "String"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "Name": "--authenticationMechanism",
+          "Description": "Specifies the authentication mechanism the mongoimport instance uses to authenticate to the mongod or mongos",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "name",
+                  "Description": "name",
+                  "Type": "String"
+                },
+                {
+                  "Name": "SCRAM-SHA-1",
+                  "Description": "Default"
+                },
+                {
+                  "Name": "SCRAM-SHA-256",
+                  "Description": "name"
+                },
+                {
+                  "Name": "MONGODB-X509",
+                  "Description": "name"
+                },
+                {
+                  "Name": "MONGODB-AWS",
+                  "Description": "name"
+                },
+                {
+                  "Name": "GSSAPI",
+                  "Description": "name"
+                },
+                {
+                  "Name": "PLAIN",
+                  "Description": "name"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "Name": "--gssapiServiceName",
+          "Description": "Specify the name of the service using GSSAPI/Kerberos. This option is available only in MongoDB Enterprise",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "serviceName",
+                  "Description": "serviceName",
+                  "Type": "String"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "Name": "--gssapiHostName",
+          "Description": "Specify the hostname of the service using GSSAPI/Kerberos. This option is available only in MongoDB Enterprise",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "hostname",
+                  "Description": "hostname",
+                  "Type": "String"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "Name": "--db",
+          "Description": "Specifies the name of the database on which to run the mongoimport",
+          "Aliases": [
+            "-d"
+          ],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "database",
+                  "Description": "database",
+                  "Type": "String"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "Name": "--collection",
+          "Description": "Specifies the name of the collection to import",
+          "Aliases": [
+            "-c"
+          ],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "collection",
+                  "Description": "collection",
+                  "Type": "String"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "Name": "--fields",
+          "Description": "Specify a comma separated list of field names when importing CSV or TSV files that do not have field names in the first (i.e. header) line of the file",
+          "Aliases": [
+            "-f"
+          ],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "field1,field2,...",
+                  "Description": "field1,field2,...",
+                  "Type": "String"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "Name": "--fieldFile",
+          "Description": "Specify a file containing a comma separated list of field names when importing CSV or TSV files that do not have field names in the first (i.e. header) line of the file",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "filename",
+                  "Description": "filename",
+                  "Type": "File",
+                  "Extensions": [
+                    "csv",
+                    "tsv"
+                  ],
+                  "CustomCommand": ""
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "Name": "--ignoreBlanks",
+          "Description": "Ignores empty fields in CSV and TSV exports",
+          "Aliases": [],
+          "Arguments": []
+        },
+        {
+          "Name": "--type",
+          "Description": "Specifies the file type to import",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "type",
+                  "Description": "type",
+                  "Type": "String"
+                },
+                {
+                  "Name": "json",
+                  "Description": "JSON"
+                },
+                {
+                  "Name": "csv",
+                  "Description": "Comma-separated values"
+                },
+                {
+                  "Name": "tsv",
+                  "Description": "Tab-separated values"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "Name": "--file",
+          "Description": "Specifies the location and name of a file containing the data to import",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "filename",
+                  "Description": "filename",
+                  "Type": "File",
+                  "Extensions": [
+                    "json",
+                    "csv",
+                    "tsv"
+                  ],
+                  "CustomCommand": ""
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "Name": "--drop",
+          "Description": "Modifies the import process so that the target instance drops the collection before importing the data from the input",
+          "Aliases": [],
+          "Arguments": []
+        },
+        {
+          "Name": "--headerline",
+          "Description": "Treats the first line of the input file as a header line",
+          "Aliases": [],
+          "Arguments": []
+        },
+        {
+          "Name": "--useArrayIndexFields",
+          "Description": "Interpret natural numbers in fields as array indexes when importing CSV or TSV files",
+          "Aliases": [],
+          "Arguments": []
+        },
+        {
+          "Name": "--mode",
+          "Description": "Specifies how the import process should handle existing documents in the database that match documents in the import file",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "mode",
+                  "Description": "mode",
+                  "Type": "String"
+                },
+                {
+                  "Name": "insert",
+                  "Description": "Insert the documents in the import file"
+                },
+                {
+                  "Name": "upsert",
+                  "Description": "Replace existing documents in the database with matching documents from the import file"
+                },
+                {
+                  "Name": "merge",
+                  "Description": "Merge existing documents that match a document in the import file with the new document"
+                },
+                {
+                  "Name": "delete",
+                  "Description": "Delete existing documents in the database that match a document in the import file"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "Name": "--upsertFields",
+          "Description": "Specifies a list of fields for the query portion of the import process",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "field1,field2,...",
+                  "Description": "field1,field2,...",
+                  "Type": "String"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "Name": "--stopOnError",
+          "Description": "Forces mongoimport to halt the insert operation at the first error rather than continuing the operation despite errors",
+          "Aliases": [],
+          "Arguments": []
+        },
+        {
+          "Name": "jsonArray",
+          "Description": "Accepts the import of data expressed with multiple MongoDB documents within a single JSON array",
+          "Aliases": [],
+          "Arguments": []
+        },
+        {
+          "Name": "--legacy",
+          "Description": "Indicates that the import data is in Extended JSON v1 format",
+          "Aliases": [],
+          "Arguments": []
+        },
+        {
+          "Name": "--maintainInsertionOrder",
+          "Description": "Maintains the order of documents in the import file when inserting documents into the database",
+          "Aliases": [],
+          "Arguments": []
+        },
+        {
+          "Name": "--numInsertionWorkers",
+          "Description": "Specifies the number of insertion workers to run concurrently",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "number",
+                  "Description": "number",
+                  "Type": "String"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "Name": "--writeConcern",
+          "Description": "Specifies the write concern for each write operation that mongoimport performs",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "document",
+                  "Description": "document",
+                  "Type": "String"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "Name": "--bypassDocumentValidation",
+          "Description": "Enables mongoimport to bypass document validation during the operation",
+          "Aliases": [],
+          "Arguments": []
+        },
+        {
+          "Name": "--columnsHaveTypes",
+          "Description": "Instructs mongoimport that the field list specified in --fields, --fieldFile, or --headerline specifies the types of each field",
+          "Aliases": [],
+          "Arguments": []
+        },
+        {
+          "Name": "--parseGrace",
+          "Description": "Specifies how mongoimport handles type coercion failures when importing CSV or TSV files with --columnsHaveTypes",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "grace",
+                  "Description": "grace",
+                  "Type": "String"
+                },
+                {
+                  "Name": "autoCast",
+                  "Description": "grace"
+                },
+                {
+                  "Name": "skipField",
+                  "Description": "grace"
+                },
+                {
+                  "Name": "skipRow",
+                  "Description": "grace"
+                },
+                {
+                  "Name": "stop",
+                  "Description": "grace"
+                }
+              ]
+            }
+          ]
+        }
+      ],
+      "Optional": true
+    }
+  ]
+}

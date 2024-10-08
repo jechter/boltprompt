@@ -1,0 +1,2561 @@
+{
+  "Comment": "This command info is generated from fig",
+  "Name": "op",
+  "Description": "Official 1Password CLI",
+  "Arguments": [
+    {
+      "Arguments": [
+        {
+          "Name": "--account",
+          "Description": "Select the account to execute the command by account shorthand, sign-in address, account ID, or user ID. For a list of available accounts, run \u0027op account list\u0027. Can be set as the OP_ACCOUNT environment variable",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "account",
+                  "Description": "account",
+                  "Type": "CustomArgument",
+                  "Extensions": [],
+                  "CustomCommand": "op account list --format json"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "Name": "--cache",
+          "Description": "Store and use cached information",
+          "Aliases": [],
+          "Arguments": []
+        },
+        {
+          "Name": "--config",
+          "Description": "Use this configuration directory",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "directory",
+                  "Description": "directory",
+                  "Type": "Directory"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "Name": "--debug",
+          "Description": "Output debug logs. Can also be set using $OP_DEBUG environment variable",
+          "Aliases": [],
+          "Arguments": []
+        },
+        {
+          "Name": "--encoding",
+          "Description": "Use this character encoding type. Default: UTF-8. Supported: SHIFT_JIS, gbk",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "type",
+                  "Description": "type",
+                  "Type": "String"
+                },
+                {
+                  "Name": "UTF-8",
+                  "Description": "type"
+                },
+                {
+                  "Name": "SHIFT_JIS",
+                  "Description": "type"
+                },
+                {
+                  "Name": "gbk",
+                  "Description": "type"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "Name": "--format",
+          "Description": "Use this output format. Can be \u0027human-readable\u0027 or \u0027json\u0027. Can be set as the OP_FORMAT environment variable. (default \u0022human-readable\u0022)",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "string",
+                  "Description": "string",
+                  "Type": "String"
+                },
+                {
+                  "Name": "human-readable",
+                  "Description": "string"
+                },
+                {
+                  "Name": "json",
+                  "Description": "string"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "Name": "-h",
+          "Description": "Get help for op",
+          "Aliases": [
+            "--help"
+          ],
+          "Arguments": []
+        },
+        {
+          "Name": "--iso-timestamps",
+          "Description": "Format timestamps according to ISO 8601 / RFC 3339. Can be set as the OP_ISO_TIMESTAMPS environment variable",
+          "Aliases": [],
+          "Arguments": []
+        },
+        {
+          "Name": "--no-color",
+          "Description": "Print output without color",
+          "Aliases": [],
+          "Arguments": []
+        },
+        {
+          "Name": "--session",
+          "Description": "Authenticate with this session token. 1Password CLI outputs session tokens for successful \u0027op signin\u0027 commands when biometric unlock is disabled",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "token",
+                  "Description": "token",
+                  "Type": "String"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "Name": "-v",
+          "Description": "Version for op",
+          "Aliases": [
+            "--version"
+          ],
+          "Arguments": []
+        }
+      ],
+      "Optional": true
+    },
+    {
+      "Arguments": [
+        {
+          "Name": "account",
+          "Description": "Manage your locally configured 1Password accounts",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "add",
+                  "Description": "Add an account to sign in to for the first time",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "--address",
+                          "Description": "The sign-in address for your account",
+                          "Aliases": [],
+                          "Arguments": [
+                            {
+                              "Arguments": [
+                                {
+                                  "Name": "string",
+                                  "Description": "string",
+                                  "Type": "String"
+                                }
+                              ]
+                            }
+                          ]
+                        },
+                        {
+                          "Name": "--email",
+                          "Description": "The email address associated with your account",
+                          "Aliases": [],
+                          "Arguments": [
+                            {
+                              "Arguments": [
+                                {
+                                  "Name": "string",
+                                  "Description": "string",
+                                  "Type": "String"
+                                }
+                              ]
+                            }
+                          ]
+                        },
+                        {
+                          "Name": "--raw",
+                          "Description": "Only return the session token",
+                          "Aliases": [],
+                          "Arguments": []
+                        },
+                        {
+                          "Name": "--shorthand",
+                          "Description": "Set the short account name",
+                          "Aliases": [],
+                          "Arguments": [
+                            {
+                              "Arguments": [
+                                {
+                                  "Name": "string",
+                                  "Description": "string",
+                                  "Type": "String"
+                                }
+                              ]
+                            }
+                          ]
+                        }
+                      ],
+                      "Optional": true
+                    }
+                  ]
+                },
+                {
+                  "Name": "get",
+                  "Description": "Get details about your account",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "list",
+                  "Description": "List users and accounts set up on this device",
+                  "Aliases": [
+                    "ls"
+                  ],
+                  "Arguments": []
+                },
+                {
+                  "Name": "forget",
+                  "Description": "Remove a 1Password account from this device",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "--all",
+                          "Description": "Forget all authenticated accounts",
+                          "Aliases": [],
+                          "Arguments": []
+                        }
+                      ],
+                      "Optional": true
+                    },
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "account",
+                          "Description": "account",
+                          "Type": "String"
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ],
+              "DontAllowMultiple": true
+            }
+          ]
+        },
+        {
+          "Name": "connect",
+          "Description": "Manage Connect instances and Connect tokens in your 1Password account",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "group",
+                  "Description": "Manage group access to Secrets Automation",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "grant",
+                          "Description": "Grant a group access to manage Secrets Automation",
+                          "Aliases": [],
+                          "Arguments": [
+                            {
+                              "Arguments": [
+                                {
+                                  "Name": "--all-servers",
+                                  "Description": "Grant access to all current and future servers in the authenticated account",
+                                  "Aliases": [],
+                                  "Arguments": []
+                                },
+                                {
+                                  "Name": "--group",
+                                  "Description": "The group to receive access",
+                                  "Aliases": [],
+                                  "Arguments": [
+                                    {
+                                      "Arguments": [
+                                        {
+                                          "Name": "group",
+                                          "Description": "group",
+                                          "Type": "String"
+                                        }
+                                      ]
+                                    }
+                                  ]
+                                }
+                              ],
+                              "Optional": true
+                            }
+                          ]
+                        },
+                        {
+                          "Name": "revoke",
+                          "Description": "Revoke a group\u0027s access to manage Secrets Automation",
+                          "Aliases": [],
+                          "Arguments": [
+                            {
+                              "Arguments": [
+                                {
+                                  "Name": "--all-servers",
+                                  "Description": "Revoke access to all current and future servers in the authenticated account",
+                                  "Aliases": [],
+                                  "Arguments": []
+                                },
+                                {
+                                  "Name": "--group",
+                                  "Description": "The group to revoke access from",
+                                  "Aliases": [],
+                                  "Arguments": [
+                                    {
+                                      "Arguments": [
+                                        {
+                                          "Name": "group",
+                                          "Description": "group",
+                                          "Type": "String"
+                                        }
+                                      ]
+                                    }
+                                  ]
+                                }
+                              ],
+                              "Optional": true
+                            }
+                          ]
+                        }
+                      ],
+                      "DontAllowMultiple": true
+                    }
+                  ]
+                },
+                {
+                  "Name": "server",
+                  "Description": "Manage Connect servers",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "create",
+                          "Description": "Set up a Connect server",
+                          "Aliases": [],
+                          "Arguments": []
+                        },
+                        {
+                          "Name": "get",
+                          "Description": "Get a Connect server",
+                          "Aliases": [],
+                          "Arguments": [
+                            {
+                              "Arguments": [
+                                {
+                                  "Name": "serverName | serverID",
+                                  "Description": "serverName | serverID",
+                                  "Type": "String"
+                                },
+                                {
+                                  "Name": "-",
+                                  "Description": "Read from stdin"
+                                }
+                              ]
+                            }
+                          ]
+                        },
+                        {
+                          "Name": "edit",
+                          "Description": "Rename a Connect server",
+                          "Aliases": [],
+                          "Arguments": [
+                            {
+                              "Arguments": [
+                                {
+                                  "Name": "serverName | serverID",
+                                  "Description": "serverName | serverID",
+                                  "Type": "String"
+                                }
+                              ]
+                            }
+                          ]
+                        },
+                        {
+                          "Name": "delete",
+                          "Description": "Remove a Connect server",
+                          "Aliases": [
+                            "remove",
+                            "rm"
+                          ],
+                          "Arguments": [
+                            {
+                              "Arguments": [
+                                {
+                                  "Name": "serverName | serverID",
+                                  "Description": "serverName | serverID",
+                                  "Type": "String"
+                                },
+                                {
+                                  "Name": "-",
+                                  "Description": "Read from stdin"
+                                }
+                              ]
+                            }
+                          ]
+                        },
+                        {
+                          "Name": "list",
+                          "Description": "List Connect servers",
+                          "Aliases": [
+                            "ls"
+                          ],
+                          "Arguments": []
+                        }
+                      ],
+                      "DontAllowMultiple": true
+                    }
+                  ]
+                },
+                {
+                  "Name": "token",
+                  "Description": "Manage Connect tokens",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "create",
+                          "Description": "Issue a token for a 1Password Connect server",
+                          "Aliases": [],
+                          "Arguments": [
+                            {
+                              "Arguments": [
+                                {
+                                  "Name": "--expires-in",
+                                  "Description": "Set how long the Connect token is valid for in (s)econds, (m)inutes, or (h)ours",
+                                  "Aliases": [],
+                                  "Arguments": [
+                                    {
+                                      "Arguments": [
+                                        {
+                                          "Name": "duration",
+                                          "Description": "duration",
+                                          "Type": "String"
+                                        }
+                                      ]
+                                    }
+                                  ]
+                                },
+                                {
+                                  "Name": "--server",
+                                  "Description": "Issue a token for this server",
+                                  "Aliases": [],
+                                  "Arguments": [
+                                    {
+                                      "Arguments": [
+                                        {
+                                          "Name": "string",
+                                          "Description": "string",
+                                          "Type": "String"
+                                        }
+                                      ]
+                                    }
+                                  ]
+                                }
+                              ],
+                              "Optional": true
+                            }
+                          ]
+                        },
+                        {
+                          "Name": "edit",
+                          "Description": "Rename a Connect token",
+                          "Aliases": [],
+                          "Arguments": [
+                            {
+                              "Arguments": [
+                                {
+                                  "Name": "--name",
+                                  "Description": "Change the token\u0027s name",
+                                  "Aliases": [],
+                                  "Arguments": [
+                                    {
+                                      "Arguments": [
+                                        {
+                                          "Name": "string",
+                                          "Description": "string",
+                                          "Type": "String"
+                                        }
+                                      ]
+                                    }
+                                  ]
+                                }
+                              ],
+                              "Optional": true
+                            }
+                          ]
+                        },
+                        {
+                          "Name": "delete",
+                          "Description": "Revoke a token for a Connect server",
+                          "Aliases": [
+                            "remove",
+                            "rm"
+                          ],
+                          "Arguments": [
+                            {
+                              "Arguments": [
+                                {
+                                  "Name": "token",
+                                  "Description": "token",
+                                  "Type": "String"
+                                }
+                              ]
+                            }
+                          ]
+                        },
+                        {
+                          "Name": "list",
+                          "Description": "Get a list of tokens",
+                          "Aliases": [
+                            "ls"
+                          ],
+                          "Arguments": []
+                        }
+                      ],
+                      "DontAllowMultiple": true
+                    }
+                  ]
+                },
+                {
+                  "Name": "vault",
+                  "Description": "Manage connect server vault access",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "grant",
+                          "Description": "Grant a Connect server access to a vault",
+                          "Aliases": [],
+                          "Arguments": [
+                            {
+                              "Arguments": [
+                                {
+                                  "Name": "--server",
+                                  "Description": "The server to be granted access",
+                                  "Aliases": [],
+                                  "Arguments": [
+                                    {
+                                      "Arguments": [
+                                        {
+                                          "Name": "string",
+                                          "Description": "string",
+                                          "Type": "String"
+                                        }
+                                      ]
+                                    }
+                                  ]
+                                }
+                              ],
+                              "Optional": true
+                            }
+                          ]
+                        },
+                        {
+                          "Name": "revoke",
+                          "Description": "Revoke a Connect server\u0027s access to a vault",
+                          "Aliases": [],
+                          "Arguments": [
+                            {
+                              "Arguments": [
+                                {
+                                  "Name": "--server",
+                                  "Description": "The server to revoke access from",
+                                  "Aliases": [],
+                                  "Arguments": [
+                                    {
+                                      "Arguments": [
+                                        {
+                                          "Name": "server",
+                                          "Description": "server",
+                                          "Type": "String"
+                                        }
+                                      ]
+                                    }
+                                  ]
+                                }
+                              ],
+                              "Optional": true
+                            }
+                          ]
+                        }
+                      ],
+                      "DontAllowMultiple": true
+                    }
+                  ]
+                }
+              ],
+              "DontAllowMultiple": true
+            }
+          ]
+        },
+        {
+          "Name": "document",
+          "Description": "Perform CRUD operations on Document items in your vaults",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "create",
+                  "Description": "Create a document item",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "--file-name",
+                          "Description": "Set the file\u0027s name",
+                          "Aliases": [],
+                          "Arguments": [
+                            {
+                              "Arguments": [
+                                {
+                                  "Name": "name",
+                                  "Description": "name",
+                                  "Type": "String"
+                                }
+                              ]
+                            }
+                          ]
+                        },
+                        {
+                          "Name": "--tags",
+                          "Description": "Set the tags to the specified (comma-separated) values",
+                          "Aliases": [],
+                          "Arguments": [
+                            {
+                              "Arguments": [
+                                {
+                                  "Name": "tags",
+                                  "Description": "tags",
+                                  "Type": "String"
+                                }
+                              ]
+                            }
+                          ]
+                        },
+                        {
+                          "Name": "--title",
+                          "Description": "Set the document item\u0027s title",
+                          "Aliases": [],
+                          "Arguments": [
+                            {
+                              "Arguments": [
+                                {
+                                  "Name": "title",
+                                  "Description": "title",
+                                  "Type": "String"
+                                }
+                              ]
+                            }
+                          ]
+                        }
+                      ],
+                      "Optional": true
+                    },
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "file",
+                          "Description": "file",
+                          "Type": "String"
+                        },
+                        {
+                          "Name": "-",
+                          "Description": "Read from stdin"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "get",
+                  "Description": "Download a document",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "--include-archive",
+                          "Description": "Include document items in the Archive. Can also be set using OP_INCLUDE_ARCHIVE environment variable",
+                          "Aliases": [],
+                          "Arguments": []
+                        },
+                        {
+                          "Name": "--output",
+                          "Description": "Save the document to the file path instead of stdout",
+                          "Aliases": [],
+                          "Arguments": [
+                            {
+                              "Arguments": [
+                                {
+                                  "Name": "path",
+                                  "Description": "path",
+                                  "Type": "String"
+                                }
+                              ]
+                            }
+                          ]
+                        }
+                      ],
+                      "Optional": true
+                    },
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "itemName | itemID",
+                          "Description": "itemName | itemID",
+                          "Type": "String"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "edit",
+                  "Description": "Edit a document item",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "--file-name",
+                          "Description": "Set the file\u0027s name",
+                          "Aliases": [],
+                          "Arguments": [
+                            {
+                              "Arguments": [
+                                {
+                                  "Name": "name",
+                                  "Description": "name",
+                                  "Type": "String"
+                                }
+                              ]
+                            }
+                          ]
+                        },
+                        {
+                          "Name": "--tags",
+                          "Description": "Set the tags to the specified (comma-separated) values. An empty value will remove all tags",
+                          "Aliases": [],
+                          "Arguments": [
+                            {
+                              "Arguments": [
+                                {
+                                  "Name": "tags",
+                                  "Description": "tags",
+                                  "Type": "String"
+                                }
+                              ]
+                            }
+                          ]
+                        },
+                        {
+                          "Name": "--title",
+                          "Description": "Set the document item\u0027s title",
+                          "Aliases": [],
+                          "Arguments": [
+                            {
+                              "Arguments": [
+                                {
+                                  "Name": "title",
+                                  "Description": "title",
+                                  "Type": "String"
+                                }
+                              ]
+                            }
+                          ]
+                        }
+                      ],
+                      "Optional": true
+                    },
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "itemName | itemID",
+                          "Description": "itemName | itemID",
+                          "Type": "String"
+                        }
+                      ]
+                    },
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "file",
+                          "Description": "file",
+                          "Type": "String"
+                        },
+                        {
+                          "Name": "-",
+                          "Description": "Read from stdin"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "delete",
+                  "Description": "Delete or archive a document item",
+                  "Aliases": [
+                    "remove",
+                    "rm"
+                  ],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "--archive",
+                          "Description": "Move the document to the Archive",
+                          "Aliases": [],
+                          "Arguments": []
+                        }
+                      ],
+                      "Optional": true
+                    },
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "itemName | itemID",
+                          "Description": "itemName | itemID",
+                          "Type": "String"
+                        },
+                        {
+                          "Name": "-",
+                          "Description": "Read from stdin"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "list",
+                  "Description": "Get a list of documents",
+                  "Aliases": [
+                    "ls"
+                  ],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "--include-archive",
+                          "Description": "Include document items in the Archive. Can also be set using OP_INCLUDE_ARCHIVE environment variable",
+                          "Aliases": [],
+                          "Arguments": []
+                        }
+                      ],
+                      "Optional": true
+                    }
+                  ]
+                }
+              ],
+              "DontAllowMultiple": true
+            }
+          ]
+        },
+        {
+          "Name": "events-api",
+          "Description": "Manage Events API integrations in your 1Password account",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "create",
+                  "Description": "Set up an integration with the Events API",
+                  "Aliases": [],
+                  "Arguments": []
+                }
+              ],
+              "DontAllowMultiple": true
+            }
+          ]
+        },
+        {
+          "Name": "group",
+          "Description": "Perform CRUD operations on the groups of users in your 1Password account",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "user",
+                  "Description": "Manage users in groups",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "grant",
+                          "Description": "Grant a user access to a group",
+                          "Aliases": [],
+                          "Arguments": [
+                            {
+                              "Arguments": [
+                                {
+                                  "Name": "--group",
+                                  "Description": "Specify the group to grant the user access to",
+                                  "Aliases": [],
+                                  "Arguments": [
+                                    {
+                                      "Arguments": [
+                                        {
+                                          "Name": "string",
+                                          "Description": "string",
+                                          "Type": "String"
+                                        }
+                                      ]
+                                    }
+                                  ]
+                                },
+                                {
+                                  "Name": "--role",
+                                  "Description": "Specify the user\u0027s role as a member or manager. Default: member",
+                                  "Aliases": [],
+                                  "Arguments": [
+                                    {
+                                      "Arguments": [
+                                        {
+                                          "Name": "string",
+                                          "Description": "string",
+                                          "Type": "String"
+                                        }
+                                      ]
+                                    }
+                                  ]
+                                }
+                              ],
+                              "Optional": true
+                            }
+                          ]
+                        },
+                        {
+                          "Name": "revoke",
+                          "Description": "Revoke a user\u0027s access to a vault or group",
+                          "Aliases": [],
+                          "Arguments": [
+                            {
+                              "Arguments": [
+                                {
+                                  "Name": "--group",
+                                  "Description": "Specify the group to revoke the user\u0027s access to",
+                                  "Aliases": [],
+                                  "Arguments": [
+                                    {
+                                      "Arguments": [
+                                        {
+                                          "Name": "string",
+                                          "Description": "string",
+                                          "Type": "String"
+                                        }
+                                      ]
+                                    }
+                                  ]
+                                }
+                              ],
+                              "Optional": true
+                            }
+                          ]
+                        },
+                        {
+                          "Name": "list",
+                          "Description": "Retrieve users that belong to a group",
+                          "Aliases": [
+                            "ls"
+                          ],
+                          "Arguments": []
+                        }
+                      ],
+                      "DontAllowMultiple": true
+                    }
+                  ]
+                },
+                {
+                  "Name": "create",
+                  "Description": "Create a group",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "--description",
+                          "Description": "Set the group\u0027s description",
+                          "Aliases": [],
+                          "Arguments": [
+                            {
+                              "Arguments": [
+                                {
+                                  "Name": "string",
+                                  "Description": "string",
+                                  "Type": "String"
+                                }
+                              ]
+                            }
+                          ]
+                        }
+                      ],
+                      "Optional": true
+                    }
+                  ]
+                },
+                {
+                  "Name": "get",
+                  "Description": "Get details about a group",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "groupName | groupID",
+                          "Description": "groupName | groupID",
+                          "Type": "String"
+                        },
+                        {
+                          "Name": "-",
+                          "Description": "Read from stdin"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "edit",
+                  "Description": "Edit a group\u0027s name or description",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "--description",
+                          "Description": "Change the group\u0027s description",
+                          "Aliases": [],
+                          "Arguments": [
+                            {
+                              "Arguments": [
+                                {
+                                  "Name": "description",
+                                  "Description": "description",
+                                  "Type": "String"
+                                }
+                              ]
+                            }
+                          ]
+                        }
+                      ],
+                      "Optional": true
+                    },
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "groupName | groupID",
+                          "Description": "groupName | groupID",
+                          "Type": "String"
+                        },
+                        {
+                          "Name": "-",
+                          "Description": "Read from stdin"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "delete",
+                  "Description": "Remove a group",
+                  "Aliases": [
+                    "remove",
+                    "rm"
+                  ],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "groupName | groupID",
+                          "Description": "groupName | groupID",
+                          "Type": "String"
+                        },
+                        {
+                          "Name": "-",
+                          "Description": "Read from stdin"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "list",
+                  "Description": "List groups",
+                  "Aliases": [
+                    "ls"
+                  ],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "--user",
+                          "Description": "List groups that a user belongs to",
+                          "Aliases": [],
+                          "Arguments": [
+                            {
+                              "Arguments": [
+                                {
+                                  "Name": "user",
+                                  "Description": "user",
+                                  "Type": "String"
+                                }
+                              ]
+                            }
+                          ]
+                        }
+                      ],
+                      "Optional": true
+                    }
+                  ]
+                }
+              ],
+              "DontAllowMultiple": true
+            }
+          ]
+        },
+        {
+          "Name": "item",
+          "Description": "Perform CRUD operations on the 1Password items in your vaults",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "template",
+                  "Description": "Manage templates",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "get",
+                          "Description": "Get an item template",
+                          "Aliases": [],
+                          "Arguments": [
+                            {
+                              "Arguments": [
+                                {
+                                  "Name": "-f",
+                                  "Description": "Do not prompt for confirmation",
+                                  "Aliases": [
+                                    "--force"
+                                  ],
+                                  "Arguments": []
+                                }
+                              ],
+                              "Optional": true
+                            },
+                            {
+                              "Arguments": [
+                                {
+                                  "Name": "category",
+                                  "Description": "category",
+                                  "Type": "String"
+                                },
+                                {
+                                  "Name": "-",
+                                  "Description": "Read from stdin"
+                                }
+                              ]
+                            }
+                          ]
+                        },
+                        {
+                          "Name": "list",
+                          "Description": "Get a list of templates",
+                          "Aliases": [
+                            "ls"
+                          ],
+                          "Arguments": []
+                        }
+                      ],
+                      "DontAllowMultiple": true
+                    }
+                  ]
+                },
+                {
+                  "Name": "create",
+                  "Description": "Create an item",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "--category",
+                          "Description": "Set the item\u0027s category",
+                          "Aliases": [],
+                          "Arguments": [
+                            {
+                              "Arguments": [
+                                {
+                                  "Name": "category",
+                                  "Description": "category",
+                                  "Type": "String"
+                                }
+                              ]
+                            }
+                          ]
+                        },
+                        {
+                          "Name": "--dry-run",
+                          "Description": "Perform a dry run of the command and output a preview of the resulting item",
+                          "Aliases": [],
+                          "Arguments": []
+                        },
+                        {
+                          "Name": "--generate-password",
+                          "Description": "Give the item a randomly generated password",
+                          "Aliases": [],
+                          "Arguments": [
+                            {
+                              "Arguments": [
+                                {
+                                  "Name": "recipe",
+                                  "Description": "recipe",
+                                  "Type": "String"
+                                }
+                              ]
+                            }
+                          ]
+                        },
+                        {
+                          "Name": "--tags",
+                          "Description": "Set the tags to the specified (comma-separated) values",
+                          "Aliases": [],
+                          "Arguments": [
+                            {
+                              "Arguments": [
+                                {
+                                  "Name": "tags",
+                                  "Description": "tags",
+                                  "Type": "String"
+                                }
+                              ]
+                            }
+                          ]
+                        },
+                        {
+                          "Name": "--template",
+                          "Description": "Specify the filepath to read an item template from",
+                          "Aliases": [],
+                          "Arguments": [
+                            {
+                              "Arguments": [
+                                {
+                                  "Name": "string",
+                                  "Description": "string",
+                                  "Type": "String"
+                                }
+                              ]
+                            }
+                          ]
+                        },
+                        {
+                          "Name": "--title",
+                          "Description": "Set the item\u0027s title",
+                          "Aliases": [],
+                          "Arguments": [
+                            {
+                              "Arguments": [
+                                {
+                                  "Name": "title",
+                                  "Description": "title",
+                                  "Type": "String"
+                                }
+                              ]
+                            }
+                          ]
+                        },
+                        {
+                          "Name": "--url",
+                          "Description": "Set the URL associated with the item",
+                          "Aliases": [],
+                          "Arguments": [
+                            {
+                              "Arguments": [
+                                {
+                                  "Name": "URL",
+                                  "Description": "URL",
+                                  "Type": "String"
+                                }
+                              ]
+                            }
+                          ]
+                        }
+                      ],
+                      "Optional": true
+                    },
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "assignment...",
+                          "Description": "assignment...",
+                          "Type": "String"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "get",
+                  "Description": "Get an item\u0027s details",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "--fields",
+                          "Description": "Only return data from these fields. Use \u0027label=\u0027 to get the field by name or \u0027type=\u0027 to filter fields by type",
+                          "Aliases": [],
+                          "Arguments": [
+                            {
+                              "Arguments": [
+                                {
+                                  "Name": "fields",
+                                  "Description": "fields",
+                                  "Type": "String"
+                                }
+                              ]
+                            }
+                          ]
+                        },
+                        {
+                          "Name": "--include-archive",
+                          "Description": "Include items in the Archive. Can also be set using OP_INCLUDE_ARCHIVE environment variable",
+                          "Aliases": [],
+                          "Arguments": []
+                        },
+                        {
+                          "Name": "--otp",
+                          "Description": "Output the primary one-time password for this item",
+                          "Aliases": [],
+                          "Arguments": []
+                        },
+                        {
+                          "Name": "--share-link",
+                          "Description": "Get a shareable link for the item",
+                          "Aliases": [],
+                          "Arguments": []
+                        }
+                      ],
+                      "Optional": true
+                    },
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "itemName | itemID | shareLink",
+                          "Description": "itemName | itemID | shareLink",
+                          "Type": "String"
+                        },
+                        {
+                          "Name": "-",
+                          "Description": "Read from stdin"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "edit",
+                  "Description": "Edit an item\u0027s details",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "itemName | itemID | shareLink",
+                          "Description": "itemName | itemID | shareLink",
+                          "Type": "String"
+                        }
+                      ]
+                    },
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "assignment ...",
+                          "Description": "assignment ...",
+                          "Type": "String"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "delete",
+                  "Description": "Delete or archive an item",
+                  "Aliases": [
+                    "remove",
+                    "rm"
+                  ],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "--archive",
+                          "Description": "Move the item to the Archive",
+                          "Aliases": [],
+                          "Arguments": []
+                        }
+                      ],
+                      "Optional": true
+                    },
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "itemName | itemID | shareLink",
+                          "Description": "itemName | itemID | shareLink",
+                          "Type": "String"
+                        },
+                        {
+                          "Name": "-",
+                          "Description": "Read from stdin"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "list",
+                  "Description": "List items",
+                  "Aliases": [
+                    "ls"
+                  ],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "--categories",
+                          "Description": "Only list items in these categories (comma-separated)",
+                          "Aliases": [],
+                          "Arguments": [
+                            {
+                              "Arguments": [
+                                {
+                                  "Name": "categories",
+                                  "Description": "categories",
+                                  "Type": "String"
+                                }
+                              ]
+                            }
+                          ]
+                        },
+                        {
+                          "Name": "--include-archive",
+                          "Description": "Include items in the Archive. Can also be set using OP_INCLUDE_ARCHIVE environment variable",
+                          "Aliases": [],
+                          "Arguments": []
+                        },
+                        {
+                          "Name": "--long",
+                          "Description": "Output a more detailed item list",
+                          "Aliases": [],
+                          "Arguments": []
+                        },
+                        {
+                          "Name": "--tags",
+                          "Description": "Only list items with these tags (comma-separated)",
+                          "Aliases": [],
+                          "Arguments": [
+                            {
+                              "Arguments": [
+                                {
+                                  "Name": "tags",
+                                  "Description": "tags",
+                                  "Type": "String"
+                                }
+                              ]
+                            }
+                          ]
+                        }
+                      ],
+                      "Optional": true
+                    }
+                  ]
+                },
+                {
+                  "Name": "share",
+                  "Description": "Share an item",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "--emails",
+                          "Description": "Email addresses to share with",
+                          "Aliases": [],
+                          "Arguments": [
+                            {
+                              "Arguments": [
+                                {
+                                  "Name": "strings",
+                                  "Description": "strings",
+                                  "Type": "String"
+                                }
+                              ]
+                            }
+                          ]
+                        },
+                        {
+                          "Name": "--expiry",
+                          "Description": "Link expiring after the specified duration in (s)econds, (m)inutes, or (h)ours (default 7h)",
+                          "Aliases": [],
+                          "Arguments": [
+                            {
+                              "Arguments": [
+                                {
+                                  "Name": "duration",
+                                  "Description": "duration",
+                                  "Type": "String"
+                                }
+                              ]
+                            }
+                          ]
+                        },
+                        {
+                          "Name": "--vault",
+                          "Description": "Look for the item in this vault",
+                          "Aliases": [],
+                          "Arguments": [
+                            {
+                              "Arguments": [
+                                {
+                                  "Name": "string",
+                                  "Description": "string",
+                                  "Type": "String"
+                                }
+                              ]
+                            }
+                          ]
+                        }
+                      ],
+                      "Optional": true
+                    },
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "itemName | itemID",
+                          "Description": "itemName | itemID",
+                          "Type": "String"
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ],
+              "DontAllowMultiple": true
+            }
+          ]
+        },
+        {
+          "Name": "user",
+          "Description": "Manage users within this 1Password account",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "provision",
+                  "Description": "Provision a user in the authenticated account",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "--email",
+                          "Description": "Provide the user\u0027s email address",
+                          "Aliases": [],
+                          "Arguments": [
+                            {
+                              "Arguments": [
+                                {
+                                  "Name": "string",
+                                  "Description": "string",
+                                  "Type": "String"
+                                }
+                              ]
+                            }
+                          ]
+                        },
+                        {
+                          "Name": "--language",
+                          "Description": "Provide the user\u0027s account language. (default \u0022en\u0022)",
+                          "Aliases": [],
+                          "Arguments": [
+                            {
+                              "Arguments": [
+                                {
+                                  "Name": "string",
+                                  "Description": "string",
+                                  "Type": "String"
+                                }
+                              ]
+                            }
+                          ]
+                        }
+                      ],
+                      "Optional": true
+                    }
+                  ]
+                },
+                {
+                  "Name": "confirm",
+                  "Description": "Confirm a user",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "--all",
+                          "Description": "Confirm all unconfirmed users",
+                          "Aliases": [],
+                          "Arguments": []
+                        }
+                      ],
+                      "Optional": true
+                    },
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "email | name | userID",
+                          "Description": "email | name | userID",
+                          "Type": "String"
+                        },
+                        {
+                          "Name": "-",
+                          "Description": "Read from stdin"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "get",
+                  "Description": "Get details about a user",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "--fingerprint",
+                          "Description": "Get the user\u0027s public key fingerprint",
+                          "Aliases": [],
+                          "Arguments": []
+                        }
+                      ],
+                      "Optional": true
+                    },
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "email | name | userID | --me",
+                          "Description": "email | name | userID | --me",
+                          "Type": "String"
+                        },
+                        {
+                          "Name": "-",
+                          "Description": "Read from stdin"
+                        },
+                        {
+                          "Name": "--me",
+                          "Description": "Get the authenticated user\u0027s details"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "edit",
+                  "Description": "Edit a user\u0027s name or Travel Mode status",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "--name",
+                          "Description": "Set the user\u0027s name",
+                          "Aliases": [],
+                          "Arguments": [
+                            {
+                              "Arguments": [
+                                {
+                                  "Name": "string",
+                                  "Description": "string",
+                                  "Type": "String"
+                                }
+                              ]
+                            }
+                          ]
+                        }
+                      ],
+                      "Optional": true
+                    },
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "email | name | userID",
+                          "Description": "email | name | userID",
+                          "Type": "String"
+                        },
+                        {
+                          "Name": "-",
+                          "Description": "Read from stdin"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "suspend",
+                  "Description": "Suspend a user",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "--deauthorize-devices-after",
+                          "Description": "Deauthorize the user\u0027s devices after a time (rounded down to seconds)",
+                          "Aliases": [],
+                          "Arguments": [
+                            {
+                              "Arguments": [
+                                {
+                                  "Name": "duration",
+                                  "Description": "duration",
+                                  "Type": "String"
+                                }
+                              ]
+                            }
+                          ]
+                        }
+                      ],
+                      "Optional": true
+                    },
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "email | name | userID",
+                          "Description": "email | name | userID",
+                          "Type": "String"
+                        },
+                        {
+                          "Name": "-",
+                          "Description": "Read from stdin"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "reactivate",
+                  "Description": "Reactivate a suspended user",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "email | name | userID",
+                          "Description": "email | name | userID",
+                          "Type": "String"
+                        },
+                        {
+                          "Name": "-",
+                          "Description": "Read from stdin"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "delete",
+                  "Description": "Remove a user and all their data from the account",
+                  "Aliases": [
+                    "remove",
+                    "rm"
+                  ],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "email | name | userID",
+                          "Description": "email | name | userID",
+                          "Type": "String"
+                        },
+                        {
+                          "Name": "-",
+                          "Description": "Read from stdin"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "list",
+                  "Description": "List users",
+                  "Aliases": [
+                    "ls"
+                  ],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "--group",
+                          "Description": "List users who belong to a group",
+                          "Aliases": [],
+                          "Arguments": [
+                            {
+                              "Arguments": [
+                                {
+                                  "Name": "group",
+                                  "Description": "group",
+                                  "Type": "String"
+                                }
+                              ]
+                            }
+                          ]
+                        }
+                      ],
+                      "Optional": true
+                    }
+                  ]
+                }
+              ],
+              "DontAllowMultiple": true
+            }
+          ]
+        },
+        {
+          "Name": "vault",
+          "Description": "Manage permissions and perform CRUD operations on your 1Password vaults",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "group",
+                  "Description": "Manage group vault access",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "grant",
+                          "Description": "Grant a group permissions to a vault",
+                          "Aliases": [],
+                          "Arguments": [
+                            {
+                              "Arguments": [
+                                {
+                                  "Name": "--group",
+                                  "Description": "The group to receive access",
+                                  "Aliases": [],
+                                  "Arguments": [
+                                    {
+                                      "Arguments": [
+                                        {
+                                          "Name": "group",
+                                          "Description": "group",
+                                          "Type": "String"
+                                        }
+                                      ]
+                                    }
+                                  ]
+                                },
+                                {
+                                  "Name": "--no-input",
+                                  "Description": "Do not prompt for input on interactive terminal",
+                                  "Aliases": [],
+                                  "Arguments": [
+                                    {
+                                      "Arguments": [
+                                        {
+                                          "Name": "input",
+                                          "Description": "input",
+                                          "Type": "String"
+                                        }
+                                      ]
+                                    }
+                                  ]
+                                },
+                                {
+                                  "Name": "--permissions",
+                                  "Description": "The permissions to grant to the group",
+                                  "Aliases": [],
+                                  "Arguments": [
+                                    {
+                                      "Arguments": [
+                                        {
+                                          "Name": "permissions",
+                                          "Description": "permissions",
+                                          "Type": "String"
+                                        }
+                                      ]
+                                    }
+                                  ]
+                                }
+                              ],
+                              "Optional": true
+                            }
+                          ]
+                        },
+                        {
+                          "Name": "revoke",
+                          "Description": "Revoke a portion or the entire access of a group to a vault",
+                          "Aliases": [],
+                          "Arguments": [
+                            {
+                              "Arguments": [
+                                {
+                                  "Name": "--group",
+                                  "Description": "The group to revoke access from",
+                                  "Aliases": [],
+                                  "Arguments": [
+                                    {
+                                      "Arguments": [
+                                        {
+                                          "Name": "group",
+                                          "Description": "group",
+                                          "Type": "String"
+                                        }
+                                      ]
+                                    }
+                                  ]
+                                },
+                                {
+                                  "Name": "--no-input",
+                                  "Description": "Do not prompt for input on interactive terminal",
+                                  "Aliases": [],
+                                  "Arguments": [
+                                    {
+                                      "Arguments": [
+                                        {
+                                          "Name": "input",
+                                          "Description": "input",
+                                          "Type": "String"
+                                        }
+                                      ]
+                                    }
+                                  ]
+                                },
+                                {
+                                  "Name": "--permissions",
+                                  "Description": "The permissions to revoke from the group",
+                                  "Aliases": [],
+                                  "Arguments": [
+                                    {
+                                      "Arguments": [
+                                        {
+                                          "Name": "permissions",
+                                          "Description": "permissions",
+                                          "Type": "String"
+                                        }
+                                      ]
+                                    }
+                                  ]
+                                }
+                              ],
+                              "Optional": true
+                            }
+                          ]
+                        },
+                        {
+                          "Name": "list",
+                          "Description": "List all the groups that have access to the given vault",
+                          "Aliases": [
+                            "ls"
+                          ],
+                          "Arguments": [
+                            {
+                              "Arguments": [
+                                {
+                                  "Name": "vault",
+                                  "Description": "vault",
+                                  "Type": "String"
+                                },
+                                {
+                                  "Name": "-",
+                                  "Description": "Read from stdin"
+                                }
+                              ]
+                            }
+                          ]
+                        }
+                      ],
+                      "DontAllowMultiple": true
+                    }
+                  ]
+                },
+                {
+                  "Name": "user",
+                  "Description": "Manage user vault access",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "grant",
+                          "Description": "Grant a user access to a vault",
+                          "Aliases": [],
+                          "Arguments": [
+                            {
+                              "Arguments": [
+                                {
+                                  "Name": "--no-input",
+                                  "Description": "Do not prompt for input on interactive terminal",
+                                  "Aliases": [],
+                                  "Arguments": [
+                                    {
+                                      "Arguments": [
+                                        {
+                                          "Name": "input",
+                                          "Description": "input",
+                                          "Type": "String"
+                                        }
+                                      ]
+                                    }
+                                  ]
+                                },
+                                {
+                                  "Name": "--permissions",
+                                  "Description": "The permissions to grant to the user",
+                                  "Aliases": [],
+                                  "Arguments": [
+                                    {
+                                      "Arguments": [
+                                        {
+                                          "Name": "permissions",
+                                          "Description": "permissions",
+                                          "Type": "String"
+                                        }
+                                      ]
+                                    }
+                                  ]
+                                },
+                                {
+                                  "Name": "--user",
+                                  "Description": "The user to receive access",
+                                  "Aliases": [],
+                                  "Arguments": [
+                                    {
+                                      "Arguments": [
+                                        {
+                                          "Name": "user",
+                                          "Description": "user",
+                                          "Type": "String"
+                                        }
+                                      ]
+                                    }
+                                  ]
+                                }
+                              ],
+                              "Optional": true
+                            }
+                          ]
+                        },
+                        {
+                          "Name": "revoke",
+                          "Description": "Revoke a portion or the entire access of a user to a vault",
+                          "Aliases": [],
+                          "Arguments": [
+                            {
+                              "Arguments": [
+                                {
+                                  "Name": "--no-input",
+                                  "Description": "Do not prompt for input on interactive terminal",
+                                  "Aliases": [],
+                                  "Arguments": [
+                                    {
+                                      "Arguments": [
+                                        {
+                                          "Name": "input",
+                                          "Description": "input",
+                                          "Type": "String"
+                                        }
+                                      ]
+                                    }
+                                  ]
+                                },
+                                {
+                                  "Name": "--permissions",
+                                  "Description": "The permissions to revoke from the user",
+                                  "Aliases": [],
+                                  "Arguments": [
+                                    {
+                                      "Arguments": [
+                                        {
+                                          "Name": "permissions",
+                                          "Description": "permissions",
+                                          "Type": "String"
+                                        }
+                                      ]
+                                    }
+                                  ]
+                                },
+                                {
+                                  "Name": "--user",
+                                  "Description": "The user to revoke access from",
+                                  "Aliases": [],
+                                  "Arguments": [
+                                    {
+                                      "Arguments": [
+                                        {
+                                          "Name": "user",
+                                          "Description": "user",
+                                          "Type": "String"
+                                        }
+                                      ]
+                                    }
+                                  ]
+                                }
+                              ],
+                              "Optional": true
+                            }
+                          ]
+                        },
+                        {
+                          "Name": "list",
+                          "Description": "List all users with access to the vault and their permissions",
+                          "Aliases": [
+                            "ls"
+                          ],
+                          "Arguments": []
+                        }
+                      ],
+                      "DontAllowMultiple": true
+                    }
+                  ]
+                },
+                {
+                  "Name": "create",
+                  "Description": "Create a new vault",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "--allow-admins-to-manage",
+                          "Description": "Set whether admins can manage the vault. Default: false",
+                          "Aliases": [],
+                          "Arguments": [
+                            {
+                              "Arguments": [
+                                {
+                                  "Name": "true|false",
+                                  "Description": "true|false",
+                                  "Type": "String"
+                                }
+                              ]
+                            }
+                          ]
+                        },
+                        {
+                          "Name": "--description",
+                          "Description": "Set the group\u0027s description",
+                          "Aliases": [],
+                          "Arguments": [
+                            {
+                              "Arguments": [
+                                {
+                                  "Name": "description",
+                                  "Description": "description",
+                                  "Type": "String"
+                                }
+                              ]
+                            }
+                          ]
+                        }
+                      ],
+                      "Optional": true
+                    }
+                  ]
+                },
+                {
+                  "Name": "get",
+                  "Description": "Get details about a vault",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "vaultName | vaultID",
+                          "Description": "vaultName | vaultID",
+                          "Type": "String"
+                        },
+                        {
+                          "Name": "-",
+                          "Description": "Read from stdin"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "edit",
+                  "Description": "Edit a vault\u0027s name, description, icon or Travel Mode status",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "--description",
+                          "Description": "Change the vault\u0027s description",
+                          "Aliases": [],
+                          "Arguments": [
+                            {
+                              "Arguments": [
+                                {
+                                  "Name": "description",
+                                  "Description": "description",
+                                  "Type": "String"
+                                }
+                              ]
+                            }
+                          ]
+                        },
+                        {
+                          "Name": "--icon",
+                          "Description": "Change the vault\u0027s icon",
+                          "Aliases": [],
+                          "Arguments": [
+                            {
+                              "Arguments": [
+                                {
+                                  "Name": "icon",
+                                  "Description": "icon",
+                                  "Type": "String"
+                                }
+                              ]
+                            }
+                          ]
+                        },
+                        {
+                          "Name": "--name",
+                          "Description": "Change the vault\u0027s name",
+                          "Aliases": [],
+                          "Arguments": [
+                            {
+                              "Arguments": [
+                                {
+                                  "Name": "name",
+                                  "Description": "name",
+                                  "Type": "String"
+                                }
+                              ]
+                            }
+                          ]
+                        },
+                        {
+                          "Name": "--travel-mode",
+                          "Description": "Turn Travel Mode on or off for the vault. Only vaults with Travel Mode enabled will be accessible while a user has Travel Mode turned on. (default off)",
+                          "Aliases": [],
+                          "Arguments": [
+                            {
+                              "Arguments": [
+                                {
+                                  "Name": "on|off",
+                                  "Description": "on|off",
+                                  "Type": "String"
+                                }
+                              ]
+                            }
+                          ]
+                        }
+                      ],
+                      "Optional": true
+                    },
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "vaultName | vaultID",
+                          "Description": "vaultName | vaultID",
+                          "Type": "String"
+                        },
+                        {
+                          "Name": "-",
+                          "Description": "Read from stdin"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "delete",
+                  "Description": "Remove a vault",
+                  "Aliases": [
+                    "remove",
+                    "rm"
+                  ],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "vaultName | vaultID",
+                          "Description": "vaultName | vaultID",
+                          "Type": "String"
+                        },
+                        {
+                          "Name": "-",
+                          "Description": "Read from stdin"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "list",
+                  "Description": "List all vaults in the account",
+                  "Aliases": [
+                    "ls"
+                  ],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "--group",
+                          "Description": "List vaults a group has access to",
+                          "Aliases": [],
+                          "Arguments": [
+                            {
+                              "Arguments": [
+                                {
+                                  "Name": "string",
+                                  "Description": "string",
+                                  "Type": "String"
+                                }
+                              ]
+                            }
+                          ]
+                        }
+                      ],
+                      "Optional": true
+                    }
+                  ]
+                }
+              ],
+              "DontAllowMultiple": true
+            }
+          ]
+        },
+        {
+          "Name": "completion",
+          "Description": "Generate shell completion information",
+          "Aliases": [],
+          "Arguments": []
+        },
+        {
+          "Name": "inject",
+          "Description": "Inject secrets into a config file",
+          "Aliases": [],
+          "Arguments": []
+        },
+        {
+          "Name": "read",
+          "Description": "Read a secret using the secrets reference syntax",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "--file-mode",
+                  "Description": "Set filemode for the output file if it does not yet exist. It is ignored without the --out-file flag. (default 0600)",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "filemode",
+                          "Description": "filemode",
+                          "Type": "String"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "-f",
+                  "Description": "Do not prompt for confirmation",
+                  "Aliases": [
+                    "--force"
+                  ],
+                  "Arguments": []
+                },
+                {
+                  "Name": "-n",
+                  "Description": "Do not print a new line after the secret",
+                  "Aliases": [
+                    "--no-newline"
+                  ],
+                  "Arguments": []
+                }
+              ],
+              "Optional": true
+            }
+          ]
+        },
+        {
+          "Name": "run",
+          "Description": "Pass secrets as environment variables to a process",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "--env-file",
+                  "Description": "Enable Dotenv integration with specific Dotenv files to parse. For example: --env-file=.env",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "stringArray",
+                          "Description": "stringArray",
+                          "Type": "String"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "--no-masking",
+                  "Description": "Disable masking of secrets on stdout and stderr",
+                  "Aliases": [],
+                  "Arguments": []
+                }
+              ],
+              "Optional": true
+            },
+            {
+              "Arguments": [
+                {
+                  "Name": "command",
+                  "Description": "command",
+                  "Type": "String"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "Name": "signin",
+          "Description": "Sign in to a 1Password account",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "-f",
+                  "Description": "Ignore warnings and print raw output from this command",
+                  "Aliases": [
+                    "--force"
+                  ],
+                  "Arguments": []
+                }
+              ],
+              "Optional": true
+            }
+          ]
+        },
+        {
+          "Name": "signout",
+          "Description": "Sign out of a 1Password account",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "--all",
+                  "Description": "Sign out of all signed-in accounts",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "--forget",
+                  "Description": "Remove the details for a 1Password account from this device",
+                  "Aliases": [],
+                  "Arguments": []
+                }
+              ],
+              "Optional": true
+            }
+          ]
+        },
+        {
+          "Name": "update",
+          "Description": "Check for and download updates",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "--directory",
+                  "Description": "Download the update to this \u0027\u0027path\u0027\u0027",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "string",
+                          "Description": "string",
+                          "Type": "Directory"
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ],
+              "Optional": true
+            }
+          ]
+        },
+        {
+          "Name": "whoami",
+          "Description": "Get information about a signed-in account",
+          "Aliases": [],
+          "Arguments": []
+        }
+      ],
+      "DontAllowMultiple": true
+    }
+  ]
+}

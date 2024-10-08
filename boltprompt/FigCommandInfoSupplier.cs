@@ -104,7 +104,7 @@ internal record FigOption
 {
     [JsonInclude]
     [JsonConverter(typeof(ArrayOrSingleValueConverter<string>))]
-    public string[] name = [];
+    public string?[] name = [];
     [JsonInclude]
     public string? description = null;
     [JsonInclude]
@@ -152,19 +152,40 @@ internal record FigArg
     public FigGenerator[]? generators = null;
 }
 
-public class FigCommandInfoSupplier : ICommandInfoSupplier
+internal class FigCommandInfoSupplier : ICommandInfoSupplier
 {
     private static readonly NPath FigAutoCompletePath = Environment.GetEnvironmentVariable("FIG_AUTOCOMPLETE_DIR") ?? "/dev/null";
     private static readonly NPath FigListDir = Paths.boltpromptSupportFilesDir.Combine("list-fig");
     private static readonly NPath FigListScript = FigListDir.Combine("list-fig-json.js");
+    private static readonly NPath FigAutoCompleteSrcPath = FigAutoCompletePath.Combine("src");
     public int Order => 1;
 
-    private NPath CommandPath(string command) => FigAutoCompletePath.Combine($"src/{command}.ts");
+    private NPath CommandPath(string command) => FigAutoCompleteSrcPath.Combine($"{command}.ts");
     public bool CanHandle(string command) => CommandPath(command).FileExists();
+
+    public async Task ConvertAll(NPath outputDir)
+    {
+        outputDir.CreateDirectory();
+        foreach (var file in FigAutoCompleteSrcPath.Files(new string[] {"ts"}))
+        {                
+            var commandName = file.FileNameWithoutExtension;
+            try
+            {
+                Console.WriteLine($"Converting {commandName}...");
+                var ci = await GetCommandInfoForCommand(commandName);
+                if (ci != null)
+                    outputDir.Combine($"{commandName}.json").WriteAllText(ci.Serialize());
+            }
+            catch (Exception ex)
+            {
+                Console.Error.WriteLine($"Failed converting {commandName}:\n{ex}");
+            }
+        }
+    }
 
 
     private static CommandInfo.ArgumentType GetArgumentType(FigOption figOption) => 
-        figOption.name.All(n => n.StartsWith('-') && n.Length == 2) && !figOption.requiresSeparator
+        figOption.name.All(n => n != null && n.StartsWith('-') && n.Length == 2) && !figOption.requiresSeparator
             ? CommandInfo.ArgumentType.Flag 
             : CommandInfo.ArgumentType.Keyword;
 
@@ -194,14 +215,14 @@ public class FigCommandInfoSupplier : ICommandInfoSupplier
     CommandInfo.Argument ConvertFigOption(FigOption figOption)
     {
         var type = GetArgumentType(figOption);
-        return new(ConvertOptionName(figOption.name[0]))
+        return new(ConvertOptionName(figOption.name[0] ?? ""))
         {
             Description = figOption.description ?? "",
-            Aliases = figOption.name.Skip(1).Select(ConvertOptionName).ToArray(),
+            Aliases = figOption.name.Skip(1).Where(n => n != null).Select(ConvertOptionName).ToArray(),
             Type = type,
             Arguments = figOption.args?.Select(ConvertFigArgument).ToArray() ?? []
         };
-        string ConvertOptionName(string name) => type == CommandInfo.ArgumentType.Flag ? name[1..] : name;
+        string ConvertOptionName(string? name) => name != null ? type == CommandInfo.ArgumentType.Flag ? name[1..] : name : "";
     }
 
     private CommandInfo.ArgumentGroup ConvertFigArgument(FigArg figArg) => new (
@@ -212,7 +233,7 @@ public class FigCommandInfoSupplier : ICommandInfoSupplier
                 Extensions = figArg.generators?[0].extensions,
                 CustomCommand = figArg.generators?[0].script != null ? string.Join(" ", figArg.generators?[0].script!) : null,
             }}
-            .Concat(figArg.suggestions?.Select(s => new CommandInfo.Argument(s.name[0]) { Description = s.description ?? figArg.name.FirstOrDefault() ?? ""}) ?? [])
+            .Concat(figArg.suggestions?.Select(s => new CommandInfo.Argument(s.name.FirstOrDefault("")) { Description = s.description ?? figArg.name.FirstOrDefault() ?? ""}) ?? [])
             .ToArray()
         )
     {
@@ -264,9 +285,9 @@ public class FigCommandInfoSupplier : ICommandInfoSupplier
         return ci;
     }
 
-    private async Task<FigCommandInfo?> LoadFigCommandInfo(string command)
+    private async Task<FigCommandInfo?> LoadFigCommandInfo(string command, NPath? dir = null)
     {
-        var tempArtifacts = NPath.CreateTempDirectory("fig-temp");
+        var tempArtifacts = dir ?? NPath.CreateTempDirectory("fig-temp");
         var configPath = tempArtifacts.Combine("tsconfig.json");
         configPath.WriteAllText(
             $$"""
@@ -311,8 +332,35 @@ public class FigCommandInfoSupplier : ICommandInfoSupplier
             $"running node {FigListScript.ToString()} {tempArtifacts.Combine($"{command}.mjs").ToString()}");
 
         FigListDir.Combine("node_modules").Copy(tempArtifacts);
+        tempArtifacts.Combine("package.json").WriteAllText(
+            """
+            {
+              "dependencies": {
+                "semver": "^7.6.2",
+                "strip-json-comments": "^5.0.1",
+                "yaml": "^2.4.5",
+                "@fig/autocomplete-generators": "1.0.0"
+              }
+            }
+            
+            """);
+        
+        commandResult = await Cli.Wrap("npm")
+            .WithArguments("install")
+            .WithWorkingDirectory(tempArtifacts.ToString())
+            .ExecuteBufferedAsync();
+        
+        if (commandResult.ExitCode != 0)
+        {
+            Logger.Log("Fig", $"Failed running npm install in {tempArtifacts}");
+            return null;
+        }
+        
         command = new NPath(command).FileName;
-        tempArtifacts.Combine($"{command}.js").Move(tempArtifacts.Combine($"{command}.mjs"));
+        var targetPath = tempArtifacts.Combine($"{command}.mjs");
+        if (targetPath.FileExists())
+            targetPath.Delete();
+        tempArtifacts.Combine($"{command}.js").Move(targetPath);
         commandResult = await Cli.Wrap("node")
             .WithArguments(new string[] { FigListScript.ToString(), tempArtifacts.Combine($"{command}.mjs").ToString() })
             .WithEnvironmentVariables(new Dictionary<string, string?> {{ "NODE_PATH", FigListDir.Combine("node_modules").ToString() }})
@@ -325,12 +373,30 @@ public class FigCommandInfoSupplier : ICommandInfoSupplier
             return null;
         }
 
-        var json = commandResult.StandardOutput;
+        if (!string.IsNullOrEmpty(commandResult.StandardError))
+        {
+            Logger.Log("Fig", $"node errors:\n{commandResult.StandardError}");
+            if (commandResult.StandardError.Contains("Cannot find module"))
+            {
+                var start = commandResult.StandardError.IndexOf("Cannot find module");
+                start = commandResult.StandardError.IndexOf("'", start) + 1;
+                var end = commandResult.StandardError.IndexOf("'", start);
+                var moduleName = new NPath(commandResult.StandardError[start..end]).FileName;
+                Console.WriteLine($"Importing submodule {moduleName}");
+                if (await LoadFigCommandInfo(moduleName, tempArtifacts) != null)
+                {
+                    tempArtifacts.Combine($"{moduleName}.mjs").Copy(tempArtifacts.Combine(moduleName));
+                    return await LoadFigCommandInfo(command, tempArtifacts);
+                }
+            }
+        }
+
+        var json = commandResult.StandardOutput; 
         
-        tempArtifacts.Delete();
+        if (dir is null)
+            tempArtifacts.Delete();
         
         Logger.Log("Fig", $"Got json\n{json}");
-        var figCommandInfo = JsonSerializer.Deserialize<FigCommandInfo>(json);
-        return figCommandInfo;
+        return JsonSerializer.Deserialize<FigCommandInfo>(json);
     }
 }

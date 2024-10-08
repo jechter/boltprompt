@@ -1,0 +1,354 @@
+{
+  "Comment": "This command info is generated from fig",
+  "Name": "fdisk",
+  "Description": "Manipulate disk partition table",
+  "Arguments": [
+    {
+      "Arguments": [
+        {
+          "Name": "--help",
+          "Description": "Show help for fdisk",
+          "Aliases": [
+            "-h"
+          ],
+          "Arguments": []
+        },
+        {
+          "Name": "--version",
+          "Description": "Show version for lsblk",
+          "Aliases": [
+            "-V"
+          ],
+          "Arguments": []
+        },
+        {
+          "Name": "--sector-size",
+          "Description": "Specify the sector size of the disk",
+          "Aliases": [
+            "-b"
+          ],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "mode",
+                  "Description": "mode",
+                  "Type": "String"
+                },
+                {
+                  "Name": "512",
+                  "Description": "mode"
+                },
+                {
+                  "Name": "1024",
+                  "Description": "mode"
+                },
+                {
+                  "Name": "2048",
+                  "Description": "mode"
+                },
+                {
+                  "Name": "4096",
+                  "Description": "mode"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "Name": "--protect-boot",
+          "Description": "Don\u0027t erase the beginning of the first disk sector when creating a new disk label",
+          "Aliases": [
+            "-B"
+          ],
+          "Arguments": []
+        },
+        {
+          "Name": "--compatibility",
+          "Description": "Specify the compatibility mode, \u0027dos\u0027 or \u0027nondos\u0027",
+          "Aliases": [
+            "-c"
+          ],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "mode",
+                  "Description": "mode",
+                  "Type": "String"
+                },
+                {
+                  "Name": "dos",
+                  "Description": "mode"
+                },
+                {
+                  "Name": "nondos",
+                  "Description": "mode"
+                }
+              ],
+              "Optional": true
+            }
+          ]
+        },
+        {
+          "Name": "--color",
+          "Description": "Colorize the output",
+          "Aliases": [
+            "-L"
+          ],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "when",
+                  "Description": "when",
+                  "Type": "String"
+                },
+                {
+                  "Name": "always",
+                  "Description": "when"
+                },
+                {
+                  "Name": "never",
+                  "Description": "when"
+                },
+                {
+                  "Name": "auto",
+                  "Description": "when"
+                }
+              ],
+              "Optional": true
+            }
+          ]
+        },
+        {
+          "Name": "--list",
+          "Description": "List the partition tables for the specified devices and then exit",
+          "Aliases": [
+            "-l"
+          ],
+          "Arguments": []
+        },
+        {
+          "Name": "--list-details",
+          "Description": "Like --list, but provides more details",
+          "Aliases": [
+            "-x"
+          ],
+          "Arguments": []
+        },
+        {
+          "Name": "--lock",
+          "Description": "Use exclusive BSD lock for device or file it operates",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "mode",
+                  "Description": "mode",
+                  "Type": "String"
+                },
+                {
+                  "Name": "yes",
+                  "Description": "mode"
+                },
+                {
+                  "Name": "no",
+                  "Description": "mode"
+                },
+                {
+                  "Name": "nonblock",
+                  "Description": "mode"
+                }
+              ],
+              "Optional": true
+            }
+          ]
+        },
+        {
+          "Name": "--noauto-pt",
+          "Description": "Don\u0027t automatically create a default partition table on empty device",
+          "Aliases": [
+            "-n"
+          ],
+          "Arguments": []
+        },
+        {
+          "Name": "--output",
+          "Description": "Desc",
+          "Aliases": [
+            "-o"
+          ],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "list",
+                  "Description": "list",
+                  "Type": "String"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "Name": "--getsz",
+          "Description": "Print the size in 512-byte sectors of each given block device. This option is DEPRECATED in favour of blockdev(8)",
+          "Aliases": [
+            "-s"
+          ],
+          "Arguments": []
+        },
+        {
+          "Name": "--type",
+          "Description": "Enable support only for disklabels of the specified type, and disable support for all other types",
+          "Aliases": [
+            "-t"
+          ],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "type",
+                  "Description": "type",
+                  "Type": "String"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "Name": "--units",
+          "Description": "When listing partition tables, show sizes in \u0027sectors\u0027 or in \u0027cylinders\u0027",
+          "Aliases": [
+            "-u"
+          ],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "unit",
+                  "Description": "unit",
+                  "Type": "String"
+                },
+                {
+                  "Name": "sectors",
+                  "Description": "unit"
+                },
+                {
+                  "Name": "cylinders",
+                  "Description": "unit"
+                }
+              ],
+              "Optional": true
+            }
+          ]
+        },
+        {
+          "Name": "--cylinders",
+          "Description": "Specify the number of cylinders of the disk",
+          "Aliases": [
+            "-C"
+          ],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "number",
+                  "Description": "number",
+                  "Type": "String"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "Name": "--heads",
+          "Description": "Specify the number of heads of the disk. (Not the physical number, of course, but the number used for partition tables.)",
+          "Aliases": [
+            "-H"
+          ],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "number",
+                  "Description": "number",
+                  "Type": "String"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "Name": "--sectors",
+          "Description": "Specify the number of sectors per track of the disk. (Not the physical number, of course, but the number used for partition tables.)",
+          "Aliases": [
+            "-S"
+          ],
+          "Arguments": []
+        },
+        {
+          "Name": "--wipe",
+          "Description": "Wipe filesystem, RAID and partition-table signatures from the device, in order to avoid possible collisions",
+          "Aliases": [
+            "-w"
+          ],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "when",
+                  "Description": "when",
+                  "Type": "String"
+                },
+                {
+                  "Name": "auto",
+                  "Description": "when"
+                },
+                {
+                  "Name": "never",
+                  "Description": "when"
+                },
+                {
+                  "Name": "always",
+                  "Description": "when"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "Name": "--wipe-partitions",
+          "Description": "Wipe filesystem, RAID and partition-table signatures from a newly created partitions, in order to avoid possible collisions",
+          "Aliases": [
+            "-W"
+          ],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "when",
+                  "Description": "when",
+                  "Type": "String"
+                }
+              ]
+            }
+          ]
+        }
+      ],
+      "Optional": true
+    },
+    {
+      "Arguments": [
+        {
+          "Name": "device",
+          "Description": "device",
+          "Type": "FileSystemEntry"
+        }
+      ],
+      "Optional": true
+    }
+  ]
+}

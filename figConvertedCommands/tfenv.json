@@ -1,0 +1,117 @@
+{
+  "Comment": "This command info is generated from fig",
+  "Name": "tfenv",
+  "Description": "Terraform version manager",
+  "Arguments": [
+    {
+      "Arguments": [
+        {
+          "Name": "-v",
+          "Description": "View your current tfenv version",
+          "Aliases": [
+            "--version"
+          ],
+          "Arguments": []
+        },
+        {
+          "Name": "--help",
+          "Description": "View commands",
+          "Aliases": [],
+          "Arguments": []
+        }
+      ],
+      "Optional": true
+    },
+    {
+      "Arguments": [
+        {
+          "Name": "install",
+          "Description": "Install a specific version of Terraform",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "version",
+                  "Description": "version",
+                  "Type": "CustomArgument",
+                  "Extensions": [],
+                  "CustomCommand": "tfenv list-remote"
+                },
+                {
+                  "Name": "latest",
+                  "Description": "version"
+                },
+                {
+                  "Name": "min-required",
+                  "Description": "version"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "Name": "use",
+          "Description": "Switch to a version to use",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "version",
+                  "Description": "version",
+                  "Type": "CustomArgument",
+                  "Extensions": [],
+                  "CustomCommand": "tfenv list"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "Name": "uninstall",
+          "Description": "Uninstall a specific version of Terraform",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "version",
+                  "Description": "version",
+                  "Type": "CustomArgument",
+                  "Extensions": [],
+                  "CustomCommand": "tfenv list"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "Name": "list",
+          "Description": "List all installed versions",
+          "Aliases": [],
+          "Arguments": []
+        },
+        {
+          "Name": "list-remote",
+          "Description": "List all installable versions",
+          "Aliases": [],
+          "Arguments": []
+        },
+        {
+          "Name": "version-name",
+          "Description": "Print current version",
+          "Aliases": [],
+          "Arguments": []
+        },
+        {
+          "Name": "init",
+          "Description": "Update environment to use tfenv correctly",
+          "Aliases": [],
+          "Arguments": []
+        }
+      ],
+      "DontAllowMultiple": true
+    }
+  ]
+}

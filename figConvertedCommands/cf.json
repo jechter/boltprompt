@@ -1,0 +1,4205 @@
+{
+  "Comment": "This command info is generated from fig",
+  "Name": "cf",
+  "Description": "Cloudfoundry cli",
+  "Arguments": [
+    {
+      "Arguments": [
+        {
+          "Name": "--help",
+          "Description": "Show help for Cloud Foundry command line tool",
+          "Aliases": [
+            "-h"
+          ],
+          "Arguments": []
+        },
+        {
+          "Name": "v",
+          "Description": "Print API request diagnostics to stdout",
+          "Type": "Flag",
+          "Aliases": [],
+          "Arguments": []
+        }
+      ],
+      "Optional": true
+    },
+    {
+      "Arguments": [
+        {
+          "Name": "app",
+          "Description": "Display health and status for app",
+          "Aliases": [
+            "a"
+          ],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "--guid",
+                  "Description": "Retrieve and display the given app\u0027s guid.  All other health and status output for the app is suppressed",
+                  "Aliases": [],
+                  "Arguments": []
+                }
+              ],
+              "Optional": true
+            },
+            {
+              "Arguments": [
+                {
+                  "Name": "APP_NAME",
+                  "Description": "APP_NAME",
+                  "Type": "CustomArgument",
+                  "Extensions": [],
+                  "CustomCommand": "bash -c cf apps | cut -d \u0022 \u0022 -f1"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "Name": "ssh",
+          "Description": "Display health and status for app",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "v",
+                  "Description": "Verbose output",
+                  "Type": "Flag",
+                  "Aliases": [],
+                  "Arguments": []
+                }
+              ],
+              "Optional": true
+            },
+            {
+              "Arguments": [
+                {
+                  "Name": "APP_NAME",
+                  "Description": "APP_NAME",
+                  "Type": "CustomArgument",
+                  "Extensions": [],
+                  "CustomCommand": "bash -c cf apps | cut -d \u0022 \u0022 -f1"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "Name": "env",
+          "Description": "Show all env variables for an app",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "APP_NAME",
+                  "Description": "APP_NAME",
+                  "Type": "CustomArgument",
+                  "Extensions": [],
+                  "CustomCommand": "bash -c cf apps | cut -d \u0022 \u0022 -f1"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "Name": "orgs",
+          "Description": "List all orgs",
+          "Aliases": [],
+          "Arguments": []
+        },
+        {
+          "Name": "version",
+          "Description": "Print the version of cf",
+          "Aliases": [
+            "-v",
+            "--version"
+          ],
+          "Arguments": []
+        },
+        {
+          "Name": "login",
+          "Description": "Log user in",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "a",
+                  "Description": "API endpoint (e.g. https://api.example.com)",
+                  "Type": "Flag",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "API endpoint",
+                          "Description": "API endpoint",
+                          "Type": "String"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "o",
+                  "Description": "Org",
+                  "Type": "Flag",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "Org",
+                          "Description": "Org",
+                          "Type": "CustomArgument",
+                          "Extensions": [],
+                          "CustomCommand": "cf orgs"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "s",
+                  "Description": "Space",
+                  "Type": "Flag",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "Space",
+                          "Description": "Space",
+                          "Type": "CustomArgument",
+                          "Extensions": [],
+                          "CustomCommand": "cf spaces"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "p",
+                  "Description": "Password",
+                  "Type": "Flag",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "Password",
+                          "Description": "Password",
+                          "Type": "String"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "u",
+                  "Description": "Username",
+                  "Type": "Flag",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "Username",
+                          "Description": "Username",
+                          "Type": "String"
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ],
+              "Optional": true
+            }
+          ]
+        },
+        {
+          "Name": "logout",
+          "Description": "Log user out",
+          "Aliases": [],
+          "Arguments": []
+        },
+        {
+          "Name": "password",
+          "Description": "Change user password",
+          "Aliases": [],
+          "Arguments": []
+        },
+        {
+          "Name": "target",
+          "Description": "Set or view the targeted org or space",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "o",
+                  "Description": "Org",
+                  "Type": "Flag",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "Org",
+                          "Description": "Org",
+                          "Type": "CustomArgument",
+                          "Extensions": [],
+                          "CustomCommand": "cf orgs"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "s",
+                  "Description": "Space",
+                  "Type": "Flag",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "Space",
+                          "Description": "Space",
+                          "Type": "CustomArgument",
+                          "Extensions": [],
+                          "CustomCommand": "cf spaces"
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ],
+              "Optional": true
+            }
+          ]
+        },
+        {
+          "Name": "api",
+          "Description": "Set or view target api url",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "--skip-ssl-validation",
+                  "Description": "Skip verification of the API endpoint. Not recommended!",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "--unset",
+                  "Description": "Remove all api endpoint targeting",
+                  "Aliases": [],
+                  "Arguments": []
+                }
+              ],
+              "Optional": true
+            },
+            {
+              "Arguments": [
+                {
+                  "Name": "url",
+                  "Description": "url",
+                  "Type": "String"
+                }
+              ],
+              "Optional": true
+            }
+          ]
+        },
+        {
+          "Name": "auth",
+          "Description": "Auth user non-interactively",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "username",
+                  "Description": "username",
+                  "Type": "String"
+                }
+              ]
+            },
+            {
+              "Arguments": [
+                {
+                  "Name": "password",
+                  "Description": "password",
+                  "Type": "String"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "Name": "apps",
+          "Description": "List all apps in the target space",
+          "Aliases": [],
+          "Arguments": []
+        },
+        {
+          "Name": "push",
+          "Description": "Push a new app or sync changes to an existing app",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "b",
+                  "Description": "Custom buildpack by name or git url",
+                  "Type": "Flag",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "Buildpack",
+                          "Description": "Buildpack",
+                          "Type": "String"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "c",
+                  "Description": "Startup command, set to null to reset to default start command",
+                  "Type": "Flag",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "Command",
+                          "Description": "Command",
+                          "Type": "String"
+                        }
+                      ],
+                      "Optional": true
+                    }
+                  ]
+                },
+                {
+                  "Name": "d",
+                  "Description": "Domain",
+                  "Type": "Flag",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "Domain",
+                          "Description": "Domain",
+                          "Type": "String"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "-o",
+                  "Description": "Docker image",
+                  "Aliases": [
+                    "--docker-image"
+                  ],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "Docker image",
+                          "Description": "Docker image",
+                          "Type": "String"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "f",
+                  "Description": "Path to manifest",
+                  "Type": "Flag",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "Path to manifest",
+                          "Description": "Path to manifest",
+                          "Type": "String"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "-n",
+                  "Description": "Hostname",
+                  "Aliases": [
+                    "--host-name"
+                  ],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "Hostname",
+                          "Description": "Hostname",
+                          "Type": "String"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "i",
+                  "Description": "Number of instances",
+                  "Type": "Flag",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "Number of instances",
+                          "Description": "Number of instances",
+                          "Type": "String"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "k",
+                  "Description": "Disk limit",
+                  "Type": "Flag",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "Disk limit",
+                          "Description": "Disk limit",
+                          "Type": "String"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "m",
+                  "Description": "Memory limit",
+                  "Type": "Flag",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "Memory limit",
+                          "Description": "Memory limit",
+                          "Type": "String"
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ],
+              "Optional": true
+            }
+          ]
+        },
+        {
+          "Name": "scale",
+          "Description": "Change or view the instance count, disk space limit, and memory limit for an app",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "f",
+                  "Description": "Force restart of app without prompt",
+                  "Type": "Flag",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "i",
+                  "Description": "Number of instances",
+                  "Type": "Flag",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "Number of instances",
+                          "Description": "Number of instances",
+                          "Type": "String"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "k",
+                  "Description": "Disk limit",
+                  "Type": "Flag",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "Disk limit",
+                          "Description": "Disk limit",
+                          "Type": "String"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "m",
+                  "Description": "Memory limit",
+                  "Type": "Flag",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "Memory limit",
+                          "Description": "Memory limit",
+                          "Type": "String"
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ],
+              "Optional": true
+            }
+          ]
+        },
+        {
+          "Name": "delete",
+          "Description": "Delete an app",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "f",
+                  "Description": "Force deletion without confirmation",
+                  "Type": "Flag",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "r",
+                  "Description": "Also delete any mapped routes",
+                  "Type": "Flag",
+                  "Aliases": [],
+                  "Arguments": []
+                }
+              ],
+              "Optional": true
+            },
+            {
+              "Arguments": [
+                {
+                  "Name": "APP_NAME",
+                  "Description": "APP_NAME",
+                  "Type": "CustomArgument",
+                  "Extensions": [],
+                  "CustomCommand": "bash -c cf apps | cut -d \u0022 \u0022 -f1"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "Name": "rename",
+          "Description": "Rename an app",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "APP_NAME",
+                  "Description": "APP_NAME",
+                  "Type": "CustomArgument",
+                  "Extensions": [],
+                  "CustomCommand": "bash -c cf apps | cut -d \u0022 \u0022 -f1"
+                }
+              ]
+            },
+            {
+              "Arguments": [
+                {
+                  "Name": "new app name",
+                  "Description": "new app name",
+                  "Type": "String"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "Name": "start",
+          "Description": "Start an app",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "APP_NAME",
+                  "Description": "APP_NAME",
+                  "Type": "CustomArgument",
+                  "Extensions": [],
+                  "CustomCommand": "bash -c cf apps | cut -d \u0022 \u0022 -f1"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "Name": "stop",
+          "Description": "Stop an app",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "APP_NAME",
+                  "Description": "APP_NAME",
+                  "Type": "CustomArgument",
+                  "Extensions": [],
+                  "CustomCommand": "bash -c cf apps | cut -d \u0022 \u0022 -f1"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "Name": "restart",
+          "Description": "Stop all instances of the app, then start them again. This may cause downtime",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "APP_NAME",
+                  "Description": "APP_NAME",
+                  "Type": "CustomArgument",
+                  "Extensions": [],
+                  "CustomCommand": "bash -c cf apps | cut -d \u0022 \u0022 -f1"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "Name": "restage",
+          "Description": "Recreate the app\u0027s executable artifact using the latest pushed app files and the latest environment (variables, service bindings, buildpack, stack, etc.)",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "APP_NAME",
+                  "Description": "APP_NAME",
+                  "Type": "CustomArgument",
+                  "Extensions": [],
+                  "CustomCommand": "bash -c cf apps | cut -d \u0022 \u0022 -f1"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "Name": "restart-app-instance",
+          "Description": "Terminate the running application Instance at the given index and instantiate a new instance of the application with the same index",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "APP_NAME",
+                  "Description": "APP_NAME",
+                  "Type": "CustomArgument",
+                  "Extensions": [],
+                  "CustomCommand": "bash -c cf apps | cut -d \u0022 \u0022 -f1"
+                }
+              ]
+            },
+            {
+              "Arguments": [
+                {
+                  "Name": "index",
+                  "Description": "index",
+                  "Type": "String"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "Name": "run-task",
+          "Description": "Run a one-off task on an app",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "k",
+                  "Description": "Disk limit",
+                  "Type": "Flag",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "Disk limit",
+                          "Description": "Disk limit",
+                          "Type": "String"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "m",
+                  "Description": "Memory limit",
+                  "Type": "Flag",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "Memory limit",
+                          "Description": "Memory limit",
+                          "Type": "String"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "--name",
+                  "Description": "Name for task",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "Name for task",
+                          "Description": "Name for task",
+                          "Type": "String"
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ],
+              "Optional": true
+            },
+            {
+              "Arguments": [
+                {
+                  "Name": "APP_NAME",
+                  "Description": "APP_NAME",
+                  "Type": "CustomArgument",
+                  "Extensions": [],
+                  "CustomCommand": "bash -c cf apps | cut -d \u0022 \u0022 -f1"
+                }
+              ]
+            },
+            {
+              "Arguments": [
+                {
+                  "Name": "command",
+                  "Description": "command",
+                  "Type": "String"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "Name": "tasks",
+          "Description": "List tasks of an app",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "APP_NAME",
+                  "Description": "APP_NAME",
+                  "Type": "CustomArgument",
+                  "Extensions": [],
+                  "CustomCommand": "bash -c cf apps | cut -d \u0022 \u0022 -f1"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "Name": "terminate-task",
+          "Description": "Terminate a running task of an app",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "APP_NAME",
+                  "Description": "APP_NAME",
+                  "Type": "CustomArgument",
+                  "Extensions": [],
+                  "CustomCommand": "bash -c cf apps | cut -d \u0022 \u0022 -f1"
+                }
+              ]
+            },
+            {
+              "Arguments": [
+                {
+                  "Name": "task id",
+                  "Description": "task id",
+                  "Type": "String"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "Name": "events",
+          "Description": "Show recent app events",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "APP_NAME",
+                  "Description": "APP_NAME",
+                  "Type": "CustomArgument",
+                  "Extensions": [],
+                  "CustomCommand": "bash -c cf apps | cut -d \u0022 \u0022 -f1"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "Name": "files",
+          "Description": "Print out a list of files in a directory or the contents of a specific file of an app running on the DEA backend",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "i",
+                  "Description": "Instance",
+                  "Type": "Flag",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "instance",
+                          "Description": "instance",
+                          "Type": "String"
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ],
+              "Optional": true
+            },
+            {
+              "Arguments": [
+                {
+                  "Name": "APP_NAME",
+                  "Description": "APP_NAME",
+                  "Type": "CustomArgument",
+                  "Extensions": [],
+                  "CustomCommand": "bash -c cf apps | cut -d \u0022 \u0022 -f1"
+                }
+              ]
+            },
+            {
+              "Arguments": [
+                {
+                  "Name": "path",
+                  "Description": "path",
+                  "Type": "String"
+                }
+              ],
+              "Optional": true
+            }
+          ]
+        },
+        {
+          "Name": "logs",
+          "Description": "Trail or show recent logs for an app",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "--recent",
+                  "Description": "Dump recent logs instead of tailing",
+                  "Aliases": [],
+                  "Arguments": []
+                }
+              ],
+              "Optional": true
+            },
+            {
+              "Arguments": [
+                {
+                  "Name": "APP_NAME",
+                  "Description": "APP_NAME",
+                  "Type": "CustomArgument",
+                  "Extensions": [],
+                  "CustomCommand": "bash -c cf apps | cut -d \u0022 \u0022 -f1"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "Name": "set-env",
+          "Description": "Set an environment variable for an app",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "APP_NAME",
+                  "Description": "APP_NAME",
+                  "Type": "CustomArgument",
+                  "Extensions": [],
+                  "CustomCommand": "bash -c cf apps | cut -d \u0022 \u0022 -f1"
+                }
+              ]
+            },
+            {
+              "Arguments": [
+                {
+                  "Name": "env var name",
+                  "Description": "env var name",
+                  "Type": "String"
+                }
+              ]
+            },
+            {
+              "Arguments": [
+                {
+                  "Name": "env var value",
+                  "Description": "env var value",
+                  "Type": "String"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "Name": "unset-env",
+          "Description": "Remove an environment variable",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "APP_NAME",
+                  "Description": "APP_NAME",
+                  "Type": "CustomArgument",
+                  "Extensions": [],
+                  "CustomCommand": "bash -c cf apps | cut -d \u0022 \u0022 -f1"
+                }
+              ]
+            },
+            {
+              "Arguments": [
+                {
+                  "Name": "env var name",
+                  "Description": "env var name",
+                  "Type": "String"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "Name": "stacks",
+          "Description": "List all stacks (a stack is a pre-built file system, including an operating system, that can run apps)",
+          "Aliases": [],
+          "Arguments": []
+        },
+        {
+          "Name": "copy-source",
+          "Description": "Copies the source code of an application to another existing application (and restarts that application)",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "s",
+                  "Description": "Space that contains the target application",
+                  "Type": "Flag",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "space",
+                          "Description": "space",
+                          "Type": "CustomArgument",
+                          "Extensions": [],
+                          "CustomCommand": "cf spaces"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "o",
+                  "Description": "Org that contains the target application",
+                  "Type": "Flag",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "org",
+                          "Description": "org",
+                          "Type": "CustomArgument",
+                          "Extensions": [],
+                          "CustomCommand": "cf orgs"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "--no-restart",
+                  "Description": "Override restart of the application in target environment after copy-source completes",
+                  "Aliases": [],
+                  "Arguments": []
+                }
+              ],
+              "Optional": true
+            },
+            {
+              "Arguments": [
+                {
+                  "Name": "source app",
+                  "Description": "source app",
+                  "Type": "String"
+                }
+              ]
+            },
+            {
+              "Arguments": [
+                {
+                  "Name": "target app",
+                  "Description": "target app",
+                  "Type": "String"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "Name": "create-app-manifest",
+          "Description": "Create an app manifest for an app that has been pushed successfully",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "p",
+                  "Description": "Path for file creation",
+                  "Type": "Flag",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "path",
+                          "Description": "path",
+                          "Type": "String"
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ],
+              "Optional": true
+            },
+            {
+              "Arguments": [
+                {
+                  "Name": "APP_NAME",
+                  "Description": "APP_NAME",
+                  "Type": "CustomArgument",
+                  "Extensions": [],
+                  "CustomCommand": "bash -c cf apps | cut -d \u0022 \u0022 -f1"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "Name": "get-health-check",
+          "Description": "Show the type of health check performed on an app",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "APP_NAME",
+                  "Description": "APP_NAME",
+                  "Type": "CustomArgument",
+                  "Extensions": [],
+                  "CustomCommand": "bash -c cf apps | cut -d \u0022 \u0022 -f1"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "Name": "set-health-check",
+          "Description": "Change type of health check performed on an app",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "APP_NAME",
+                  "Description": "APP_NAME",
+                  "Type": "CustomArgument",
+                  "Extensions": [],
+                  "CustomCommand": "bash -c cf apps | cut -d \u0022 \u0022 -f1"
+                }
+              ]
+            },
+            {
+              "Arguments": [
+                {
+                  "Name": "type of health check",
+                  "Description": "type of health check",
+                  "Type": "String"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "Name": "enable-ssh",
+          "Description": "Enable ssh for the application",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "APP_NAME",
+                  "Description": "APP_NAME",
+                  "Type": "CustomArgument",
+                  "Extensions": [],
+                  "CustomCommand": "bash -c cf apps | cut -d \u0022 \u0022 -f1"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "Name": "disable-ssh",
+          "Description": "Disable ssh for the application",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "APP_NAME",
+                  "Description": "APP_NAME",
+                  "Type": "CustomArgument",
+                  "Extensions": [],
+                  "CustomCommand": "bash -c cf apps | cut -d \u0022 \u0022 -f1"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "Name": "ssh-enabled",
+          "Description": "Reports whether SSH is enabled on an application container instance",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "APP_NAME",
+                  "Description": "APP_NAME",
+                  "Type": "CustomArgument",
+                  "Extensions": [],
+                  "CustomCommand": "bash -c cf apps | cut -d \u0022 \u0022 -f1"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "Name": "marketplace",
+          "Description": "List available offerings in the marketplace",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "s",
+                  "Description": "Show plan details for a particular service offering",
+                  "Type": "Flag",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "service",
+                          "Description": "service",
+                          "Type": "String"
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ],
+              "Optional": true
+            }
+          ]
+        },
+        {
+          "Name": "services",
+          "Description": "List all service instances in the target space",
+          "Aliases": [
+            "s"
+          ],
+          "Arguments": []
+        },
+        {
+          "Name": "create-service",
+          "Description": "Create a service instance",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "c",
+                  "Description": "Valid JSON object containing service-specific configuration parameters, provided either in-line or in a file",
+                  "Type": "Flag",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "JSON object",
+                          "Description": "JSON object",
+                          "Type": "String"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "t",
+                  "Description": "User provided tags",
+                  "Type": "Flag",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "tags",
+                          "Description": "tags",
+                          "Type": "String"
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ],
+              "Optional": true
+            },
+            {
+              "Arguments": [
+                {
+                  "Name": "service",
+                  "Description": "service",
+                  "Type": "String"
+                }
+              ]
+            },
+            {
+              "Arguments": [
+                {
+                  "Name": "plan",
+                  "Description": "plan",
+                  "Type": "String"
+                }
+              ]
+            },
+            {
+              "Arguments": [
+                {
+                  "Name": "service instance",
+                  "Description": "service instance",
+                  "Type": "String"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "Name": "update-service",
+          "Description": "Update a service instance",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "c",
+                  "Description": "Valid JSON object containing service-specific configuration parameters, provided either in-line or in a file",
+                  "Type": "Flag",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "JSON object",
+                          "Description": "JSON object",
+                          "Type": "String"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "p",
+                  "Description": "Change service plan for a service instance",
+                  "Type": "Flag",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "new plan",
+                          "Description": "new plan",
+                          "Type": "String"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "t",
+                  "Description": "User provided tags",
+                  "Type": "Flag",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "tags",
+                          "Description": "tags",
+                          "Type": "String"
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ],
+              "Optional": true
+            },
+            {
+              "Arguments": [
+                {
+                  "Name": "service",
+                  "Description": "service",
+                  "Type": "CustomArgument",
+                  "Extensions": [],
+                  "CustomCommand": "bash -c cf services | cut -d \u0022 \u0022 -f1 "
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "Name": "delete-service",
+          "Description": "Delete a service instance",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "f",
+                  "Description": "Force deletion without confirmation",
+                  "Type": "Flag",
+                  "Aliases": [],
+                  "Arguments": []
+                }
+              ],
+              "Optional": true
+            },
+            {
+              "Arguments": [
+                {
+                  "Name": "service instance",
+                  "Description": "service instance",
+                  "Type": "CustomArgument",
+                  "Extensions": [],
+                  "CustomCommand": "bash -c cf services | cut -d \u0022 \u0022 -f1 "
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "Name": "rename-service",
+          "Description": "Rename a service instance",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "service instance",
+                  "Description": "service instance",
+                  "Type": "CustomArgument",
+                  "Extensions": [],
+                  "CustomCommand": "bash -c cf services | cut -d \u0022 \u0022 -f1 "
+                }
+              ]
+            },
+            {
+              "Arguments": [
+                {
+                  "Name": "new service instance",
+                  "Description": "new service instance",
+                  "Type": "String"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "Name": "create-service-key",
+          "Description": "Create key for a service instance",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "c",
+                  "Description": "Valid JSON object containing service-specific configuration parameters, provided either in-line or in a file",
+                  "Type": "Flag",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "JSON object",
+                          "Description": "JSON object",
+                          "Type": "String"
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ],
+              "Optional": true
+            },
+            {
+              "Arguments": [
+                {
+                  "Name": "service instance",
+                  "Description": "service instance",
+                  "Type": "CustomArgument",
+                  "Extensions": [],
+                  "CustomCommand": "bash -c cf services | cut -d \u0022 \u0022 -f1 "
+                }
+              ]
+            },
+            {
+              "Arguments": [
+                {
+                  "Name": "service key",
+                  "Description": "service key",
+                  "Type": "String"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "Name": "service-keys",
+          "Description": "List keys for a service instance",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "service instance",
+                  "Description": "service instance",
+                  "Type": "CustomArgument",
+                  "Extensions": [],
+                  "CustomCommand": "bash -c cf services | cut -d \u0022 \u0022 -f1 "
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "Name": "service-key",
+          "Description": "Show service key info",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "service instance",
+                  "Description": "service instance",
+                  "Type": "CustomArgument",
+                  "Extensions": [],
+                  "CustomCommand": "bash -c cf services | cut -d \u0022 \u0022 -f1 "
+                }
+              ]
+            },
+            {
+              "Arguments": [
+                {
+                  "Name": "service key",
+                  "Description": "service key",
+                  "Type": "String"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "Name": "delete-service-key",
+          "Description": "Delete a service key",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "f",
+                  "Description": "Force deletion without confirmation",
+                  "Type": "Flag",
+                  "Aliases": [],
+                  "Arguments": []
+                }
+              ],
+              "Optional": true
+            },
+            {
+              "Arguments": [
+                {
+                  "Name": "service instance",
+                  "Description": "service instance",
+                  "Type": "CustomArgument",
+                  "Extensions": [],
+                  "CustomCommand": "bash -c cf services | cut -d \u0022 \u0022 -f1 "
+                }
+              ]
+            },
+            {
+              "Arguments": [
+                {
+                  "Name": "service key",
+                  "Description": "service key",
+                  "Type": "String"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "Name": "bind-service",
+          "Description": "Bind a service instance to an app",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "c",
+                  "Description": "Valid JSON object containing service-specific configuration parameters, provided either in-line or in a file",
+                  "Type": "Flag",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "JSON object",
+                          "Description": "JSON object",
+                          "Type": "String"
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ],
+              "Optional": true
+            },
+            {
+              "Arguments": [
+                {
+                  "Name": "APP_NAME",
+                  "Description": "APP_NAME",
+                  "Type": "CustomArgument",
+                  "Extensions": [],
+                  "CustomCommand": "bash -c cf apps | cut -d \u0022 \u0022 -f1"
+                }
+              ]
+            },
+            {
+              "Arguments": [
+                {
+                  "Name": "service instance",
+                  "Description": "service instance",
+                  "Type": "CustomArgument",
+                  "Extensions": [],
+                  "CustomCommand": "bash -c cf services | cut -d \u0022 \u0022 -f1 "
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "Name": "unbind-service",
+          "Description": "Unbind a service instance from an app",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "APP_NAME",
+                  "Description": "APP_NAME",
+                  "Type": "CustomArgument",
+                  "Extensions": [],
+                  "CustomCommand": "bash -c cf apps | cut -d \u0022 \u0022 -f1"
+                }
+              ]
+            },
+            {
+              "Arguments": [
+                {
+                  "Name": "service instance",
+                  "Description": "service instance",
+                  "Type": "CustomArgument",
+                  "Extensions": [],
+                  "CustomCommand": "bash -c cf services | cut -d \u0022 \u0022 -f1 "
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "Name": "bind-route-service",
+          "Description": "Bind a service instance to an HTTP route",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "c",
+                  "Description": "Valid JSON object containing service-specific configuration parameters, provided either in-line or in a file",
+                  "Type": "Flag",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "JSON object",
+                          "Description": "JSON object",
+                          "Type": "String"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "-n",
+                  "Description": "Hostname used in combination with DOMAIN to specify the route to bind",
+                  "Aliases": [
+                    "--hostname"
+                  ],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "hostname",
+                          "Description": "hostname",
+                          "Type": "String"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "--path",
+                  "Description": "Path used in combination with HOSTNAME and DOMAIN to specify the route to bind",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "path",
+                          "Description": "path",
+                          "Type": "String"
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ],
+              "Optional": true
+            },
+            {
+              "Arguments": [
+                {
+                  "Name": "domain",
+                  "Description": "domain",
+                  "Type": "String"
+                }
+              ]
+            },
+            {
+              "Arguments": [
+                {
+                  "Name": "service instance",
+                  "Description": "service instance",
+                  "Type": "CustomArgument",
+                  "Extensions": [],
+                  "CustomCommand": "bash -c cf services | cut -d \u0022 \u0022 -f1 "
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "Name": "unbind-route-service",
+          "Description": "Unbind a service instance from an HTTP route",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "f",
+                  "Description": "Force unbinding without confirmation",
+                  "Type": "Flag",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "-n",
+                  "Description": "Hostname used in combination with DOMAIN to specify the route to bind",
+                  "Aliases": [
+                    "--hostname"
+                  ],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "hostname",
+                          "Description": "hostname",
+                          "Type": "String"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "--path",
+                  "Description": "Path used in combination with HOSTNAME and DOMAIN to specify the route to bind",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "path",
+                          "Description": "path",
+                          "Type": "String"
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ],
+              "Optional": true
+            },
+            {
+              "Arguments": [
+                {
+                  "Name": "domain",
+                  "Description": "domain",
+                  "Type": "String"
+                }
+              ]
+            },
+            {
+              "Arguments": [
+                {
+                  "Name": "service instance",
+                  "Description": "service instance",
+                  "Type": "CustomArgument",
+                  "Extensions": [],
+                  "CustomCommand": "bash -c cf services | cut -d \u0022 \u0022 -f1 "
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "Name": "create-user-provided-service",
+          "Description": "Make a user-provided service instance available to CF apps",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "p",
+                  "Description": "Credentials, provided inline or in a file, to be exposed in the VCAP_SERVICES environment variable for bound applications",
+                  "Type": "Flag",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "credentials",
+                          "Description": "credentials",
+                          "Type": "String"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "l",
+                  "Description": "URL to which logs for bound applications will be streamed",
+                  "Type": "Flag",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "sys log drain url",
+                          "Description": "sys log drain url",
+                          "Type": "String"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "r",
+                  "Description": "URL to which requests for bound routes will be forwarded. Scheme for this URL must be https",
+                  "Type": "Flag",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "serice url",
+                          "Description": "serice url",
+                          "Type": "String"
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ],
+              "Optional": true
+            },
+            {
+              "Arguments": [
+                {
+                  "Name": "service instance",
+                  "Description": "service instance",
+                  "Type": "String"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "Name": "update-user-provided-service",
+          "Description": "Update user-provided service instance",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "p",
+                  "Description": "Credentials, provided inline or in a file, to be exposed in the VCAP_SERVICES environment variable for bound applications",
+                  "Type": "Flag",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "credentials",
+                          "Description": "credentials",
+                          "Type": "String"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "l",
+                  "Description": "URL to which logs for bound applications will be streamed",
+                  "Type": "Flag",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "sys log drain url",
+                          "Description": "sys log drain url",
+                          "Type": "String"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "r",
+                  "Description": "URL to which requests for bound routes will be forwarded. Scheme for this URL must be https",
+                  "Type": "Flag",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "serice url",
+                          "Description": "serice url",
+                          "Type": "String"
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ],
+              "Optional": true
+            },
+            {
+              "Arguments": [
+                {
+                  "Name": "service instance",
+                  "Description": "service instance",
+                  "Type": "String"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "Name": "org",
+          "Description": "Show org info",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "--guid",
+                  "Description": "Retrieve and display the given org\u0027s guid.  All other output for the org is suppressed",
+                  "Aliases": [],
+                  "Arguments": []
+                }
+              ],
+              "Optional": true
+            },
+            {
+              "Arguments": [
+                {
+                  "Name": "org",
+                  "Description": "org",
+                  "Type": "CustomArgument",
+                  "Extensions": [],
+                  "CustomCommand": "cf orgs"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "Name": "create-org",
+          "Description": "Create an org",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "p",
+                  "Description": "Quota to assign to the newly created org (excluding this option results in assignment of default quota)",
+                  "Type": "Flag",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "quota",
+                          "Description": "quota",
+                          "Type": "String"
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ],
+              "Optional": true
+            },
+            {
+              "Arguments": [
+                {
+                  "Name": "org",
+                  "Description": "org",
+                  "Type": "String"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "Name": "delete-org",
+          "Description": "Delete an org",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "f",
+                  "Description": "Force deletion without confirmation",
+                  "Type": "Flag",
+                  "Aliases": [],
+                  "Arguments": []
+                }
+              ],
+              "Optional": true
+            },
+            {
+              "Arguments": [
+                {
+                  "Name": "org",
+                  "Description": "org",
+                  "Type": "CustomArgument",
+                  "Extensions": [],
+                  "CustomCommand": "cf orgs"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "Name": "rename-org",
+          "Description": "Rename an org",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "org",
+                  "Description": "org",
+                  "Type": "CustomArgument",
+                  "Extensions": [],
+                  "CustomCommand": "cf orgs"
+                }
+              ]
+            },
+            {
+              "Arguments": [
+                {
+                  "Name": "new org",
+                  "Description": "new org",
+                  "Type": "String"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "Name": "spaces",
+          "Description": "List all spaces in an org",
+          "Aliases": [],
+          "Arguments": []
+        },
+        {
+          "Name": "space",
+          "Description": "Show space info",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "--guid",
+                  "Description": "Retrieve and display the given org\u0027s guid.  All other output for the org is suppressed",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "--security-group-rules",
+                  "Description": "Retrieve the rules for all the security groups associated with the space\u0027s guid.  All other output for the org is suppressed",
+                  "Aliases": [],
+                  "Arguments": []
+                }
+              ],
+              "Optional": true
+            },
+            {
+              "Arguments": [
+                {
+                  "Name": "space",
+                  "Description": "space",
+                  "Type": "CustomArgument",
+                  "Extensions": [],
+                  "CustomCommand": "cf spaces"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "Name": "create-space",
+          "Description": "Create a space",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "o",
+                  "Description": "Org",
+                  "Type": "Flag",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "org",
+                          "Description": "org",
+                          "Type": "CustomArgument",
+                          "Extensions": [],
+                          "CustomCommand": "cf orgs"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "p",
+                  "Description": "Quota to assign to the newly created space",
+                  "Type": "Flag",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "quota",
+                          "Description": "quota",
+                          "Type": "String"
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ],
+              "Optional": true
+            },
+            {
+              "Arguments": [
+                {
+                  "Name": "space",
+                  "Description": "space",
+                  "Type": "String"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "Name": "delete-space",
+          "Description": "Delete a space",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "o",
+                  "Description": "Delete space within specified org",
+                  "Type": "Flag",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "org",
+                          "Description": "org",
+                          "Type": "CustomArgument",
+                          "Extensions": [],
+                          "CustomCommand": "cf orgs"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "f",
+                  "Description": "Force deletion without confirmation",
+                  "Type": "Flag",
+                  "Aliases": [],
+                  "Arguments": []
+                }
+              ],
+              "Optional": true
+            },
+            {
+              "Arguments": [
+                {
+                  "Name": "space",
+                  "Description": "space",
+                  "Type": "CustomArgument",
+                  "Extensions": [],
+                  "CustomCommand": "cf spaces"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "Name": "rename-space",
+          "Description": "Rename a space",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "space",
+                  "Description": "space",
+                  "Type": "CustomArgument",
+                  "Extensions": [],
+                  "CustomCommand": "cf spaces"
+                }
+              ]
+            },
+            {
+              "Arguments": [
+                {
+                  "Name": "new space",
+                  "Description": "new space",
+                  "Type": "String"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "Name": "allow-space-ssh",
+          "Description": "Allow SSH access for the space",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "space",
+                  "Description": "space",
+                  "Type": "CustomArgument",
+                  "Extensions": [],
+                  "CustomCommand": "cf spaces"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "Name": "disallow-space-ssh",
+          "Description": "Disallow SSH access for the space",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "space",
+                  "Description": "space",
+                  "Type": "CustomArgument",
+                  "Extensions": [],
+                  "CustomCommand": "cf spaces"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "Name": "space-ssh-allowed",
+          "Description": "Reports whether SSH is allowed in a space",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "space",
+                  "Description": "space",
+                  "Type": "CustomArgument",
+                  "Extensions": [],
+                  "CustomCommand": "cf spaces"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "Name": "domains",
+          "Description": "List domains in the target org",
+          "Aliases": [],
+          "Arguments": []
+        },
+        {
+          "Name": "create-domain",
+          "Description": "Create a domain in an org for later use",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "org",
+                  "Description": "org",
+                  "Type": "CustomArgument",
+                  "Extensions": [],
+                  "CustomCommand": "cf orgs"
+                }
+              ]
+            },
+            {
+              "Arguments": [
+                {
+                  "Name": "domain",
+                  "Description": "domain",
+                  "Type": "String"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "Name": "delete-domain",
+          "Description": "Delete a domain",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "f",
+                  "Description": "Force deletion without confirmation",
+                  "Type": "Flag",
+                  "Aliases": [],
+                  "Arguments": []
+                }
+              ],
+              "Optional": true
+            },
+            {
+              "Arguments": [
+                {
+                  "Name": "space",
+                  "Description": "space",
+                  "Type": "CustomArgument",
+                  "Extensions": [],
+                  "CustomCommand": "cf spaces"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "Name": "create-shared-domain",
+          "Description": "Create a domain that can be used by all orgs (admin-only)",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "--router-group",
+                  "Description": "Routes for this domain will be configured only on the specified router group",
+                  "Aliases": [],
+                  "Arguments": []
+                }
+              ],
+              "Optional": true
+            },
+            {
+              "Arguments": [
+                {
+                  "Name": "domain",
+                  "Description": "domain",
+                  "Type": "String"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "Name": "delete-shared-domain",
+          "Description": "Delete a shared domain",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "f",
+                  "Description": "Force deletion without confirmation",
+                  "Type": "Flag",
+                  "Aliases": [],
+                  "Arguments": []
+                }
+              ],
+              "Optional": true
+            },
+            {
+              "Arguments": [
+                {
+                  "Name": "domain",
+                  "Description": "domain",
+                  "Type": "String"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "Name": "router-groups",
+          "Description": "List router groups",
+          "Aliases": [],
+          "Arguments": []
+        },
+        {
+          "Name": "routes",
+          "Description": "List all routes in the current space or the current organization",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "--orglevel",
+                  "Description": "List all the routes for all spaces of current organization",
+                  "Aliases": [],
+                  "Arguments": []
+                }
+              ],
+              "Optional": true
+            }
+          ]
+        },
+        {
+          "Name": "create-route",
+          "Description": "Create a url route in a space for later use",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "--hostname",
+                  "Description": "Hostname for the HTTP route (required for shared domains)",
+                  "Aliases": [
+                    "-n"
+                  ],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "hostname",
+                          "Description": "hostname",
+                          "Type": "String"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "--path",
+                  "Description": "Path for the HTTP route",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "path",
+                          "Description": "path",
+                          "Type": "String"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "--port",
+                  "Description": "Port for the TCP route",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "port",
+                          "Description": "port",
+                          "Type": "String"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "--random-port",
+                  "Description": "Create a random port for the TCP route",
+                  "Aliases": [],
+                  "Arguments": []
+                }
+              ],
+              "Optional": true
+            },
+            {
+              "Arguments": [
+                {
+                  "Name": "space",
+                  "Description": "space",
+                  "Type": "CustomArgument",
+                  "Extensions": [],
+                  "CustomCommand": "cf spaces"
+                }
+              ]
+            },
+            {
+              "Arguments": [
+                {
+                  "Name": "domain",
+                  "Description": "domain",
+                  "Type": "String"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "Name": "check-route",
+          "Description": "Perform a simple check to determine whether a route currently exists or not",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "--path",
+                  "Description": "Path for the route",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "path",
+                          "Description": "path",
+                          "Type": "String"
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ],
+              "Optional": true
+            },
+            {
+              "Arguments": [
+                {
+                  "Name": "host",
+                  "Description": "host",
+                  "Type": "String"
+                }
+              ]
+            },
+            {
+              "Arguments": [
+                {
+                  "Name": "domain",
+                  "Description": "domain",
+                  "Type": "String"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "Name": "map-route",
+          "Description": "Add a url route to an app",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "--hostname",
+                  "Description": "Hostname for the HTTP route (required for shared domains)",
+                  "Aliases": [
+                    "-n"
+                  ],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "hostname",
+                          "Description": "hostname",
+                          "Type": "String"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "--path",
+                  "Description": "Path for the HTTP route",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "path",
+                          "Description": "path",
+                          "Type": "String"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "--port",
+                  "Description": "Port for the TCP route",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "port",
+                          "Description": "port",
+                          "Type": "String"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "--random-port",
+                  "Description": "Create a random port for the TCP route",
+                  "Aliases": [],
+                  "Arguments": []
+                }
+              ],
+              "Optional": true
+            },
+            {
+              "Arguments": [
+                {
+                  "Name": "APP_NAME",
+                  "Description": "APP_NAME",
+                  "Type": "CustomArgument",
+                  "Extensions": [],
+                  "CustomCommand": "bash -c cf apps | cut -d \u0022 \u0022 -f1"
+                }
+              ]
+            },
+            {
+              "Arguments": [
+                {
+                  "Name": "domain",
+                  "Description": "domain",
+                  "Type": "String"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "Name": "unmap-route",
+          "Description": "Remove a url route from an app",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "--hostname",
+                  "Description": "Hostname used to identify the HTTP route",
+                  "Aliases": [
+                    "-n"
+                  ],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "hostname",
+                          "Description": "hostname",
+                          "Type": "String"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "--path",
+                  "Description": "Path used to identify the HTTP route",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "path",
+                          "Description": "path",
+                          "Type": "String"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "--port",
+                  "Description": "Port used to identify the TCP route",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "port",
+                          "Description": "port",
+                          "Type": "String"
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ],
+              "Optional": true
+            },
+            {
+              "Arguments": [
+                {
+                  "Name": "APP_NAME",
+                  "Description": "APP_NAME",
+                  "Type": "CustomArgument",
+                  "Extensions": [],
+                  "CustomCommand": "bash -c cf apps | cut -d \u0022 \u0022 -f1"
+                }
+              ]
+            },
+            {
+              "Arguments": [
+                {
+                  "Name": "domain",
+                  "Description": "domain",
+                  "Type": "String"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "Name": "delete-route",
+          "Description": "Delete a route",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "--hostname",
+                  "Description": "Hostname used to identify the HTTP route",
+                  "Aliases": [
+                    "-n"
+                  ],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "hostname",
+                          "Description": "hostname",
+                          "Type": "String"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "--path",
+                  "Description": "Path used to identify the HTTP route",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "path",
+                          "Description": "path",
+                          "Type": "String"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "--port",
+                  "Description": "Port used to identify the TCP route",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "port",
+                          "Description": "port",
+                          "Type": "String"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "f",
+                  "Description": "Force deletion without confirmation",
+                  "Type": "Flag",
+                  "Aliases": [],
+                  "Arguments": []
+                }
+              ],
+              "Optional": true
+            },
+            {
+              "Arguments": [
+                {
+                  "Name": "domain",
+                  "Description": "domain",
+                  "Type": "String"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "Name": "delete-orphaned-routes",
+          "Description": "Delete all orphaned routes (i.e. those that are not mapped to an app)",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "f",
+                  "Description": "Force deletion without confirmation",
+                  "Type": "Flag",
+                  "Aliases": [],
+                  "Arguments": []
+                }
+              ],
+              "Optional": true
+            }
+          ]
+        },
+        {
+          "Name": "create-user",
+          "Description": "Create a new user",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "--origin",
+                  "Description": "Origin for mapping a user account to a user in an external identity provider",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "provider",
+                          "Description": "provider",
+                          "Type": "String"
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ],
+              "Optional": true
+            },
+            {
+              "Arguments": [
+                {
+                  "Name": "username",
+                  "Description": "username",
+                  "Type": "String"
+                }
+              ]
+            },
+            {
+              "Arguments": [
+                {
+                  "Name": "password",
+                  "Description": "password",
+                  "Type": "String"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "Name": "delete-user",
+          "Description": "Delete a user",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "f",
+                  "Description": "Force deletion without confirmation",
+                  "Type": "Flag",
+                  "Aliases": [],
+                  "Arguments": []
+                }
+              ],
+              "Optional": true
+            },
+            {
+              "Arguments": [
+                {
+                  "Name": "username",
+                  "Description": "username",
+                  "Type": "String"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "Name": "org-users",
+          "Description": "Show org users by role",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "a",
+                  "Description": "List all users in the org",
+                  "Type": "Flag",
+                  "Aliases": [],
+                  "Arguments": []
+                }
+              ],
+              "Optional": true
+            },
+            {
+              "Arguments": [
+                {
+                  "Name": "org",
+                  "Description": "org",
+                  "Type": "CustomArgument",
+                  "Extensions": [],
+                  "CustomCommand": "cf orgs"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "Name": "set-org-role",
+          "Description": "Assign an org role to a user",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "username",
+                  "Description": "username",
+                  "Type": "String"
+                }
+              ]
+            },
+            {
+              "Arguments": [
+                {
+                  "Name": "org",
+                  "Description": "org",
+                  "Type": "CustomArgument",
+                  "Extensions": [],
+                  "CustomCommand": "cf orgs"
+                }
+              ]
+            },
+            {
+              "Arguments": [
+                {
+                  "Name": "role",
+                  "Description": "role",
+                  "Type": "String"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "Name": "unset-org-role",
+          "Description": "Remove an org role from a user",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "username",
+                  "Description": "username",
+                  "Type": "String"
+                }
+              ]
+            },
+            {
+              "Arguments": [
+                {
+                  "Name": "org",
+                  "Description": "org",
+                  "Type": "CustomArgument",
+                  "Extensions": [],
+                  "CustomCommand": "cf orgs"
+                }
+              ]
+            },
+            {
+              "Arguments": [
+                {
+                  "Name": "role",
+                  "Description": "role",
+                  "Type": "String"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "Name": "space-users",
+          "Description": "Show space users by role",
+          "Aliases": [],
+          "Arguments": []
+        },
+        {
+          "Name": "set-space-role",
+          "Description": "Assign a space role to a user",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "username",
+                  "Description": "username",
+                  "Type": "String"
+                }
+              ]
+            },
+            {
+              "Arguments": [
+                {
+                  "Name": "org",
+                  "Description": "org",
+                  "Type": "CustomArgument",
+                  "Extensions": [],
+                  "CustomCommand": "cf orgs"
+                }
+              ]
+            },
+            {
+              "Arguments": [
+                {
+                  "Name": "space",
+                  "Description": "space",
+                  "Type": "CustomArgument",
+                  "Extensions": [],
+                  "CustomCommand": "cf spaces"
+                }
+              ]
+            },
+            {
+              "Arguments": [
+                {
+                  "Name": "role",
+                  "Description": "role",
+                  "Type": "String"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "Name": "unset-space-role",
+          "Description": "Remove a space role from a user",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "username",
+                  "Description": "username",
+                  "Type": "String"
+                }
+              ]
+            },
+            {
+              "Arguments": [
+                {
+                  "Name": "org",
+                  "Description": "org",
+                  "Type": "CustomArgument",
+                  "Extensions": [],
+                  "CustomCommand": "cf orgs"
+                }
+              ]
+            },
+            {
+              "Arguments": [
+                {
+                  "Name": "space",
+                  "Description": "space",
+                  "Type": "CustomArgument",
+                  "Extensions": [],
+                  "CustomCommand": "cf spaces"
+                }
+              ]
+            },
+            {
+              "Arguments": [
+                {
+                  "Name": "role",
+                  "Description": "role",
+                  "Type": "String"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "Name": "quotas",
+          "Description": "List available usage quotas",
+          "Aliases": [],
+          "Arguments": []
+        },
+        {
+          "Name": "quota",
+          "Description": "Show quota info",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "quota",
+                  "Description": "quota",
+                  "Type": "String"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "Name": "set-quota",
+          "Description": "Assign a quota to an org",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "org",
+                  "Description": "org",
+                  "Type": "CustomArgument",
+                  "Extensions": [],
+                  "CustomCommand": "cf orgs"
+                }
+              ]
+            },
+            {
+              "Arguments": [
+                {
+                  "Name": "quota",
+                  "Description": "quota",
+                  "Type": "String"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "Name": "create-quota",
+          "Description": "Define a new resource quota",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "a",
+                  "Description": "Total number of application instances",
+                  "Type": "Flag",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "number of application instances",
+                          "Description": "number of application instances",
+                          "Type": "String"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "i",
+                  "Description": "Maximum amount of memory an application instance can have",
+                  "Type": "Flag",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "instance memory",
+                          "Description": "instance memory",
+                          "Type": "String"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "m",
+                  "Description": "Total amount of memory a space can have",
+                  "Type": "Flag",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "total memory",
+                          "Description": "total memory",
+                          "Type": "String"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "--reserved-route-ports",
+                  "Description": "Maximum number of routes that may be created with reserved ports (Default: 0)",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "reserved route ports",
+                          "Description": "reserved route ports",
+                          "Type": "String"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "s",
+                  "Description": "Total number of service instances",
+                  "Type": "Flag",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "service instances",
+                          "Description": "service instances",
+                          "Type": "String"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "r",
+                  "Description": "Total number of routes",
+                  "Type": "Flag",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "routes",
+                          "Description": "routes",
+                          "Type": "String"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "--allow-paid-service-plans",
+                  "Description": "Can provision instances of paid service plans",
+                  "Aliases": [],
+                  "Arguments": []
+                }
+              ],
+              "Optional": true
+            },
+            {
+              "Arguments": [
+                {
+                  "Name": "quota",
+                  "Description": "quota",
+                  "Type": "String"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "Name": "delete-quota",
+          "Description": "Delete a quota",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "f",
+                  "Description": "Force deletion without confirmation",
+                  "Type": "Flag",
+                  "Aliases": [],
+                  "Arguments": []
+                }
+              ],
+              "Optional": true
+            },
+            {
+              "Arguments": [
+                {
+                  "Name": "quota",
+                  "Description": "quota",
+                  "Type": "String"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "Name": "update-quota",
+          "Description": "Update an existing resource quota",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "a",
+                  "Description": "Total number of application instances",
+                  "Type": "Flag",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "number of application instances",
+                          "Description": "number of application instances",
+                          "Type": "String"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "i",
+                  "Description": "Maximum amount of memory an application instance can have",
+                  "Type": "Flag",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "instance memory",
+                          "Description": "instance memory",
+                          "Type": "String"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "m",
+                  "Description": "Total amount of memory a space can have",
+                  "Type": "Flag",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "total memory",
+                          "Description": "total memory",
+                          "Type": "String"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "--reserved-route-ports",
+                  "Description": "Maximum number of routes that may be created with reserved ports (Default: 0)",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "reserved route ports",
+                          "Description": "reserved route ports",
+                          "Type": "String"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "s",
+                  "Description": "Total number of service instances",
+                  "Type": "Flag",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "service instances",
+                          "Description": "service instances",
+                          "Type": "String"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "r",
+                  "Description": "Total number of routes",
+                  "Type": "Flag",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "routes",
+                          "Description": "routes",
+                          "Type": "String"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "n",
+                  "Description": "New name",
+                  "Type": "Flag",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "name",
+                          "Description": "name",
+                          "Type": "String"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "--allow-paid-service-plans",
+                  "Description": "Can provision instances of paid service plans",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "--disallow-paid-service-plans",
+                  "Description": "Cannot provision instances of paid service plans",
+                  "Aliases": [],
+                  "Arguments": []
+                }
+              ],
+              "Optional": true
+            },
+            {
+              "Arguments": [
+                {
+                  "Name": "quota",
+                  "Description": "quota",
+                  "Type": "String"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "Name": "space-quotas",
+          "Description": "List available space resource quotas",
+          "Aliases": [],
+          "Arguments": []
+        },
+        {
+          "Name": "space-quota",
+          "Description": "Show space quota info",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "space quota",
+                  "Description": "space quota",
+                  "Type": "String"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "Name": "create-space-quota",
+          "Description": "Define a new space resource quota",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "a",
+                  "Description": "Total number of application instances",
+                  "Type": "Flag",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "number of application instances",
+                          "Description": "number of application instances",
+                          "Type": "String"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "i",
+                  "Description": "Maximum amount of memory an application instance can have",
+                  "Type": "Flag",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "instance memory",
+                          "Description": "instance memory",
+                          "Type": "String"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "m",
+                  "Description": "Total amount of memory a space can have",
+                  "Type": "Flag",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "total memory",
+                          "Description": "total memory",
+                          "Type": "String"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "--reserved-route-ports",
+                  "Description": "Maximum number of routes that may be created with reserved ports (Default: 0)",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "reserved route ports",
+                          "Description": "reserved route ports",
+                          "Type": "String"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "s",
+                  "Description": "Total number of service instances",
+                  "Type": "Flag",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "service instances",
+                          "Description": "service instances",
+                          "Type": "String"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "r",
+                  "Description": "Total number of routes",
+                  "Type": "Flag",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "routes",
+                          "Description": "routes",
+                          "Type": "String"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "--allow-paid-service-plans",
+                  "Description": "Can provision instances of paid service plans",
+                  "Aliases": [],
+                  "Arguments": []
+                }
+              ],
+              "Optional": true
+            },
+            {
+              "Arguments": [
+                {
+                  "Name": "quota",
+                  "Description": "quota",
+                  "Type": "String"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "Name": "update-space-quota",
+          "Description": "Update an existing space quota",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "a",
+                  "Description": "Total number of application instances",
+                  "Type": "Flag",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "number of application instances",
+                          "Description": "number of application instances",
+                          "Type": "String"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "i",
+                  "Description": "Maximum amount of memory an application instance can have",
+                  "Type": "Flag",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "instance memory",
+                          "Description": "instance memory",
+                          "Type": "String"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "m",
+                  "Description": "Total amount of memory a space can have",
+                  "Type": "Flag",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "total memory",
+                          "Description": "total memory",
+                          "Type": "String"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "--reserved-route-ports",
+                  "Description": "Maximum number of routes that may be created with reserved ports (Default: 0)",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "reserved route ports",
+                          "Description": "reserved route ports",
+                          "Type": "String"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "s",
+                  "Description": "Total number of service instances",
+                  "Type": "Flag",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "service instances",
+                          "Description": "service instances",
+                          "Type": "String"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "r",
+                  "Description": "Total number of routes",
+                  "Type": "Flag",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "routes",
+                          "Description": "routes",
+                          "Type": "String"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "n",
+                  "Description": "New name",
+                  "Type": "Flag",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "name",
+                          "Description": "name",
+                          "Type": "String"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "--allow-paid-service-plans",
+                  "Description": "Can provision instances of paid service plans",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "--disallow-paid-service-plans",
+                  "Description": "Cannot provision instances of paid service plans",
+                  "Aliases": [],
+                  "Arguments": []
+                }
+              ],
+              "Optional": true
+            },
+            {
+              "Arguments": [
+                {
+                  "Name": "space quota",
+                  "Description": "space quota",
+                  "Type": "String"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "Name": "delete-space-quota",
+          "Description": "Delete a space quota definition and unassign the space quota from all spaces",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "f",
+                  "Description": "Force deletion without confirmation",
+                  "Type": "Flag",
+                  "Aliases": [],
+                  "Arguments": []
+                }
+              ],
+              "Optional": true
+            },
+            {
+              "Arguments": [
+                {
+                  "Name": "space quota",
+                  "Description": "space quota",
+                  "Type": "String"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "Name": "set-space-quota",
+          "Description": "Assign a space quota definition to a space",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "space",
+                  "Description": "space",
+                  "Type": "CustomArgument",
+                  "Extensions": [],
+                  "CustomCommand": "cf spaces"
+                }
+              ]
+            },
+            {
+              "Arguments": [
+                {
+                  "Name": "quota",
+                  "Description": "quota",
+                  "Type": "String"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "Name": "unset-space-quota",
+          "Description": "Unassign a quota from a space",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "space",
+                  "Description": "space",
+                  "Type": "CustomArgument",
+                  "Extensions": [],
+                  "CustomCommand": "cf spaces"
+                }
+              ]
+            },
+            {
+              "Arguments": [
+                {
+                  "Name": "quota",
+                  "Description": "quota",
+                  "Type": "String"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "Name": "curl",
+          "Description": "Executes a request to the targeted API endpoint",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "H",
+                  "Description": "Custom headers to include in the request, flag can be specified multiple times",
+                  "Type": "Flag",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "headers",
+                          "Description": "headers",
+                          "Type": "String"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "X",
+                  "Description": "HTTP method (GET,POST,PUT,DELETE,etc)",
+                  "Type": "Flag",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "HTTP method",
+                          "Description": "HTTP method",
+                          "Type": "String"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "d",
+                  "Description": "HTTP data to include in the request body, or \u0027@\u0027 followed by a file name to read the data from",
+                  "Type": "Flag",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "data",
+                          "Description": "data",
+                          "Type": "String"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "--output",
+                  "Description": "Write curl body to FILE instead of stdout",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "path to file",
+                          "Description": "path to file",
+                          "Type": "String"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "i",
+                  "Description": "Include response headers in the output",
+                  "Type": "Flag",
+                  "Aliases": [],
+                  "Arguments": []
+                }
+              ],
+              "Optional": true
+            },
+            {
+              "Arguments": [
+                {
+                  "Name": "path",
+                  "Description": "path",
+                  "Type": "String"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "Name": "oauth-token",
+          "Description": "Retrieve and display the OAuth token for the current session",
+          "Aliases": [],
+          "Arguments": []
+        },
+        {
+          "Name": "ssh-code",
+          "Description": "Get a one time password for ssh clients",
+          "Aliases": [],
+          "Arguments": []
+        },
+        {
+          "Name": "add-plugin-repo",
+          "Description": "Add a new plugin repository",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "repo name",
+                  "Description": "repo name",
+                  "Type": "String"
+                }
+              ]
+            },
+            {
+              "Arguments": [
+                {
+                  "Name": "url",
+                  "Description": "url",
+                  "Type": "String"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "Name": "remove-plugin-repo",
+          "Description": "Remove a plugin repository",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "repo name",
+                  "Description": "repo name",
+                  "Type": "String"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "Name": "list-plugin-repos",
+          "Description": "List all the added plugin repositories",
+          "Aliases": [],
+          "Arguments": []
+        },
+        {
+          "Name": "repo-plugins",
+          "Description": "List all available plugins in specified repository or in all added repositories",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "r",
+                  "Description": "Name of a registered repository",
+                  "Type": "Flag",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "repo",
+                          "Description": "repo",
+                          "Type": "String"
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ],
+              "Optional": true
+            }
+          ]
+        },
+        {
+          "Name": "plugins",
+          "Description": "List all available plugin commands",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "--checksum",
+                  "Description": "Compute and show the sha1 value of the plugin binary file",
+                  "Aliases": [],
+                  "Arguments": []
+                }
+              ],
+              "Optional": true
+            }
+          ]
+        },
+        {
+          "Name": "install-plugin",
+          "Description": "Install CLI plugin",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "r",
+                  "Description": "Name of a registered repository where the specified plugin is located",
+                  "Type": "Flag",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "repo name",
+                          "Description": "repo name",
+                          "Type": "String"
+                        }
+                      ]
+                    },
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "plugin name",
+                          "Description": "plugin name",
+                          "Type": "String"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "f",
+                  "Description": "Force install of plugin without confirmation",
+                  "Type": "Flag",
+                  "Aliases": [],
+                  "Arguments": []
+                }
+              ],
+              "Optional": true
+            },
+            {
+              "Arguments": [
+                {
+                  "Name": "path",
+                  "Description": "path",
+                  "Type": "String"
+                }
+              ]
+            },
+            {
+              "Arguments": [
+                {
+                  "Name": "url",
+                  "Description": "url",
+                  "Type": "String"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "Name": "uninstall-plugin",
+          "Description": "Uninstall the plugin defined in command argument",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "plugin name",
+                  "Description": "plugin name",
+                  "Type": "String"
+                }
+              ]
+            }
+          ]
+        }
+      ],
+      "DontAllowMultiple": true
+    }
+  ]
+}

@@ -1,0 +1,408 @@
+{
+  "Comment": "This command info is generated from fig",
+  "Name": "mkinitcpio",
+  "Description": "Create an initial ramdisk environment",
+  "Arguments": [
+    {
+      "Arguments": [
+        {
+          "Name": "--help",
+          "Description": "Show help for mkinitcpio",
+          "Aliases": [
+            "-h"
+          ],
+          "Arguments": []
+        },
+        {
+          "Name": "--version",
+          "Description": "Display version information",
+          "Aliases": [
+            "-V"
+          ],
+          "Arguments": []
+        },
+        {
+          "Name": "--addhooks",
+          "Description": "Add additional hooks to the image",
+          "Aliases": [
+            "-A"
+          ],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "hooks",
+                  "Description": "hooks",
+                  "Type": "FileSystemEntry"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "Name": "--config",
+          "Description": "Use config file to generate the ramdisk",
+          "Aliases": [
+            "-c"
+          ],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "config",
+                  "Description": "config",
+                  "Type": "FileSystemEntry"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "Name": "--generatedir",
+          "Description": "Set directory as the location where the initramfs is built",
+          "Aliases": [
+            "-d"
+          ],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "directory",
+                  "Description": "directory",
+                  "Type": "Directory"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "Name": "--hookdir",
+          "Description": "Set directory as the location where hooks will be searched for when generating the image",
+          "Aliases": [
+            "-D"
+          ],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "directory",
+                  "Description": "directory",
+                  "Type": "Directory"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "Name": "--generate",
+          "Description": "Generate a CPIO image as filename",
+          "Aliases": [
+            "-g"
+          ],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "filename",
+                  "Description": "filename",
+                  "Type": "String"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "Name": "--hookhelp",
+          "Description": "Output help for hookname",
+          "Aliases": [
+            "-H"
+          ],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "hookname",
+                  "Description": "hookname",
+                  "Type": "String"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "Name": "--kernel",
+          "Description": "Use kernelversion, instead of the current running kernel",
+          "Aliases": [
+            "-k"
+          ],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "kernelversion",
+                  "Description": "kernelversion",
+                  "Type": "String"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "Name": "--listhooks",
+          "Description": "List all available hooks",
+          "Aliases": [
+            "-L"
+          ],
+          "Arguments": []
+        },
+        {
+          "Name": "--automods",
+          "Description": "Display modules found via autodetection",
+          "Aliases": [
+            "-M"
+          ],
+          "Arguments": []
+        },
+        {
+          "Name": "--nocolor",
+          "Description": "Disable color output",
+          "Aliases": [
+            "-n"
+          ],
+          "Arguments": []
+        },
+        {
+          "Name": "--uefi",
+          "Description": "Generate a UEFI executable as filename",
+          "Aliases": [
+            "-U"
+          ],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "filename",
+                  "Description": "filename",
+                  "Type": "String"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "Name": "--allpresets",
+          "Description": "Process all presets contained in /etc/mkinitcpio.d",
+          "Aliases": [
+            "-P"
+          ],
+          "Arguments": []
+        },
+        {
+          "Name": "--preset",
+          "Description": "Build initramfs image(s) according to specified preset",
+          "Aliases": [
+            "-p"
+          ],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "preset",
+                  "Description": "preset",
+                  "Type": "CustomArgument",
+                  "Extensions": [],
+                  "CustomCommand": "ls /etc/mkinitcpio.d"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "Name": "--moduleroot",
+          "Description": "Specifies the root directory to find modules in",
+          "Aliases": [
+            "-r"
+          ],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "root",
+                  "Description": "root",
+                  "Type": "String"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "Name": "--skiphooks",
+          "Description": "Skip hooks when generating the image",
+          "Aliases": [
+            "-S"
+          ],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "hooks",
+                  "Description": "hooks",
+                  "Type": "String"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "Name": "--save",
+          "Description": "Saves the build directory for the initial ramdisk",
+          "Aliases": [
+            "-s"
+          ],
+          "Arguments": []
+        },
+        {
+          "Name": "--builddir",
+          "Description": "Use tmpdir as the temporary build directory instead of /tmp",
+          "Aliases": [
+            "-t"
+          ],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "tmpdir",
+                  "Description": "tmpdir",
+                  "Type": "Directory"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "Name": "--verbose",
+          "Description": "Verbose output",
+          "Aliases": [
+            "-v"
+          ],
+          "Arguments": []
+        },
+        {
+          "Name": "--compress",
+          "Description": "Override the compression method with the compress program",
+          "Aliases": [
+            "-z"
+          ],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "compress",
+                  "Description": "compress",
+                  "Type": "String"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "Name": "--cmdline",
+          "Description": "Use kernel command line with UEFI executable",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "filename",
+                  "Description": "filename",
+                  "Type": "String"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "Name": "--splash",
+          "Description": "UEFI executables can show a bitmap file on boot",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "filename",
+                  "Description": "filename",
+                  "Type": "String"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "Name": "--uefistub",
+          "Description": "UEFI stub image used for UEFI executable generation",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "filename",
+                  "Description": "filename",
+                  "Type": "String"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "Name": "--kernelimage",
+          "Description": "Include a kernel image for the UEFI executable",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "filename",
+                  "Description": "filename",
+                  "Type": "String"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "Name": "--microcode",
+          "Description": "Include microcode into the UEFI executable",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "filename",
+                  "Description": "filename",
+                  "Type": "String"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "Name": "--osrelease",
+          "Description": "Include a os-release file for the UEFI executable",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "filename",
+                  "Description": "filename",
+                  "Type": "String"
+                }
+              ]
+            }
+          ]
+        }
+      ],
+      "Optional": true
+    }
+  ]
+}

@@ -1,0 +1,2689 @@
+{
+  "Comment": "This command info is generated from fig",
+  "Name": "trivy",
+  "Description": "A simple and comprehensive vulnerability scanner",
+  "Arguments": [
+    {
+      "Arguments": [
+        {
+          "Name": "--quiet",
+          "Description": "Suppress progress bar and log output [$TRIVY_QUIET]",
+          "Aliases": [
+            "-q"
+          ],
+          "Arguments": []
+        },
+        {
+          "Name": "--debug",
+          "Description": "Enable debug output [$TRIVY_DEBUG]",
+          "Aliases": [
+            "-d"
+          ],
+          "Arguments": []
+        },
+        {
+          "Name": "--cache-dir",
+          "Description": "Cache directory [$TRIVY_CACHE_DIR]",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "cache-dir",
+                  "Description": "cache-dir",
+                  "Type": "Directory"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "Name": "--help",
+          "Description": "Show help",
+          "Aliases": [
+            "-h"
+          ],
+          "Arguments": []
+        },
+        {
+          "Name": "--version",
+          "Description": "Print the version",
+          "Aliases": [
+            "-v"
+          ],
+          "Arguments": []
+        }
+      ],
+      "Optional": true
+    },
+    {
+      "Arguments": [
+        {
+          "Name": "image",
+          "Description": "Scan an image",
+          "Aliases": [
+            "i"
+          ],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "image_name",
+                  "Description": "image_name",
+                  "Type": "String"
+                }
+              ]
+            },
+            {
+              "Arguments": [
+                {
+                  "Name": "--template",
+                  "Description": "Output template [$TRIVY_TEMPLATE]",
+                  "Aliases": [
+                    "-t"
+                  ],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "output",
+                          "Description": "output",
+                          "Type": "String"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "--format",
+                  "Description": "Format (table, json, sarif, template) (default: \u0022table\u0022) [$TRIVY_FORMAT]",
+                  "Aliases": [
+                    "-f"
+                  ],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "format",
+                          "Description": "format",
+                          "Type": "String"
+                        },
+                        {
+                          "Name": "table",
+                          "Description": "format"
+                        },
+                        {
+                          "Name": "json",
+                          "Description": "format"
+                        },
+                        {
+                          "Name": "sarif",
+                          "Description": "format"
+                        },
+                        {
+                          "Name": "template",
+                          "Description": "format"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "--severity",
+                  "Description": "Severities of vulnerabilities to be displayed (comma separated) (default: \u0022UNKNOWN,LOW,MEDIUM,HIGH,CRITICAL\u0022) [$TRIVY_SEVERITY]",
+                  "Aliases": [
+                    "-s"
+                  ],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "severity",
+                          "Description": "severity",
+                          "Type": "String",
+                          "Extensions": [],
+                          "CustomCommand": ""
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "--output",
+                  "Description": "Output file name [$TRIVY_OUTPUT]",
+                  "Aliases": [
+                    "-o"
+                  ],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "input",
+                          "Description": "input",
+                          "Type": "FileSystemEntry"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "--exit-code",
+                  "Description": "Exit code when vulnerabilities were found (default: 0) [$TRIVY_EXIT_CODE]",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "exitCode",
+                          "Description": "exitCode",
+                          "Type": "String"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "--clear-cache",
+                  "Description": "Clear image caches without scanning [$TRIVY_CLEAR_CACHE]",
+                  "Aliases": [
+                    "-c"
+                  ],
+                  "Arguments": []
+                },
+                {
+                  "Name": "--vuln-type",
+                  "Description": "Comma-separated list of vulnerability types (os,library) (default: \u0022os,library\u0022) [$TRIVY_VULN_TYPE]",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "vulnType",
+                          "Description": "vulnType",
+                          "Type": "String",
+                          "Extensions": [],
+                          "CustomCommand": ""
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "--security-checks",
+                  "Description": "Comma-separated list of what security issues to detect (vuln,config) (default: \u0022vuln\u0022) [$TRIVY_SECURITY_CHECKS]",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "securityChecks",
+                          "Description": "securityChecks",
+                          "Type": "String",
+                          "Extensions": [],
+                          "CustomCommand": ""
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "--ignorefile",
+                  "Description": "Specify .trivyignore file (default: \u0022.trivyignore\u0022) [$TRIVY_IGNOREFILE]]",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "ignorefile",
+                          "Description": "ignorefile",
+                          "Type": "FileSystemEntry"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "--timeout",
+                  "Description": "Timeout (default: 5m0s) [$TRIVY_TIMEOUT]",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "timeout",
+                          "Description": "timeout",
+                          "Type": "String"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "--ignore-policy",
+                  "Description": "Specify the Rego file to evaluate each vulnerability [$TRIVY_IGNORE_POLICY]",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "ignorePolicy",
+                          "Description": "ignorePolicy",
+                          "Type": "FileSystemEntry"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "--list-all-pkgs",
+                  "Description": "Enabling the option will output all packages regardless of vulnerability (default: false) [$TRIVY_LIST_ALL_PKGS]",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "--cache-backend",
+                  "Description": "Cache backend (e.g. redis://localhost:6379) (default: \u0022fs\u0022) [$TRIVY_CACHE_BACKEND]",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "cacheBackend",
+                          "Description": "cacheBackend",
+                          "Type": "String"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "--no-progress",
+                  "Description": "Suppress progress bar [$TRIVY_NO_PROGRESS]",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "--offline-scan",
+                  "Description": "Do not issue API requests to identify dependencies [$TRIVY_OFFLINE_SCAN]",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "--skip-files",
+                  "Description": "Specify the file paths to skip traversal [$TRIVY_SKIP_FILES]",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "skipFiles",
+                          "Description": "skipFiles",
+                          "Type": "FileSystemEntry"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "--skip-dirs",
+                  "Description": "Allow insecure server connections when using SSL [$TRIVY_INSECURE]",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "skipDirs",
+                          "Description": "skipDirs",
+                          "Type": "Directory"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "--skip-db-update",
+                  "Description": "Skip updating vulnerability database [$TRIVY_SKIP_UPDATE, $TRIVY_SKIP_DB_UPDATE]",
+                  "Aliases": [
+                    "--skip-update"
+                  ],
+                  "Arguments": []
+                },
+                {
+                  "Name": "--removed-pkgs",
+                  "Description": "Detect vulnerabilities of removed packages (default: false) [$TRIVY_REMOVED_PKGS]",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "--input",
+                  "Description": "Input file path instead of image name [$TRIVY_INPUT]",
+                  "Aliases": [
+                    "-i"
+                  ],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "input",
+                          "Description": "input",
+                          "Type": "FileSystemEntry"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "--download-db-only",
+                  "Description": "Download/update vulnerability database but don\u0027t run a scan [$TRIVY_DOWNLOAD_DB_ONLY]",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "--reset",
+                  "Description": "Remove all caches and database [$TRIVY_RESET]",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "--ignore-unfixed",
+                  "Description": "Display only fixed vulnerabilities [$TRIVY_IGNORE_UNFIXED]",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "--light",
+                  "Description": "Deprecated [$TRIVY_LIGHT]",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "--insecure",
+                  "Description": "Allow insecure server connections when using SSL [$TRIVY_INSECURE]",
+                  "Aliases": [],
+                  "Arguments": []
+                }
+              ],
+              "DontAllowMultiple": true
+            }
+          ]
+        },
+        {
+          "Name": "filesystem",
+          "Description": "Scan local filesystem for language-specific dependencies and config files",
+          "Aliases": [
+            "fs"
+          ],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "path",
+                  "Description": "path",
+                  "Type": "FileSystemEntry"
+                }
+              ]
+            },
+            {
+              "Arguments": [
+                {
+                  "Name": "--template",
+                  "Description": "Output template [$TRIVY_TEMPLATE]",
+                  "Aliases": [
+                    "-t"
+                  ],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "output",
+                          "Description": "output",
+                          "Type": "String"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "--format",
+                  "Description": "Format (table, json, sarif, template) (default: \u0022table\u0022) [$TRIVY_FORMAT]",
+                  "Aliases": [
+                    "-f"
+                  ],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "format",
+                          "Description": "format",
+                          "Type": "String"
+                        },
+                        {
+                          "Name": "table",
+                          "Description": "format"
+                        },
+                        {
+                          "Name": "json",
+                          "Description": "format"
+                        },
+                        {
+                          "Name": "sarif",
+                          "Description": "format"
+                        },
+                        {
+                          "Name": "template",
+                          "Description": "format"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "--severity",
+                  "Description": "Severities of vulnerabilities to be displayed (comma separated) (default: \u0022UNKNOWN,LOW,MEDIUM,HIGH,CRITICAL\u0022) [$TRIVY_SEVERITY]",
+                  "Aliases": [
+                    "-s"
+                  ],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "severity",
+                          "Description": "severity",
+                          "Type": "String",
+                          "Extensions": [],
+                          "CustomCommand": ""
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "--output",
+                  "Description": "Output file name [$TRIVY_OUTPUT]",
+                  "Aliases": [
+                    "-o"
+                  ],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "input",
+                          "Description": "input",
+                          "Type": "FileSystemEntry"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "--exit-code",
+                  "Description": "Exit code when vulnerabilities were found (default: 0) [$TRIVY_EXIT_CODE]",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "exitCode",
+                          "Description": "exitCode",
+                          "Type": "String"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "--clear-cache",
+                  "Description": "Clear image caches without scanning [$TRIVY_CLEAR_CACHE]",
+                  "Aliases": [
+                    "-c"
+                  ],
+                  "Arguments": []
+                },
+                {
+                  "Name": "--vuln-type",
+                  "Description": "Comma-separated list of vulnerability types (os,library) (default: \u0022os,library\u0022) [$TRIVY_VULN_TYPE]",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "vulnType",
+                          "Description": "vulnType",
+                          "Type": "String",
+                          "Extensions": [],
+                          "CustomCommand": ""
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "--security-checks",
+                  "Description": "Comma-separated list of what security issues to detect (vuln,config) (default: \u0022vuln\u0022) [$TRIVY_SECURITY_CHECKS]",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "securityChecks",
+                          "Description": "securityChecks",
+                          "Type": "String",
+                          "Extensions": [],
+                          "CustomCommand": ""
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "--ignorefile",
+                  "Description": "Specify .trivyignore file (default: \u0022.trivyignore\u0022) [$TRIVY_IGNOREFILE]]",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "ignorefile",
+                          "Description": "ignorefile",
+                          "Type": "FileSystemEntry"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "--timeout",
+                  "Description": "Timeout (default: 5m0s) [$TRIVY_TIMEOUT]",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "timeout",
+                          "Description": "timeout",
+                          "Type": "String"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "--ignore-policy",
+                  "Description": "Specify the Rego file to evaluate each vulnerability [$TRIVY_IGNORE_POLICY]",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "ignorePolicy",
+                          "Description": "ignorePolicy",
+                          "Type": "FileSystemEntry"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "--list-all-pkgs",
+                  "Description": "Enabling the option will output all packages regardless of vulnerability (default: false) [$TRIVY_LIST_ALL_PKGS]",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "--cache-backend",
+                  "Description": "Cache backend (e.g. redis://localhost:6379) (default: \u0022fs\u0022) [$TRIVY_CACHE_BACKEND]",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "cacheBackend",
+                          "Description": "cacheBackend",
+                          "Type": "String"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "--no-progress",
+                  "Description": "Suppress progress bar [$TRIVY_NO_PROGRESS]",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "--offline-scan",
+                  "Description": "Do not issue API requests to identify dependencies [$TRIVY_OFFLINE_SCAN]",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "--skip-files",
+                  "Description": "Specify the file paths to skip traversal [$TRIVY_SKIP_FILES]",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "skipFiles",
+                          "Description": "skipFiles",
+                          "Type": "FileSystemEntry"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "--skip-dirs",
+                  "Description": "Allow insecure server connections when using SSL [$TRIVY_INSECURE]",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "skipDirs",
+                          "Description": "skipDirs",
+                          "Type": "Directory"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "--skip-policy-update",
+                  "Description": "Skip updating built-in policies [$TRIVY_SKIP_POLICY_UPDATE]",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "--ignore-unfixed",
+                  "Description": "Display only fixed vulnerabilities [$TRIVY_IGNORE_UNFIXED]",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "--config-policy",
+                  "Description": "Specify paths to the Rego policy files directory, applying config files [$TRIVY_CONFIG_POLICY]",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "configPolicy",
+                          "Description": "configPolicy",
+                          "Type": "Directory"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "--config-data",
+                  "Description": "Specify paths from which data for the Rego policies will be recursively loaded [$TRIVY_CONFIG_DATA]",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "configData",
+                          "Description": "configData",
+                          "Type": "Directory"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "--policy-namespaces",
+                  "Description": "Rego namespaces (default: \u0022users\u0022) [$TRIVY_POLICY_NAMESPACES]",
+                  "Aliases": [
+                    "--namespaces"
+                  ],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "policyNamespaces",
+                          "Description": "policyNamespaces",
+                          "Type": "String"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "--skip-db-update",
+                  "Description": "Skip updating vulnerability database [$TRIVY_SKIP_UPDATE, $TRIVY_SKIP_DB_UPDATE]",
+                  "Aliases": [
+                    "--skip-update"
+                  ],
+                  "Arguments": []
+                },
+                {
+                  "Name": "--server",
+                  "Description": "Server address [$TRIVY_SERVER]",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "server",
+                          "Description": "server",
+                          "Type": "String"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "--token",
+                  "Description": "For authentication in client/server mode [$TRIVY_TOKEN]",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "token",
+                          "Description": "token",
+                          "Type": "String"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "--token-header",
+                  "Description": "Specify a header name for token in client/server mode (default: \u0022Trivy-Token\u0022) [$TRIVY_TOKEN_HEADER]",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "tokenHeader",
+                          "Description": "tokenHeader",
+                          "Type": "String"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "--custom-headers",
+                  "Description": "Custom headers in client/server mode [$TRIVY_CUSTOM_HEADERS]",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "customHeaders",
+                          "Description": "customHeaders",
+                          "Type": "String"
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ],
+              "DontAllowMultiple": true
+            }
+          ]
+        },
+        {
+          "Name": "rootfs",
+          "Description": "Scan rootfs",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "path",
+                  "Description": "path",
+                  "Type": "FileSystemEntry"
+                }
+              ]
+            },
+            {
+              "Arguments": [
+                {
+                  "Name": "--template",
+                  "Description": "Output template [$TRIVY_TEMPLATE]",
+                  "Aliases": [
+                    "-t"
+                  ],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "output",
+                          "Description": "output",
+                          "Type": "String"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "--format",
+                  "Description": "Format (table, json, sarif, template) (default: \u0022table\u0022) [$TRIVY_FORMAT]",
+                  "Aliases": [
+                    "-f"
+                  ],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "format",
+                          "Description": "format",
+                          "Type": "String"
+                        },
+                        {
+                          "Name": "table",
+                          "Description": "format"
+                        },
+                        {
+                          "Name": "json",
+                          "Description": "format"
+                        },
+                        {
+                          "Name": "sarif",
+                          "Description": "format"
+                        },
+                        {
+                          "Name": "template",
+                          "Description": "format"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "--severity",
+                  "Description": "Severities of vulnerabilities to be displayed (comma separated) (default: \u0022UNKNOWN,LOW,MEDIUM,HIGH,CRITICAL\u0022) [$TRIVY_SEVERITY]",
+                  "Aliases": [
+                    "-s"
+                  ],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "severity",
+                          "Description": "severity",
+                          "Type": "String",
+                          "Extensions": [],
+                          "CustomCommand": ""
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "--output",
+                  "Description": "Output file name [$TRIVY_OUTPUT]",
+                  "Aliases": [
+                    "-o"
+                  ],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "input",
+                          "Description": "input",
+                          "Type": "FileSystemEntry"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "--exit-code",
+                  "Description": "Exit code when vulnerabilities were found (default: 0) [$TRIVY_EXIT_CODE]",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "exitCode",
+                          "Description": "exitCode",
+                          "Type": "String"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "--clear-cache",
+                  "Description": "Clear image caches without scanning [$TRIVY_CLEAR_CACHE]",
+                  "Aliases": [
+                    "-c"
+                  ],
+                  "Arguments": []
+                },
+                {
+                  "Name": "--vuln-type",
+                  "Description": "Comma-separated list of vulnerability types (os,library) (default: \u0022os,library\u0022) [$TRIVY_VULN_TYPE]",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "vulnType",
+                          "Description": "vulnType",
+                          "Type": "String",
+                          "Extensions": [],
+                          "CustomCommand": ""
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "--security-checks",
+                  "Description": "Comma-separated list of what security issues to detect (vuln,config) (default: \u0022vuln\u0022) [$TRIVY_SECURITY_CHECKS]",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "securityChecks",
+                          "Description": "securityChecks",
+                          "Type": "String",
+                          "Extensions": [],
+                          "CustomCommand": ""
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "--ignorefile",
+                  "Description": "Specify .trivyignore file (default: \u0022.trivyignore\u0022) [$TRIVY_IGNOREFILE]]",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "ignorefile",
+                          "Description": "ignorefile",
+                          "Type": "FileSystemEntry"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "--timeout",
+                  "Description": "Timeout (default: 5m0s) [$TRIVY_TIMEOUT]",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "timeout",
+                          "Description": "timeout",
+                          "Type": "String"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "--ignore-policy",
+                  "Description": "Specify the Rego file to evaluate each vulnerability [$TRIVY_IGNORE_POLICY]",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "ignorePolicy",
+                          "Description": "ignorePolicy",
+                          "Type": "FileSystemEntry"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "--list-all-pkgs",
+                  "Description": "Enabling the option will output all packages regardless of vulnerability (default: false) [$TRIVY_LIST_ALL_PKGS]",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "--cache-backend",
+                  "Description": "Cache backend (e.g. redis://localhost:6379) (default: \u0022fs\u0022) [$TRIVY_CACHE_BACKEND]",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "cacheBackend",
+                          "Description": "cacheBackend",
+                          "Type": "String"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "--no-progress",
+                  "Description": "Suppress progress bar [$TRIVY_NO_PROGRESS]",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "--offline-scan",
+                  "Description": "Do not issue API requests to identify dependencies [$TRIVY_OFFLINE_SCAN]",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "--skip-files",
+                  "Description": "Specify the file paths to skip traversal [$TRIVY_SKIP_FILES]",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "skipFiles",
+                          "Description": "skipFiles",
+                          "Type": "FileSystemEntry"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "--skip-dirs",
+                  "Description": "Allow insecure server connections when using SSL [$TRIVY_INSECURE]",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "skipDirs",
+                          "Description": "skipDirs",
+                          "Type": "Directory"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "--skip-policy-update",
+                  "Description": "Skip updating built-in policies [$TRIVY_SKIP_POLICY_UPDATE]",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "--config-policy",
+                  "Description": "Specify paths to the Rego policy files directory, applying config files [$TRIVY_CONFIG_POLICY]",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "configPolicy",
+                          "Description": "configPolicy",
+                          "Type": "Directory"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "--config-data",
+                  "Description": "Specify paths from which data for the Rego policies will be recursively loaded [$TRIVY_CONFIG_DATA]",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "configData",
+                          "Description": "configData",
+                          "Type": "Directory"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "--policy-namespaces",
+                  "Description": "Rego namespaces (default: \u0022users\u0022) [$TRIVY_POLICY_NAMESPACES]",
+                  "Aliases": [
+                    "--namespaces"
+                  ],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "policyNamespaces",
+                          "Description": "policyNamespaces",
+                          "Type": "String"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "--skip-db-update",
+                  "Description": "Skip updating vulnerability database [$TRIVY_SKIP_UPDATE, $TRIVY_SKIP_DB_UPDATE]",
+                  "Aliases": [
+                    "--skip-update"
+                  ],
+                  "Arguments": []
+                }
+              ],
+              "DontAllowMultiple": true
+            }
+          ]
+        },
+        {
+          "Name": "sbom",
+          "Description": "Generate SBOM for an artifact",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "--output",
+                  "Description": "Output file name [$TRIVY_OUTPUT]",
+                  "Aliases": [
+                    "-o"
+                  ],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "input",
+                          "Description": "input",
+                          "Type": "FileSystemEntry"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "--clear-cache",
+                  "Description": "Clear image caches without scanning [$TRIVY_CLEAR_CACHE]",
+                  "Aliases": [
+                    "-c"
+                  ],
+                  "Arguments": []
+                },
+                {
+                  "Name": "--ignorefile",
+                  "Description": "Specify .trivyignore file (default: \u0022.trivyignore\u0022) [$TRIVY_IGNOREFILE]]",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "ignorefile",
+                          "Description": "ignorefile",
+                          "Type": "FileSystemEntry"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "--timeout",
+                  "Description": "Timeout (default: 5m0s) [$TRIVY_TIMEOUT]",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "timeout",
+                          "Description": "timeout",
+                          "Type": "String"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "--severity",
+                  "Description": "Severities of vulnerabilities to be displayed (comma separated) (default: \u0022UNKNOWN,LOW,MEDIUM,HIGH,CRITICAL\u0022) [$TRIVY_SEVERITY]",
+                  "Aliases": [
+                    "-s"
+                  ],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "severity",
+                          "Description": "severity",
+                          "Type": "String",
+                          "Extensions": [],
+                          "CustomCommand": ""
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "--offline-scan",
+                  "Description": "Do not issue API requests to identify dependencies [$TRIVY_OFFLINE_SCAN]",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "--skip-files",
+                  "Description": "Specify the file paths to skip traversal [$TRIVY_SKIP_FILES]",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "skipFiles",
+                          "Description": "skipFiles",
+                          "Type": "FileSystemEntry"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "--skip-dirs",
+                  "Description": "Allow insecure server connections when using SSL [$TRIVY_INSECURE]",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "skipDirs",
+                          "Description": "skipDirs",
+                          "Type": "Directory"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "--artifact-type",
+                  "Description": "Input artifact type (image, fs, repo, archive) (default: \u0022image\u0022) [$TRIVY_ARTIFACT_TYPE]",
+                  "Aliases": [
+                    "--type"
+                  ],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "artifactType",
+                          "Description": "artifactType",
+                          "Type": "String"
+                        },
+                        {
+                          "Name": "image",
+                          "Description": "artifactType"
+                        },
+                        {
+                          "Name": "fs",
+                          "Description": "artifactType"
+                        },
+                        {
+                          "Name": "repo",
+                          "Description": "artifactType"
+                        },
+                        {
+                          "Name": "archive",
+                          "Description": "artifactType"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "--sbom-format",
+                  "Description": "SBOM format (cyclonedx) (default: \u0022cyclonedx\u0022) [$TRIVY_SBOM_FORMAT]",
+                  "Aliases": [
+                    "--format"
+                  ],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "sbomFormat",
+                          "Description": "sbomFormat",
+                          "Type": "String"
+                        },
+                        {
+                          "Name": "cyclonedx",
+                          "Description": "sbomFormat"
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ],
+              "DontAllowMultiple": true
+            }
+          ]
+        },
+        {
+          "Name": "repository",
+          "Description": "Scan remote repository",
+          "Aliases": [
+            "repo"
+          ],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "--template",
+                  "Description": "Output template [$TRIVY_TEMPLATE]",
+                  "Aliases": [
+                    "-t"
+                  ],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "output",
+                          "Description": "output",
+                          "Type": "String"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "--format",
+                  "Description": "Format (table, json, sarif, template) (default: \u0022table\u0022) [$TRIVY_FORMAT]",
+                  "Aliases": [
+                    "-f"
+                  ],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "format",
+                          "Description": "format",
+                          "Type": "String"
+                        },
+                        {
+                          "Name": "table",
+                          "Description": "format"
+                        },
+                        {
+                          "Name": "json",
+                          "Description": "format"
+                        },
+                        {
+                          "Name": "sarif",
+                          "Description": "format"
+                        },
+                        {
+                          "Name": "template",
+                          "Description": "format"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "--severity",
+                  "Description": "Severities of vulnerabilities to be displayed (comma separated) (default: \u0022UNKNOWN,LOW,MEDIUM,HIGH,CRITICAL\u0022) [$TRIVY_SEVERITY]",
+                  "Aliases": [
+                    "-s"
+                  ],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "severity",
+                          "Description": "severity",
+                          "Type": "String",
+                          "Extensions": [],
+                          "CustomCommand": ""
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "--output",
+                  "Description": "Output file name [$TRIVY_OUTPUT]",
+                  "Aliases": [
+                    "-o"
+                  ],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "input",
+                          "Description": "input",
+                          "Type": "FileSystemEntry"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "--exit-code",
+                  "Description": "Exit code when vulnerabilities were found (default: 0) [$TRIVY_EXIT_CODE]",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "exitCode",
+                          "Description": "exitCode",
+                          "Type": "String"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "--clear-cache",
+                  "Description": "Clear image caches without scanning [$TRIVY_CLEAR_CACHE]",
+                  "Aliases": [
+                    "-c"
+                  ],
+                  "Arguments": []
+                },
+                {
+                  "Name": "--vuln-type",
+                  "Description": "Comma-separated list of vulnerability types (os,library) (default: \u0022os,library\u0022) [$TRIVY_VULN_TYPE]",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "vulnType",
+                          "Description": "vulnType",
+                          "Type": "String",
+                          "Extensions": [],
+                          "CustomCommand": ""
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "--security-checks",
+                  "Description": "Comma-separated list of what security issues to detect (vuln,config) (default: \u0022vuln\u0022) [$TRIVY_SECURITY_CHECKS]",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "securityChecks",
+                          "Description": "securityChecks",
+                          "Type": "String",
+                          "Extensions": [],
+                          "CustomCommand": ""
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "--ignorefile",
+                  "Description": "Specify .trivyignore file (default: \u0022.trivyignore\u0022) [$TRIVY_IGNOREFILE]]",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "ignorefile",
+                          "Description": "ignorefile",
+                          "Type": "FileSystemEntry"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "--timeout",
+                  "Description": "Timeout (default: 5m0s) [$TRIVY_TIMEOUT]",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "timeout",
+                          "Description": "timeout",
+                          "Type": "String"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "--ignore-policy",
+                  "Description": "Specify the Rego file to evaluate each vulnerability [$TRIVY_IGNORE_POLICY]",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "ignorePolicy",
+                          "Description": "ignorePolicy",
+                          "Type": "FileSystemEntry"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "--list-all-pkgs",
+                  "Description": "Enabling the option will output all packages regardless of vulnerability (default: false) [$TRIVY_LIST_ALL_PKGS]",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "--cache-backend",
+                  "Description": "Cache backend (e.g. redis://localhost:6379) (default: \u0022fs\u0022) [$TRIVY_CACHE_BACKEND]",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "cacheBackend",
+                          "Description": "cacheBackend",
+                          "Type": "String"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "--no-progress",
+                  "Description": "Suppress progress bar [$TRIVY_NO_PROGRESS]",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "--offline-scan",
+                  "Description": "Do not issue API requests to identify dependencies [$TRIVY_OFFLINE_SCAN]",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "--skip-files",
+                  "Description": "Specify the file paths to skip traversal [$TRIVY_SKIP_FILES]",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "skipFiles",
+                          "Description": "skipFiles",
+                          "Type": "FileSystemEntry"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "--skip-dirs",
+                  "Description": "Allow insecure server connections when using SSL [$TRIVY_INSECURE]",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "skipDirs",
+                          "Description": "skipDirs",
+                          "Type": "Directory"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "--skip-policy-update",
+                  "Description": "Skip updating built-in policies [$TRIVY_SKIP_POLICY_UPDATE]",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "--skip-db-update",
+                  "Description": "Skip updating vulnerability database [$TRIVY_SKIP_UPDATE, $TRIVY_SKIP_DB_UPDATE]",
+                  "Aliases": [
+                    "--skip-update"
+                  ],
+                  "Arguments": []
+                },
+                {
+                  "Name": "--ignore-unfixed",
+                  "Description": "Display only fixed vulnerabilities [$TRIVY_IGNORE_UNFIXED]",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "--removed-pkgs",
+                  "Description": "Detect vulnerabilities of removed packages (default: false) [$TRIVY_REMOVED_PKGS]",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "--input",
+                  "Description": "Input file path instead of image name [$TRIVY_INPUT]",
+                  "Aliases": [
+                    "-i"
+                  ],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "input",
+                          "Description": "input",
+                          "Type": "FileSystemEntry"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "--quiet",
+                  "Description": "Suppress progress bar and log output [$TRIVY_QUIET]",
+                  "Aliases": [
+                    "-q"
+                  ],
+                  "Arguments": []
+                },
+                {
+                  "Name": "--insecure",
+                  "Description": "Allow insecure server connections when using SSL [$TRIVY_INSECURE]",
+                  "Aliases": [],
+                  "Arguments": []
+                }
+              ],
+              "DontAllowMultiple": true
+            }
+          ]
+        },
+        {
+          "Name": "client",
+          "Description": "Client mode",
+          "Aliases": [
+            "c"
+          ],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "--template",
+                  "Description": "Output template [$TRIVY_TEMPLATE]",
+                  "Aliases": [
+                    "-t"
+                  ],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "output",
+                          "Description": "output",
+                          "Type": "String"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "--format",
+                  "Description": "Format (table, json, sarif, template) (default: \u0022table\u0022) [$TRIVY_FORMAT]",
+                  "Aliases": [
+                    "-f"
+                  ],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "format",
+                          "Description": "format",
+                          "Type": "String"
+                        },
+                        {
+                          "Name": "table",
+                          "Description": "format"
+                        },
+                        {
+                          "Name": "json",
+                          "Description": "format"
+                        },
+                        {
+                          "Name": "sarif",
+                          "Description": "format"
+                        },
+                        {
+                          "Name": "template",
+                          "Description": "format"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "--severity",
+                  "Description": "Severities of vulnerabilities to be displayed (comma separated) (default: \u0022UNKNOWN,LOW,MEDIUM,HIGH,CRITICAL\u0022) [$TRIVY_SEVERITY]",
+                  "Aliases": [
+                    "-s"
+                  ],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "severity",
+                          "Description": "severity",
+                          "Type": "String",
+                          "Extensions": [],
+                          "CustomCommand": ""
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "--output",
+                  "Description": "Output file name [$TRIVY_OUTPUT]",
+                  "Aliases": [
+                    "-o"
+                  ],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "input",
+                          "Description": "input",
+                          "Type": "FileSystemEntry"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "--exit-code",
+                  "Description": "Exit code when vulnerabilities were found (default: 0) [$TRIVY_EXIT_CODE]",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "exitCode",
+                          "Description": "exitCode",
+                          "Type": "String"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "--clear-cache",
+                  "Description": "Clear image caches without scanning [$TRIVY_CLEAR_CACHE]",
+                  "Aliases": [
+                    "-c"
+                  ],
+                  "Arguments": []
+                },
+                {
+                  "Name": "--vuln-type",
+                  "Description": "Comma-separated list of vulnerability types (os,library) (default: \u0022os,library\u0022) [$TRIVY_VULN_TYPE]",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "vulnType",
+                          "Description": "vulnType",
+                          "Type": "String",
+                          "Extensions": [],
+                          "CustomCommand": ""
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "--security-checks",
+                  "Description": "Comma-separated list of what security issues to detect (vuln,config) (default: \u0022vuln\u0022) [$TRIVY_SECURITY_CHECKS]",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "securityChecks",
+                          "Description": "securityChecks",
+                          "Type": "String",
+                          "Extensions": [],
+                          "CustomCommand": ""
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "--ignorefile",
+                  "Description": "Specify .trivyignore file (default: \u0022.trivyignore\u0022) [$TRIVY_IGNOREFILE]]",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "ignorefile",
+                          "Description": "ignorefile",
+                          "Type": "FileSystemEntry"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "--timeout",
+                  "Description": "Timeout (default: 5m0s) [$TRIVY_TIMEOUT]",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "timeout",
+                          "Description": "timeout",
+                          "Type": "String"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "--ignore-policy",
+                  "Description": "Specify the Rego file to evaluate each vulnerability [$TRIVY_IGNORE_POLICY]",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "ignorePolicy",
+                          "Description": "ignorePolicy",
+                          "Type": "FileSystemEntry"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "--list-all-pkgs",
+                  "Description": "Enabling the option will output all packages regardless of vulnerability (default: false) [$TRIVY_LIST_ALL_PKGS]",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "--cache-backend",
+                  "Description": "Cache backend (e.g. redis://localhost:6379) (default: \u0022fs\u0022) [$TRIVY_CACHE_BACKEND]",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "cacheBackend",
+                          "Description": "cacheBackend",
+                          "Type": "String"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "--no-progress",
+                  "Description": "Suppress progress bar [$TRIVY_NO_PROGRESS]",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "--offline-scan",
+                  "Description": "Do not issue API requests to identify dependencies [$TRIVY_OFFLINE_SCAN]",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "--skip-files",
+                  "Description": "Specify the file paths to skip traversal [$TRIVY_SKIP_FILES]",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "skipFiles",
+                          "Description": "skipFiles",
+                          "Type": "FileSystemEntry"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "--skip-dirs",
+                  "Description": "Allow insecure server connections when using SSL [$TRIVY_INSECURE]",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "skipDirs",
+                          "Description": "skipDirs",
+                          "Type": "Directory"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "--severity",
+                  "Description": "Severities of vulnerabilities to be displayed (comma separated) (default: \u0022UNKNOWN,LOW,MEDIUM,HIGH,CRITICAL\u0022) [$TRIVY_SEVERITY]",
+                  "Aliases": [
+                    "-s"
+                  ],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "severity",
+                          "Description": "severity",
+                          "Type": "String",
+                          "Extensions": [],
+                          "CustomCommand": ""
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "--input",
+                  "Description": "Input file path instead of image name [$TRIVY_INPUT]",
+                  "Aliases": [
+                    "-i"
+                  ],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "input",
+                          "Description": "input",
+                          "Type": "FileSystemEntry"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "--ignore-unfixed",
+                  "Description": "Display only fixed vulnerabilities [$TRIVY_IGNORE_UNFIXED]",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "--insecure",
+                  "Description": "Allow insecure server connections when using SSL [$TRIVY_INSECURE]",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "--removed-pkgs",
+                  "Description": "Detect vulnerabilities of removed packages (default: false) [$TRIVY_REMOVED_PKGS]",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "--output",
+                  "Description": "Output file name [$TRIVY_OUTPUT]",
+                  "Aliases": [
+                    "-o"
+                  ],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "input",
+                          "Description": "input",
+                          "Type": "FileSystemEntry"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "--config-policy",
+                  "Description": "Specify paths to the Rego policy files directory, applying config files [$TRIVY_CONFIG_POLICY]",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "configPolicy",
+                          "Description": "configPolicy",
+                          "Type": "Directory"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "--skip-files",
+                  "Description": "Specify the file paths to skip traversal [$TRIVY_SKIP_FILES]",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "skipFiles",
+                          "Description": "skipFiles",
+                          "Type": "FileSystemEntry"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "--skip-dirs",
+                  "Description": "Allow insecure server connections when using SSL [$TRIVY_INSECURE]",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "skipDirs",
+                          "Description": "skipDirs",
+                          "Type": "Directory"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "--token",
+                  "Description": "For authentication in client/server mode [$TRIVY_TOKEN]",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "token",
+                          "Description": "token",
+                          "Type": "String"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "--token-header",
+                  "Description": "Specify a header name for token in client/server mode (default: \u0022Trivy-Token\u0022) [$TRIVY_TOKEN_HEADER]",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "tokenHeader",
+                          "Description": "tokenHeader",
+                          "Type": "String"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "--custom-headers",
+                  "Description": "Custom headers in client/server mode [$TRIVY_CUSTOM_HEADERS]",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "customHeaders",
+                          "Description": "customHeaders",
+                          "Type": "String"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "--remote",
+                  "Description": "Server address (default: \u0022http://localhost:4954\u0022) [$TRIVY_REMOTE]",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "remote",
+                          "Description": "remote",
+                          "Type": "String"
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ],
+              "DontAllowMultiple": true
+            }
+          ]
+        },
+        {
+          "Name": "server",
+          "Description": "Server mode",
+          "Aliases": [
+            "s"
+          ],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "--skip-db-update",
+                  "Description": "Skip updating vulnerability database [$TRIVY_SKIP_UPDATE, $TRIVY_SKIP_DB_UPDATE]",
+                  "Aliases": [
+                    "--skip-update"
+                  ],
+                  "Arguments": []
+                },
+                {
+                  "Name": "--download-db-only",
+                  "Description": "Download/update vulnerability database but don\u0027t run a scan [$TRIVY_DOWNLOAD_DB_ONLY]",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "--reset",
+                  "Description": "Remove all caches and database [$TRIVY_RESET]",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "--cache-backend",
+                  "Description": "Cache backend (e.g. redis://localhost:6379) (default: \u0022fs\u0022) [$TRIVY_CACHE_BACKEND]",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "cacheBackend",
+                          "Description": "cacheBackend",
+                          "Type": "String"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "--token",
+                  "Description": "For authentication in client/server mode [$TRIVY_TOKEN]",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "token",
+                          "Description": "token",
+                          "Type": "String"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "--token-header",
+                  "Description": "Specify a header name for token in client/server mode (default: \u0022Trivy-Token\u0022) [$TRIVY_TOKEN_HEADER]",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "tokenHeader",
+                          "Description": "tokenHeader",
+                          "Type": "String"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "--listen",
+                  "Description": "Listen address (default: \u0022localhost:4954\u0022) [$TRIVY_LISTEN]",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "listen",
+                          "Description": "listen",
+                          "Type": "String"
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ],
+              "DontAllowMultiple": true
+            }
+          ]
+        },
+        {
+          "Name": "config",
+          "Description": "Scan config files",
+          "Aliases": [
+            "conf"
+          ],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "--template",
+                  "Description": "Output template [$TRIVY_TEMPLATE]",
+                  "Aliases": [
+                    "-t"
+                  ],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "output",
+                          "Description": "output",
+                          "Type": "String"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "--format",
+                  "Description": "Format (table, json, sarif, template) (default: \u0022table\u0022) [$TRIVY_FORMAT]",
+                  "Aliases": [
+                    "-f"
+                  ],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "format",
+                          "Description": "format",
+                          "Type": "String"
+                        },
+                        {
+                          "Name": "table",
+                          "Description": "format"
+                        },
+                        {
+                          "Name": "json",
+                          "Description": "format"
+                        },
+                        {
+                          "Name": "sarif",
+                          "Description": "format"
+                        },
+                        {
+                          "Name": "template",
+                          "Description": "format"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "--severity",
+                  "Description": "Severities of vulnerabilities to be displayed (comma separated) (default: \u0022UNKNOWN,LOW,MEDIUM,HIGH,CRITICAL\u0022) [$TRIVY_SEVERITY]",
+                  "Aliases": [
+                    "-s"
+                  ],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "severity",
+                          "Description": "severity",
+                          "Type": "String",
+                          "Extensions": [],
+                          "CustomCommand": ""
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "--output",
+                  "Description": "Output file name [$TRIVY_OUTPUT]",
+                  "Aliases": [
+                    "-o"
+                  ],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "input",
+                          "Description": "input",
+                          "Type": "FileSystemEntry"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "--exit-code",
+                  "Description": "Exit code when vulnerabilities were found (default: 0) [$TRIVY_EXIT_CODE]",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "exitCode",
+                          "Description": "exitCode",
+                          "Type": "String"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "--skip-policy-update",
+                  "Description": "Skip updating built-in policies [$TRIVY_SKIP_POLICY_UPDATE]",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "--reset",
+                  "Description": "Remove all caches and database [$TRIVY_RESET]",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "--clear-cache",
+                  "Description": "Clear image caches without scanning [$TRIVY_CLEAR_CACHE]",
+                  "Aliases": [
+                    "-c"
+                  ],
+                  "Arguments": []
+                },
+                {
+                  "Name": "--ignorefile",
+                  "Description": "Specify .trivyignore file (default: \u0022.trivyignore\u0022) [$TRIVY_IGNOREFILE]]",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "ignorefile",
+                          "Description": "ignorefile",
+                          "Type": "FileSystemEntry"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "--timeout",
+                  "Description": "Timeout (default: 5m0s) [$TRIVY_TIMEOUT]",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "timeout",
+                          "Description": "timeout",
+                          "Type": "String"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "--skip-files",
+                  "Description": "Specify the file paths to skip traversal [$TRIVY_SKIP_FILES]",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "skipFiles",
+                          "Description": "skipFiles",
+                          "Type": "FileSystemEntry"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "--skip-dirs",
+                  "Description": "Allow insecure server connections when using SSL [$TRIVY_INSECURE]",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "skipDirs",
+                          "Description": "skipDirs",
+                          "Type": "Directory"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "--config-policy",
+                  "Description": "Specify paths to the Rego policy files directory, applying config files [$TRIVY_CONFIG_POLICY]",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "configPolicy",
+                          "Description": "configPolicy",
+                          "Type": "Directory"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "--config-data",
+                  "Description": "Specify paths from which data for the Rego policies will be recursively loaded [$TRIVY_CONFIG_DATA]",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "configData",
+                          "Description": "configData",
+                          "Type": "Directory"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "--policy-namespaces",
+                  "Description": "Rego namespaces (default: \u0022users\u0022) [$TRIVY_POLICY_NAMESPACES]",
+                  "Aliases": [
+                    "--namespaces"
+                  ],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "policyNamespaces",
+                          "Description": "policyNamespaces",
+                          "Type": "String"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "--file-patterns",
+                  "Description": "Specify file patterns [$TRIVY_FILE_PATTERNS",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "filePatterns",
+                          "Description": "filePatterns",
+                          "Type": "String"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "--include-non-failures",
+                  "Description": "Enable more verbose trace output for custom queries [$TRIVY_TRACE]",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "--trace",
+                  "Description": "Enable more verbose trace output for custom queries [$TRIVY_TRACE]",
+                  "Aliases": [],
+                  "Arguments": []
+                }
+              ],
+              "DontAllowMultiple": true
+            }
+          ]
+        },
+        {
+          "Name": "plugin",
+          "Description": "Manage plugins",
+          "Aliases": [
+            "p"
+          ],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "install",
+                  "Description": "Install a plugin",
+                  "Aliases": [
+                    "i"
+                  ],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "plugin",
+                          "Description": "plugin",
+                          "Type": "String"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "uninstall",
+                  "Description": "Uninstall plugin",
+                  "Aliases": [
+                    "u"
+                  ],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "plugin",
+                          "Description": "plugin",
+                          "Type": "String"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "list",
+                  "Description": "List installed plugin",
+                  "Aliases": [
+                    "l"
+                  ],
+                  "Arguments": []
+                },
+                {
+                  "Name": "info",
+                  "Description": "Information about a plugin",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "plugin",
+                          "Description": "plugin",
+                          "Type": "String"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "run",
+                  "Description": "Run a plugin on the fly",
+                  "Aliases": [
+                    "r"
+                  ],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "plugin",
+                          "Description": "plugin",
+                          "Type": "String"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "update",
+                  "Description": "Update an existing plugin",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "plugin",
+                          "Description": "plugin",
+                          "Type": "String"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "help",
+                  "Description": "Shows a list of commands or help for one command",
+                  "Aliases": [
+                    "h"
+                  ],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "String",
+                          "Description": "",
+                          "Type": "String"
+                        }
+                      ],
+                      "Optional": true
+                    }
+                  ]
+                }
+              ],
+              "DontAllowMultiple": true
+            }
+          ]
+        },
+        {
+          "Name": "version",
+          "Description": "Print the version",
+          "Aliases": [],
+          "Arguments": []
+        },
+        {
+          "Name": "help",
+          "Description": "Shows a list of commands or help for one command",
+          "Aliases": [
+            "h"
+          ],
+          "Arguments": []
+        }
+      ],
+      "DontAllowMultiple": true
+    }
+  ]
+}

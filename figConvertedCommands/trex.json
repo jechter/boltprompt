@@ -1,0 +1,278 @@
+{
+  "Comment": "This command info is generated from fig",
+  "Name": "trex",
+  "Description": "Advanced package management for deno, based on import_map.json",
+  "Arguments": [
+    {
+      "Arguments": [
+        {
+          "Name": "-h",
+          "Description": "Print help info",
+          "Aliases": [
+            "--help"
+          ],
+          "Arguments": []
+        },
+        {
+          "Name": "-v",
+          "Description": "Print version",
+          "Aliases": [
+            "--version"
+          ],
+          "Arguments": []
+        },
+        {
+          "Name": "-c",
+          "Description": "Install custom package",
+          "Aliases": [
+            "--custom"
+          ],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "custom package",
+                  "Description": "custom package",
+                  "Type": "String"
+                }
+              ]
+            }
+          ]
+        }
+      ],
+      "Optional": true
+    },
+    {
+      "Arguments": [
+        {
+          "Name": "i",
+          "Description": "Install a package",
+          "Aliases": [
+            "install"
+          ],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "-m",
+                  "Description": "Install package from deno.land",
+                  "Aliases": [
+                    "--map"
+                  ],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "package name",
+                          "Description": "package name",
+                          "Type": "String"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "-n",
+                  "Description": "Install package from nest.land",
+                  "Aliases": [
+                    "--nest"
+                  ],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "package name",
+                          "Description": "package name",
+                          "Type": "String"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "-p",
+                  "Description": "Install package from some repository",
+                  "Aliases": [
+                    "--pkg"
+                  ],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "repository",
+                          "Description": "repository",
+                          "Type": "String"
+                        }
+                      ]
+                    },
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "Package Name",
+                          "Description": "Package Name",
+                          "Type": "String"
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ],
+              "Optional": true
+            }
+          ]
+        },
+        {
+          "Name": "delete",
+          "Description": "Delete a package",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "package name",
+                  "Description": "package name",
+                  "Type": "CustomArgument",
+                  "Extensions": [],
+                  "CustomCommand": "cat import_map.json"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "Name": "upgrade",
+          "Description": "Upgrade trex",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "--canary",
+                  "Description": "Install from dev branch",
+                  "Aliases": [],
+                  "Arguments": []
+                }
+              ],
+              "Optional": true
+            }
+          ]
+        },
+        {
+          "Name": "tree",
+          "Description": "View dependency tree",
+          "Aliases": [],
+          "Arguments": []
+        },
+        {
+          "Name": "run",
+          "Description": "Run a script alias in a file run.json",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "-w",
+                  "Description": "Use reboot script alias protocol (rsap)",
+                  "Aliases": [
+                    "--watch"
+                  ],
+                  "Arguments": []
+                },
+                {
+                  "Name": "-wv",
+                  "Description": "Verbose output in --watch mode (rsap)",
+                  "Aliases": [],
+                  "Arguments": []
+                }
+              ],
+              "Optional": true
+            },
+            {
+              "Arguments": [
+                {
+                  "Name": "script alias",
+                  "Description": "script alias",
+                  "Type": "CustomArgument",
+                  "Extensions": [],
+                  "CustomCommand": "cat run.json"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "Name": "purge",
+          "Description": "Remove a package or url from cache",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "package | url",
+                  "Description": "package | url",
+                  "Type": "CustomArgument",
+                  "Extensions": [],
+                  "CustomCommand": "cat import_map.json"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "Name": "ls",
+          "Description": "Shows the list of installed packages",
+          "Aliases": [],
+          "Arguments": []
+        },
+        {
+          "Name": "exec",
+          "Description": "Execute a cli tool with out install then",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "--perms",
+                  "Description": "Specify cli permisions",
+                  "Aliases": [],
+                  "Arguments": []
+                }
+              ],
+              "Optional": true
+            },
+            {
+              "Arguments": [
+                {
+                  "Name": "cli tool",
+                  "Description": "cli tool",
+                  "Type": "String"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "Name": "check",
+          "Description": "Check deno.land [std/x] dependencies updates",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "-f",
+                  "Description": "Update outdated dependencies",
+                  "Aliases": [
+                    "--fix"
+                  ],
+                  "Arguments": []
+                }
+              ],
+              "Optional": true
+            }
+          ]
+        }
+      ],
+      "DontAllowMultiple": true
+    }
+  ]
+}

@@ -1,0 +1,127 @@
+{
+  "Comment": "This command info is generated from fig",
+  "Name": "aftman",
+  "Description": "A toolchain manager, enabling project-specific command line tools",
+  "Arguments": [
+    {
+      "Arguments": [
+        {
+          "Name": "--help",
+          "Description": "Show help for aftman",
+          "Aliases": [
+            "-h"
+          ],
+          "Arguments": []
+        },
+        {
+          "Name": "--version",
+          "Description": "Show aftman\u0027s version",
+          "Aliases": [
+            "-V"
+          ],
+          "Arguments": []
+        }
+      ],
+      "Optional": true
+    },
+    {
+      "Arguments": [
+        {
+          "Name": "init",
+          "Description": "Creates a new aftman.toml file in the given directory",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "path",
+                  "Description": "path",
+                  "Type": "String"
+                }
+              ],
+              "Optional": true
+            }
+          ]
+        },
+        {
+          "Name": "add",
+          "Description": "Adds a new tool to Aftman and installs it",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "--global",
+                  "Description": "Install this tool globally",
+                  "Aliases": [],
+                  "Arguments": []
+                }
+              ],
+              "Optional": true
+            },
+            {
+              "Arguments": [
+                {
+                  "Name": "tool",
+                  "Description": "tool",
+                  "Type": "String"
+                }
+              ]
+            },
+            {
+              "Arguments": [
+                {
+                  "Name": "alias",
+                  "Description": "alias",
+                  "Type": "String"
+                }
+              ],
+              "Optional": true
+            }
+          ]
+        },
+        {
+          "Name": "install",
+          "Description": "Install all tools listed in aftman.toml files based on your current directory",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "--no-trust-check",
+                  "Description": "All tools will be installed, regardless of whether they are known",
+                  "Aliases": [],
+                  "Arguments": []
+                }
+              ],
+              "Optional": true
+            }
+          ]
+        },
+        {
+          "Name": "self-install",
+          "Description": "Installs Aftman, upgrades any references to Aftman, and adds aftman to your system PATH if supported",
+          "Aliases": [],
+          "Arguments": []
+        },
+        {
+          "Name": "trust",
+          "Description": "",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "tool",
+                  "Description": "tool",
+                  "Type": "String"
+                }
+              ]
+            }
+          ]
+        }
+      ],
+      "DontAllowMultiple": true
+    }
+  ]
+}

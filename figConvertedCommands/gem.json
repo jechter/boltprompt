@@ -1,0 +1,3325 @@
+{
+  "Comment": "This command info is generated from fig",
+  "Name": "gem",
+  "Description": "Ruby package manager",
+  "Arguments": [
+    {
+      "Arguments": [
+        {
+          "Name": "--help",
+          "Description": "Show help for gem",
+          "Aliases": [
+            "-h"
+          ],
+          "Arguments": []
+        },
+        {
+          "Name": "-V",
+          "Description": "Set the verbose level of output",
+          "Aliases": [
+            "--verbose"
+          ],
+          "Arguments": []
+        },
+        {
+          "Name": "--no-verbose",
+          "Description": "Do not set the verbose level of output",
+          "Aliases": [],
+          "Arguments": []
+        },
+        {
+          "Name": "-q",
+          "Description": "Silence command progress meter",
+          "Aliases": [
+            "--quiet"
+          ],
+          "Arguments": []
+        },
+        {
+          "Name": "--silent",
+          "Description": "Silence RubyGems output",
+          "Aliases": [],
+          "Arguments": []
+        },
+        {
+          "Name": "-config-file",
+          "Description": "Use this config file instead of default",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "FILE",
+                  "Description": "FILE",
+                  "Type": "FileSystemEntry"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "Name": "--backtrace",
+          "Description": "Show stack backtrace on errors",
+          "Aliases": [],
+          "Arguments": []
+        },
+        {
+          "Name": "--debug",
+          "Description": "Turn on Ruby debugging",
+          "Aliases": [],
+          "Arguments": []
+        },
+        {
+          "Name": "--norc",
+          "Description": "Avoid loading any .gemrc file",
+          "Aliases": [],
+          "Arguments": []
+        },
+        {
+          "Name": "-v",
+          "Description": "Show the gem version",
+          "Aliases": [
+            "--version"
+          ],
+          "Arguments": []
+        }
+      ],
+      "Optional": true
+    },
+    {
+      "Arguments": [
+        {
+          "Name": "help",
+          "Description": "Help about any command",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "command",
+                  "Description": "command",
+                  "Type": "String"
+                }
+              ],
+              "Optional": true
+            }
+          ]
+        },
+        {
+          "Name": "install",
+          "Description": "Install a gem into the local repository",
+          "Aliases": [
+            "i"
+          ],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "--platform",
+                  "Description": "Specify the platform of gem to install",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "PLATFORM",
+                          "Description": "PLATFORM",
+                          "Type": "String"
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ],
+              "Optional": true
+            },
+            {
+              "Arguments": [
+                {
+                  "Name": "GEMNAME",
+                  "Description": "GEMNAME",
+                  "Type": "String",
+                  "Extensions": [],
+                  "CustomCommand": ""
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "Name": "cert",
+          "Description": "Manage RubyGems certificates and signing settings",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "-a",
+                  "Description": "Add a trusted certificate",
+                  "Aliases": [
+                    "--add"
+                  ],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "CERT",
+                          "Description": "CERT",
+                          "Type": "FileSystemEntry"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "-l",
+                  "Description": "List trusted certificates where the subject contains FILTER",
+                  "Aliases": [
+                    "--list"
+                  ],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "FILTER",
+                          "Description": "FILTER",
+                          "Type": "String"
+                        }
+                      ],
+                      "Optional": true
+                    }
+                  ]
+                },
+                {
+                  "Name": "-r",
+                  "Description": "Remove trusted certificates where the subject contains FILTER",
+                  "Aliases": [
+                    "--remove"
+                  ],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "FILTER",
+                          "Description": "FILTER",
+                          "Type": "String"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "-b",
+                  "Description": "Build private key and self-signed certificate for EMAIL_ADDR",
+                  "Aliases": [
+                    "--build"
+                  ],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "EMAIL_ADDR",
+                          "Description": "EMAIL_ADDR",
+                          "Type": "String"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "-C",
+                  "Description": "Signing certificate for --sign",
+                  "Aliases": [
+                    "--certificate"
+                  ],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "CERT",
+                          "Description": "CERT",
+                          "Type": "FileSystemEntry"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "-K",
+                  "Description": "Key for --sign or --build",
+                  "Aliases": [
+                    "--private-key"
+                  ],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "KEY",
+                          "Description": "KEY",
+                          "Type": "FileSystemEntry"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "-A",
+                  "Description": "Select which key algorithm to use for --build",
+                  "Aliases": [
+                    "--key-algorithm"
+                  ],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "ALGORITHM",
+                          "Description": "ALGORITHM",
+                          "Type": "String"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "-s",
+                  "Description": "Signs CERT with the key from -K and the certificate from -C",
+                  "Aliases": [
+                    "--sign"
+                  ],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "CERT",
+                          "Description": "CERT",
+                          "Type": "FileSystemEntry"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "-d",
+                  "Description": "Days before the certificate expires",
+                  "Aliases": [
+                    "--days"
+                  ],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "NUMBER_OF_DAYS",
+                          "Description": "NUMBER_OF_DAYS",
+                          "Type": "String"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "-R",
+                  "Description": "Re-signs the certificate from -C with the key from -K",
+                  "Aliases": [
+                    "--re-sign"
+                  ],
+                  "Arguments": []
+                }
+              ],
+              "Optional": true
+            }
+          ]
+        },
+        {
+          "Name": "check",
+          "Description": "Check a gem repository for added or missing files",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "-a",
+                  "Description": "Report \u0027unmanaged\u0027 or rogue files in the gem repository",
+                  "Aliases": [
+                    "--alien"
+                  ],
+                  "Arguments": []
+                },
+                {
+                  "Name": "--no-alien",
+                  "Description": "Report \u0027managed\u0027 or rogue files in the gem repository",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "--doctor",
+                  "Description": "Clean up uninstalled gems and broken specifications",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "--no-doctor",
+                  "Description": "Do not clean up uninstalled gems and broken specifications",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "--dry-run",
+                  "Description": "Do not remove files, only report what would be removed",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "--no-dry-run",
+                  "Description": "Remove files",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "--gems",
+                  "Description": "Check installed gems for problems",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "--no-gems",
+                  "Description": "Check not installed gems for problems",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "-v",
+                  "Description": "Specify version of gem to check",
+                  "Aliases": [
+                    "--version"
+                  ],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "VERSION",
+                          "Description": "VERSION",
+                          "Type": "String"
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ],
+              "Optional": true
+            },
+            {
+              "Arguments": [
+                {
+                  "Name": "GEMNAME",
+                  "Description": "GEMNAME",
+                  "Type": "String",
+                  "Extensions": [],
+                  "CustomCommand": ""
+                }
+              ],
+              "Optional": true
+            }
+          ]
+        },
+        {
+          "Name": "cleanup",
+          "Description": "Clean up old versions of installed gems",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "-n",
+                  "Description": "Do not uninstall gems",
+                  "Aliases": [
+                    "-d",
+                    "--dry-run"
+                  ],
+                  "Arguments": []
+                },
+                {
+                  "Name": "-D",
+                  "Description": "Check development dependencies while uninstalling (default: true)",
+                  "Aliases": [
+                    "--check-development"
+                  ],
+                  "Arguments": []
+                },
+                {
+                  "Name": "--no-check-development",
+                  "Description": "Do not check development dependencies while uninstalling",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "--user-install",
+                  "Description": "Cleanup in user\u2019s home directory instead of GEM_HOME",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "--no-user-install",
+                  "Description": "Cleanup in GEM_HOME instead of user\u2019s home directory",
+                  "Aliases": [],
+                  "Arguments": []
+                }
+              ],
+              "Optional": true
+            },
+            {
+              "Arguments": [
+                {
+                  "Name": "GEMNAME",
+                  "Description": "GEMNAME",
+                  "Type": "String",
+                  "Extensions": [],
+                  "CustomCommand": ""
+                }
+              ],
+              "Optional": true
+            }
+          ]
+        },
+        {
+          "Name": "contents",
+          "Description": "Display the contents of the installed gems",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "-v",
+                  "Description": "Specify version of gem to contents",
+                  "Aliases": [
+                    "--version"
+                  ],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "VERSION",
+                          "Description": "VERSION",
+                          "Type": "String"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "--all",
+                  "Description": "Contents for all gems",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "-s",
+                  "Description": "Search for gems under specific paths",
+                  "Aliases": [
+                    "--spec-dir"
+                  ],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "DIR",
+                          "Description": "DIR",
+                          "Type": "FileSystemEntry"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "-l",
+                  "Description": "Only return files in the Gem\u2019s lib_dirs",
+                  "Aliases": [
+                    "--lib-only"
+                  ],
+                  "Arguments": []
+                },
+                {
+                  "Name": "--no-lib-only",
+                  "Description": "Not only return files in the Gem\u2019s lib_dirs",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "--prefix",
+                  "Description": "Don\u2019t include installed path prefix",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "--no-prefix",
+                  "Description": "Include installed path prefix",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "--show-install-dir",
+                  "Description": "Show only the gem install dir",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "--no-show-install-dir",
+                  "Description": "Do not show only the gem install dir",
+                  "Aliases": [],
+                  "Arguments": []
+                }
+              ],
+              "Optional": true
+            },
+            {
+              "Arguments": [
+                {
+                  "Name": "GEMNAME",
+                  "Description": "GEMNAME",
+                  "Type": "String",
+                  "Extensions": [],
+                  "CustomCommand": ""
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "Name": "dependency",
+          "Description": "Show the dependencies of an installed gem",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "-v",
+                  "Description": "Specify version of gem to dependency",
+                  "Aliases": [
+                    "--version"
+                  ],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "VERSION",
+                          "Description": "VERSION",
+                          "Type": "String"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "--platform",
+                  "Description": "Specify the platform of gem to dependency",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "PLATFORM",
+                          "Description": "PLATFORM",
+                          "Type": "String"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "--prerelease",
+                  "Description": "Allow prerelease versions of a gem",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "--no-prerelease",
+                  "Description": "Do not allow prerelease versions of a gem",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "-R",
+                  "Description": "Include reverse dependencies in the output",
+                  "Aliases": [
+                    "--reverse-dependencies"
+                  ],
+                  "Arguments": []
+                },
+                {
+                  "Name": "--no-reverse-dependencies",
+                  "Description": "Do not include reverse dependencies in the output",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "--pipe",
+                  "Description": "Pipe Format (name --version ver)",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "-l",
+                  "Description": "Restrict operations to the LOCAL domain",
+                  "Aliases": [
+                    "--local"
+                  ],
+                  "Arguments": []
+                },
+                {
+                  "Name": "-r",
+                  "Description": "Restrict operations to the REMOTE domain",
+                  "Aliases": [
+                    "--remote"
+                  ],
+                  "Arguments": []
+                },
+                {
+                  "Name": "-b",
+                  "Description": "Allow LOCAL and REMOTE operations",
+                  "Aliases": [
+                    "--both"
+                  ],
+                  "Arguments": []
+                },
+                {
+                  "Name": "-B",
+                  "Description": "Threshold for switching to bulk synchronization (default 1000)",
+                  "Aliases": [
+                    "--bulk-threshold"
+                  ],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "COUNT",
+                          "Description": "COUNT",
+                          "Type": "String"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "--clear-sources",
+                  "Description": "Clear the gem sources",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "-s",
+                  "Description": "Append URL to list of remote gem sources",
+                  "Aliases": [
+                    "--source"
+                  ],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "URL",
+                          "Description": "URL",
+                          "Type": "String"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "-p",
+                  "Description": "Use HTTP proxy for remote operations",
+                  "Aliases": [
+                    "--http-proxy"
+                  ],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "URL",
+                          "Description": "URL",
+                          "Type": "String"
+                        }
+                      ],
+                      "Optional": true
+                    }
+                  ]
+                },
+                {
+                  "Name": "--no-http-proxy",
+                  "Description": "Do not use HTTP proxy for remote operations",
+                  "Aliases": [],
+                  "Arguments": []
+                }
+              ],
+              "Optional": true
+            },
+            {
+              "Arguments": [
+                {
+                  "Name": "REGEXP",
+                  "Description": "REGEXP",
+                  "Type": "String"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "Name": "environment",
+          "Description": "Display information about the RubyGems environment",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "String",
+                  "Description": "",
+                  "Type": "String"
+                },
+                {
+                  "Name": "home",
+                  "Description": "Display the path where gems are installed. Aliases: gemhome, gemdir, GEM_HOME"
+                },
+                {
+                  "Name": "path",
+                  "Description": "Display path used to search for gems. Aliases: gempath, GEM_PATH"
+                },
+                {
+                  "Name": "user_gemhome",
+                  "Description": "Display the path where gems are installed when --user-install is given. Aliases: user_gemdir"
+                },
+                {
+                  "Name": "version",
+                  "Description": "Display the gem format version"
+                },
+                {
+                  "Name": "remotesources",
+                  "Description": "Display the remote gem servers"
+                },
+                {
+                  "Name": "platform",
+                  "Description": "Display the supported gem platforms"
+                }
+              ],
+              "Optional": true
+            }
+          ]
+        },
+        {
+          "Name": "fetch",
+          "Description": "Download a gem and place it in the current directory",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "-v",
+                  "Description": "Specify version of gem to fetch",
+                  "Aliases": [
+                    "--version"
+                  ],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "VERSION",
+                          "Description": "VERSION",
+                          "Type": "String"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "--platform",
+                  "Description": "Specify the platform of gem to fetch",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "PLATFORM",
+                          "Description": "PLATFORM",
+                          "Type": "String"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "--prerelease",
+                  "Description": "Allow prerelease versions of a gem",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "--no-prerelease",
+                  "Description": "Do not allow prerelease versions of a gem",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "--suggestions",
+                  "Description": "Suggest alternates when gems are not found",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "--no-suggestions",
+                  "Description": "Do not suggest alternates when gems are not found",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "-B",
+                  "Description": "Threshold for switching to bulk synchronization (default 1000)",
+                  "Aliases": [
+                    "--bulk-threshold"
+                  ],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "COUNT",
+                          "Description": "COUNT",
+                          "Type": "String"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "-s",
+                  "Description": "Append URL to list of remote gem sources",
+                  "Aliases": [
+                    "--source"
+                  ],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "URL",
+                          "Description": "URL",
+                          "Type": "String"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "--clear-sources",
+                  "Description": "Clear the gem sources",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "-p",
+                  "Description": "Use HTTP proxy for remote operations",
+                  "Aliases": [
+                    "--http-proxy"
+                  ],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "URL",
+                          "Description": "URL",
+                          "Type": "String"
+                        }
+                      ],
+                      "Optional": true
+                    }
+                  ]
+                },
+                {
+                  "Name": "--no-http-proxy",
+                  "Description": "Do not use HTTP proxy for remote operations",
+                  "Aliases": [],
+                  "Arguments": []
+                }
+              ],
+              "Optional": true
+            },
+            {
+              "Arguments": [
+                {
+                  "Name": "GEMNAME",
+                  "Description": "GEMNAME",
+                  "Type": "String",
+                  "Extensions": [],
+                  "CustomCommand": ""
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "Name": "generate_index",
+          "Description": "Generates the index files for a gem server directory",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "-d",
+                  "Description": "Repository base dir containing gems subdir",
+                  "Aliases": [
+                    "--directory"
+                  ],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "DIRNAME",
+                          "Description": "DIRNAME",
+                          "Type": "Directory"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "--modern",
+                  "Description": "Generate indexes for RubyGems (always true)",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "--no-modern",
+                  "Description": "Do not generate indexes for RubyGems",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "--update",
+                  "Description": "Update modern indexes with gems added since the last update",
+                  "Aliases": [],
+                  "Arguments": []
+                }
+              ],
+              "Optional": true
+            }
+          ]
+        },
+        {
+          "Name": "info",
+          "Description": "Show information for the given gem",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "I",
+                  "Description": "Equivalent to --no-installed",
+                  "Type": "Flag",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "-a",
+                  "Description": "Display all gem versions",
+                  "Aliases": [
+                    "--all"
+                  ],
+                  "Arguments": []
+                },
+                {
+                  "Name": "-e",
+                  "Description": "Name of gem(s) to query on matches the provided STRING",
+                  "Aliases": [
+                    "--exact"
+                  ],
+                  "Arguments": []
+                },
+                {
+                  "Name": "--prerelease",
+                  "Description": "Allow prerelease versions of a gem",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "--no-prerelease",
+                  "Description": "Do not allow prerelease versions of a gem",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "-i",
+                  "Description": "Check for installed gem",
+                  "Aliases": [
+                    "--installed"
+                  ],
+                  "Arguments": []
+                },
+                {
+                  "Name": "-I",
+                  "Description": "Check for not installed gem",
+                  "Aliases": [
+                    "--no-installed"
+                  ],
+                  "Arguments": []
+                },
+                {
+                  "Name": "-v",
+                  "Description": "Specify version of gem to list for use with --installed",
+                  "Aliases": [
+                    "--version"
+                  ],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "VERSION",
+                          "Description": "VERSION",
+                          "Type": "String"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "--versions",
+                  "Description": "Display only gem names",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "--no-versions",
+                  "Description": "Display not only gem names",
+                  "Aliases": [],
+                  "Arguments": []
+                }
+              ],
+              "Optional": true
+            },
+            {
+              "Arguments": [
+                {
+                  "Name": "GEMNAME",
+                  "Description": "GEMNAME",
+                  "Type": "String",
+                  "Extensions": [],
+                  "CustomCommand": ""
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "Name": "lock",
+          "Description": "Generate a lockdown list of gems",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "-s",
+                  "Description": "Fail if unable to satisfy a dependency",
+                  "Aliases": [
+                    "--strict"
+                  ],
+                  "Arguments": []
+                },
+                {
+                  "Name": "--no-strict",
+                  "Description": "Do not fail if unable to satisfy a dependency",
+                  "Aliases": [],
+                  "Arguments": []
+                }
+              ],
+              "Optional": true
+            },
+            {
+              "Arguments": [
+                {
+                  "Name": "GEMNAME-VERSION",
+                  "Description": "GEMNAME-VERSION",
+                  "Type": "String"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "Name": "mirror",
+          "Description": "Mirror all gem files (requires rubygems-mirror)",
+          "Aliases": [],
+          "Arguments": []
+        },
+        {
+          "Name": "open",
+          "Description": "Open gem sources in editor",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "-e",
+                  "Description": "Prepends COMMAND to gem path. Could be used to specify editor",
+                  "Aliases": [
+                    "--editor"
+                  ],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "COMMAND",
+                          "Description": "COMMAND",
+                          "Type": "String"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "-v",
+                  "Description": "Opens specific gem version",
+                  "Aliases": [
+                    "--version"
+                  ],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "VERSION",
+                          "Description": "VERSION",
+                          "Type": "String"
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ],
+              "Optional": true
+            },
+            {
+              "Arguments": [
+                {
+                  "Name": "GEMNAME",
+                  "Description": "GEMNAME",
+                  "Type": "String",
+                  "Extensions": [],
+                  "CustomCommand": ""
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "Name": "pristine",
+          "Description": "Restores installed gems to pristine condition from files located in the gem cache",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "--all",
+                  "Description": "Restore all installed gems to pristine condition",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "--skip",
+                  "Description": "Restore all installed gems to pristine condition",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "GEMNAME",
+                          "Description": "GEMNAME",
+                          "Type": "String",
+                          "Extensions": [],
+                          "CustomCommand": ""
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "--extensions",
+                  "Description": "Restore gems with extensions in addition to regular gems",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "--no-extensions",
+                  "Description": "Do not restore gems with extensions in addition to regular gems",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "--only-executables",
+                  "Description": "Only restore executables",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "--only-plugins",
+                  "Description": "Only restore plugins",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "-E",
+                  "Description": "Rewrite executables with a shebang of /usr/bin/env",
+                  "Aliases": [
+                    "--env-shebang"
+                  ],
+                  "Arguments": []
+                },
+                {
+                  "Name": "--no-env-shebang",
+                  "Description": "Do not rewrite executables with a shebang of /usr/bin/env",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "-i",
+                  "Description": "Gem repository to get binstubs and plugins installed",
+                  "Aliases": [
+                    "--install-dir"
+                  ],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "DIR",
+                          "Description": "DIR",
+                          "Type": "Directory"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "-n",
+                  "Description": "Directory where executables are located",
+                  "Aliases": [
+                    "--bindir"
+                  ],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "DIR",
+                          "Description": "DIR",
+                          "Type": "Directory"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "-v",
+                  "Description": "Specify version of gem to restore to pristine condition",
+                  "Aliases": [
+                    "--version"
+                  ],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "VERSION",
+                          "Description": "VERSION",
+                          "Type": "String"
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ],
+              "Optional": true
+            },
+            {
+              "Arguments": [
+                {
+                  "Name": "GEMNAME",
+                  "Description": "GEMNAME",
+                  "Type": "String",
+                  "Extensions": [],
+                  "CustomCommand": ""
+                }
+              ],
+              "Optional": true
+            }
+          ]
+        },
+        {
+          "Name": "query",
+          "Description": "Query gem information in local or remote repositories",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "-n",
+                  "Description": "Name of gem(s) to query on matches the provided REGEXP",
+                  "Aliases": [
+                    "--name-matches"
+                  ],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "REGEXP",
+                          "Description": "REGEXP",
+                          "Type": "String"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "I",
+                  "Description": "Equivalent to --no-installed",
+                  "Type": "Flag",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "-d",
+                  "Description": "Display detailed information of gem(s)",
+                  "Aliases": [
+                    "--details"
+                  ],
+                  "Arguments": []
+                },
+                {
+                  "Name": "--no-details",
+                  "Description": "Do not display detailed information of gem(s)",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "-a",
+                  "Description": "Display all gem versions",
+                  "Aliases": [
+                    "--all"
+                  ],
+                  "Arguments": []
+                },
+                {
+                  "Name": "-e",
+                  "Description": "Name of gem(s) to query on matches the provided STRING",
+                  "Aliases": [
+                    "--exact"
+                  ],
+                  "Arguments": []
+                },
+                {
+                  "Name": "--prerelease",
+                  "Description": "Allow prerelease versions of a gem",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "--no-prerelease",
+                  "Description": "Do not allow prerelease versions of a gem",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "-i",
+                  "Description": "Check for installed gem",
+                  "Aliases": [
+                    "--installed"
+                  ],
+                  "Arguments": []
+                },
+                {
+                  "Name": "-I",
+                  "Description": "Check for not installed gem",
+                  "Aliases": [
+                    "--no-installed"
+                  ],
+                  "Arguments": []
+                },
+                {
+                  "Name": "-v",
+                  "Description": "Specify version of gem to list for use with --installed",
+                  "Aliases": [
+                    "--version"
+                  ],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "VERSION",
+                          "Description": "VERSION",
+                          "Type": "String"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "--versions",
+                  "Description": "Display only gem names",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "--no-versions",
+                  "Description": "Display not only gem names",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "-l",
+                  "Description": "Restrict operations to the LOCAL domain",
+                  "Aliases": [
+                    "--local"
+                  ],
+                  "Arguments": []
+                },
+                {
+                  "Name": "-r",
+                  "Description": "Restrict operations to the REMOTE domain",
+                  "Aliases": [
+                    "--remote"
+                  ],
+                  "Arguments": []
+                },
+                {
+                  "Name": "-b",
+                  "Description": "Allow LOCAL and REMOTE operations",
+                  "Aliases": [
+                    "--both"
+                  ],
+                  "Arguments": []
+                },
+                {
+                  "Name": "-B",
+                  "Description": "Threshold for switching to bulk synchronization (default 1000)",
+                  "Aliases": [
+                    "--bulk-threshold"
+                  ],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "COUNT",
+                          "Description": "COUNT",
+                          "Type": "String"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "--clear-sources",
+                  "Description": "Clear the gem sources",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "-s",
+                  "Description": "Append URL to list of remote gem sources",
+                  "Aliases": [
+                    "--source"
+                  ],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "URL",
+                          "Description": "URL",
+                          "Type": "String"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "-p",
+                  "Description": "Use HTTP proxy for remote operations",
+                  "Aliases": [
+                    "--http-proxy"
+                  ],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "URL",
+                          "Description": "URL",
+                          "Type": "String"
+                        }
+                      ],
+                      "Optional": true
+                    }
+                  ]
+                },
+                {
+                  "Name": "--no-http-proxy",
+                  "Description": "Do not use HTTP proxy for remote operations",
+                  "Aliases": [],
+                  "Arguments": []
+                }
+              ],
+              "Optional": true
+            }
+          ]
+        },
+        {
+          "Name": "rdoc",
+          "Description": "Generates RDoc for pre-installed gems",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "--all",
+                  "Description": "Generate RDoc/RI documentation for all installed gems",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "--rdoc",
+                  "Description": "Generate RDoc HTML",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "--no-rdoc",
+                  "Description": "Do not generate RDoc HTML",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "--ri",
+                  "Description": "Generate RI data",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "--no-ri",
+                  "Description": "Do not generate RI data",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "--overwrite",
+                  "Description": "Overwrite installed documents",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "--no-overwrite",
+                  "Description": "Do not overwrite installed documents",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "-v",
+                  "Description": "Specify version of gem to rdoc",
+                  "Aliases": [
+                    "--version"
+                  ],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "VERSION",
+                          "Description": "VERSION",
+                          "Type": "String"
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ],
+              "Optional": true
+            },
+            {
+              "Arguments": [
+                {
+                  "Name": "GEMNAME",
+                  "Description": "GEMNAME",
+                  "Type": "String",
+                  "Extensions": [],
+                  "CustomCommand": ""
+                }
+              ],
+              "Optional": true
+            }
+          ]
+        },
+        {
+          "Name": "search",
+          "Description": "Display remote gems whose name matches REGEXP",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "I",
+                  "Description": "Equivalent to --no-installed",
+                  "Type": "Flag",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "-d",
+                  "Description": "Display detailed information of gem(s)",
+                  "Aliases": [
+                    "--details"
+                  ],
+                  "Arguments": []
+                },
+                {
+                  "Name": "--no-details",
+                  "Description": "Do not display detailed information of gem(s)",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "-a",
+                  "Description": "Display all gem versions",
+                  "Aliases": [
+                    "--all"
+                  ],
+                  "Arguments": []
+                },
+                {
+                  "Name": "-e",
+                  "Description": "Name of gem(s) to query on matches the provided STRING",
+                  "Aliases": [
+                    "--exact"
+                  ],
+                  "Arguments": []
+                },
+                {
+                  "Name": "--prerelease",
+                  "Description": "Allow prerelease versions of a gem",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "--no-prerelease",
+                  "Description": "Do not allow prerelease versions of a gem",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "-i",
+                  "Description": "Check for installed gem",
+                  "Aliases": [
+                    "--installed"
+                  ],
+                  "Arguments": []
+                },
+                {
+                  "Name": "-I",
+                  "Description": "Check for not installed gem",
+                  "Aliases": [
+                    "--no-installed"
+                  ],
+                  "Arguments": []
+                },
+                {
+                  "Name": "-v",
+                  "Description": "Specify version of gem to list for use with --installed",
+                  "Aliases": [
+                    "--version"
+                  ],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "VERSION",
+                          "Description": "VERSION",
+                          "Type": "String"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "--versions",
+                  "Description": "Display only gem names",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "--no-versions",
+                  "Description": "Display not only gem names",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "-l",
+                  "Description": "Restrict operations to the LOCAL domain",
+                  "Aliases": [
+                    "--local"
+                  ],
+                  "Arguments": []
+                },
+                {
+                  "Name": "-r",
+                  "Description": "Restrict operations to the REMOTE domain",
+                  "Aliases": [
+                    "--remote"
+                  ],
+                  "Arguments": []
+                },
+                {
+                  "Name": "-b",
+                  "Description": "Allow LOCAL and REMOTE operations",
+                  "Aliases": [
+                    "--both"
+                  ],
+                  "Arguments": []
+                },
+                {
+                  "Name": "-B",
+                  "Description": "Threshold for switching to bulk synchronization (default 1000)",
+                  "Aliases": [
+                    "--bulk-threshold"
+                  ],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "COUNT",
+                          "Description": "COUNT",
+                          "Type": "String"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "--clear-sources",
+                  "Description": "Clear the gem sources",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "-s",
+                  "Description": "Append URL to list of remote gem sources",
+                  "Aliases": [
+                    "--source"
+                  ],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "URL",
+                          "Description": "URL",
+                          "Type": "String"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "-p",
+                  "Description": "Use HTTP proxy for remote operations",
+                  "Aliases": [
+                    "--http-proxy"
+                  ],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "URL",
+                          "Description": "URL",
+                          "Type": "String"
+                        }
+                      ],
+                      "Optional": true
+                    }
+                  ]
+                },
+                {
+                  "Name": "--no-http-proxy",
+                  "Description": "Do not use HTTP proxy for remote operations",
+                  "Aliases": [],
+                  "Arguments": []
+                }
+              ],
+              "Optional": true
+            },
+            {
+              "Arguments": [
+                {
+                  "Name": "REGEXP",
+                  "Description": "REGEXP",
+                  "Type": "String"
+                }
+              ],
+              "Optional": true
+            }
+          ]
+        },
+        {
+          "Name": "signin",
+          "Description": "Sign in to any gemcutter-compatible host. It defaults to https://rubygems.org",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "--host",
+                  "Description": "Use another gemcutter-compatible host (e.g. https://rubygems.org)",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "HOST",
+                          "Description": "HOST",
+                          "Type": "String"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "--otp",
+                  "Description": "Digit code for multifactor authentication You can also use the environment variable GEM_HOST_OTP_CODE",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "CODE",
+                          "Description": "CODE",
+                          "Type": "String"
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ],
+              "Optional": true
+            }
+          ]
+        },
+        {
+          "Name": "signout",
+          "Description": "Sign out from all the current sessions",
+          "Aliases": [],
+          "Arguments": []
+        },
+        {
+          "Name": "sources",
+          "Description": "Manage the sources and cache file RubyGems uses to search for gems",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "-a",
+                  "Description": "Add source",
+                  "Aliases": [
+                    "--add"
+                  ],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "SOURCE_URI",
+                          "Description": "SOURCE_URI",
+                          "Type": "String"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "-l",
+                  "Description": "List sources",
+                  "Aliases": [
+                    "--list"
+                  ],
+                  "Arguments": []
+                },
+                {
+                  "Name": "-r",
+                  "Description": "Remove source",
+                  "Aliases": [
+                    "--remove"
+                  ],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "SOURCE_URI",
+                          "Description": "SOURCE_URI",
+                          "Type": "String"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "-c",
+                  "Description": "Remove all sources (clear the cache)",
+                  "Aliases": [
+                    "--clear-all"
+                  ],
+                  "Arguments": []
+                },
+                {
+                  "Name": "-u",
+                  "Description": "Update source cache",
+                  "Aliases": [
+                    "--update"
+                  ],
+                  "Arguments": []
+                },
+                {
+                  "Name": "-f",
+                  "Description": "Do not show any confirmation prompts and behave as if \u0027yes\u0027 was always answered",
+                  "Aliases": [
+                    "--force"
+                  ],
+                  "Arguments": []
+                },
+                {
+                  "Name": "--no-force",
+                  "Description": "Show any confirmation prompts and behave as if \u0027yes\u0027 was always answered",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "-p",
+                  "Description": "Use HTTP proxy for remote operations",
+                  "Aliases": [
+                    "--http-proxy"
+                  ],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "URL",
+                          "Description": "URL",
+                          "Type": "String"
+                        }
+                      ],
+                      "Optional": true
+                    }
+                  ]
+                },
+                {
+                  "Name": "--no-http-proxy",
+                  "Description": "Do not use HTTP proxy for remote operations",
+                  "Aliases": [],
+                  "Arguments": []
+                }
+              ],
+              "Optional": true
+            }
+          ]
+        },
+        {
+          "Name": "specification",
+          "Description": "Display gem specification (in yaml)",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "-v",
+                  "Description": "Specify version of gem to examine",
+                  "Aliases": [
+                    "--version"
+                  ],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "VERSION",
+                          "Description": "VERSION",
+                          "Type": "String"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "--platform",
+                  "Description": "Specify the platform of gem to specification",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "PLATFORM",
+                          "Description": "PLATFORM",
+                          "Type": "String"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "--prerelease",
+                  "Description": "Allow prerelease versions of a gem",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "--no-prerelease",
+                  "Description": "Do not allow prerelease versions of a gem",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "--all",
+                  "Description": "Output specifications for all versions of the gem",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "--ruby",
+                  "Description": "Output ruby format",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "--yaml",
+                  "Description": "Output YAML format",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "--marshal",
+                  "Description": "Output Marshal format",
+                  "Aliases": [],
+                  "Arguments": []
+                }
+              ],
+              "Optional": true
+            },
+            {
+              "Arguments": [
+                {
+                  "Name": "GEMFILE",
+                  "Description": "GEMFILE",
+                  "Type": "String",
+                  "Extensions": [],
+                  "CustomCommand": ""
+                }
+              ]
+            },
+            {
+              "Arguments": [
+                {
+                  "Name": "FIELD",
+                  "Description": "FIELD",
+                  "Type": "String"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "Name": "stale",
+          "Description": "List gems along with access times",
+          "Aliases": [],
+          "Arguments": []
+        },
+        {
+          "Name": "unpack",
+          "Description": "Unpack an installed gem to the current directory",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "--target",
+                  "Description": "Target directory for unpacking",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "DIR",
+                          "Description": "DIR",
+                          "Type": "Directory"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "--spec",
+                  "Description": "Unpack the gem specification",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "-v",
+                  "Description": "Specify version of gem to unpack",
+                  "Aliases": [
+                    "--version"
+                  ],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "VERSION",
+                          "Description": "VERSION",
+                          "Type": "String"
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ],
+              "Optional": true
+            },
+            {
+              "Arguments": [
+                {
+                  "Name": "GEMNAME",
+                  "Description": "GEMNAME",
+                  "Type": "String",
+                  "Extensions": [],
+                  "CustomCommand": ""
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "Name": "yank",
+          "Description": "Remove a pushed gem from the index",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "-v",
+                  "Description": "Specify version of gem to dependency",
+                  "Aliases": [
+                    "--version"
+                  ],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "VERSION",
+                          "Description": "VERSION",
+                          "Type": "String"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "--platform",
+                  "Description": "Specify the platform of gem to dependency",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "PLATFORM",
+                          "Description": "PLATFORM",
+                          "Type": "String"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "--host",
+                  "Description": "Use another gemcutter-compatible host (e.g. https://rubygems.org)",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "HOST",
+                          "Description": "HOST",
+                          "Type": "String"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "-k",
+                  "Description": "Use the given API key",
+                  "Aliases": [
+                    "--key"
+                  ],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "KEYNAME",
+                          "Description": "KEYNAME",
+                          "Type": "String"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "--otp",
+                  "Description": "Digit code for multifactor authentication You can also use the environment variable GEM_HOST_OTP_CODE",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "CODE",
+                          "Description": "CODE",
+                          "Type": "String"
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ],
+              "Optional": true
+            },
+            {
+              "Arguments": [
+                {
+                  "Name": "GEM",
+                  "Description": "GEM",
+                  "Type": "String",
+                  "Extensions": [],
+                  "CustomCommand": ""
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "Name": "uninstall",
+          "Description": "Uninstall gems from the local repository",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "-a",
+                  "Description": "Uninstall all matching versions",
+                  "Aliases": [
+                    "--all"
+                  ],
+                  "Arguments": []
+                },
+                {
+                  "Name": "-I",
+                  "Description": "Ignore dependency requirements while uninstalling",
+                  "Aliases": [
+                    "--ignore-dependencies"
+                  ],
+                  "Arguments": []
+                },
+                {
+                  "Name": "-D",
+                  "Description": "Check development dependencies while uninstalling (default: false)",
+                  "Aliases": [
+                    "--check-development"
+                  ],
+                  "Arguments": []
+                },
+                {
+                  "Name": "-x",
+                  "Description": "Uninstall applicable executables without confirmation",
+                  "Aliases": [
+                    "--executables"
+                  ],
+                  "Arguments": []
+                },
+                {
+                  "Name": "-i",
+                  "Description": "Directory to uninstall gem from",
+                  "Aliases": [
+                    "--install-dir"
+                  ],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "DIR",
+                          "Description": "DIR",
+                          "Type": "Directory"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "-n",
+                  "Description": "Directory to remove executables from",
+                  "Aliases": [
+                    "--bindir"
+                  ],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "DIR",
+                          "Description": "DIR",
+                          "Type": "Directory"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "--user-install",
+                  "Description": "Uninstall from user\u2019s home directory in addition to GEM_HOME",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "--format-executable",
+                  "Description": "Assume executable names match Ruby\u2019s prefix and suffix",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "--force",
+                  "Description": "Uninstall all versions of the named gems ignoring dependencies",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "--abort-on-dependent",
+                  "Description": "Prevent uninstalling gems that are depended on by other gems",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "-v",
+                  "Description": "Specify version of gem to uninstall",
+                  "Aliases": [
+                    "--version"
+                  ],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "VERSION",
+                          "Description": "VERSION",
+                          "Type": "String"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "--platform",
+                  "Description": "Specify the platform of gem to uninstall",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "PLATFORM",
+                          "Description": "PLATFORM",
+                          "Type": "String"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "--vendor",
+                  "Description": "Uninstall gem from the vendor directory. Only for use by gem repackagers",
+                  "Aliases": [],
+                  "Arguments": []
+                }
+              ],
+              "Optional": true
+            },
+            {
+              "Arguments": [
+                {
+                  "Name": "GEMNAME",
+                  "Description": "GEMNAME",
+                  "Type": "String",
+                  "Extensions": [],
+                  "CustomCommand": ""
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "Name": "list",
+          "Description": "Display local gems whose name matches REGEXP",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "-d",
+                  "Description": "Display detailed information of gem(s)",
+                  "Aliases": [
+                    "--details"
+                  ],
+                  "Arguments": []
+                },
+                {
+                  "Name": "--no-details",
+                  "Description": "Do not display detailed information of gem(s)",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "-u",
+                  "Description": "[Deprecated] Update local source cache",
+                  "Aliases": [
+                    "--update-sources"
+                  ],
+                  "Arguments": []
+                },
+                {
+                  "Name": "--no-update-sources",
+                  "Description": "[Deprecated] Do not update local source cache",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "-a",
+                  "Description": "Display all gem versions",
+                  "Aliases": [
+                    "--all"
+                  ],
+                  "Arguments": []
+                },
+                {
+                  "Name": "-e",
+                  "Description": "Name of gem(s) to query on matches the provided STRING",
+                  "Aliases": [
+                    "--exact"
+                  ],
+                  "Arguments": []
+                },
+                {
+                  "Name": "--prerelease",
+                  "Description": "Allow prerelease versions of a gem",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "--no-prerelease",
+                  "Description": "Do not allow prerelease versions of a gem",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "-i",
+                  "Description": "Check for installed gem",
+                  "Aliases": [
+                    "--installed"
+                  ],
+                  "Arguments": []
+                },
+                {
+                  "Name": "-I",
+                  "Description": "Check for not installed gem",
+                  "Aliases": [
+                    "--no-installed"
+                  ],
+                  "Arguments": []
+                },
+                {
+                  "Name": "-v",
+                  "Description": "Specify version of gem to list for use with --installed",
+                  "Aliases": [
+                    "--version"
+                  ],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "VERSION",
+                          "Description": "VERSION",
+                          "Type": "String"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "--versions",
+                  "Description": "Display only gem names",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "--no-versions",
+                  "Description": "Display not only gem names",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "-l",
+                  "Description": "Restrict operations to the LOCAL domain",
+                  "Aliases": [
+                    "--local"
+                  ],
+                  "Arguments": []
+                },
+                {
+                  "Name": "-r",
+                  "Description": "Restrict operations to the REMOTE domain",
+                  "Aliases": [
+                    "--remote"
+                  ],
+                  "Arguments": []
+                },
+                {
+                  "Name": "-b",
+                  "Description": "Allow LOCAL and REMOTE operations",
+                  "Aliases": [
+                    "--both"
+                  ],
+                  "Arguments": []
+                },
+                {
+                  "Name": "-B",
+                  "Description": "Threshold for switching to bulk synchronization (default 1000)",
+                  "Aliases": [
+                    "--bulk-threshold"
+                  ],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "COUNT",
+                          "Description": "COUNT",
+                          "Type": "String"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "--clear-sources",
+                  "Description": "Clear the gem sources",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "-s",
+                  "Description": "Append URL to list of remote gem sources",
+                  "Aliases": [
+                    "--source"
+                  ],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "URL",
+                          "Description": "URL",
+                          "Type": "String"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "-p",
+                  "Description": "Use HTTP proxy for remote operations",
+                  "Aliases": [
+                    "--http-proxy"
+                  ],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "URL",
+                          "Description": "URL",
+                          "Type": "String"
+                        }
+                      ],
+                      "Optional": true
+                    }
+                  ]
+                },
+                {
+                  "Name": "--no-http-proxy",
+                  "Description": "Do not use HTTP proxy for remote operations",
+                  "Aliases": [],
+                  "Arguments": []
+                }
+              ],
+              "Optional": true
+            },
+            {
+              "Arguments": [
+                {
+                  "Name": "REGEXP",
+                  "Description": "REGEXP",
+                  "Type": "String"
+                }
+              ],
+              "Optional": true
+            }
+          ]
+        },
+        {
+          "Name": "build",
+          "Description": "Build a gem from a gemspec",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "--platform",
+                  "Description": "Specify the platform of gem to build",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "PLATFORM",
+                          "Description": "PLATFORM",
+                          "Type": "String"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "--force",
+                  "Description": "Skip validation of the spec",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "--strict",
+                  "Description": "Consider warnings as errors when validating the spec",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "-o",
+                  "Description": "Output gem with the given filename",
+                  "Aliases": [
+                    "--output"
+                  ],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "FILE",
+                          "Description": "FILE",
+                          "Type": "String"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "C",
+                  "Description": "Run as if gem build was started in \u003CPATH\u003E instead of the current working directory",
+                  "Type": "Flag",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "PATH",
+                          "Description": "PATH",
+                          "Type": "Directory"
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ],
+              "Optional": true
+            },
+            {
+              "Arguments": [
+                {
+                  "Name": "GEMSPEC_FILE",
+                  "Description": "GEMSPEC_FILE",
+                  "Type": "String"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "Name": "push",
+          "Description": "Push a gem up to the gem server",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "--host",
+                  "Description": "Use another gemcutter-compatible host (e.g. https://rubygems.org)",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "HOST",
+                          "Description": "HOST",
+                          "Type": "String"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "-k",
+                  "Description": "Use the given API key",
+                  "Aliases": [
+                    "--key"
+                  ],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "KEYNAME",
+                          "Description": "KEYNAME",
+                          "Type": "String"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "--otp",
+                  "Description": "Digit code for multifactor authentication You can also use the environment variable GEM_HOST_OTP_CODE",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "CODE",
+                          "Description": "CODE",
+                          "Type": "String"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "-p",
+                  "Description": "Use HTTP proxy for remote operations",
+                  "Aliases": [
+                    "--http-proxy"
+                  ],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "URL",
+                          "Description": "URL",
+                          "Type": "String"
+                        }
+                      ],
+                      "Optional": true
+                    }
+                  ]
+                },
+                {
+                  "Name": "--no-http-proxy",
+                  "Description": "Do not use HTTP proxy for remote operations",
+                  "Aliases": [],
+                  "Arguments": []
+                }
+              ],
+              "Optional": true
+            },
+            {
+              "Arguments": [
+                {
+                  "Name": "GEM",
+                  "Description": "GEM",
+                  "Type": "String"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "Name": "server",
+          "Description": "Starts up a web server that hosts the RDoc (requires rubygems-server)",
+          "Aliases": [],
+          "Arguments": []
+        },
+        {
+          "Name": "owner",
+          "Description": "Manage gem owners of a gem on the push server",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "-a",
+                  "Description": "Add an owner by user identifier",
+                  "Aliases": [
+                    "--add"
+                  ],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "NEW_OWNER",
+                          "Description": "NEW_OWNER",
+                          "Type": "String"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "-r",
+                  "Description": "Remove an owner by user identifier",
+                  "Aliases": [
+                    "--remove"
+                  ],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "OLD_OWNER",
+                          "Description": "OLD_OWNER",
+                          "Type": "String"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "--host",
+                  "Description": "Use another gemcutter-compatible host (e.g. https://rubygems.org)",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "HOST",
+                          "Description": "HOST",
+                          "Type": "String"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "-k",
+                  "Description": "Use the given API key",
+                  "Aliases": [
+                    "--key"
+                  ],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "KEYNAME",
+                          "Description": "KEYNAME",
+                          "Type": "String"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "--otp",
+                  "Description": "Digit code for multifactor authentication You can also use the environment variable GEM_HOST_OTP_CODE",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "CODE",
+                          "Description": "CODE",
+                          "Type": "String"
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ],
+              "Optional": true
+            },
+            {
+              "Arguments": [
+                {
+                  "Name": "GEMNAME",
+                  "Description": "GEMNAME",
+                  "Type": "String",
+                  "Extensions": [],
+                  "CustomCommand": ""
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "Name": "which",
+          "Description": "Find the location of a library file you can require",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "-a",
+                  "Description": "Show all matching files",
+                  "Aliases": [
+                    "--all"
+                  ],
+                  "Arguments": []
+                },
+                {
+                  "Name": "-g",
+                  "Description": "Search gems before non-gems",
+                  "Aliases": [
+                    "--gems-first"
+                  ],
+                  "Arguments": []
+                }
+              ],
+              "Optional": true
+            },
+            {
+              "Arguments": [
+                {
+                  "Name": "FILE",
+                  "Description": "FILE",
+                  "Type": "FileSystemEntry"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "Name": "outdated",
+          "Description": "Display all gems that need updates",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "--platform",
+                  "Description": "Specify the platform of gem to outdated",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "PLATFORM",
+                          "Description": "PLATFORM",
+                          "Type": "String"
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ],
+              "Optional": true
+            }
+          ]
+        },
+        {
+          "Name": "update",
+          "Description": "Update installed gems to the latest version",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "--system",
+                  "Description": "Update the RubyGems system software",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "VERSION",
+                          "Description": "VERSION",
+                          "Type": "String"
+                        }
+                      ],
+                      "Optional": true
+                    }
+                  ]
+                },
+                {
+                  "Name": "--platform",
+                  "Description": "Update the RubyGems system software",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "PLATFORM",
+                          "Description": "PLATFORM",
+                          "Type": "String"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "--prerelease",
+                  "Description": "Allow prerelease versions of a gem as update targets",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "--install-dir",
+                  "Description": "Gem repository directory to get installed gems",
+                  "Aliases": [
+                    "-i"
+                  ],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "DIR",
+                          "Description": "DIR",
+                          "Type": "Directory"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "--bindir",
+                  "Description": "Directory where executables will be placed when the gem is installed",
+                  "Aliases": [
+                    "-n"
+                  ],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "DIR",
+                          "Description": "DIR",
+                          "Type": "Directory"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "--document",
+                  "Description": "Generate documentation for installed gems",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "TYPES",
+                          "Description": "TYPES",
+                          "Type": "String"
+                        },
+                        {
+                          "Name": "rdoc",
+                          "Description": "TYPES"
+                        },
+                        {
+                          "Name": "ri",
+                          "Description": "TYPES"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "--build-root",
+                  "Description": "Temporary installation root. Useful for building packages. Do not use this when installing remote gems",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "DIR",
+                          "Description": "DIR",
+                          "Type": "Directory"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "--vendor",
+                  "Description": "Install gem into the vendor directory. Only for use by gem repackagers",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "--no-document",
+                  "Description": "Disable documentation generation",
+                  "Aliases": [
+                    "-N"
+                  ],
+                  "Arguments": []
+                },
+                {
+                  "Name": "--env-shebang",
+                  "Description": "Rewrite the shebang line on installed scripts to use /usr/bin/env",
+                  "Aliases": [
+                    "-E"
+                  ],
+                  "Arguments": []
+                },
+                {
+                  "Name": "--force",
+                  "Description": "Force gem to install, bypassing dependency checks",
+                  "Aliases": [
+                    "-f"
+                  ],
+                  "Arguments": []
+                },
+                {
+                  "Name": "--wrappers",
+                  "Description": "Use bin wrappers for executables. Not available on dosish platforms",
+                  "Aliases": [
+                    "-w"
+                  ],
+                  "Arguments": []
+                },
+                {
+                  "Name": "--trust-policy",
+                  "Description": "Specify gem trust policy",
+                  "Aliases": [
+                    "-P"
+                  ],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "POLICY",
+                          "Description": "POLICY",
+                          "Type": "String"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "--ignore-dependencies",
+                  "Description": "Do not install any required dependent gems",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "--format-executable",
+                  "Description": "Make installed executable names match Ruby",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "--user-install",
+                  "Description": "Install in user\u0027s home directory instead of GEM_HOME",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "--development",
+                  "Description": "Install additional development dependencies",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "--development-all",
+                  "Description": "Install development dependencies for all gems (including dev deps themselves)",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "--conservative",
+                  "Description": "Don\u0027t attempt to upgrade gems already meeting version requirement",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "--minimal-deps",
+                  "Description": "Don\u0027t upgrade any dependencies that already meet version requirements",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "--post-install-message",
+                  "Description": "Print post install message",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "--file",
+                  "Description": "Read from a gem dependencies API file and install the listed gems",
+                  "Aliases": [
+                    "-g"
+                  ],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "FILE",
+                          "Description": "FILE",
+                          "Type": "FileSystemEntry"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "--without",
+                  "Description": "Omit the named groups (comma separated) when installing from a gem dependencies file",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "GROUPS",
+                          "Description": "GROUPS",
+                          "Type": "String"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "--default",
+                  "Description": "Add the gem\u0027s full specification to specifications/default and extract only its bin",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "--explain",
+                  "Description": "Rather than install the gems, indicate which would be installed",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "--lock",
+                  "Description": "Create a lock file (when used with -g/--file)",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "--suggestions",
+                  "Description": "Suggest alternates when gems are not found",
+                  "Aliases": [],
+                  "Arguments": []
+                }
+              ],
+              "Optional": true
+            },
+            {
+              "Arguments": [
+                {
+                  "Name": "GEMNAME",
+                  "Description": "GEMNAME",
+                  "Type": "String"
+                }
+              ],
+              "Optional": true
+            }
+          ]
+        }
+      ],
+      "DontAllowMultiple": true
+    }
+  ]
+}

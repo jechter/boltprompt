@@ -1,0 +1,524 @@
+{
+  "Comment": "This command info is generated from fig",
+  "Name": "ansible-playbook",
+  "Description": "Runs Ansible playbooks, executing the defined tasks on the targeted hosts",
+  "Arguments": [
+    {
+      "Arguments": [
+        {
+          "Name": "--ask-vault-pass",
+          "Description": "Ask for vault password",
+          "Aliases": [],
+          "Arguments": []
+        },
+        {
+          "Name": "--flush-cache",
+          "Description": "Clears the fact cache for every host in inventory",
+          "Aliases": [],
+          "Arguments": []
+        },
+        {
+          "Name": "--force-handlers",
+          "Description": "Run handlers even if a task fails",
+          "Aliases": [],
+          "Arguments": []
+        },
+        {
+          "Name": "--list-hosts",
+          "Description": "Outputs a list of matching hosts; does not execute",
+          "Aliases": [],
+          "Arguments": []
+        },
+        {
+          "Name": "--list-tags",
+          "Description": "List all available tags",
+          "Aliases": [],
+          "Arguments": []
+        },
+        {
+          "Name": "--list-tasks",
+          "Description": "List all tasks that would be executed",
+          "Aliases": [],
+          "Arguments": []
+        },
+        {
+          "Name": "--skip-tags",
+          "Description": "Only run plays and tasks whose tags do not match these values",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "tags",
+                  "Description": "tags",
+                  "Type": "String"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "Name": "--start-at-task",
+          "Description": "Start the playbook at the task matching this name one-step-at-a-time",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "task name",
+                  "Description": "task name",
+                  "Type": "String"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "Name": "--step",
+          "Description": "Execute one-step-at-a-time",
+          "Aliases": [],
+          "Arguments": []
+        },
+        {
+          "Name": "--syntax-check",
+          "Description": "Perform a syntax check on the playbook, but do not execute it",
+          "Aliases": [],
+          "Arguments": []
+        },
+        {
+          "Name": "--vault-id",
+          "Description": "Specify the vault identity to use",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "vault ID",
+                  "Description": "vault ID",
+                  "Type": "String"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "Name": "--vault-password-file",
+          "Description": "Specify a vault password file",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "vault password file",
+                  "Description": "vault password file",
+                  "Type": "FileSystemEntry"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "Name": "--version",
+          "Description": "Show program\u0027s version number, config file location, configured module search path, module location and executable location",
+          "Aliases": [],
+          "Arguments": []
+        },
+        {
+          "Name": "--check",
+          "Description": "Don\u0027t make any changes; instead, try to predict some of the changes that may occur",
+          "Aliases": [
+            "-C"
+          ],
+          "Arguments": []
+        },
+        {
+          "Name": "--diff",
+          "Description": "When changing (small) files and templates, show the differences in those files",
+          "Aliases": [
+            "-D"
+          ],
+          "Arguments": []
+        },
+        {
+          "Name": "--module-path",
+          "Description": "Prepend colon-separated path(s) to module library",
+          "Aliases": [
+            "-M"
+          ],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "module path",
+                  "Description": "module path",
+                  "Type": "Directory"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "Name": "--extra-vars",
+          "Description": "Set additional variables as key=value or YAML/JSON, if filename prepend with @",
+          "Aliases": [
+            "-e"
+          ],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "extra vars",
+                  "Description": "extra vars",
+                  "Type": "String"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "Name": "--forks",
+          "Description": "Specify number of parallel processes to use",
+          "Aliases": [
+            "-f"
+          ],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "forks",
+                  "Description": "forks",
+                  "Type": "String"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "Name": "--help",
+          "Description": "Show help for ansible",
+          "Aliases": [
+            "-h"
+          ],
+          "Arguments": []
+        },
+        {
+          "Name": "--inventory",
+          "Description": "Specify inventory host path or comma separated host list",
+          "Aliases": [
+            "-i"
+          ],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "inventory",
+                  "Description": "inventory",
+                  "Type": "String"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "Name": "--limit",
+          "Description": "Limit selected hosts to an additional pattern",
+          "Aliases": [
+            "-l"
+          ],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "subset",
+                  "Description": "subset",
+                  "Type": "String"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "Name": "--tags",
+          "Description": "Only run plays and tasks tagged with these values",
+          "Aliases": [
+            "-t"
+          ],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "tags",
+                  "Description": "tags",
+                  "Type": "String"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "Name": "--verbose",
+          "Description": "Enable verbose mode",
+          "Aliases": [
+            "-v"
+          ],
+          "Arguments": []
+        },
+        {
+          "Name": "-vvv",
+          "Description": "Enable very verbose mode",
+          "Aliases": [],
+          "Arguments": []
+        },
+        {
+          "Name": "-vvvv",
+          "Description": "Enable connection debug mode",
+          "Aliases": [],
+          "Arguments": []
+        },
+        {
+          "Name": "--become-method",
+          "Description": "Privilege escalation method to use",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "become method",
+                  "Description": "become method",
+                  "Type": "String"
+                },
+                {
+                  "Name": "sudo",
+                  "Description": "become method"
+                },
+                {
+                  "Name": "su",
+                  "Description": "become method"
+                },
+                {
+                  "Name": "pbrun",
+                  "Description": "become method"
+                },
+                {
+                  "Name": "pfexec",
+                  "Description": "become method"
+                },
+                {
+                  "Name": "doas",
+                  "Description": "become method"
+                },
+                {
+                  "Name": "dzdo",
+                  "Description": "become method"
+                },
+                {
+                  "Name": "ksu",
+                  "Description": "become method"
+                },
+                {
+                  "Name": "runas",
+                  "Description": "become method"
+                },
+                {
+                  "Name": "machinectl",
+                  "Description": "become method"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "Name": "--become-user",
+          "Description": "Privilege escalation user to use",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "become user",
+                  "Description": "become user",
+                  "Type": "String"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "Name": "--ask-become-pass",
+          "Description": "Prompt for privilege escalation password",
+          "Aliases": [
+            "-K"
+          ],
+          "Arguments": []
+        },
+        {
+          "Name": "--become",
+          "Description": "Run operations with become",
+          "Aliases": [
+            "-b"
+          ],
+          "Arguments": []
+        },
+        {
+          "Name": "--private-key",
+          "Description": "Use this fole to authenticate the connection",
+          "Aliases": [
+            "--key-file"
+          ],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "private key",
+                  "Description": "private key",
+                  "Type": "FileSystemEntry"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "Name": "--scp-extra-args",
+          "Description": "Extra arguments to pass to (only) scp",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "SCP extra args",
+                  "Description": "SCP extra args",
+                  "Type": "String"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "Name": "--sftp-extra-args",
+          "Description": "Extra arguments to pass to (only) sftp",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "SFTP extra args",
+                  "Description": "SFTP extra args",
+                  "Type": "String"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "Name": "-ssh-extra-args",
+          "Description": "Extra arguments to pass to (only) ssh",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "SSH extra args",
+                  "Description": "SSH extra args",
+                  "Type": "String"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "Name": "--ssh-common-args",
+          "Description": "Extra arguments to pass to sftp/scp/ssh",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "SSH common args",
+                  "Description": "SSH common args",
+                  "Type": "String"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "Name": "--timeout",
+          "Description": "Override the connection timeout in seconds",
+          "Aliases": [
+            "-T"
+          ],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "timeout",
+                  "Description": "timeout",
+                  "Type": "String"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "Name": "--connection",
+          "Description": "Connection type to use",
+          "Aliases": [
+            "-c"
+          ],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "connection type",
+                  "Description": "connection type",
+                  "Type": "String"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "Name": "--ask-pass",
+          "Description": "Ask for connection password",
+          "Aliases": [
+            "-k"
+          ],
+          "Arguments": []
+        },
+        {
+          "Name": "--user",
+          "Description": "Connect as this user",
+          "Aliases": [
+            "-u"
+          ],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "user",
+                  "Description": "user",
+                  "Type": "String"
+                }
+              ]
+            }
+          ]
+        }
+      ],
+      "Optional": true
+    },
+    {
+      "Arguments": [
+        {
+          "Name": "playbook",
+          "Description": "playbook",
+          "Type": "File",
+          "Extensions": [
+            "yml",
+            "yaml"
+          ],
+          "CustomCommand": ""
+        }
+      ]
+    }
+  ]
+}

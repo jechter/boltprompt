@@ -1,0 +1,533 @@
+{
+  "Comment": "This command info is generated from fig",
+  "Name": "asr",
+  "Description": "Asr efficiently copies disk images onto volumes, either directly or via a multicast network stream",
+  "Arguments": [
+    {
+      "Arguments": [
+        {
+          "Name": "--buffers",
+          "Description": "One of the options that control how asr uses memory",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "num",
+                  "Description": "num",
+                  "Type": "String"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "Name": "--buffersize",
+          "Description": "One of the options that control how asr uses memory",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "size",
+                  "Description": "size",
+                  "Type": "String"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "Name": "--csumbuffers",
+          "Description": "One of the options that control how asr uses memory",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "num",
+                  "Description": "num",
+                  "Type": "String"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "Name": "--csumbuffersize",
+          "Description": "One of the options that control how asr uses memory",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "size",
+                  "Description": "size",
+                  "Type": "String"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "Name": "--verbose",
+          "Description": "Enables verbose progress and error messages",
+          "Aliases": [],
+          "Arguments": []
+        },
+        {
+          "Name": "--debug",
+          "Description": "Enables other progress and error messages",
+          "Aliases": [],
+          "Arguments": []
+        }
+      ],
+      "Optional": true
+    },
+    {
+      "Arguments": [
+        {
+          "Name": "help",
+          "Description": "Displays asr usage information",
+          "Aliases": [],
+          "Arguments": []
+        },
+        {
+          "Name": "version",
+          "Description": "Displays asr version",
+          "Aliases": [],
+          "Arguments": []
+        },
+        {
+          "Name": "restore",
+          "Description": "Restores a disk image or volume to another volume",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "--source",
+                  "Description": "Can be a disk image, /dev entry, or volume mountpoint",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "source",
+                          "Description": "source",
+                          "Type": "FileSystemEntry"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "--target",
+                  "Description": "Can be a /dev entry, or volume mountpoint",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "target",
+                          "Description": "target",
+                          "Type": "FileSystemEntry"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "--file",
+                  "Description": "When performing a multicast restore, --file can be specified instead of --target",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "source",
+                          "Description": "source",
+                          "Type": "FileSystemEntry"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "--erase",
+                  "Description": "Erases target and is required. --erase must always be used, as file copies are no longer supported by asr",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "--format",
+                  "Description": "Specifies the destination filesystem format",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "HFS\u002B | HFSX",
+                          "Description": "HFS\u002B | HFSX",
+                          "Type": "String"
+                        }
+                      ],
+                      "Optional": true
+                    }
+                  ]
+                },
+                {
+                  "Name": "--noprompt",
+                  "Description": "Suppresses the prompt which usually occurs before target",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "--timeout",
+                  "Description": "Specifies num seconds that a multicast client should wait when no payload data has been received over a multicast stream before exiting",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "num",
+                          "Description": "num",
+                          "Type": "String"
+                        },
+                        {
+                          "Name": "0",
+                          "Description": "num"
+                        }
+                      ],
+                      "Optional": true
+                    }
+                  ]
+                },
+                {
+                  "Name": "--puppetstrings",
+                  "Description": "Provide progress output that is easy for another program to parse",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "--noverify",
+                  "Description": "Skips the verification steps normally taken to ensure that a volume has been properly restored",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "--allowfragmentedcatalog",
+                  "Description": "Allows restores to proceed even if the source\u0027s catalog file is fragmented",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "--SHA256",
+                  "Description": "Forces the restore to use the SHA-256 hash in the image during verification",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "--sourcevolumename",
+                  "Description": "Tells asr which volume in the source container to invert when doing an APFS restore",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "--sourcevolumeUUID",
+                  "Description": "Tells asr which volume in the source container to invert when doing an APFS restore",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "--useReplication",
+                  "Description": "Forces asr to use replication for restoring APFS volumes",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "--useInverter",
+                  "Description": "Forces asr to use the inverter for restoring APFS volumes",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "--toSnapshot",
+                  "Description": "Specifies the snapshot on the source APFS volume to restore to the target APFS volume",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "--fromSnapshot",
+                  "Description": "Names a snapshot on the source APFS volume to use in combination with --toSnapshot to specify a snapshot delta to restore to the target APFS volume",
+                  "Aliases": [],
+                  "Arguments": []
+                }
+              ],
+              "Optional": true
+            }
+          ]
+        },
+        {
+          "Name": "restoreexact",
+          "Description": "Same as restore verb, except that for an HFS Plus volume, the target partition is resized to match the size of the source partition/ volume",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "--source",
+                  "Description": "Can be a disk image, /dev entry, or volume mountpoint",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "source",
+                          "Description": "source",
+                          "Type": "FileSystemEntry"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "--target",
+                  "Description": "Can be a /dev entry, or volume mountpoint",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "target",
+                          "Description": "target",
+                          "Type": "FileSystemEntry"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "--file",
+                  "Description": "When performing a multicast restore, --file can be specified instead of --target",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "source",
+                          "Description": "source",
+                          "Type": "FileSystemEntry"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "--erase",
+                  "Description": "Erases target and is required. --erase must always be used, as file copies are no longer supported by asr",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "--format",
+                  "Description": "Specifies the destination filesystem format",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "HFS\u002B | HFSX",
+                          "Description": "HFS\u002B | HFSX",
+                          "Type": "String"
+                        }
+                      ],
+                      "Optional": true
+                    }
+                  ]
+                },
+                {
+                  "Name": "--noprompt",
+                  "Description": "Suppresses the prompt which usually occurs before target",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "--timeout",
+                  "Description": "Specifies num seconds that a multicast client should wait when no payload data has been received over a multicast stream before exiting",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "num",
+                          "Description": "num",
+                          "Type": "String"
+                        },
+                        {
+                          "Name": "0",
+                          "Description": "num"
+                        }
+                      ],
+                      "Optional": true
+                    }
+                  ]
+                },
+                {
+                  "Name": "--puppetstrings",
+                  "Description": "Provide progress output that is easy for another program to parse",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "--noverify",
+                  "Description": "Skips the verification steps normally taken to ensure that a volume has been properly restored",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "--allowfragmentedcatalog",
+                  "Description": "Allows restores to proceed even if the source\u0027s catalog file is fragmented",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "--SHA256",
+                  "Description": "Forces the restore to use the SHA-256 hash in the image during verification",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "--sourcevolumename",
+                  "Description": "Tells asr which volume in the source container to invert when doing an APFS restore",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "--sourcevolumeUUID",
+                  "Description": "Tells asr which volume in the source container to invert when doing an APFS restore",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "--useReplication",
+                  "Description": "Forces asr to use replication for restoring APFS volumes",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "--useInverter",
+                  "Description": "Forces asr to use the inverter for restoring APFS volumes",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "--toSnapshot",
+                  "Description": "Specifies the snapshot on the source APFS volume to restore to the target APFS volume",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "--fromSnapshot",
+                  "Description": "Names a snapshot on the source APFS volume to use in combination with --toSnapshot to specify a snapshot delta to restore to the target APFS volume",
+                  "Aliases": [],
+                  "Arguments": []
+                }
+              ],
+              "Optional": true
+            }
+          ]
+        },
+        {
+          "Name": "server",
+          "Description": "Multicasts source over the network",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "--source",
+                  "Description": "Source has to be a UDIF disk image",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "source",
+                          "Description": "source",
+                          "Type": "FileSystemEntry"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "--interface",
+                  "Description": "The network interface to be used for multicasting",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "interface",
+                          "Description": "interface",
+                          "Type": "String"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "--config",
+                  "Description": "Server requires a configuration file to be passed",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "configuration",
+                          "Description": "configuration",
+                          "Type": "File",
+                          "Extensions": [
+                            "plist"
+                          ],
+                          "CustomCommand": ""
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ],
+              "Optional": true
+            }
+          ]
+        },
+        {
+          "Name": "imagescan",
+          "Description": "Calculate checksums of the data in the provided image and store them in the image",
+          "Aliases": [],
+          "Arguments": []
+        },
+        {
+          "Name": "info",
+          "Description": "Report the image metadata which was placed in the image by a previous use of the imagescan verb",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "--plist",
+                  "Description": "Writes its output as an XML-formatted plist",
+                  "Aliases": [],
+                  "Arguments": []
+                }
+              ],
+              "Optional": true
+            }
+          ]
+        }
+      ],
+      "DontAllowMultiple": true
+    }
+  ]
+}

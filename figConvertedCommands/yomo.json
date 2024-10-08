@@ -1,0 +1,165 @@
+{
+  "Comment": "This command info is generated from fig",
+  "Name": "yomo",
+  "Description": "CLI interface for YoMo",
+  "Arguments": [
+    {
+      "Arguments": [
+        {
+          "Name": "--help",
+          "Description": "Show help for yomo",
+          "Aliases": [
+            "-h"
+          ],
+          "Arguments": []
+        }
+      ],
+      "Optional": true
+    },
+    {
+      "Arguments": [
+        {
+          "Name": "init",
+          "Description": "Initial an example StreamFunction",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "--rx",
+                  "Description": "Generate Rx code template",
+                  "Aliases": [],
+                  "Arguments": []
+                }
+              ],
+              "Optional": true
+            },
+            {
+              "Arguments": [
+                {
+                  "Name": "function name",
+                  "Description": "function name",
+                  "Type": "String"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "Name": "build",
+          "Description": "Build a StreamFunction to WebAssembly",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "--target",
+                  "Description": "Build to wasm or binary",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "wasm",
+                          "Description": "wasm",
+                          "Type": "String"
+                        }
+                      ]
+                    },
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "binary",
+                          "Description": "binary",
+                          "Type": "String"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "-m",
+                  "Description": "Custom go.mod filepath",
+                  "Aliases": [
+                    "--modfile"
+                  ],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "module",
+                          "Description": "module",
+                          "Type": "File",
+                          "Extensions": [
+                            "mod"
+                          ],
+                          "CustomCommand": ""
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ],
+              "Optional": true
+            },
+            {
+              "Arguments": [
+                {
+                  "Name": ".go file",
+                  "Description": ".go file",
+                  "Type": "File",
+                  "Extensions": [
+                    "go"
+                  ],
+                  "CustomCommand": ""
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "Name": "run",
+          "Description": "Run a wasm stream function",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "-z",
+                  "Description": "Zipper endpoint this StreamFunction will connect to",
+                  "Aliases": [
+                    "--zipper"
+                  ],
+                  "Arguments": []
+                },
+                {
+                  "Name": "-n",
+                  "Description": "Specify the name of this StreamFunction",
+                  "Aliases": [
+                    "--name"
+                  ],
+                  "Arguments": []
+                }
+              ],
+              "Optional": true
+            },
+            {
+              "Arguments": [
+                {
+                  "Name": ".wasm file",
+                  "Description": ".wasm file",
+                  "Type": "File",
+                  "Extensions": [
+                    "wasm"
+                  ],
+                  "CustomCommand": ""
+                }
+              ]
+            }
+          ]
+        }
+      ],
+      "DontAllowMultiple": true
+    }
+  ]
+}

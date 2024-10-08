@@ -1,0 +1,1559 @@
+{
+  "Comment": "This command info is generated from fig",
+  "Name": "rustup",
+  "Description": "The Rust toolchain installer",
+  "Arguments": [
+    {
+      "Arguments": [
+        {
+          "Name": "-h",
+          "Description": "Prints help information",
+          "Aliases": [
+            "--help"
+          ],
+          "Arguments": []
+        },
+        {
+          "Name": "-V",
+          "Description": "Prints version information",
+          "Aliases": [
+            "--version"
+          ],
+          "Arguments": []
+        },
+        {
+          "Name": "-q",
+          "Description": "Disable progress output",
+          "Aliases": [
+            "--quiet"
+          ],
+          "Arguments": []
+        },
+        {
+          "Name": "-v",
+          "Description": "Enable verbose output",
+          "Aliases": [
+            "--verbose"
+          ],
+          "Arguments": []
+        }
+      ],
+      "Optional": true
+    },
+    {
+      "Arguments": [
+        {
+          "Name": "toolchain",
+          "Description": "toolchain",
+          "Type": "String"
+        }
+      ],
+      "Optional": true
+    },
+    {
+      "Arguments": [
+        {
+          "Name": "show",
+          "Description": "Show the active and installed toolchains or profiles",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "-h",
+                  "Description": "Prints help information",
+                  "Aliases": [
+                    "--help"
+                  ],
+                  "Arguments": []
+                }
+              ],
+              "Optional": true
+            },
+            {
+              "Arguments": [
+                {
+                  "Name": "active-toolchain",
+                  "Description": "Show the active toolchain",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "home",
+                  "Description": "Display the computed value of RUSTUP_HOME",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "profile",
+                  "Description": "Show the current profile",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "keys",
+                  "Description": "Display the known PGP keys",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "help",
+                  "Description": "Prints this message or the help of the given subcommand(s)",
+                  "Aliases": [],
+                  "Arguments": []
+                }
+              ],
+              "DontAllowMultiple": true
+            }
+          ]
+        },
+        {
+          "Name": "update",
+          "Description": "Update Rust toolchains and rustup",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "--force",
+                  "Description": "Force an update, even if some components are missing",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "--force-non-host",
+                  "Description": "Install toolchains that require an emulator. See https://github.com/rust-lang/rustup/wiki/Non-host-toolchains",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "-h",
+                  "Description": "Prints help information",
+                  "Aliases": [
+                    "--help"
+                  ],
+                  "Arguments": []
+                },
+                {
+                  "Name": "--no-self-update",
+                  "Description": "Don\u0027t perform self update when running the \u0060rustup update\u0060 command",
+                  "Aliases": [],
+                  "Arguments": []
+                }
+              ],
+              "Optional": true
+            },
+            {
+              "Arguments": [
+                {
+                  "Name": "toolchain",
+                  "Description": "toolchain",
+                  "Type": "CustomArgument",
+                  "Extensions": [],
+                  "CustomCommand": "rustup toolchain list"
+                }
+              ],
+              "Optional": true
+            }
+          ]
+        },
+        {
+          "Name": "check",
+          "Description": "Check for updates to Rust toolchains and rustup",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "-h",
+                  "Description": "Prints help information",
+                  "Aliases": [
+                    "--help"
+                  ],
+                  "Arguments": []
+                }
+              ],
+              "Optional": true
+            },
+            {
+              "Arguments": [
+                {
+                  "Name": "toolchain",
+                  "Description": "toolchain",
+                  "Type": "String"
+                }
+              ],
+              "Optional": true
+            }
+          ]
+        },
+        {
+          "Name": "default",
+          "Description": "Sets the default toolchain to the one specified. If the toolchain is not already installed then it is installed first",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "-h",
+                  "Description": "Prints help information",
+                  "Aliases": [
+                    "--help"
+                  ],
+                  "Arguments": []
+                }
+              ],
+              "Optional": true
+            },
+            {
+              "Arguments": [
+                {
+                  "Name": "toolchain",
+                  "Description": "toolchain",
+                  "Type": "CustomArgument",
+                  "Extensions": [],
+                  "CustomCommand": "rustup toolchain list"
+                }
+              ],
+              "Optional": true
+            }
+          ]
+        },
+        {
+          "Name": "target",
+          "Description": "Modify a toolchain\u0027s supported targets",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "-h",
+                  "Description": "Prints help information",
+                  "Aliases": [
+                    "--help"
+                  ],
+                  "Arguments": []
+                }
+              ],
+              "Optional": true
+            },
+            {
+              "Arguments": [
+                {
+                  "Name": "list",
+                  "Description": "List installed and available targets",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "-h",
+                          "Description": "Prints help information",
+                          "Aliases": [
+                            "--help"
+                          ],
+                          "Arguments": []
+                        },
+                        {
+                          "Name": "-V",
+                          "Description": "Prints version information",
+                          "Aliases": [
+                            "--version"
+                          ],
+                          "Arguments": []
+                        }
+                      ],
+                      "Optional": true
+                    }
+                  ]
+                },
+                {
+                  "Name": "add",
+                  "Description": "Add a target to a Rust toolchain",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "-h",
+                          "Description": "Prints help information",
+                          "Aliases": [
+                            "--help"
+                          ],
+                          "Arguments": []
+                        },
+                        {
+                          "Name": "-V",
+                          "Description": "Prints version information",
+                          "Aliases": [
+                            "--version"
+                          ],
+                          "Arguments": []
+                        },
+                        {
+                          "Name": "--toolchain",
+                          "Description": "",
+                          "Aliases": [],
+                          "Arguments": [
+                            {
+                              "Arguments": [
+                                {
+                                  "Name": "toolchain",
+                                  "Description": "toolchain",
+                                  "Type": "CustomArgument",
+                                  "Extensions": [],
+                                  "CustomCommand": "rustup toolchain list"
+                                }
+                              ]
+                            }
+                          ]
+                        }
+                      ],
+                      "Optional": true
+                    },
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "target",
+                          "Description": "target",
+                          "Type": "CustomArgument",
+                          "Extensions": [],
+                          "CustomCommand": "rustup target list"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "remove",
+                  "Description": "Remove a target from a Rust toolchain",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "-h",
+                          "Description": "Prints help information",
+                          "Aliases": [
+                            "--help"
+                          ],
+                          "Arguments": []
+                        },
+                        {
+                          "Name": "-V",
+                          "Description": "Prints version information",
+                          "Aliases": [
+                            "--version"
+                          ],
+                          "Arguments": []
+                        },
+                        {
+                          "Name": "--toolchain",
+                          "Description": "",
+                          "Aliases": [],
+                          "Arguments": [
+                            {
+                              "Arguments": [
+                                {
+                                  "Name": "toolchain",
+                                  "Description": "toolchain",
+                                  "Type": "CustomArgument",
+                                  "Extensions": [],
+                                  "CustomCommand": "rustup toolchain list"
+                                }
+                              ]
+                            }
+                          ]
+                        }
+                      ],
+                      "Optional": true
+                    },
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "target",
+                          "Description": "target",
+                          "Type": "CustomArgument",
+                          "Extensions": [],
+                          "CustomCommand": "rustup target list"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "help",
+                  "Description": "Prints this message or the help of the given subcommand(s)",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "-h",
+                          "Description": "Prints help information",
+                          "Aliases": [
+                            "--help"
+                          ],
+                          "Arguments": []
+                        },
+                        {
+                          "Name": "-V",
+                          "Description": "Prints version information",
+                          "Aliases": [
+                            "--version"
+                          ],
+                          "Arguments": []
+                        }
+                      ],
+                      "Optional": true
+                    },
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "subcommand",
+                          "Description": "subcommand",
+                          "Type": "String"
+                        }
+                      ],
+                      "Optional": true
+                    }
+                  ]
+                }
+              ],
+              "DontAllowMultiple": true
+            }
+          ]
+        },
+        {
+          "Name": "toolchain",
+          "Description": "Modify or query the installed toolchains",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "-h",
+                  "Description": "Prints help information",
+                  "Aliases": [
+                    "--help"
+                  ],
+                  "Arguments": []
+                }
+              ],
+              "Optional": true
+            },
+            {
+              "Arguments": [
+                {
+                  "Name": "list",
+                  "Description": "List installed toolchains",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "-h",
+                          "Description": "Prints help information",
+                          "Aliases": [
+                            "--help"
+                          ],
+                          "Arguments": []
+                        },
+                        {
+                          "Name": "-V",
+                          "Description": "Prints version information",
+                          "Aliases": [
+                            "--version"
+                          ],
+                          "Arguments": []
+                        }
+                      ],
+                      "Optional": true
+                    }
+                  ]
+                },
+                {
+                  "Name": "install",
+                  "Description": "Install or update a given toolchain",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "-h",
+                          "Description": "Prints help information",
+                          "Aliases": [
+                            "--help"
+                          ],
+                          "Arguments": []
+                        },
+                        {
+                          "Name": "-t",
+                          "Description": "Add specific targets on installation",
+                          "Aliases": [
+                            "--target"
+                          ],
+                          "Arguments": [
+                            {
+                              "Arguments": [
+                                {
+                                  "Name": "targets",
+                                  "Description": "targets",
+                                  "Type": "CustomArgument",
+                                  "Extensions": [],
+                                  "CustomCommand": "rustup target list"
+                                }
+                              ]
+                            }
+                          ]
+                        },
+                        {
+                          "Name": "-c",
+                          "Description": "Add specific components on installation",
+                          "Aliases": [
+                            "--component"
+                          ],
+                          "Arguments": [
+                            {
+                              "Arguments": [
+                                {
+                                  "Name": "components",
+                                  "Description": "components",
+                                  "Type": "String"
+                                }
+                              ]
+                            }
+                          ]
+                        },
+                        {
+                          "Name": "--profile",
+                          "Description": "",
+                          "Aliases": [],
+                          "Arguments": [
+                            {
+                              "Arguments": [
+                                {
+                                  "Name": "profile",
+                                  "Description": "profile",
+                                  "Type": "String"
+                                },
+                                {
+                                  "Name": "minimal",
+                                  "Description": "profile"
+                                },
+                                {
+                                  "Name": "default",
+                                  "Description": "profile"
+                                },
+                                {
+                                  "Name": "complete",
+                                  "Description": "profile"
+                                }
+                              ]
+                            }
+                          ]
+                        },
+                        {
+                          "Name": "--allow-downgrade",
+                          "Description": "Allow rustup to downgrade the toolchain to satisfy your component choice",
+                          "Aliases": [],
+                          "Arguments": []
+                        },
+                        {
+                          "Name": "--force",
+                          "Description": "Force an update, even if some components are missing",
+                          "Aliases": [],
+                          "Arguments": []
+                        },
+                        {
+                          "Name": "--no-self-update",
+                          "Description": "Don\u0027t perform self update when running the\u0060rustup toolchain install\u0060 command",
+                          "Aliases": [],
+                          "Arguments": []
+                        }
+                      ],
+                      "Optional": true
+                    },
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "toolchain",
+                          "Description": "toolchain",
+                          "Type": "CustomArgument",
+                          "Extensions": [],
+                          "CustomCommand": "bash -c if command -v gh \u003E /dev/null; then       gh api -H \u0022Accept: application/vnd.github\u002Bjson\u0022 /repos/rust-lang/rust/releases;     else       curl -sfL -H \u0022Accept: application/vnd.github\u002Bjson\u0022 https://api.github.com/repos/rust-lang/rust/releases;     fi"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "uninstall",
+                  "Description": "Uninstall a toolchain",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "-h",
+                          "Description": "Prints help information",
+                          "Aliases": [
+                            "--help"
+                          ],
+                          "Arguments": []
+                        }
+                      ],
+                      "Optional": true
+                    },
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "toolchain",
+                          "Description": "toolchain",
+                          "Type": "CustomArgument",
+                          "Extensions": [],
+                          "CustomCommand": "rustup toolchain list"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "link",
+                  "Description": "Create a custom toolchain by symlinking to a directory",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "-h",
+                          "Description": "Prints help information",
+                          "Aliases": [
+                            "--help"
+                          ],
+                          "Arguments": []
+                        }
+                      ],
+                      "Optional": true
+                    },
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "toolchain",
+                          "Description": "toolchain",
+                          "Type": "String"
+                        }
+                      ]
+                    },
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "path",
+                          "Description": "path",
+                          "Type": "String"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "help",
+                  "Description": "Prints this message or the help of the given subcommand(s)",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "-h",
+                          "Description": "Prints help information",
+                          "Aliases": [
+                            "--help"
+                          ],
+                          "Arguments": []
+                        },
+                        {
+                          "Name": "-V",
+                          "Description": "Prints version information",
+                          "Aliases": [
+                            "--version"
+                          ],
+                          "Arguments": []
+                        }
+                      ],
+                      "Optional": true
+                    },
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "subcommand",
+                          "Description": "subcommand",
+                          "Type": "String"
+                        }
+                      ],
+                      "Optional": true
+                    }
+                  ]
+                }
+              ],
+              "DontAllowMultiple": true
+            }
+          ]
+        },
+        {
+          "Name": "component",
+          "Description": "Modify a toolchain\u0027s installed components",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "-h",
+                  "Description": "Prints help information",
+                  "Aliases": [
+                    "--help"
+                  ],
+                  "Arguments": []
+                }
+              ],
+              "Optional": true
+            },
+            {
+              "Arguments": [
+                {
+                  "Name": "list",
+                  "Description": "List installed and available components",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "-h",
+                          "Description": "Prints help information",
+                          "Aliases": [
+                            "--help"
+                          ],
+                          "Arguments": []
+                        },
+                        {
+                          "Name": "-V",
+                          "Description": "Prints version information",
+                          "Aliases": [
+                            "--version"
+                          ],
+                          "Arguments": []
+                        }
+                      ],
+                      "Optional": true
+                    }
+                  ]
+                },
+                {
+                  "Name": "add",
+                  "Description": "Add a component to a Rust toolchain",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "-h",
+                          "Description": "Prints help information",
+                          "Aliases": [
+                            "--help"
+                          ],
+                          "Arguments": []
+                        },
+                        {
+                          "Name": "-V",
+                          "Description": "Prints version information",
+                          "Aliases": [
+                            "--version"
+                          ],
+                          "Arguments": []
+                        }
+                      ],
+                      "Optional": true
+                    }
+                  ]
+                },
+                {
+                  "Name": "remove",
+                  "Description": "Remove a component from a Rust toolchain",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "-h",
+                          "Description": "Prints help information",
+                          "Aliases": [
+                            "--help"
+                          ],
+                          "Arguments": []
+                        },
+                        {
+                          "Name": "-V",
+                          "Description": "Prints version information",
+                          "Aliases": [
+                            "--version"
+                          ],
+                          "Arguments": []
+                        }
+                      ],
+                      "Optional": true
+                    }
+                  ]
+                },
+                {
+                  "Name": "help",
+                  "Description": "Prints this message or the help of the given subcommand(s)",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "subcommand(s)",
+                          "Description": "subcommand(s)",
+                          "Type": "String"
+                        }
+                      ],
+                      "Optional": true
+                    }
+                  ]
+                }
+              ],
+              "DontAllowMultiple": true
+            }
+          ]
+        },
+        {
+          "Name": "override",
+          "Description": "Modify directory toolchain overrides",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "-h",
+                  "Description": "Prints help information",
+                  "Aliases": [
+                    "--help"
+                  ],
+                  "Arguments": []
+                }
+              ],
+              "Optional": true
+            },
+            {
+              "Arguments": [
+                {
+                  "Name": "list",
+                  "Description": "List directory toolchain overrides",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "-h",
+                          "Description": "Prints help information",
+                          "Aliases": [
+                            "--help"
+                          ],
+                          "Arguments": []
+                        },
+                        {
+                          "Name": "-V",
+                          "Description": "Prints version information",
+                          "Aliases": [
+                            "--version"
+                          ],
+                          "Arguments": []
+                        }
+                      ],
+                      "Optional": true
+                    }
+                  ]
+                },
+                {
+                  "Name": "set",
+                  "Description": "Set the override toolchain for a directory",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "-h",
+                          "Description": "Prints help information",
+                          "Aliases": [
+                            "--help"
+                          ],
+                          "Arguments": []
+                        },
+                        {
+                          "Name": "-V",
+                          "Description": "Prints version information",
+                          "Aliases": [
+                            "--version"
+                          ],
+                          "Arguments": []
+                        }
+                      ],
+                      "Optional": true
+                    },
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "toolchain",
+                          "Description": "toolchain",
+                          "Type": "CustomArgument",
+                          "Extensions": [],
+                          "CustomCommand": "rustup toolchain list"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "unset",
+                  "Description": "Remove the override toolchain for a directory",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "-h",
+                          "Description": "Prints help information",
+                          "Aliases": [
+                            "--help"
+                          ],
+                          "Arguments": []
+                        },
+                        {
+                          "Name": "-V",
+                          "Description": "Prints version information",
+                          "Aliases": [
+                            "--version"
+                          ],
+                          "Arguments": []
+                        }
+                      ],
+                      "Optional": true
+                    }
+                  ]
+                },
+                {
+                  "Name": "help",
+                  "Description": "Prints this message or the help of the given subcommand(s)",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "subcommand(s)",
+                          "Description": "subcommand(s)",
+                          "Type": "String"
+                        }
+                      ],
+                      "Optional": true
+                    }
+                  ]
+                }
+              ],
+              "DontAllowMultiple": true
+            }
+          ]
+        },
+        {
+          "Name": "run",
+          "Description": "Run a command with an environment configured for a given toolchain",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "-h",
+                  "Description": "Prints help information",
+                  "Aliases": [
+                    "--help"
+                  ],
+                  "Arguments": []
+                },
+                {
+                  "Name": "--install",
+                  "Description": "Install the requested toolchain if needed",
+                  "Aliases": [],
+                  "Arguments": []
+                }
+              ],
+              "Optional": true
+            },
+            {
+              "Arguments": [
+                {
+                  "Name": "toolchain",
+                  "Description": "toolchain",
+                  "Type": "CustomArgument",
+                  "Extensions": [],
+                  "CustomCommand": "rustup toolchain list"
+                }
+              ]
+            },
+            {
+              "Arguments": [
+                {
+                  "Name": "command",
+                  "Description": "command",
+                  "Type": "String"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "Name": "which",
+          "Description": "Display which binary will be run for a given command",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "-h",
+                  "Description": "Prints help information",
+                  "Aliases": [
+                    "--help"
+                  ],
+                  "Arguments": []
+                },
+                {
+                  "Name": "--toolchain",
+                  "Description": "Toolchain name",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "toolchain",
+                          "Description": "toolchain",
+                          "Type": "CustomArgument",
+                          "Extensions": [],
+                          "CustomCommand": "rustup toolchain list"
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ],
+              "Optional": true
+            }
+          ]
+        },
+        {
+          "Name": "doc",
+          "Description": "Open the documentation for the current toolchain",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "--alloc",
+                  "Description": "The Rust core allocation and collections library",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "--book",
+                  "Description": "The Rust Programming Language book",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "--cargo",
+                  "Description": "The Cargo Book",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "--core",
+                  "Description": "The Rust Core Library",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "--edition-guide",
+                  "Description": "The Rust Edition Guide",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "--embedded-book",
+                  "Description": "The Embedded Rust Book",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "-h",
+                  "Description": "Prints help information",
+                  "Aliases": [
+                    "--help"
+                  ],
+                  "Arguments": []
+                },
+                {
+                  "Name": "--nomicon",
+                  "Description": "The Dark Arts of Advanced and Unsafe Rust Programming",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "--path",
+                  "Description": "Only print the path to the documentation",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "--proc_macro",
+                  "Description": "A support library for macro authors when defining new macros",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "--reference",
+                  "Description": "The Rust Reference",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "--rust-by-example",
+                  "Description": "A collection of runnable examples that illustrate various Rust concepts and standard libraries",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "--rustc",
+                  "Description": "The compiler for the Rust programming language",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "--rustdoc",
+                  "Description": "Generate documentation for Rust projects",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "--std",
+                  "Description": "Standard library API documentation",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "--test",
+                  "Description": "Support code for rustc\u0027s built in unit-test and micro-benchmarking framework",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "--unstable-book",
+                  "Description": "--unstable-book",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "--toolchain",
+                  "Description": "Toolchain name",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "toolchain",
+                          "Description": "toolchain",
+                          "Type": "CustomArgument",
+                          "Extensions": [],
+                          "CustomCommand": "rustup toolchain list"
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ],
+              "Optional": true
+            },
+            {
+              "Arguments": [
+                {
+                  "Name": "topic",
+                  "Description": "topic",
+                  "Type": "CustomArgument",
+                  "Extensions": [],
+                  "CustomCommand": "bash -c find $(rustup docs --path | sed -e \u0022s|index\\.html|std|\u0022) $(rustup docs --path | sed -e \u0022s|index\\.html|alloc|\u0022) $(rustup docs --path | sed -e \u0022s|index\\.html|core|\u0022) | grep \u0022\\.html\u0022 | sed -E -e \u0022s|^(.*)/html/||\u0022 -e \u0022s|\\.html||\u0022 -e \u0022s|/|::|g\u0022 -e \u0022s/constant\\.|trait\\.|struct\\.|macro\\.|fn\\.|keyword\\.|primitive\\.|type\\.|enum\\.|union\\.|traitalias\\.|::index$|^(.*)::all$//\u0022 -e \u0022/^$/d\u0022"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "Name": "man",
+          "Description": "View the man page for a given command",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "-h",
+                  "Description": "Prints help information",
+                  "Aliases": [
+                    "--help"
+                  ],
+                  "Arguments": []
+                },
+                {
+                  "Name": "--toolchain",
+                  "Description": "Toolchain name",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "toolchain",
+                          "Description": "toolchain",
+                          "Type": "CustomArgument",
+                          "Extensions": [],
+                          "CustomCommand": "rustup toolchain list"
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ],
+              "Optional": true
+            }
+          ]
+        },
+        {
+          "Name": "self",
+          "Description": "Modify the rustup installation",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "-h",
+                  "Description": "Prints help information",
+                  "Aliases": [
+                    "--help"
+                  ],
+                  "Arguments": []
+                }
+              ],
+              "Optional": true
+            },
+            {
+              "Arguments": [
+                {
+                  "Name": "update",
+                  "Description": "Download and install updates to rustup",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "-h",
+                          "Description": "Prints help information",
+                          "Aliases": [
+                            "--help"
+                          ],
+                          "Arguments": []
+                        },
+                        {
+                          "Name": "-V",
+                          "Description": "Prints version information",
+                          "Aliases": [
+                            "--version"
+                          ],
+                          "Arguments": []
+                        }
+                      ],
+                      "Optional": true
+                    }
+                  ]
+                },
+                {
+                  "Name": "uninstall",
+                  "Description": "Uninstall rustup",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "-h",
+                          "Description": "Prints help information",
+                          "Aliases": [
+                            "--help"
+                          ],
+                          "Arguments": []
+                        },
+                        {
+                          "Name": "-V",
+                          "Description": "Prints version information",
+                          "Aliases": [
+                            "--version"
+                          ],
+                          "Arguments": []
+                        }
+                      ],
+                      "Optional": true
+                    }
+                  ]
+                },
+                {
+                  "Name": "upgrade-data",
+                  "Description": "Upgrade the internal data format",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "-h",
+                          "Description": "Prints help information",
+                          "Aliases": [
+                            "--help"
+                          ],
+                          "Arguments": []
+                        },
+                        {
+                          "Name": "-V",
+                          "Description": "Prints version information",
+                          "Aliases": [
+                            "--version"
+                          ],
+                          "Arguments": []
+                        }
+                      ],
+                      "Optional": true
+                    }
+                  ]
+                },
+                {
+                  "Name": "help",
+                  "Description": "Prints this message or the help of the given subcommand(s)",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "subcommand(s)",
+                          "Description": "subcommand(s)",
+                          "Type": "String"
+                        }
+                      ],
+                      "Optional": true
+                    }
+                  ]
+                }
+              ],
+              "DontAllowMultiple": true
+            }
+          ]
+        },
+        {
+          "Name": "set",
+          "Description": "Alter rustup settings",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "-h",
+                  "Description": "Prints help information",
+                  "Aliases": [
+                    "--help"
+                  ],
+                  "Arguments": []
+                }
+              ],
+              "Optional": true
+            },
+            {
+              "Arguments": [
+                {
+                  "Name": "auto-self-update",
+                  "Description": "The rustup auto self update mode",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "-h",
+                          "Description": "Prints help information",
+                          "Aliases": [
+                            "--help"
+                          ],
+                          "Arguments": []
+                        },
+                        {
+                          "Name": "-V",
+                          "Description": "Prints version information",
+                          "Aliases": [
+                            "--version"
+                          ],
+                          "Arguments": []
+                        }
+                      ],
+                      "Optional": true
+                    },
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "auto-self-update-mode",
+                          "Description": "auto-self-update-mode",
+                          "Type": "String"
+                        },
+                        {
+                          "Name": "enable",
+                          "Description": "auto-self-update-mode"
+                        },
+                        {
+                          "Name": "disable",
+                          "Description": "auto-self-update-mode"
+                        },
+                        {
+                          "Name": "check-only",
+                          "Description": "auto-self-update-mode"
+                        }
+                      ],
+                      "Optional": true
+                    }
+                  ]
+                },
+                {
+                  "Name": "default-host",
+                  "Description": "",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "-h",
+                          "Description": "Prints help information",
+                          "Aliases": [
+                            "--help"
+                          ],
+                          "Arguments": []
+                        },
+                        {
+                          "Name": "-V",
+                          "Description": "Prints version information",
+                          "Aliases": [
+                            "--version"
+                          ],
+                          "Arguments": []
+                        }
+                      ],
+                      "Optional": true
+                    },
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "host-triple",
+                          "Description": "host-triple",
+                          "Type": "CustomArgument",
+                          "Extensions": [],
+                          "CustomCommand": "rustup target list"
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ],
+              "DontAllowMultiple": true
+            }
+          ]
+        },
+        {
+          "Name": "completions",
+          "Description": "Generate tab-completion scripts for your shell",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "-h",
+                  "Description": "Prints help information",
+                  "Aliases": [
+                    "--help"
+                  ],
+                  "Arguments": []
+                }
+              ],
+              "Optional": true
+            },
+            {
+              "Arguments": [
+                {
+                  "Name": "shell",
+                  "Description": "shell",
+                  "Type": "String"
+                },
+                {
+                  "Name": "zsh",
+                  "Description": "shell"
+                },
+                {
+                  "Name": "bash",
+                  "Description": "shell"
+                },
+                {
+                  "Name": "fish",
+                  "Description": "shell"
+                },
+                {
+                  "Name": "powershell",
+                  "Description": "shell"
+                },
+                {
+                  "Name": "elvish",
+                  "Description": "shell"
+                }
+              ]
+            },
+            {
+              "Arguments": [
+                {
+                  "Name": "command",
+                  "Description": "command",
+                  "Type": "String"
+                },
+                {
+                  "Name": "rustup",
+                  "Description": "command"
+                },
+                {
+                  "Name": "cargo",
+                  "Description": "command"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "Name": "help",
+          "Description": "Prints this message or the help of the given subcommand(s)",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "subcommand",
+                  "Description": "subcommand",
+                  "Type": "String"
+                }
+              ],
+              "Optional": true
+            }
+          ]
+        }
+      ],
+      "DontAllowMultiple": true
+    }
+  ]
+}

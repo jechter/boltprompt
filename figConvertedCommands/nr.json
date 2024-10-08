@@ -1,0 +1,31 @@
+{
+  "Comment": "This command info is generated from fig",
+  "Name": "nr",
+  "Description": "Use the right package manager - run",
+  "Arguments": [
+    {
+      "Arguments": [
+        {
+          "Name": "-h",
+          "Description": "Output usage information",
+          "Aliases": [
+            "--help"
+          ],
+          "Arguments": []
+        }
+      ],
+      "Optional": true
+    },
+    {
+      "Arguments": [
+        {
+          "Name": "script",
+          "Description": "script",
+          "Type": "CustomArgument",
+          "Extensions": [],
+          "CustomCommand": "bash -c until [[ -f package.json ]] || [[ $PWD = \u0027/\u0027 ]]; do cd ..; done; cat package.json"
+        }
+      ]
+    }
+  ]
+}

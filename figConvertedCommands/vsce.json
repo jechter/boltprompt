@@ -1,0 +1,842 @@
+{
+  "Comment": "This command info is generated from fig",
+  "Name": "vsce",
+  "Description": "The Visual Studio Code Extension Manager",
+  "Arguments": [
+    {
+      "Arguments": [
+        {
+          "Name": "-h",
+          "Description": "Display help for command",
+          "Aliases": [
+            "--help"
+          ],
+          "Arguments": []
+        },
+        {
+          "Name": "-V",
+          "Description": "Output the version number",
+          "Aliases": [
+            "--version"
+          ],
+          "Arguments": []
+        }
+      ],
+      "Optional": true
+    },
+    {
+      "Arguments": [
+        {
+          "Name": "ls",
+          "Description": "Lists all the files that will be published",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "--yarn",
+                  "Description": "Use yarn instead of npm (default inferred from presence of yarn.lock or .yarnrc)",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "--no-yarn",
+                  "Description": "Use npm instead of yarn (default inferred from lack of yarn.lock or .yarnrc)",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "--packagedDependencies",
+                  "Description": "Select packages that should be published only (includes dependencies)",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "paths",
+                          "Description": "paths",
+                          "Type": "FileSystemEntry"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "--ignoreFile",
+                  "Description": "Indicate alternative .vscodeignore",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "path",
+                          "Description": "path",
+                          "Type": "FileSystemEntry"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "--no-dependencies",
+                  "Description": "Disable dependency detection via npm or yarn",
+                  "Aliases": [],
+                  "Arguments": []
+                }
+              ],
+              "Optional": true
+            }
+          ]
+        },
+        {
+          "Name": "package",
+          "Description": "Packages an extension",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "-o",
+                  "Description": "Output .vsix extension file to \u003Cpath\u003E location (defaults to \u003Cname\u003E-\u003Cversion\u003E.vsix)",
+                  "Aliases": [
+                    "--out"
+                  ],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "path",
+                          "Description": "path",
+                          "Type": "File",
+                          "Extensions": [
+                            "vsix"
+                          ],
+                          "CustomCommand": ""
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "-t",
+                  "Description": "Target architecture",
+                  "Aliases": [
+                    "--target"
+                  ],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "target",
+                          "Description": "target",
+                          "Type": "String"
+                        },
+                        {
+                          "Name": "win32-x64",
+                          "Description": "target"
+                        },
+                        {
+                          "Name": "win32-ia32",
+                          "Description": "target"
+                        },
+                        {
+                          "Name": "win32-arm64",
+                          "Description": "target"
+                        },
+                        {
+                          "Name": "linux-x64",
+                          "Description": "target"
+                        },
+                        {
+                          "Name": "linux-arm64",
+                          "Description": "target"
+                        },
+                        {
+                          "Name": "linux-armhf",
+                          "Description": "target"
+                        },
+                        {
+                          "Name": "alpine-x64",
+                          "Description": "target"
+                        },
+                        {
+                          "Name": "alpine-arm64",
+                          "Description": "target"
+                        },
+                        {
+                          "Name": "darwin-x64",
+                          "Description": "target"
+                        },
+                        {
+                          "Name": "darwin-arm64",
+                          "Description": "target"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "-m",
+                  "Description": "Commit message used when calling \u0060npm version\u0060",
+                  "Aliases": [
+                    "--message"
+                  ],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "commit message",
+                          "Description": "commit message",
+                          "Type": "String"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "--no-git-tag-version",
+                  "Description": "Do not create a version commit and tag when calling \u0060npm version\u0060. Valid only when [version] is provided",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "--no-update-package-json",
+                  "Description": "Do not update \u0060package.json\u0060. Valid only when [version] is provided",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "--githubBranch",
+                  "Description": "The GitHub branch used to infer relative links in README.md. Can be overridden by --baseContentUrl and --baseImagesUrl",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "branch",
+                          "Description": "branch",
+                          "Type": "CustomArgument",
+                          "Extensions": [],
+                          "CustomCommand": "git --no-optional-locks branch -a --no-color --sort=-committerdate"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "--gitlabBranch",
+                  "Description": "The GitLab branch used to infer relative links in README.md. Can be overridden by --baseContentUrl and --baseImagesUrl",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "branch",
+                          "Description": "branch",
+                          "Type": "CustomArgument",
+                          "Extensions": [],
+                          "CustomCommand": "git --no-optional-locks branch -a --no-color --sort=-committerdate"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "--no-rewrite-relative-links",
+                  "Description": "Skip rewriting relative links",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "--baseContentUrl",
+                  "Description": "Prepend all relative links in README.md with this url",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "url",
+                          "Description": "url",
+                          "Type": "String"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "--baseImagesUrl",
+                  "Description": "Prepend all relative image links in README.md with this url",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "url",
+                          "Description": "url",
+                          "Type": "String"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "--yarn",
+                  "Description": "Use yarn instead of npm (default inferred from presence of yarn.lock or .yarnrc)",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "--no-yarn",
+                  "Description": "Use npm instead of yarn (default inferred from lack of yarn.lock or .yarnrc)",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "--ignoreFile",
+                  "Description": "Indicate alternative .vscodeignore",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "path",
+                          "Description": "path",
+                          "Type": "FileSystemEntry"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "--no-gitHubIssueLinking",
+                  "Description": "Disable automatic expansion of GitHub-style issue syntax into links",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "--no-gitLabIssueLinking",
+                  "Description": "Disable automatic expansion of GitLab-style issue syntax into links",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "--no-dependencies",
+                  "Description": "Disable dependency detection via npm or yarn",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "--pre-release",
+                  "Description": "Mark this package as a pre-release",
+                  "Aliases": [],
+                  "Arguments": []
+                }
+              ],
+              "Optional": true
+            }
+          ]
+        },
+        {
+          "Name": "publish",
+          "Description": "Publishes an extension",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "-p",
+                  "Description": "Personal Access Token (defaults to VSCE_PAT environment variable)",
+                  "Aliases": [
+                    "--pat"
+                  ],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "token",
+                          "Description": "token",
+                          "Type": "String"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "-t",
+                  "Description": "Target architecture",
+                  "Aliases": [
+                    "--target"
+                  ],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "target",
+                          "Description": "target",
+                          "Type": "String"
+                        },
+                        {
+                          "Name": "win32-x64",
+                          "Description": "target"
+                        },
+                        {
+                          "Name": "win32-ia32",
+                          "Description": "target"
+                        },
+                        {
+                          "Name": "win32-arm64",
+                          "Description": "target"
+                        },
+                        {
+                          "Name": "linux-x64",
+                          "Description": "target"
+                        },
+                        {
+                          "Name": "linux-arm64",
+                          "Description": "target"
+                        },
+                        {
+                          "Name": "linux-armhf",
+                          "Description": "target"
+                        },
+                        {
+                          "Name": "alpine-x64",
+                          "Description": "target"
+                        },
+                        {
+                          "Name": "alpine-arm64",
+                          "Description": "target"
+                        },
+                        {
+                          "Name": "darwin-x64",
+                          "Description": "target"
+                        },
+                        {
+                          "Name": "darwin-arm64",
+                          "Description": "target"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "-m",
+                  "Description": "Commit message used when calling \u0060npm version\u0060",
+                  "Aliases": [
+                    "--message"
+                  ],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "commit message",
+                          "Description": "commit message",
+                          "Type": "String"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "--no-git-tag-version",
+                  "Description": "Do not create a version commit and tag when calling \u0060npm version\u0060. Valid only when [version] is provided",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "--no-update-package-json",
+                  "Description": "Do not update \u0060package.json\u0060. Valid only when [version] is provided",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "-i",
+                  "Description": "Publish the provided VSIX packages",
+                  "Aliases": [
+                    "--packagePath"
+                  ],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "paths",
+                          "Description": "paths",
+                          "Type": "File",
+                          "Extensions": [
+                            "vsix"
+                          ],
+                          "CustomCommand": ""
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "--githubBranch",
+                  "Description": "The GitHub branch used to infer relative links in README.md. Can be overridden by --baseContentUrl and --baseImagesUrl",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "branch",
+                          "Description": "branch",
+                          "Type": "CustomArgument",
+                          "Extensions": [],
+                          "CustomCommand": "git --no-optional-locks branch -a --no-color --sort=-committerdate"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "--gitlabBranch",
+                  "Description": "The GitLab branch used to infer relative links in README.md. Can be overridden by --baseContentUrl and --baseImagesUrl",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "branch",
+                          "Description": "branch",
+                          "Type": "CustomArgument",
+                          "Extensions": [],
+                          "CustomCommand": "git --no-optional-locks branch -a --no-color --sort=-committerdate"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "--baseContentUrl",
+                  "Description": "Prepend all relative links in README.md with this url",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "url",
+                          "Description": "url",
+                          "Type": "String"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "--baseImagesUrl",
+                  "Description": "Prepend all relative image links in README.md with this url",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "url",
+                          "Description": "url",
+                          "Type": "String"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "--yarn",
+                  "Description": "Use yarn instead of npm (default inferred from presence of yarn.lock or .yarnrc)",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "--no-yarn",
+                  "Description": "Use npm instead of yarn (default inferred from lack of yarn.lock or .yarnrc)",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "--noVerify",
+                  "Description": "",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "--ignoreFile",
+                  "Description": "Indicate alternative .vscodeignore",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "path",
+                          "Description": "path",
+                          "Type": "FileSystemEntry"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "--no-dependencies",
+                  "Description": "Disable dependency detection via npm or yarn",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "--pre-release",
+                  "Description": "Mark this package as a pre-release",
+                  "Aliases": [],
+                  "Arguments": []
+                }
+              ],
+              "Optional": true
+            }
+          ]
+        },
+        {
+          "Name": "unpublish",
+          "Description": "Unpublishes an extension. Example extension id: microsoft.csharp",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "-p",
+                  "Description": "Personal Access Token",
+                  "Aliases": [
+                    "--pat"
+                  ],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "token",
+                          "Description": "token",
+                          "Type": "String"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "-f",
+                  "Description": "Forces Unpublished Extension",
+                  "Aliases": [
+                    "--force"
+                  ],
+                  "Arguments": []
+                }
+              ],
+              "Optional": true
+            }
+          ]
+        },
+        {
+          "Name": "ls-publishers",
+          "Description": "List all known publishers",
+          "Aliases": [],
+          "Arguments": []
+        },
+        {
+          "Name": "delete-publisher",
+          "Description": "Deletes a publisher",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "publisher",
+                  "Description": "publisher",
+                  "Type": "String"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "Name": "login",
+          "Description": "Add a publisher to the known publishers list",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "publisher",
+                  "Description": "publisher",
+                  "Type": "String"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "Name": "logout",
+          "Description": "Remove a publisher from the known publishers list",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "publisher",
+                  "Description": "publisher",
+                  "Type": "String"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "Name": "verify-pat",
+          "Description": "Verify if the Personal Access Token has publish rights for the publisher",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "-p",
+                  "Description": "Personal Access Token (defaults to VSCE_PAT environment variable)",
+                  "Aliases": [
+                    "--pat"
+                  ],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "token",
+                          "Description": "token",
+                          "Type": "String"
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ],
+              "Optional": true
+            },
+            {
+              "Arguments": [
+                {
+                  "Name": "publisher",
+                  "Description": "publisher",
+                  "Type": "String"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "Name": "show",
+          "Description": "Show extension metadata",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "--json",
+                  "Description": "Output data in json format (default: false)",
+                  "Aliases": [],
+                  "Arguments": []
+                }
+              ],
+              "Optional": true
+            },
+            {
+              "Arguments": [
+                {
+                  "Name": "extensionid",
+                  "Description": "extensionid",
+                  "Type": "String"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "Name": "search",
+          "Description": "Search extension gallery",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "--json",
+                  "Description": "Output data in json format (default: false)",
+                  "Aliases": [],
+                  "Arguments": []
+                }
+              ],
+              "Optional": true
+            },
+            {
+              "Arguments": [
+                {
+                  "Name": "text",
+                  "Description": "text",
+                  "Type": "String"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "Name": "help",
+          "Description": "Display help for command",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "command",
+                  "Description": "command",
+                  "Type": "String"
+                },
+                {
+                  "Name": "ls",
+                  "Description": "command"
+                },
+                {
+                  "Name": "package",
+                  "Description": "command"
+                },
+                {
+                  "Name": "publish",
+                  "Description": "command"
+                },
+                {
+                  "Name": "unpublish",
+                  "Description": "command"
+                },
+                {
+                  "Name": "ls-publishers",
+                  "Description": "command"
+                },
+                {
+                  "Name": "delete-publishers",
+                  "Description": "command"
+                },
+                {
+                  "Name": "login",
+                  "Description": "command"
+                },
+                {
+                  "Name": "logout",
+                  "Description": "command"
+                },
+                {
+                  "Name": "verify-pat",
+                  "Description": "command"
+                },
+                {
+                  "Name": "show",
+                  "Description": "command"
+                },
+                {
+                  "Name": "search",
+                  "Description": "command"
+                }
+              ]
+            }
+          ]
+        }
+      ],
+      "DontAllowMultiple": true
+    }
+  ]
+}

@@ -1,0 +1,60 @@
+{
+  "Comment": "This command info is generated from fig",
+  "Name": "kill",
+  "Description": "Terminate or signal a process",
+  "Arguments": [
+    {
+      "Arguments": [
+        {
+          "Name": "s",
+          "Description": "A symbolic signal name specifying the signal to be sent",
+          "Type": "Flag",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "signal_name",
+                  "Description": "signal_name",
+                  "Type": "CustomArgument",
+                  "Extensions": [],
+                  "CustomCommand": "env kill -l"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "Name": "l",
+          "Description": "If no operand is given, list the signal names; otherwise, write the signal name corresponding to exit_status",
+          "Type": "Flag",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "exit_status",
+                  "Description": "exit_status",
+                  "Type": "String"
+                }
+              ],
+              "Optional": true
+            }
+          ]
+        }
+      ],
+      "Optional": true
+    },
+    {
+      "Arguments": [
+        {
+          "Name": "pid",
+          "Description": "pid",
+          "Type": "CustomArgument",
+          "Extensions": [],
+          "CustomCommand": "bash -c ps axo pid,comm | sed 1d"
+        }
+      ]
+    }
+  ]
+}

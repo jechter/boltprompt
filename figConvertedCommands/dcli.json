@@ -1,0 +1,827 @@
+{
+  "Comment": "This command info is generated from fig",
+  "Name": "dcli",
+  "Description": "Dashlane CLI",
+  "Arguments": [
+    {
+      "Arguments": [
+        {
+          "Name": "-h",
+          "Description": "Display help for command",
+          "Aliases": [
+            "--help"
+          ],
+          "Arguments": []
+        },
+        {
+          "Name": "-V",
+          "Description": "Output the version number",
+          "Aliases": [
+            "--version"
+          ],
+          "Arguments": []
+        },
+        {
+          "Name": "--debug",
+          "Description": "Print debug messages",
+          "Aliases": [],
+          "Arguments": []
+        }
+      ],
+      "Optional": true
+    },
+    {
+      "Arguments": [
+        {
+          "Name": "sync",
+          "Description": "Manually synchronize the local vault with Dashlane",
+          "Aliases": [
+            "s"
+          ],
+          "Arguments": []
+        },
+        {
+          "Name": "read",
+          "Description": "Retrieve a secret from the local vault via its path",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "path",
+                  "Description": "path",
+                  "Type": "String"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "Name": "exec",
+          "Description": "Execute a command with secrets injected into the environment variables (-- \u003Ccommand\u003E)",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "command",
+                  "Description": "command",
+                  "Type": "String"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "Name": "inject",
+          "Description": "Inject secrets into a templated string or file (uses stdin and stdout by default)",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "-i",
+                  "Description": "Input file of a template to inject the credential into",
+                  "Aliases": [
+                    "--in"
+                  ],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "file",
+                          "Description": "file",
+                          "Type": "FileSystemEntry"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "-o",
+                  "Description": "Output file to write the injected template to",
+                  "Aliases": [
+                    "--out"
+                  ],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "file",
+                          "Description": "file",
+                          "Type": "FileSystemEntry"
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ],
+              "Optional": true
+            }
+          ]
+        },
+        {
+          "Name": "password",
+          "Description": "Retrieve a password from the local vault and copy it to the clipboard",
+          "Aliases": [
+            "p"
+          ],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "-o",
+                  "Description": "How to print the passwords. The JSON option outputs all the matching credentials",
+                  "Aliases": [
+                    "--output"
+                  ],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "type",
+                          "Description": "type",
+                          "Type": "String"
+                        },
+                        {
+                          "Name": "clipboard",
+                          "Description": "type"
+                        },
+                        {
+                          "Name": "password",
+                          "Description": "type"
+                        },
+                        {
+                          "Name": "json",
+                          "Description": "type"
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ],
+              "Optional": true
+            },
+            {
+              "Arguments": [
+                {
+                  "Name": "filters",
+                  "Description": "filters",
+                  "Type": "String"
+                }
+              ],
+              "Optional": true
+            }
+          ]
+        },
+        {
+          "Name": "otp",
+          "Description": "Retrieve an OTP code from local vault and copy it to the clipboard",
+          "Aliases": [
+            "o"
+          ],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "--print",
+                  "Description": "Prints just the OTP code, instead of copying it to the clipboard",
+                  "Aliases": [],
+                  "Arguments": []
+                }
+              ],
+              "Optional": true
+            },
+            {
+              "Arguments": [
+                {
+                  "Name": "filters",
+                  "Description": "filters",
+                  "Type": "String"
+                }
+              ],
+              "Optional": true
+            }
+          ]
+        },
+        {
+          "Name": "note",
+          "Description": "Retrieve a secure note from the local vault and open it",
+          "Aliases": [
+            "n"
+          ],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "-o",
+                  "Description": "How to print the notes. The JSON option outputs all the matching notes",
+                  "Aliases": [
+                    "--output"
+                  ],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "type",
+                          "Description": "type",
+                          "Type": "String"
+                        },
+                        {
+                          "Name": "text",
+                          "Description": "type"
+                        },
+                        {
+                          "Name": "json",
+                          "Description": "type"
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ],
+              "Optional": true
+            },
+            {
+              "Arguments": [
+                {
+                  "Name": "filters",
+                  "Description": "filters",
+                  "Type": "String"
+                }
+              ],
+              "Optional": true
+            }
+          ]
+        },
+        {
+          "Name": "accounts",
+          "Description": "Manage your accounts connected to the CLI",
+          "Aliases": [
+            "a"
+          ],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "whoami",
+                  "Description": "Prints the login email of the account currently in use",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "help",
+                  "Description": "Display help for command",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "command",
+                          "Description": "command",
+                          "Type": "String"
+                        }
+                      ],
+                      "Optional": true
+                    }
+                  ]
+                }
+              ],
+              "DontAllowMultiple": true
+            }
+          ]
+        },
+        {
+          "Name": "devices",
+          "Description": "Operations on devices",
+          "Aliases": [
+            "d"
+          ],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "list",
+                  "Description": "Lists all registered devices that can access your account",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "--json",
+                          "Description": "Output in JSON format",
+                          "Aliases": [],
+                          "Arguments": []
+                        }
+                      ],
+                      "Optional": true
+                    }
+                  ]
+                },
+                {
+                  "Name": "remove",
+                  "Description": "De-registers a list of devices. De-registering the CLI will implies doing a \u0022dcli logout\u0022",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "--all",
+                          "Description": "Remove all devices including this one (dangerous)",
+                          "Aliases": [],
+                          "Arguments": []
+                        },
+                        {
+                          "Name": "--others",
+                          "Description": "Remove all other devices",
+                          "Aliases": [],
+                          "Arguments": []
+                        }
+                      ],
+                      "Optional": true
+                    },
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "device ids",
+                          "Description": "device ids",
+                          "Type": "CustomArgument",
+                          "Extensions": [],
+                          "CustomCommand": "dcli devices list --json"
+                        }
+                      ],
+                      "Optional": true
+                    }
+                  ]
+                },
+                {
+                  "Name": "register",
+                  "Description": "Registers a new device to be used in non-interactive mode",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "--json",
+                          "Description": "Output in JSON format",
+                          "Aliases": [],
+                          "Arguments": []
+                        }
+                      ],
+                      "Optional": true
+                    },
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "device name",
+                          "Description": "device name",
+                          "Type": "String"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "help",
+                  "Description": "Display help for command",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "command",
+                          "Description": "command",
+                          "Type": "String"
+                        }
+                      ],
+                      "Optional": true
+                    }
+                  ]
+                }
+              ],
+              "DontAllowMultiple": true
+            }
+          ]
+        },
+        {
+          "Name": "team",
+          "Description": "Team related commands",
+          "Aliases": [
+            "t"
+          ],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "credentials",
+                  "Description": "Team credentials operations",
+                  "Aliases": [
+                    "c"
+                  ],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "generate",
+                          "Description": "Generate new team credentials",
+                          "Aliases": [],
+                          "Arguments": [
+                            {
+                              "Arguments": [
+                                {
+                                  "Name": "--json",
+                                  "Description": "Output in JSON format",
+                                  "Aliases": [],
+                                  "Arguments": []
+                                }
+                              ],
+                              "Optional": true
+                            }
+                          ]
+                        },
+                        {
+                          "Name": "list",
+                          "Description": "List all team credentials",
+                          "Aliases": [],
+                          "Arguments": [
+                            {
+                              "Arguments": [
+                                {
+                                  "Name": "--json",
+                                  "Description": "Output in JSON format",
+                                  "Aliases": [],
+                                  "Arguments": []
+                                }
+                              ],
+                              "Optional": true
+                            }
+                          ]
+                        },
+                        {
+                          "Name": "revoke",
+                          "Description": "Revoke credentials by access key",
+                          "Aliases": [],
+                          "Arguments": [
+                            {
+                              "Arguments": [
+                                {
+                                  "Name": "accessKey",
+                                  "Description": "accessKey",
+                                  "Type": "CustomArgument",
+                                  "Extensions": [],
+                                  "CustomCommand": "dcli team credentials list --json"
+                                }
+                              ]
+                            }
+                          ]
+                        },
+                        {
+                          "Name": "help",
+                          "Description": "Display help for command",
+                          "Aliases": [],
+                          "Arguments": [
+                            {
+                              "Arguments": [
+                                {
+                                  "Name": "command",
+                                  "Description": "command",
+                                  "Type": "String"
+                                }
+                              ],
+                              "Optional": true
+                            }
+                          ]
+                        }
+                      ],
+                      "DontAllowMultiple": true
+                    }
+                  ]
+                },
+                {
+                  "Name": "members",
+                  "Description": "List team members",
+                  "Aliases": [
+                    "m"
+                  ],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "--csv",
+                          "Description": "Output in CSV format",
+                          "Aliases": [],
+                          "Arguments": []
+                        },
+                        {
+                          "Name": "--human-readable",
+                          "Description": "Output dates in human readable format",
+                          "Aliases": [],
+                          "Arguments": []
+                        }
+                      ],
+                      "Optional": true
+                    },
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "page",
+                          "Description": "page",
+                          "Type": "String"
+                        }
+                      ],
+                      "Optional": true
+                    },
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "limit",
+                          "Description": "limit",
+                          "Type": "String"
+                        }
+                      ],
+                      "Optional": true
+                    }
+                  ]
+                },
+                {
+                  "Name": "logs",
+                  "Description": "List audit logs",
+                  "Aliases": [
+                    "l"
+                  ],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "--start",
+                          "Description": "Start timestamp in ms",
+                          "Aliases": [],
+                          "Arguments": [
+                            {
+                              "Arguments": [
+                                {
+                                  "Name": "start",
+                                  "Description": "start",
+                                  "Type": "String"
+                                }
+                              ]
+                            }
+                          ]
+                        },
+                        {
+                          "Name": "--end",
+                          "Description": "End timestamp in ms (use \u0022now\u0022 to get the current timestamp)",
+                          "Aliases": [],
+                          "Arguments": [
+                            {
+                              "Arguments": [
+                                {
+                                  "Name": "end",
+                                  "Description": "end",
+                                  "Type": "String"
+                                }
+                              ]
+                            }
+                          ]
+                        },
+                        {
+                          "Name": "--type",
+                          "Description": "Log type",
+                          "Aliases": [],
+                          "Arguments": [
+                            {
+                              "Arguments": [
+                                {
+                                  "Name": "type",
+                                  "Description": "type",
+                                  "Type": "String"
+                                }
+                              ]
+                            }
+                          ]
+                        },
+                        {
+                          "Name": "--category",
+                          "Description": "Log category",
+                          "Aliases": [],
+                          "Arguments": [
+                            {
+                              "Arguments": [
+                                {
+                                  "Name": "category",
+                                  "Description": "category",
+                                  "Type": "String"
+                                }
+                              ]
+                            }
+                          ]
+                        },
+                        {
+                          "Name": "--csv",
+                          "Description": "Output in CSV format",
+                          "Aliases": [],
+                          "Arguments": []
+                        },
+                        {
+                          "Name": "--human-readable",
+                          "Description": "Output dates in human readable format",
+                          "Aliases": [],
+                          "Arguments": []
+                        }
+                      ],
+                      "Optional": true
+                    }
+                  ]
+                },
+                {
+                  "Name": "report",
+                  "Description": "Get team report",
+                  "Aliases": [
+                    "r"
+                  ],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "days",
+                          "Description": "days",
+                          "Type": "String"
+                        }
+                      ],
+                      "Optional": true
+                    }
+                  ]
+                },
+                {
+                  "Name": "help",
+                  "Description": "Display help for command",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "command",
+                          "Description": "command",
+                          "Type": "String"
+                        }
+                      ],
+                      "Optional": true
+                    }
+                  ]
+                }
+              ],
+              "DontAllowMultiple": true
+            }
+          ]
+        },
+        {
+          "Name": "configure",
+          "Description": "Configure the CLI",
+          "Aliases": [
+            "c"
+          ],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "disable-auto-sync",
+                  "Description": "Disable automatic synchronization which is done once per hour (default: false)",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "boolean",
+                          "Description": "boolean",
+                          "Type": "String"
+                        },
+                        {
+                          "Name": "true",
+                          "Description": "boolean"
+                        },
+                        {
+                          "Name": "false",
+                          "Description": "boolean"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "save-master-password",
+                  "Description": "Should the encrypted master password be saved and the OS keychain be used (default: true)",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "boolean",
+                          "Description": "boolean",
+                          "Type": "String"
+                        },
+                        {
+                          "Name": "true",
+                          "Description": "boolean"
+                        },
+                        {
+                          "Name": "false",
+                          "Description": "boolean"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "help",
+                  "Description": "Display help for command",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "command",
+                          "Description": "command",
+                          "Type": "String"
+                        }
+                      ],
+                      "Optional": true
+                    }
+                  ]
+                }
+              ],
+              "DontAllowMultiple": true
+            }
+          ]
+        },
+        {
+          "Name": "backup",
+          "Description": "Backup your local vault (will use the current directory by default)",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "--directory",
+                  "Description": "Output directory of the backup (\u0022.\u0022 by default)",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "directory",
+                          "Description": "directory",
+                          "Type": "Directory"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "--filename",
+                  "Description": "Filename of the backup (\u0022dashlane-backup-\u003Cunix_timestamp\u003E.db by default\u0022)",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "filename",
+                          "Description": "filename",
+                          "Type": "String"
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ],
+              "Optional": true
+            }
+          ]
+        },
+        {
+          "Name": "logout",
+          "Description": "Logout and clean your local database and OS keychain",
+          "Aliases": [],
+          "Arguments": []
+        },
+        {
+          "Name": "help",
+          "Description": "Display help for command",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "command",
+                  "Description": "command",
+                  "Type": "String"
+                }
+              ],
+              "Optional": true
+            }
+          ]
+        }
+      ],
+      "DontAllowMultiple": true
+    }
+  ]
+}

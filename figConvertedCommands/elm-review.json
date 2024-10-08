@@ -1,0 +1,451 @@
+{
+  "Comment": "This command info is generated from fig",
+  "Name": "elm-review",
+  "Description": "",
+  "Arguments": [
+    {
+      "Arguments": [
+        {
+          "Name": "--help",
+          "Description": "Show help for elm-review",
+          "Aliases": [
+            "-h"
+          ],
+          "Arguments": []
+        },
+        {
+          "Name": "--unsuppress",
+          "Description": "Include suppressed errors in the error report for all rules",
+          "Aliases": [],
+          "Arguments": []
+        },
+        {
+          "Name": "--rules",
+          "Description": "Run with a subsection of the rules in the configuration. Specify them by their name, and separate them by commas",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "\u003Crule1,rule2,...\u003E",
+                  "Description": "\u003Crule1,rule2,...\u003E",
+                  "Type": "String"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "Name": "--watch",
+          "Description": "Re-run elm-review automatically when your project or configuration changes",
+          "Aliases": [],
+          "Arguments": []
+        },
+        {
+          "Name": "--watch-code",
+          "Description": "Re-run elm-review automatically when your project changes",
+          "Aliases": [],
+          "Arguments": []
+        },
+        {
+          "Name": "--elmjson",
+          "Description": "Specify the path to the elm.json file of the project",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "\u003Cpath-to-elm.json\u003E",
+                  "Description": "\u003Cpath-to-elm.json\u003E",
+                  "Type": "FileSystemEntry"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "Name": "--config",
+          "Description": "Use the review configuration in the specified directory",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "\u003Cpath-to-review-directory\u003E",
+                  "Description": "\u003Cpath-to-review-directory\u003E",
+                  "Type": "Directory"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "Name": "--template",
+          "Description": "Use the review configuration from a GitHub repository",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "\u003Cauthor\u003E/\u003Crepo\u003E[/path-to-the-config-folder][#branch-or-commit]",
+                  "Description": "\u003Cauthor\u003E/\u003Crepo\u003E[/path-to-the-config-folder][#branch-or-commit]",
+                  "Type": "String"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "Name": "--compiler",
+          "Description": "Specify the path to the elm compiler",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "\u003Cpath-to-elm\u003E",
+                  "Description": "\u003Cpath-to-elm\u003E",
+                  "Type": "FileSystemEntry"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "Name": "--version",
+          "Description": "Print the version of the elm-review CLI",
+          "Aliases": [
+            "-v"
+          ],
+          "Arguments": []
+        },
+        {
+          "Name": "--debug",
+          "Description": "Add helpful information to debug your configuration or rules",
+          "Aliases": [],
+          "Arguments": []
+        },
+        {
+          "Name": "--report",
+          "Description": "Error reports will be in JSON format",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "json or ndjson",
+                  "Description": "json or ndjson",
+                  "Type": "String"
+                },
+                {
+                  "Name": "json",
+                  "Description": "Prints a single JSON object"
+                },
+                {
+                  "Name": "ndjson",
+                  "Description": "Print one JSON object per error each on a new line"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "Name": "--no-details",
+          "Description": "Hide the details from error reports for a more compact view",
+          "Aliases": [],
+          "Arguments": []
+        },
+        {
+          "Name": "--ignore-dirs",
+          "Description": "Ignore the reports of all rules for the specified directories",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "\u003Cdir1,dir2,...\u003E",
+                  "Description": "\u003Cdir1,dir2,...\u003E",
+                  "Type": "Directory"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "Name": "--ignore-files",
+          "Description": "Ignore the reports of all rules for the specified files",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "\u003Cfile1,file2,...\u003E",
+                  "Description": "\u003Cfile1,file2,...\u003E",
+                  "Type": "FileSystemEntry"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "Name": "--fix",
+          "Description": "Elm Review will present fixes for the errors that offer an automatic fix, which you can then accept or refuse one by one",
+          "Aliases": [],
+          "Arguments": []
+        },
+        {
+          "Name": "--fix-all",
+          "Description": "Elm Review will present a single fix containing the application of all available automatic fixes, which you can then accept or refuse",
+          "Aliases": [],
+          "Arguments": []
+        },
+        {
+          "Name": "--elm-format-path",
+          "Description": "Specify the path to elm-format",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "\u003Cpath-to-elm-format\u003E",
+                  "Description": "\u003Cpath-to-elm-format\u003E",
+                  "Type": "FileSystemEntry"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "Name": "--fix-limit",
+          "Description": "Limit the number of fixes applied in a single batch to N",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "N",
+                  "Description": "N",
+                  "Type": "String"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "Name": "--extract",
+          "Description": "Enable extracting data from the project for the rules that have a data extractor. Requires running with --report=json. Learn more by reading the section about \u0022Extracting information\u0022 at https://bit.ly/3UmNr0V",
+          "Aliases": [],
+          "Arguments": []
+        },
+        {
+          "Name": "--benchmark-info",
+          "Description": "Print out how much time it took for rules and phases of the process to run. This is meant for benchmarking purposes",
+          "Aliases": [],
+          "Arguments": []
+        },
+        {
+          "Name": "--no-color",
+          "Description": "Disable colors in the output",
+          "Aliases": [],
+          "Arguments": []
+        }
+      ],
+      "Optional": true
+    },
+    {
+      "Arguments": [
+        {
+          "Name": "files or directories to review",
+          "Description": "files or directories to review",
+          "Type": "FileSystemEntry"
+        }
+      ]
+    },
+    {
+      "Arguments": [
+        {
+          "Name": "init",
+          "Description": "Initialize Elm Review in this directory",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "--help",
+                  "Description": "Show help for elm-review init",
+                  "Aliases": [
+                    "-h"
+                  ],
+                  "Arguments": []
+                },
+                {
+                  "Name": "--config",
+                  "Description": "Create the configuration files in the specified directory instead of in the review/ directory",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "\u003Cpath-to-review-directory\u003E",
+                          "Description": "\u003Cpath-to-review-directory\u003E",
+                          "Type": "Directory"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "--template",
+                  "Description": "Copy the review configuration from a GitHub repository, at the root or in a folder",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "\u003Cauthor\u003E/\u003Crepo\u003E[/path-to-the-config-folder][#branch-or-commit]",
+                          "Description": "\u003Cauthor\u003E/\u003Crepo\u003E[/path-to-the-config-folder][#branch-or-commit]",
+                          "Type": "String"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "--compiler",
+                  "Description": "Specify the path to the elm compiler",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "\u003Cpath-to-elm\u003E",
+                          "Description": "\u003Cpath-to-elm\u003E",
+                          "Type": "FileSystemEntry"
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ],
+              "Optional": true
+            }
+          ]
+        },
+        {
+          "Name": "suppress",
+          "Description": "Generate suppression files for rules that report many errors",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "--help",
+                  "Description": "Show help for elm-review suppress",
+                  "Aliases": [
+                    "-h"
+                  ],
+                  "Arguments": []
+                },
+                {
+                  "Name": "--check-after-tests",
+                  "Description": "Checks whether there are uncommitted suppression files",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "--unsuppress",
+                  "Description": "Include suppressed errors in the error report for all rules",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "--unsuppress-rules",
+                  "Description": "Include suppressed errors in the error report for all rules",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "\u003Crule1,rule2,...\u003E",
+                          "Description": "\u003Crule1,rule2,...\u003E",
+                          "Type": "String"
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ],
+              "Optional": true
+            }
+          ]
+        },
+        {
+          "Name": "new-package",
+          "Description": "Creates an new project aimed to contain rules and to be published later",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "--help",
+                  "Description": "Show help for elm-review new-package",
+                  "Aliases": [
+                    "-h"
+                  ],
+                  "Arguments": []
+                },
+                {
+                  "Name": "--compiler",
+                  "Description": "Specify the path to the elm compiler",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "\u003Cpath-to-elm\u003E",
+                          "Description": "\u003Cpath-to-elm\u003E",
+                          "Type": "FileSystemEntry"
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ],
+              "Optional": true
+            }
+          ]
+        },
+        {
+          "Name": "new-rule",
+          "Description": "Adds a new rule to your review configuration or review package",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "--help",
+                  "Description": "Show help for elm-review new-package",
+                  "Aliases": [
+                    "-h"
+                  ],
+                  "Arguments": []
+                }
+              ],
+              "Optional": true
+            },
+            {
+              "Arguments": [
+                {
+                  "Name": "rule name",
+                  "Description": "rule name",
+                  "Type": "String"
+                }
+              ]
+            }
+          ]
+        }
+      ],
+      "DontAllowMultiple": true
+    }
+  ]
+}

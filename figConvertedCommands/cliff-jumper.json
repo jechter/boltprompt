@@ -1,0 +1,198 @@
+{
+  "Comment": "This command info is generated from fig",
+  "Name": "cliff-jumper",
+  "Description": "A small CLI tool to create a semantic release and git-cliff powered Changelog",
+  "Arguments": [
+    {
+      "Arguments": [
+        {
+          "Name": "--help",
+          "Description": "Display help for command",
+          "Aliases": [
+            "-h"
+          ],
+          "Arguments": []
+        },
+        {
+          "Name": "--name",
+          "Description": "The package name to release",
+          "Aliases": [
+            "-n"
+          ],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "name",
+                  "Description": "name",
+                  "Type": "String"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "Name": "--package-path",
+          "Description": "The path to the current package. For non-monorepos this is just \u0022.\u0022",
+          "Aliases": [
+            "-p"
+          ],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "path",
+                  "Description": "path",
+                  "Type": "Directory"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "Name": "--dry-run",
+          "Description": "Whether the package should be bumped or not. When this is set no actions will be taken and only the release strategy will be logged",
+          "Aliases": [],
+          "Arguments": []
+        },
+        {
+          "Name": "--first-release",
+          "Description": "Whether this is the first release (skips bumping the version)\u0027",
+          "Aliases": [],
+          "Arguments": []
+        },
+        {
+          "Name": "--mono-repo",
+          "Description": "Whether the package to be bumped resides in a mono repo,\nwhich enables Lerna-like scanning for what kind of version bump should be applied\nDefaults to \u0022true\u0022 when \u0022org\u0022 is set, false otherwise",
+          "Aliases": [],
+          "Arguments": []
+        },
+        {
+          "Name": "--no-mono-repo",
+          "Description": "Whether the package to be bumped resides in a mono repo,\nwhich enables Lerna-like scanning for what kind of version bump should be applied\nDefaults to \u0022true\u0022 when \u0022org\u0022 is set, false otherwise",
+          "Aliases": [],
+          "Arguments": []
+        },
+        {
+          "Name": "--org",
+          "Description": "The NPM org scope that should be used. This should be WITHOUT \u0022@\u0022 sign or trailing \u0022/\u0022",
+          "Aliases": [
+            "-o"
+          ],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "organisation",
+                  "Description": "organisation",
+                  "Type": "String"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "Name": "--preid",
+          "Description": "The \u0022prerelease identifier\u0022 to use as a prefix for the \u0022prerelease\u0022 part of a semver",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "id",
+                  "Description": "id",
+                  "Type": "String"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "Name": "--commit-message-template",
+          "Description": "A custom commit message template to use.\nDefaults to \u0022chore({{name}}): release {{full-name}}@{{new-version}}\u0022\nYou can use \u0022{{new-version}}\u0022 in your template which will be dynamically replaced with whatever the new version is that will be published.\nYou can use \u0022{{name}}\u0022 in your template, this will be replaced with the name provided through \u0022-n\u0022, \u0022--name\u0022 or the same value set in your config file.\nYou can use \u0022{{full-name}}\u0022 in your template, this will be replaced \u0022{{name}}\u0022 (when \u0022org\u0022 is not provided), or \u0022@{{org}}/{{name}}\u0022 (when \u0022org\u0022 is provided).",
+          "Aliases": [
+            "-c"
+          ],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "template",
+                  "Description": "template",
+                  "Type": "String"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "Name": "--tag-template",
+          "Description": "A custom tag template to use.\nWhen \u0022org\u0022 is provided this will default to \u0022@{{org}}/{{name}}@{{new-version}}\u0022, for example \u0022@favware/cliff-jumper@1.0.0\u0022\nWhen \u0022org\u0022 is not provided this will default to \u0022v{{new-version}}\u0022, for example \u0022v1.0.0\u0022\nYou can use \u0022{{new-version}}\u0022 in your template which will be dynamically replaced with whatever the new version is that will be published.\nYou can use \u0022{{org}}\u0022 in your template, this will be replaced with the org provided through \u0022-o\u0022, \u0022--org\u0022 or the same value set in your config file.\nYou can use \u0022{{name}}\u0022 in your template, this will be replaced with the name provided through \u0022-n\u0022, \u0022--name\u0022 or the same value set in your config file.\nYou can use \u0022{{full-name}}\u0022 in your template, this will be replaced \u0022{{name}}\u0022 (when \u0022org\u0022 is not provided), or \u0022@{{org}}/{{name}}\u0022 (when \u0022org\u0022 is provided).",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "template",
+                  "Description": "template",
+                  "Type": "String"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "Name": "--install",
+          "Description": "Whether to run npm install (or your package manager\u0027s equivalent) after bumping the version but before committing and creating a git tag. This is useful when you have a mono repo where bumping one package would then cause the lockfile to be out of date",
+          "Aliases": [
+            "-i"
+          ],
+          "Arguments": []
+        },
+        {
+          "Name": "--skip-changelog",
+          "Description": "Whether to skip updating your CHANGELOG.md\ndefault \u0022true\u0022 when CI=true, \u0022false\u0022 otherwise",
+          "Aliases": [],
+          "Arguments": []
+        },
+        {
+          "Name": "--no-skip-changelog",
+          "Description": "Whether to skip updating your CHANGELOG.md\ndefault \u0022true\u0022 when CI=true, \u0022false\u0022 otherwise",
+          "Aliases": [],
+          "Arguments": []
+        },
+        {
+          "Name": "--skip-tag",
+          "Description": "Whether to skip creating a git tag\ndefault \u0022true\u0022 when CI=true, \u0022false\u0022 otherwise",
+          "Aliases": [
+            "-t"
+          ],
+          "Arguments": []
+        },
+        {
+          "Name": "--no-skip-tag",
+          "Description": "Whether to skip creating a git tag\ndefault \u0022true\u0022 when CI=true, \u0022false\u0022 otherwise",
+          "Aliases": [],
+          "Arguments": []
+        },
+        {
+          "Name": "--verbose",
+          "Description": "Whether to print verbose information",
+          "Aliases": [
+            "-v"
+          ],
+          "Arguments": []
+        },
+        {
+          "Name": "--version",
+          "Description": "Output the version number",
+          "Aliases": [
+            "-V"
+          ],
+          "Arguments": []
+        }
+      ],
+      "Optional": true
+    }
+  ]
+}

@@ -1,0 +1,1509 @@
+{
+  "Comment": "This command info is generated from fig",
+  "Name": "gource",
+  "Description": "Gource is an OpenGL-based 3D visualisation tool for source control repositories",
+  "Arguments": [
+    {
+      "Arguments": [
+        {
+          "Name": "-h",
+          "Description": "Help (\u0027-H\u0027 for extended help)",
+          "Aliases": [
+            "--help"
+          ],
+          "Arguments": []
+        },
+        {
+          "Name": "--viewport",
+          "Description": "Set the viewport size. If -f is also supplied, will attempt to set the video mode to this also. Add \u0060!\u0060 to make the window non-resizable",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "size",
+                  "Description": "size",
+                  "Type": "String"
+                },
+                {
+                  "Name": "3840x2160",
+                  "Description": "size"
+                },
+                {
+                  "Name": "2560x1440",
+                  "Description": "size"
+                },
+                {
+                  "Name": "1920x1080",
+                  "Description": "size"
+                },
+                {
+                  "Name": "1280x720",
+                  "Description": "size"
+                },
+                {
+                  "Name": "800x600",
+                  "Description": "size"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "Name": "f",
+          "Description": "Fullscreen",
+          "Type": "Flag",
+          "Aliases": [],
+          "Arguments": []
+        },
+        {
+          "Name": "--screen",
+          "Description": "Set the number of the screen to display on",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "screen",
+                  "Description": "screen",
+                  "Type": "CustomArgument",
+                  "Extensions": [],
+                  "CustomCommand": "system_profiler SPDisplaysDataType -json"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "Name": "--high-dpi",
+          "Description": "Request a high DPI display when creating the window. On some platforms such as MacOS, the window resolution is specified in points instead of pixels. The --high-dpi flag may be required to access some higher resolutions. E.g. requesting a high DPI 800x600 window may produce a window that is 1600x1200 pixels",
+          "Aliases": [],
+          "Arguments": []
+        },
+        {
+          "Name": "--window-position",
+          "Description": "Initial window position on your desktop which may be made up of multiple monitors. This will override the screen setting so don\u0027t specify both",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "position",
+                  "Description": "position",
+                  "Type": "String"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "Name": "--frameless",
+          "Description": "Frameless window",
+          "Aliases": [],
+          "Arguments": []
+        },
+        {
+          "Name": "--transparent",
+          "Description": "Make the background transparent. Only really useful for screenshots",
+          "Aliases": [],
+          "Arguments": []
+        },
+        {
+          "Name": "--start-date",
+          "Description": "Start with the first entry after the supplied date and optional time. If a time zone offset isn\u0027t specified the local time zone is used. Example accepted formats: \u0027YYYY-MM-DD\u0027, \u0027YYYY-MM-DD hh:mm\u0027, \u0027YYYY-MM-DD hh:mm:ss \u002Btz\u0027",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "date",
+                  "Description": "date",
+                  "Type": "String"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "Name": "--stop-date",
+          "Description": "Stop at the last entry prior to the supplied date and optional time. Uses the same format as --start-date",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "date",
+                  "Description": "date",
+                  "Type": "String"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "Name": "-p",
+          "Description": "Begin at some position in the log (between 0.0 and 1.0 or \u0027random\u0027)",
+          "Aliases": [
+            "--start-position"
+          ],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "position",
+                  "Description": "position",
+                  "Type": "String"
+                },
+                {
+                  "Name": "random",
+                  "Description": "position"
+                },
+                {
+                  "Name": "0.0",
+                  "Description": "position"
+                },
+                {
+                  "Name": "0.1",
+                  "Description": "position"
+                },
+                {
+                  "Name": "0.2",
+                  "Description": "position"
+                },
+                {
+                  "Name": "0.3",
+                  "Description": "position"
+                },
+                {
+                  "Name": "0.4",
+                  "Description": "position"
+                },
+                {
+                  "Name": "0.5",
+                  "Description": "position"
+                },
+                {
+                  "Name": "0.6",
+                  "Description": "position"
+                },
+                {
+                  "Name": "0.7",
+                  "Description": "position"
+                },
+                {
+                  "Name": "0.8",
+                  "Description": "position"
+                },
+                {
+                  "Name": "0.9",
+                  "Description": "position"
+                },
+                {
+                  "Name": "1.0",
+                  "Description": "position"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "Name": "--stop-position",
+          "Description": "Stop (exit) at some position in the log (does not work with STDIN)",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "position",
+                  "Description": "position",
+                  "Type": "String"
+                },
+                {
+                  "Name": "random",
+                  "Description": "position"
+                },
+                {
+                  "Name": "0.0",
+                  "Description": "position"
+                },
+                {
+                  "Name": "0.1",
+                  "Description": "position"
+                },
+                {
+                  "Name": "0.2",
+                  "Description": "position"
+                },
+                {
+                  "Name": "0.3",
+                  "Description": "position"
+                },
+                {
+                  "Name": "0.4",
+                  "Description": "position"
+                },
+                {
+                  "Name": "0.5",
+                  "Description": "position"
+                },
+                {
+                  "Name": "0.6",
+                  "Description": "position"
+                },
+                {
+                  "Name": "0.7",
+                  "Description": "position"
+                },
+                {
+                  "Name": "0.8",
+                  "Description": "position"
+                },
+                {
+                  "Name": "0.9",
+                  "Description": "position"
+                },
+                {
+                  "Name": "1.0",
+                  "Description": "position"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "Name": "-t",
+          "Description": "Stop (exit) after a specified number of seconds",
+          "Aliases": [
+            "--stop-at-time"
+          ],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "seconds",
+                  "Description": "seconds",
+                  "Type": "String"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "Name": "--stop-at-end",
+          "Description": "Stop (exit) at the end of the log / stream",
+          "Aliases": [],
+          "Arguments": []
+        },
+        {
+          "Name": "--loop",
+          "Description": "Loop back to the start of the log when the end is reached",
+          "Aliases": [],
+          "Arguments": []
+        },
+        {
+          "Name": "--loop-delay-seconds",
+          "Description": "Seconds to delay before looping",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "seconds",
+                  "Description": "seconds",
+                  "Type": "String"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "Name": "-a",
+          "Description": "Automatically skip to next entry if nothing happens for a specified number of seconds",
+          "Aliases": [
+            "--auto-skip-seconds"
+          ],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "seconds",
+                  "Description": "seconds",
+                  "Type": "String"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "Name": "-s",
+          "Description": "Speed of simulation in seconds per day",
+          "Aliases": [
+            "--seconds-per-day"
+          ],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "seconds",
+                  "Description": "seconds",
+                  "Type": "String"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "Name": "--realtime",
+          "Description": "Realtime playback speed",
+          "Aliases": [],
+          "Arguments": []
+        },
+        {
+          "Name": "--no-time-travel",
+          "Description": "Use the time of the last commit if the time of a commit is in the past",
+          "Aliases": [],
+          "Arguments": []
+        },
+        {
+          "Name": "-c",
+          "Description": "Change simulation time scale",
+          "Aliases": [
+            "--time-scale"
+          ],
+          "Arguments": []
+        },
+        {
+          "Name": "-i",
+          "Description": "Time in seconds files remain idle before they are removed or 0 for no limit",
+          "Aliases": [
+            "--file-idle-time"
+          ],
+          "Arguments": []
+        },
+        {
+          "Name": "--file-idle-time-at-end",
+          "Description": "Time in seconds files remain idle at the end before they are removed",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "seconds",
+                  "Description": "seconds",
+                  "Type": "String"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "Name": "-e",
+          "Description": "Elasticity of nodes",
+          "Aliases": [
+            "--elasticity"
+          ],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "elasticity",
+                  "Description": "elasticity",
+                  "Type": "String"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "Name": "-b",
+          "Description": "Background colour in hex",
+          "Aliases": [
+            "--background-colour"
+          ],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "colour",
+                  "Description": "colour",
+                  "Type": "String"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "Name": "--background-image",
+          "Description": "Set a background image",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "image file",
+                  "Description": "image file",
+                  "Type": "FileSystemEntry"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "Name": "--title",
+          "Description": "Set a title",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "title",
+                  "Description": "title",
+                  "Type": "String"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "Name": "--font-file",
+          "Description": "Specify the font. Should work with most font file formats supported by FreeType, such as TTF and OTF, among others",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "font file",
+                  "Description": "font file",
+                  "Type": "FileSystemEntry"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "Name": "--font-scale",
+          "Description": "Scale the size of all fonts",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "scale",
+                  "Description": "scale",
+                  "Type": "String"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "Name": "--font-size",
+          "Description": "Font size used by the date and title",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "size",
+                  "Description": "size",
+                  "Type": "String"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "Name": "--file-font-size",
+          "Description": "Font size of filenames",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "size",
+                  "Description": "size",
+                  "Type": "String"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "Name": "--dir-font-size",
+          "Description": "Font size of directory names",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "size",
+                  "Description": "size",
+                  "Type": "String"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "Name": "--user-font-size",
+          "Description": "Font size of user names",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "size",
+                  "Description": "size",
+                  "Type": "String"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "Name": "--font-colour",
+          "Description": "Font colour used by the date and title in hex",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "colour",
+                  "Description": "colour",
+                  "Type": "String"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "Name": "--key",
+          "Description": "Show file extension key",
+          "Aliases": [],
+          "Arguments": []
+        },
+        {
+          "Name": "--logo",
+          "Description": "Logo to display in the foreground",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "image file",
+                  "Description": "image file",
+                  "Type": "FileSystemEntry"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "Name": "--logo-offset",
+          "Description": "Offset position of the logo",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "offset",
+                  "Description": "offset",
+                  "Type": "String"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "Name": "--date-format",
+          "Description": "Specify display date string (strftime format)",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "format",
+                  "Description": "format",
+                  "Type": "String"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "Name": "--log-command",
+          "Description": "Show the log command used by gource (git,svn,hg,bzr,cvs2cl)",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "command",
+                  "Description": "command",
+                  "Type": "String"
+                },
+                {
+                  "Name": "git",
+                  "Description": "command"
+                },
+                {
+                  "Name": "svn",
+                  "Description": "command"
+                },
+                {
+                  "Name": "hg",
+                  "Description": "command"
+                },
+                {
+                  "Name": "bzr",
+                  "Description": "command"
+                },
+                {
+                  "Name": "cvs2cl",
+                  "Description": "command"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "Name": "--log-format",
+          "Description": "Specify format of the log being read (git,svn,hg,bzr,cvs2cl,custom). Required when reading from STDIN",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "format",
+                  "Description": "format",
+                  "Type": "String"
+                },
+                {
+                  "Name": "git",
+                  "Description": "format"
+                },
+                {
+                  "Name": "svn",
+                  "Description": "format"
+                },
+                {
+                  "Name": "hg",
+                  "Description": "format"
+                },
+                {
+                  "Name": "bzr",
+                  "Description": "format"
+                },
+                {
+                  "Name": "cvs2cl",
+                  "Description": "format"
+                },
+                {
+                  "Name": "custom",
+                  "Description": "format"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "Name": "--git-branch",
+          "Description": "Get the git log of a branch other than the current one",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "branch",
+                  "Description": "branch",
+                  "Type": "String"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "Name": "--follow-user",
+          "Description": "Have the camera automatically follow a particular user",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "username",
+                  "Description": "username",
+                  "Type": "String"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "Name": "--highlight-dirs",
+          "Description": "Highlight the names of all directories",
+          "Aliases": [],
+          "Arguments": []
+        },
+        {
+          "Name": "--highlight-user",
+          "Description": "Highlight the names of a particular user",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "username",
+                  "Description": "username",
+                  "Type": "String"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "Name": "--highlight-users",
+          "Description": "Highlight the names of all users",
+          "Aliases": [],
+          "Arguments": []
+        },
+        {
+          "Name": "--highlight-colour",
+          "Description": "Font colour for highlighted users in hex",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "colour",
+                  "Description": "colour",
+                  "Type": "String"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "Name": "--selection-colour",
+          "Description": "Font colour for selected users and files",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "colour",
+                  "Description": "colour",
+                  "Type": "String"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "Name": "--filename-colour",
+          "Description": "Font colour for filenames",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "colour",
+                  "Description": "colour",
+                  "Type": "String"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "Name": "--dir-colour",
+          "Description": "Font colour for directories",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "color",
+                  "Description": "color",
+                  "Type": "String"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "Name": "--dir-name-depth",
+          "Description": "Draw names of directories down to a specific depth in the tree",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "depth",
+                  "Description": "depth",
+                  "Type": "String"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "Name": "--dir-name-position",
+          "Description": "Position along edge of the directory name (between 0.1 and 1.0, default is 0.5)",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "position",
+                  "Description": "position",
+                  "Type": "String"
+                },
+                {
+                  "Name": "0.1",
+                  "Description": "position"
+                },
+                {
+                  "Name": "0.2",
+                  "Description": "position"
+                },
+                {
+                  "Name": "0.3",
+                  "Description": "position"
+                },
+                {
+                  "Name": "0.4",
+                  "Description": "position"
+                },
+                {
+                  "Name": "0.5",
+                  "Description": "position"
+                },
+                {
+                  "Name": "0.6",
+                  "Description": "position"
+                },
+                {
+                  "Name": "0.7",
+                  "Description": "position"
+                },
+                {
+                  "Name": "0.8",
+                  "Description": "position"
+                },
+                {
+                  "Name": "0.9",
+                  "Description": "position"
+                },
+                {
+                  "Name": "1.0",
+                  "Description": "position"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "Name": "--filename-time",
+          "Description": "Duration to keep filenames on screen (\u003E= 2.0)",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "time",
+                  "Description": "time",
+                  "Type": "String"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "Name": "--file-extensions",
+          "Description": "Show filename extensions only",
+          "Aliases": [],
+          "Arguments": []
+        },
+        {
+          "Name": "--file-extension-fallback",
+          "Description": "Use filename as extension if the extension is missing or empty",
+          "Aliases": [],
+          "Arguments": []
+        },
+        {
+          "Name": "--file-filter",
+          "Description": "Filter out file paths matching the specified regular expression",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "regex",
+                  "Description": "regex",
+                  "Type": "String"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "Name": "--file-show-filter",
+          "Description": "Show only file paths matching the specified regular expression",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "regex",
+                  "Description": "regex",
+                  "Type": "String"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "Name": "--user-filter",
+          "Description": "Filter usernames matching the specified regular expression",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "regex",
+                  "Description": "regex",
+                  "Type": "String"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "Name": "--user-show-filter",
+          "Description": "Show only usernames matching the specified regular expression",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "regex",
+                  "Description": "regex",
+                  "Type": "String"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "Name": "--user-image-dir",
+          "Description": "Directory containing .jpg or .png images of users (eg \u0027Full Name.png\u0027) to use as avatars",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "directory",
+                  "Description": "directory",
+                  "Type": "Directory"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "Name": "--default-user-image",
+          "Description": "Path of .jpg to use as the default user image",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "User image",
+                  "Description": "User image",
+                  "Type": "FileSystemEntry"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "Name": "--fixed-user-size",
+          "Description": "Forces the size of the user image to remain fixed throughout",
+          "Aliases": [],
+          "Arguments": []
+        },
+        {
+          "Name": "--colour-images",
+          "Description": "Colourize user images",
+          "Aliases": [],
+          "Arguments": []
+        },
+        {
+          "Name": "--crop",
+          "Description": "Crop view on an axis (vertical,horizontal)",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "axis",
+                  "Description": "axis",
+                  "Type": "String"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "Name": "--padding",
+          "Description": "Camera view padding",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "padding",
+                  "Description": "padding",
+                  "Type": "String"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "Name": "--multi-sampling",
+          "Description": "Enable multi-sampling",
+          "Aliases": [],
+          "Arguments": []
+        },
+        {
+          "Name": "--no-vsync",
+          "Description": "Disable vsync",
+          "Aliases": [],
+          "Arguments": []
+        },
+        {
+          "Name": "--bloom-multiplier",
+          "Description": "Adjust the amount of bloom",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "multiplier",
+                  "Description": "multiplier",
+                  "Type": "String"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "Name": "--bloom-intensity",
+          "Description": "Adjust the intensity of the bloom",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "intensity",
+                  "Description": "intensity",
+                  "Type": "String"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "Name": "--max-files",
+          "Description": "Set the maximum number of files or 0 for no limit. Excess files will be discarded",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "number",
+                  "Description": "number",
+                  "Type": "String"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "Name": "--max-file-lag",
+          "Description": "Max time files of a commit can take to appear. Use -1 for no limit",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "seconds",
+                  "Description": "seconds",
+                  "Type": "String"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "Name": "--max-user-speed",
+          "Description": "Max speed users can travel per second",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "units",
+                  "Description": "units",
+                  "Type": "String"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "Name": "--user-friction",
+          "Description": "Time users take to come to a halt",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "seconds",
+                  "Description": "seconds",
+                  "Type": "String"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "Name": "--user-scale",
+          "Description": "Change scale of user avatars",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "scale",
+                  "Description": "scale",
+                  "Type": "String"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "Name": "--camera-mode",
+          "Description": "Camera mode (overview,track)",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "mode",
+                  "Description": "mode",
+                  "Type": "String"
+                },
+                {
+                  "Name": "overview",
+                  "Description": "mode"
+                },
+                {
+                  "Name": "track",
+                  "Description": "mode"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "Name": "--disable-auto-rotate",
+          "Description": "Disable automatic camera rotation",
+          "Aliases": [],
+          "Arguments": []
+        },
+        {
+          "Name": "--disable-input",
+          "Description": "Disable keyboard and mouse input",
+          "Aliases": [],
+          "Arguments": []
+        },
+        {
+          "Name": "--hide",
+          "Description": "Hide one or more display elements from the list below: bloom - bloom effect date - current date dirnames - names of directories files - file icons filenames - names of files mouse - mouse cursor progress - progress bar widget root - root directory of the tree tree - animated tree structure users - user avatars usernames - names of users",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "element",
+                  "Description": "element",
+                  "Type": "String"
+                },
+                {
+                  "Name": "bloom",
+                  "Description": "element"
+                },
+                {
+                  "Name": "date",
+                  "Description": "element"
+                },
+                {
+                  "Name": "dirnames",
+                  "Description": "element"
+                },
+                {
+                  "Name": "files",
+                  "Description": "element"
+                },
+                {
+                  "Name": "filenames",
+                  "Description": "element"
+                },
+                {
+                  "Name": "mouse",
+                  "Description": "element"
+                },
+                {
+                  "Name": "progress",
+                  "Description": "element"
+                },
+                {
+                  "Name": "root",
+                  "Description": "element"
+                },
+                {
+                  "Name": "tree",
+                  "Description": "element"
+                },
+                {
+                  "Name": "users",
+                  "Description": "element"
+                },
+                {
+                  "Name": "usernames",
+                  "Description": "element"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "Name": "--hash-seed",
+          "Description": "Change the seed of hash function",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "seed",
+                  "Description": "seed",
+                  "Type": "String"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "Name": "--caption-file",
+          "Description": "Caption file (see Caption Log Format)",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "file",
+                  "Description": "file",
+                  "Type": "FileSystemEntry"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "Name": "--caption-size",
+          "Description": "Caption size",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "size",
+                  "Description": "size",
+                  "Type": "String"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "Name": "--caption-colour",
+          "Description": "Caption colour in hex",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "colour",
+                  "Description": "colour",
+                  "Type": "String"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "Name": "--caption-duration",
+          "Description": "Caption duration",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "seconds",
+                  "Description": "seconds",
+                  "Type": "String"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "Name": "--caption-offset",
+          "Description": "Caption horizontal offset (0 to centre captions)",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "offset",
+                  "Description": "offset",
+                  "Type": "String"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "Name": "-o",
+          "Description": "Output a PPM image stream to a file (\u0027-\u0027 for STDOUT). This will automatically hide the progress bar initially and enable \u0027stop-at-end\u0027 unless other behaviour is specified",
+          "Aliases": [
+            "--output-ppm-stream"
+          ],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "file",
+                  "Description": "file",
+                  "Type": "FileSystemEntry"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "Name": "-r",
+          "Description": "Framerate of output (25,30,60). Used with --output-ppm-stream",
+          "Aliases": [
+            "--output-framerate"
+          ],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "fps",
+                  "Description": "fps",
+                  "Type": "String"
+                },
+                {
+                  "Name": "25",
+                  "Description": "fps"
+                },
+                {
+                  "Name": "30",
+                  "Description": "fps"
+                },
+                {
+                  "Name": "60",
+                  "Description": "fps"
+                },
+                {
+                  "Name": "120",
+                  "Description": "fps"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "Name": "--output-custom-log",
+          "Description": "Output a custom format log file (\u0027-\u0027 for STDOUT)",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "file",
+                  "Description": "file",
+                  "Type": "FileSystemEntry"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "Name": "--load-config",
+          "Description": "Load a config file",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "config file",
+                  "Description": "config file",
+                  "Type": "FileSystemEntry"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "Name": "--save-config",
+          "Description": "Save a config file with the current options",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "config file",
+                  "Description": "config file",
+                  "Type": "FileSystemEntry"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "Name": "--path",
+          "Description": "Either a supported version control directory, a pre-generated log file (see log commands or the custom log format), a Gource conf file or \u0027-\u0027 to read STDIN",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "path",
+                  "Description": "path",
+                  "Type": "FileSystemEntry"
+                }
+              ]
+            }
+          ]
+        }
+      ],
+      "Optional": true
+    }
+  ]
+}

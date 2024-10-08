@@ -1,0 +1,646 @@
+{
+  "Comment": "This command info is generated from fig",
+  "Name": "rustc",
+  "Description": "CLI for rustc",
+  "Arguments": [
+    {
+      "Arguments": [
+        {
+          "Name": "-h",
+          "Description": "Prints out help info",
+          "Aliases": [
+            "--help"
+          ],
+          "Arguments": []
+        },
+        {
+          "Name": "--cfg",
+          "Description": "Configures compilation settings",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "Spec",
+                  "Description": "Spec",
+                  "Type": "String"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "Name": "L",
+          "Description": "Adds a directory to the library search path",
+          "Type": "Flag",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "kind",
+                  "Description": "kind",
+                  "Type": "String"
+                },
+                {
+                  "Name": "dependency",
+                  "Description": "Only search for transitive dependencies in this directory"
+                },
+                {
+                  "Name": "crate",
+                  "Description": "Only search for this crate\u0027s direct dependencies in this directory"
+                },
+                {
+                  "Name": "native",
+                  "Description": "Only search for native libraries in this directory"
+                },
+                {
+                  "Name": "framework",
+                  "Description": "Only search for macOS frameworks in this directory"
+                },
+                {
+                  "Name": "all",
+                  "Description": "Search for all library kinds in this directory"
+                }
+              ],
+              "Optional": true
+            },
+            {
+              "Arguments": [
+                {
+                  "Name": "path",
+                  "Description": "path",
+                  "Type": "Directory"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "Name": "--l",
+          "Description": "Links the generated crate to a native library",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "kind",
+                  "Description": "kind",
+                  "Type": "String"
+                },
+                {
+                  "Name": "dylib",
+                  "Description": "A native dynamic library"
+                },
+                {
+                  "Name": "static",
+                  "Description": "A native static library"
+                },
+                {
+                  "Name": "framework",
+                  "Description": "A macOS framework"
+                }
+              ],
+              "Optional": true
+            },
+            {
+              "Arguments": [
+                {
+                  "Name": "Name",
+                  "Description": "Name",
+                  "Type": "String"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "Name": "--crate-type",
+          "Description": "Specify types of crates for the compiler to emit",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "type",
+                  "Description": "type",
+                  "Type": "String"
+                },
+                {
+                  "Name": "bin",
+                  "Description": "A runnable executable program"
+                },
+                {
+                  "Name": "lib",
+                  "Description": "Generates a library kind preferred by the compiler"
+                },
+                {
+                  "Name": "rlib",
+                  "Description": "A Rust static library"
+                },
+                {
+                  "Name": "dylib",
+                  "Description": "A native dynamic library"
+                },
+                {
+                  "Name": "cdylib",
+                  "Description": "A native static library"
+                },
+                {
+                  "Name": "staticlib",
+                  "Description": "A macOS framework"
+                },
+                {
+                  "Name": "proc-macro",
+                  "Description": "Generates a format suitable for a procedural macro library that may be loaded by the compiler"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "Name": "--crate-name",
+          "Description": "Specify the name of the crate being built",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "Name",
+                  "Description": "Name",
+                  "Type": "String"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "Name": "--edition",
+          "Description": "Specify the edition to use",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "edition",
+                  "Description": "edition",
+                  "Type": "String"
+                },
+                {
+                  "Name": "2015",
+                  "Description": "edition"
+                },
+                {
+                  "Name": "2018",
+                  "Description": "edition"
+                },
+                {
+                  "Name": "2021",
+                  "Description": "edition"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "Name": "--emit",
+          "Description": "Specify the types of output files to generate",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "type",
+                  "Description": "type",
+                  "Type": "String"
+                },
+                {
+                  "Name": "asm",
+                  "Description": "Generates a file with the crate\u0027s assembly code"
+                },
+                {
+                  "Name": "llvm-bc",
+                  "Description": "Generates a binary file containing the LLVM bitcode"
+                },
+                {
+                  "Name": "llvm-ir",
+                  "Description": "Generates a file containing LLVM IR"
+                },
+                {
+                  "Name": "obj",
+                  "Description": "Generates a native object file"
+                },
+                {
+                  "Name": "metadata",
+                  "Description": "Generates a file containing metadata about the crate"
+                },
+                {
+                  "Name": "link",
+                  "Description": "Generates the crates specified by --crate-type"
+                },
+                {
+                  "Name": "dep-info",
+                  "Description": "Generates a file with Makefile syntax that indicates all the source files that were loaded to generate the crate"
+                },
+                {
+                  "Name": "mir",
+                  "Description": "Generates a file containing rustc\u0027s mid-level intermediate representation"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "Name": "--print",
+          "Description": "Prints compiler info",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "type",
+                  "Description": "type",
+                  "Type": "String"
+                },
+                {
+                  "Name": "crate-name",
+                  "Description": "The name of the crate"
+                },
+                {
+                  "Name": "file-names",
+                  "Description": "The names of the files created by the link emit kind"
+                },
+                {
+                  "Name": "sysroot",
+                  "Description": "Path to the sysroot"
+                },
+                {
+                  "Name": "target-libdir",
+                  "Description": "Path to the target libdir"
+                },
+                {
+                  "Name": "cfg",
+                  "Description": "List of cfg values"
+                },
+                {
+                  "Name": "target-list",
+                  "Description": "List of known targets. The target may be selected with the --target flag"
+                },
+                {
+                  "Name": "target-cpus",
+                  "Description": "List of available CPU values for the current target"
+                },
+                {
+                  "Name": "target-features",
+                  "Description": "List of available target features for the current target"
+                },
+                {
+                  "Name": "relocation-models",
+                  "Description": "List of relocation models. Relocation models may be selected with the -C relocation-model=val flag"
+                },
+                {
+                  "Name": "code-models",
+                  "Description": "List of code models"
+                },
+                {
+                  "Name": "tls-models",
+                  "Description": "List of Thread Local Storage models supported"
+                },
+                {
+                  "Name": "target-spec-json",
+                  "Description": "type"
+                },
+                {
+                  "Name": "native-static-libs",
+                  "Description": "This may be used when creating a staticlib crate type"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "Name": "g",
+          "Description": "Synonym for -C debuginfo=2",
+          "Type": "Flag",
+          "Aliases": [],
+          "Arguments": []
+        },
+        {
+          "Name": "O",
+          "Description": "Synonym for -C opt-level=2",
+          "Type": "Flag",
+          "Aliases": [],
+          "Arguments": []
+        },
+        {
+          "Name": "o",
+          "Description": "Specify the filename to write output",
+          "Type": "Flag",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "filename",
+                  "Description": "filename",
+                  "Type": "String"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "Name": "--out-dir",
+          "Description": "Specify directory to write output",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "dir",
+                  "Description": "dir",
+                  "Type": "String"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "Name": "--explain",
+          "Description": "Provides a detailed explanation of an error message",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "Error Code",
+                  "Description": "Error Code",
+                  "Type": "String"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "Name": "--test",
+          "Description": "Builds a test harness",
+          "Aliases": [],
+          "Arguments": []
+        },
+        {
+          "Name": "--target",
+          "Description": "Selects a target triple to build",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "Target",
+                  "Description": "Target",
+                  "Type": "String"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "Name": "-W",
+          "Description": "Sets lint warnings",
+          "Aliases": [
+            "--warn"
+          ],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "OPT",
+                  "Description": "OPT",
+                  "Type": "String"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "Name": "-A",
+          "Description": "Set lint allowed",
+          "Aliases": [
+            "--allow"
+          ],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "OPT",
+                  "Description": "OPT",
+                  "Type": "String"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "Name": "-D",
+          "Description": "Set lint denied",
+          "Aliases": [
+            "--deny"
+          ],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "OPT",
+                  "Description": "OPT",
+                  "Type": "String"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "Name": "-F",
+          "Description": "Set lint forbid",
+          "Aliases": [
+            "--forbid"
+          ],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "Opt",
+                  "Description": "Opt",
+                  "Type": "String"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "Name": "--cap-lints",
+          "Description": "Set the most restrictive lint level",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "Level",
+                  "Description": "Level",
+                  "Type": "String"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "Name": "-C",
+          "Description": "Set a codegen option",
+          "Aliases": [
+            "--codegen"
+          ],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "option",
+                  "Description": "option",
+                  "Type": "String"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "Name": "Z",
+          "Description": "Set unstable options",
+          "Type": "Flag",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "option",
+                  "Description": "option",
+                  "Type": "String"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "Name": "-V",
+          "Description": "Prints version",
+          "Aliases": [
+            "--version"
+          ],
+          "Arguments": []
+        },
+        {
+          "Name": "-v",
+          "Description": "Use verbose output",
+          "Aliases": [
+            "--verbose"
+          ],
+          "Arguments": []
+        },
+        {
+          "Name": "--extern",
+          "Description": "Specify where an external library is located",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "Path",
+                  "Description": "Path",
+                  "Type": "Directory"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "Name": "--sysroot",
+          "Description": "Overrides the system root",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "directory",
+                  "Description": "directory",
+                  "Type": "String"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "Name": "--error-format",
+          "Description": "Controls how errors are produced",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "format",
+                  "Description": "format",
+                  "Type": "String"
+                },
+                {
+                  "Name": "human",
+                  "Description": "format"
+                },
+                {
+                  "Name": "json",
+                  "Description": "format"
+                },
+                {
+                  "Name": "short",
+                  "Description": "format"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "Name": "--color",
+          "Description": "Configures coloring of output",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "color",
+                  "Description": "color",
+                  "Type": "String"
+                },
+                {
+                  "Name": "auto",
+                  "Description": "color"
+                },
+                {
+                  "Name": "always",
+                  "Description": "color"
+                },
+                {
+                  "Name": "never",
+                  "Description": "color"
+                }
+              ]
+            }
+          ]
+        }
+      ],
+      "Optional": true
+    },
+    {
+      "Arguments": [
+        {
+          "Name": "filepath",
+          "Description": "filepath",
+          "Type": "FileSystemEntry"
+        }
+      ]
+    }
+  ]
+}

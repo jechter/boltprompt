@@ -1,0 +1,1089 @@
+{
+  "Comment": "This command info is generated from fig",
+  "Name": "rg",
+  "Description": "Recursively searches current directory for lines matching a pattern",
+  "Arguments": [
+    {
+      "Arguments": [
+        {
+          "Name": "-A",
+          "Description": "Shows NUM lines after each match",
+          "Aliases": [
+            "--after-context"
+          ],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "Num",
+                  "Description": "Num",
+                  "Type": "String"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "Name": "--auto-hybrid-regex",
+          "Description": "When this flag is used, ripgrep will dynamically choose between supported regex engines depending on the features used in a pattern",
+          "Aliases": [],
+          "Arguments": []
+        },
+        {
+          "Name": "-B",
+          "Description": "Shows NUM lines before each match",
+          "Aliases": [
+            "--before-context"
+          ],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "Num",
+                  "Description": "Num",
+                  "Type": "String"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "Name": "--binary",
+          "Description": "Enabling this flag will cause ripgrep to search binary files",
+          "Aliases": [],
+          "Arguments": []
+        },
+        {
+          "Name": "--block-buffered",
+          "Description": "When enabled, ripgrep will use block buffering",
+          "Aliases": [],
+          "Arguments": []
+        },
+        {
+          "Name": "-b",
+          "Description": "Prints the 0-based byte offset within the input file before each line of output",
+          "Aliases": [
+            "--byte-offset"
+          ],
+          "Arguments": []
+        },
+        {
+          "Name": "-s",
+          "Description": "Search case sensitively",
+          "Aliases": [
+            "--case-sensitive"
+          ],
+          "Arguments": []
+        },
+        {
+          "Name": "--color",
+          "Description": "Controls when to use colors",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "when",
+                  "Description": "when",
+                  "Type": "String"
+                },
+                {
+                  "Name": "never",
+                  "Description": "Colors will never be used"
+                },
+                {
+                  "Name": "auto",
+                  "Description": "Ripgrep tries to be smart"
+                },
+                {
+                  "Name": "always",
+                  "Description": "Colors will always be used regardless of where output is sent"
+                },
+                {
+                  "Name": "ansi",
+                  "Description": "Colors will always be used, but emits ANSI escapes"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "Name": "--colors",
+          "Description": "Specifies color settings for use in the output",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "Color Spec",
+                  "Description": "Color Spec",
+                  "Type": "String"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "Name": "--column",
+          "Description": "Shows column numbers for the first match on each line",
+          "Aliases": [],
+          "Arguments": []
+        },
+        {
+          "Name": "-C",
+          "Description": "Shows NUM lines before and after each match",
+          "Aliases": [
+            "--context"
+          ],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "NUM",
+                  "Description": "NUM",
+                  "Type": "String"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "Name": "--context-separator",
+          "Description": "The string used to separate non-contiguous context lines in the output",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "Separator",
+                  "Description": "Separator",
+                  "Type": "String"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "Name": "-c",
+          "Description": "Suppresses normal output and shows the number of lines that match the given pattersns for each file searched",
+          "Aliases": [
+            "--count"
+          ],
+          "Arguments": []
+        },
+        {
+          "Name": "--count-matches",
+          "Description": "Suppresses normal output and shows the number of individual matches of the given patterns for each file searched",
+          "Aliases": [],
+          "Arguments": []
+        },
+        {
+          "Name": "--crlf",
+          "Description": "Treats CRLF as a line terminator instead of just a line break",
+          "Aliases": [],
+          "Arguments": []
+        },
+        {
+          "Name": "--debug",
+          "Description": "Shows debug messages",
+          "Aliases": [],
+          "Arguments": []
+        },
+        {
+          "Name": "--dfa-size-limit",
+          "Description": "The upper size limit of the regex DFA",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "NUM",
+                  "Description": "NUM",
+                  "Type": "String"
+                }
+              ]
+            },
+            {
+              "Arguments": [
+                {
+                  "Name": "suffix",
+                  "Description": "suffix",
+                  "Type": "String"
+                }
+              ],
+              "Optional": true
+            }
+          ]
+        },
+        {
+          "Name": "-E",
+          "Description": "Specifies the text encoding that ripgrep will use on all files searched",
+          "Aliases": [
+            "--encoding"
+          ],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "Encoding",
+                  "Description": "Encoding",
+                  "Type": "String"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "Name": "--engine",
+          "Description": "Specifies which regular expression engine to use",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "Engine",
+                  "Description": "Engine",
+                  "Type": "String"
+                },
+                {
+                  "Name": "default",
+                  "Description": "Engine"
+                },
+                {
+                  "Name": "pcre2",
+                  "Description": "Engine"
+                },
+                {
+                  "Name": "auto",
+                  "Description": "Engine"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "Name": "-f",
+          "Description": "Searches for patterns from the given file, with one pattern per line",
+          "Aliases": [
+            "--file"
+          ],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "Patternfile",
+                  "Description": "Patternfile",
+                  "Type": "FileSystemEntry"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "Name": "--files",
+          "Description": "Prints each file that would be searched without actually performing the search",
+          "Aliases": [],
+          "Arguments": []
+        },
+        {
+          "Name": "-l",
+          "Description": "Only prints the paths with at least one match",
+          "Aliases": [
+            "--files-with-matches"
+          ],
+          "Arguments": []
+        },
+        {
+          "Name": "--files-without-match",
+          "Description": "Only prints the paths that contains zero matches",
+          "Aliases": [],
+          "Arguments": []
+        },
+        {
+          "Name": "-F",
+          "Description": "Treats the pattern as a literal string instead of a regular expression",
+          "Aliases": [
+            "--fixed-strings"
+          ],
+          "Arguments": []
+        },
+        {
+          "Name": "-L",
+          "Description": "Follows symbolic links while traversing directories",
+          "Aliases": [
+            "--follow"
+          ],
+          "Arguments": []
+        },
+        {
+          "Name": "-g",
+          "Description": "Includes or excludes files and directories for searching that match the given glob",
+          "Aliases": [
+            "--glob"
+          ],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "GLOB",
+                  "Description": "GLOB",
+                  "Type": "String"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "Name": "--glob-case-insensitive",
+          "Description": "Processes glob patterns given with the -g/--glob flag",
+          "Aliases": [],
+          "Arguments": []
+        },
+        {
+          "Name": "--heading",
+          "Description": "Prints the file path above clusters of matches from each file instead of printing the file path as a prefix for reach matched line",
+          "Aliases": [],
+          "Arguments": []
+        },
+        {
+          "Name": "--hidden",
+          "Description": "Searches hidden files and directories",
+          "Aliases": [],
+          "Arguments": []
+        },
+        {
+          "Name": "--iglob",
+          "Description": "Includes or excludes files and directories for searching that match given the glob",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "GLOB",
+                  "Description": "GLOB",
+                  "Type": "FileSystemEntry"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "Name": "--ignore-file",
+          "Description": "Specifies a path to one or more .gitignore format rules files",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "Path",
+                  "Description": "Path",
+                  "Type": "FileSystemEntry"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "Name": "--ignore-file-case-insensitive",
+          "Description": "Process ignores files case insensitively",
+          "Aliases": [],
+          "Arguments": []
+        },
+        {
+          "Name": "--include-zero",
+          "Description": "Prints the number of matchesfor each file when used with --count or --count matches",
+          "Aliases": [],
+          "Arguments": []
+        },
+        {
+          "Name": "-v",
+          "Description": "Inverts matching",
+          "Aliases": [
+            "--invert-match"
+          ],
+          "Arguments": []
+        },
+        {
+          "Name": "--json",
+          "Description": "Enables printing results in a JSON Lines format",
+          "Aliases": [],
+          "Arguments": []
+        },
+        {
+          "Name": "--no-json",
+          "Description": "Disables the JSON Lines format",
+          "Aliases": [],
+          "Arguments": []
+        },
+        {
+          "Name": "--line-buffered",
+          "Description": "Enables line buffering",
+          "Aliases": [],
+          "Arguments": []
+        },
+        {
+          "Name": "-n",
+          "Description": "Shows the line numbers (1-based)",
+          "Aliases": [
+            "--line-number"
+          ],
+          "Arguments": []
+        },
+        {
+          "Name": "-x",
+          "Description": "Only shows matches surrounded by line boundaries",
+          "Aliases": [
+            "--line-regexp"
+          ],
+          "Arguments": []
+        },
+        {
+          "Name": "-M",
+          "Description": "Don\u0027t print lines longer than this limit in bytes",
+          "Aliases": [
+            "--max-columns"
+          ],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "NUM",
+                  "Description": "NUM",
+                  "Type": "String"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "Name": "--max-columns-preview",
+          "Description": "Completely replaces any line that is too long with a message indicating that a matching line was removed",
+          "Aliases": [],
+          "Arguments": []
+        },
+        {
+          "Name": "-m",
+          "Description": "Limits the number of matching lines per file searched to NUM",
+          "Aliases": [
+            "--max-count"
+          ],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "NUM",
+                  "Description": "NUM",
+                  "Type": "String"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "Name": "--max-depth",
+          "Description": "Limits the depth of directory traversal to NUM levels beyond the paths given",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "NUM",
+                  "Description": "NUM",
+                  "Type": "String"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "Name": "--max-filesize",
+          "Description": "Ignores files larger than NUM in size",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "NUM",
+                  "Description": "NUM",
+                  "Type": "String"
+                }
+              ]
+            },
+            {
+              "Arguments": [
+                {
+                  "Name": "Suffix",
+                  "Description": "Suffix",
+                  "Type": "String"
+                }
+              ],
+              "Optional": true
+            }
+          ]
+        },
+        {
+          "Name": "-mmap",
+          "Description": "Searches using memory maps when possible",
+          "Aliases": [],
+          "Arguments": []
+        },
+        {
+          "Name": "-U",
+          "Description": "Enables matching across multiple lines",
+          "Aliases": [
+            "--multiline"
+          ],
+          "Arguments": []
+        },
+        {
+          "Name": "--multiline-dotall",
+          "Description": "Enables dot all in your regex pattern",
+          "Aliases": [],
+          "Arguments": []
+        },
+        {
+          "Name": "--no-config",
+          "Description": "Never read configuration files",
+          "Aliases": [],
+          "Arguments": []
+        },
+        {
+          "Name": "-I",
+          "Description": "Never prints the file path with the matched lines",
+          "Aliases": [
+            "--no-filename"
+          ],
+          "Arguments": []
+        },
+        {
+          "Name": "--no-heading",
+          "Description": "Don\u0027t group matches by each file",
+          "Aliases": [],
+          "Arguments": []
+        },
+        {
+          "Name": "--no-ignore",
+          "Description": "Don\u0027t respect ignore files (.gitignore, .ignore, etc.)",
+          "Aliases": [],
+          "Arguments": []
+        },
+        {
+          "Name": "--no-ignore-dot",
+          "Description": "Don\u0027t respect .ignore files",
+          "Aliases": [],
+          "Arguments": []
+        },
+        {
+          "Name": "--no-ignore-excluded",
+          "Description": "Don\u0027t respect ignore files that are manually configured for the repository",
+          "Aliases": [],
+          "Arguments": []
+        },
+        {
+          "Name": "--no-ignore-files",
+          "Description": "Ignores any --ignore-file flags",
+          "Aliases": [],
+          "Arguments": []
+        },
+        {
+          "Name": "--no-ignore-global",
+          "Description": "Don\u0027t respect ignore files that come from \u0060global\u0060 sources",
+          "Aliases": [],
+          "Arguments": []
+        },
+        {
+          "Name": "--no-ignore-messages",
+          "Description": "Suppresses all error messages related to parsing ignore files",
+          "Aliases": [],
+          "Arguments": []
+        },
+        {
+          "Name": "--no-ignore-parent",
+          "Description": "Don\u0027t repsect ignore files in parent directories",
+          "Aliases": [],
+          "Arguments": []
+        },
+        {
+          "Name": "--no-ignore-vcs",
+          "Description": "Don\u0027t respect version control ignore files",
+          "Aliases": [],
+          "Arguments": []
+        },
+        {
+          "Name": "-N",
+          "Description": "Suppress line numbers",
+          "Aliases": [
+            "--no-line-number"
+          ],
+          "Arguments": []
+        },
+        {
+          "Name": "--no-messages",
+          "Description": "Suppresses all error messages related to opening and reading files",
+          "Aliases": [],
+          "Arguments": []
+        },
+        {
+          "Name": "--no-map",
+          "Description": "Never use memory maps, even when they might be faster",
+          "Aliases": [],
+          "Arguments": []
+        },
+        {
+          "Name": "--no-pcre2-unicode",
+          "Description": "",
+          "Aliases": [],
+          "Arguments": []
+        },
+        {
+          "Name": "--no-require-git",
+          "Description": "Will only respect global gitignore rules",
+          "Aliases": [],
+          "Arguments": []
+        },
+        {
+          "Name": "--no-unicode",
+          "Description": "Turn off unicode",
+          "Aliases": [],
+          "Arguments": []
+        },
+        {
+          "Name": "--unicode",
+          "Description": "Disables --no-unicode flag",
+          "Aliases": [],
+          "Arguments": []
+        },
+        {
+          "Name": "-0",
+          "Description": "Whenever a file path is printed, follow it with a NUL byte",
+          "Aliases": [
+            "--null"
+          ],
+          "Arguments": []
+        },
+        {
+          "Name": "--null-data",
+          "Description": "Uses NUL as a line terminator instead of the default line break",
+          "Aliases": [],
+          "Arguments": []
+        },
+        {
+          "Name": "--one-file-system",
+          "Description": "Will not cross file system boundaries relative to where the search started from",
+          "Aliases": [],
+          "Arguments": []
+        },
+        {
+          "Name": "--no-one-file-system",
+          "Description": "Disables \u0060--one-file-system\u0060 flag",
+          "Aliases": [],
+          "Arguments": []
+        },
+        {
+          "Name": "-o",
+          "Description": "Prints only the matched (non-empty) parts of a matching line, with each such part on a separate output line",
+          "Aliases": [
+            "--only-matching"
+          ],
+          "Arguments": []
+        },
+        {
+          "Name": "--passthru",
+          "Description": "Prints both matching and non-matching lines",
+          "Aliases": [],
+          "Arguments": []
+        },
+        {
+          "Name": "--path-separator",
+          "Description": "Sets the path separator to use when printing file paths",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "Separator",
+                  "Description": "Separator",
+                  "Type": "String"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "Name": "-P",
+          "Description": "Usess the PCRE2 regex engine instead of its default regex engine",
+          "Aliases": [
+            "--pcre2"
+          ],
+          "Arguments": []
+        },
+        {
+          "Name": "--pcre2-version",
+          "Description": "Prints the version of PCRE2 in use",
+          "Aliases": [],
+          "Arguments": []
+        },
+        {
+          "Name": "--pre",
+          "Description": "For each input File, search the standard output of the command",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "Command",
+                  "Description": "Command",
+                  "Type": "String"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "Name": "--pre-glob",
+          "Description": "Only files that match the given set of globs will be handed to the command specified by the \u0060--pre flag\u0060",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "GLOB",
+                  "Description": "GLOB",
+                  "Type": "String"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "Name": "-p",
+          "Description": "Convenience alias for \u0060--color always --heading --line-number\u0060",
+          "Aliases": [
+            "--pretty"
+          ],
+          "Arguments": []
+        },
+        {
+          "Name": "-q",
+          "Description": "Do not print anything to stdout",
+          "Aliases": [
+            "--quiet"
+          ],
+          "Arguments": []
+        },
+        {
+          "Name": "--regex-size-limit",
+          "Description": "Sets the upper size limit of the compiled regex",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "NUM",
+                  "Description": "NUM",
+                  "Type": "String"
+                }
+              ]
+            },
+            {
+              "Arguments": [
+                {
+                  "Name": "Suffix",
+                  "Description": "Suffix",
+                  "Type": "String"
+                }
+              ],
+              "Optional": true
+            }
+          ]
+        },
+        {
+          "Name": "-e",
+          "Description": "A pattern to search for",
+          "Aliases": [
+            "--regexp"
+          ],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "Pattern",
+                  "Description": "Pattern",
+                  "Type": "String"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "Name": "-r",
+          "Description": "Replace every match with the text given when printing results",
+          "Aliases": [
+            "--replace"
+          ],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "Replacement Text",
+                  "Description": "Replacement Text",
+                  "Type": "String"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "Name": "-z",
+          "Description": "Search in compressed files",
+          "Aliases": [
+            "--search-zip"
+          ],
+          "Arguments": []
+        },
+        {
+          "Name": "-S",
+          "Description": "Searches case insensitively if the pattern is all lowercase",
+          "Aliases": [
+            "--smart-case"
+          ],
+          "Arguments": []
+        },
+        {
+          "Name": "--sort",
+          "Description": "",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "Sortby",
+                  "Description": "Sortby",
+                  "Type": "String"
+                },
+                {
+                  "Name": "none",
+                  "Description": "Do not sort results. Fastest. Can be multi-threaded"
+                },
+                {
+                  "Name": "path",
+                  "Description": "Sort by file path, Always single-threaded"
+                },
+                {
+                  "Name": "modified",
+                  "Description": "Sort by the last modified time on a file. Always single-threaded"
+                },
+                {
+                  "Name": "accessed",
+                  "Description": "Sort by the last accessed time on a file. Always single-threaded"
+                },
+                {
+                  "Name": "created",
+                  "Description": "Sort by the creation time on a file. Always single-threaded"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "Name": "--sortr",
+          "Description": "Enables sorting results in descending order",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "Sortby",
+                  "Description": "Sortby",
+                  "Type": "String"
+                },
+                {
+                  "Name": "none",
+                  "Description": "Do not sort results. Fastest. Can be multi-threaded"
+                },
+                {
+                  "Name": "path",
+                  "Description": "Sort by file path, Always single-threaded"
+                },
+                {
+                  "Name": "modified",
+                  "Description": "Sort by the last modified time on a file. Always single-threaded"
+                },
+                {
+                  "Name": "accessed",
+                  "Description": "Sort by the last accessed time on a file. Always single-threaded"
+                },
+                {
+                  "Name": "created",
+                  "Description": "Sort by the creation time on a file. Always single-threaded"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "Name": "--stats",
+          "Description": "Prints aggregate statistics about this ripgrep search",
+          "Aliases": [],
+          "Arguments": []
+        },
+        {
+          "Name": "-a",
+          "Description": "Searches binary files as if they were text",
+          "Aliases": [
+            "--text"
+          ],
+          "Arguments": []
+        },
+        {
+          "Name": "-j",
+          "Description": "The approximate number of threads to use",
+          "Aliases": [
+            "--threads"
+          ],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "NUM",
+                  "Description": "NUM",
+                  "Type": "String"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "Name": "--trim",
+          "Description": "All ASCII whitespace at the beginning of each line printed will be trimmed",
+          "Aliases": [],
+          "Arguments": []
+        },
+        {
+          "Name": "-t",
+          "Description": "Only searches files matching TYPE",
+          "Aliases": [
+            "--type"
+          ],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "Type",
+                  "Description": "Type",
+                  "Type": "String"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "Name": "--type-add",
+          "Description": "Add a new glob for a particular file type",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "Type Spec",
+                  "Description": "Type Spec",
+                  "Type": "String"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "Name": "--type-clear",
+          "Description": "Clear the file type globs previously defined for type",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "type",
+                  "Description": "type",
+                  "Type": "String"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "Name": "--type-list",
+          "Description": "Shows all supported file types and their corresponding globs",
+          "Aliases": [],
+          "Arguments": []
+        },
+        {
+          "Name": "-T",
+          "Description": "Do not search files matching type",
+          "Aliases": [
+            "--type-not"
+          ],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "type",
+                  "Description": "type",
+                  "Type": "String"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "Name": "-u",
+          "Description": "Reduce the level of smart searching, increase by adding \u0060u\u0060s, ex: -uuu",
+          "Aliases": [
+            "--unrestricted"
+          ],
+          "Arguments": []
+        },
+        {
+          "Name": "--vimgrep",
+          "Description": "Shows results with every match on its own line, including line numbers and column nnumbers",
+          "Aliases": [],
+          "Arguments": []
+        },
+        {
+          "Name": "-H",
+          "Description": "Displays the file path for matches",
+          "Aliases": [
+            "--with-filename"
+          ],
+          "Arguments": []
+        },
+        {
+          "Name": "-w",
+          "Description": "Only shows the matches surrounded by word boundaries",
+          "Aliases": [
+            "--word-regexp"
+          ],
+          "Arguments": []
+        }
+      ],
+      "Optional": true
+    },
+    {
+      "Arguments": [
+        {
+          "Name": "Pattern",
+          "Description": "Pattern",
+          "Type": "String"
+        }
+      ]
+    },
+    {
+      "Arguments": [
+        {
+          "Name": "Path",
+          "Description": "Path",
+          "Type": "FileSystemEntry"
+        }
+      ],
+      "Optional": true
+    }
+  ]
+}

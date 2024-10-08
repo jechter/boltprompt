@@ -25,12 +25,27 @@
       <PackageReference Include="Microsoft.Extensions.Configuration.UserSecrets" Version="9.0.0-rc.1.24431.7" />
       <PackageReference Include="Microsoft.Extensions.DependencyInjection" Version="8.0.0" />
       <PackageReference Include="Mono.Unix" Version="7.1.0-final.1.21458.1" />
+      <PackageReference Include="System.CommandLine" Version="2.0.0-beta4.22272.1" />
     </ItemGroup>
 
     <ItemGroup>
-        <None Update="boltpromptSupportFiles/**">
+        <None Update="boltpromptSupportFiles\**">
             <Pack>true</Pack>
             <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+        </None>
+    </ItemGroup>
+    <ItemGroup>
+        <None Include="..\Commands\**">
+            <Pack>true</Pack>
+            <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+            <LinkBase>"boltpromptSupportFiles\Commands\"</LinkBase>
+        </None>
+    </ItemGroup>
+    <ItemGroup>
+        <None Include="..\figConvertedCommands\**">
+            <Pack>true</Pack>
+            <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+            <LinkBase>"boltpromptSupportFiles\Commands\"</LinkBase>
         </None>
     </ItemGroup>
 

@@ -1,0 +1,559 @@
+{
+  "Comment": "This command info is generated from fig",
+  "Name": "direnv",
+  "Description": "Unclutter your .profile",
+  "Arguments": [
+    {
+      "Arguments": [
+        {
+          "Name": "--version",
+          "Description": "Prints the version or checks that direnv is older than VERSION_AT_LEAST",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "VERSION_AT_LEAST",
+                  "Description": "VERSION_AT_LEAST",
+                  "Type": "String"
+                }
+              ],
+              "Optional": true
+            }
+          ]
+        },
+        {
+          "Name": "--help",
+          "Description": "Help for direnv",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "SHOW_PRIVATE",
+                  "Description": "SHOW_PRIVATE",
+                  "Type": "String"
+                }
+              ],
+              "Optional": true
+            }
+          ]
+        }
+      ],
+      "Optional": true
+    },
+    {
+      "Arguments": [
+        {
+          "Name": "allow",
+          "Description": "Grants direnv to load the given .envrc",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "PATH_TO_RC",
+                  "Description": "PATH_TO_RC",
+                  "Type": "String",
+                  "Extensions": [],
+                  "CustomCommand": ""
+                }
+              ],
+              "Optional": true
+            }
+          ]
+        },
+        {
+          "Name": "deny",
+          "Description": "Revokes the authorization of a given .envrc",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "PATH_TO_RC",
+                  "Description": "PATH_TO_RC",
+                  "Type": "String",
+                  "Extensions": [],
+                  "CustomCommand": ""
+                }
+              ],
+              "Optional": true
+            }
+          ]
+        },
+        {
+          "Name": "edit",
+          "Description": "Opens PATH_TO_RC or the current .envrc into an $EDITOR and allow the file to be loaded afterwards",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "PATH_TO_RC",
+                  "Description": "PATH_TO_RC",
+                  "Type": "String",
+                  "Extensions": [],
+                  "CustomCommand": ""
+                }
+              ],
+              "Optional": true
+            }
+          ]
+        },
+        {
+          "Name": "exec",
+          "Description": "Executes a command after loading the first .envrc found in DIR",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "DIR",
+                  "Description": "DIR",
+                  "Type": "Directory"
+                }
+              ]
+            },
+            {
+              "Arguments": [
+                {
+                  "Name": "COMMAND",
+                  "Description": "COMMAND",
+                  "Type": "String"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "Name": "fetchurl",
+          "Description": "Fetches a given URL into direnv\u0027s CAS",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "url",
+                  "Description": "url",
+                  "Type": "String"
+                }
+              ]
+            },
+            {
+              "Arguments": [
+                {
+                  "Name": "integrity-hash",
+                  "Description": "integrity-hash",
+                  "Type": "String"
+                }
+              ],
+              "Optional": true
+            }
+          ]
+        },
+        {
+          "Name": "help",
+          "Description": "Help for direnv",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "SHOW_PRIVATE",
+                  "Description": "SHOW_PRIVATE",
+                  "Type": "String"
+                }
+              ],
+              "Optional": true
+            }
+          ]
+        },
+        {
+          "Name": "hook",
+          "Description": "Used to setup the shell hook",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "SHELL",
+                  "Description": "SHELL",
+                  "Type": "String"
+                },
+                {
+                  "Name": "bash",
+                  "Description": "SHELL"
+                },
+                {
+                  "Name": "zsh",
+                  "Description": "SHELL"
+                },
+                {
+                  "Name": "fish",
+                  "Description": "SHELL"
+                },
+                {
+                  "Name": "tcsh",
+                  "Description": "SHELL"
+                },
+                {
+                  "Name": "elvish",
+                  "Description": "SHELL"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "Name": "prune",
+          "Description": "Removes old allowed files",
+          "Aliases": [],
+          "Arguments": []
+        },
+        {
+          "Name": "reload",
+          "Description": "Triggers an env reload",
+          "Aliases": [],
+          "Arguments": []
+        },
+        {
+          "Name": "status",
+          "Description": "Prints some debug status information",
+          "Aliases": [],
+          "Arguments": []
+        },
+        {
+          "Name": "stdlib",
+          "Description": "Displays the stdlib available in the .envrc execution context",
+          "Aliases": [],
+          "Arguments": []
+        },
+        {
+          "Name": "version",
+          "Description": "Prints the version or checks that direnv is older than VERSION_AT_LEAST",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "VERSION_AT_LEAST",
+                  "Description": "VERSION_AT_LEAST",
+                  "Type": "String"
+                }
+              ],
+              "Optional": true
+            }
+          ]
+        },
+        {
+          "Name": "apply_dump",
+          "Description": "Accepts a filename containing \u0060direnv dump\u0060 output and generates a series of bash export statements to apply the given env",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "FILE",
+                  "Description": "FILE",
+                  "Type": "FileSystemEntry"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "Name": "show_dump",
+          "Description": "Show the data inside of a dump for debugging purposes",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "DUMP",
+                  "Description": "DUMP",
+                  "Type": "FileSystemEntry"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "Name": "dotenv",
+          "Description": "Transforms a .env file to evaluatable \u0060export KEY=PAIR\u0060 statements",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "SHELL",
+                  "Description": "SHELL",
+                  "Type": "String"
+                },
+                {
+                  "Name": "bash",
+                  "Description": "SHELL"
+                },
+                {
+                  "Name": "zsh",
+                  "Description": "SHELL"
+                },
+                {
+                  "Name": "fish",
+                  "Description": "SHELL"
+                },
+                {
+                  "Name": "tcsh",
+                  "Description": "SHELL"
+                },
+                {
+                  "Name": "elvish",
+                  "Description": "SHELL"
+                }
+              ],
+              "Optional": true
+            },
+            {
+              "Arguments": [
+                {
+                  "Name": "PATH_TO_DOTENV",
+                  "Description": "PATH_TO_DOTENV",
+                  "Type": "String",
+                  "Extensions": [],
+                  "CustomCommand": ""
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "Name": "dump",
+          "Description": "Used to export the inner bash state at the end of execution",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "SHELL",
+                  "Description": "SHELL",
+                  "Type": "String"
+                },
+                {
+                  "Name": "bash",
+                  "Description": "SHELL"
+                },
+                {
+                  "Name": "zsh",
+                  "Description": "SHELL"
+                },
+                {
+                  "Name": "fish",
+                  "Description": "SHELL"
+                },
+                {
+                  "Name": "tcsh",
+                  "Description": "SHELL"
+                },
+                {
+                  "Name": "elvish",
+                  "Description": "SHELL"
+                }
+              ],
+              "Optional": true
+            },
+            {
+              "Arguments": [
+                {
+                  "Name": "FILE",
+                  "Description": "FILE",
+                  "Type": "FileSystemEntry"
+                }
+              ],
+              "Optional": true
+            }
+          ]
+        },
+        {
+          "Name": "export",
+          "Description": "Loads an .envrc and prints the diff in terms of exports",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "SHELL",
+                  "Description": "SHELL",
+                  "Type": "String"
+                },
+                {
+                  "Name": "bash",
+                  "Description": "SHELL"
+                },
+                {
+                  "Name": "zsh",
+                  "Description": "SHELL"
+                },
+                {
+                  "Name": "fish",
+                  "Description": "SHELL"
+                },
+                {
+                  "Name": "tcsh",
+                  "Description": "SHELL"
+                },
+                {
+                  "Name": "elvish",
+                  "Description": "SHELL"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "Name": "watch",
+          "Description": "Adds a path to the list that direnv watches for changes",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "SHELL",
+                  "Description": "SHELL",
+                  "Type": "String"
+                },
+                {
+                  "Name": "bash",
+                  "Description": "SHELL"
+                },
+                {
+                  "Name": "zsh",
+                  "Description": "SHELL"
+                },
+                {
+                  "Name": "fish",
+                  "Description": "SHELL"
+                },
+                {
+                  "Name": "tcsh",
+                  "Description": "SHELL"
+                },
+                {
+                  "Name": "elvish",
+                  "Description": "SHELL"
+                }
+              ]
+            },
+            {
+              "Arguments": [
+                {
+                  "Name": "PATH",
+                  "Description": "PATH",
+                  "Type": "FileSystemEntry"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "Name": "watch-dir",
+          "Description": "Recursively adds a directory to the list that direnv watches for changes",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "SHELL",
+                  "Description": "SHELL",
+                  "Type": "String"
+                },
+                {
+                  "Name": "bash",
+                  "Description": "SHELL"
+                },
+                {
+                  "Name": "zsh",
+                  "Description": "SHELL"
+                },
+                {
+                  "Name": "fish",
+                  "Description": "SHELL"
+                },
+                {
+                  "Name": "tcsh",
+                  "Description": "SHELL"
+                },
+                {
+                  "Name": "elvish",
+                  "Description": "SHELL"
+                }
+              ]
+            },
+            {
+              "Arguments": [
+                {
+                  "Name": "DIR",
+                  "Description": "DIR",
+                  "Type": "Directory"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "Name": "watch-list",
+          "Description": "Pipe pairs of \u0060mtime path\u0060 to stdin to build a list of files to watch",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "SHELL",
+                  "Description": "SHELL",
+                  "Type": "String"
+                },
+                {
+                  "Name": "bash",
+                  "Description": "SHELL"
+                },
+                {
+                  "Name": "zsh",
+                  "Description": "SHELL"
+                },
+                {
+                  "Name": "fish",
+                  "Description": "SHELL"
+                },
+                {
+                  "Name": "tcsh",
+                  "Description": "SHELL"
+                },
+                {
+                  "Name": "elvish",
+                  "Description": "SHELL"
+                }
+              ],
+              "Optional": true
+            }
+          ]
+        },
+        {
+          "Name": "current",
+          "Description": "Reports whether direnv\u0027s view of a file is current (or stale)",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "PATH",
+                  "Description": "PATH",
+                  "Type": "FileSystemEntry"
+                }
+              ]
+            }
+          ]
+        }
+      ],
+      "DontAllowMultiple": true
+    }
+  ]
+}

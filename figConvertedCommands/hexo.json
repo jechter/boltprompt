@@ -1,0 +1,585 @@
+{
+  "Comment": "This command info is generated from fig",
+  "Name": "hexo",
+  "Description": "Command line interface for Hexo, a static site generator",
+  "Arguments": [
+    {
+      "Arguments": [
+        {
+          "Name": "--config",
+          "Description": "Uses a custom config file (instead of \u0060_config.yml\u0060). Also accepts a comma-separated list (no spaces) of JSON or YAML config files that will combine the files into a single \u0060_multiconfig.yml\u0060",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "config file",
+                  "Description": "config file",
+                  "Type": "FileSystemEntry"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "Name": "--safe",
+          "Description": "Disable loading plugins and scripts",
+          "Aliases": [],
+          "Arguments": []
+        },
+        {
+          "Name": "--debug",
+          "Description": "Log verbose messages to the terminal and to \u0060debug.log\u0060",
+          "Aliases": [],
+          "Arguments": []
+        },
+        {
+          "Name": "--silent",
+          "Description": "Silence output to the terminal",
+          "Aliases": [],
+          "Arguments": []
+        },
+        {
+          "Name": "--draft",
+          "Description": "Display draft posts (stored in the \u0060source/_drafts\u0060 folder)",
+          "Aliases": [],
+          "Arguments": []
+        },
+        {
+          "Name": "--cwd",
+          "Description": "Customize the path of current working directory",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "directory",
+                  "Description": "directory",
+                  "Type": "Directory"
+                }
+              ]
+            }
+          ]
+        }
+      ],
+      "Optional": true
+    },
+    {
+      "Arguments": [
+        {
+          "Name": "config",
+          "Description": "Get or set configurations",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "name",
+                  "Description": "name",
+                  "Type": "String"
+                }
+              ],
+              "Optional": true
+            },
+            {
+              "Arguments": [
+                {
+                  "Name": "value",
+                  "Description": "value",
+                  "Type": "String"
+                }
+              ],
+              "Optional": true
+            }
+          ]
+        },
+        {
+          "Name": "help",
+          "Description": "Displays a help for each command",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "command",
+                  "Description": "command",
+                  "Type": "String"
+                }
+              ],
+              "Optional": true
+            }
+          ]
+        },
+        {
+          "Name": "init",
+          "Description": "Create a new Hexo folder",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "--no-clone",
+                  "Description": "Copy files instead of cloning from GitHub",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "--no-install",
+                  "Description": "Skip npm install",
+                  "Aliases": [],
+                  "Arguments": []
+                }
+              ],
+              "Optional": true
+            },
+            {
+              "Arguments": [
+                {
+                  "Name": "destination",
+                  "Description": "destination",
+                  "Type": "Directory"
+                }
+              ],
+              "Optional": true
+            }
+          ]
+        },
+        {
+          "Name": "new",
+          "Description": "Create a new article",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "-p",
+                  "Description": "Post path. Customize the path of the post",
+                  "Aliases": [
+                    "--path"
+                  ],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "path",
+                          "Description": "path",
+                          "Type": "FileSystemEntry"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "-r",
+                  "Description": "Replace the current post if it existed",
+                  "Aliases": [
+                    "--replace"
+                  ],
+                  "Arguments": []
+                },
+                {
+                  "Name": "-s",
+                  "Description": "Post slug. Customize the URL of the post",
+                  "Aliases": [
+                    "--slug"
+                  ],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "slug",
+                          "Description": "slug",
+                          "Type": "String"
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ],
+              "Optional": true
+            },
+            {
+              "Arguments": [
+                {
+                  "Name": "layout",
+                  "Description": "layout",
+                  "Type": "String"
+                },
+                {
+                  "Name": "post",
+                  "Description": "layout"
+                },
+                {
+                  "Name": "page",
+                  "Description": "layout"
+                },
+                {
+                  "Name": "draft",
+                  "Description": "layout"
+                }
+              ],
+              "Optional": true
+            },
+            {
+              "Arguments": [
+                {
+                  "Name": "title",
+                  "Description": "title",
+                  "Type": "String"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "Name": "generate",
+          "Description": "Generate static files",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "-d",
+                  "Description": "Deploy after generation finishes",
+                  "Aliases": [
+                    "--deploy"
+                  ],
+                  "Arguments": []
+                },
+                {
+                  "Name": "-f",
+                  "Description": "Force regenerate",
+                  "Aliases": [
+                    "--force"
+                  ],
+                  "Arguments": []
+                },
+                {
+                  "Name": "-w",
+                  "Description": "Watch file changes",
+                  "Aliases": [
+                    "--watch"
+                  ],
+                  "Arguments": []
+                },
+                {
+                  "Name": "-b",
+                  "Description": "Raise an error if any unhandled exception is thrown during generation",
+                  "Aliases": [
+                    "--bail"
+                  ],
+                  "Arguments": []
+                },
+                {
+                  "Name": "-c",
+                  "Description": "Maximum number of files to be generated in parallel. Default is infinity",
+                  "Aliases": [
+                    "--concurrency"
+                  ],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "concurrency",
+                          "Description": "concurrency",
+                          "Type": "String"
+                        }
+                      ],
+                      "Optional": true
+                    }
+                  ]
+                }
+              ],
+              "Optional": true
+            }
+          ]
+        },
+        {
+          "Name": "publish",
+          "Description": "Publish a draft",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "layout",
+                  "Description": "layout",
+                  "Type": "String"
+                },
+                {
+                  "Name": "post",
+                  "Description": "layout"
+                },
+                {
+                  "Name": "page",
+                  "Description": "layout"
+                },
+                {
+                  "Name": "draft",
+                  "Description": "layout"
+                }
+              ],
+              "Optional": true
+            },
+            {
+              "Arguments": [
+                {
+                  "Name": "filename",
+                  "Description": "filename",
+                  "Type": "CustomArgument",
+                  "Extensions": [],
+                  "CustomCommand": "bash -c hexo list post | grep -E ^Draft"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "Name": "server",
+          "Description": "Start a local server. By default, this is at http://localhost:4000/",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "-i",
+                  "Description": "Override the default server IP. Bind to all IP address by default",
+                  "Aliases": [
+                    "--ip"
+                  ],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "ip",
+                          "Description": "ip",
+                          "Type": "String"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "-p",
+                  "Description": "Override default port",
+                  "Aliases": [
+                    "--port"
+                  ],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "port",
+                          "Description": "port",
+                          "Type": "String"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "-s",
+                  "Description": "Serve static files from the given directory",
+                  "Aliases": [
+                    "--static"
+                  ],
+                  "Arguments": []
+                },
+                {
+                  "Name": "-l",
+                  "Description": "Enable logger. Override logger format",
+                  "Aliases": [
+                    "--log"
+                  ],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "format",
+                          "Description": "format",
+                          "Type": "String"
+                        },
+                        {
+                          "Name": "combined",
+                          "Description": "format"
+                        },
+                        {
+                          "Name": "common",
+                          "Description": "format"
+                        },
+                        {
+                          "Name": "tiny",
+                          "Description": "format"
+                        },
+                        {
+                          "Name": "dev",
+                          "Description": "format"
+                        },
+                        {
+                          "Name": "short",
+                          "Description": "format"
+                        }
+                      ],
+                      "Optional": true
+                    }
+                  ]
+                },
+                {
+                  "Name": "-o",
+                  "Description": "Immediately open the server url in your default web browser",
+                  "Aliases": [
+                    "--open"
+                  ],
+                  "Arguments": []
+                }
+              ],
+              "Optional": true
+            }
+          ]
+        },
+        {
+          "Name": "deploy",
+          "Description": "Deploy your website",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "--setup",
+                  "Description": "Setup without deployment",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "-g",
+                  "Description": "Generate static files before deploying",
+                  "Aliases": [
+                    "--generate"
+                  ],
+                  "Arguments": []
+                }
+              ],
+              "Optional": true
+            }
+          ]
+        },
+        {
+          "Name": "render",
+          "Description": "Render files with renderer plugins (e.g. Markdown) and save them at the specified path",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "--engine",
+                  "Description": "Specify render engine",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "-o",
+                  "Description": "Output destination. Result will be printed in the terminal if the output destination is not set",
+                  "Aliases": [
+                    "--output"
+                  ],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "output directory",
+                          "Description": "output directory",
+                          "Type": "Directory"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "--pretty",
+                  "Description": "Prettify JSON output",
+                  "Aliases": [],
+                  "Arguments": []
+                }
+              ],
+              "Optional": true
+            },
+            {
+              "Arguments": [
+                {
+                  "Name": "file",
+                  "Description": "file",
+                  "Type": "FileSystemEntry"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "Name": "migrate",
+          "Description": "Migrate content from other blog systems",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "type",
+                  "Description": "type",
+                  "Type": "String"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "Name": "clean",
+          "Description": "Clean the cache file (\u0060db.json\u0060) and generated files (\u0060public\u0060)",
+          "Aliases": [],
+          "Arguments": []
+        },
+        {
+          "Name": "list",
+          "Description": "List all routes",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "type",
+                  "Description": "type",
+                  "Type": "String"
+                },
+                {
+                  "Name": "post",
+                  "Description": "type"
+                },
+                {
+                  "Name": "route",
+                  "Description": "type"
+                },
+                {
+                  "Name": "page",
+                  "Description": "type"
+                },
+                {
+                  "Name": "tag",
+                  "Description": "type"
+                },
+                {
+                  "Name": "category",
+                  "Description": "type"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "Name": "version",
+          "Description": "Display version information",
+          "Aliases": [],
+          "Arguments": []
+        }
+      ],
+      "DontAllowMultiple": true
+    }
+  ]
+}

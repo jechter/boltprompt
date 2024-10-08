@@ -1,0 +1,827 @@
+{
+  "Comment": "This command info is generated from fig",
+  "Name": "tmutil",
+  "Description": "Time Machine utility",
+  "Arguments": [
+    {
+      "Arguments": [
+        {
+          "Name": "version",
+          "Description": "Print the current version",
+          "Aliases": [],
+          "Arguments": []
+        },
+        {
+          "Name": "enable",
+          "Description": "Turn on automatic backups (required root \u002B full disk access)",
+          "Aliases": [],
+          "Arguments": []
+        },
+        {
+          "Name": "disable",
+          "Description": "Turn off automatic backups (required root \u002B full disk access)",
+          "Aliases": [],
+          "Arguments": []
+        },
+        {
+          "Name": "startbackup",
+          "Description": "Begin a backup if one is not already running",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "-a",
+                  "Description": "Run the backup in a mode similar to system-scheduled backups",
+                  "Aliases": [
+                    "--auto"
+                  ],
+                  "Arguments": []
+                },
+                {
+                  "Name": "-b",
+                  "Description": "Wait (block) until the backup is finished before exiting",
+                  "Aliases": [
+                    "--block"
+                  ],
+                  "Arguments": []
+                },
+                {
+                  "Name": "-r",
+                  "Description": "Allow automatic destination rotation during backup",
+                  "Aliases": [
+                    "--rotation"
+                  ],
+                  "Arguments": []
+                },
+                {
+                  "Name": "-d",
+                  "Description": "Perform the backup to the destination corresponding to the specified ID",
+                  "Aliases": [
+                    "--destination"
+                  ],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "destination id",
+                          "Description": "destination id",
+                          "Type": "String"
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ],
+              "Optional": true
+            }
+          ]
+        },
+        {
+          "Name": "stopbackup",
+          "Description": "Cancel a backup currently in progress",
+          "Aliases": [],
+          "Arguments": []
+        },
+        {
+          "Name": "delete",
+          "Description": "Deletes backups with the specified timestamp from the backup volume mounted at the given mountpoint",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "d",
+                  "Description": "Delete from the given mount point",
+                  "Type": "Flag",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "backup mount point",
+                          "Description": "backup mount point",
+                          "Type": "String"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "t",
+                  "Description": "Delete backups with this timestamp",
+                  "Type": "Flag",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "timestamp",
+                          "Description": "timestamp",
+                          "Type": "String"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "p",
+                  "Description": "A specific path to delete (HFS backup disk)",
+                  "Type": "Flag",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "path",
+                          "Description": "path",
+                          "Type": "FileSystemEntry"
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ],
+              "Optional": true
+            }
+          ]
+        },
+        {
+          "Name": "deleteinprogress",
+          "Description": "Delete all in-progress backups for a machine directory",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "machine directory",
+                  "Description": "machine directory",
+                  "Type": "String"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "Name": "restore",
+          "Description": "Restore the item \u0060source\u0060, which is inside a backup, to the location \u0060destination\u0060. Same semantics as \u0060cp\u0060",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "v",
+                  "Description": "Be verbose, showing files as they are copied",
+                  "Type": "Flag",
+                  "Aliases": [],
+                  "Arguments": []
+                }
+              ],
+              "Optional": true
+            },
+            {
+              "Arguments": [
+                {
+                  "Name": "source",
+                  "Description": "source",
+                  "Type": "String"
+                }
+              ]
+            },
+            {
+              "Arguments": [
+                {
+                  "Name": "destination",
+                  "Description": "destination",
+                  "Type": "String"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "Name": "compare",
+          "Description": "Perform a backup diff",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "@",
+                  "Description": "Compare extended attributes",
+                  "Type": "Flag",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "a",
+                  "Description": "Compare all supported metadata",
+                  "Type": "Flag",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "c",
+                  "Description": "Compare creation times",
+                  "Type": "Flag",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "d",
+                  "Description": "Compare file data forks",
+                  "Type": "Flag",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "e",
+                  "Description": "Compare ACLs",
+                  "Type": "Flag",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "f",
+                  "Description": "Compare file flags",
+                  "Type": "Flag",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "g",
+                  "Description": "Compare GIDs",
+                  "Type": "Flag",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "h",
+                  "Description": "Unknown",
+                  "Type": "Flag",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "l",
+                  "Description": "Unknown",
+                  "Type": "Flag",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "m",
+                  "Description": "Compare file modes",
+                  "Type": "Flag",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "n",
+                  "Description": "No metadata comparison",
+                  "Type": "Flag",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "s",
+                  "Description": "Compare sizes",
+                  "Type": "Flag",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "t",
+                  "Description": "Compare modification times",
+                  "Type": "Flag",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "u",
+                  "Description": "Compare UIDs",
+                  "Type": "Flag",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "E",
+                  "Description": "Don\u0027t take exclusions into account when comparing items inside volumes",
+                  "Type": "Flag",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "U",
+                  "Description": "Ignore logical volume identity (volume UUIDs) when directly comparing a local volume or volume store to a volume store",
+                  "Type": "Flag",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "X",
+                  "Description": "Print output in XML property list format",
+                  "Type": "Flag",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "D",
+                  "Description": "Limit traversal depth to depth levels from the beginning of iteration",
+                  "Type": "Flag",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "depth",
+                          "Description": "depth",
+                          "Type": "String"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "I",
+                  "Description": "Ignore paths with a path component equal to name during iteration",
+                  "Type": "Flag",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "name",
+                          "Description": "name",
+                          "Type": "String"
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ],
+              "Optional": true
+            },
+            {
+              "Arguments": [
+                {
+                  "Name": "backup or path",
+                  "Description": "backup or path",
+                  "Type": "String"
+                }
+              ]
+            },
+            {
+              "Arguments": [
+                {
+                  "Name": "path (if not backup)",
+                  "Description": "path (if not backup)",
+                  "Type": "String"
+                }
+              ],
+              "Optional": true
+            }
+          ]
+        },
+        {
+          "Name": "setdestination",
+          "Description": "Configure a local HFS\u002B or APFS volume, AFP share, or SMB share as a backup destination (requires root \u002B Full Disk Access)",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "a",
+                  "Description": "Add the arg to the list of destinations, instead of replacing the list",
+                  "Type": "Flag",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "p",
+                  "Description": "Enter a password in a non-echoing interactive prompt",
+                  "Type": "Flag",
+                  "Aliases": [],
+                  "Arguments": []
+                }
+              ],
+              "Optional": true
+            },
+            {
+              "Arguments": [
+                {
+                  "Name": "destination",
+                  "Description": "destination",
+                  "Type": "String"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "Name": "removedestination",
+          "Description": "Remove the destination with the specified unique identifier from the Time Machine configuration (requires root \u002B Full Disk Access)",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "destination id",
+                  "Description": "destination id",
+                  "Type": "String"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "Name": "destinationinfo",
+          "Description": "Print information about destinations currently configured for use with Time Machine",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "X",
+                  "Description": "Print output in XML plist format",
+                  "Type": "Flag",
+                  "Aliases": [],
+                  "Arguments": []
+                }
+              ],
+              "Optional": true
+            }
+          ]
+        },
+        {
+          "Name": "addexclusion",
+          "Description": "Configure an exclusion that tells Time Machine not to backup a file, directory, or volume during future backups",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "p",
+                  "Description": "Configure fixed-path exclusions",
+                  "Type": "Flag",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "v",
+                  "Description": "Configure volume exclusions",
+                  "Type": "Flag",
+                  "Aliases": [],
+                  "Arguments": []
+                }
+              ],
+              "Optional": true
+            },
+            {
+              "Arguments": [
+                {
+                  "Name": "item",
+                  "Description": "item",
+                  "Type": "String"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "Name": "removeexclusion",
+          "Description": "Configure  Time Machine to backup a file, directory, or volume during future backups",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "p",
+                  "Description": "Configure fixed-path exclusions",
+                  "Type": "Flag",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "v",
+                  "Description": "Configure volume exclusions",
+                  "Type": "Flag",
+                  "Aliases": [],
+                  "Arguments": []
+                }
+              ],
+              "Optional": true
+            },
+            {
+              "Arguments": [
+                {
+                  "Name": "item",
+                  "Description": "item",
+                  "Type": "String"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "Name": "isexcluded",
+          "Description": "Determine if a file, directory, or volume are excluded from Time Machine backups",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "item",
+                  "Description": "item",
+                  "Type": "String"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "Name": "inheritbackup",
+          "Description": "Claim a machine directory or sparsebundle for use by the current machine",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "machine directory or sparsebundle",
+                  "Description": "machine directory or sparsebundle",
+                  "Type": "String"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "Name": "associatedisk",
+          "Description": "Bind a volume store directory to the specified local disk, thereby reconfiguring the backup history (requires root \u002B Full Disk Access)",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "a",
+                  "Description": "Find all volume stores in the same machine directory that match the identity of the volume backup directory",
+                  "Type": "Flag",
+                  "Aliases": [],
+                  "Arguments": []
+                }
+              ],
+              "Optional": true
+            },
+            {
+              "Arguments": [
+                {
+                  "Name": "mount point",
+                  "Description": "mount point",
+                  "Type": "String"
+                }
+              ]
+            },
+            {
+              "Arguments": [
+                {
+                  "Name": "volume backup directory",
+                  "Description": "volume backup directory",
+                  "Type": "String"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "Name": "latestbackup",
+          "Description": "List this computer\u0027s latest completed backup",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "d",
+                  "Description": "Specify a destination volume to list backups from",
+                  "Type": "Flag",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "m",
+                  "Description": "Attempt to mount the backups and list their mounted paths",
+                  "Type": "Flag",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "t",
+                  "Description": "Only show the backup timestampt rather than the full name or path",
+                  "Type": "Flag",
+                  "Aliases": [],
+                  "Arguments": []
+                }
+              ],
+              "Optional": true
+            }
+          ]
+        },
+        {
+          "Name": "listbackups",
+          "Description": "List all of this computer\u0027s completed backups",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "d",
+                  "Description": "Specify a destination volume to list backups from",
+                  "Type": "Flag",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "m",
+                  "Description": "Attempt to mount the backups and list their mounted paths",
+                  "Type": "Flag",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "t",
+                  "Description": "Only show the backup timestampt rather than the full name or path",
+                  "Type": "Flag",
+                  "Aliases": [],
+                  "Arguments": []
+                }
+              ],
+              "Optional": true
+            }
+          ]
+        },
+        {
+          "Name": "machinedirectory",
+          "Description": "Print the path to the current machine directory for this computer",
+          "Aliases": [],
+          "Arguments": []
+        },
+        {
+          "Name": "calculatedrift",
+          "Description": "Analyze the backups in an HFS machine directory and determine the amount of change between each",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "machine directory",
+                  "Description": "machine directory",
+                  "Type": "String"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "Name": "uniquesize",
+          "Description": "Analyze the specified path in an HFS\u002B backup or path to an APFS backup and determine its unique size",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "path",
+                  "Description": "path",
+                  "Type": "FileSystemEntry"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "Name": "verifychecksums",
+          "Description": "Compute a checksum of data contained within a backup and verify the results against checksum information computed at the time of backup",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "path",
+                  "Description": "path",
+                  "Type": "FileSystemEntry"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "Name": "localsnapshot",
+          "Description": "Create new local Time Machine snapshots of all APFS volumes included in the Time Machine backup",
+          "Aliases": [],
+          "Arguments": []
+        },
+        {
+          "Name": "listlocalsnapshots",
+          "Description": "List local Time Machine snapshots of the specified volume",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "mount point",
+                  "Description": "mount point",
+                  "Type": "String"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "Name": "listlocalsnapshotdates",
+          "Description": "List the creation dates of all local Time Machine snapshots",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "mount point",
+                  "Description": "mount point",
+                  "Type": "String"
+                }
+              ],
+              "Optional": true
+            }
+          ]
+        },
+        {
+          "Name": "deletelocalsnapshots",
+          "Description": "Delete all local Time Machine snapshots on all mounted disks for the specified date or on the given disk",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "mount point or snapshot date",
+                  "Description": "mount point or snapshot date",
+                  "Type": "String"
+                }
+              ],
+              "Optional": true
+            }
+          ]
+        },
+        {
+          "Name": "thinlocalsnapshots",
+          "Description": "Think local Time Machine snapshots for the specified volume",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "mount point",
+                  "Description": "mount point",
+                  "Type": "String"
+                }
+              ]
+            },
+            {
+              "Arguments": [
+                {
+                  "Name": "purge amount (bytes)",
+                  "Description": "purge amount (bytes)",
+                  "Type": "String"
+                }
+              ],
+              "Optional": true
+            },
+            {
+              "Arguments": [
+                {
+                  "Name": "urgency",
+                  "Description": "urgency",
+                  "Type": "String"
+                },
+                {
+                  "Name": "1",
+                  "Description": "urgency"
+                },
+                {
+                  "Name": "2",
+                  "Description": "urgency"
+                },
+                {
+                  "Name": "3",
+                  "Description": "urgency"
+                },
+                {
+                  "Name": "4",
+                  "Description": "urgency"
+                }
+              ],
+              "Optional": true
+            }
+          ]
+        }
+      ],
+      "DontAllowMultiple": true
+    }
+  ]
+}

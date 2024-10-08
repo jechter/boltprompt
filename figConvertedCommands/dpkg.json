@@ -1,0 +1,778 @@
+{
+  "Comment": "This command info is generated from fig",
+  "Name": "dpkg",
+  "Description": "Debian package management system",
+  "Arguments": [
+    {
+      "Arguments": [
+        {
+          "Name": "-h",
+          "Description": "Help for dpkg",
+          "Aliases": [
+            "--help"
+          ],
+          "Arguments": []
+        }
+      ],
+      "Optional": true
+    },
+    {
+      "Arguments": [
+        {
+          "Name": "query",
+          "Description": "Query the dpkg database",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "-l",
+                  "Description": "List packages matching a pattern",
+                  "Aliases": [
+                    "--list"
+                  ],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "pattern",
+                          "Description": "pattern",
+                          "Type": "String"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "-s",
+                  "Description": "Display the status of available packages",
+                  "Aliases": [
+                    "--status"
+                  ],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "package",
+                          "Description": "package",
+                          "Type": "String"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "-L",
+                  "Description": "List files in a package",
+                  "Aliases": [
+                    "--listfiles"
+                  ],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "package",
+                          "Description": "package",
+                          "Type": "String"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "-S",
+                  "Description": "Search for a package owning a file",
+                  "Aliases": [
+                    "--search"
+                  ],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "file",
+                          "Description": "file",
+                          "Type": "String"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "-p",
+                  "Description": "Display details about a package in the dpkg database",
+                  "Aliases": [
+                    "--print-avail"
+                  ],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "package",
+                          "Description": "package",
+                          "Type": "String"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "-W",
+                  "Description": "Show a package in the dpkg database",
+                  "Aliases": [
+                    "--show"
+                  ],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "package",
+                          "Description": "package",
+                          "Type": "String"
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ],
+              "Optional": true
+            }
+          ]
+        },
+        {
+          "Name": "install",
+          "Description": "Install or upgrade packages",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "-R",
+                  "Description": "Recursively handle packages",
+                  "Aliases": [
+                    "--recursive"
+                  ],
+                  "Arguments": []
+                },
+                {
+                  "Name": "-B",
+                  "Description": "Uninstall packages that depend on the target package",
+                  "Aliases": [
+                    "--auto-deconfigure"
+                  ],
+                  "Arguments": []
+                },
+                {
+                  "Name": "--skip-same-version",
+                  "Description": "Don\u0027t upgrade if the same version is already installed",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "--force-depends",
+                  "Description": "Ignore dependency problems",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "--force-confnew",
+                  "Description": "Always install the new version of configuration files",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "--force-confold",
+                  "Description": "Always install the old version of configuration files",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "--force-confdef",
+                  "Description": "Always install the default version of configuration files",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "--force-confmiss",
+                  "Description": "Always install missing configuration files",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "--no-triggers",
+                  "Description": "Skip processing triggers",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "--no-act",
+                  "Description": "Simulate the action, but don\u0027t execute",
+                  "Aliases": [],
+                  "Arguments": []
+                }
+              ],
+              "Optional": true
+            },
+            {
+              "Arguments": [
+                {
+                  "Name": "package",
+                  "Description": "package",
+                  "Type": "String"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "Name": "remove",
+          "Description": "Remove packages",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "-R",
+                  "Description": "Recursively remove packages",
+                  "Aliases": [
+                    "--recursive"
+                  ],
+                  "Arguments": []
+                },
+                {
+                  "Name": "-B",
+                  "Description": "Uninstall packages that depend on the target package",
+                  "Aliases": [
+                    "--auto-deconfigure"
+                  ],
+                  "Arguments": []
+                },
+                {
+                  "Name": "--no-act",
+                  "Description": "Simulate the action, but don\u0027t execute",
+                  "Aliases": [],
+                  "Arguments": []
+                }
+              ],
+              "Optional": true
+            },
+            {
+              "Arguments": [
+                {
+                  "Name": "package",
+                  "Description": "package",
+                  "Type": "String"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "Name": "purge",
+          "Description": "Remove packages and their configuration files",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "-R",
+                  "Description": "Recursively remove packages",
+                  "Aliases": [
+                    "--recursive"
+                  ],
+                  "Arguments": []
+                },
+                {
+                  "Name": "--no-act",
+                  "Description": "Simulate the action, but don\u0027t execute",
+                  "Aliases": [],
+                  "Arguments": []
+                }
+              ],
+              "Optional": true
+            },
+            {
+              "Arguments": [
+                {
+                  "Name": "package",
+                  "Description": "package",
+                  "Type": "String"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "Name": "configure",
+          "Description": "Configure a package after installation",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "--pending",
+                  "Description": "Configure all unconfigured packages",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "--no-triggers",
+                  "Description": "Skip processing triggers",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "--no-act",
+                  "Description": "Simulate the action, but don\u0027t execute",
+                  "Aliases": [],
+                  "Arguments": []
+                }
+              ],
+              "Optional": true
+            },
+            {
+              "Arguments": [
+                {
+                  "Name": "package",
+                  "Description": "package",
+                  "Type": "String"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "Name": "reconfigure",
+          "Description": "Reconfigure a package",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "--no-triggers",
+                  "Description": "Skip processing triggers",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "--no-act",
+                  "Description": "Simulate the action, but don\u0027t execute",
+                  "Aliases": [],
+                  "Arguments": []
+                }
+              ],
+              "Optional": true
+            },
+            {
+              "Arguments": [
+                {
+                  "Name": "package",
+                  "Description": "package",
+                  "Type": "String"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "Name": "list",
+          "Description": "List packages in the dpkg database",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "-l",
+                  "Description": "List packages matching a pattern",
+                  "Aliases": [
+                    "--list"
+                  ],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "pattern",
+                          "Description": "pattern",
+                          "Type": "String"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "-s",
+                  "Description": "Display the status of available packages",
+                  "Aliases": [
+                    "--status"
+                  ],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "package",
+                          "Description": "package",
+                          "Type": "String"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "-L",
+                  "Description": "List files in a package",
+                  "Aliases": [
+                    "--listfiles"
+                  ],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "package",
+                          "Description": "package",
+                          "Type": "String"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "-S",
+                  "Description": "Search for a package owning a file",
+                  "Aliases": [
+                    "--search"
+                  ],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "file",
+                          "Description": "file",
+                          "Type": "String"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "-p",
+                  "Description": "Display details about a package in the dpkg database",
+                  "Aliases": [
+                    "--print-avail"
+                  ],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "package",
+                          "Description": "package",
+                          "Type": "String"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "-W",
+                  "Description": "Show a package in the dpkg database",
+                  "Aliases": [
+                    "--show"
+                  ],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "package",
+                          "Description": "package",
+                          "Type": "String"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "--installed",
+                  "Description": "List installed packages",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "--avail",
+                  "Description": "List available packages",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "--hold",
+                  "Description": "List packages on hold",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "--deferred",
+                  "Description": "List deferred packages",
+                  "Aliases": [],
+                  "Arguments": []
+                }
+              ],
+              "Optional": true
+            }
+          ]
+        },
+        {
+          "Name": "builddeb",
+          "Description": "Build Debian package files from sources",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "-us",
+                  "Description": "Build unsigned .changes and .dsc files",
+                  "Aliases": [
+                    "--unsigned"
+                  ],
+                  "Arguments": []
+                },
+                {
+                  "Name": "-uc",
+                  "Description": "Build unsigned .changes file",
+                  "Aliases": [
+                    "--unsigned-changes"
+                  ],
+                  "Arguments": []
+                },
+                {
+                  "Name": "-sa",
+                  "Description": "Build source package",
+                  "Aliases": [
+                    "--source"
+                  ],
+                  "Arguments": []
+                },
+                {
+                  "Name": "-rfakeroot",
+                  "Description": "Use fakeroot when building the package",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "-b",
+                  "Description": "Build binary package from source",
+                  "Aliases": [
+                    "--binary"
+                  ],
+                  "Arguments": []
+                },
+                {
+                  "Name": "--force-sign",
+                  "Description": "Force signing of changes file",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "-m",
+                  "Description": "Specify the package maintainer",
+                  "Aliases": [
+                    "--maintainer"
+                  ],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "email",
+                          "Description": "email",
+                          "Type": "String"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "-c",
+                  "Description": "Specify the changes file to use",
+                  "Aliases": [
+                    "--changes"
+                  ],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "file",
+                          "Description": "file",
+                          "Type": "String"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "-v",
+                  "Description": "Specify the version to use",
+                  "Aliases": [
+                    "--version"
+                  ],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "version",
+                          "Description": "version",
+                          "Type": "String"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "--increment",
+                  "Description": "Increment the version number in the changelog",
+                  "Aliases": [],
+                  "Arguments": []
+                }
+              ],
+              "Optional": true
+            },
+            {
+              "Arguments": [
+                {
+                  "Name": "directory",
+                  "Description": "directory",
+                  "Type": "String"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "Name": "check",
+          "Description": "Check the dependencies of packages",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "-a",
+                  "Description": "Check all installed packages",
+                  "Aliases": [
+                    "--all"
+                  ],
+                  "Arguments": []
+                },
+                {
+                  "Name": "-d",
+                  "Description": "Check for unmet dependencies",
+                  "Aliases": [
+                    "--unmet"
+                  ],
+                  "Arguments": []
+                },
+                {
+                  "Name": "-i",
+                  "Description": "Check installed packages",
+                  "Aliases": [
+                    "--check-installed"
+                  ],
+                  "Arguments": []
+                },
+                {
+                  "Name": "-U",
+                  "Description": "Check unpacked packages",
+                  "Aliases": [
+                    "--check-unpacked"
+                  ],
+                  "Arguments": []
+                },
+                {
+                  "Name": "-c",
+                  "Description": "Skip checking for broken dependencies",
+                  "Aliases": [
+                    "--nocheck"
+                  ],
+                  "Arguments": []
+                },
+                {
+                  "Name": "-r",
+                  "Description": "Check reverse dependencies",
+                  "Aliases": [
+                    "--reverse"
+                  ],
+                  "Arguments": []
+                }
+              ],
+              "Optional": true
+            },
+            {
+              "Arguments": [
+                {
+                  "Name": "package",
+                  "Description": "package",
+                  "Type": "String"
+                }
+              ],
+              "Optional": true
+            }
+          ]
+        },
+        {
+          "Name": "compare-versions",
+          "Description": "Compare package versions",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "version1",
+                  "Description": "version1",
+                  "Type": "String"
+                }
+              ]
+            },
+            {
+              "Arguments": [
+                {
+                  "Name": "relation",
+                  "Description": "relation",
+                  "Type": "String"
+                },
+                {
+                  "Name": "lt",
+                  "Description": "relation"
+                },
+                {
+                  "Name": "le",
+                  "Description": "relation"
+                },
+                {
+                  "Name": "eq",
+                  "Description": "relation"
+                },
+                {
+                  "Name": "ne",
+                  "Description": "relation"
+                },
+                {
+                  "Name": "gt",
+                  "Description": "relation"
+                },
+                {
+                  "Name": "ge",
+                  "Description": "relation"
+                }
+              ],
+              "Optional": true
+            },
+            {
+              "Arguments": [
+                {
+                  "Name": "version2",
+                  "Description": "version2",
+                  "Type": "String"
+                }
+              ]
+            }
+          ]
+        }
+      ],
+      "DontAllowMultiple": true
+    }
+  ]
+}

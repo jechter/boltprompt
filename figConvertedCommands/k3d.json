@@ -1,0 +1,1712 @@
+{
+  "Comment": "This command info is generated from fig",
+  "Name": "k3d",
+  "Description": "K3d is a lightweight wrapper to run k3s in Docker",
+  "Arguments": [
+    {
+      "Arguments": [
+        {
+          "Name": "-h",
+          "Description": "Help for k3d",
+          "Aliases": [
+            "--help"
+          ],
+          "Arguments": []
+        },
+        {
+          "Name": "--verbose",
+          "Description": "Verbose output",
+          "Aliases": [],
+          "Arguments": []
+        },
+        {
+          "Name": "--trace",
+          "Description": "Trace output",
+          "Aliases": [],
+          "Arguments": []
+        },
+        {
+          "Name": "--version",
+          "Description": "Print version information",
+          "Aliases": [],
+          "Arguments": []
+        },
+        {
+          "Name": "--timestamps",
+          "Description": "Print timestamp in log output",
+          "Aliases": [],
+          "Arguments": []
+        }
+      ],
+      "Optional": true
+    },
+    {
+      "Arguments": [
+        {
+          "Name": "cluster",
+          "Description": "Manage k3s clusters",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "create",
+                  "Description": "Create a new k3s cluster",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "-a",
+                          "Description": "Number of agents to create",
+                          "Aliases": [
+                            "--agents"
+                          ],
+                          "Arguments": [
+                            {
+                              "Arguments": [
+                                {
+                                  "Name": "number of agents",
+                                  "Description": "number of agents",
+                                  "Type": "String"
+                                }
+                              ]
+                            }
+                          ]
+                        },
+                        {
+                          "Name": "--agents-memory",
+                          "Description": "Memory limit imposed on the agents nodes",
+                          "Aliases": [],
+                          "Arguments": [
+                            {
+                              "Arguments": [
+                                {
+                                  "Name": "memory limit",
+                                  "Description": "memory limit",
+                                  "Type": "String"
+                                }
+                              ]
+                            }
+                          ]
+                        },
+                        {
+                          "Name": "--api-port",
+                          "Description": "Specify the Kubernetes API server port exposed on the LoadBalancer",
+                          "Aliases": [],
+                          "Arguments": [
+                            {
+                              "Arguments": [
+                                {
+                                  "Name": "port",
+                                  "Description": "port",
+                                  "Type": "String"
+                                }
+                              ]
+                            }
+                          ]
+                        },
+                        {
+                          "Name": "-c",
+                          "Description": "Path of a config file to use",
+                          "Aliases": [
+                            "--config"
+                          ],
+                          "Arguments": [
+                            {
+                              "Arguments": [
+                                {
+                                  "Name": "path",
+                                  "Description": "path",
+                                  "Type": "String"
+                                }
+                              ]
+                            }
+                          ]
+                        },
+                        {
+                          "Name": "-e",
+                          "Description": "Add environment variables to nodes",
+                          "Aliases": [
+                            "--env"
+                          ],
+                          "Arguments": [
+                            {
+                              "Arguments": [
+                                {
+                                  "Name": "environment variables",
+                                  "Description": "environment variables",
+                                  "Type": "String"
+                                }
+                              ]
+                            }
+                          ]
+                        },
+                        {
+                          "Name": "--gpus",
+                          "Description": "GPU devices to add to the cluster node containers",
+                          "Aliases": [],
+                          "Arguments": [
+                            {
+                              "Arguments": [
+                                {
+                                  "Name": "devices",
+                                  "Description": "devices",
+                                  "Type": "String"
+                                }
+                              ]
+                            }
+                          ]
+                        },
+                        {
+                          "Name": "-h",
+                          "Description": "Help for create",
+                          "Aliases": [
+                            "--help"
+                          ],
+                          "Arguments": []
+                        },
+                        {
+                          "Name": "--host-alias",
+                          "Description": "Add ip:host[,host,...] mappings",
+                          "Aliases": [],
+                          "Arguments": [
+                            {
+                              "Arguments": [
+                                {
+                                  "Name": "ip:host[,host,...]",
+                                  "Description": "ip:host[,host,...]",
+                                  "Type": "String"
+                                }
+                              ]
+                            }
+                          ]
+                        },
+                        {
+                          "Name": "--host-pid-mode",
+                          "Description": "Enable host pid mode of server(s) and agent(s)",
+                          "Aliases": [],
+                          "Arguments": []
+                        },
+                        {
+                          "Name": "-i",
+                          "Description": "Specify k3s image that you want to use for the nodes",
+                          "Aliases": [
+                            "--image"
+                          ],
+                          "Arguments": [
+                            {
+                              "Arguments": [
+                                {
+                                  "Name": "image",
+                                  "Description": "image",
+                                  "Type": "String"
+                                }
+                              ]
+                            }
+                          ]
+                        },
+                        {
+                          "Name": "--k3s-arg",
+                          "Description": "Additional args passed to k3s command",
+                          "Aliases": [],
+                          "Arguments": [
+                            {
+                              "Arguments": [
+                                {
+                                  "Name": "ARG@NODEFILTER[;@NODEFILTER]",
+                                  "Description": "ARG@NODEFILTER[;@NODEFILTER]",
+                                  "Type": "String"
+                                }
+                              ]
+                            }
+                          ]
+                        },
+                        {
+                          "Name": "--k3s-node-label",
+                          "Description": "Add label to k3s node",
+                          "Aliases": [],
+                          "Arguments": [
+                            {
+                              "Arguments": [
+                                {
+                                  "Name": "KEY[=VALUE][@NODEFILTER[;NODEFILTER...]]",
+                                  "Description": "KEY[=VALUE][@NODEFILTER[;NODEFILTER...]]",
+                                  "Type": "String"
+                                }
+                              ]
+                            }
+                          ]
+                        },
+                        {
+                          "Name": "--kubeconfig-switch-context",
+                          "Description": "Directly switch the default kubeconfig\u0027s current-context to the new cluster\u0027s context (requires --kubeconfig-update-default) (default true)",
+                          "Aliases": [],
+                          "Arguments": []
+                        },
+                        {
+                          "Name": "--kubeconfig-update-default",
+                          "Description": "Directly update the default kubeconfig with the new cluster\u0027s context (default true)",
+                          "Aliases": [],
+                          "Arguments": []
+                        },
+                        {
+                          "Name": "--lb-config-override",
+                          "Description": "Use dotted YAML path syntax to override nginx loadbalancer settings",
+                          "Aliases": [],
+                          "Arguments": [
+                            {
+                              "Arguments": [
+                                {
+                                  "Name": "path",
+                                  "Description": "path",
+                                  "Type": "String"
+                                }
+                              ]
+                            }
+                          ]
+                        },
+                        {
+                          "Name": "--network",
+                          "Description": "Specify the docker network to use",
+                          "Aliases": [],
+                          "Arguments": [
+                            {
+                              "Arguments": [
+                                {
+                                  "Name": "network",
+                                  "Description": "network",
+                                  "Type": "String"
+                                }
+                              ]
+                            }
+                          ]
+                        },
+                        {
+                          "Name": "--no-image-volume",
+                          "Description": "Don\u0027t create a volume for the container\u0027s root filesystem",
+                          "Aliases": [],
+                          "Arguments": []
+                        },
+                        {
+                          "Name": "--no-lb",
+                          "Description": "Don\u0027t create a loadbalancer for the cluster",
+                          "Aliases": [],
+                          "Arguments": []
+                        },
+                        {
+                          "Name": "--no-rollback",
+                          "Description": "Don\u0027t rollback changes if cluster creation failed",
+                          "Aliases": [],
+                          "Arguments": []
+                        },
+                        {
+                          "Name": "-p",
+                          "Description": "Map ports from the node containers (via the serverlb) to the host",
+                          "Aliases": [
+                            "--port"
+                          ],
+                          "Arguments": [
+                            {
+                              "Arguments": [
+                                {
+                                  "Name": "port",
+                                  "Description": "port",
+                                  "Type": "String"
+                                }
+                              ]
+                            }
+                          ]
+                        },
+                        {
+                          "Name": "--registry-config",
+                          "Description": "Specify path to an extra registries.yaml file",
+                          "Aliases": [],
+                          "Arguments": [
+                            {
+                              "Arguments": [
+                                {
+                                  "Name": "path",
+                                  "Description": "path",
+                                  "Type": "String"
+                                }
+                              ]
+                            }
+                          ]
+                        },
+                        {
+                          "Name": "--registry-create",
+                          "Description": "Create a k3d-managed registry and connect it to the cluster (Format: NAME[:HOST][:HOSTPORT] - Example: \u0060k3d cluster create --registry-create mycluster-registry",
+                          "Aliases": [],
+                          "Arguments": [
+                            {
+                              "Arguments": [
+                                {
+                                  "Name": "NAME[:HOST][:HOSTPORT]",
+                                  "Description": "NAME[:HOST][:HOSTPORT]",
+                                  "Type": "String"
+                                }
+                              ]
+                            }
+                          ]
+                        },
+                        {
+                          "Name": "--registry-use",
+                          "Description": "Connect to one or more k3d-managed registries running locally",
+                          "Aliases": [],
+                          "Arguments": [
+                            {
+                              "Arguments": [
+                                {
+                                  "Name": "NAME[:HOST][:HOSTPORT]",
+                                  "Description": "NAME[:HOST][:HOSTPORT]",
+                                  "Type": "String"
+                                }
+                              ]
+                            }
+                          ]
+                        },
+                        {
+                          "Name": "--runtime-label",
+                          "Description": "Add label to container runtime (Format: KEY[=VALUE][@NODEFILTER[;NODEFILTER...]] - Example: \u0060k3d cluster create --agents 2 --runtime-label \u0022my.label@agent:0,1\u0022 --runtime-label \u0022other.label=somevalue@server:0\u0022\u0060",
+                          "Aliases": [],
+                          "Arguments": []
+                        },
+                        {
+                          "Name": "-s",
+                          "Description": "Specify how many servers you want to create",
+                          "Aliases": [
+                            "--servers"
+                          ],
+                          "Arguments": [
+                            {
+                              "Arguments": [
+                                {
+                                  "Name": "int",
+                                  "Description": "int",
+                                  "Type": "String"
+                                }
+                              ]
+                            }
+                          ]
+                        },
+                        {
+                          "Name": "--servers-memory",
+                          "Description": "Memory limit imposed on the server nodes [From docker]",
+                          "Aliases": [],
+                          "Arguments": [
+                            {
+                              "Arguments": [
+                                {
+                                  "Name": "string",
+                                  "Description": "string",
+                                  "Type": "String"
+                                }
+                              ]
+                            }
+                          ]
+                        },
+                        {
+                          "Name": "--subnet",
+                          "Description": "[Experimental: IPAM] Define a subnet for the newly created container network",
+                          "Aliases": [],
+                          "Arguments": [
+                            {
+                              "Arguments": [
+                                {
+                                  "Name": "string",
+                                  "Description": "string",
+                                  "Type": "String"
+                                }
+                              ]
+                            }
+                          ]
+                        },
+                        {
+                          "Name": "--timeout",
+                          "Description": "Rollback changes if cluster couldn\u0027t be created in specified duration",
+                          "Aliases": [],
+                          "Arguments": [
+                            {
+                              "Arguments": [
+                                {
+                                  "Name": "duration",
+                                  "Description": "duration",
+                                  "Type": "String"
+                                }
+                              ]
+                            }
+                          ]
+                        },
+                        {
+                          "Name": "--token",
+                          "Description": "Specify a cluster token. By default, we generate one",
+                          "Aliases": [],
+                          "Arguments": [
+                            {
+                              "Arguments": [
+                                {
+                                  "Name": "string",
+                                  "Description": "string",
+                                  "Type": "String"
+                                }
+                              ]
+                            }
+                          ]
+                        },
+                        {
+                          "Name": "-v",
+                          "Description": "Mount volumes into the nodes",
+                          "Aliases": [
+                            "--volume"
+                          ],
+                          "Arguments": [
+                            {
+                              "Arguments": [
+                                {
+                                  "Name": "[SOURCE:]DEST[@NODEFILTER[;NODEFILTER...]]",
+                                  "Description": "[SOURCE:]DEST[@NODEFILTER[;NODEFILTER...]]",
+                                  "Type": "String"
+                                }
+                              ]
+                            }
+                          ]
+                        },
+                        {
+                          "Name": "--wait",
+                          "Description": "Wait for the server(s) to be ready before returning",
+                          "Aliases": [],
+                          "Arguments": []
+                        }
+                      ],
+                      "Optional": true
+                    },
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "cluster name",
+                          "Description": "cluster name",
+                          "Type": "String"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "delete",
+                  "Description": "Delete a cluster",
+                  "Aliases": [
+                    "del",
+                    "rm"
+                  ],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "-a",
+                          "Description": "Delete all clusters",
+                          "Aliases": [
+                            "--all"
+                          ],
+                          "Arguments": []
+                        },
+                        {
+                          "Name": "-c",
+                          "Description": "Path of a config file to use",
+                          "Aliases": [
+                            "--config"
+                          ],
+                          "Arguments": [
+                            {
+                              "Arguments": [
+                                {
+                                  "Name": "path",
+                                  "Description": "path",
+                                  "Type": "String"
+                                }
+                              ]
+                            }
+                          ]
+                        }
+                      ],
+                      "Optional": true
+                    },
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "cluster",
+                          "Description": "cluster",
+                          "Type": "CustomArgument",
+                          "Extensions": [],
+                          "CustomCommand": "k3d cluster list --no-headers"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "edit",
+                  "Description": "Edit a cluster",
+                  "Aliases": [
+                    "update"
+                  ],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "--port-add",
+                          "Description": "Map ports from the node containers",
+                          "Aliases": [],
+                          "Arguments": []
+                        }
+                      ],
+                      "Optional": true
+                    },
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "cluster",
+                          "Description": "cluster",
+                          "Type": "CustomArgument",
+                          "Extensions": [],
+                          "CustomCommand": "k3d cluster list --no-headers"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "list",
+                  "Description": "List clusters",
+                  "Aliases": [
+                    "ls",
+                    "get"
+                  ],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "--no-headers",
+                          "Description": "Don\u0027t print headers",
+                          "Aliases": [],
+                          "Arguments": []
+                        },
+                        {
+                          "Name": "-o",
+                          "Description": "Output format",
+                          "Aliases": [
+                            "--output"
+                          ],
+                          "Arguments": [
+                            {
+                              "Arguments": [
+                                {
+                                  "Name": "string",
+                                  "Description": "string",
+                                  "Type": "String"
+                                },
+                                {
+                                  "Name": "json",
+                                  "Description": "string"
+                                },
+                                {
+                                  "Name": "yaml",
+                                  "Description": "string"
+                                }
+                              ]
+                            }
+                          ]
+                        },
+                        {
+                          "Name": "--token",
+                          "Description": "Print k3s cluster token",
+                          "Aliases": [],
+                          "Arguments": []
+                        }
+                      ],
+                      "Optional": true
+                    },
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "cluster",
+                          "Description": "cluster",
+                          "Type": "CustomArgument",
+                          "Extensions": [],
+                          "CustomCommand": "k3d cluster list --no-headers"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "start",
+                  "Description": "Start a cluster",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "a",
+                          "Description": "Start all clusters",
+                          "Aliases": [
+                            "--all"
+                          ],
+                          "Arguments": []
+                        },
+                        {
+                          "Name": "--timeout",
+                          "Description": "Maximum waiting time for \u0027--wait\u0027 before canceling/returning",
+                          "Aliases": [],
+                          "Arguments": [
+                            {
+                              "Arguments": [
+                                {
+                                  "Name": "duration",
+                                  "Description": "duration",
+                                  "Type": "String"
+                                }
+                              ]
+                            }
+                          ]
+                        },
+                        {
+                          "Name": "--wait",
+                          "Description": "Wait for the server(s) (and loadbalancer) to be ready before returning",
+                          "Aliases": [],
+                          "Arguments": []
+                        }
+                      ],
+                      "Optional": true
+                    },
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "cluster",
+                          "Description": "cluster",
+                          "Type": "CustomArgument",
+                          "Extensions": [],
+                          "CustomCommand": "k3d cluster list --no-headers"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "stop",
+                  "Description": "Stop a cluster",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "-a",
+                          "Description": "Stop all clusters",
+                          "Aliases": [
+                            "--all"
+                          ],
+                          "Arguments": []
+                        }
+                      ],
+                      "Optional": true
+                    },
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "cluster",
+                          "Description": "cluster",
+                          "Type": "CustomArgument",
+                          "Extensions": [],
+                          "CustomCommand": "k3d cluster list --no-headers"
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ],
+              "DontAllowMultiple": true
+            }
+          ]
+        },
+        {
+          "Name": "completion",
+          "Description": "Generate shell completion scripts",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "shell",
+                  "Description": "shell",
+                  "Type": "String"
+                },
+                {
+                  "Name": "bash",
+                  "Description": "Bash shell"
+                },
+                {
+                  "Name": "zsh",
+                  "Description": "Zsh shell"
+                },
+                {
+                  "Name": "fish",
+                  "Description": "Fish shell"
+                },
+                {
+                  "Name": "powershell",
+                  "Description": "Powershell"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "Name": "config",
+          "Description": "Manage k3d config",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "init",
+                  "Description": "Create a new config file",
+                  "Aliases": [
+                    "create"
+                  ],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "-f",
+                          "Description": "Force overwrite of target file",
+                          "Aliases": [
+                            "--force"
+                          ],
+                          "Arguments": []
+                        },
+                        {
+                          "Name": "-o",
+                          "Description": "Write a default k3d config (default \u0022k3d-default.yaml\u0022)",
+                          "Aliases": [
+                            "--output"
+                          ],
+                          "Arguments": []
+                        }
+                      ],
+                      "Optional": true
+                    }
+                  ]
+                },
+                {
+                  "Name": "migrate",
+                  "Description": "Migrate a config file to the latest version",
+                  "Aliases": [
+                    "update"
+                  ],
+                  "Arguments": []
+                }
+              ],
+              "DontAllowMultiple": true
+            }
+          ]
+        },
+        {
+          "Name": "image",
+          "Description": "Manage k3d images",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "import",
+                  "Description": "Import image(s) from docker into k3d cluster(s)",
+                  "Aliases": [
+                    "load"
+                  ],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "-c",
+                          "Description": "Cluster to import image(s) into",
+                          "Aliases": [
+                            "--cluster"
+                          ],
+                          "Arguments": [
+                            {
+                              "Arguments": [
+                                {
+                                  "Name": "cluster",
+                                  "Description": "cluster",
+                                  "Type": "CustomArgument",
+                                  "Extensions": [],
+                                  "CustomCommand": "k3d cluster list --no-headers"
+                                }
+                              ]
+                            }
+                          ]
+                        },
+                        {
+                          "Name": "-k",
+                          "Description": "Do not delete the tarball containing the saved images from the shared volume",
+                          "Aliases": [
+                            "--keep-tarball"
+                          ],
+                          "Arguments": []
+                        },
+                        {
+                          "Name": "-t",
+                          "Description": "Do not delete the tools node after import",
+                          "Aliases": [
+                            "--keep-tools"
+                          ],
+                          "Arguments": []
+                        },
+                        {
+                          "Name": "-m",
+                          "Description": "Import mode",
+                          "Aliases": [
+                            "--mode"
+                          ],
+                          "Arguments": [
+                            {
+                              "Arguments": [
+                                {
+                                  "Name": "mode",
+                                  "Description": "mode",
+                                  "Type": "String"
+                                },
+                                {
+                                  "Name": "auto",
+                                  "Description": "mode"
+                                },
+                                {
+                                  "Name": "direct",
+                                  "Description": "mode"
+                                },
+                                {
+                                  "Name": "tools",
+                                  "Description": "mode"
+                                }
+                              ]
+                            }
+                          ]
+                        }
+                      ],
+                      "Optional": true
+                    },
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "image",
+                          "Description": "image",
+                          "Type": "CustomArgument",
+                          "Extensions": [],
+                          "CustomCommand": "docker image ls --format {{.Repository}}:{{.Tag}}"
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ],
+              "DontAllowMultiple": true
+            }
+          ]
+        },
+        {
+          "Name": "kubeconfig",
+          "Description": "Manage k3d kubeconfig",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "get",
+                  "Description": "",
+                  "Aliases": [
+                    "print",
+                    "show"
+                  ],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "-a",
+                          "Description": "",
+                          "Aliases": [
+                            "--all"
+                          ],
+                          "Arguments": []
+                        }
+                      ],
+                      "Optional": true
+                    },
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "cluster",
+                          "Description": "cluster",
+                          "Type": "CustomArgument",
+                          "Extensions": [],
+                          "CustomCommand": "k3d cluster list --no-headers"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "merge",
+                  "Description": "Write/Merge kubeconfig(s) from cluster(s) into new or existing kubeconfig/file",
+                  "Aliases": [
+                    "write"
+                  ],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "-a",
+                          "Description": "",
+                          "Aliases": [
+                            "--all"
+                          ],
+                          "Arguments": []
+                        },
+                        {
+                          "Name": "-d",
+                          "Description": "Merge into the default kubeconfig ($KUBECONFIG or /Users/balli/.kube/config)",
+                          "Aliases": [
+                            "--kubeconfig-merge-default"
+                          ],
+                          "Arguments": []
+                        },
+                        {
+                          "Name": "-s",
+                          "Description": "Switch to new context (default true)",
+                          "Aliases": [
+                            "--kubeconfig-switch-context"
+                          ],
+                          "Arguments": []
+                        },
+                        {
+                          "Name": "-o",
+                          "Description": "Define output [ - | FILE ] (default from $KUBECONFIG or /Users/balli/.kube/config",
+                          "Aliases": [
+                            "--output"
+                          ],
+                          "Arguments": [
+                            {
+                              "Arguments": [
+                                {
+                                  "Name": "string",
+                                  "Description": "string",
+                                  "Type": "String"
+                                }
+                              ]
+                            }
+                          ]
+                        },
+                        {
+                          "Name": "--overwrite",
+                          "Description": "[Careful!] Overwrite existing file, ignoring its contents",
+                          "Aliases": [],
+                          "Arguments": []
+                        },
+                        {
+                          "Name": "-u",
+                          "Description": "Update conflicting fields in existing kubeconfig (default true)",
+                          "Aliases": [
+                            "--update"
+                          ],
+                          "Arguments": []
+                        }
+                      ],
+                      "Optional": true
+                    },
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "cluster",
+                          "Description": "cluster",
+                          "Type": "CustomArgument",
+                          "Extensions": [],
+                          "CustomCommand": "k3d cluster list --no-headers"
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ],
+              "DontAllowMultiple": true
+            }
+          ]
+        },
+        {
+          "Name": "node",
+          "Description": "Manage k3d nodes",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "create",
+                  "Description": "Create a new node",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "-c",
+                          "Description": "Cluster URL or k3d cluster name to connect to. (default \u0022k3s-default\u0022)",
+                          "Aliases": [
+                            "--cluster"
+                          ],
+                          "Arguments": [
+                            {
+                              "Arguments": [
+                                {
+                                  "Name": "cluster",
+                                  "Description": "cluster",
+                                  "Type": "CustomArgument",
+                                  "Extensions": [],
+                                  "CustomCommand": "k3d cluster list --no-headers"
+                                }
+                              ]
+                            }
+                          ]
+                        },
+                        {
+                          "Name": "-i",
+                          "Description": "Node image to use",
+                          "Aliases": [
+                            "--image"
+                          ],
+                          "Arguments": [
+                            {
+                              "Arguments": [
+                                {
+                                  "Name": "image",
+                                  "Description": "image",
+                                  "Type": "String"
+                                }
+                              ]
+                            }
+                          ]
+                        },
+                        {
+                          "Name": "--k3s-arg",
+                          "Description": "Additional k3s arguments",
+                          "Aliases": [],
+                          "Arguments": [
+                            {
+                              "Arguments": [
+                                {
+                                  "Name": "k3s-arg",
+                                  "Description": "k3s-arg",
+                                  "Type": "String"
+                                }
+                              ]
+                            }
+                          ]
+                        },
+                        {
+                          "Name": "--k3s-node-label",
+                          "Description": "Specify k3s node labels in format",
+                          "Aliases": [],
+                          "Arguments": [
+                            {
+                              "Arguments": [
+                                {
+                                  "Name": "k3s-node-label",
+                                  "Description": "k3s-node-label",
+                                  "Type": "String"
+                                }
+                              ]
+                            }
+                          ]
+                        },
+                        {
+                          "Name": "--memory",
+                          "Description": "Memory limit for the node container",
+                          "Aliases": [],
+                          "Arguments": [
+                            {
+                              "Arguments": [
+                                {
+                                  "Name": "memory",
+                                  "Description": "memory",
+                                  "Type": "String"
+                                }
+                              ]
+                            }
+                          ]
+                        },
+                        {
+                          "Name": "-n",
+                          "Description": "Add node to (another) runtime network",
+                          "Aliases": [
+                            "--network"
+                          ],
+                          "Arguments": [
+                            {
+                              "Arguments": [
+                                {
+                                  "Name": "network",
+                                  "Description": "network",
+                                  "Type": "String"
+                                }
+                              ]
+                            }
+                          ]
+                        },
+                        {
+                          "Name": "--replicas",
+                          "Description": "Number of replicas to create",
+                          "Aliases": [],
+                          "Arguments": [
+                            {
+                              "Arguments": [
+                                {
+                                  "Name": "replicas",
+                                  "Description": "replicas",
+                                  "Type": "String"
+                                },
+                                {
+                                  "Name": "1",
+                                  "Description": "replicas"
+                                },
+                                {
+                                  "Name": "2",
+                                  "Description": "replicas"
+                                },
+                                {
+                                  "Name": "3",
+                                  "Description": "replicas"
+                                },
+                                {
+                                  "Name": "4",
+                                  "Description": "replicas"
+                                },
+                                {
+                                  "Name": "5",
+                                  "Description": "replicas"
+                                }
+                              ]
+                            }
+                          ]
+                        },
+                        {
+                          "Name": "--role",
+                          "Description": "Node role",
+                          "Aliases": [],
+                          "Arguments": [
+                            {
+                              "Arguments": [
+                                {
+                                  "Name": "role",
+                                  "Description": "role",
+                                  "Type": "String"
+                                },
+                                {
+                                  "Name": "agent",
+                                  "Description": "role"
+                                },
+                                {
+                                  "Name": "server",
+                                  "Description": "role"
+                                }
+                              ]
+                            }
+                          ]
+                        },
+                        {
+                          "Name": "--runtime-label",
+                          "Description": "Specify runtime labels in format",
+                          "Aliases": [],
+                          "Arguments": [
+                            {
+                              "Arguments": [
+                                {
+                                  "Name": "runtime-label",
+                                  "Description": "runtime-label",
+                                  "Type": "String"
+                                }
+                              ]
+                            }
+                          ]
+                        },
+                        {
+                          "Name": "--timeout",
+                          "Description": "Maximum waiting time for \u0027--wait\u0027 before canceling/returning",
+                          "Aliases": [],
+                          "Arguments": [
+                            {
+                              "Arguments": [
+                                {
+                                  "Name": "timeout",
+                                  "Description": "timeout",
+                                  "Type": "String"
+                                }
+                              ]
+                            }
+                          ]
+                        },
+                        {
+                          "Name": "-t",
+                          "Description": "Override cluster token",
+                          "Aliases": [
+                            "--token"
+                          ],
+                          "Arguments": [
+                            {
+                              "Arguments": [
+                                {
+                                  "Name": "token",
+                                  "Description": "token",
+                                  "Type": "String"
+                                }
+                              ]
+                            }
+                          ]
+                        },
+                        {
+                          "Name": "--wait",
+                          "Description": "Wait for the node(s) to be ready before returning",
+                          "Aliases": [],
+                          "Arguments": []
+                        }
+                      ],
+                      "Optional": true
+                    },
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "Node Name",
+                          "Description": "Node Name",
+                          "Type": "String"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "delete",
+                  "Description": "Delete a node",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "-a",
+                          "Description": "Delete all existing nodes",
+                          "Aliases": [
+                            "--all"
+                          ],
+                          "Arguments": []
+                        },
+                        {
+                          "Name": "-r",
+                          "Description": "Also delete registries",
+                          "Aliases": [
+                            "--registry"
+                          ],
+                          "Arguments": []
+                        }
+                      ],
+                      "Optional": true
+                    },
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "Node Name",
+                          "Description": "Node Name",
+                          "Type": "CustomArgument",
+                          "Extensions": [],
+                          "CustomCommand": "k3d node list --no-headers"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "edit",
+                  "Description": "[EXPERIMENTAL] Edit node(s)",
+                  "Aliases": [
+                    "update"
+                  ],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "--port-add",
+                          "Description": "Map ports from the node container to the host",
+                          "Aliases": [],
+                          "Arguments": [
+                            {
+                              "Arguments": [
+                                {
+                                  "Name": "port-add",
+                                  "Description": "port-add",
+                                  "Type": "String"
+                                }
+                              ]
+                            }
+                          ]
+                        }
+                      ],
+                      "Optional": true
+                    },
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "Node Name",
+                          "Description": "Node Name",
+                          "Type": "CustomArgument",
+                          "Extensions": [],
+                          "CustomCommand": "k3d node list --no-headers"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "list",
+                  "Description": "List nodes",
+                  "Aliases": [
+                    "ls",
+                    "get"
+                  ],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "--no-headers",
+                          "Description": "Don\u0027t print headers (default print headers)",
+                          "Aliases": [],
+                          "Arguments": []
+                        },
+                        {
+                          "Name": "-o",
+                          "Description": "Output format",
+                          "Aliases": [
+                            "--output"
+                          ],
+                          "Arguments": [
+                            {
+                              "Arguments": [
+                                {
+                                  "Name": "output",
+                                  "Description": "output",
+                                  "Type": "String"
+                                },
+                                {
+                                  "Name": "json",
+                                  "Description": "output"
+                                },
+                                {
+                                  "Name": "yaml",
+                                  "Description": "output"
+                                }
+                              ]
+                            }
+                          ]
+                        }
+                      ],
+                      "Optional": true
+                    }
+                  ]
+                },
+                {
+                  "Name": "start",
+                  "Description": "Start a node",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "Node Name",
+                          "Description": "Node Name",
+                          "Type": "CustomArgument",
+                          "Extensions": [],
+                          "CustomCommand": "k3d node list --no-headers"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "stop",
+                  "Description": "Stop a node",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "Node Name",
+                          "Description": "Node Name",
+                          "Type": "CustomArgument",
+                          "Extensions": [],
+                          "CustomCommand": "k3d node list --no-headers"
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ],
+              "DontAllowMultiple": true
+            }
+          ]
+        },
+        {
+          "Name": "registry",
+          "Description": "Manage registry/registries",
+          "Aliases": [
+            "registries",
+            "reg"
+          ],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "create",
+                  "Description": "Create a new registry",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "--default-network",
+                          "Description": "Specify the network connected to the registry (default \u0022bridge\u0022)",
+                          "Aliases": [],
+                          "Arguments": []
+                        },
+                        {
+                          "Name": "-i",
+                          "Description": "Specify image used for the registry (default \u0022docker.io/library/registry:2\u0022)",
+                          "Aliases": [
+                            "--image"
+                          ],
+                          "Arguments": [
+                            {
+                              "Arguments": [
+                                {
+                                  "Name": "image",
+                                  "Description": "image",
+                                  "Type": "String"
+                                }
+                              ]
+                            }
+                          ]
+                        },
+                        {
+                          "Name": "--no-help",
+                          "Description": "Disable the help text (How-To use the registry)",
+                          "Aliases": [],
+                          "Arguments": []
+                        },
+                        {
+                          "Name": "-p",
+                          "Description": "Select which port the registry should be listening on your machine (localhost) (Format: [HOST:]HOSTPORT)",
+                          "Aliases": [
+                            "--port"
+                          ],
+                          "Arguments": [
+                            {
+                              "Arguments": [
+                                {
+                                  "Name": "port",
+                                  "Description": "port",
+                                  "Type": "String"
+                                }
+                              ]
+                            }
+                          ]
+                        },
+                        {
+                          "Name": "--proxy-password",
+                          "Description": "Specify the password of the proxied remote registry",
+                          "Aliases": [],
+                          "Arguments": [
+                            {
+                              "Arguments": [
+                                {
+                                  "Name": "proxy-password",
+                                  "Description": "proxy-password",
+                                  "Type": "String"
+                                }
+                              ]
+                            }
+                          ]
+                        },
+                        {
+                          "Name": "--proxy-remote-url",
+                          "Description": "Specify the url of the proxied remote registry",
+                          "Aliases": [],
+                          "Arguments": [
+                            {
+                              "Arguments": [
+                                {
+                                  "Name": "proxy-remote-url",
+                                  "Description": "proxy-remote-url",
+                                  "Type": "String"
+                                }
+                              ]
+                            }
+                          ]
+                        },
+                        {
+                          "Name": "--proxy-username",
+                          "Description": "Specify the username of the proxied remote registry",
+                          "Aliases": [],
+                          "Arguments": [
+                            {
+                              "Arguments": [
+                                {
+                                  "Name": "proxy-username",
+                                  "Description": "proxy-username",
+                                  "Type": "String"
+                                }
+                              ]
+                            }
+                          ]
+                        },
+                        {
+                          "Name": "-v",
+                          "Description": "Mount volumes into the registry node (Format: [SOURCE:]DEST",
+                          "Aliases": [
+                            "--volume"
+                          ],
+                          "Arguments": [
+                            {
+                              "Arguments": [
+                                {
+                                  "Name": "volume",
+                                  "Description": "volume",
+                                  "Type": "String"
+                                }
+                              ]
+                            }
+                          ]
+                        }
+                      ],
+                      "Optional": true
+                    },
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "Registry Name",
+                          "Description": "Registry Name",
+                          "Type": "String"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "delete",
+                  "Description": "Delete registry/registries",
+                  "Aliases": [
+                    "del",
+                    "rm"
+                  ],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "-a",
+                          "Description": "",
+                          "Aliases": [
+                            "--all"
+                          ],
+                          "Arguments": []
+                        }
+                      ],
+                      "Optional": true
+                    },
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "Registry Name",
+                          "Description": "Registry Name",
+                          "Type": "CustomArgument",
+                          "Extensions": [],
+                          "CustomCommand": "k3d registry list --no-headers"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "list",
+                  "Description": "List registries",
+                  "Aliases": [
+                    "ls",
+                    "get"
+                  ],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "--no-headers",
+                          "Description": "Don\u0027t print headers (default print headers)",
+                          "Aliases": [],
+                          "Arguments": []
+                        },
+                        {
+                          "Name": "-o",
+                          "Description": "Output format",
+                          "Aliases": [
+                            "--output"
+                          ],
+                          "Arguments": [
+                            {
+                              "Arguments": [
+                                {
+                                  "Name": "output",
+                                  "Description": "output",
+                                  "Type": "String"
+                                },
+                                {
+                                  "Name": "json",
+                                  "Description": "output"
+                                },
+                                {
+                                  "Name": "yaml",
+                                  "Description": "output"
+                                }
+                              ]
+                            }
+                          ]
+                        }
+                      ],
+                      "Optional": true
+                    },
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "Registry Name",
+                          "Description": "Registry Name",
+                          "Type": "CustomArgument",
+                          "Extensions": [],
+                          "CustomCommand": "k3d registry list --no-headers"
+                        }
+                      ],
+                      "Optional": true
+                    }
+                  ]
+                }
+              ],
+              "DontAllowMultiple": true
+            }
+          ]
+        },
+        {
+          "Name": "version",
+          "Description": "Show k3d and default k3s version",
+          "Aliases": [],
+          "Arguments": []
+        }
+      ],
+      "DontAllowMultiple": true
+    }
+  ]
+}

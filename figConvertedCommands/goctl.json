@@ -1,0 +1,3002 @@
+{
+  "Comment": "This command info is generated from fig",
+  "Name": "goctl",
+  "Description": "A cli tool to generate go-zero code",
+  "Arguments": [
+    {
+      "Arguments": [
+        {
+          "Name": "--help",
+          "Description": "Display help",
+          "Aliases": [
+            "-h"
+          ],
+          "Arguments": []
+        }
+      ],
+      "Optional": true
+    },
+    {
+      "Arguments": [
+        {
+          "Name": "api",
+          "Description": "Generate api related files",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "--branch",
+                  "Description": "The branch of the remote repo, it does work with --remote",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "branch",
+                          "Description": "branch",
+                          "Type": "String"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "--home",
+                  "Description": "The goctl home path of the template, --home and --remote cannot be set at the same time, if they are, --remote has higher priority",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "home",
+                          "Description": "home",
+                          "Type": "String"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "--o",
+                  "Description": "Output a sample api file",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "o",
+                          "Description": "o",
+                          "Type": "String"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "--remote",
+                  "Description": "The remote git repo of the template, --home and --remote cannot be set at the same time, if they are, --remote has higher priority \tThe git repo directory must be consistent with the https://github.com/zeromicro/go-zero-template directory structure",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "remote",
+                          "Description": "remote",
+                          "Type": "String"
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ],
+              "Optional": true
+            },
+            {
+              "Arguments": [
+                {
+                  "Name": "dart",
+                  "Description": "Generate dart files for provided api in api file",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "--api",
+                          "Description": "The api file",
+                          "Aliases": [],
+                          "Arguments": [
+                            {
+                              "Arguments": [
+                                {
+                                  "Name": "api",
+                                  "Description": "api",
+                                  "Type": "String"
+                                }
+                              ]
+                            }
+                          ]
+                        },
+                        {
+                          "Name": "--dir",
+                          "Description": "The target dir",
+                          "Aliases": [],
+                          "Arguments": [
+                            {
+                              "Arguments": [
+                                {
+                                  "Name": "dir",
+                                  "Description": "dir",
+                                  "Type": "String"
+                                }
+                              ]
+                            }
+                          ]
+                        },
+                        {
+                          "Name": "--hostname",
+                          "Description": "Hostname of the server",
+                          "Aliases": [],
+                          "Arguments": [
+                            {
+                              "Arguments": [
+                                {
+                                  "Name": "hostname",
+                                  "Description": "hostname",
+                                  "Type": "String"
+                                }
+                              ]
+                            }
+                          ]
+                        },
+                        {
+                          "Name": "--legacy",
+                          "Description": "Legacy generator for flutter v1",
+                          "Aliases": [],
+                          "Arguments": []
+                        }
+                      ],
+                      "Optional": true
+                    }
+                  ]
+                },
+                {
+                  "Name": "doc",
+                  "Description": "Generate doc files",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "--dir",
+                          "Description": "The target dir",
+                          "Aliases": [],
+                          "Arguments": [
+                            {
+                              "Arguments": [
+                                {
+                                  "Name": "dir",
+                                  "Description": "dir",
+                                  "Type": "String"
+                                }
+                              ]
+                            }
+                          ]
+                        },
+                        {
+                          "Name": "--o",
+                          "Description": "The output markdown directory",
+                          "Aliases": [],
+                          "Arguments": [
+                            {
+                              "Arguments": [
+                                {
+                                  "Name": "o",
+                                  "Description": "o",
+                                  "Type": "String"
+                                }
+                              ]
+                            }
+                          ]
+                        }
+                      ],
+                      "Optional": true
+                    }
+                  ]
+                },
+                {
+                  "Name": "format",
+                  "Description": "Format api files",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "--declare",
+                          "Description": "Use to skip check api types already declare",
+                          "Aliases": [],
+                          "Arguments": []
+                        },
+                        {
+                          "Name": "--dir",
+                          "Description": "The format target dir",
+                          "Aliases": [],
+                          "Arguments": [
+                            {
+                              "Arguments": [
+                                {
+                                  "Name": "dir",
+                                  "Description": "dir",
+                                  "Type": "String"
+                                }
+                              ]
+                            }
+                          ]
+                        },
+                        {
+                          "Name": "--iu",
+                          "Description": "Ignore update",
+                          "Aliases": [],
+                          "Arguments": []
+                        },
+                        {
+                          "Name": "--stdin",
+                          "Description": "Use stdin to input api doc content, press \u0022ctrl \u002B d\u0022 to send EOF",
+                          "Aliases": [],
+                          "Arguments": []
+                        }
+                      ],
+                      "Optional": true
+                    }
+                  ]
+                },
+                {
+                  "Name": "go",
+                  "Description": "Generate go files for provided api in yaml file",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "--api",
+                          "Description": "The api file",
+                          "Aliases": [],
+                          "Arguments": [
+                            {
+                              "Arguments": [
+                                {
+                                  "Name": "api",
+                                  "Description": "api",
+                                  "Type": "String"
+                                }
+                              ]
+                            }
+                          ]
+                        },
+                        {
+                          "Name": "--branch",
+                          "Description": "The branch of the remote repo, it does work with --remote",
+                          "Aliases": [],
+                          "Arguments": [
+                            {
+                              "Arguments": [
+                                {
+                                  "Name": "branch",
+                                  "Description": "branch",
+                                  "Type": "String"
+                                }
+                              ]
+                            }
+                          ]
+                        },
+                        {
+                          "Name": "--dir",
+                          "Description": "The target dir",
+                          "Aliases": [],
+                          "Arguments": [
+                            {
+                              "Arguments": [
+                                {
+                                  "Name": "dir",
+                                  "Description": "dir",
+                                  "Type": "String"
+                                }
+                              ]
+                            }
+                          ]
+                        },
+                        {
+                          "Name": "--home",
+                          "Description": "The goctl home path of the template, --home and --remote cannot be set at the same time, if they are, --remote has higher priority",
+                          "Aliases": [],
+                          "Arguments": [
+                            {
+                              "Arguments": [
+                                {
+                                  "Name": "home",
+                                  "Description": "home",
+                                  "Type": "String"
+                                }
+                              ]
+                            }
+                          ]
+                        },
+                        {
+                          "Name": "--remote",
+                          "Description": "The remote git repo of the template, --home and --remote cannot be set at the same time, if they are, --remote has higher priority \tThe git repo directory must be consistent with the https://github.com/zeromicro/go-zero-template directory structure",
+                          "Aliases": [],
+                          "Arguments": [
+                            {
+                              "Arguments": [
+                                {
+                                  "Name": "remote",
+                                  "Description": "remote",
+                                  "Type": "String"
+                                }
+                              ]
+                            }
+                          ]
+                        },
+                        {
+                          "Name": "--style",
+                          "Description": "The file naming format, see [https://github.com/zeromicro/go-zero/blob/master/tools/goctl/config/readme.md]",
+                          "Aliases": [],
+                          "Arguments": [
+                            {
+                              "Arguments": [
+                                {
+                                  "Name": "style",
+                                  "Description": "style",
+                                  "Type": "String"
+                                }
+                              ]
+                            }
+                          ]
+                        }
+                      ],
+                      "Optional": true
+                    }
+                  ]
+                },
+                {
+                  "Name": "java",
+                  "Description": "Generate java files for provided api in api file",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "--api",
+                          "Description": "The api file",
+                          "Aliases": [],
+                          "Arguments": [
+                            {
+                              "Arguments": [
+                                {
+                                  "Name": "api",
+                                  "Description": "api",
+                                  "Type": "String"
+                                }
+                              ]
+                            }
+                          ]
+                        },
+                        {
+                          "Name": "--dir",
+                          "Description": "The target dir",
+                          "Aliases": [],
+                          "Arguments": [
+                            {
+                              "Arguments": [
+                                {
+                                  "Name": "dir",
+                                  "Description": "dir",
+                                  "Type": "String"
+                                }
+                              ]
+                            }
+                          ]
+                        }
+                      ],
+                      "Optional": true
+                    }
+                  ]
+                },
+                {
+                  "Name": "kt",
+                  "Description": "Generate kotlin code for provided api file",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "--api",
+                          "Description": "The api file",
+                          "Aliases": [],
+                          "Arguments": [
+                            {
+                              "Arguments": [
+                                {
+                                  "Name": "api",
+                                  "Description": "api",
+                                  "Type": "String"
+                                }
+                              ]
+                            }
+                          ]
+                        },
+                        {
+                          "Name": "--dir",
+                          "Description": "The target dir",
+                          "Aliases": [],
+                          "Arguments": [
+                            {
+                              "Arguments": [
+                                {
+                                  "Name": "dir",
+                                  "Description": "dir",
+                                  "Type": "String"
+                                }
+                              ]
+                            }
+                          ]
+                        },
+                        {
+                          "Name": "--pkg",
+                          "Description": "Define package name for kotlin file",
+                          "Aliases": [],
+                          "Arguments": [
+                            {
+                              "Arguments": [
+                                {
+                                  "Name": "pkg",
+                                  "Description": "pkg",
+                                  "Type": "String"
+                                }
+                              ]
+                            }
+                          ]
+                        }
+                      ],
+                      "Optional": true
+                    }
+                  ]
+                },
+                {
+                  "Name": "new",
+                  "Description": "Fast create api service",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "--branch",
+                          "Description": "The branch of the remote repo, it does work with --remote",
+                          "Aliases": [],
+                          "Arguments": [
+                            {
+                              "Arguments": [
+                                {
+                                  "Name": "branch",
+                                  "Description": "branch",
+                                  "Type": "String"
+                                }
+                              ]
+                            }
+                          ]
+                        },
+                        {
+                          "Name": "--home",
+                          "Description": "The goctl home path of the template, --home and --remote cannot be set at the same time, if they are, --remote has higher priority",
+                          "Aliases": [],
+                          "Arguments": [
+                            {
+                              "Arguments": [
+                                {
+                                  "Name": "home",
+                                  "Description": "home",
+                                  "Type": "String"
+                                }
+                              ]
+                            }
+                          ]
+                        },
+                        {
+                          "Name": "--remote",
+                          "Description": "The remote git repo of the template, --home and --remote cannot be set at the same time, if they are, --remote has higher priority \tThe git repo directory must be consistent with the https://github.com/zeromicro/go-zero-template directory structure",
+                          "Aliases": [],
+                          "Arguments": [
+                            {
+                              "Arguments": [
+                                {
+                                  "Name": "remote",
+                                  "Description": "remote",
+                                  "Type": "String"
+                                }
+                              ]
+                            }
+                          ]
+                        },
+                        {
+                          "Name": "--style",
+                          "Description": "The file naming format, see [https://github.com/zeromicro/go-zero/blob/master/tools/goctl/config/readme.md]",
+                          "Aliases": [],
+                          "Arguments": [
+                            {
+                              "Arguments": [
+                                {
+                                  "Name": "style",
+                                  "Description": "style",
+                                  "Type": "String"
+                                }
+                              ]
+                            }
+                          ]
+                        }
+                      ],
+                      "Optional": true
+                    }
+                  ]
+                },
+                {
+                  "Name": "plugin",
+                  "Description": "Custom file generator",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "--api",
+                          "Description": "The api file",
+                          "Aliases": [],
+                          "Arguments": [
+                            {
+                              "Arguments": [
+                                {
+                                  "Name": "api",
+                                  "Description": "api",
+                                  "Type": "String"
+                                }
+                              ]
+                            }
+                          ]
+                        },
+                        {
+                          "Name": "--dir",
+                          "Description": "The target dir",
+                          "Aliases": [],
+                          "Arguments": [
+                            {
+                              "Arguments": [
+                                {
+                                  "Name": "dir",
+                                  "Description": "dir",
+                                  "Type": "String"
+                                }
+                              ]
+                            }
+                          ]
+                        },
+                        {
+                          "Name": "--plugin",
+                          "Description": "The plugin file",
+                          "Aliases": [
+                            "-p"
+                          ],
+                          "Arguments": [
+                            {
+                              "Arguments": [
+                                {
+                                  "Name": "plugin",
+                                  "Description": "plugin",
+                                  "Type": "String"
+                                }
+                              ]
+                            }
+                          ]
+                        },
+                        {
+                          "Name": "--style",
+                          "Description": "The file naming format, see [https://github.com/zeromicro/go-zero/tree/master/tools/goctl/config/readme.md]",
+                          "Aliases": [],
+                          "Arguments": [
+                            {
+                              "Arguments": [
+                                {
+                                  "Name": "style",
+                                  "Description": "style",
+                                  "Type": "String"
+                                }
+                              ]
+                            }
+                          ]
+                        }
+                      ],
+                      "Optional": true
+                    }
+                  ]
+                },
+                {
+                  "Name": "ts",
+                  "Description": "Generate ts files for provided api in api file",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "--api",
+                          "Description": "The api file",
+                          "Aliases": [],
+                          "Arguments": [
+                            {
+                              "Arguments": [
+                                {
+                                  "Name": "api",
+                                  "Description": "api",
+                                  "Type": "String"
+                                }
+                              ]
+                            }
+                          ]
+                        },
+                        {
+                          "Name": "--caller",
+                          "Description": "The web api caller",
+                          "Aliases": [],
+                          "Arguments": [
+                            {
+                              "Arguments": [
+                                {
+                                  "Name": "caller",
+                                  "Description": "caller",
+                                  "Type": "String"
+                                }
+                              ]
+                            }
+                          ]
+                        },
+                        {
+                          "Name": "--dir",
+                          "Description": "The target dir",
+                          "Aliases": [],
+                          "Arguments": [
+                            {
+                              "Arguments": [
+                                {
+                                  "Name": "dir",
+                                  "Description": "dir",
+                                  "Type": "String"
+                                }
+                              ]
+                            }
+                          ]
+                        },
+                        {
+                          "Name": "--unwrap",
+                          "Description": "Unwrap the webapi caller for import",
+                          "Aliases": [],
+                          "Arguments": []
+                        },
+                        {
+                          "Name": "--webapi",
+                          "Description": "The web api file path",
+                          "Aliases": [],
+                          "Arguments": [
+                            {
+                              "Arguments": [
+                                {
+                                  "Name": "webapi",
+                                  "Description": "webapi",
+                                  "Type": "String"
+                                }
+                              ]
+                            }
+                          ]
+                        }
+                      ],
+                      "Optional": true
+                    }
+                  ]
+                },
+                {
+                  "Name": "validate",
+                  "Description": "Validate api file",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "--api",
+                          "Description": "Validate target api file",
+                          "Aliases": [],
+                          "Arguments": [
+                            {
+                              "Arguments": [
+                                {
+                                  "Name": "api",
+                                  "Description": "api",
+                                  "Type": "String"
+                                }
+                              ]
+                            }
+                          ]
+                        }
+                      ],
+                      "Optional": true
+                    }
+                  ]
+                }
+              ],
+              "DontAllowMultiple": true
+            }
+          ]
+        },
+        {
+          "Name": "bug",
+          "Description": "Report a bug",
+          "Aliases": [],
+          "Arguments": []
+        },
+        {
+          "Name": "completion",
+          "Description": "Generate the autocompletion script for the specified shell",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "bash",
+                  "Description": "Generate the autocompletion script for bash",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "--no-descriptions",
+                          "Description": "Disable completion descriptions",
+                          "Aliases": [],
+                          "Arguments": []
+                        }
+                      ],
+                      "Optional": true
+                    }
+                  ]
+                },
+                {
+                  "Name": "fish",
+                  "Description": "Generate the autocompletion script for fish",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "--no-descriptions",
+                          "Description": "Disable completion descriptions",
+                          "Aliases": [],
+                          "Arguments": []
+                        }
+                      ],
+                      "Optional": true
+                    }
+                  ]
+                },
+                {
+                  "Name": "powershell",
+                  "Description": "Generate the autocompletion script for powershell",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "--no-descriptions",
+                          "Description": "Disable completion descriptions",
+                          "Aliases": [],
+                          "Arguments": []
+                        }
+                      ],
+                      "Optional": true
+                    }
+                  ]
+                },
+                {
+                  "Name": "zsh",
+                  "Description": "Generate the autocompletion script for zsh",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "--no-descriptions",
+                          "Description": "Disable completion descriptions",
+                          "Aliases": [],
+                          "Arguments": []
+                        }
+                      ],
+                      "Optional": true
+                    }
+                  ]
+                }
+              ],
+              "DontAllowMultiple": true
+            }
+          ]
+        },
+        {
+          "Name": "docker",
+          "Description": "Generate Dockerfile",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "--base",
+                  "Description": "The base image to build the docker image, default scratch",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "base",
+                          "Description": "base",
+                          "Type": "String"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "--branch",
+                  "Description": "The branch of the remote repo, it does work with --remote",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "branch",
+                          "Description": "branch",
+                          "Type": "String"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "--go",
+                  "Description": "The directory that contains main function",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "go",
+                          "Description": "go",
+                          "Type": "String"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "--home",
+                  "Description": "The goctl home path of the template, --home and --remote cannot be set at the same time, if they are, --remote has higher priority",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "home",
+                          "Description": "home",
+                          "Type": "String"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "--port",
+                  "Description": "The port to expose, default none",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "port",
+                          "Description": "port",
+                          "Type": "String"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "--remote",
+                  "Description": "The remote git repo of the template, --home and --remote cannot be set at the same time, if they are, --remote has higher priority \tThe git repo directory must be consistent with the https://github.com/zeromicro/go-zero-template directory structure",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "remote",
+                          "Description": "remote",
+                          "Type": "String"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "--tz",
+                  "Description": "The timezone of the container",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "tz",
+                          "Description": "tz",
+                          "Type": "String"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "--version",
+                  "Description": "The goctl builder golang image version",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "version",
+                          "Description": "version",
+                          "Type": "String"
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ],
+              "Optional": true
+            }
+          ]
+        },
+        {
+          "Name": "env",
+          "Description": "Check or edit goctl environment",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "--write",
+                  "Description": "Edit goctl environment",
+                  "Aliases": [
+                    "-w"
+                  ],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "write",
+                          "Description": "write",
+                          "Type": "String"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "--force",
+                  "Description": "Silent installation of non-existent dependencies",
+                  "Aliases": [
+                    "-f"
+                  ],
+                  "Arguments": []
+                },
+                {
+                  "Name": "--verbose",
+                  "Description": "Enable log output",
+                  "Aliases": [
+                    "-v"
+                  ],
+                  "Arguments": []
+                }
+              ],
+              "Optional": true
+            },
+            {
+              "Arguments": [
+                {
+                  "Name": "check",
+                  "Description": "Detect goctl env and dependency tools",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "--install",
+                          "Description": "Install dependencies if not found",
+                          "Aliases": [
+                            "-i"
+                          ],
+                          "Arguments": []
+                        }
+                      ],
+                      "Optional": true
+                    }
+                  ]
+                },
+                {
+                  "Name": "install",
+                  "Description": "Goctl env installation",
+                  "Aliases": [],
+                  "Arguments": []
+                }
+              ],
+              "DontAllowMultiple": true
+            }
+          ]
+        },
+        {
+          "Name": "kube",
+          "Description": "Generate kubernetes files",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "deploy",
+                  "Description": "Generate deployment yaml file",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "--branch",
+                          "Description": "The branch of the remote repo, it does work with --remote",
+                          "Aliases": [],
+                          "Arguments": [
+                            {
+                              "Arguments": [
+                                {
+                                  "Name": "branch",
+                                  "Description": "branch",
+                                  "Type": "String"
+                                }
+                              ]
+                            }
+                          ]
+                        },
+                        {
+                          "Name": "--home",
+                          "Description": "The goctl home path of the template, --home and --remote cannot be set at the same time, if they are, --remote has higher priority",
+                          "Aliases": [],
+                          "Arguments": [
+                            {
+                              "Arguments": [
+                                {
+                                  "Name": "home",
+                                  "Description": "home",
+                                  "Type": "String"
+                                }
+                              ]
+                            }
+                          ]
+                        },
+                        {
+                          "Name": "--image",
+                          "Description": "The docker image of deployment (required)",
+                          "Aliases": [],
+                          "Arguments": [
+                            {
+                              "Arguments": [
+                                {
+                                  "Name": "image",
+                                  "Description": "image",
+                                  "Type": "String"
+                                }
+                              ]
+                            }
+                          ]
+                        },
+                        {
+                          "Name": "--limitCpu",
+                          "Description": "The limit cpu to deploy",
+                          "Aliases": [],
+                          "Arguments": [
+                            {
+                              "Arguments": [
+                                {
+                                  "Name": "limitCpu",
+                                  "Description": "limitCpu",
+                                  "Type": "String"
+                                }
+                              ]
+                            }
+                          ]
+                        },
+                        {
+                          "Name": "--limitMem",
+                          "Description": "The limit memory to deploy",
+                          "Aliases": [],
+                          "Arguments": [
+                            {
+                              "Arguments": [
+                                {
+                                  "Name": "limitMem",
+                                  "Description": "limitMem",
+                                  "Type": "String"
+                                }
+                              ]
+                            }
+                          ]
+                        },
+                        {
+                          "Name": "--maxReplicas",
+                          "Description": "The max replicas to deploy",
+                          "Aliases": [],
+                          "Arguments": [
+                            {
+                              "Arguments": [
+                                {
+                                  "Name": "maxReplicas",
+                                  "Description": "maxReplicas",
+                                  "Type": "String"
+                                }
+                              ]
+                            }
+                          ]
+                        },
+                        {
+                          "Name": "--minReplicas",
+                          "Description": "The min replicas to deploy",
+                          "Aliases": [],
+                          "Arguments": [
+                            {
+                              "Arguments": [
+                                {
+                                  "Name": "minReplicas",
+                                  "Description": "minReplicas",
+                                  "Type": "String"
+                                }
+                              ]
+                            }
+                          ]
+                        },
+                        {
+                          "Name": "--name",
+                          "Description": "The name of deployment (required)",
+                          "Aliases": [],
+                          "Arguments": [
+                            {
+                              "Arguments": [
+                                {
+                                  "Name": "name",
+                                  "Description": "name",
+                                  "Type": "String"
+                                }
+                              ]
+                            }
+                          ]
+                        },
+                        {
+                          "Name": "--namespace",
+                          "Description": "The namespace of deployment (required)",
+                          "Aliases": [],
+                          "Arguments": [
+                            {
+                              "Arguments": [
+                                {
+                                  "Name": "namespace",
+                                  "Description": "namespace",
+                                  "Type": "String"
+                                }
+                              ]
+                            }
+                          ]
+                        },
+                        {
+                          "Name": "--nodePort",
+                          "Description": "The nodePort of the deployment to expose",
+                          "Aliases": [],
+                          "Arguments": [
+                            {
+                              "Arguments": [
+                                {
+                                  "Name": "nodePort",
+                                  "Description": "nodePort",
+                                  "Type": "String"
+                                }
+                              ]
+                            }
+                          ]
+                        },
+                        {
+                          "Name": "--o",
+                          "Description": "The output yaml file (required)",
+                          "Aliases": [],
+                          "Arguments": [
+                            {
+                              "Arguments": [
+                                {
+                                  "Name": "o",
+                                  "Description": "o",
+                                  "Type": "String"
+                                }
+                              ]
+                            }
+                          ]
+                        },
+                        {
+                          "Name": "--port",
+                          "Description": "The port of the deployment to listen on pod (required)",
+                          "Aliases": [],
+                          "Arguments": [
+                            {
+                              "Arguments": [
+                                {
+                                  "Name": "port",
+                                  "Description": "port",
+                                  "Type": "String"
+                                }
+                              ]
+                            }
+                          ]
+                        },
+                        {
+                          "Name": "--remote",
+                          "Description": "The remote git repo of the template, --home and --remote cannot be set at the same time, if they are, --remote has higher priority \tThe git repo directory must be consistent with the https://github.com/zeromicro/go-zero-template directory structure",
+                          "Aliases": [],
+                          "Arguments": [
+                            {
+                              "Arguments": [
+                                {
+                                  "Name": "remote",
+                                  "Description": "remote",
+                                  "Type": "String"
+                                }
+                              ]
+                            }
+                          ]
+                        },
+                        {
+                          "Name": "--replicas",
+                          "Description": "The number of replicas to deploy",
+                          "Aliases": [],
+                          "Arguments": [
+                            {
+                              "Arguments": [
+                                {
+                                  "Name": "replicas",
+                                  "Description": "replicas",
+                                  "Type": "String"
+                                }
+                              ]
+                            }
+                          ]
+                        },
+                        {
+                          "Name": "--requestCpu",
+                          "Description": "The request cpu to deploy",
+                          "Aliases": [],
+                          "Arguments": [
+                            {
+                              "Arguments": [
+                                {
+                                  "Name": "requestCpu",
+                                  "Description": "requestCpu",
+                                  "Type": "String"
+                                }
+                              ]
+                            }
+                          ]
+                        },
+                        {
+                          "Name": "--requestMem",
+                          "Description": "The request memory to deploy",
+                          "Aliases": [],
+                          "Arguments": [
+                            {
+                              "Arguments": [
+                                {
+                                  "Name": "requestMem",
+                                  "Description": "requestMem",
+                                  "Type": "String"
+                                }
+                              ]
+                            }
+                          ]
+                        },
+                        {
+                          "Name": "--revisions",
+                          "Description": "The number of revision history to limit",
+                          "Aliases": [],
+                          "Arguments": [
+                            {
+                              "Arguments": [
+                                {
+                                  "Name": "revisions",
+                                  "Description": "revisions",
+                                  "Type": "String"
+                                }
+                              ]
+                            }
+                          ]
+                        },
+                        {
+                          "Name": "--secret",
+                          "Description": "The secret to image pull from registry",
+                          "Aliases": [],
+                          "Arguments": [
+                            {
+                              "Arguments": [
+                                {
+                                  "Name": "secret",
+                                  "Description": "secret",
+                                  "Type": "String"
+                                }
+                              ]
+                            }
+                          ]
+                        },
+                        {
+                          "Name": "--serviceAccount",
+                          "Description": "The ServiceAccount for the deployment",
+                          "Aliases": [],
+                          "Arguments": [
+                            {
+                              "Arguments": [
+                                {
+                                  "Name": "serviceAccount",
+                                  "Description": "serviceAccount",
+                                  "Type": "String"
+                                }
+                              ]
+                            }
+                          ]
+                        }
+                      ],
+                      "Optional": true
+                    }
+                  ]
+                }
+              ],
+              "DontAllowMultiple": true
+            }
+          ]
+        },
+        {
+          "Name": "migrate",
+          "Description": "Migrate from tal-tech to zeromicro",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "--verbose",
+                  "Description": "Verbose enables extra logging",
+                  "Aliases": [
+                    "-v"
+                  ],
+                  "Arguments": []
+                },
+                {
+                  "Name": "--version",
+                  "Description": "The target release version of github.com/zeromicro/go-zero to migrate",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "version",
+                          "Description": "version",
+                          "Type": "String"
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ],
+              "Optional": true
+            }
+          ]
+        },
+        {
+          "Name": "model",
+          "Description": "Generate model code",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "mongo",
+                  "Description": "Generate mongo model",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "--branch",
+                          "Description": "The branch of the remote repo, it does work with --remote",
+                          "Aliases": [],
+                          "Arguments": [
+                            {
+                              "Arguments": [
+                                {
+                                  "Name": "branch",
+                                  "Description": "branch",
+                                  "Type": "String"
+                                }
+                              ]
+                            }
+                          ]
+                        },
+                        {
+                          "Name": "--cache",
+                          "Description": "Generate code with cache [optional]",
+                          "Aliases": [
+                            "-c"
+                          ],
+                          "Arguments": []
+                        },
+                        {
+                          "Name": "--dir",
+                          "Description": "The target dir",
+                          "Aliases": [
+                            "-d"
+                          ],
+                          "Arguments": [
+                            {
+                              "Arguments": [
+                                {
+                                  "Name": "dir",
+                                  "Description": "dir",
+                                  "Type": "String"
+                                }
+                              ]
+                            }
+                          ]
+                        },
+                        {
+                          "Name": "--home",
+                          "Description": "The goctl home path of the template, --home and --remote cannot be set at the same time, if they are, --remote has higher priority",
+                          "Aliases": [],
+                          "Arguments": [
+                            {
+                              "Arguments": [
+                                {
+                                  "Name": "home",
+                                  "Description": "home",
+                                  "Type": "String"
+                                }
+                              ]
+                            }
+                          ]
+                        },
+                        {
+                          "Name": "--remote",
+                          "Description": "The remote git repo of the template, --home and --remote cannot be set at the same time, if they are, --remote has higher priority \tThe git repo directory must be consistent with the https://github.com/zeromicro/go-zero-template directory structure",
+                          "Aliases": [],
+                          "Arguments": [
+                            {
+                              "Arguments": [
+                                {
+                                  "Name": "remote",
+                                  "Description": "remote",
+                                  "Type": "String"
+                                }
+                              ]
+                            }
+                          ]
+                        },
+                        {
+                          "Name": "--style",
+                          "Description": "The file naming format, see [https://github.com/zeromicro/go-zero/tree/master/tools/goctl/config/readme.md]",
+                          "Aliases": [],
+                          "Arguments": [
+                            {
+                              "Arguments": [
+                                {
+                                  "Name": "style",
+                                  "Description": "style",
+                                  "Type": "String"
+                                }
+                              ]
+                            }
+                          ]
+                        },
+                        {
+                          "Name": "--type",
+                          "Description": "Specified model type name",
+                          "Aliases": [
+                            "-t"
+                          ],
+                          "Arguments": [
+                            {
+                              "Arguments": [
+                                {
+                                  "Name": "type",
+                                  "Description": "type",
+                                  "Type": "String"
+                                }
+                              ]
+                            }
+                          ]
+                        }
+                      ],
+                      "Optional": true
+                    }
+                  ]
+                },
+                {
+                  "Name": "mysql",
+                  "Description": "Generate mysql model",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "datasource",
+                          "Description": "Generate model from datasource",
+                          "Aliases": [],
+                          "Arguments": [
+                            {
+                              "Arguments": [
+                                {
+                                  "Name": "--branch",
+                                  "Description": "The branch of the remote repo, it does work with --remote",
+                                  "Aliases": [],
+                                  "Arguments": [
+                                    {
+                                      "Arguments": [
+                                        {
+                                          "Name": "branch",
+                                          "Description": "branch",
+                                          "Type": "String"
+                                        }
+                                      ]
+                                    }
+                                  ]
+                                },
+                                {
+                                  "Name": "--cache",
+                                  "Description": "Generate code with cache [optional]",
+                                  "Aliases": [
+                                    "-c"
+                                  ],
+                                  "Arguments": []
+                                },
+                                {
+                                  "Name": "--dir",
+                                  "Description": "The target dir",
+                                  "Aliases": [
+                                    "-d"
+                                  ],
+                                  "Arguments": [
+                                    {
+                                      "Arguments": [
+                                        {
+                                          "Name": "dir",
+                                          "Description": "dir",
+                                          "Type": "String"
+                                        }
+                                      ]
+                                    }
+                                  ]
+                                },
+                                {
+                                  "Name": "--home",
+                                  "Description": "The goctl home path of the template, --home and --remote cannot be set at the same time, if they are, --remote has higher priority",
+                                  "Aliases": [],
+                                  "Arguments": [
+                                    {
+                                      "Arguments": [
+                                        {
+                                          "Name": "home",
+                                          "Description": "home",
+                                          "Type": "String"
+                                        }
+                                      ]
+                                    }
+                                  ]
+                                },
+                                {
+                                  "Name": "--idea",
+                                  "Description": "For idea plugin [optional]",
+                                  "Aliases": [],
+                                  "Arguments": []
+                                },
+                                {
+                                  "Name": "--remote",
+                                  "Description": "The remote git repo of the template, --home and --remote cannot be set at the same time, if they are, --remote has higher priority \tThe git repo directory must be consistent with the https://github.com/zeromicro/go-zero-template directory structure",
+                                  "Aliases": [],
+                                  "Arguments": [
+                                    {
+                                      "Arguments": [
+                                        {
+                                          "Name": "remote",
+                                          "Description": "remote",
+                                          "Type": "String"
+                                        }
+                                      ]
+                                    }
+                                  ]
+                                },
+                                {
+                                  "Name": "--style",
+                                  "Description": "The file naming format, see [https://github.com/zeromicro/go-zero/tree/master/tools/goctl/config/readme.md]",
+                                  "Aliases": [],
+                                  "Arguments": [
+                                    {
+                                      "Arguments": [
+                                        {
+                                          "Name": "style",
+                                          "Description": "style",
+                                          "Type": "String"
+                                        }
+                                      ]
+                                    }
+                                  ]
+                                },
+                                {
+                                  "Name": "--table",
+                                  "Description": "The table or table globbing patterns in the database",
+                                  "Aliases": [
+                                    "-t"
+                                  ],
+                                  "Arguments": [
+                                    {
+                                      "Arguments": [
+                                        {
+                                          "Name": "table",
+                                          "Description": "table",
+                                          "Type": "String"
+                                        }
+                                      ]
+                                    }
+                                  ]
+                                },
+                                {
+                                  "Name": "--url",
+                                  "Description": "The data source of database,like \u0022root:password@tcp(127.0.0.1:3306)/database\u0022",
+                                  "Aliases": [],
+                                  "Arguments": [
+                                    {
+                                      "Arguments": [
+                                        {
+                                          "Name": "url",
+                                          "Description": "url",
+                                          "Type": "String"
+                                        }
+                                      ]
+                                    }
+                                  ]
+                                }
+                              ],
+                              "Optional": true
+                            }
+                          ]
+                        },
+                        {
+                          "Name": "ddl",
+                          "Description": "Generate mysql model from ddl",
+                          "Aliases": [],
+                          "Arguments": [
+                            {
+                              "Arguments": [
+                                {
+                                  "Name": "--branch",
+                                  "Description": "The branch of the remote repo, it does work with --remote",
+                                  "Aliases": [],
+                                  "Arguments": [
+                                    {
+                                      "Arguments": [
+                                        {
+                                          "Name": "branch",
+                                          "Description": "branch",
+                                          "Type": "String"
+                                        }
+                                      ]
+                                    }
+                                  ]
+                                },
+                                {
+                                  "Name": "--cache",
+                                  "Description": "Generate code with cache [optional]",
+                                  "Aliases": [
+                                    "-c"
+                                  ],
+                                  "Arguments": []
+                                },
+                                {
+                                  "Name": "--database",
+                                  "Description": "The name of database [optional]",
+                                  "Aliases": [],
+                                  "Arguments": [
+                                    {
+                                      "Arguments": [
+                                        {
+                                          "Name": "database",
+                                          "Description": "database",
+                                          "Type": "String"
+                                        }
+                                      ]
+                                    }
+                                  ]
+                                },
+                                {
+                                  "Name": "--dir",
+                                  "Description": "The target dir",
+                                  "Aliases": [
+                                    "-d"
+                                  ],
+                                  "Arguments": [
+                                    {
+                                      "Arguments": [
+                                        {
+                                          "Name": "dir",
+                                          "Description": "dir",
+                                          "Type": "String"
+                                        }
+                                      ]
+                                    }
+                                  ]
+                                },
+                                {
+                                  "Name": "--home",
+                                  "Description": "The goctl home path of the template, --home and --remote cannot be set at the same time, if they are, --remote has higher priority",
+                                  "Aliases": [],
+                                  "Arguments": [
+                                    {
+                                      "Arguments": [
+                                        {
+                                          "Name": "home",
+                                          "Description": "home",
+                                          "Type": "String"
+                                        }
+                                      ]
+                                    }
+                                  ]
+                                },
+                                {
+                                  "Name": "--idea",
+                                  "Description": "For idea plugin [optional]",
+                                  "Aliases": [],
+                                  "Arguments": []
+                                },
+                                {
+                                  "Name": "--remote",
+                                  "Description": "The remote git repo of the template, --home and --remote cannot be set at the same time, if they are, --remote has higher priority \tThe git repo directory must be consistent with the https://github.com/zeromicro/go-zero-template directory structure",
+                                  "Aliases": [],
+                                  "Arguments": [
+                                    {
+                                      "Arguments": [
+                                        {
+                                          "Name": "remote",
+                                          "Description": "remote",
+                                          "Type": "String"
+                                        }
+                                      ]
+                                    }
+                                  ]
+                                },
+                                {
+                                  "Name": "--src",
+                                  "Description": "The path or path globbing patterns of the ddl",
+                                  "Aliases": [
+                                    "-s"
+                                  ],
+                                  "Arguments": [
+                                    {
+                                      "Arguments": [
+                                        {
+                                          "Name": "src",
+                                          "Description": "src",
+                                          "Type": "String"
+                                        }
+                                      ]
+                                    }
+                                  ]
+                                },
+                                {
+                                  "Name": "--style",
+                                  "Description": "The file naming format, see [https://github.com/zeromicro/go-zero/tree/master/tools/goctl/config/readme.md]",
+                                  "Aliases": [],
+                                  "Arguments": [
+                                    {
+                                      "Arguments": [
+                                        {
+                                          "Name": "style",
+                                          "Description": "style",
+                                          "Type": "String"
+                                        }
+                                      ]
+                                    }
+                                  ]
+                                }
+                              ],
+                              "Optional": true
+                            }
+                          ]
+                        },
+                        {
+                          "Name": "pg",
+                          "Description": "Generate postgresql model",
+                          "Aliases": [],
+                          "Arguments": [
+                            {
+                              "Arguments": [
+                                {
+                                  "Name": "--branch",
+                                  "Description": "The branch of the remote repo, it does work with --remote",
+                                  "Aliases": [],
+                                  "Arguments": [
+                                    {
+                                      "Arguments": [
+                                        {
+                                          "Name": "branch",
+                                          "Description": "branch",
+                                          "Type": "String"
+                                        }
+                                      ]
+                                    }
+                                  ]
+                                },
+                                {
+                                  "Name": "--cache",
+                                  "Description": "Generate code with cache [optional]",
+                                  "Aliases": [
+                                    "-c"
+                                  ],
+                                  "Arguments": []
+                                },
+                                {
+                                  "Name": "--dir",
+                                  "Description": "The target dir",
+                                  "Aliases": [
+                                    "-d"
+                                  ],
+                                  "Arguments": [
+                                    {
+                                      "Arguments": [
+                                        {
+                                          "Name": "dir",
+                                          "Description": "dir",
+                                          "Type": "String"
+                                        }
+                                      ]
+                                    }
+                                  ]
+                                },
+                                {
+                                  "Name": "--home",
+                                  "Description": "The goctl home path of the template, --home and --remote cannot be set at the same time, if they are, --remote has higher priority",
+                                  "Aliases": [],
+                                  "Arguments": [
+                                    {
+                                      "Arguments": [
+                                        {
+                                          "Name": "home",
+                                          "Description": "home",
+                                          "Type": "String"
+                                        }
+                                      ]
+                                    }
+                                  ]
+                                },
+                                {
+                                  "Name": "--idea",
+                                  "Description": "For idea plugin [optional]",
+                                  "Aliases": [],
+                                  "Arguments": []
+                                },
+                                {
+                                  "Name": "--remote",
+                                  "Description": "The remote git repo of the template, --home and --remote cannot be set at the same time, if they are, --remote has higher priority \tThe git repo directory must be consistent with the https://github.com/zeromicro/go-zero-template directory structure",
+                                  "Aliases": [],
+                                  "Arguments": [
+                                    {
+                                      "Arguments": [
+                                        {
+                                          "Name": "remote",
+                                          "Description": "remote",
+                                          "Type": "String"
+                                        }
+                                      ]
+                                    }
+                                  ]
+                                },
+                                {
+                                  "Name": "--schema",
+                                  "Description": "The table schema",
+                                  "Aliases": [
+                                    "-s"
+                                  ],
+                                  "Arguments": [
+                                    {
+                                      "Arguments": [
+                                        {
+                                          "Name": "schema",
+                                          "Description": "schema",
+                                          "Type": "String"
+                                        }
+                                      ]
+                                    }
+                                  ]
+                                },
+                                {
+                                  "Name": "--style",
+                                  "Description": "The file naming format, see [https://github.com/zeromicro/go-zero/tree/master/tools/goctl/config/readme.md]",
+                                  "Aliases": [],
+                                  "Arguments": [
+                                    {
+                                      "Arguments": [
+                                        {
+                                          "Name": "style",
+                                          "Description": "style",
+                                          "Type": "String"
+                                        }
+                                      ]
+                                    }
+                                  ]
+                                },
+                                {
+                                  "Name": "--table",
+                                  "Description": "The table or table globbing patterns in the database",
+                                  "Aliases": [
+                                    "-t"
+                                  ],
+                                  "Arguments": [
+                                    {
+                                      "Arguments": [
+                                        {
+                                          "Name": "table",
+                                          "Description": "table",
+                                          "Type": "String"
+                                        }
+                                      ]
+                                    }
+                                  ]
+                                },
+                                {
+                                  "Name": "--url",
+                                  "Description": "The data source of database,like \u0022root:password@tcp(127.0.0.1:3306)/database\u0022",
+                                  "Aliases": [],
+                                  "Arguments": [
+                                    {
+                                      "Arguments": [
+                                        {
+                                          "Name": "url",
+                                          "Description": "url",
+                                          "Type": "String"
+                                        }
+                                      ]
+                                    }
+                                  ]
+                                }
+                              ],
+                              "Optional": true
+                            }
+                          ]
+                        }
+                      ],
+                      "DontAllowMultiple": true
+                    }
+                  ]
+                }
+              ],
+              "DontAllowMultiple": true
+            }
+          ]
+        },
+        {
+          "Name": "quickstart",
+          "Description": "Quickly start a project",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "--service-type",
+                  "Description": "Specify the service type, supported values: [mono, micro]",
+                  "Aliases": [
+                    "-t"
+                  ],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "service-type",
+                          "Description": "service-type",
+                          "Type": "String"
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ],
+              "Optional": true
+            }
+          ]
+        },
+        {
+          "Name": "rpc",
+          "Description": "Generate rpc code",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "--branch",
+                  "Description": "The branch of the remote repo, it does work with --remote",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "branch",
+                          "Description": "branch",
+                          "Type": "String"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "--home",
+                  "Description": "The goctl home path of the template, --home and --remote cannot be set at the same time, if they are, --remote has higher priority",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "home",
+                          "Description": "home",
+                          "Type": "String"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "--o",
+                  "Description": "Output a sample proto file",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "o",
+                          "Description": "o",
+                          "Type": "String"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "--remote",
+                  "Description": "The remote git repo of the template, --home and --remote cannot be set at the same time, if they are, --remote has higher priority \tThe git repo directory must be consistent with the https://github.com/zeromicro/go-zero-template directory structure",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "remote",
+                          "Description": "remote",
+                          "Type": "String"
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ],
+              "Optional": true
+            },
+            {
+              "Arguments": [
+                {
+                  "Name": "new",
+                  "Description": "Generate rpc demo service",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "--branch",
+                          "Description": "The branch of the remote repo, it does work with --remote",
+                          "Aliases": [],
+                          "Arguments": [
+                            {
+                              "Arguments": [
+                                {
+                                  "Name": "branch",
+                                  "Description": "branch",
+                                  "Type": "String"
+                                }
+                              ]
+                            }
+                          ]
+                        },
+                        {
+                          "Name": "--go-grpc_opt",
+                          "Description": "",
+                          "Aliases": [],
+                          "Arguments": [
+                            {
+                              "Arguments": [
+                                {
+                                  "Name": "go-grpc_opt",
+                                  "Description": "go-grpc_opt",
+                                  "Type": "String"
+                                }
+                              ]
+                            }
+                          ]
+                        },
+                        {
+                          "Name": "--go_opt",
+                          "Description": "",
+                          "Aliases": [],
+                          "Arguments": [
+                            {
+                              "Arguments": [
+                                {
+                                  "Name": "go_opt",
+                                  "Description": "go_opt",
+                                  "Type": "String"
+                                }
+                              ]
+                            }
+                          ]
+                        },
+                        {
+                          "Name": "--home",
+                          "Description": "The goctl home path of the template, --home and --remote cannot be set at the same time, if they are, --remote has higher priority",
+                          "Aliases": [],
+                          "Arguments": [
+                            {
+                              "Arguments": [
+                                {
+                                  "Name": "home",
+                                  "Description": "home",
+                                  "Type": "String"
+                                }
+                              ]
+                            }
+                          ]
+                        },
+                        {
+                          "Name": "--idea",
+                          "Description": "Whether the command execution environment is from idea plugin",
+                          "Aliases": [],
+                          "Arguments": []
+                        },
+                        {
+                          "Name": "--remote",
+                          "Description": "The remote git repo of the template, --home and --remote cannot be set at the same time, if they are, --remote has higher priority \tThe git repo directory must be consistent with the https://github.com/zeromicro/go-zero-template directory structure",
+                          "Aliases": [],
+                          "Arguments": [
+                            {
+                              "Arguments": [
+                                {
+                                  "Name": "remote",
+                                  "Description": "remote",
+                                  "Type": "String"
+                                }
+                              ]
+                            }
+                          ]
+                        },
+                        {
+                          "Name": "--style",
+                          "Description": "The file naming format, see [https://github.com/zeromicro/go-zero/tree/master/tools/goctl/config/readme.md]",
+                          "Aliases": [],
+                          "Arguments": [
+                            {
+                              "Arguments": [
+                                {
+                                  "Name": "style",
+                                  "Description": "style",
+                                  "Type": "String"
+                                }
+                              ]
+                            }
+                          ]
+                        },
+                        {
+                          "Name": "--verbose",
+                          "Description": "Enable log output",
+                          "Aliases": [
+                            "-v"
+                          ],
+                          "Arguments": []
+                        }
+                      ],
+                      "Optional": true
+                    }
+                  ]
+                },
+                {
+                  "Name": "protoc",
+                  "Description": "Generate grpc code",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "--branch",
+                          "Description": "The branch of the remote repo, it does work with --remote",
+                          "Aliases": [],
+                          "Arguments": [
+                            {
+                              "Arguments": [
+                                {
+                                  "Name": "branch",
+                                  "Description": "branch",
+                                  "Type": "String"
+                                }
+                              ]
+                            }
+                          ]
+                        },
+                        {
+                          "Name": "--go-grpc_opt",
+                          "Description": "",
+                          "Aliases": [],
+                          "Arguments": [
+                            {
+                              "Arguments": [
+                                {
+                                  "Name": "go-grpc_opt",
+                                  "Description": "go-grpc_opt",
+                                  "Type": "String"
+                                }
+                              ]
+                            }
+                          ]
+                        },
+                        {
+                          "Name": "--go-grpc_out",
+                          "Description": "",
+                          "Aliases": [],
+                          "Arguments": [
+                            {
+                              "Arguments": [
+                                {
+                                  "Name": "go-grpc_out",
+                                  "Description": "go-grpc_out",
+                                  "Type": "String"
+                                }
+                              ]
+                            }
+                          ]
+                        },
+                        {
+                          "Name": "--go_opt",
+                          "Description": "",
+                          "Aliases": [],
+                          "Arguments": [
+                            {
+                              "Arguments": [
+                                {
+                                  "Name": "go_opt",
+                                  "Description": "go_opt",
+                                  "Type": "String"
+                                }
+                              ]
+                            }
+                          ]
+                        },
+                        {
+                          "Name": "--go_out",
+                          "Description": "",
+                          "Aliases": [],
+                          "Arguments": [
+                            {
+                              "Arguments": [
+                                {
+                                  "Name": "go_out",
+                                  "Description": "go_out",
+                                  "Type": "String"
+                                }
+                              ]
+                            }
+                          ]
+                        },
+                        {
+                          "Name": "--home",
+                          "Description": "The goctl home path of the template, --home and --remote cannot be set at the same time, if they are, --remote has higher priority",
+                          "Aliases": [],
+                          "Arguments": [
+                            {
+                              "Arguments": [
+                                {
+                                  "Name": "home",
+                                  "Description": "home",
+                                  "Type": "String"
+                                }
+                              ]
+                            }
+                          ]
+                        },
+                        {
+                          "Name": "--multiple",
+                          "Description": "Generated in multiple rpc service mode",
+                          "Aliases": [
+                            "-m"
+                          ],
+                          "Arguments": []
+                        },
+                        {
+                          "Name": "--plugin",
+                          "Description": "",
+                          "Aliases": [],
+                          "Arguments": [
+                            {
+                              "Arguments": [
+                                {
+                                  "Name": "plugin",
+                                  "Description": "plugin",
+                                  "Type": "String"
+                                }
+                              ]
+                            }
+                          ]
+                        },
+                        {
+                          "Name": "--proto_path",
+                          "Description": "",
+                          "Aliases": [
+                            "-I"
+                          ],
+                          "Arguments": [
+                            {
+                              "Arguments": [
+                                {
+                                  "Name": "proto_path",
+                                  "Description": "proto_path",
+                                  "Type": "String"
+                                }
+                              ]
+                            }
+                          ]
+                        },
+                        {
+                          "Name": "--remote",
+                          "Description": "The remote git repo of the template, --home and --remote cannot be set at the same time, if they are, --remote has higher priority \tThe git repo directory must be consistent with the https://github.com/zeromicro/go-zero-template directory structure",
+                          "Aliases": [],
+                          "Arguments": [
+                            {
+                              "Arguments": [
+                                {
+                                  "Name": "remote",
+                                  "Description": "remote",
+                                  "Type": "String"
+                                }
+                              ]
+                            }
+                          ]
+                        },
+                        {
+                          "Name": "--style",
+                          "Description": "The file naming format, see [https://github.com/zeromicro/go-zero/tree/master/tools/goctl/config/readme.md]",
+                          "Aliases": [],
+                          "Arguments": [
+                            {
+                              "Arguments": [
+                                {
+                                  "Name": "style",
+                                  "Description": "style",
+                                  "Type": "String"
+                                }
+                              ]
+                            }
+                          ]
+                        },
+                        {
+                          "Name": "--verbose",
+                          "Description": "Enable log output",
+                          "Aliases": [
+                            "-v"
+                          ],
+                          "Arguments": []
+                        },
+                        {
+                          "Name": "--zrpc_out",
+                          "Description": "The zrpc output directory",
+                          "Aliases": [],
+                          "Arguments": [
+                            {
+                              "Arguments": [
+                                {
+                                  "Name": "zrpc_out",
+                                  "Description": "zrpc_out",
+                                  "Type": "String"
+                                }
+                              ]
+                            }
+                          ]
+                        }
+                      ],
+                      "Optional": true
+                    }
+                  ]
+                },
+                {
+                  "Name": "template",
+                  "Description": "Generate proto template",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "--branch",
+                          "Description": "The branch of the remote repo, it does work with --remote",
+                          "Aliases": [],
+                          "Arguments": [
+                            {
+                              "Arguments": [
+                                {
+                                  "Name": "branch",
+                                  "Description": "branch",
+                                  "Type": "String"
+                                }
+                              ]
+                            }
+                          ]
+                        },
+                        {
+                          "Name": "--home",
+                          "Description": "The goctl home path of the template, --home and --remote cannot be set at the same time, if they are, --remote has higher priority",
+                          "Aliases": [],
+                          "Arguments": [
+                            {
+                              "Arguments": [
+                                {
+                                  "Name": "home",
+                                  "Description": "home",
+                                  "Type": "String"
+                                }
+                              ]
+                            }
+                          ]
+                        },
+                        {
+                          "Name": "--o",
+                          "Description": "Output a sample proto file",
+                          "Aliases": [],
+                          "Arguments": [
+                            {
+                              "Arguments": [
+                                {
+                                  "Name": "o",
+                                  "Description": "o",
+                                  "Type": "String"
+                                }
+                              ]
+                            }
+                          ]
+                        },
+                        {
+                          "Name": "--remote",
+                          "Description": "The remote git repo of the template, --home and --remote cannot be set at the same time, if they are, --remote has higher priority \tThe git repo directory must be consistent with the https://github.com/zeromicro/go-zero-template directory structure",
+                          "Aliases": [],
+                          "Arguments": [
+                            {
+                              "Arguments": [
+                                {
+                                  "Name": "remote",
+                                  "Description": "remote",
+                                  "Type": "String"
+                                }
+                              ]
+                            }
+                          ]
+                        }
+                      ],
+                      "Optional": true
+                    }
+                  ]
+                }
+              ],
+              "DontAllowMultiple": true
+            }
+          ]
+        },
+        {
+          "Name": "template",
+          "Description": "Template operation",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "clean",
+                  "Description": "Clean the all cache templates",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "--home",
+                          "Description": "The goctl home path of the template",
+                          "Aliases": [],
+                          "Arguments": [
+                            {
+                              "Arguments": [
+                                {
+                                  "Name": "home",
+                                  "Description": "home",
+                                  "Type": "String"
+                                }
+                              ]
+                            }
+                          ]
+                        }
+                      ],
+                      "Optional": true
+                    }
+                  ]
+                },
+                {
+                  "Name": "init",
+                  "Description": "Initialize the all templates(force update)",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "--home",
+                          "Description": "The goctl home path of the template",
+                          "Aliases": [],
+                          "Arguments": [
+                            {
+                              "Arguments": [
+                                {
+                                  "Name": "home",
+                                  "Description": "home",
+                                  "Type": "String"
+                                }
+                              ]
+                            }
+                          ]
+                        }
+                      ],
+                      "Optional": true
+                    }
+                  ]
+                },
+                {
+                  "Name": "revert",
+                  "Description": "Revert the target template to the latest",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "--category",
+                          "Description": "The category of template, enum [api,rpc,model,docker,kube]",
+                          "Aliases": [
+                            "-c"
+                          ],
+                          "Arguments": [
+                            {
+                              "Arguments": [
+                                {
+                                  "Name": "category",
+                                  "Description": "category",
+                                  "Type": "String"
+                                }
+                              ]
+                            }
+                          ]
+                        },
+                        {
+                          "Name": "--home",
+                          "Description": "The goctl home path of the template",
+                          "Aliases": [],
+                          "Arguments": [
+                            {
+                              "Arguments": [
+                                {
+                                  "Name": "home",
+                                  "Description": "home",
+                                  "Type": "String"
+                                }
+                              ]
+                            }
+                          ]
+                        },
+                        {
+                          "Name": "--name",
+                          "Description": "The target file name of template",
+                          "Aliases": [
+                            "-n"
+                          ],
+                          "Arguments": [
+                            {
+                              "Arguments": [
+                                {
+                                  "Name": "name",
+                                  "Description": "name",
+                                  "Type": "String"
+                                }
+                              ]
+                            }
+                          ]
+                        }
+                      ],
+                      "Optional": true
+                    }
+                  ]
+                },
+                {
+                  "Name": "update",
+                  "Description": "Update template of the target category to the latest",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "--category",
+                          "Description": "The category of template, enum [api,rpc,model,docker,kube]",
+                          "Aliases": [
+                            "-c"
+                          ],
+                          "Arguments": [
+                            {
+                              "Arguments": [
+                                {
+                                  "Name": "category",
+                                  "Description": "category",
+                                  "Type": "String"
+                                }
+                              ]
+                            }
+                          ]
+                        },
+                        {
+                          "Name": "--home",
+                          "Description": "The goctl home path of the template",
+                          "Aliases": [],
+                          "Arguments": [
+                            {
+                              "Arguments": [
+                                {
+                                  "Name": "home",
+                                  "Description": "home",
+                                  "Type": "String"
+                                }
+                              ]
+                            }
+                          ]
+                        }
+                      ],
+                      "Optional": true
+                    }
+                  ]
+                }
+              ],
+              "DontAllowMultiple": true
+            }
+          ]
+        },
+        {
+          "Name": "upgrade",
+          "Description": "Upgrade goctl to latest version",
+          "Aliases": [],
+          "Arguments": []
+        },
+        {
+          "Name": "help",
+          "Description": "Help about any command",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "api",
+                  "Description": "Generate api related files",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "dart",
+                          "Description": "Generate dart files for provided api in api file",
+                          "Aliases": [],
+                          "Arguments": []
+                        },
+                        {
+                          "Name": "doc",
+                          "Description": "Generate doc files",
+                          "Aliases": [],
+                          "Arguments": []
+                        },
+                        {
+                          "Name": "format",
+                          "Description": "Format api files",
+                          "Aliases": [],
+                          "Arguments": []
+                        },
+                        {
+                          "Name": "go",
+                          "Description": "Generate go files for provided api in yaml file",
+                          "Aliases": [],
+                          "Arguments": []
+                        },
+                        {
+                          "Name": "java",
+                          "Description": "Generate java files for provided api in api file",
+                          "Aliases": [],
+                          "Arguments": []
+                        },
+                        {
+                          "Name": "kt",
+                          "Description": "Generate kotlin code for provided api file",
+                          "Aliases": [],
+                          "Arguments": []
+                        },
+                        {
+                          "Name": "new",
+                          "Description": "Fast create api service",
+                          "Aliases": [],
+                          "Arguments": []
+                        },
+                        {
+                          "Name": "plugin",
+                          "Description": "Custom file generator",
+                          "Aliases": [],
+                          "Arguments": []
+                        },
+                        {
+                          "Name": "ts",
+                          "Description": "Generate ts files for provided api in api file",
+                          "Aliases": [],
+                          "Arguments": []
+                        },
+                        {
+                          "Name": "validate",
+                          "Description": "Validate api file",
+                          "Aliases": [],
+                          "Arguments": []
+                        }
+                      ],
+                      "DontAllowMultiple": true
+                    }
+                  ]
+                },
+                {
+                  "Name": "bug",
+                  "Description": "Report a bug",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "completion",
+                  "Description": "Generate the autocompletion script for the specified shell",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "bash",
+                          "Description": "Generate the autocompletion script for bash",
+                          "Aliases": [],
+                          "Arguments": []
+                        },
+                        {
+                          "Name": "fish",
+                          "Description": "Generate the autocompletion script for fish",
+                          "Aliases": [],
+                          "Arguments": []
+                        },
+                        {
+                          "Name": "powershell",
+                          "Description": "Generate the autocompletion script for powershell",
+                          "Aliases": [],
+                          "Arguments": []
+                        },
+                        {
+                          "Name": "zsh",
+                          "Description": "Generate the autocompletion script for zsh",
+                          "Aliases": [],
+                          "Arguments": []
+                        }
+                      ],
+                      "DontAllowMultiple": true
+                    }
+                  ]
+                },
+                {
+                  "Name": "docker",
+                  "Description": "Generate Dockerfile",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "env",
+                  "Description": "Check or edit goctl environment",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "check",
+                          "Description": "Detect goctl env and dependency tools",
+                          "Aliases": [],
+                          "Arguments": []
+                        },
+                        {
+                          "Name": "install",
+                          "Description": "Goctl env installation",
+                          "Aliases": [],
+                          "Arguments": []
+                        }
+                      ],
+                      "DontAllowMultiple": true
+                    }
+                  ]
+                },
+                {
+                  "Name": "kube",
+                  "Description": "Generate kubernetes files",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "deploy",
+                          "Description": "Generate deployment yaml file",
+                          "Aliases": [],
+                          "Arguments": []
+                        }
+                      ],
+                      "DontAllowMultiple": true
+                    }
+                  ]
+                },
+                {
+                  "Name": "migrate",
+                  "Description": "Migrate from tal-tech to zeromicro",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "model",
+                  "Description": "Generate model code",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "mongo",
+                          "Description": "Generate mongo model",
+                          "Aliases": [],
+                          "Arguments": []
+                        },
+                        {
+                          "Name": "mysql",
+                          "Description": "Generate mysql model",
+                          "Aliases": [],
+                          "Arguments": [
+                            {
+                              "Arguments": [
+                                {
+                                  "Name": "datasource",
+                                  "Description": "Generate model from datasource",
+                                  "Aliases": [],
+                                  "Arguments": []
+                                },
+                                {
+                                  "Name": "ddl",
+                                  "Description": "Generate mysql model from ddl",
+                                  "Aliases": [],
+                                  "Arguments": []
+                                },
+                                {
+                                  "Name": "pg",
+                                  "Description": "Generate postgresql model",
+                                  "Aliases": [],
+                                  "Arguments": []
+                                }
+                              ],
+                              "DontAllowMultiple": true
+                            }
+                          ]
+                        }
+                      ],
+                      "DontAllowMultiple": true
+                    }
+                  ]
+                },
+                {
+                  "Name": "quickstart",
+                  "Description": "Quickly start a project",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "rpc",
+                  "Description": "Generate rpc code",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "new",
+                          "Description": "Generate rpc demo service",
+                          "Aliases": [],
+                          "Arguments": []
+                        },
+                        {
+                          "Name": "protoc",
+                          "Description": "Generate grpc code",
+                          "Aliases": [],
+                          "Arguments": []
+                        },
+                        {
+                          "Name": "template",
+                          "Description": "Generate proto template",
+                          "Aliases": [],
+                          "Arguments": []
+                        }
+                      ],
+                      "DontAllowMultiple": true
+                    }
+                  ]
+                },
+                {
+                  "Name": "template",
+                  "Description": "Template operation",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "clean",
+                          "Description": "Clean the all cache templates",
+                          "Aliases": [],
+                          "Arguments": []
+                        },
+                        {
+                          "Name": "init",
+                          "Description": "Initialize the all templates(force update)",
+                          "Aliases": [],
+                          "Arguments": []
+                        },
+                        {
+                          "Name": "revert",
+                          "Description": "Revert the target template to the latest",
+                          "Aliases": [],
+                          "Arguments": []
+                        },
+                        {
+                          "Name": "update",
+                          "Description": "Update template of the target category to the latest",
+                          "Aliases": [],
+                          "Arguments": []
+                        }
+                      ],
+                      "DontAllowMultiple": true
+                    }
+                  ]
+                },
+                {
+                  "Name": "upgrade",
+                  "Description": "Upgrade goctl to latest version",
+                  "Aliases": [],
+                  "Arguments": []
+                }
+              ],
+              "DontAllowMultiple": true
+            }
+          ]
+        }
+      ],
+      "DontAllowMultiple": true
+    }
+  ]
+}

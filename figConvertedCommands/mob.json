@@ -1,0 +1,267 @@
+{
+  "Comment": "This command info is generated from fig",
+  "Name": "mob",
+  "Description": "Fast git handover for remote collaboration with mob.sh",
+  "Arguments": [
+    {
+      "Arguments": [
+        {
+          "Name": "--debug",
+          "Description": "Enable verbose logging",
+          "Aliases": [],
+          "Arguments": []
+        }
+      ],
+      "Optional": true
+    },
+    {
+      "Arguments": [
+        {
+          "Name": "start",
+          "Description": "Start session from base branch in wip branch",
+          "Aliases": [
+            "s"
+          ],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "--include-uncommitted-changes",
+                  "Description": "Move uncommitted changes to wip branch",
+                  "Aliases": [
+                    "-i"
+                  ],
+                  "Arguments": []
+                },
+                {
+                  "Name": "--branch",
+                  "Description": "Set wip branch to \u0027mob/\u003Cbase-branch\u003E/\u003Cbranch-postfix\u003E\u0027",
+                  "Aliases": [
+                    "-b"
+                  ],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "branch-postfix",
+                          "Description": "branch-postfix",
+                          "Type": "String"
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ],
+              "Optional": true
+            },
+            {
+              "Arguments": [
+                {
+                  "Name": "minutes",
+                  "Description": "minutes",
+                  "Type": "String"
+                }
+              ],
+              "Optional": true
+            }
+          ]
+        },
+        {
+          "Name": "next",
+          "Description": "Handover changes in wip branch to next person",
+          "Aliases": [
+            "n"
+          ],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "--stay",
+                  "Description": "Stay on wip branch (default)",
+                  "Aliases": [
+                    "-s"
+                  ],
+                  "Arguments": []
+                },
+                {
+                  "Name": "--return-to-base-branch",
+                  "Description": "Return to base branch",
+                  "Aliases": [
+                    "-r"
+                  ],
+                  "Arguments": []
+                },
+                {
+                  "Name": "--message",
+                  "Description": "Override commit message",
+                  "Aliases": [
+                    "-m"
+                  ],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "commit-message",
+                          "Description": "commit-message",
+                          "Type": "String"
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ],
+              "Optional": true
+            }
+          ]
+        },
+        {
+          "Name": "done",
+          "Description": "Squashes all changes in wip branch to index in base branch",
+          "Aliases": [
+            "d"
+          ],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "--no-squash",
+                  "Description": "Squash no commits from wip branch, only merge wip branch",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "--squash",
+                  "Description": "Squash all commits from wip branch",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "--squash-wip",
+                  "Description": "Squash wip commits from wip branch, maintaining manual commits",
+                  "Aliases": [],
+                  "Arguments": []
+                }
+              ],
+              "Optional": true
+            }
+          ]
+        },
+        {
+          "Name": "reset",
+          "Description": "Removes local and remote wip branch",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "--branch",
+                  "Description": "Set wip branch to \u0027mob/\u003Cbase-branch\u003E/\u003Cbranch-postfix\u003E\u0027",
+                  "Aliases": [
+                    "-b"
+                  ],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "branch-postfix",
+                          "Description": "branch-postfix",
+                          "Type": "String"
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ],
+              "Optional": true
+            }
+          ]
+        },
+        {
+          "Name": "clean",
+          "Description": "Removes all orphan wip branches",
+          "Aliases": [],
+          "Arguments": []
+        },
+        {
+          "Name": "timer",
+          "Description": "Start a \u003Cminutes\u003E timer",
+          "Aliases": [
+            "t"
+          ],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "minutes",
+                  "Description": "minutes",
+                  "Type": "String"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "Name": "break",
+          "Description": "Start a \u003Cminutes\u003E break timer",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "minutes",
+                  "Description": "minutes",
+                  "Type": "String"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "Name": "status",
+          "Description": "Show the status of the current session",
+          "Aliases": [],
+          "Arguments": []
+        },
+        {
+          "Name": "fetch",
+          "Description": "Fetch remote state",
+          "Aliases": [],
+          "Arguments": []
+        },
+        {
+          "Name": "branch",
+          "Description": "Show remote wip branches",
+          "Aliases": [
+            "b"
+          ],
+          "Arguments": []
+        },
+        {
+          "Name": "config",
+          "Description": "Show all configuration options",
+          "Aliases": [],
+          "Arguments": []
+        },
+        {
+          "Name": "version",
+          "Description": "Show the version",
+          "Aliases": [],
+          "Arguments": []
+        },
+        {
+          "Name": "help",
+          "Description": "Show help",
+          "Aliases": [],
+          "Arguments": []
+        },
+        {
+          "Name": "moo",
+          "Description": "Moo!",
+          "Aliases": [],
+          "Arguments": []
+        }
+      ],
+      "DontAllowMultiple": true
+    }
+  ]
+}

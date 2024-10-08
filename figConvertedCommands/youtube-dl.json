@@ -1,0 +1,2229 @@
+{
+  "Comment": "This command info is generated from fig",
+  "Name": "youtube-dl",
+  "Description": "Download videos from YouTube",
+  "Arguments": [
+    {
+      "Arguments": [
+        {
+          "Name": "--help",
+          "Description": "Print the help text and exit",
+          "Aliases": [
+            "-h"
+          ],
+          "Arguments": []
+        },
+        {
+          "Name": "--version",
+          "Description": "Print program version and exit",
+          "Aliases": [],
+          "Arguments": []
+        },
+        {
+          "Name": "-U",
+          "Description": "Update this program to latest version. Make sure you have sufficient permissions (run with sudo if needed)",
+          "Aliases": [
+            "--update"
+          ],
+          "Arguments": []
+        },
+        {
+          "Name": "--ignore-errors",
+          "Description": "Continue on download errors, for example to skip unavailable videos in a playlist",
+          "Aliases": [
+            "-i"
+          ],
+          "Arguments": []
+        },
+        {
+          "Name": "--abort-on-error",
+          "Description": "Abort downloading of further videos (in the playlist or the command line) if an error occurs",
+          "Aliases": [],
+          "Arguments": []
+        },
+        {
+          "Name": "--dump-user-agent",
+          "Description": "Display the current browser identification",
+          "Aliases": [],
+          "Arguments": []
+        },
+        {
+          "Name": "--list-extractors",
+          "Description": "List all supported extractors",
+          "Aliases": [],
+          "Arguments": []
+        },
+        {
+          "Name": "--extractor-descriptions",
+          "Description": "Output descriptions of all supported extractors",
+          "Aliases": [],
+          "Arguments": []
+        },
+        {
+          "Name": "--default-search",
+          "Description": "Use this prefix for unqualified URLs. For example \u0022gvsearch2:\u0022 downloads two videos from google videos for youtube-dl \u0022large apple\u0022",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "PREFIX",
+                  "Description": "PREFIX",
+                  "Type": "String"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "Name": "--config-location",
+          "Description": "Location of the configuration file; either the path to the config or its containing directory",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "PATH",
+                  "Description": "PATH",
+                  "Type": "FileSystemEntry"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "Name": "--force-generic-extractor",
+          "Description": "Force extraction to use the generic extractor",
+          "Aliases": [],
+          "Arguments": []
+        },
+        {
+          "Name": "--ignore-config",
+          "Description": "Do not read configuration files",
+          "Aliases": [],
+          "Arguments": []
+        },
+        {
+          "Name": "--flat-playlist",
+          "Description": "Do not extract the videos of a playlist, only list them",
+          "Aliases": [],
+          "Arguments": []
+        },
+        {
+          "Name": "--mark-watched",
+          "Description": "Mark videos watched (YouTube only)",
+          "Aliases": [],
+          "Arguments": []
+        },
+        {
+          "Name": "--no-mark-watched",
+          "Description": "Do not mark videos watched (YouTube only)",
+          "Aliases": [],
+          "Arguments": []
+        },
+        {
+          "Name": "--no-color",
+          "Description": "Do not emit color codes in output",
+          "Aliases": [],
+          "Arguments": []
+        },
+        {
+          "Name": "--proxy",
+          "Description": "Use the specified HTTP/HTTPS/SOCKS proxy. Pass in an empty string for direct connection",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "URL",
+                  "Description": "URL",
+                  "Type": "String"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "Name": "--socket-timeout",
+          "Description": "Time to wait before giving up, in seconds",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "SECONDS",
+                  "Description": "SECONDS",
+                  "Type": "String"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "Name": "--source-address",
+          "Description": "Client-side IP address to bind to",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "IP",
+                  "Description": "IP",
+                  "Type": "String"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "Name": "-4",
+          "Description": "Make all connections via IPv4",
+          "Aliases": [
+            "--force-ipv4"
+          ],
+          "Arguments": []
+        },
+        {
+          "Name": "-6",
+          "Description": "Make all connections via IPv6",
+          "Aliases": [
+            "--force-ipv6"
+          ],
+          "Arguments": []
+        },
+        {
+          "Name": "--geo-verification-proxy",
+          "Description": "Use this proxy to verify the IP address for some geo-restricted sites",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "URL",
+                  "Description": "URL",
+                  "Type": "String"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "Name": "--geo-bypass",
+          "Description": "Bypass geographic restriction via faking X-Forwarded-For HTTP header",
+          "Aliases": [],
+          "Arguments": []
+        },
+        {
+          "Name": "--no-geo-bypass",
+          "Description": "Do not bypass geographic restriction via faking X-Forwarded-For HTTP header",
+          "Aliases": [],
+          "Arguments": []
+        },
+        {
+          "Name": "--geo-bypass-country",
+          "Description": "Force bypass geographic restriction with explicitly provided two-letter ISO 3166-2 county code",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "CODE",
+                  "Description": "CODE",
+                  "Type": "String"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "Name": "--geo-bypass-ip-block",
+          "Description": "Force bypass geographic restriction with explicitly provided IP block in CIDR notation",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "IP_BLOCK",
+                  "Description": "IP_BLOCK",
+                  "Type": "String"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "Name": "--playlist-start",
+          "Description": "Playlist video to start at (default is 1)",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "NUMBER",
+                  "Description": "NUMBER",
+                  "Type": "String",
+                  "Extensions": [],
+                  "CustomCommand": ""
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "Name": "--playlist-end",
+          "Description": "Playlist video to end at (default is last)",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "NUMBER",
+                  "Description": "NUMBER",
+                  "Type": "String",
+                  "Extensions": [],
+                  "CustomCommand": ""
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "Name": "--playlist-items",
+          "Description": "Playlist video to end at (default is last)",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "ITEM_SPEC",
+                  "Description": "ITEM_SPEC",
+                  "Type": "String",
+                  "Extensions": [],
+                  "CustomCommand": ""
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "Name": "--match-title",
+          "Description": "Download only matching titles (regex or caseless sub-string)",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "REGEX",
+                  "Description": "REGEX",
+                  "Type": "String"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "Name": "--reject-title",
+          "Description": "Skip download for matching titles (regex or caseless sub-string)",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "REGEX",
+                  "Description": "REGEX",
+                  "Type": "String"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "Name": "--max-downloads",
+          "Description": "Abort after downloading NUMBER files",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "NUMBER",
+                  "Description": "NUMBER",
+                  "Type": "String"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "Name": "--min-filesize",
+          "Description": "Do not download any videos smaller than SIZE (e.g. 50k or 44.6)",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "SIZE",
+                  "Description": "SIZE",
+                  "Type": "String"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "Name": "--max-filesize",
+          "Description": "Do not download any videos larger than SIZE (e.g. 50k or 44.6)",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "SIZE",
+                  "Description": "SIZE",
+                  "Type": "String"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "Name": "--date",
+          "Description": "Download only videos uploaded in this date",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "DATE",
+                  "Description": "DATE",
+                  "Type": "String"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "Name": "--datebefore",
+          "Description": "Download only videos uploaded on or before this date (i.e. inclusive)",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "DATE",
+                  "Description": "DATE",
+                  "Type": "String"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "Name": "--dateafter",
+          "Description": "Download only videos uploaded on or after this date (i.e. inclusive)",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "DATE",
+                  "Description": "DATE",
+                  "Type": "String"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "Name": "--min-views",
+          "Description": "Do not download any videos with less than COUNT views",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "COUNT",
+                  "Description": "COUNT",
+                  "Type": "String"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "Name": "--max-views",
+          "Description": "Do not download any videos with more than COUNT views",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "COUNT",
+                  "Description": "COUNT",
+                  "Type": "String"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "Name": "--match-filter",
+          "Description": "Generic video filter",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "FILTER",
+                  "Description": "FILTER",
+                  "Type": "String"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "Name": "--no-playlist",
+          "Description": "Download only the video, if the URL refers to a video and a playlist",
+          "Aliases": [],
+          "Arguments": []
+        },
+        {
+          "Name": "--yes-playlist",
+          "Description": "Download the playlist, if the URL refers to a video and a playlist",
+          "Aliases": [],
+          "Arguments": []
+        },
+        {
+          "Name": "--age-limit",
+          "Description": "Download only videos suitable for the given age",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "YEARS",
+                  "Description": "YEARS",
+                  "Type": "String"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "Name": "--download-archive",
+          "Description": "Download only videos not listed in the archive file. Record the IDs of all downloaded videos in it",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "FILE",
+                  "Description": "FILE",
+                  "Type": "String"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "Name": "--include-ads",
+          "Description": "Download advertisements as well (experimental)",
+          "Aliases": [],
+          "Arguments": []
+        },
+        {
+          "Name": "-r",
+          "Description": "Maximum download rate in bytes per second (e.g. 50K or 4.2M)",
+          "Aliases": [
+            "--limit-rate"
+          ],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "RATE",
+                  "Description": "RATE",
+                  "Type": "String"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "Name": "-R",
+          "Description": "Number of retries or \u0022infinite\u0022",
+          "Aliases": [
+            "--retries"
+          ],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "RETRIES",
+                  "Description": "RETRIES",
+                  "Type": "String"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "Name": "--fragment-retries",
+          "Description": "Number of retries for a fragment or \u0022infinite\u0022",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "RETRIES",
+                  "Description": "RETRIES",
+                  "Type": "String"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "Name": "--skip-unavailable-fragments",
+          "Description": "Skip unavailable fragments",
+          "Aliases": [],
+          "Arguments": []
+        },
+        {
+          "Name": "--abort-on-unavailable-fragments",
+          "Description": "Abort downloading when some fragment is not available",
+          "Aliases": [],
+          "Arguments": []
+        },
+        {
+          "Name": "--keep-fragments",
+          "Description": "Keep downloaded fragments on disk after downloading is finished; fragments are erased by default",
+          "Aliases": [],
+          "Arguments": []
+        },
+        {
+          "Name": "--buffer-size",
+          "Description": "Size of download buffer (e.g. 1024 or 16K)",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "SIZE",
+                  "Description": "SIZE",
+                  "Type": "String"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "Name": "--no-resize-buffer",
+          "Description": "Do not automatically adjust the buffer size",
+          "Aliases": [],
+          "Arguments": []
+        },
+        {
+          "Name": "--http-chunk-size",
+          "Description": "Size of a chunk for chunk-based HTTP downloading (e.g. 10385760 or 10M)",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "SIZE",
+                  "Description": "SIZE",
+                  "Type": "String"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "Name": "--playlist-reverse",
+          "Description": "Download playlist videos in reverse order",
+          "Aliases": [],
+          "Arguments": []
+        },
+        {
+          "Name": "--playlist-random",
+          "Description": "Download playlist videos in random order",
+          "Aliases": [],
+          "Arguments": []
+        },
+        {
+          "Name": "--xattr-set-filesize",
+          "Description": "Set file xattribute ytdl.filesize with expected file size",
+          "Aliases": [],
+          "Arguments": []
+        },
+        {
+          "Name": "--hls-prefer-native",
+          "Description": "Use the native HLS downloader instead of ffmpeg",
+          "Aliases": [],
+          "Arguments": []
+        },
+        {
+          "Name": "--hls-prefer-ffmpeg",
+          "Description": "Use ffmpeg instead of the native HLS downloader",
+          "Aliases": [],
+          "Arguments": []
+        },
+        {
+          "Name": "--hls-prefer-mpegts",
+          "Description": "Use the mpegts container for HLS videos, allowing to play the video while downloading",
+          "Aliases": [],
+          "Arguments": []
+        },
+        {
+          "Name": "--external-downloader",
+          "Description": "Use the specified external downloader",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "COMMAND",
+                  "Description": "COMMAND",
+                  "Type": "String"
+                },
+                {
+                  "Name": "aria2c",
+                  "Description": "COMMAND"
+                },
+                {
+                  "Name": "avconv",
+                  "Description": "COMMAND"
+                },
+                {
+                  "Name": "axel",
+                  "Description": "COMMAND"
+                },
+                {
+                  "Name": "curl",
+                  "Description": "COMMAND"
+                },
+                {
+                  "Name": "ffmpeg",
+                  "Description": "COMMAND"
+                },
+                {
+                  "Name": "httpie",
+                  "Description": "COMMAND"
+                },
+                {
+                  "Name": "wget",
+                  "Description": "COMMAND"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "Name": "--external-downloader-args",
+          "Description": "Give these arguments to the external downloader",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "ARGS",
+                  "Description": "ARGS",
+                  "Type": "String"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "Name": "-a",
+          "Description": "File containing URLs to download (\u0027-\u0027 for stdin), one URL per line. Lines starting with \u0027#\u0027, \u0027;\u0027 or \u0027]\u0027 are considered as comments and ignored",
+          "Aliases": [
+            "--batch-file"
+          ],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "FILE",
+                  "Description": "FILE",
+                  "Type": "FileSystemEntry"
+                },
+                {
+                  "Name": "-",
+                  "Description": "FILE"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "Name": "--id",
+          "Description": "Use only video ID in file name",
+          "Aliases": [],
+          "Arguments": []
+        },
+        {
+          "Name": "-o",
+          "Description": "Output filename template",
+          "Aliases": [
+            "--output"
+          ],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "TEMPLATE",
+                  "Description": "TEMPLATE",
+                  "Type": "String"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "Name": "--output-na-placeholder",
+          "Description": "Placeholder value for unavailable meta fields in output filename template",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "PLACEHOLDER",
+                  "Description": "PLACEHOLDER",
+                  "Type": "String"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "Name": "--autonumber-start",
+          "Description": "Specify the start value for %(autonumber)s",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "NUMBER",
+                  "Description": "NUMBER",
+                  "Type": "String"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "Name": "--restrict-filenames",
+          "Description": "Restrict filenames to only ASCII characters, and avoid \u0022\u0026\u0022 and spaces in filenames",
+          "Aliases": [],
+          "Arguments": []
+        },
+        {
+          "Name": "-w",
+          "Description": "Do not overwrite files",
+          "Aliases": [
+            "--no-overwrites"
+          ],
+          "Arguments": []
+        },
+        {
+          "Name": "-c",
+          "Description": "Do not resume partially downloaded files (restart from beginning)",
+          "Aliases": [
+            "--continue"
+          ],
+          "Arguments": []
+        },
+        {
+          "Name": "--no-part",
+          "Description": "Do not use .part files - write directly into output file",
+          "Aliases": [],
+          "Arguments": []
+        },
+        {
+          "Name": "--no-mtime",
+          "Description": "Do not use the Last-modified header to set the file modification time",
+          "Aliases": [],
+          "Arguments": []
+        },
+        {
+          "Name": "--write-description",
+          "Description": "Write video descriptions to a .description file",
+          "Aliases": [],
+          "Arguments": []
+        },
+        {
+          "Name": "--write-info-json",
+          "Description": "Write video metadata to a .info.json file",
+          "Aliases": [],
+          "Arguments": []
+        },
+        {
+          "Name": "--write-annotations",
+          "Description": "Write video annotations to a .annotations.xml file",
+          "Aliases": [],
+          "Arguments": []
+        },
+        {
+          "Name": "--load-info-json",
+          "Description": "JSON file containing the video information (created with the \u0022--write-info-json\u0022 option",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "FILE",
+                  "Description": "FILE",
+                  "Type": "FileSystemEntry"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "Name": "--cookies",
+          "Description": "File to read cookies from and dump cookie jar in",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "FILE",
+                  "Description": "FILE",
+                  "Type": "FileSystemEntry"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "Name": "--cache-dir",
+          "Description": "Location in the filesystem where youtube-dl can store some downloaded information permanently",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "DIR",
+                  "Description": "DIR",
+                  "Type": "Directory"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "Name": "--no-cache-dir",
+          "Description": "Disable filesystem caching",
+          "Aliases": [],
+          "Arguments": []
+        },
+        {
+          "Name": "--rm-cache-dir",
+          "Description": "Delete all filesystem cache files",
+          "Aliases": [],
+          "Arguments": []
+        },
+        {
+          "Name": "--write-thumbnail",
+          "Description": "Write thumbnail image to disk",
+          "Aliases": [],
+          "Arguments": []
+        },
+        {
+          "Name": "--write-all-thumbnail",
+          "Description": "Write all thumbnail image formats to disk",
+          "Aliases": [],
+          "Arguments": []
+        },
+        {
+          "Name": "--list-thumbnails",
+          "Description": "Simulate and list all available thumbnail formats",
+          "Aliases": [],
+          "Arguments": []
+        },
+        {
+          "Name": "-q",
+          "Description": "Activate quite mode",
+          "Aliases": [
+            "--quiet"
+          ],
+          "Arguments": []
+        },
+        {
+          "Name": "--no-warnings",
+          "Description": "Ignore warnings",
+          "Aliases": [],
+          "Arguments": []
+        },
+        {
+          "Name": "-s",
+          "Description": "Do not download the video and do note write anything to disk",
+          "Aliases": [
+            "--simulate"
+          ],
+          "Arguments": []
+        },
+        {
+          "Name": "--skip-download",
+          "Description": "Do not download the video",
+          "Aliases": [],
+          "Arguments": []
+        },
+        {
+          "Name": "-g",
+          "Description": "Simulate, quiet but print URL",
+          "Aliases": [
+            "--get-url"
+          ],
+          "Arguments": []
+        },
+        {
+          "Name": "-e",
+          "Description": "Simulate, quiet but print title",
+          "Aliases": [
+            "--get-title"
+          ],
+          "Arguments": []
+        },
+        {
+          "Name": "--get-id",
+          "Description": "Simulate, quiet but print id",
+          "Aliases": [],
+          "Arguments": []
+        },
+        {
+          "Name": "--get-thumbnail",
+          "Description": "Simulate, quiet but print thumbnail URL",
+          "Aliases": [],
+          "Arguments": []
+        },
+        {
+          "Name": "--get-description",
+          "Description": "Simulate, quiet but print video description",
+          "Aliases": [],
+          "Arguments": []
+        },
+        {
+          "Name": "--get-duration",
+          "Description": "Simulate, quiet but print video length",
+          "Aliases": [],
+          "Arguments": []
+        },
+        {
+          "Name": "--get-filename",
+          "Description": "Simulate, quiet but print output filename",
+          "Aliases": [],
+          "Arguments": []
+        },
+        {
+          "Name": "--get-format",
+          "Description": "Simulate, quiet but print output format",
+          "Aliases": [],
+          "Arguments": []
+        },
+        {
+          "Name": "-j",
+          "Description": "Simulate, quiet but JSON information",
+          "Aliases": [
+            "--dump-json"
+          ],
+          "Arguments": []
+        },
+        {
+          "Name": "-J",
+          "Description": "Simulate, quiet but JSON information for each command-line argument",
+          "Aliases": [
+            "--dump-single-json"
+          ],
+          "Arguments": []
+        },
+        {
+          "Name": "--print-json",
+          "Description": "Be quiet and print the video information as JSON (video is still being downloaded)",
+          "Aliases": [],
+          "Arguments": []
+        },
+        {
+          "Name": "--newline",
+          "Description": "Output the progress bar as new lines",
+          "Aliases": [],
+          "Arguments": []
+        },
+        {
+          "Name": "--no-progress",
+          "Description": "Do not print the progress bar",
+          "Aliases": [],
+          "Arguments": []
+        },
+        {
+          "Name": "--console-title",
+          "Description": "Display progress in console titlebar",
+          "Aliases": [],
+          "Arguments": []
+        },
+        {
+          "Name": "-v",
+          "Description": "Print various debugging information",
+          "Aliases": [
+            "--verbose"
+          ],
+          "Arguments": []
+        },
+        {
+          "Name": "--dump-pages",
+          "Description": "Print downloaded pages encoded using base64 to debug problems (very verbose)",
+          "Aliases": [],
+          "Arguments": []
+        },
+        {
+          "Name": "--write-pages",
+          "Description": "Write downloaded intermediary pages to files in the current directory to debug problems",
+          "Aliases": [],
+          "Arguments": []
+        },
+        {
+          "Name": "--print-traffic",
+          "Description": "Display sent and read HTTP traffic",
+          "Aliases": [],
+          "Arguments": []
+        },
+        {
+          "Name": "-C",
+          "Description": "Contact the youtube-dl server for debugging",
+          "Aliases": [
+            "--call-home"
+          ],
+          "Arguments": []
+        },
+        {
+          "Name": "--no-call-home",
+          "Description": "Do NOT contact the youtube-dl server for debugging",
+          "Aliases": [],
+          "Arguments": []
+        },
+        {
+          "Name": "--encoding",
+          "Description": "Force the specified encoding (experimental)",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "ENCODING",
+                  "Description": "ENCODING",
+                  "Type": "String"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "Name": "--no-check-certificate",
+          "Description": "Suppress HTTPS certificate validation",
+          "Aliases": [],
+          "Arguments": []
+        },
+        {
+          "Name": "--prefer-insecure",
+          "Description": "Use an unencrypted connection to retrieve information about the video. (Currently supported only for YouTube)",
+          "Aliases": [],
+          "Arguments": []
+        },
+        {
+          "Name": "--user-agent",
+          "Description": "Specify a custom user agent",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "UA",
+                  "Description": "UA",
+                  "Type": "String"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "Name": "--referer",
+          "Description": "Specify a custom referer, use if the video access is restricted to one domain",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "URL",
+                  "Description": "URL",
+                  "Type": "String"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "Name": "--add-header",
+          "Description": "Specify a custom HTTP header and its value, separated by a colon \u0027:\u0027",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "FIELD:VALUE",
+                  "Description": "FIELD:VALUE",
+                  "Type": "String"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "Name": "--bidi-workaround",
+          "Description": "Work around terminals that lack bidirectional text support. Requires bidiv or fribidi executable in PATH",
+          "Aliases": [],
+          "Arguments": []
+        },
+        {
+          "Name": "--sleep-interval",
+          "Description": "Number of seconds to sleep before each download when used alone or a lower bound of a range for randomized sleep before each download when used along with --max-sleep-interval",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "SECONDS",
+                  "Description": "SECONDS",
+                  "Type": "String"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "Name": "--max-sleep-interval",
+          "Description": "Upper bound of a range for randomized sleep before each download. Must only be used along with --min- sleep-interval",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "SECONDS",
+                  "Description": "SECONDS",
+                  "Type": "String"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "Name": "-f",
+          "Description": "Video format code",
+          "Aliases": [
+            "--format"
+          ],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "FORMAT",
+                  "Description": "FORMAT",
+                  "Type": "String"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "Name": "--all-formats",
+          "Description": "Download all available video formats",
+          "Aliases": [],
+          "Arguments": []
+        },
+        {
+          "Name": "--prefer-free-formats",
+          "Description": "Prefer free video formats unless a specific one is requested",
+          "Aliases": [],
+          "Arguments": []
+        },
+        {
+          "Name": "-F",
+          "Description": "List all available formats of requested videos",
+          "Aliases": [
+            "--list-formats"
+          ],
+          "Arguments": []
+        },
+        {
+          "Name": "--youtube-skip-dash-manifest",
+          "Description": "Do not download the DASH manifests and related data on YouTube videos",
+          "Aliases": [],
+          "Arguments": []
+        },
+        {
+          "Name": "--merge-output-format",
+          "Description": "If a merge is required (e.g. bestvideo\u002Bbestaudio), output to given container format",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "FORMAT",
+                  "Description": "FORMAT",
+                  "Type": "String"
+                },
+                {
+                  "Name": "mkv",
+                  "Description": "FORMAT"
+                },
+                {
+                  "Name": "mp4",
+                  "Description": "FORMAT"
+                },
+                {
+                  "Name": "ogg",
+                  "Description": "FORMAT"
+                },
+                {
+                  "Name": "webm",
+                  "Description": "FORMAT"
+                },
+                {
+                  "Name": "flv",
+                  "Description": "FORMAT"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "Name": "--write-sub",
+          "Description": "Write subtitle file",
+          "Aliases": [],
+          "Arguments": []
+        },
+        {
+          "Name": "--write-auto-sub",
+          "Description": "Write automatically generated subtitle file (YouTube only)",
+          "Aliases": [],
+          "Arguments": []
+        },
+        {
+          "Name": "--all-subs",
+          "Description": "Download all the available subtitles of the video",
+          "Aliases": [],
+          "Arguments": []
+        },
+        {
+          "Name": "--list-subs",
+          "Description": "List all available subtitles for the video",
+          "Aliases": [],
+          "Arguments": []
+        },
+        {
+          "Name": "--sub-format",
+          "Description": "Subtitle format, accepts formats preference, for example: \u0022srt\u0022 or \u0022ass/srt/best\u0022",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "FORMAT",
+                  "Description": "FORMAT",
+                  "Type": "String"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "Name": "--sub-lang",
+          "Description": "Languages of the subtitles to download (optional) separated by commas",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "LANGS",
+                  "Description": "LANGS",
+                  "Type": "String",
+                  "Extensions": [],
+                  "CustomCommand": ""
+                },
+                {
+                  "Name": "af",
+                  "Description": "LANGS"
+                },
+                {
+                  "Name": "sq",
+                  "Description": "LANGS"
+                },
+                {
+                  "Name": "am",
+                  "Description": "LANGS"
+                },
+                {
+                  "Name": "ar",
+                  "Description": "LANGS"
+                },
+                {
+                  "Name": "hy",
+                  "Description": "LANGS"
+                },
+                {
+                  "Name": "az",
+                  "Description": "LANGS"
+                },
+                {
+                  "Name": "bn",
+                  "Description": "LANGS"
+                },
+                {
+                  "Name": "eu",
+                  "Description": "LANGS"
+                },
+                {
+                  "Name": "be",
+                  "Description": "LANGS"
+                },
+                {
+                  "Name": "bs",
+                  "Description": "LANGS"
+                },
+                {
+                  "Name": "bg",
+                  "Description": "LANGS"
+                },
+                {
+                  "Name": "my",
+                  "Description": "LANGS"
+                },
+                {
+                  "Name": "ca",
+                  "Description": "LANGS"
+                },
+                {
+                  "Name": "ceb",
+                  "Description": "LANGS"
+                },
+                {
+                  "Name": "zh-Hans",
+                  "Description": "LANGS"
+                },
+                {
+                  "Name": "zh-Hant",
+                  "Description": "LANGS"
+                },
+                {
+                  "Name": "co",
+                  "Description": "LANGS"
+                },
+                {
+                  "Name": "hr",
+                  "Description": "LANGS"
+                },
+                {
+                  "Name": "cs",
+                  "Description": "LANGS"
+                },
+                {
+                  "Name": "da",
+                  "Description": "LANGS"
+                },
+                {
+                  "Name": "nl",
+                  "Description": "LANGS"
+                },
+                {
+                  "Name": "en",
+                  "Description": "LANGS"
+                },
+                {
+                  "Name": "eo",
+                  "Description": "LANGS"
+                },
+                {
+                  "Name": "et",
+                  "Description": "LANGS"
+                },
+                {
+                  "Name": "fil",
+                  "Description": "LANGS"
+                },
+                {
+                  "Name": "fi",
+                  "Description": "LANGS"
+                },
+                {
+                  "Name": "fr",
+                  "Description": "LANGS"
+                },
+                {
+                  "Name": "gl",
+                  "Description": "LANGS"
+                },
+                {
+                  "Name": "ka",
+                  "Description": "LANGS"
+                },
+                {
+                  "Name": "de",
+                  "Description": "LANGS"
+                },
+                {
+                  "Name": "el",
+                  "Description": "LANGS"
+                },
+                {
+                  "Name": "gu",
+                  "Description": "LANGS"
+                },
+                {
+                  "Name": "ht",
+                  "Description": "LANGS"
+                },
+                {
+                  "Name": "ha",
+                  "Description": "LANGS"
+                },
+                {
+                  "Name": "haw",
+                  "Description": "LANGS"
+                },
+                {
+                  "Name": "iw",
+                  "Description": "LANGS"
+                },
+                {
+                  "Name": "hi",
+                  "Description": "LANGS"
+                },
+                {
+                  "Name": "hmn",
+                  "Description": "LANGS"
+                },
+                {
+                  "Name": "hu",
+                  "Description": "LANGS"
+                },
+                {
+                  "Name": "is",
+                  "Description": "LANGS"
+                },
+                {
+                  "Name": "ig",
+                  "Description": "LANGS"
+                },
+                {
+                  "Name": "id",
+                  "Description": "LANGS"
+                },
+                {
+                  "Name": "ga",
+                  "Description": "LANGS"
+                },
+                {
+                  "Name": "it",
+                  "Description": "LANGS"
+                },
+                {
+                  "Name": "ja",
+                  "Description": "LANGS"
+                },
+                {
+                  "Name": "jv",
+                  "Description": "LANGS"
+                },
+                {
+                  "Name": "kn",
+                  "Description": "LANGS"
+                },
+                {
+                  "Name": "kk",
+                  "Description": "LANGS"
+                },
+                {
+                  "Name": "km",
+                  "Description": "LANGS"
+                },
+                {
+                  "Name": "rw",
+                  "Description": "LANGS"
+                },
+                {
+                  "Name": "ko",
+                  "Description": "LANGS"
+                },
+                {
+                  "Name": "ku",
+                  "Description": "LANGS"
+                },
+                {
+                  "Name": "ky",
+                  "Description": "LANGS"
+                },
+                {
+                  "Name": "lo",
+                  "Description": "LANGS"
+                },
+                {
+                  "Name": "la",
+                  "Description": "LANGS"
+                },
+                {
+                  "Name": "lv",
+                  "Description": "LANGS"
+                },
+                {
+                  "Name": "lt",
+                  "Description": "LANGS"
+                },
+                {
+                  "Name": "lb",
+                  "Description": "LANGS"
+                },
+                {
+                  "Name": "mk",
+                  "Description": "LANGS"
+                },
+                {
+                  "Name": "mg",
+                  "Description": "LANGS"
+                },
+                {
+                  "Name": "ms",
+                  "Description": "LANGS"
+                },
+                {
+                  "Name": "ml",
+                  "Description": "LANGS"
+                },
+                {
+                  "Name": "mt",
+                  "Description": "LANGS"
+                },
+                {
+                  "Name": "mi",
+                  "Description": "LANGS"
+                },
+                {
+                  "Name": "mr",
+                  "Description": "LANGS"
+                },
+                {
+                  "Name": "mn",
+                  "Description": "LANGS"
+                },
+                {
+                  "Name": "ne",
+                  "Description": "LANGS"
+                },
+                {
+                  "Name": "no",
+                  "Description": "LANGS"
+                },
+                {
+                  "Name": "ny",
+                  "Description": "LANGS"
+                },
+                {
+                  "Name": "or",
+                  "Description": "LANGS"
+                },
+                {
+                  "Name": "ps",
+                  "Description": "LANGS"
+                },
+                {
+                  "Name": "fa",
+                  "Description": "LANGS"
+                },
+                {
+                  "Name": "pl",
+                  "Description": "LANGS"
+                },
+                {
+                  "Name": "pt",
+                  "Description": "LANGS"
+                },
+                {
+                  "Name": "pa",
+                  "Description": "LANGS"
+                },
+                {
+                  "Name": "ro",
+                  "Description": "LANGS"
+                },
+                {
+                  "Name": "ru",
+                  "Description": "LANGS"
+                },
+                {
+                  "Name": "sm",
+                  "Description": "LANGS"
+                },
+                {
+                  "Name": "gd",
+                  "Description": "LANGS"
+                },
+                {
+                  "Name": "sr",
+                  "Description": "LANGS"
+                },
+                {
+                  "Name": "sn",
+                  "Description": "LANGS"
+                },
+                {
+                  "Name": "sd",
+                  "Description": "LANGS"
+                },
+                {
+                  "Name": "si",
+                  "Description": "LANGS"
+                },
+                {
+                  "Name": "sk",
+                  "Description": "LANGS"
+                },
+                {
+                  "Name": "sl",
+                  "Description": "LANGS"
+                },
+                {
+                  "Name": "so",
+                  "Description": "LANGS"
+                },
+                {
+                  "Name": "st",
+                  "Description": "LANGS"
+                },
+                {
+                  "Name": "es",
+                  "Description": "LANGS"
+                },
+                {
+                  "Name": "su",
+                  "Description": "LANGS"
+                },
+                {
+                  "Name": "sw",
+                  "Description": "LANGS"
+                },
+                {
+                  "Name": "sv",
+                  "Description": "LANGS"
+                },
+                {
+                  "Name": "tg",
+                  "Description": "LANGS"
+                },
+                {
+                  "Name": "ta",
+                  "Description": "LANGS"
+                },
+                {
+                  "Name": "tt",
+                  "Description": "LANGS"
+                },
+                {
+                  "Name": "te",
+                  "Description": "LANGS"
+                },
+                {
+                  "Name": "th",
+                  "Description": "LANGS"
+                },
+                {
+                  "Name": "tr",
+                  "Description": "LANGS"
+                },
+                {
+                  "Name": "tk",
+                  "Description": "LANGS"
+                },
+                {
+                  "Name": "uk",
+                  "Description": "LANGS"
+                },
+                {
+                  "Name": "ur",
+                  "Description": "LANGS"
+                },
+                {
+                  "Name": "ug",
+                  "Description": "LANGS"
+                },
+                {
+                  "Name": "uz",
+                  "Description": "LANGS"
+                },
+                {
+                  "Name": "vi",
+                  "Description": "LANGS"
+                },
+                {
+                  "Name": "cy",
+                  "Description": "LANGS"
+                },
+                {
+                  "Name": "fy",
+                  "Description": "LANGS"
+                },
+                {
+                  "Name": "xh",
+                  "Description": "LANGS"
+                },
+                {
+                  "Name": "yi",
+                  "Description": "LANGS"
+                },
+                {
+                  "Name": "yo",
+                  "Description": "LANGS"
+                },
+                {
+                  "Name": "zu",
+                  "Description": "LANGS"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "Name": "-u",
+          "Description": "Login with this account ID",
+          "Aliases": [
+            "--username"
+          ],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "USERNAME",
+                  "Description": "USERNAME",
+                  "Type": "String"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "Name": "-p",
+          "Description": "Account password. If this option is left out, youtube-dl will ask interactively",
+          "Aliases": [
+            "--password"
+          ],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "PASSWORD",
+                  "Description": "PASSWORD",
+                  "Type": "String"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "Name": "-2",
+          "Description": "Two-factor authentication code",
+          "Aliases": [
+            "--twofactor"
+          ],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "TWOFACTOR",
+                  "Description": "TWOFACTOR",
+                  "Type": "String"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "Name": "-n",
+          "Description": "Use .netrc authentication data",
+          "Aliases": [
+            "--netrc"
+          ],
+          "Arguments": []
+        },
+        {
+          "Name": "--video-password",
+          "Description": "Video password (vimeo, youku)",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "PASSWORD",
+                  "Description": "PASSWORD",
+                  "Type": "String"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "Name": "--ap-mso",
+          "Description": "Adobe Pass multiple-system operator (TV provider) identifier",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "MSO",
+                  "Description": "MSO",
+                  "Type": "String",
+                  "Extensions": [],
+                  "CustomCommand": ""
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "Name": "--ap-username",
+          "Description": "Multiple-system operator account login",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "USERNAME",
+                  "Description": "USERNAME",
+                  "Type": "String"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "Name": "--ap-password",
+          "Description": "Multiple-system operator account password. If this option is left out, youtube-dl will ask interactively",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "PASSWORD",
+                  "Description": "PASSWORD",
+                  "Type": "String"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "Name": "--ap-list-mso",
+          "Description": "List all supported multiple-system operators",
+          "Aliases": [],
+          "Arguments": []
+        },
+        {
+          "Name": "-x",
+          "Description": "Convert audio files to audio-only files (requires ffmpeg/avconv and ffprobe/avprobe)",
+          "Aliases": [
+            "--extract-audio"
+          ],
+          "Arguments": []
+        },
+        {
+          "Name": "--audio-format",
+          "Description": "Specify audio format",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "FORMAT",
+                  "Description": "FORMAT",
+                  "Type": "String"
+                },
+                {
+                  "Name": "best",
+                  "Description": "FORMAT"
+                },
+                {
+                  "Name": "aac",
+                  "Description": "FORMAT"
+                },
+                {
+                  "Name": "flac",
+                  "Description": "FORMAT"
+                },
+                {
+                  "Name": "mp3",
+                  "Description": "FORMAT"
+                },
+                {
+                  "Name": "m4a",
+                  "Description": "FORMAT"
+                },
+                {
+                  "Name": "opus",
+                  "Description": "FORMAT"
+                },
+                {
+                  "Name": "vorbis",
+                  "Description": "FORMAT"
+                },
+                {
+                  "Name": "wav",
+                  "Description": "FORMAT"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "Name": "--audio-quality",
+          "Description": "Specify ffmpeg/avconv audio quality, insert a value between 0 (better) and 9 (worse) for VBR or a specific bitrate like 128K",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "QUALITY",
+                  "Description": "QUALITY",
+                  "Type": "String"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "Name": "--recode-video",
+          "Description": "Encode the video to another format if necessary",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "FORMAT",
+                  "Description": "FORMAT",
+                  "Type": "String"
+                },
+                {
+                  "Name": "mp4",
+                  "Description": "FORMAT"
+                },
+                {
+                  "Name": "flv",
+                  "Description": "FORMAT"
+                },
+                {
+                  "Name": "ogg",
+                  "Description": "FORMAT"
+                },
+                {
+                  "Name": "webm",
+                  "Description": "FORMAT"
+                },
+                {
+                  "Name": "mkv",
+                  "Description": "FORMAT"
+                },
+                {
+                  "Name": "avi",
+                  "Description": "FORMAT"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "Name": "--postprocessor-args",
+          "Description": "Give these arguments to the postprocessor",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "ARGS",
+                  "Description": "ARGS",
+                  "Type": "String"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "Name": "-k",
+          "Description": "Keep the video file on disk after the post-processing; the video is erased by default",
+          "Aliases": [
+            "--keep-video"
+          ],
+          "Arguments": []
+        },
+        {
+          "Name": "--no-post-overwrites",
+          "Description": "Do not overwrite post-processed files; the post-processed files are overwritten by default",
+          "Aliases": [],
+          "Arguments": []
+        },
+        {
+          "Name": "--embed-subs",
+          "Description": "Embed subtitles in the video (only for mp4, webm and mkv videos)",
+          "Aliases": [],
+          "Arguments": []
+        },
+        {
+          "Name": "--embed-thumbnail",
+          "Description": "Embed thumbnail in the audio as cover art",
+          "Aliases": [],
+          "Arguments": []
+        },
+        {
+          "Name": "--embed-metadata",
+          "Description": "Write metadata to the video file",
+          "Aliases": [],
+          "Arguments": []
+        },
+        {
+          "Name": "--metadata-from-title",
+          "Description": "Parse additional metadata like song title / artist from the video title. The format syntax is the same as --output. Regular expressions with named capture groups may also be used. The parsed parameters replace existing values",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "FORMAT",
+                  "Description": "FORMAT",
+                  "Type": "String"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "Name": "--xattrs",
+          "Description": "Write metadata to the video file\u0027s xattrs (using dublin core and xdg standards)",
+          "Aliases": [],
+          "Arguments": []
+        },
+        {
+          "Name": "--fixup",
+          "Description": "Automatically correct known faults of the file",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "POLICY",
+                  "Description": "POLICY",
+                  "Type": "String"
+                },
+                {
+                  "Name": "never",
+                  "Description": "Do nothing"
+                },
+                {
+                  "Name": "warn",
+                  "Description": "Only emit a warning"
+                },
+                {
+                  "Name": "detect_or_warn",
+                  "Description": "Fix file if we can, warn otherwise"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "Name": "--prefer-avconv",
+          "Description": "Prefer avconv over ffmpeg for running the postprocessors",
+          "Aliases": [],
+          "Arguments": []
+        },
+        {
+          "Name": "--prefer-ffmpeg",
+          "Description": "Prefer ffmpeg over avconv for running the postprocessors (default)",
+          "Aliases": [],
+          "Arguments": []
+        },
+        {
+          "Name": "--ffmpeg-location",
+          "Description": "Location of the ffmpeg/avconv binary; either the path to the binary or its containing directory",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "PATH",
+                  "Description": "PATH",
+                  "Type": "FileSystemEntry"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "Name": "--exec",
+          "Description": "Execute a command on the file after downloading and post-processing, similar to find\u0027s -exec syntax",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "CMD",
+                  "Description": "CMD",
+                  "Type": "String"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "Name": "--convert-subs",
+          "Description": "Convert the subtitles to other format",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "FORMAT",
+                  "Description": "FORMAT",
+                  "Type": "String"
+                },
+                {
+                  "Name": "srt",
+                  "Description": "FORMAT"
+                },
+                {
+                  "Name": "ass",
+                  "Description": "FORMAT"
+                },
+                {
+                  "Name": "vtt",
+                  "Description": "FORMAT"
+                },
+                {
+                  "Name": "lrc",
+                  "Description": "FORMAT"
+                }
+              ]
+            }
+          ]
+        }
+      ],
+      "Optional": true
+    },
+    {
+      "Arguments": [
+        {
+          "Name": "URL",
+          "Description": "URL",
+          "Type": "CustomArgument",
+          "Extensions": [],
+          "CustomCommand": "pbpaste"
+        }
+      ]
+    }
+  ]
+}

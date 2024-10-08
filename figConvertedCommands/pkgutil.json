@@ -1,0 +1,451 @@
+{
+  "Comment": "This command info is generated from fig",
+  "Name": "pkgutil",
+  "Description": "Query and manipulate for macOS Installer packages and receipts",
+  "Arguments": [
+    {
+      "Arguments": [
+        {
+          "Name": "-h",
+          "Description": "A brief summary of commands and usage",
+          "Aliases": [
+            "--help"
+          ],
+          "Arguments": []
+        },
+        {
+          "Name": "-f",
+          "Description": "Skip confirmation before a potentially destructive or ambiguous action",
+          "Aliases": [
+            "--force"
+          ],
+          "Arguments": []
+        },
+        {
+          "Name": "-v",
+          "Description": "Output in a human-readable format",
+          "Aliases": [
+            "--verbose"
+          ],
+          "Arguments": []
+        },
+        {
+          "Name": "--volume",
+          "Description": "Perform all operations on specified volume",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "volume",
+                  "Description": "volume",
+                  "Type": "Directory"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "Name": "--edit-pkg",
+          "Description": "Specifies an existing receipt to be modified in-place by --learn",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "package-id",
+                  "Description": "package-id",
+                  "Type": "CustomArgument",
+                  "Extensions": [],
+                  "CustomCommand": "pkgutil --pkgs"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "Name": "--only-files",
+          "Description": "List only files (not directories) in --files listing",
+          "Aliases": [],
+          "Arguments": []
+        },
+        {
+          "Name": "--only-dirs",
+          "Description": "List only directories (not files) in --files listing",
+          "Aliases": [],
+          "Arguments": []
+        },
+        {
+          "Name": "--regexp",
+          "Description": "Use regex to match package-id arguments, if an exact match isn\u0027t found",
+          "Aliases": [],
+          "Arguments": []
+        },
+        {
+          "Name": "--pkgs",
+          "Description": "List all installed package IDs, optionally matching kwarg REGEXP, on the specified --volume",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "REGEXP",
+                  "Description": "REGEXP",
+                  "Type": "String"
+                }
+              ]
+            }
+          ]
+        }
+      ],
+      "Optional": true
+    },
+    {
+      "Arguments": [
+        {
+          "Name": "--packages",
+          "Description": "List all installed package IDs on the specified --volume",
+          "Aliases": [
+            "--pkgs"
+          ],
+          "Arguments": []
+        },
+        {
+          "Name": "--pkgs-plist",
+          "Description": "List all installed package IDs, in Mac OS X plist(5) format, on the specified --volume",
+          "Aliases": [],
+          "Arguments": []
+        },
+        {
+          "Name": "--files",
+          "Description": "List all of the files installed under the package-id",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "package-id",
+                  "Description": "package-id",
+                  "Type": "CustomArgument",
+                  "Extensions": [],
+                  "CustomCommand": "pkgutil --pkgs"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "Name": "--export-plist",
+          "Description": "Print all receipt information about the specified package-id in Mac OS X plist(5) format",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "package-id",
+                  "Description": "package-id",
+                  "Type": "CustomArgument",
+                  "Extensions": [],
+                  "CustomCommand": "pkgutil --pkgs"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "Name": "--verify",
+          "Description": "Run repair_packages(8) to verify the specified package-id",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "package-id",
+                  "Description": "package-id",
+                  "Type": "CustomArgument",
+                  "Extensions": [],
+                  "CustomCommand": "pkgutil --pkgs"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "Name": "--repair",
+          "Description": "Run repair_packages(8) to repair the specified package-id",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "package-id",
+                  "Description": "package-id",
+                  "Type": "CustomArgument",
+                  "Extensions": [],
+                  "CustomCommand": "pkgutil --pkgs"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "Name": "--pkg-info",
+          "Description": "Print extended information about the specified package-id",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "package-id",
+                  "Description": "package-id",
+                  "Type": "CustomArgument",
+                  "Extensions": [],
+                  "CustomCommand": "pkgutil --pkgs"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "Name": "--pkg-info-plist",
+          "Description": "Print extended information about the specified package-id in Mac OS X plist(5) format",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "package-id",
+                  "Description": "package-id",
+                  "Type": "CustomArgument",
+                  "Extensions": [],
+                  "CustomCommand": "pkgutil --pkgs"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "Name": "--forget",
+          "Description": "Discard all receipt data about package-id, but don\u0027t touch installed files",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "package-id",
+                  "Description": "package-id",
+                  "Type": "CustomArgument",
+                  "Extensions": [],
+                  "CustomCommand": "pkgutil --pkgs"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "Name": "--learn",
+          "Description": "Update the ACLs of the given path in the receipt identified by --edit-pkg",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "path",
+                  "Description": "path",
+                  "Type": "String",
+                  "Extensions": [],
+                  "CustomCommand": ""
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "Name": "--pkg-groups",
+          "Description": "List all of the package groups this package-id is a member of",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "package-id",
+                  "Description": "package-id",
+                  "Type": "CustomArgument",
+                  "Extensions": [],
+                  "CustomCommand": "pkgutil --pkgs"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "Name": "--groups",
+          "Description": "List all of the package groups ont he specified --volume",
+          "Aliases": [],
+          "Arguments": []
+        },
+        {
+          "Name": "--group-plist",
+          "Description": "List all of the package groups ont he specified --volume in Mac OS X plist(5) format",
+          "Aliases": [],
+          "Arguments": []
+        },
+        {
+          "Name": "--group-pkgs",
+          "Description": "List all of the packages that are members of this group-id",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "group-id",
+                  "Description": "group-id",
+                  "Type": "CustomArgument",
+                  "Extensions": [],
+                  "CustomCommand": "pkgutil --groups"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "Name": "--file-info",
+          "Description": "Show the metadata known about path",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "path",
+                  "Description": "path",
+                  "Type": "FileSystemEntry"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "Name": "--file-info-plist",
+          "Description": "Show the metadata known about path in Mac OS X plist(5) format",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "path",
+                  "Description": "path",
+                  "Type": "FileSystemEntry"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "Name": "--expand",
+          "Description": "Expand the flat package at pkg-path into a new directory specified by dir-path",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "pkg-path",
+                  "Description": "pkg-path",
+                  "Type": "FileSystemEntry"
+                }
+              ]
+            },
+            {
+              "Arguments": [
+                {
+                  "Name": "dir-path",
+                  "Description": "dir-path",
+                  "Type": "Directory"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "Name": "--flatten",
+          "Description": "Flatten the dir-path into a new flat package created at pkg-path",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "dir-path",
+                  "Description": "dir-path",
+                  "Type": "Directory"
+                }
+              ]
+            },
+            {
+              "Arguments": [
+                {
+                  "Name": "pkg-path",
+                  "Description": "pkg-path",
+                  "Type": "FileSystemEntry"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "Name": "--bom",
+          "Description": "Extract any BOM files from the flat pkg at path into /tmp and return the filename(s)",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "path",
+                  "Description": "path",
+                  "Type": "CustomArgument",
+                  "Extensions": [],
+                  "CustomCommand": "find . -type f -name *.bom -maxdepth 1"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "Name": "--payload-files",
+          "Description": "List the files archived within the uninstalled flat package(s) at path",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "path",
+                  "Description": "path",
+                  "Type": "CustomArgument",
+                  "Extensions": [],
+                  "CustomCommand": "find . -type f -name *.pkg -maxdepth 1"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "Name": "--check-signature",
+          "Description": "Check the validity and trust of the signature on the package at pkg-path",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "pkg-path",
+                  "Description": "pkg-path",
+                  "Type": "CustomArgument",
+                  "Extensions": [],
+                  "CustomCommand": "find . -type f -name *.pkg -maxdepth 1"
+                }
+              ]
+            }
+          ]
+        }
+      ],
+      "DontAllowMultiple": true
+    }
+  ]
+}

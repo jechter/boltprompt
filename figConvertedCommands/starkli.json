@@ -1,0 +1,2690 @@
+{
+  "Comment": "This command info is generated from fig",
+  "Name": "starkli",
+  "Description": "Starkli, a \u26A1 blazing \u26A1 fast \u26A1 CLI tool for Starknet powered by \uD83E\uDD80 starknet-rs \uD83E\uDD80",
+  "Arguments": [
+    {
+      "Arguments": [
+        {
+          "Name": "account",
+          "Description": "Account management commands",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "-h",
+                  "Description": "Print help",
+                  "Aliases": [
+                    "--help"
+                  ],
+                  "Arguments": []
+                }
+              ],
+              "Optional": true
+            },
+            {
+              "Arguments": [
+                {
+                  "Name": "fetch",
+                  "Description": "Fetch account config from an already deployed account contract",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "--rpc",
+                          "Description": "Starknet JSON-RPC endpoint",
+                          "Aliases": [],
+                          "Arguments": [
+                            {
+                              "Arguments": [
+                                {
+                                  "Name": "RPC",
+                                  "Description": "RPC",
+                                  "Type": "String"
+                                }
+                              ]
+                            }
+                          ]
+                        },
+                        {
+                          "Name": "--network",
+                          "Description": "Starknet network",
+                          "Aliases": [],
+                          "Arguments": [
+                            {
+                              "Arguments": [
+                                {
+                                  "Name": "NETWORK",
+                                  "Description": "NETWORK",
+                                  "Type": "String"
+                                },
+                                {
+                                  "Name": "mainnet",
+                                  "Description": "NETWORK"
+                                },
+                                {
+                                  "Name": "goerli-1",
+                                  "Description": "NETWORK"
+                                },
+                                {
+                                  "Name": "goerli-2",
+                                  "Description": "NETWORK"
+                                },
+                                {
+                                  "Name": "integration",
+                                  "Description": "NETWORK"
+                                }
+                              ]
+                            }
+                          ]
+                        },
+                        {
+                          "Name": "--force",
+                          "Description": "Overwrite the file if it already exists",
+                          "Aliases": [],
+                          "Arguments": []
+                        },
+                        {
+                          "Name": "--output",
+                          "Description": "Path to save the account config file",
+                          "Aliases": [],
+                          "Arguments": [
+                            {
+                              "Arguments": [
+                                {
+                                  "Name": "OUTPUT",
+                                  "Description": "OUTPUT",
+                                  "Type": "FileSystemEntry"
+                                }
+                              ]
+                            }
+                          ]
+                        },
+                        {
+                          "Name": "--log-traffic",
+                          "Description": "Log raw request/response traffic of providers",
+                          "Aliases": [],
+                          "Arguments": []
+                        },
+                        {
+                          "Name": "-h",
+                          "Description": "Print help",
+                          "Aliases": [
+                            "--help"
+                          ],
+                          "Arguments": []
+                        }
+                      ],
+                      "Optional": true
+                    },
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "ADDRESS",
+                          "Description": "ADDRESS",
+                          "Type": "String"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "deploy",
+                  "Description": "Deploy account contract with a DeployAccount transaction",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "--rpc",
+                          "Description": "Starknet JSON-RPC endpoint",
+                          "Aliases": [],
+                          "Arguments": [
+                            {
+                              "Arguments": [
+                                {
+                                  "Name": "RPC",
+                                  "Description": "RPC",
+                                  "Type": "String"
+                                }
+                              ]
+                            }
+                          ]
+                        },
+                        {
+                          "Name": "--network",
+                          "Description": "Starknet network",
+                          "Aliases": [],
+                          "Arguments": [
+                            {
+                              "Arguments": [
+                                {
+                                  "Name": "NETWORK",
+                                  "Description": "NETWORK",
+                                  "Type": "String"
+                                },
+                                {
+                                  "Name": "mainnet",
+                                  "Description": "NETWORK"
+                                },
+                                {
+                                  "Name": "goerli-1",
+                                  "Description": "NETWORK"
+                                },
+                                {
+                                  "Name": "goerli-2",
+                                  "Description": "NETWORK"
+                                },
+                                {
+                                  "Name": "integration",
+                                  "Description": "NETWORK"
+                                }
+                              ]
+                            }
+                          ]
+                        },
+                        {
+                          "Name": "--keystore",
+                          "Description": "Path to keystore JSON file",
+                          "Aliases": [],
+                          "Arguments": [
+                            {
+                              "Arguments": [
+                                {
+                                  "Name": "KEYSTORE",
+                                  "Description": "KEYSTORE",
+                                  "Type": "FileSystemEntry"
+                                }
+                              ]
+                            }
+                          ]
+                        },
+                        {
+                          "Name": "--keystore-password",
+                          "Description": "Supply keystore password from command line option instead of prompt",
+                          "Aliases": [],
+                          "Arguments": [
+                            {
+                              "Arguments": [
+                                {
+                                  "Name": "keystore password",
+                                  "Description": "keystore password",
+                                  "Type": "String"
+                                }
+                              ]
+                            }
+                          ]
+                        },
+                        {
+                          "Name": "--private-key",
+                          "Description": "Private key in hex in plain text",
+                          "Aliases": [],
+                          "Arguments": [
+                            {
+                              "Arguments": [
+                                {
+                                  "Name": "PRIVATE_KEY",
+                                  "Description": "PRIVATE_KEY",
+                                  "Type": "String"
+                                }
+                              ]
+                            }
+                          ]
+                        },
+                        {
+                          "Name": "--max-fee",
+                          "Description": "Maximum transaction fee in Ether (18 decimals)",
+                          "Aliases": [],
+                          "Arguments": [
+                            {
+                              "Arguments": [
+                                {
+                                  "Name": "MAX_FEE",
+                                  "Description": "MAX_FEE",
+                                  "Type": "String"
+                                }
+                              ]
+                            }
+                          ]
+                        },
+                        {
+                          "Name": "--max-fee-raw",
+                          "Description": "Maximum transaction fee in Wei",
+                          "Aliases": [],
+                          "Arguments": [
+                            {
+                              "Arguments": [
+                                {
+                                  "Name": "MAX_FEE_RAW",
+                                  "Description": "MAX_FEE_RAW",
+                                  "Type": "String"
+                                }
+                              ]
+                            }
+                          ]
+                        },
+                        {
+                          "Name": "--estimate-only",
+                          "Description": "Only estimate transaction fee without sending transaction",
+                          "Aliases": [],
+                          "Arguments": []
+                        },
+                        {
+                          "Name": "--log-traffic",
+                          "Description": "Log raw request/response traffic of providers",
+                          "Aliases": [],
+                          "Arguments": []
+                        },
+                        {
+                          "Name": "-h",
+                          "Description": "Print help",
+                          "Aliases": [
+                            "--help"
+                          ],
+                          "Arguments": []
+                        }
+                      ],
+                      "Optional": true
+                    },
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "FILE",
+                          "Description": "FILE",
+                          "Type": "FileSystemEntry"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "oz",
+                  "Description": "Create and manage OpenZeppelin account contracts",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "-h",
+                          "Description": "Print help",
+                          "Aliases": [
+                            "--help"
+                          ],
+                          "Arguments": []
+                        }
+                      ],
+                      "Optional": true
+                    },
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "init",
+                          "Description": "Create a new account configuration without actually deploying",
+                          "Aliases": [],
+                          "Arguments": []
+                        }
+                      ],
+                      "DontAllowMultiple": true
+                    }
+                  ]
+                }
+              ],
+              "DontAllowMultiple": true
+            }
+          ]
+        },
+        {
+          "Name": "block",
+          "Description": "Get Starknet block",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "--rpc",
+                  "Description": "Starknet JSON-RPC endpoint",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "RPC",
+                          "Description": "RPC",
+                          "Type": "String"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "--network",
+                  "Description": "Starknet network",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "NETWORK",
+                          "Description": "NETWORK",
+                          "Type": "String"
+                        },
+                        {
+                          "Name": "mainnet",
+                          "Description": "NETWORK"
+                        },
+                        {
+                          "Name": "goerli-1",
+                          "Description": "NETWORK"
+                        },
+                        {
+                          "Name": "goerli-2",
+                          "Description": "NETWORK"
+                        },
+                        {
+                          "Name": "integration",
+                          "Description": "NETWORK"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "--full",
+                  "Description": "Fetch full transactions instead of hashes only",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "--log-traffic",
+                  "Description": "Log raw request/response traffic of providers",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "-h",
+                  "Description": "Print help",
+                  "Aliases": [
+                    "--help"
+                  ],
+                  "Arguments": []
+                }
+              ],
+              "Optional": true
+            },
+            {
+              "Arguments": [
+                {
+                  "Name": "BLOCK_ID",
+                  "Description": "BLOCK_ID",
+                  "Type": "String"
+                }
+              ],
+              "Optional": true
+            }
+          ]
+        },
+        {
+          "Name": "block-hash",
+          "Description": "Get latest block hash",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "--rpc",
+                  "Description": "Starknet JSON-RPC endpoint",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "RPC",
+                          "Description": "RPC",
+                          "Type": "String"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "--network",
+                  "Description": "Starknet network",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "NETWORK",
+                          "Description": "NETWORK",
+                          "Type": "String"
+                        },
+                        {
+                          "Name": "mainnet",
+                          "Description": "NETWORK"
+                        },
+                        {
+                          "Name": "goerli-1",
+                          "Description": "NETWORK"
+                        },
+                        {
+                          "Name": "goerli-2",
+                          "Description": "NETWORK"
+                        },
+                        {
+                          "Name": "integration",
+                          "Description": "NETWORK"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "--log-traffic",
+                  "Description": "Log raw request/response traffic of providers",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "-h",
+                  "Description": "Print help",
+                  "Aliases": [
+                    "--help"
+                  ],
+                  "Arguments": []
+                }
+              ],
+              "Optional": true
+            }
+          ]
+        },
+        {
+          "Name": "block-number",
+          "Description": "Get latest block number",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "--rpc",
+                  "Description": "Starknet JSON-RPC endpoint",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "RPC",
+                          "Description": "RPC",
+                          "Type": "String"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "--network",
+                  "Description": "Starknet network",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "NETWORK",
+                          "Description": "NETWORK",
+                          "Type": "String"
+                        },
+                        {
+                          "Name": "mainnet",
+                          "Description": "NETWORK"
+                        },
+                        {
+                          "Name": "goerli-1",
+                          "Description": "NETWORK"
+                        },
+                        {
+                          "Name": "goerli-2",
+                          "Description": "NETWORK"
+                        },
+                        {
+                          "Name": "integration",
+                          "Description": "NETWORK"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "--log-traffic",
+                  "Description": "Log raw request/response traffic of providers",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "-h",
+                  "Description": "Print help",
+                  "Aliases": [
+                    "--help"
+                  ],
+                  "Arguments": []
+                }
+              ],
+              "Optional": true
+            }
+          ]
+        },
+        {
+          "Name": "block-time",
+          "Description": "Get Starknet block timestamp only",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "--rpc",
+                  "Description": "Starknet JSON-RPC endpoint",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "RPC",
+                          "Description": "RPC",
+                          "Type": "String"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "--network",
+                  "Description": "Starknet network",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "NETWORK",
+                          "Description": "NETWORK",
+                          "Type": "String"
+                        },
+                        {
+                          "Name": "mainnet",
+                          "Description": "NETWORK"
+                        },
+                        {
+                          "Name": "goerli-1",
+                          "Description": "NETWORK"
+                        },
+                        {
+                          "Name": "goerli-2",
+                          "Description": "NETWORK"
+                        },
+                        {
+                          "Name": "integration",
+                          "Description": "NETWORK"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "--unix",
+                  "Description": "Show block time in Unix timestamp format",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "--rfc2822",
+                  "Description": "Show block time in RFC 2822 format",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "--log-traffic",
+                  "Description": "Log raw request/response traffic of providers",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "-h",
+                  "Description": "Print help",
+                  "Aliases": [
+                    "--help"
+                  ],
+                  "Arguments": []
+                }
+              ],
+              "Optional": true
+            },
+            {
+              "Arguments": [
+                {
+                  "Name": "BLOCK_ID",
+                  "Description": "BLOCK_ID",
+                  "Type": "String"
+                }
+              ],
+              "Optional": true
+            }
+          ]
+        },
+        {
+          "Name": "call",
+          "Description": "Call contract functions without sending transactions",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "--rpc",
+                  "Description": "Starknet JSON-RPC endpoint",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "RPC",
+                          "Description": "RPC",
+                          "Type": "String"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "--network",
+                  "Description": "Starknet network",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "NETWORK",
+                          "Description": "NETWORK",
+                          "Type": "String"
+                        },
+                        {
+                          "Name": "mainnet",
+                          "Description": "NETWORK"
+                        },
+                        {
+                          "Name": "goerli-1",
+                          "Description": "NETWORK"
+                        },
+                        {
+                          "Name": "goerli-2",
+                          "Description": "NETWORK"
+                        },
+                        {
+                          "Name": "integration",
+                          "Description": "NETWORK"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "--log-traffic",
+                  "Description": "Log raw request/response traffic of providers",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "-h",
+                  "Description": "Print help",
+                  "Aliases": [
+                    "--help"
+                  ],
+                  "Arguments": []
+                }
+              ],
+              "Optional": true
+            },
+            {
+              "Arguments": [
+                {
+                  "Name": "CONTRACT_ADDRESS",
+                  "Description": "CONTRACT_ADDRESS",
+                  "Type": "String"
+                }
+              ]
+            },
+            {
+              "Arguments": [
+                {
+                  "Name": "SELECTOR",
+                  "Description": "SELECTOR",
+                  "Type": "String"
+                }
+              ]
+            },
+            {
+              "Arguments": [
+                {
+                  "Name": "CALLDATA",
+                  "Description": "CALLDATA",
+                  "Type": "String"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "Name": "chain-id",
+          "Description": "Get Starknet network ID",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "--rpc",
+                  "Description": "Starknet JSON-RPC endpoint",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "RPC",
+                          "Description": "RPC",
+                          "Type": "String"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "--network",
+                  "Description": "Starknet network",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "NETWORK",
+                          "Description": "NETWORK",
+                          "Type": "String"
+                        },
+                        {
+                          "Name": "mainnet",
+                          "Description": "NETWORK"
+                        },
+                        {
+                          "Name": "goerli-1",
+                          "Description": "NETWORK"
+                        },
+                        {
+                          "Name": "goerli-2",
+                          "Description": "NETWORK"
+                        },
+                        {
+                          "Name": "integration",
+                          "Description": "NETWORK"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "--no-decode",
+                  "Description": "Do not show the decoded text",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "--dec",
+                  "Description": "Display the decimal instead of hexadecimal representation",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "--log-traffic",
+                  "Description": "Log raw request/response traffic of providers",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "-h",
+                  "Description": "Print help",
+                  "Aliases": [
+                    "--help"
+                  ],
+                  "Arguments": []
+                }
+              ],
+              "Optional": true
+            },
+            {
+              "Arguments": [
+                {
+                  "Name": "BLOCK_ID",
+                  "Description": "BLOCK_ID",
+                  "Type": "String"
+                }
+              ],
+              "Optional": true
+            }
+          ]
+        },
+        {
+          "Name": "class-at",
+          "Description": "Get contract class deployed at a certain address",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "--rpc",
+                  "Description": "Starknet JSON-RPC endpoint",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "RPC",
+                          "Description": "RPC",
+                          "Type": "String"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "--network",
+                  "Description": "Starknet network",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "NETWORK",
+                          "Description": "NETWORK",
+                          "Type": "String"
+                        },
+                        {
+                          "Name": "mainnet",
+                          "Description": "NETWORK"
+                        },
+                        {
+                          "Name": "goerli-1",
+                          "Description": "NETWORK"
+                        },
+                        {
+                          "Name": "goerli-2",
+                          "Description": "NETWORK"
+                        },
+                        {
+                          "Name": "integration",
+                          "Description": "NETWORK"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "--log-traffic",
+                  "Description": "Log raw request/response traffic of providers",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "-h",
+                  "Description": "Print help",
+                  "Aliases": [
+                    "--help"
+                  ],
+                  "Arguments": []
+                }
+              ],
+              "Optional": true
+            },
+            {
+              "Arguments": [
+                {
+                  "Name": "ADDRESS",
+                  "Description": "ADDRESS",
+                  "Type": "String"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "Name": "class-by-hash",
+          "Description": "Get contract class by hash",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "--rpc",
+                  "Description": "Starknet JSON-RPC endpoint",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "RPC",
+                          "Description": "RPC",
+                          "Type": "String"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "--network",
+                  "Description": "Starknet network",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "NETWORK",
+                          "Description": "NETWORK",
+                          "Type": "String"
+                        },
+                        {
+                          "Name": "mainnet",
+                          "Description": "NETWORK"
+                        },
+                        {
+                          "Name": "goerli-1",
+                          "Description": "NETWORK"
+                        },
+                        {
+                          "Name": "goerli-2",
+                          "Description": "NETWORK"
+                        },
+                        {
+                          "Name": "integration",
+                          "Description": "NETWORK"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "--log-traffic",
+                  "Description": "Log raw request/response traffic of providers",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "-h",
+                  "Description": "Print help",
+                  "Aliases": [
+                    "--help"
+                  ],
+                  "Arguments": []
+                }
+              ],
+              "Optional": true
+            },
+            {
+              "Arguments": [
+                {
+                  "Name": "HASH",
+                  "Description": "HASH",
+                  "Type": "String"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "Name": "class-hash",
+          "Description": "Calculate class hash from any contract artifacts (Sierra, casm, legacy)",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "-h",
+                  "Description": "Print help",
+                  "Aliases": [
+                    "--help"
+                  ],
+                  "Arguments": []
+                }
+              ],
+              "Optional": true
+            },
+            {
+              "Arguments": [
+                {
+                  "Name": "FILE",
+                  "Description": "FILE",
+                  "Type": "FileSystemEntry"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "Name": "class-hash-at",
+          "Description": "Get contract class hash deployed at a certain address",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "--rpc",
+                  "Description": "Starknet JSON-RPC endpoint",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "RPC",
+                          "Description": "RPC",
+                          "Type": "String"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "--network",
+                  "Description": "Starknet network",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "NETWORK",
+                          "Description": "NETWORK",
+                          "Type": "String"
+                        },
+                        {
+                          "Name": "mainnet",
+                          "Description": "NETWORK"
+                        },
+                        {
+                          "Name": "goerli-1",
+                          "Description": "NETWORK"
+                        },
+                        {
+                          "Name": "goerli-2",
+                          "Description": "NETWORK"
+                        },
+                        {
+                          "Name": "integration",
+                          "Description": "NETWORK"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "--log-traffic",
+                  "Description": "Log raw request/response traffic of providers",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "-h",
+                  "Description": "Print help",
+                  "Aliases": [
+                    "--help"
+                  ],
+                  "Arguments": []
+                }
+              ],
+              "Optional": true
+            },
+            {
+              "Arguments": [
+                {
+                  "Name": "ADDRESS",
+                  "Description": "ADDRESS",
+                  "Type": "String"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "Name": "completions",
+          "Description": "Generate shell completions script",
+          "Aliases": [],
+          "Arguments": []
+        },
+        {
+          "Name": "declare",
+          "Description": "Declare a contract class",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "--rpc",
+                  "Description": "Starknet JSON-RPC endpoint",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "RPC",
+                          "Description": "RPC",
+                          "Type": "String"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "--network",
+                  "Description": "Starknet network",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "NETWORK",
+                          "Description": "NETWORK",
+                          "Type": "String"
+                        },
+                        {
+                          "Name": "mainnet",
+                          "Description": "NETWORK"
+                        },
+                        {
+                          "Name": "goerli-1",
+                          "Description": "NETWORK"
+                        },
+                        {
+                          "Name": "goerli-2",
+                          "Description": "NETWORK"
+                        },
+                        {
+                          "Name": "integration",
+                          "Description": "NETWORK"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "--keystore",
+                  "Description": "Path to keystore JSON file",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "KEYSTORE",
+                          "Description": "KEYSTORE",
+                          "Type": "FileSystemEntry"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "--keystore-password",
+                  "Description": "Supply keystore password from command line option instead of prompt",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "KEYSTORE_PASSWORD",
+                          "Description": "KEYSTORE_PASSWORD",
+                          "Type": "String"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "--private-key",
+                  "Description": "Private key in hex in plain text",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "PRIVATE_KEY",
+                          "Description": "PRIVATE_KEY",
+                          "Type": "String"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "--compiler-version",
+                  "Description": "Statically-linked Sierra compiler version",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "COMPILER_VERSION",
+                          "Description": "COMPILER_VERSION",
+                          "Type": "String"
+                        },
+                        {
+                          "Name": "2.0.1",
+                          "Description": "COMPILER_VERSION"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "--casm-hash",
+                  "Description": "Override Sierra compilation and use CASM hash directly",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "CASM_HASH",
+                          "Description": "CASM_HASH",
+                          "Type": "String"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "--account",
+                  "Description": "Path to account config JSON file",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "ACCOUNT",
+                          "Description": "ACCOUNT",
+                          "Type": "FileSystemEntry"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "--max-fee",
+                  "Description": "Maximum transaction fee in Ether (18 decimals)",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "MAX_FEE",
+                          "Description": "MAX_FEE",
+                          "Type": "String"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "--max-fee-raw",
+                  "Description": "Maximum transaction fee in Wei",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "MAX_FEE_RAW",
+                          "Description": "MAX_FEE_RAW",
+                          "Type": "String"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "--estimate-only",
+                  "Description": "Only estimate transaction fee without sending transaction",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "--watch",
+                  "Description": "Wait for the transaction to confirm",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "--log-traffic",
+                  "Description": "Log raw request/response traffic of providers",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "-h",
+                  "Description": "Print help",
+                  "Aliases": [
+                    "--help"
+                  ],
+                  "Arguments": []
+                }
+              ],
+              "Optional": true
+            },
+            {
+              "Arguments": [
+                {
+                  "Name": "FILE",
+                  "Description": "FILE",
+                  "Type": "FileSystemEntry"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "Name": "deploy",
+          "Description": "Deploy contract via the Universal Deployer Contract",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "--rpc",
+                  "Description": "Starknet JSON-RPC endpoint",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "RPC",
+                          "Description": "RPC",
+                          "Type": "String"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "--network",
+                  "Description": "Starknet network",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "NETWORK",
+                          "Description": "NETWORK",
+                          "Type": "String"
+                        },
+                        {
+                          "Name": "mainnet",
+                          "Description": "NETWORK"
+                        },
+                        {
+                          "Name": "goerli-1",
+                          "Description": "NETWORK"
+                        },
+                        {
+                          "Name": "goerli-2",
+                          "Description": "NETWORK"
+                        },
+                        {
+                          "Name": "integration",
+                          "Description": "NETWORK"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "--keystore",
+                  "Description": "Path to keystore JSON file",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "KEYSTORE",
+                          "Description": "KEYSTORE",
+                          "Type": "FileSystemEntry"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "--keystore-password",
+                  "Description": "Supply keystore password from command line option instead of prompt",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "KEYSTORE_PASSWORD",
+                          "Description": "KEYSTORE_PASSWORD",
+                          "Type": "String"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "--private-key",
+                  "Description": "Private key in hex in plain text",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "PRIVATE_KEY",
+                          "Description": "PRIVATE_KEY",
+                          "Type": "String"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "--not-unique",
+                  "Description": "Do not derive contract address from deployer address",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "--account",
+                  "Description": "Path to account config JSON file",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "ACCOUNT",
+                          "Description": "ACCOUNT",
+                          "Type": "FileSystemEntry"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "--max-fee",
+                  "Description": "Maximum transaction fee in Ether (18 decimals)",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "MAX_FEE",
+                          "Description": "MAX_FEE",
+                          "Type": "String"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "--max-fee-raw",
+                  "Description": "Maximum transaction fee in Wei",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "MAX_FEE_RAW",
+                          "Description": "MAX_FEE_RAW",
+                          "Type": "String"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "--estimate-only",
+                  "Description": "Only estimate transaction fee without sending transaction",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "--salt",
+                  "Description": "Use the given salt to compute contract deploy address",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "SALT",
+                          "Description": "SALT",
+                          "Type": "String"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "--watch",
+                  "Description": "Wait for the transaction to confirm",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "--log-traffic",
+                  "Description": "Log raw request/response traffic of providers",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "-h",
+                  "Description": "Print help",
+                  "Aliases": [
+                    "--help"
+                  ],
+                  "Arguments": []
+                }
+              ],
+              "Optional": true
+            },
+            {
+              "Arguments": [
+                {
+                  "Name": "CLASS_HASH",
+                  "Description": "CLASS_HASH",
+                  "Type": "String"
+                }
+              ]
+            },
+            {
+              "Arguments": [
+                {
+                  "Name": "CTOR_ARGS",
+                  "Description": "CTOR_ARGS",
+                  "Type": "String"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "Name": "invoke",
+          "Description": "Send an invoke transaction from an account contract",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "--rpc",
+                  "Description": "Starknet JSON-RPC endpoint",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "RPC",
+                          "Description": "RPC",
+                          "Type": "String"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "--network",
+                  "Description": "Starknet network",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "NETWORK",
+                          "Description": "NETWORK",
+                          "Type": "String"
+                        },
+                        {
+                          "Name": "mainnet",
+                          "Description": "NETWORK"
+                        },
+                        {
+                          "Name": "goerli-1",
+                          "Description": "NETWORK"
+                        },
+                        {
+                          "Name": "goerli-2",
+                          "Description": "NETWORK"
+                        },
+                        {
+                          "Name": "integration",
+                          "Description": "NETWORK"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "--keystore",
+                  "Description": "Path to keystore JSON file",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "KEYSTORE",
+                          "Description": "KEYSTORE",
+                          "Type": "FileSystemEntry"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "--keystore-password",
+                  "Description": "Supply keystore password from command line option instead of prompt",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "KEYSTORE_PASSWORD",
+                          "Description": "KEYSTORE_PASSWORD",
+                          "Type": "String"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "--private-key",
+                  "Description": "Private key in hex in plain text",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "PRIVATE_KEY",
+                          "Description": "PRIVATE_KEY",
+                          "Type": "String"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "--account",
+                  "Description": "Path to account config JSON file",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "ACCOUNT",
+                          "Description": "ACCOUNT",
+                          "Type": "FileSystemEntry"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "--max-fee",
+                  "Description": "Maximum transaction fee in Ether (18 decimals)",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "MAX_FEE",
+                          "Description": "MAX_FEE",
+                          "Type": "String"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "--max-fee-raw",
+                  "Description": "Maximum transaction fee in Wei",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "MAX_FEE_RAW",
+                          "Description": "MAX_FEE_RAW",
+                          "Type": "String"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "--estimate-only",
+                  "Description": "Only estimate transaction fee without sending transaction",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "--watch",
+                  "Description": "Wait for the transaction to confirm",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "--log-traffic",
+                  "Description": "Log raw request/response traffic of providers",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "-h",
+                  "Description": "Print help",
+                  "Aliases": [
+                    "--help"
+                  ],
+                  "Arguments": []
+                }
+              ],
+              "Optional": true
+            },
+            {
+              "Arguments": [
+                {
+                  "Name": "CALLS",
+                  "Description": "CALLS",
+                  "Type": "String"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "Name": "mont",
+          "Description": "Print the montgomery representation of a field element",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "--hex",
+                  "Description": "Emit array elements in hexadecimal format",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "-h",
+                  "Description": "Print help",
+                  "Aliases": [
+                    "--help"
+                  ],
+                  "Arguments": []
+                }
+              ],
+              "Optional": true
+            },
+            {
+              "Arguments": [
+                {
+                  "Name": "FELT",
+                  "Description": "FELT",
+                  "Type": "String"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "Name": "nonce",
+          "Description": "Get nonce for a certain contract",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "--rpc",
+                  "Description": "Starknet JSON-RPC endpoint",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "RPC",
+                          "Description": "RPC",
+                          "Type": "String"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "--network",
+                  "Description": "Starknet network",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "NETWORK",
+                          "Description": "NETWORK",
+                          "Type": "String"
+                        },
+                        {
+                          "Name": "mainnet",
+                          "Description": "NETWORK"
+                        },
+                        {
+                          "Name": "goerli-1",
+                          "Description": "NETWORK"
+                        },
+                        {
+                          "Name": "goerli-2",
+                          "Description": "NETWORK"
+                        },
+                        {
+                          "Name": "integration",
+                          "Description": "NETWORK"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "--log-traffic",
+                  "Description": "Log raw request/response traffic of providers",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "-h",
+                  "Description": "Print help",
+                  "Aliases": [
+                    "--help"
+                  ],
+                  "Arguments": []
+                }
+              ],
+              "Optional": true
+            },
+            {
+              "Arguments": [
+                {
+                  "Name": "ADDRESS",
+                  "Description": "ADDRESS",
+                  "Type": "String"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "Name": "parse-cairo-string",
+          "Description": "Decode string from felt with the Cairo short string representation",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "-h",
+                  "Description": "Print help",
+                  "Aliases": [
+                    "--help"
+                  ],
+                  "Arguments": []
+                }
+              ],
+              "Optional": true
+            },
+            {
+              "Arguments": [
+                {
+                  "Name": "FELT",
+                  "Description": "FELT",
+                  "Type": "String"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "Name": "selector",
+          "Description": "Calculate selector from name",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "-h",
+                  "Description": "Print help",
+                  "Aliases": [
+                    "--help"
+                  ],
+                  "Arguments": []
+                }
+              ],
+              "Optional": true
+            },
+            {
+              "Arguments": [
+                {
+                  "Name": "NAME",
+                  "Description": "NAME",
+                  "Type": "String"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "Name": "signer",
+          "Description": "Signer management commands",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "-h",
+                  "Description": "Print help",
+                  "Aliases": [
+                    "--help"
+                  ],
+                  "Arguments": []
+                }
+              ],
+              "Optional": true
+            },
+            {
+              "Arguments": [
+                {
+                  "Name": "keystore",
+                  "Description": "Keystore management commands",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "-h",
+                          "Description": "Print help",
+                          "Aliases": [
+                            "--help"
+                          ],
+                          "Arguments": []
+                        }
+                      ],
+                      "Optional": true
+                    },
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "new",
+                          "Description": "Randomly generate a new keystore",
+                          "Aliases": [],
+                          "Arguments": [
+                            {
+                              "Arguments": [
+                                {
+                                  "Name": "--password",
+                                  "Description": "Supply password from command line option instead of prompt",
+                                  "Aliases": [],
+                                  "Arguments": [
+                                    {
+                                      "Arguments": [
+                                        {
+                                          "Name": "PASSWORD",
+                                          "Description": "PASSWORD",
+                                          "Type": "String"
+                                        }
+                                      ]
+                                    }
+                                  ]
+                                },
+                                {
+                                  "Name": "--force",
+                                  "Description": "Overwrite the file if it already exists",
+                                  "Aliases": [],
+                                  "Arguments": []
+                                },
+                                {
+                                  "Name": "-h",
+                                  "Description": "Print help",
+                                  "Aliases": [
+                                    "--help"
+                                  ],
+                                  "Arguments": []
+                                }
+                              ],
+                              "Optional": true
+                            },
+                            {
+                              "Arguments": [
+                                {
+                                  "Name": "FILE",
+                                  "Description": "FILE",
+                                  "Type": "FileSystemEntry"
+                                }
+                              ]
+                            }
+                          ]
+                        },
+                        {
+                          "Name": "from-key",
+                          "Description": "Create a keystore file from an existing private key",
+                          "Aliases": [],
+                          "Arguments": [
+                            {
+                              "Arguments": [
+                                {
+                                  "Name": "--force",
+                                  "Description": "Overwrite the file if it already exists",
+                                  "Aliases": [],
+                                  "Arguments": []
+                                },
+                                {
+                                  "Name": "--private-key-stdin",
+                                  "Description": "Take the private key from stdin instead of prompt",
+                                  "Aliases": [],
+                                  "Arguments": []
+                                },
+                                {
+                                  "Name": "--password",
+                                  "Description": "Supply password from command line option instead of prompt",
+                                  "Aliases": [],
+                                  "Arguments": [
+                                    {
+                                      "Arguments": [
+                                        {
+                                          "Name": "PASSWORD",
+                                          "Description": "PASSWORD",
+                                          "Type": "String"
+                                        }
+                                      ]
+                                    }
+                                  ]
+                                },
+                                {
+                                  "Name": "-h",
+                                  "Description": "Print help",
+                                  "Aliases": [
+                                    "--help"
+                                  ],
+                                  "Arguments": []
+                                }
+                              ],
+                              "Optional": true
+                            },
+                            {
+                              "Arguments": [
+                                {
+                                  "Name": "FILE",
+                                  "Description": "FILE",
+                                  "Type": "FileSystemEntry"
+                                }
+                              ]
+                            }
+                          ]
+                        },
+                        {
+                          "Name": "inspect",
+                          "Description": "Check the public key of an existing keystore file",
+                          "Aliases": [],
+                          "Arguments": [
+                            {
+                              "Arguments": [
+                                {
+                                  "Name": "--password",
+                                  "Description": "Supply password from command line option instead of prompt",
+                                  "Aliases": [],
+                                  "Arguments": [
+                                    {
+                                      "Arguments": [
+                                        {
+                                          "Name": "PASSWORD",
+                                          "Description": "PASSWORD",
+                                          "Type": "String"
+                                        }
+                                      ]
+                                    }
+                                  ]
+                                },
+                                {
+                                  "Name": "--raw",
+                                  "Description": "Print the public key only",
+                                  "Aliases": [],
+                                  "Arguments": []
+                                },
+                                {
+                                  "Name": "-h",
+                                  "Description": "Print help",
+                                  "Aliases": [
+                                    "--help"
+                                  ],
+                                  "Arguments": []
+                                }
+                              ],
+                              "Optional": true
+                            },
+                            {
+                              "Arguments": [
+                                {
+                                  "Name": "FILE",
+                                  "Description": "FILE",
+                                  "Type": "FileSystemEntry"
+                                }
+                              ]
+                            }
+                          ]
+                        },
+                        {
+                          "Name": "inspect-private",
+                          "Description": "Check the private key of an existing keystore file",
+                          "Aliases": [],
+                          "Arguments": [
+                            {
+                              "Arguments": [
+                                {
+                                  "Name": "--password",
+                                  "Description": "Supply password from command line option instead of prompt",
+                                  "Aliases": [],
+                                  "Arguments": [
+                                    {
+                                      "Arguments": [
+                                        {
+                                          "Name": "PASSWORD",
+                                          "Description": "PASSWORD",
+                                          "Type": "String"
+                                        }
+                                      ]
+                                    }
+                                  ]
+                                },
+                                {
+                                  "Name": "--raw",
+                                  "Description": "Print the private key only",
+                                  "Aliases": [],
+                                  "Arguments": []
+                                },
+                                {
+                                  "Name": "-h",
+                                  "Description": "Print help",
+                                  "Aliases": [
+                                    "--help"
+                                  ],
+                                  "Arguments": []
+                                }
+                              ],
+                              "Optional": true
+                            },
+                            {
+                              "Arguments": [
+                                {
+                                  "Name": "FILE",
+                                  "Description": "FILE",
+                                  "Type": "FileSystemEntry"
+                                }
+                              ]
+                            }
+                          ]
+                        }
+                      ],
+                      "DontAllowMultiple": true
+                    }
+                  ]
+                },
+                {
+                  "Name": "gen-keypair",
+                  "Description": "Randomly generate a new key pair",
+                  "Aliases": [],
+                  "Arguments": []
+                }
+              ],
+              "DontAllowMultiple": true
+            }
+          ]
+        },
+        {
+          "Name": "state-update",
+          "Description": "Get state update from a certain block",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "--rpc",
+                  "Description": "Starknet JSON-RPC endpoint",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "RPC",
+                          "Description": "RPC",
+                          "Type": "String"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "--network",
+                  "Description": "Starknet network",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "NETWORK",
+                          "Description": "NETWORK",
+                          "Type": "String"
+                        },
+                        {
+                          "Name": "mainnet",
+                          "Description": "NETWORK"
+                        },
+                        {
+                          "Name": "goerli-1",
+                          "Description": "NETWORK"
+                        },
+                        {
+                          "Name": "goerli-2",
+                          "Description": "NETWORK"
+                        },
+                        {
+                          "Name": "integration",
+                          "Description": "NETWORK"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "--log-traffic",
+                  "Description": "Log raw request/response traffic of providers",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "-h",
+                  "Description": "Print help",
+                  "Aliases": [
+                    "--help"
+                  ],
+                  "Arguments": []
+                }
+              ],
+              "Optional": true
+            },
+            {
+              "Arguments": [
+                {
+                  "Name": "BLOCK_ID",
+                  "Description": "BLOCK_ID",
+                  "Type": "String"
+                }
+              ],
+              "Optional": true
+            }
+          ]
+        },
+        {
+          "Name": "storage",
+          "Description": "Get storage value for a slot at a contract",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "--rpc",
+                  "Description": "Starknet JSON-RPC endpoint",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "RPC",
+                          "Description": "RPC",
+                          "Type": "String"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "--network",
+                  "Description": "Starknet network",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "NETWORK",
+                          "Description": "NETWORK",
+                          "Type": "String"
+                        },
+                        {
+                          "Name": "mainnet",
+                          "Description": "NETWORK"
+                        },
+                        {
+                          "Name": "goerli-1",
+                          "Description": "NETWORK"
+                        },
+                        {
+                          "Name": "goerli-2",
+                          "Description": "NETWORK"
+                        },
+                        {
+                          "Name": "integration",
+                          "Description": "NETWORK"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "--log-traffic",
+                  "Description": "Log raw request/response traffic of providers",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "-h",
+                  "Description": "Print help",
+                  "Aliases": [
+                    "--help"
+                  ],
+                  "Arguments": []
+                }
+              ],
+              "Optional": true
+            },
+            {
+              "Arguments": [
+                {
+                  "Name": "ADDRESS",
+                  "Description": "ADDRESS",
+                  "Type": "String"
+                }
+              ]
+            },
+            {
+              "Arguments": [
+                {
+                  "Name": "KEY",
+                  "Description": "KEY",
+                  "Type": "String"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "Name": "syncing",
+          "Description": "Get node syncing status",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "--rpc",
+                  "Description": "Starknet JSON-RPC endpoint",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "RPC",
+                          "Description": "RPC",
+                          "Type": "String"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "--network",
+                  "Description": "Starknet network",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "NETWORK",
+                          "Description": "NETWORK",
+                          "Type": "String"
+                        },
+                        {
+                          "Name": "mainnet",
+                          "Description": "NETWORK"
+                        },
+                        {
+                          "Name": "goerli-1",
+                          "Description": "NETWORK"
+                        },
+                        {
+                          "Name": "goerli-2",
+                          "Description": "NETWORK"
+                        },
+                        {
+                          "Name": "integration",
+                          "Description": "NETWORK"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "--log-traffic",
+                  "Description": "Log raw request/response traffic of providers",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "-h",
+                  "Description": "Print help",
+                  "Aliases": [
+                    "--help"
+                  ],
+                  "Arguments": []
+                }
+              ],
+              "Optional": true
+            }
+          ]
+        },
+        {
+          "Name": "to-cairo-string",
+          "Description": "Encode string into felt with the Cairo short string representation",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "--dec",
+                  "Description": "Display the encoded value in decimal representation",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "-h",
+                  "Description": "Print help",
+                  "Aliases": [
+                    "--help"
+                  ],
+                  "Arguments": []
+                }
+              ],
+              "Optional": true
+            },
+            {
+              "Arguments": [
+                {
+                  "Name": "TEXT",
+                  "Description": "TEXT",
+                  "Type": "String"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "Name": "transaction",
+          "Description": "Get Starknet transaction by hash",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "--rpc",
+                  "Description": "Starknet JSON-RPC endpoint",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "RPC",
+                          "Description": "RPC",
+                          "Type": "String"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "--network",
+                  "Description": "Starknet network",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "NETWORK",
+                          "Description": "NETWORK",
+                          "Type": "String"
+                        },
+                        {
+                          "Name": "mainnet",
+                          "Description": "NETWORK"
+                        },
+                        {
+                          "Name": "goerli-1",
+                          "Description": "NETWORK"
+                        },
+                        {
+                          "Name": "goerli-2",
+                          "Description": "NETWORK"
+                        },
+                        {
+                          "Name": "integration",
+                          "Description": "NETWORK"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "--log-traffic",
+                  "Description": "Log raw request/response traffic of providers",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "-h",
+                  "Description": "Print help",
+                  "Aliases": [
+                    "--help"
+                  ],
+                  "Arguments": []
+                }
+              ],
+              "Optional": true
+            },
+            {
+              "Arguments": [
+                {
+                  "Name": "HASH",
+                  "Description": "HASH",
+                  "Type": "String"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "Name": "transaction-receipt",
+          "Description": "Get transaction receipt by hash",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "--rpc",
+                  "Description": "Starknet JSON-RPC endpoint",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "RPC",
+                          "Description": "RPC",
+                          "Type": "String"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "--network",
+                  "Description": "Starknet network",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "NETWORK",
+                          "Description": "NETWORK",
+                          "Type": "String"
+                        },
+                        {
+                          "Name": "mainnet",
+                          "Description": "NETWORK"
+                        },
+                        {
+                          "Name": "goerli-1",
+                          "Description": "NETWORK"
+                        },
+                        {
+                          "Name": "goerli-2",
+                          "Description": "NETWORK"
+                        },
+                        {
+                          "Name": "integration",
+                          "Description": "NETWORK"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "--log-traffic",
+                  "Description": "Log raw request/response traffic of providers",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "-h",
+                  "Description": "Print help",
+                  "Aliases": [
+                    "--help"
+                  ],
+                  "Arguments": []
+                }
+              ],
+              "Optional": true
+            },
+            {
+              "Arguments": [
+                {
+                  "Name": "HASH",
+                  "Description": "HASH",
+                  "Type": "String"
+                }
+              ]
+            }
+          ]
+        }
+      ],
+      "DontAllowMultiple": true
+    }
+  ]
+}

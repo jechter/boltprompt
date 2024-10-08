@@ -1,0 +1,2531 @@
+{
+  "Comment": "This command info is generated from fig",
+  "Name": "ddev",
+  "Description": "DDEV-Local local development environment",
+  "Arguments": [
+    {
+      "Arguments": [
+        {
+          "Name": "--json-output",
+          "Description": "If true, user-oriented output will be in JSON format",
+          "Aliases": [
+            "-j"
+          ],
+          "Arguments": []
+        },
+        {
+          "Name": "--help",
+          "Description": "Display help",
+          "Aliases": [
+            "-h"
+          ],
+          "Arguments": []
+        }
+      ],
+      "Optional": true
+    },
+    {
+      "Arguments": [
+        {
+          "Name": "auth",
+          "Description": "A collection of authentication commands",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "ssh",
+                  "Description": "Add ssh key authentication to the ddev-ssh-auth container",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "--ssh-key-path",
+                          "Description": "Full path to ssh key directory",
+                          "Aliases": [
+                            "-d"
+                          ],
+                          "Arguments": [
+                            {
+                              "Arguments": [
+                                {
+                                  "Name": "ssh-key-path",
+                                  "Description": "ssh-key-path",
+                                  "Type": "String"
+                                }
+                              ]
+                            }
+                          ]
+                        }
+                      ],
+                      "Optional": true
+                    }
+                  ]
+                }
+              ],
+              "DontAllowMultiple": true
+            }
+          ]
+        },
+        {
+          "Name": "clean",
+          "Description": "Removes items ddev has created",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "--all",
+                  "Description": "Clean all ddev projects",
+                  "Aliases": [
+                    "-a"
+                  ],
+                  "Arguments": []
+                },
+                {
+                  "Name": "--dry-run",
+                  "Description": "Run the clean command without deleting",
+                  "Aliases": [],
+                  "Arguments": []
+                }
+              ],
+              "Optional": true
+            }
+          ]
+        },
+        {
+          "Name": "composer",
+          "Description": "Executes a composer command within the web container",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "create",
+                  "Description": "Executes \u0027composer create-project\u0027 within the web container with the arguments and flags provided",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "--yes",
+                          "Description": "Yes - skip confirmation prompt",
+                          "Aliases": [
+                            "-y"
+                          ],
+                          "Arguments": []
+                        }
+                      ],
+                      "Optional": true
+                    }
+                  ]
+                },
+                {
+                  "Name": "create-project",
+                  "Description": "",
+                  "Aliases": [],
+                  "Arguments": []
+                }
+              ],
+              "DontAllowMultiple": true
+            }
+          ]
+        },
+        {
+          "Name": "config",
+          "Description": "Create or modify a ddev project configuration in the current directory",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "--additional-fqdns",
+                  "Description": "A comma-delimited list of FQDNs for the project",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "additional-fqdns",
+                          "Description": "additional-fqdns",
+                          "Type": "String"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "--additional-hostnames",
+                  "Description": "A comma-delimited list of hostnames for the project",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "additional-hostnames",
+                          "Description": "additional-hostnames",
+                          "Type": "String"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "--apptype",
+                  "Description": "Provide the project type (one of backdrop, drupal10, drupal6, drupal7, drupal8, drupal9, laravel, magento, magento2, php, shopware6, typo3, wordpress). This is autodetected and this flag is necessary only to override the detection. This is the same as --project-type and is included only for backwards compatibility",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "apptype",
+                          "Description": "apptype",
+                          "Type": "String"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "--auto",
+                  "Description": "Automatically run config without prompting",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "--bind-all-interfaces",
+                  "Description": "Bind host ports on all interfaces, not just on localhost network interface",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "--composer-root",
+                  "Description": "Overrides the default composer root directory for the web service",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "composer-root",
+                          "Description": "composer-root",
+                          "Type": "String"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "--composer-root-default",
+                  "Description": "Unsets a web service composer root directory override",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "--composer-version",
+                  "Description": "Specify override for composer version in web container. This may be \u0022\u0022, \u00221\u0022, \u00222\u0022, \u00222.2\u0022, \u0022stable\u0022, \u0022preview\u0022, \u0022snapshot\u0022 or a specific version",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "composer-version",
+                          "Description": "composer-version",
+                          "Type": "String"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "--create-docroot",
+                  "Description": "Prompts ddev to create the docroot if it doesn\u0027t exist",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "--database",
+                  "Description": "Specify the database type:version to use. Defaults to mariadb:10.4",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "database",
+                          "Description": "database",
+                          "Type": "String"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "--db-image",
+                  "Description": "Sets the db container image",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "db-image",
+                          "Description": "db-image",
+                          "Type": "String"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "--db-image-default",
+                  "Description": "Sets the default db container image for this ddev version",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "--db-working-dir",
+                  "Description": "Overrides the default working directory for the db service",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "db-working-dir",
+                          "Description": "db-working-dir",
+                          "Type": "String"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "--db-working-dir-default",
+                  "Description": "Unsets a db service working directory override",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "--dba-image",
+                  "Description": "Sets the dba container image",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "dba-image",
+                          "Description": "dba-image",
+                          "Type": "String"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "--dba-image-default",
+                  "Description": "Sets the default dba container image for this ddev version",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "--dba-working-dir",
+                  "Description": "Overrides the default working directory for the dba service",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "dba-working-dir",
+                          "Description": "dba-working-dir",
+                          "Type": "String"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "--dba-working-dir-default",
+                  "Description": "Unsets a dba service working directory override",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "--dbimage-extra-packages",
+                  "Description": "A comma-delimited list of Debian packages that should be added to db container when the project is started",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "dbimage-extra-packages",
+                          "Description": "dbimage-extra-packages",
+                          "Type": "String"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "--default-container-timeout",
+                  "Description": "Default time in seconds that ddev waits for all containers to become ready on start",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "default-container-timeout",
+                          "Description": "default-container-timeout",
+                          "Type": "String"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "--disable-settings-management",
+                  "Description": "Prevent ddev from creating or updating CMS settings files",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "--docroot",
+                  "Description": "Provide the relative docroot of the project, like \u0027docroot\u0027 or \u0027htdocs\u0027 or \u0027web\u0027, defaults to empty, the current directory",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "docroot",
+                          "Description": "docroot",
+                          "Type": "String"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "--fail-on-hook-fail",
+                  "Description": "Decide whether \u0027ddev start\u0027 should be interrupted by a failing hook",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "--host-db-port",
+                  "Description": "The db container\u0027s localhost-bound port",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "host-db-port",
+                          "Description": "host-db-port",
+                          "Type": "String"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "--host-dba-port",
+                  "Description": "The dba (PHPMyAdmin) container\u0027s localhost-bound port, if exposed via bind-all-interfaces",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "host-dba-port",
+                          "Description": "host-dba-port",
+                          "Type": "String"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "--host-https-port",
+                  "Description": "The web container\u0027s localhost-bound https port",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "host-https-port",
+                          "Description": "host-https-port",
+                          "Type": "String"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "--host-webserver-port",
+                  "Description": "The web container\u0027s localhost-bound port",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "host-webserver-port",
+                          "Description": "host-webserver-port",
+                          "Type": "String"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "--http-port",
+                  "Description": "The router HTTP port for this project",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "http-port",
+                          "Description": "http-port",
+                          "Type": "String"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "--https-port",
+                  "Description": "The router HTTPS port for this project",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "https-port",
+                          "Description": "https-port",
+                          "Type": "String"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "--image-defaults",
+                  "Description": "Sets the default web, db, and dba container images",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "--mailhog-https-port",
+                  "Description": "Router port to be used for mailhog access (https)",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "mailhog-https-port",
+                          "Description": "mailhog-https-port",
+                          "Type": "String"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "--mailhog-port",
+                  "Description": "Router port to be used for mailhog access",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "mailhog-port",
+                          "Description": "mailhog-port",
+                          "Type": "String"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "--mutagen-enabled",
+                  "Description": "Enable mutagen asynchronous update of project in web container",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "--nfs-mount-enabled",
+                  "Description": "Enable NFS mounting of project in container",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "--ngrok-args",
+                  "Description": "Provide extra args to ngrok in ddev share",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "ngrok-args",
+                          "Description": "ngrok-args",
+                          "Type": "String"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "--no-project-mount",
+                  "Description": "Whether or not to skip mounting project code into the web container",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "--nodejs-version",
+                  "Description": "Specify the nodejs version to use if you don\u0027t want the default NodeJS 16",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "nodejs-version",
+                          "Description": "nodejs-version",
+                          "Type": "String"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "--omit-containers",
+                  "Description": "A comma-delimited list of container types that should not be started when the project is started",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "omit-containers",
+                          "Description": "omit-containers",
+                          "Type": "String"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "--php-version",
+                  "Description": "The version of PHP that will be enabled in the web container",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "php-version",
+                          "Description": "php-version",
+                          "Type": "String"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "--phpmyadmin-https-port",
+                  "Description": "Router port to be used for PHPMyAdmin (dba) container access (https)",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "phpmyadmin-https-port",
+                          "Description": "phpmyadmin-https-port",
+                          "Type": "String"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "--phpmyadmin-port",
+                  "Description": "Router port to be used for PHPMyAdmin (dba) container access",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "phpmyadmin-port",
+                          "Description": "phpmyadmin-port",
+                          "Type": "String"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "--project-name",
+                  "Description": "Provide the project name of project to configure (normally the same as the last part of directory name)",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "project-name",
+                          "Description": "project-name",
+                          "Type": "String"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "--project-tld",
+                  "Description": "Set the top-level domain to be used for projects, defaults to ddev.site",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "project-tld",
+                          "Description": "project-tld",
+                          "Type": "String"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "--project-type",
+                  "Description": "Provide the project type (one of backdrop, drupal10, drupal6, drupal7, drupal8, drupal9, laravel, magento, magento2, php, shopware6, typo3, wordpress). This is autodetected and this flag is necessary only to override the detection",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "project-type",
+                          "Description": "project-type",
+                          "Type": "String"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "--projectname",
+                  "Description": "Provide the project name of project to configure (normally the same as the last part of directory name)",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "projectname",
+                          "Description": "projectname",
+                          "Type": "String"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "--projecttype",
+                  "Description": "Provide the project type (one of backdrop, drupal10, drupal6, drupal7, drupal8, drupal9, laravel, magento, magento2, php, shopware6, typo3, wordpress). This is autodetected and this flag is necessary only to override the detection",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "projecttype",
+                          "Description": "projecttype",
+                          "Type": "String"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "--show-config-location",
+                  "Description": "Output the location of the config.yaml file if it exists, or error that it doesn\u0027t exist",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "--sitename",
+                  "Description": "Provide the project name of project to configure (normally the same as the last part of directory name) This is the same as project-name and is included only for backwards compatibility",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "sitename",
+                          "Description": "sitename",
+                          "Type": "String"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "--timezone",
+                  "Description": "Specify timezone for containers and php, like Europe/London or America/Denver or GMT or UTC",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "timezone",
+                          "Description": "timezone",
+                          "Type": "String"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "--upload-dir",
+                  "Description": "Sets the project\u0027s upload directory, the destination directory of the import-files command",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "upload-dir",
+                          "Description": "upload-dir",
+                          "Type": "String"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "--use-dns-when-possible",
+                  "Description": "Use DNS for hostname resolution instead of /etc/hosts when possible",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "--web-environment",
+                  "Description": "Set the environment variables in the web container: --web-environment=\u0022TYPO3_CONTEXT=Development,SOMEENV=someval\u0022",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "web-environment",
+                          "Description": "web-environment",
+                          "Type": "String"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "--web-environment-add",
+                  "Description": "Append environment variables to the web container: --web-environment=\u0022TYPO3_CONTEXT=Development,SOMEENV=someval\u0022",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "web-environment-add",
+                          "Description": "web-environment-add",
+                          "Type": "String"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "--web-image",
+                  "Description": "Sets the web container image",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "web-image",
+                          "Description": "web-image",
+                          "Type": "String"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "--web-image-default",
+                  "Description": "Sets the default web container image for this ddev version",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "--web-working-dir",
+                  "Description": "Overrides the default working directory for the web service",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "web-working-dir",
+                          "Description": "web-working-dir",
+                          "Type": "String"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "--web-working-dir-default",
+                  "Description": "Unsets a web service working directory override",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "--webimage-extra-packages",
+                  "Description": "A comma-delimited list of Debian packages that should be added to web container when the project is started",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "webimage-extra-packages",
+                          "Description": "webimage-extra-packages",
+                          "Type": "String"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "--webserver-type",
+                  "Description": "Sets the project\u0027s desired webserver type: nginx-fpm or apache-fpm",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "webserver-type",
+                          "Description": "webserver-type",
+                          "Type": "String"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "--working-dir-defaults",
+                  "Description": "Unsets all service working directory overrides",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "--xdebug-enabled",
+                  "Description": "Whether or not XDebug is enabled in the web container",
+                  "Aliases": [],
+                  "Arguments": []
+                }
+              ],
+              "Optional": true
+            },
+            {
+              "Arguments": [
+                {
+                  "Name": "global",
+                  "Description": "Change global configuration",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "--auto-restart-containers",
+                          "Description": "If true, automatically restart containers after a reboot or docker restart",
+                          "Aliases": [],
+                          "Arguments": []
+                        },
+                        {
+                          "Name": "--disable-http2",
+                          "Description": "Optionally disable http2 in ddev-router, \u0027ddev global --disable-http2\u0027 or \u0060ddev global --disable-http2=false\u0027",
+                          "Aliases": [],
+                          "Arguments": []
+                        },
+                        {
+                          "Name": "--fail-on-hook-fail",
+                          "Description": "If true, \u0027ddev start\u0027 will fail when a hook fails",
+                          "Aliases": [],
+                          "Arguments": []
+                        },
+                        {
+                          "Name": "--instrumentation-opt-in",
+                          "Description": "Instrumentation-opt-in=true",
+                          "Aliases": [],
+                          "Arguments": []
+                        },
+                        {
+                          "Name": "--internet-detection-timeout-ms",
+                          "Description": "Increase timeout when checking internet timeout, in milliseconds",
+                          "Aliases": [],
+                          "Arguments": [
+                            {
+                              "Arguments": [
+                                {
+                                  "Name": "internet-detection-timeout-ms",
+                                  "Description": "internet-detection-timeout-ms",
+                                  "Type": "String"
+                                }
+                              ]
+                            }
+                          ]
+                        },
+                        {
+                          "Name": "--letsencrypt-email",
+                          "Description": "Email associated with Let\u0027s Encrypt, \u0060ddev global --letsencrypt-email=me@example.com\u0027",
+                          "Aliases": [],
+                          "Arguments": [
+                            {
+                              "Arguments": [
+                                {
+                                  "Name": "letsencrypt-email",
+                                  "Description": "letsencrypt-email",
+                                  "Type": "String"
+                                }
+                              ]
+                            }
+                          ]
+                        },
+                        {
+                          "Name": "--mutagen-enabled",
+                          "Description": "If true, web container will use mutagen caching/asynchronous updates",
+                          "Aliases": [],
+                          "Arguments": []
+                        },
+                        {
+                          "Name": "--nfs-mount-enabled",
+                          "Description": "Enable NFS mounting on all projects globally",
+                          "Aliases": [],
+                          "Arguments": []
+                        },
+                        {
+                          "Name": "--no-bind-mounts",
+                          "Description": "If true, don\u0027t use bind-mounts - useful for environments like remote docker where bind-mounts are impossible",
+                          "Aliases": [],
+                          "Arguments": []
+                        },
+                        {
+                          "Name": "--omit-containers",
+                          "Description": "For example, --omit-containers=dba,ddev-ssh-agent",
+                          "Aliases": [],
+                          "Arguments": [
+                            {
+                              "Arguments": [
+                                {
+                                  "Name": "omit-containers",
+                                  "Description": "omit-containers",
+                                  "Type": "String"
+                                }
+                              ]
+                            }
+                          ]
+                        },
+                        {
+                          "Name": "--required-docker-compose-version",
+                          "Description": "Override default docker-compose version",
+                          "Aliases": [],
+                          "Arguments": [
+                            {
+                              "Arguments": [
+                                {
+                                  "Name": "required-docker-compose-version",
+                                  "Description": "required-docker-compose-version",
+                                  "Type": "String"
+                                }
+                              ]
+                            }
+                          ]
+                        },
+                        {
+                          "Name": "--router-bind-all-interfaces",
+                          "Description": "Router-bind-all-interfaces=true",
+                          "Aliases": [],
+                          "Arguments": []
+                        },
+                        {
+                          "Name": "--simple-formatting",
+                          "Description": "If true, use simple formatting and no color for tables",
+                          "Aliases": [],
+                          "Arguments": []
+                        },
+                        {
+                          "Name": "--table-style",
+                          "Description": "Table style for list and describe, see ~/.ddev/global_config.yaml for values",
+                          "Aliases": [],
+                          "Arguments": [
+                            {
+                              "Arguments": [
+                                {
+                                  "Name": "table-style",
+                                  "Description": "table-style",
+                                  "Type": "String"
+                                }
+                              ]
+                            }
+                          ]
+                        },
+                        {
+                          "Name": "--use-docker-compose-from-path",
+                          "Description": "If true, use docker-compose from path instead of private ~/.ddev/bin/docker-compose",
+                          "Aliases": [],
+                          "Arguments": []
+                        },
+                        {
+                          "Name": "--use-hardened-images",
+                          "Description": "If true, use more secure \u0027hardened\u0027 images for an actual internet deployment",
+                          "Aliases": [],
+                          "Arguments": []
+                        },
+                        {
+                          "Name": "--use-letsencrypt",
+                          "Description": "Enables experimental Let\u0027s Encrypt integration, \u0027ddev global --use-letsencrypt\u0027 or \u0060ddev global --use-letsencrypt=false\u0027",
+                          "Aliases": [],
+                          "Arguments": []
+                        },
+                        {
+                          "Name": "--web-environment",
+                          "Description": "Set the environment variables in the web container: --web-environment=\u0022TYPO3_CONTEXT=Development,SOMEENV=someval\u0022",
+                          "Aliases": [],
+                          "Arguments": [
+                            {
+                              "Arguments": [
+                                {
+                                  "Name": "web-environment",
+                                  "Description": "web-environment",
+                                  "Type": "String"
+                                }
+                              ]
+                            }
+                          ]
+                        },
+                        {
+                          "Name": "--web-environment-add",
+                          "Description": "Append environment variables to the web container: --web-environment=\u0022TYPO3_CONTEXT=Development,SOMEENV=someval\u0022",
+                          "Aliases": [],
+                          "Arguments": [
+                            {
+                              "Arguments": [
+                                {
+                                  "Name": "web-environment-add",
+                                  "Description": "web-environment-add",
+                                  "Type": "String"
+                                }
+                              ]
+                            }
+                          ]
+                        }
+                      ],
+                      "Optional": true
+                    }
+                  ]
+                }
+              ],
+              "DontAllowMultiple": true
+            }
+          ]
+        },
+        {
+          "Name": "d",
+          "Description": "A collection of debugging commands",
+          "Aliases": [
+            "dbg",
+            "debug"
+          ],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "capabilities",
+                  "Description": "Show capabilities of this version of ddev",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "check-db-match",
+                  "Description": "Verify that the database in the ddev-db server matches the configured type/version",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "compose-config",
+                  "Description": "Prints the docker-compose configuration of the current project",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "configyaml",
+                  "Description": "Prints the project config.*.yaml usage",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "dockercheck",
+                  "Description": "Diagnose DDEV docker/colima setup",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "download-images",
+                  "Description": "Download all images required by ddev",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "fix-commands",
+                  "Description": "Fix up custom/shell commands without running ddev start",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "get-volume-db-version",
+                  "Description": "Get the database type/version found in the ddev-dbserver\u0027s database volume, which may not be the same as the configured database type/version",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "migrate-database",
+                  "Description": "Migrate a mysql or mariadb database to a different dbtype:dbversion; works only with mysql and mariadb, not with postgres",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "mutagen",
+                  "Description": "Allows access to any mutagen command",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "nfsmount",
+                  "Description": "Checks to see if nfs mounting works for current project",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "refresh",
+                  "Description": "Refreshes docker cache for project",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "router-nginx-config",
+                  "Description": "Prints the nginx config of the router",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "test",
+                  "Description": "Run diagnostics on ddev using the embedded test_ddev.sh script",
+                  "Aliases": [],
+                  "Arguments": []
+                }
+              ],
+              "DontAllowMultiple": true
+            }
+          ]
+        },
+        {
+          "Name": "delete",
+          "Description": "Remove all project information (including database) for an existing project",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "--all",
+                  "Description": "Delete all projects",
+                  "Aliases": [
+                    "-a"
+                  ],
+                  "Arguments": []
+                },
+                {
+                  "Name": "--clean-containers",
+                  "Description": "Clean up all ddev docker containers which are not required by this version of ddev",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "--omit-snapshot",
+                  "Description": "Omit/skip database snapshot",
+                  "Aliases": [
+                    "-O"
+                  ],
+                  "Arguments": []
+                },
+                {
+                  "Name": "--yes",
+                  "Description": "Yes - skip confirmation prompt",
+                  "Aliases": [
+                    "-y"
+                  ],
+                  "Arguments": []
+                }
+              ],
+              "Optional": true
+            },
+            {
+              "Arguments": [
+                {
+                  "Name": "images",
+                  "Description": "Deletes drud/ddev-* docker images not in use by current ddev version",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "--all",
+                          "Description": "If set, deletes all Docker images created by ddev",
+                          "Aliases": [
+                            "-a"
+                          ],
+                          "Arguments": []
+                        },
+                        {
+                          "Name": "--yes",
+                          "Description": "Yes - skip confirmation prompt",
+                          "Aliases": [
+                            "-y"
+                          ],
+                          "Arguments": []
+                        }
+                      ],
+                      "Optional": true
+                    }
+                  ]
+                }
+              ],
+              "DontAllowMultiple": true
+            }
+          ]
+        },
+        {
+          "Name": "desc",
+          "Description": "Get a detailed description of a running ddev project",
+          "Aliases": [
+            "st",
+            "status",
+            "describe"
+          ],
+          "Arguments": []
+        },
+        {
+          "Name": ".",
+          "Description": "Execute a shell command in the container for a service. Uses the web service by default",
+          "Aliases": [
+            "exec"
+          ],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "--dir",
+                  "Description": "Defines the execution directory within the container",
+                  "Aliases": [
+                    "-d"
+                  ],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "dir",
+                          "Description": "dir",
+                          "Type": "String"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "--raw",
+                  "Description": "Use raw exec (do not interpret with bash inside container)",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "--service",
+                  "Description": "Defines the service to connect to. [e.g. web, db]",
+                  "Aliases": [
+                    "-s"
+                  ],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "service",
+                          "Description": "service",
+                          "Type": "String"
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ],
+              "Optional": true
+            }
+          ]
+        },
+        {
+          "Name": "export-db",
+          "Description": "Dump a database to a file or to stdout",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "--bzip2",
+                  "Description": "Use bzip2 compression",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "--file",
+                  "Description": "Provide the path to output the dump",
+                  "Aliases": [
+                    "-f"
+                  ],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "file",
+                          "Description": "file",
+                          "Type": "String"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "--gzip",
+                  "Description": "Use gzip compression",
+                  "Aliases": [
+                    "-z"
+                  ],
+                  "Arguments": []
+                },
+                {
+                  "Name": "--target-db",
+                  "Description": "If provided, target-db is alternate database to export",
+                  "Aliases": [
+                    "-d"
+                  ],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "target-db",
+                          "Description": "target-db",
+                          "Type": "String"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "--xz",
+                  "Description": "Use xz compression",
+                  "Aliases": [],
+                  "Arguments": []
+                }
+              ],
+              "Optional": true
+            }
+          ]
+        },
+        {
+          "Name": "get",
+          "Description": "Get/Download a 3rd party add-on (service, provider, etc.)",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "--all",
+                  "Description": "List unofficial add-ons for \u0027ddev get\u0027 in addition to the official ones",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "--list",
+                  "Description": "List available add-ons for \u0027ddev get\u0027",
+                  "Aliases": [],
+                  "Arguments": []
+                }
+              ],
+              "Optional": true
+            }
+          ]
+        },
+        {
+          "Name": "hostname",
+          "Description": "Manage your hostfile entries",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "--fire-bazooka",
+                  "Description": "Alias of --remove-inactive",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "--remove",
+                  "Description": "Remove the provided host name - ip correlation",
+                  "Aliases": [
+                    "-r"
+                  ],
+                  "Arguments": []
+                },
+                {
+                  "Name": "--remove-inactive",
+                  "Description": "Remove host names of inactive projects",
+                  "Aliases": [
+                    "-R"
+                  ],
+                  "Arguments": []
+                }
+              ],
+              "Optional": true
+            }
+          ]
+        },
+        {
+          "Name": "import-db",
+          "Description": "Import a sql file into the project",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "--extract-path",
+                  "Description": "If provided asset is an archive, provide the path to extract within the archive",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "extract-path",
+                          "Description": "extract-path",
+                          "Type": "String"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "--no-drop",
+                  "Description": "Set if you do NOT want to drop the db before importing",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "--progress",
+                  "Description": "Display a progress bar during import",
+                  "Aliases": [
+                    "-p"
+                  ],
+                  "Arguments": []
+                },
+                {
+                  "Name": "--src",
+                  "Description": "Provide the path to a sql dump in .sql or tar/tar.gz/tgz/zip format",
+                  "Aliases": [
+                    "-f"
+                  ],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "src",
+                          "Description": "src",
+                          "Type": "String"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "--target-db",
+                  "Description": "If provided, target-db is alternate database to import into",
+                  "Aliases": [
+                    "-d"
+                  ],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "target-db",
+                          "Description": "target-db",
+                          "Type": "String"
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ],
+              "Optional": true
+            }
+          ]
+        },
+        {
+          "Name": "import-files",
+          "Description": "Pull the uploaded files directory of an existing project to the default public upload directory of your project",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "--extract-path",
+                  "Description": "If provided asset is an archive, optionally provide the path to extract within the archive",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "extract-path",
+                          "Description": "extract-path",
+                          "Type": "String"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "--src",
+                  "Description": "Provide the path to the source directory or tar/tar.gz/tgz/zip archive of files to import",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "src",
+                          "Description": "src",
+                          "Type": "String"
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ],
+              "Optional": true
+            }
+          ]
+        },
+        {
+          "Name": "l",
+          "Description": "List projects",
+          "Aliases": [
+            "ls",
+            "list"
+          ],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "--active-only",
+                  "Description": "If set, only currently active projects will be displayed",
+                  "Aliases": [
+                    "-A"
+                  ],
+                  "Arguments": []
+                },
+                {
+                  "Name": "--continuous",
+                  "Description": "If set, project information will be emitted until the command is stopped",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "--continuous-sleep-interval",
+                  "Description": "Time in seconds between ddev list --continuous output lists",
+                  "Aliases": [
+                    "-I"
+                  ],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "continuous-sleep-interval",
+                          "Description": "continuous-sleep-interval",
+                          "Type": "String"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "--wrap-table",
+                  "Description": "Display table with wrapped text if required",
+                  "Aliases": [
+                    "-W"
+                  ],
+                  "Arguments": []
+                }
+              ],
+              "Optional": true
+            }
+          ]
+        },
+        {
+          "Name": "logs",
+          "Description": "Get the logs from your running services",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "--follow",
+                  "Description": "Follow the logs in real time",
+                  "Aliases": [
+                    "-f"
+                  ],
+                  "Arguments": []
+                },
+                {
+                  "Name": "--service",
+                  "Description": "Defines the service to retrieve logs from. [e.g. web, db]",
+                  "Aliases": [
+                    "-s"
+                  ],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "service",
+                          "Description": "service",
+                          "Type": "String"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "--tail",
+                  "Description": "How many lines to show",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "tail",
+                          "Description": "tail",
+                          "Type": "String"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "--time",
+                  "Description": "Add timestamps to logs",
+                  "Aliases": [
+                    "-t"
+                  ],
+                  "Arguments": []
+                }
+              ],
+              "Optional": true
+            }
+          ]
+        },
+        {
+          "Name": "mutagen",
+          "Description": "Commands for mutagen status and sync, etc",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "monitor",
+                  "Description": "Monitor mutagen status",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "reset",
+                  "Description": "Reset mutagen for project",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "st",
+                  "Description": "Shows mutagen sync status",
+                  "Aliases": [
+                    "status"
+                  ],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "--verbose",
+                          "Description": "Extended/verbose output for mutagen status",
+                          "Aliases": [
+                            "-l"
+                          ],
+                          "Arguments": []
+                        }
+                      ],
+                      "Optional": true
+                    }
+                  ]
+                },
+                {
+                  "Name": "sync",
+                  "Description": "Explicit sync for mutagen",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "--verbose",
+                          "Description": "Extended/verbose output for mutagen status",
+                          "Aliases": [],
+                          "Arguments": []
+                        }
+                      ],
+                      "Optional": true
+                    }
+                  ]
+                }
+              ],
+              "DontAllowMultiple": true
+            }
+          ]
+        },
+        {
+          "Name": "sc",
+          "Description": "Uses \u0027docker stop\u0027 to pause/stop the containers belonging to a project",
+          "Aliases": [
+            "stop-containers",
+            "pause"
+          ],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "--all",
+                  "Description": "Pause all running projects",
+                  "Aliases": [
+                    "-a"
+                  ],
+                  "Arguments": []
+                }
+              ],
+              "Optional": true
+            }
+          ]
+        },
+        {
+          "Name": "powerdown",
+          "Description": "Completely stop all projects and containers",
+          "Aliases": [
+            "poweroff"
+          ],
+          "Arguments": []
+        },
+        {
+          "Name": "pull",
+          "Description": "Pull files and database using a configured provider plugin",
+          "Aliases": [],
+          "Arguments": []
+        },
+        {
+          "Name": "push",
+          "Description": "Push files and database using a configured provider plugin",
+          "Aliases": [],
+          "Arguments": []
+        },
+        {
+          "Name": "restart",
+          "Description": "Restart a project or several projects",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "--all",
+                  "Description": "Restart all projects",
+                  "Aliases": [
+                    "-a"
+                  ],
+                  "Arguments": []
+                }
+              ],
+              "Optional": true
+            }
+          ]
+        },
+        {
+          "Name": "service",
+          "Description": "Add or remove, enable or disable extra services",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "disable",
+                  "Description": "Disable a 3rd party service",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "enable",
+                  "Description": "Enable a 3rd party service",
+                  "Aliases": [],
+                  "Arguments": []
+                }
+              ],
+              "DontAllowMultiple": true
+            }
+          ]
+        },
+        {
+          "Name": "share",
+          "Description": "Share project on the internet via ngrok",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "--subdomain",
+                  "Description": "Ngrok --subdomain argument, as in \u0022ngrok --subdomain my-subdomain:, requires paid ngrok.com account\u0022",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "subdomain",
+                          "Description": "subdomain",
+                          "Type": "String"
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ],
+              "Optional": true
+            }
+          ]
+        },
+        {
+          "Name": "snapshot",
+          "Description": "Create a database snapshot for one or more projects",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "--all",
+                  "Description": "Snapshot all projects. Will start the project if it is stopped or paused",
+                  "Aliases": [
+                    "-a"
+                  ],
+                  "Arguments": []
+                },
+                {
+                  "Name": "--cleanup",
+                  "Description": "Cleanup snapshots",
+                  "Aliases": [
+                    "-C"
+                  ],
+                  "Arguments": []
+                },
+                {
+                  "Name": "--list",
+                  "Description": "List snapshots",
+                  "Aliases": [
+                    "-l"
+                  ],
+                  "Arguments": []
+                },
+                {
+                  "Name": "--name",
+                  "Description": "Provide a name for the snapshot",
+                  "Aliases": [
+                    "-n"
+                  ],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "name",
+                          "Description": "name",
+                          "Type": "String"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "--yes",
+                  "Description": "Yes - skip confirmation prompt",
+                  "Aliases": [
+                    "-y"
+                  ],
+                  "Arguments": []
+                }
+              ],
+              "Optional": true
+            }
+          ]
+        },
+        {
+          "Name": "ssh",
+          "Description": "Starts a shell session in the container for a service. Uses web service by default",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "--dir",
+                  "Description": "Defines the destination directory within the container",
+                  "Aliases": [
+                    "-d"
+                  ],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "dir",
+                          "Description": "dir",
+                          "Type": "String"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "--service",
+                  "Description": "Defines the service to connect to. [e.g. web, db]",
+                  "Aliases": [
+                    "-s"
+                  ],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "service",
+                          "Description": "service",
+                          "Type": "String"
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ],
+              "Optional": true
+            }
+          ]
+        },
+        {
+          "Name": "add",
+          "Description": "Start a ddev project",
+          "Aliases": [
+            "start"
+          ],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "--all",
+                  "Description": "Start all projects",
+                  "Aliases": [
+                    "-a"
+                  ],
+                  "Arguments": []
+                },
+                {
+                  "Name": "--select",
+                  "Description": "Interactively select a project to start",
+                  "Aliases": [
+                    "-s"
+                  ],
+                  "Arguments": []
+                },
+                {
+                  "Name": "--skip-confirmation",
+                  "Description": "Skip any confirmation steps",
+                  "Aliases": [
+                    "-y"
+                  ],
+                  "Arguments": []
+                }
+              ],
+              "Optional": true
+            }
+          ]
+        },
+        {
+          "Name": "remove",
+          "Description": "Stop and remove the containers of a project. Does not lose or harm anything unless you add --remove-data",
+          "Aliases": [
+            "rm",
+            "stop"
+          ],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "--all",
+                  "Description": "Stop and remove all running or container-stopped projects and remove from global projects list",
+                  "Aliases": [
+                    "-a"
+                  ],
+                  "Arguments": []
+                },
+                {
+                  "Name": "--omit-snapshot",
+                  "Description": "Omit/skip database snapshot",
+                  "Aliases": [
+                    "-O"
+                  ],
+                  "Arguments": []
+                },
+                {
+                  "Name": "--remove-data",
+                  "Description": "Remove stored project data (MySQL, logs, etc.)",
+                  "Aliases": [
+                    "-R"
+                  ],
+                  "Arguments": []
+                },
+                {
+                  "Name": "--select",
+                  "Description": "Interactively select a project to stop",
+                  "Aliases": [
+                    "-s"
+                  ],
+                  "Arguments": []
+                },
+                {
+                  "Name": "--snapshot",
+                  "Description": "Create database snapshot",
+                  "Aliases": [
+                    "-S"
+                  ],
+                  "Arguments": []
+                },
+                {
+                  "Name": "--stop-ssh-agent",
+                  "Description": "Stop the ddev-ssh-agent container",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "--unlist",
+                  "Description": "Remove the project from global project list, it won\u0027t show in ddev list until started again",
+                  "Aliases": [
+                    "-U"
+                  ],
+                  "Arguments": []
+                }
+              ],
+              "Optional": true
+            }
+          ]
+        },
+        {
+          "Name": "version",
+          "Description": "Print ddev version and component versions",
+          "Aliases": [],
+          "Arguments": []
+        },
+        {
+          "Name": "help",
+          "Description": "Help about any command",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "auth",
+                  "Description": "A collection of authentication commands",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "ssh",
+                          "Description": "Add ssh key authentication to the ddev-ssh-auth container",
+                          "Aliases": [],
+                          "Arguments": []
+                        }
+                      ],
+                      "DontAllowMultiple": true
+                    }
+                  ]
+                },
+                {
+                  "Name": "clean",
+                  "Description": "Removes items ddev has created",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "composer",
+                  "Description": "Executes a composer command within the web container",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "create",
+                          "Description": "Executes \u0027composer create-project\u0027 within the web container with the arguments and flags provided",
+                          "Aliases": [],
+                          "Arguments": []
+                        },
+                        {
+                          "Name": "create-project",
+                          "Description": "",
+                          "Aliases": [],
+                          "Arguments": []
+                        }
+                      ],
+                      "DontAllowMultiple": true
+                    }
+                  ]
+                },
+                {
+                  "Name": "config",
+                  "Description": "Create or modify a ddev project configuration in the current directory",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "global",
+                          "Description": "Change global configuration",
+                          "Aliases": [],
+                          "Arguments": []
+                        }
+                      ],
+                      "DontAllowMultiple": true
+                    }
+                  ]
+                },
+                {
+                  "Name": "d",
+                  "Description": "A collection of debugging commands",
+                  "Aliases": [
+                    "dbg",
+                    "debug"
+                  ],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "capabilities",
+                          "Description": "Show capabilities of this version of ddev",
+                          "Aliases": [],
+                          "Arguments": []
+                        },
+                        {
+                          "Name": "check-db-match",
+                          "Description": "Verify that the database in the ddev-db server matches the configured type/version",
+                          "Aliases": [],
+                          "Arguments": []
+                        },
+                        {
+                          "Name": "compose-config",
+                          "Description": "Prints the docker-compose configuration of the current project",
+                          "Aliases": [],
+                          "Arguments": []
+                        },
+                        {
+                          "Name": "configyaml",
+                          "Description": "Prints the project config.*.yaml usage",
+                          "Aliases": [],
+                          "Arguments": []
+                        },
+                        {
+                          "Name": "dockercheck",
+                          "Description": "Diagnose DDEV docker/colima setup",
+                          "Aliases": [],
+                          "Arguments": []
+                        },
+                        {
+                          "Name": "download-images",
+                          "Description": "Download all images required by ddev",
+                          "Aliases": [],
+                          "Arguments": []
+                        },
+                        {
+                          "Name": "fix-commands",
+                          "Description": "Fix up custom/shell commands without running ddev start",
+                          "Aliases": [],
+                          "Arguments": []
+                        },
+                        {
+                          "Name": "get-volume-db-version",
+                          "Description": "Get the database type/version found in the ddev-dbserver\u0027s database volume, which may not be the same as the configured database type/version",
+                          "Aliases": [],
+                          "Arguments": []
+                        },
+                        {
+                          "Name": "migrate-database",
+                          "Description": "Migrate a mysql or mariadb database to a different dbtype:dbversion; works only with mysql and mariadb, not with postgres",
+                          "Aliases": [],
+                          "Arguments": []
+                        },
+                        {
+                          "Name": "mutagen",
+                          "Description": "Allows access to any mutagen command",
+                          "Aliases": [],
+                          "Arguments": []
+                        },
+                        {
+                          "Name": "nfsmount",
+                          "Description": "Checks to see if nfs mounting works for current project",
+                          "Aliases": [],
+                          "Arguments": []
+                        },
+                        {
+                          "Name": "refresh",
+                          "Description": "Refreshes docker cache for project",
+                          "Aliases": [],
+                          "Arguments": []
+                        },
+                        {
+                          "Name": "router-nginx-config",
+                          "Description": "Prints the nginx config of the router",
+                          "Aliases": [],
+                          "Arguments": []
+                        },
+                        {
+                          "Name": "test",
+                          "Description": "Run diagnostics on ddev using the embedded test_ddev.sh script",
+                          "Aliases": [],
+                          "Arguments": []
+                        }
+                      ],
+                      "DontAllowMultiple": true
+                    }
+                  ]
+                },
+                {
+                  "Name": "delete",
+                  "Description": "Remove all project information (including database) for an existing project",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "images",
+                          "Description": "Deletes drud/ddev-* docker images not in use by current ddev version",
+                          "Aliases": [],
+                          "Arguments": []
+                        }
+                      ],
+                      "DontAllowMultiple": true
+                    }
+                  ]
+                },
+                {
+                  "Name": "desc",
+                  "Description": "Get a detailed description of a running ddev project",
+                  "Aliases": [
+                    "st",
+                    "status",
+                    "describe"
+                  ],
+                  "Arguments": []
+                },
+                {
+                  "Name": ".",
+                  "Description": "Execute a shell command in the container for a service. Uses the web service by default",
+                  "Aliases": [
+                    "exec"
+                  ],
+                  "Arguments": []
+                },
+                {
+                  "Name": "export-db",
+                  "Description": "Dump a database to a file or to stdout",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "get",
+                  "Description": "Get/Download a 3rd party add-on (service, provider, etc.)",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "hostname",
+                  "Description": "Manage your hostfile entries",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "import-db",
+                  "Description": "Import a sql file into the project",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "import-files",
+                  "Description": "Pull the uploaded files directory of an existing project to the default public upload directory of your project",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "l",
+                  "Description": "List projects",
+                  "Aliases": [
+                    "ls",
+                    "list"
+                  ],
+                  "Arguments": []
+                },
+                {
+                  "Name": "logs",
+                  "Description": "Get the logs from your running services",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "mutagen",
+                  "Description": "Commands for mutagen status and sync, etc",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "monitor",
+                          "Description": "Monitor mutagen status",
+                          "Aliases": [],
+                          "Arguments": []
+                        },
+                        {
+                          "Name": "reset",
+                          "Description": "Reset mutagen for project",
+                          "Aliases": [],
+                          "Arguments": []
+                        },
+                        {
+                          "Name": "st",
+                          "Description": "Shows mutagen sync status",
+                          "Aliases": [
+                            "status"
+                          ],
+                          "Arguments": []
+                        },
+                        {
+                          "Name": "sync",
+                          "Description": "Explicit sync for mutagen",
+                          "Aliases": [],
+                          "Arguments": []
+                        }
+                      ],
+                      "DontAllowMultiple": true
+                    }
+                  ]
+                },
+                {
+                  "Name": "sc",
+                  "Description": "Uses \u0027docker stop\u0027 to pause/stop the containers belonging to a project",
+                  "Aliases": [
+                    "stop-containers",
+                    "pause"
+                  ],
+                  "Arguments": []
+                },
+                {
+                  "Name": "powerdown",
+                  "Description": "Completely stop all projects and containers",
+                  "Aliases": [
+                    "poweroff"
+                  ],
+                  "Arguments": []
+                },
+                {
+                  "Name": "pull",
+                  "Description": "Pull files and database using a configured provider plugin",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "push",
+                  "Description": "Push files and database using a configured provider plugin",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "restart",
+                  "Description": "Restart a project or several projects",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "service",
+                  "Description": "Add or remove, enable or disable extra services",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "disable",
+                          "Description": "Disable a 3rd party service",
+                          "Aliases": [],
+                          "Arguments": []
+                        },
+                        {
+                          "Name": "enable",
+                          "Description": "Enable a 3rd party service",
+                          "Aliases": [],
+                          "Arguments": []
+                        }
+                      ],
+                      "DontAllowMultiple": true
+                    }
+                  ]
+                },
+                {
+                  "Name": "share",
+                  "Description": "Share project on the internet via ngrok",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "snapshot",
+                  "Description": "Create a database snapshot for one or more projects",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "ssh",
+                  "Description": "Starts a shell session in the container for a service. Uses web service by default",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "add",
+                  "Description": "Start a ddev project",
+                  "Aliases": [
+                    "start"
+                  ],
+                  "Arguments": []
+                },
+                {
+                  "Name": "remove",
+                  "Description": "Stop and remove the containers of a project. Does not lose or harm anything unless you add --remove-data",
+                  "Aliases": [
+                    "rm",
+                    "stop"
+                  ],
+                  "Arguments": []
+                },
+                {
+                  "Name": "version",
+                  "Description": "Print ddev version and component versions",
+                  "Aliases": [],
+                  "Arguments": []
+                }
+              ],
+              "DontAllowMultiple": true
+            }
+          ]
+        }
+      ],
+      "DontAllowMultiple": true
+    }
+  ]
+}

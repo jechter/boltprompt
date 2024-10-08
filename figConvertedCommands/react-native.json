@@ -1,0 +1,1778 @@
+{
+  "Comment": "This command info is generated from fig",
+  "Name": "react-native",
+  "Description": "Command line tools that ship with react-native in form of the @react-native-community/cli package",
+  "Arguments": [
+    {
+      "Arguments": [
+        {
+          "Name": "--version",
+          "Description": "Print CLI version",
+          "Aliases": [],
+          "Arguments": []
+        },
+        {
+          "Name": "--verbose",
+          "Description": "Increase logging verbosity",
+          "Aliases": [],
+          "Arguments": []
+        },
+        {
+          "Name": "-h",
+          "Description": "Output usage information",
+          "Aliases": [
+            "--help"
+          ],
+          "Arguments": []
+        }
+      ],
+      "Optional": true
+    },
+    {
+      "Arguments": [
+        {
+          "Name": "doctor",
+          "Description": "[EXPERIMENTAL] Diagnose and fix common Node.js, iOS, Android \u0026 React Native issues",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "--fix",
+                  "Description": "Attempt to fix all diagnosed issues",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "--contributor",
+                  "Description": "Add healthchecks required to installations required for contributing to React Native",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "-h",
+                  "Description": "Output usage information",
+                  "Aliases": [
+                    "--help"
+                  ],
+                  "Arguments": []
+                }
+              ],
+              "Optional": true
+            }
+          ]
+        },
+        {
+          "Name": "bundle",
+          "Description": "Builds the javascript bundle for offline use",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "--entry-file",
+                  "Description": "Path to the root JS file, either absolute or relative to JS root",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "file",
+                          "Description": "file",
+                          "Type": "File",
+                          "Extensions": [
+                            "js"
+                          ],
+                          "CustomCommand": ""
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "--platform",
+                  "Description": "Either \u0022ios\u0022 or \u0022android\u0022 (default: \u0022ios\u0022)",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "platform",
+                          "Description": "platform",
+                          "Type": "String"
+                        },
+                        {
+                          "Name": "android",
+                          "Description": "platform"
+                        },
+                        {
+                          "Name": "ios",
+                          "Description": "platform"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "--transformer",
+                  "Description": "Specify a custom transformer to be used",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "transformer",
+                          "Description": "transformer",
+                          "Type": "String"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "--dev",
+                  "Description": "If false, warnings are disabled and the bundle is minified (default: true)",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "boolean",
+                          "Description": "boolean",
+                          "Type": "String"
+                        },
+                        {
+                          "Name": "true",
+                          "Description": "boolean"
+                        },
+                        {
+                          "Name": "false",
+                          "Description": "boolean"
+                        }
+                      ],
+                      "Optional": true
+                    }
+                  ]
+                },
+                {
+                  "Name": "--minify",
+                  "Description": "Allows overriding whether bundle is minified. This defaults to false if dev is true, and true if dev is false. Disabling minification can be useful for speeding up production builds for testing purposes",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "boolean",
+                          "Description": "boolean",
+                          "Type": "String"
+                        },
+                        {
+                          "Name": "true",
+                          "Description": "boolean"
+                        },
+                        {
+                          "Name": "false",
+                          "Description": "boolean"
+                        }
+                      ],
+                      "Optional": true
+                    }
+                  ]
+                },
+                {
+                  "Name": "--bundle-output",
+                  "Description": "File name where to store the resulting bundle, ex. /tmp/groups.bundle",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "bundle file",
+                          "Description": "bundle file",
+                          "Type": "String"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "--bundle-encoding",
+                  "Description": "Encoding the bundle should be written in (https://nodejs.org/api/buffer.html#buffer_buffer). (default: \u0022utf8\u0022)",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "encoding",
+                          "Description": "encoding",
+                          "Type": "String"
+                        },
+                        {
+                          "Name": "utf8",
+                          "Description": "encoding"
+                        },
+                        {
+                          "Name": "utf16le",
+                          "Description": "encoding"
+                        },
+                        {
+                          "Name": "latin1",
+                          "Description": "encoding"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "--max-workers",
+                  "Description": "Specifies the maximum number of workers the worker-pool will spawn for transforming files. This defaults to the number of the cores available on your machine",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "Number of workers",
+                          "Description": "Number of workers",
+                          "Type": "CustomArgument",
+                          "Extensions": [],
+                          "CustomCommand": "sysctl -n hw.ncpu"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "--sourcemap-output",
+                  "Description": "File name where to store the sourcemap file for resulting bundle, ex. /tmp/groups.map",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "sourcemap-output",
+                          "Description": "sourcemap-output",
+                          "Type": "String"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "--sourcemap-sources-root",
+                  "Description": "Path to make sourcemap\u0027s sources entries relative to, ex. /root/dir",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "root",
+                          "Description": "root",
+                          "Type": "Directory"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "--sourcemap-use-absolute-path",
+                  "Description": "Report SourceMapURL using its full path",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "--assets-dest",
+                  "Description": "Directory name where to store assets referenced in the bundle",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "directory",
+                          "Description": "directory",
+                          "Type": "Directory"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "--unstable-transform-profile",
+                  "Description": "Experimental, transform JS for a specific JS engine. Currently supported: hermes, hermes-canary, default",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "transform-profile",
+                          "Description": "transform-profile",
+                          "Type": "String"
+                        },
+                        {
+                          "Name": "hermes",
+                          "Description": "transform-profile"
+                        },
+                        {
+                          "Name": "hermes-canary",
+                          "Description": "transform-profile"
+                        },
+                        {
+                          "Name": "default",
+                          "Description": "transform-profile"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "--reset-cache",
+                  "Description": "Removes cached files",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "--read-global-cache",
+                  "Description": "Try to fetch transformed JS code from the global cache, if configured",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "--config",
+                  "Description": "Path to the CLI configuration file",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "string",
+                          "Description": "string",
+                          "Type": "FileSystemEntry"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "-h",
+                  "Description": "Output usage information",
+                  "Aliases": [
+                    "--help"
+                  ],
+                  "Arguments": []
+                }
+              ],
+              "Optional": true
+            }
+          ]
+        },
+        {
+          "Name": "init",
+          "Description": "Initialize a new React Native project named \u003CprojectName\u003E in a directory of the same name",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "--version",
+                  "Description": "Shortcut for \u0060--template react-native@version\u0060",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "version",
+                          "Description": "version",
+                          "Type": "String"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "--template",
+                  "Description": "Uses a custom template. Valid arguments are the ones supported by \u0060yarn add [package]\u0060 or \u0060npm install [package]\u0060, if you are using \u0060--npm\u0060 option",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "template",
+                          "Description": "template",
+                          "Type": "String"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "--npm",
+                  "Description": "Forces using npm for initialization",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "--directory",
+                  "Description": "Uses a custom directory instead of \u0060\u003CprojectName\u003E\u0060",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "string",
+                          "Description": "string",
+                          "Type": "Directory"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "--title",
+                  "Description": "Uses a custom app title name for application",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "title",
+                          "Description": "title",
+                          "Type": "String"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "--skip-install",
+                  "Description": "Skips dependencies installation step",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "-h",
+                  "Description": "Output usage information",
+                  "Aliases": [
+                    "--help"
+                  ],
+                  "Arguments": []
+                }
+              ],
+              "Optional": true
+            },
+            {
+              "Arguments": [
+                {
+                  "Name": "projectName",
+                  "Description": "projectName",
+                  "Type": "String"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "Name": "uninstall",
+          "Description": "Uninstall and unlink native dependencies",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "-h",
+                  "Description": "Output usage information",
+                  "Aliases": [
+                    "--help"
+                  ],
+                  "Arguments": []
+                }
+              ],
+              "Optional": true
+            },
+            {
+              "Arguments": [
+                {
+                  "Name": "packageName",
+                  "Description": "packageName",
+                  "Type": "String"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "Name": "start",
+          "Description": "Starts the webserver",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "--port",
+                  "Description": "Port on which to listen to",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "free port",
+                          "Description": "free port",
+                          "Type": "String"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "--host",
+                  "Description": "Change the default host",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "new host",
+                          "Description": "new host",
+                          "Type": "String"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "--projectRoot",
+                  "Description": "Path to a custom project root",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "path",
+                          "Description": "path",
+                          "Type": "Directory"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "--watchFolders",
+                  "Description": "Specify any additional folders to be added to the watch list",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "folders",
+                          "Description": "folders",
+                          "Type": "Directory"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "--assetPlugins",
+                  "Description": "Specify any additional asset plugins to be used by the packager by full filepath",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "plugins",
+                          "Description": "plugins",
+                          "Type": "Directory"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "--sourceExts",
+                  "Description": "Specify any additional source extensions to be used by the packager",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "sourceExts",
+                          "Description": "sourceExts",
+                          "Type": "String"
+                        },
+                        {
+                          "Name": "js",
+                          "Description": "sourceExts"
+                        },
+                        {
+                          "Name": "css",
+                          "Description": "sourceExts"
+                        },
+                        {
+                          "Name": "png",
+                          "Description": "sourceExts"
+                        },
+                        {
+                          "Name": "xml",
+                          "Description": "sourceExts"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "--max-workers",
+                  "Description": "Specifies the maximum number of workers the worker-pool will spawn for transforming files. This defaults to the number of the cores available on your machine",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "Number of workers",
+                          "Description": "Number of workers",
+                          "Type": "CustomArgument",
+                          "Extensions": [],
+                          "CustomCommand": "sysctl -n hw.ncpu"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "--transformer",
+                  "Description": "Specify a custom transformer to be used",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "transformer",
+                          "Description": "transformer",
+                          "Type": "String"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "--reset-cache",
+                  "Description": "Removes cached files",
+                  "Aliases": [
+                    "--resetCache"
+                  ],
+                  "Arguments": []
+                },
+                {
+                  "Name": "--custom-log-reporter-path",
+                  "Description": "Path to a JavaScript file that exports a log reporter as a replacement for TerminalReporter",
+                  "Aliases": [
+                    "--customLogReporterPath"
+                  ],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "logFile",
+                          "Description": "logFile",
+                          "Type": "File",
+                          "Extensions": [
+                            "js"
+                          ],
+                          "CustomCommand": ""
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "--verbose",
+                  "Description": "Enables logging",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "--https",
+                  "Description": "Enables https connections to the server",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "--key",
+                  "Description": "Path to custom SSL key",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "path",
+                          "Description": "path",
+                          "Type": "FileSystemEntry"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "--cert",
+                  "Description": "Path to custom SSL cert",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "path",
+                          "Description": "path",
+                          "Type": "FileSystemEntry"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "--config",
+                  "Description": "Path to the CLI configuration file",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "string",
+                          "Description": "string",
+                          "Type": "String"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "--no-interactive",
+                  "Description": "Disables interactive mode",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "-h",
+                  "Description": "Output usage information",
+                  "Aliases": [
+                    "--help"
+                  ],
+                  "Arguments": []
+                }
+              ],
+              "Optional": true
+            }
+          ]
+        },
+        {
+          "Name": "ram-bundle",
+          "Description": "Builds javascript as a \u0022Random Access Module\u0022 bundle for offline use",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "--entry-file",
+                  "Description": "Path to the root JS file, either absolute or relative to JS root",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "file",
+                          "Description": "file",
+                          "Type": "File",
+                          "Extensions": [
+                            "js"
+                          ],
+                          "CustomCommand": ""
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "--platform",
+                  "Description": "Either \u0022ios\u0022 or \u0022android\u0022 (default: \u0022ios\u0022)",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "platform",
+                          "Description": "platform",
+                          "Type": "String"
+                        },
+                        {
+                          "Name": "android",
+                          "Description": "platform"
+                        },
+                        {
+                          "Name": "ios",
+                          "Description": "platform"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "--transformer",
+                  "Description": "Specify a custom transformer to be used",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "transformer",
+                          "Description": "transformer",
+                          "Type": "String"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "--dev",
+                  "Description": "If false, warnings are disabled and the bundle is minified (default: true)",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "boolean",
+                          "Description": "boolean",
+                          "Type": "String"
+                        },
+                        {
+                          "Name": "true",
+                          "Description": "boolean"
+                        },
+                        {
+                          "Name": "false",
+                          "Description": "boolean"
+                        }
+                      ],
+                      "Optional": true
+                    }
+                  ]
+                },
+                {
+                  "Name": "--minify",
+                  "Description": "Allows overriding whether bundle is minified. This defaults to false if dev is true, and true if dev is false. Disabling minification can be useful for speeding up production builds for testing purposes",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "boolean",
+                          "Description": "boolean",
+                          "Type": "String"
+                        },
+                        {
+                          "Name": "true",
+                          "Description": "boolean"
+                        },
+                        {
+                          "Name": "false",
+                          "Description": "boolean"
+                        }
+                      ],
+                      "Optional": true
+                    }
+                  ]
+                },
+                {
+                  "Name": "--bundle-output",
+                  "Description": "File name where to store the resulting bundle, ex. /tmp/groups.bundle",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "output file",
+                          "Description": "output file",
+                          "Type": "String"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "--bundle-encoding",
+                  "Description": "Encoding the bundle should be written in (https://nodejs.org/api/buffer.html#buffer_buffer). (default: \u0022utf8\u0022)",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "encoding",
+                          "Description": "encoding",
+                          "Type": "String"
+                        },
+                        {
+                          "Name": "utf8",
+                          "Description": "encoding"
+                        },
+                        {
+                          "Name": "utf16le",
+                          "Description": "encoding"
+                        },
+                        {
+                          "Name": "latin1",
+                          "Description": "encoding"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "--max-workers",
+                  "Description": "Specifies the maximum number of workers the worker-pool will spawn for transforming files. This defaults to the number of the cores available on your machine",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "Number of workers",
+                          "Description": "Number of workers",
+                          "Type": "CustomArgument",
+                          "Extensions": [],
+                          "CustomCommand": "sysctl -n hw.ncpu"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "--sourcemap-output",
+                  "Description": "File name where to store the sourcemap file for resulting bundle, ex. /tmp/groups.map",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "sourcemap-output",
+                          "Description": "sourcemap-output",
+                          "Type": "String"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "--sourcemap-sources-root",
+                  "Description": "Path to make sourcemap\u0027s sources entries relative to, ex. /root/dir",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "root",
+                          "Description": "root",
+                          "Type": "Directory"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "--sourcemap-use-absolute-path",
+                  "Description": "Report SourceMapURL using its full path",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "--assets-dest",
+                  "Description": "Directory name where to store assets referenced in the bundle",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "directory",
+                          "Description": "directory",
+                          "Type": "Directory"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "--unstable-transform-profile",
+                  "Description": "Experimental, transform JS for a specific JS engine. Currently supported: hermes, hermes-canary, default",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "transform-profile",
+                          "Description": "transform-profile",
+                          "Type": "String"
+                        },
+                        {
+                          "Name": "hermes",
+                          "Description": "transform-profile"
+                        },
+                        {
+                          "Name": "hermes-canary",
+                          "Description": "transform-profile"
+                        },
+                        {
+                          "Name": "default",
+                          "Description": "transform-profile"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "--reset-cache",
+                  "Description": "Removes cached files",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "--read-global-cache",
+                  "Description": "Try to fetch transformed JS code from the global cache, if configured",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "--config",
+                  "Description": "Path to the CLI configuration file",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "string",
+                          "Description": "string",
+                          "Type": "String"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "--indexed-ram-bundle",
+                  "Description": "Force the \u0022Indexed RAM\u0022 bundle file format, even when building for android",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "-h",
+                  "Description": "Output usage information",
+                  "Aliases": [
+                    "--help"
+                  ],
+                  "Arguments": []
+                }
+              ],
+              "Optional": true
+            }
+          ]
+        },
+        {
+          "Name": "link",
+          "Description": "Links assets and optionally native modules",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "--platforms",
+                  "Description": "Scope linking to specified platforms",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "list",
+                          "Description": "list",
+                          "Type": "String"
+                        }
+                      ],
+                      "Optional": true
+                    }
+                  ]
+                },
+                {
+                  "Name": "--all",
+                  "Description": "Link all native modules and assets",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "-h",
+                  "Description": "Output usage information",
+                  "Aliases": [
+                    "--help"
+                  ],
+                  "Arguments": []
+                }
+              ],
+              "Optional": true
+            },
+            {
+              "Arguments": [
+                {
+                  "Name": "packageName",
+                  "Description": "packageName",
+                  "Type": "String"
+                }
+              ],
+              "Optional": true
+            }
+          ]
+        },
+        {
+          "Name": "upgrade",
+          "Description": "Upgrade your app\u0027s template files to the specified or latest npm version using \u0060rn-diff-purge\u0060 project. Only valid semver versions are allowed",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "-h",
+                  "Description": "Output usage information",
+                  "Aliases": [
+                    "--help"
+                  ],
+                  "Arguments": []
+                }
+              ],
+              "Optional": true
+            },
+            {
+              "Arguments": [
+                {
+                  "Name": "version",
+                  "Description": "version",
+                  "Type": "String"
+                }
+              ],
+              "Optional": true
+            }
+          ]
+        },
+        {
+          "Name": "info",
+          "Description": "Get relevant version info about OS, toolchain and libraries",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "-h",
+                  "Description": "Output usage information",
+                  "Aliases": [
+                    "--help"
+                  ],
+                  "Arguments": []
+                }
+              ],
+              "Optional": true
+            }
+          ]
+        },
+        {
+          "Name": "install",
+          "Description": "Install and link native dependencies",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "-h",
+                  "Description": "Output usage information",
+                  "Aliases": [
+                    "--help"
+                  ],
+                  "Arguments": []
+                }
+              ],
+              "Optional": true
+            },
+            {
+              "Arguments": [
+                {
+                  "Name": "packageName",
+                  "Description": "packageName",
+                  "Type": "String"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "Name": "config",
+          "Description": "Print CLI configuration",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "-h",
+                  "Description": "Output usage information",
+                  "Aliases": [
+                    "--help"
+                  ],
+                  "Arguments": []
+                }
+              ],
+              "Optional": true
+            }
+          ]
+        },
+        {
+          "Name": "unlink",
+          "Description": "Unlink native dependency",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "--platforms",
+                  "Description": "Scope unlinking to specified platforms",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "list",
+                          "Description": "list",
+                          "Type": "String"
+                        }
+                      ],
+                      "Optional": true
+                    }
+                  ]
+                },
+                {
+                  "Name": "-h",
+                  "Description": "Output usage information",
+                  "Aliases": [
+                    "--help"
+                  ],
+                  "Arguments": []
+                }
+              ],
+              "Optional": true
+            },
+            {
+              "Arguments": [
+                {
+                  "Name": "packageName",
+                  "Description": "packageName",
+                  "Type": "String"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "Name": "log-ios",
+          "Description": "Starts iOS device syslog tail",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "-h",
+                  "Description": "Output usage information",
+                  "Aliases": [
+                    "--help"
+                  ],
+                  "Arguments": []
+                }
+              ],
+              "Optional": true
+            }
+          ]
+        },
+        {
+          "Name": "profile-hermes",
+          "Description": "Pull and convert a Hermes tracing profile to Chrome tracing profile, then store it in the directory \u003CdestinationDir\u003E of the local machine",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "--filename",
+                  "Description": "File name of the profile to be downloaded, eg. sampling-profiler-trace8593107139682635366.cpuprofile",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "profile",
+                          "Description": "profile",
+                          "Type": "FileSystemEntry"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "--raw",
+                  "Description": "Pulls the original Hermes tracing profile without any transformation",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "--sourcemap-path",
+                  "Description": "The local path to your source map file, eg. /tmp/sourcemap.json",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "sourcemap-path",
+                          "Description": "sourcemap-path",
+                          "Type": "FileSystemEntry"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "--generate-sourcemap",
+                  "Description": "Generates the JS bundle and source map",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "--port",
+                  "Description": "Default: \u00228081\u0022",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "free port",
+                          "Description": "free port",
+                          "Type": "String"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "-h",
+                  "Description": "Output usage information",
+                  "Aliases": [
+                    "--help"
+                  ],
+                  "Arguments": []
+                }
+              ],
+              "Optional": true
+            },
+            {
+              "Arguments": [
+                {
+                  "Name": "destinationDir",
+                  "Description": "destinationDir",
+                  "Type": "Directory"
+                }
+              ],
+              "Optional": true
+            }
+          ]
+        },
+        {
+          "Name": "log-android",
+          "Description": "Starts logkitty",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "-h",
+                  "Description": "Output usage information",
+                  "Aliases": [
+                    "--help"
+                  ],
+                  "Arguments": []
+                }
+              ],
+              "Optional": true
+            }
+          ]
+        },
+        {
+          "Name": "run-android",
+          "Description": "Builds your app and starts it on a connected Android emulator or device",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "--root",
+                  "Description": "[DEPRECATED - root is discovered automatically] Override the root directory for the android build (which contains the android directory) (default: \u0022\u0022)",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "root",
+                          "Description": "root",
+                          "Type": "Directory"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "--variant",
+                  "Description": "Specify your app\u0027s build variant (default: \u0022debug\u0022)",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "variant",
+                          "Description": "variant",
+                          "Type": "String"
+                        },
+                        {
+                          "Name": "debug",
+                          "Description": "variant"
+                        },
+                        {
+                          "Name": "release",
+                          "Description": "variant"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "--appFolder",
+                  "Description": "[DEPRECATED \u2013 use \u0022project.android.appName\u0022 in react-native.config.js] Specify a different application folder name for the android source. If not, we assume is \u0022app\u0022",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "string",
+                          "Description": "string",
+                          "Type": "Directory"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "--appId",
+                  "Description": "Specify an applicationId to launch after build. If not specified, \u0060package\u0060 from AndroidManifest.xml will be used. (default: \u0022\u0022)",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "appId",
+                          "Description": "appId",
+                          "Type": "String"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "--appIdSuffix",
+                  "Description": "Specify an applicationIdSuffix to launch after build. (default: \u0022\u0022)",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "appIdSuffix",
+                          "Description": "appIdSuffix",
+                          "Type": "String"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "--main-activity",
+                  "Description": "Name of the activity to start (default: \u0022MainActivity\u0022)",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "main activity",
+                          "Description": "main activity",
+                          "Type": "String"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "--deviceId",
+                  "Description": "Builds your app and starts it on a specific device/simulator with the given device id (listed by running \u0022adb devices\u0022 on the command line)",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "deviceId",
+                          "Description": "deviceId",
+                          "Type": "CustomArgument",
+                          "Extensions": [],
+                          "CustomCommand": "adb devices"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "--no-packager",
+                  "Description": "Do not launch packager while building",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "--port",
+                  "Description": "Default: 8081",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "free port",
+                          "Description": "free port",
+                          "Type": "String"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "--terminal",
+                  "Description": "Launches the Metro Bundler in a new window using the specified terminal path. (default: \u0022Apple_Terminal\u0022)",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "terminal path",
+                          "Description": "terminal path",
+                          "Type": "String"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "--tasks",
+                  "Description": "Run custom Gradle tasks. By default it\u0027s \u0022installDebug\u0022",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "task list",
+                          "Description": "task list",
+                          "Type": "CustomArgument",
+                          "Extensions": [],
+                          "CustomCommand": "bash -c cd android/ \u0026\u0026 ./gradlew tasks"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "--no-jetifier",
+                  "Description": "Do not run \u0022jetifier\u0022 \u2013 the AndroidX transition tool. By default it runs before Gradle to ease working with libraries that don\u0027t support AndroidX yet. See more at: https://www.npmjs.com/package/jetifier",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "-h",
+                  "Description": "Output usage information",
+                  "Aliases": [
+                    "--help"
+                  ],
+                  "Arguments": []
+                }
+              ],
+              "Optional": true
+            }
+          ]
+        },
+        {
+          "Name": "run-ios",
+          "Description": "Builds your app and starts it on iOS simulator",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "--simulator",
+                  "Description": "Explicitly set simulator to use. Optionally include iOS version between parenthesis at the end to match an exact version: \u0022iPhone 6 (10.0)\u0022 (default: \u0022iPhone 12\u0022)",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "simulator",
+                          "Description": "simulator",
+                          "Type": "CustomArgument",
+                          "Extensions": [],
+                          "CustomCommand": "xcrun simctl list --json devices available"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "--configuration",
+                  "Description": "Explicitly set the scheme configuration to use (default: \u0022Debug\u0022)",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "config scheme",
+                          "Description": "config scheme",
+                          "Type": "CustomArgument",
+                          "Extensions": [],
+                          "CustomCommand": "bash -c xcodebuild -project ios/*.xcodeproj  -list -json"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "--scheme",
+                  "Description": "Explicitly set Xcode scheme to use",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "scheme",
+                          "Description": "scheme",
+                          "Type": "CustomArgument",
+                          "Extensions": [],
+                          "CustomCommand": "bash -c xcodebuild -project ios/*.xcodeproj  -list -json"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "--project-path",
+                  "Description": "Path relative to project root where the Xcode project (.xcodeproj) lives. (default: \u0022ios\u0022)",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "path",
+                          "Description": "path",
+                          "Type": "Directory"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "--device",
+                  "Description": "Explicitly set device to use by name",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "device name",
+                          "Description": "device name",
+                          "Type": "CustomArgument",
+                          "Extensions": [],
+                          "CustomCommand": "xcrun xctrace list devices"
+                        }
+                      ],
+                      "Optional": true
+                    }
+                  ]
+                },
+                {
+                  "Name": "--udid",
+                  "Description": "Explicitly set device to use by udid",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "udid",
+                          "Description": "udid",
+                          "Type": "CustomArgument",
+                          "Extensions": [],
+                          "CustomCommand": "xcrun xctrace list devices"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "--no-packager",
+                  "Description": "Do not launch packager while building",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "--verbose",
+                  "Description": "Do not use xcpretty even if installed",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "--port",
+                  "Description": "Default: 8081",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "free port",
+                          "Description": "free port",
+                          "Type": "String"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "--terminal",
+                  "Description": "Launches the Metro Bundler in a new window using the specified terminal path. (default: \u0022Apple_Terminal\u0022)",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "terminal path",
+                          "Description": "terminal path",
+                          "Type": "String"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "-h",
+                  "Description": "Output usage information",
+                  "Aliases": [
+                    "--help"
+                  ],
+                  "Arguments": []
+                }
+              ],
+              "Optional": true
+            }
+          ]
+        }
+      ],
+      "DontAllowMultiple": true
+    }
+  ]
+}

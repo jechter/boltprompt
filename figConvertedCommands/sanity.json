@@ -1,0 +1,1768 @@
+{
+  "Comment": "This command info is generated from fig",
+  "Name": "sanity",
+  "Description": "Sanity CLI tool for managing Sanity installations, managing plugins, schemas and datasets",
+  "Arguments": [
+    {
+      "Arguments": [
+        {
+          "Name": "--help",
+          "Description": "Show help for sanity",
+          "Aliases": [
+            "-h"
+          ],
+          "Arguments": []
+        }
+      ],
+      "Optional": true
+    },
+    {
+      "Arguments": [
+        {
+          "Name": "help",
+          "Description": "Displays help information about Sanity",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "command",
+                  "Description": "command",
+                  "Type": "String"
+                }
+              ],
+              "Optional": true
+            }
+          ]
+        },
+        {
+          "Name": "build",
+          "Description": "Builds the current Sanity configuration to a static bundle",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "--source-maps",
+                  "Description": "Enable source maps for built bundles (increases size of bundle)",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "--no-minify",
+                  "Description": "Skip minifying built JavaScript (speeds up build, increases size of bundle)",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "-y",
+                  "Description": "Use unattended mode, accepting defaults and using only flags for choices",
+                  "Aliases": [
+                    "--yes"
+                  ],
+                  "Arguments": []
+                }
+              ],
+              "Optional": true
+            }
+          ]
+        },
+        {
+          "Name": "codemod",
+          "Description": "Runs a code modification script",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "--dry",
+                  "Description": "Dry run (no changes are made to files)",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "--extensions",
+                  "Description": "Transform files with these file extensions (comma separated list) (default: js,ts,tsx)",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "extensions",
+                          "Description": "extensions",
+                          "Type": "String"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "--no-verify",
+                  "Description": "Skip verification before running codemod",
+                  "Aliases": [],
+                  "Arguments": []
+                }
+              ],
+              "Optional": true
+            }
+          ]
+        },
+        {
+          "Name": "configcheck",
+          "Description": "Checks if the required configuration files for plugins exists and are up to date",
+          "Aliases": [],
+          "Arguments": []
+        },
+        {
+          "Name": "cors",
+          "Description": "Interact with CORS-entries for your project",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "add",
+                  "Description": "Allow a new origin to use your project API through CORS",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "--credentials",
+                          "Description": "Allow credentials (token/cookie) to be sent from this origin",
+                          "Aliases": [],
+                          "Arguments": []
+                        },
+                        {
+                          "Name": "--no-credentials",
+                          "Description": "Disallow credentials (token/cookie) to be sent from this origin",
+                          "Aliases": [],
+                          "Arguments": []
+                        }
+                      ],
+                      "Optional": true
+                    },
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "origin",
+                          "Description": "origin",
+                          "Type": "String"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "delete",
+                  "Description": "Delete an existing CORS-origin from your project",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "origin",
+                          "Description": "origin",
+                          "Type": "String"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "list",
+                  "Description": "List all origins allowed to access the API for this project",
+                  "Aliases": [],
+                  "Arguments": []
+                }
+              ],
+              "DontAllowMultiple": true
+            }
+          ]
+        },
+        {
+          "Name": "dataset",
+          "Description": "Interact with datasets in your project",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "alias",
+                  "Description": "You can manage your dataset alias using this command",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "create",
+                          "Description": "",
+                          "Aliases": [],
+                          "Arguments": [
+                            {
+                              "Arguments": [
+                                {
+                                  "Name": "alias-name",
+                                  "Description": "alias-name",
+                                  "Type": "String"
+                                }
+                              ],
+                              "Optional": true
+                            },
+                            {
+                              "Arguments": [
+                                {
+                                  "Name": "target-dataset",
+                                  "Description": "target-dataset",
+                                  "Type": "String"
+                                }
+                              ],
+                              "Optional": true
+                            }
+                          ]
+                        },
+                        {
+                          "Name": "delete",
+                          "Description": "",
+                          "Aliases": [],
+                          "Arguments": [
+                            {
+                              "Arguments": [
+                                {
+                                  "Name": "alias-name",
+                                  "Description": "alias-name",
+                                  "Type": "String"
+                                }
+                              ]
+                            }
+                          ]
+                        },
+                        {
+                          "Name": "link",
+                          "Description": "",
+                          "Aliases": [],
+                          "Arguments": [
+                            {
+                              "Arguments": [
+                                {
+                                  "Name": "--force",
+                                  "Description": "Skips security prompt and forces link command",
+                                  "Aliases": [],
+                                  "Arguments": []
+                                }
+                              ],
+                              "Optional": true
+                            },
+                            {
+                              "Arguments": [
+                                {
+                                  "Name": "alias-name",
+                                  "Description": "alias-name",
+                                  "Type": "String"
+                                }
+                              ],
+                              "Optional": true
+                            },
+                            {
+                              "Arguments": [
+                                {
+                                  "Name": "target-dataset",
+                                  "Description": "target-dataset",
+                                  "Type": "String"
+                                }
+                              ],
+                              "Optional": true
+                            }
+                          ]
+                        },
+                        {
+                          "Name": "unlink",
+                          "Description": "",
+                          "Aliases": [],
+                          "Arguments": [
+                            {
+                              "Arguments": [
+                                {
+                                  "Name": "alias-name",
+                                  "Description": "alias-name",
+                                  "Type": "String"
+                                }
+                              ],
+                              "Optional": true
+                            }
+                          ]
+                        }
+                      ],
+                      "DontAllowMultiple": true
+                    }
+                  ]
+                },
+                {
+                  "Name": "copy",
+                  "Description": "Manages dataset copying, including starting a new copy job, listing copy jobs and following the progress of a running copy job",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "--detach",
+                          "Description": "Start the copy without waiting for it to finish",
+                          "Aliases": [],
+                          "Arguments": []
+                        },
+                        {
+                          "Name": "--attach",
+                          "Description": "Attach to the running copy process to show progress",
+                          "Aliases": [],
+                          "Arguments": [
+                            {
+                              "Arguments": [
+                                {
+                                  "Name": "job-id",
+                                  "Description": "job-id",
+                                  "Type": "String"
+                                }
+                              ]
+                            }
+                          ]
+                        },
+                        {
+                          "Name": "--skip-history",
+                          "Description": "Don\u0027t preserve document history on copy",
+                          "Aliases": [],
+                          "Arguments": []
+                        },
+                        {
+                          "Name": "--list",
+                          "Description": "Lists all dataset copy jobs corresponding to a certain criteria",
+                          "Aliases": [],
+                          "Arguments": []
+                        },
+                        {
+                          "Name": "--offset",
+                          "Description": "Start position in the list of jobs. Default 0. With --list",
+                          "Aliases": [],
+                          "Arguments": [
+                            {
+                              "Arguments": [
+                                {
+                                  "Name": "offset",
+                                  "Description": "offset",
+                                  "Type": "String"
+                                }
+                              ]
+                            }
+                          ]
+                        },
+                        {
+                          "Name": "--limit",
+                          "Description": "Maximum number of jobs returned. Default 10. Maximum 1000. With --list",
+                          "Aliases": [],
+                          "Arguments": [
+                            {
+                              "Arguments": [
+                                {
+                                  "Name": "limit",
+                                  "Description": "limit",
+                                  "Type": "String"
+                                }
+                              ]
+                            }
+                          ]
+                        }
+                      ],
+                      "Optional": true
+                    },
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "source-dataset",
+                          "Description": "source-dataset",
+                          "Type": "String"
+                        }
+                      ],
+                      "Optional": true
+                    },
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "target-dataset",
+                          "Description": "target-dataset",
+                          "Type": "String"
+                        }
+                      ],
+                      "Optional": true
+                    }
+                  ]
+                },
+                {
+                  "Name": "create",
+                  "Description": "Create a new dataset within your project",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "--visibility",
+                          "Description": "Set visibility for this dataset (public/private)",
+                          "Aliases": [],
+                          "Arguments": [
+                            {
+                              "Arguments": [
+                                {
+                                  "Name": "visibility",
+                                  "Description": "visibility",
+                                  "Type": "String"
+                                },
+                                {
+                                  "Name": "public",
+                                  "Description": "visibility"
+                                },
+                                {
+                                  "Name": "private",
+                                  "Description": "visibility"
+                                }
+                              ]
+                            }
+                          ]
+                        }
+                      ],
+                      "Optional": true
+                    },
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "name",
+                          "Description": "name",
+                          "Type": "String"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "delete",
+                  "Description": "Delete a dataset within your project",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "datasetName",
+                          "Description": "datasetName",
+                          "Type": "String"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "export",
+                  "Description": "Export dataset to local filesystem as a gzipped tarball",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "--raw",
+                          "Description": "Extract only documents, without rewriting asset references",
+                          "Aliases": [],
+                          "Arguments": []
+                        },
+                        {
+                          "Name": "--no-assets",
+                          "Description": "Export only non-asset documents and remove references to image assets",
+                          "Aliases": [],
+                          "Arguments": []
+                        },
+                        {
+                          "Name": "--no-drafts",
+                          "Description": "Export only published versions of documents",
+                          "Aliases": [],
+                          "Arguments": []
+                        },
+                        {
+                          "Name": "--no-compress",
+                          "Description": "Skips compressing tarball entries (still generates a gzip file)",
+                          "Aliases": [],
+                          "Arguments": []
+                        },
+                        {
+                          "Name": "--types",
+                          "Description": "Defines which document types to export",
+                          "Aliases": [],
+                          "Arguments": [
+                            {
+                              "Arguments": [
+                                {
+                                  "Name": "types",
+                                  "Description": "types",
+                                  "Type": "String"
+                                }
+                              ]
+                            }
+                          ]
+                        },
+                        {
+                          "Name": "--overwrite",
+                          "Description": "Overwrite any file with the same name",
+                          "Aliases": [],
+                          "Arguments": []
+                        },
+                        {
+                          "Name": "--asset-concurrency",
+                          "Description": "Concurrent number of asset downloads",
+                          "Aliases": [],
+                          "Arguments": [
+                            {
+                              "Arguments": [
+                                {
+                                  "Name": "num",
+                                  "Description": "num",
+                                  "Type": "String"
+                                }
+                              ]
+                            }
+                          ]
+                        }
+                      ],
+                      "Optional": true
+                    },
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "name",
+                          "Description": "name",
+                          "Type": "String"
+                        }
+                      ]
+                    },
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "destination",
+                          "Description": "destination",
+                          "Type": "Directory"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "import",
+                  "Description": "Import documents to given dataset from ndjson file",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "--missing",
+                          "Description": "On duplicate document IDs, skip importing document in question",
+                          "Aliases": [],
+                          "Arguments": []
+                        },
+                        {
+                          "Name": "--replace",
+                          "Description": "On duplicate document IDs, replace existing document with imported document",
+                          "Aliases": [],
+                          "Arguments": []
+                        },
+                        {
+                          "Name": "--allow-failing-assets",
+                          "Description": "Skip assets that cannot be fetched/uploaded",
+                          "Aliases": [],
+                          "Arguments": []
+                        },
+                        {
+                          "Name": "--replace-assets",
+                          "Description": "Skip reuse of existing assets",
+                          "Aliases": [],
+                          "Arguments": []
+                        }
+                      ],
+                      "Optional": true
+                    },
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "file",
+                          "Description": "file",
+                          "Type": "FileSystemEntry"
+                        }
+                      ]
+                    },
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "target_dataset",
+                          "Description": "target_dataset",
+                          "Type": "String"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "list",
+                  "Description": "List datasets of your project",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "visibility",
+                  "Description": "Set visibility of a dataset",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "dataset",
+                          "Description": "dataset",
+                          "Type": "String"
+                        }
+                      ]
+                    },
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "mode",
+                          "Description": "mode",
+                          "Type": "String"
+                        },
+                        {
+                          "Name": "get",
+                          "Description": "mode"
+                        },
+                        {
+                          "Name": "set",
+                          "Description": "mode"
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ],
+              "DontAllowMultiple": true
+            }
+          ]
+        },
+        {
+          "Name": "debug",
+          "Description": "Gathers information on Sanity environment",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "--secrets",
+                  "Description": "Include API keys in output",
+                  "Aliases": [],
+                  "Arguments": []
+                }
+              ],
+              "Optional": true
+            }
+          ]
+        },
+        {
+          "Name": "deploy",
+          "Description": "Deploys a statically built Sanity studio",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "--source-maps",
+                  "Description": "Enable source maps for built bundles (increases size of bundle)",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "--no-minify",
+                  "Description": "Skip minifying built JavaScript (speeds up build, increases size of bundle)",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "--no-build",
+                  "Description": "Don\u0027t build the studio prior to deploy, instead deploying the version currently in \u0060dist/\u0060",
+                  "Aliases": [],
+                  "Arguments": []
+                }
+              ],
+              "Optional": true
+            },
+            {
+              "Arguments": [
+                {
+                  "Name": "source_dir",
+                  "Description": "source_dir",
+                  "Type": "Directory"
+                }
+              ],
+              "Optional": true
+            }
+          ]
+        },
+        {
+          "Name": "docs",
+          "Description": "Opens the Sanity documentation",
+          "Aliases": [],
+          "Arguments": []
+        },
+        {
+          "Name": "documents",
+          "Description": "Interact with documents in your project",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "create",
+                  "Description": "Create one or more documents",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "--replace",
+                          "Description": "On duplicate document IDs, replace existing document with specified document(s)",
+                          "Aliases": [],
+                          "Arguments": []
+                        },
+                        {
+                          "Name": "--missing",
+                          "Description": "On duplicate document IDs, don\u0027t modify the target document(s)",
+                          "Aliases": [],
+                          "Arguments": []
+                        },
+                        {
+                          "Name": "--watch",
+                          "Description": "Write the documents whenever the target file or buffer changes",
+                          "Aliases": [],
+                          "Arguments": []
+                        },
+                        {
+                          "Name": "--json5",
+                          "Description": "Use JSON5 file type to allow a \u0022simplified\u0022 version of JSON",
+                          "Aliases": [],
+                          "Arguments": []
+                        },
+                        {
+                          "Name": "--id",
+                          "Description": "Specify a document ID to use. Will fetch remote document ID and populate editor",
+                          "Aliases": [],
+                          "Arguments": [
+                            {
+                              "Arguments": [
+                                {
+                                  "Name": "id",
+                                  "Description": "id",
+                                  "Type": "String"
+                                }
+                              ]
+                            }
+                          ]
+                        },
+                        {
+                          "Name": "--dataset",
+                          "Description": "NAME to override dataset",
+                          "Aliases": [],
+                          "Arguments": [
+                            {
+                              "Arguments": [
+                                {
+                                  "Name": "dataset",
+                                  "Description": "dataset",
+                                  "Type": "String"
+                                }
+                              ]
+                            }
+                          ]
+                        }
+                      ],
+                      "Optional": true
+                    },
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "file",
+                          "Description": "file",
+                          "Type": "FileSystemEntry"
+                        }
+                      ],
+                      "Optional": true
+                    }
+                  ]
+                },
+                {
+                  "Name": "delete",
+                  "Description": "Delete a document by ID",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "--dataset",
+                          "Description": "NAME to override dataset",
+                          "Aliases": [],
+                          "Arguments": [
+                            {
+                              "Arguments": [
+                                {
+                                  "Name": "dataset",
+                                  "Description": "dataset",
+                                  "Type": "String"
+                                }
+                              ]
+                            }
+                          ]
+                        }
+                      ],
+                      "Optional": true
+                    },
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "id",
+                          "Description": "id",
+                          "Type": "String"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "get",
+                  "Description": "Get and print a document by ID",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "--pretty",
+                          "Description": "Colorized JSON output",
+                          "Aliases": [],
+                          "Arguments": []
+                        },
+                        {
+                          "Name": "--dataset",
+                          "Description": "NAME to override dataset",
+                          "Aliases": [],
+                          "Arguments": [
+                            {
+                              "Arguments": [
+                                {
+                                  "Name": "dataset",
+                                  "Description": "dataset",
+                                  "Type": "String"
+                                }
+                              ]
+                            }
+                          ]
+                        }
+                      ],
+                      "Optional": true
+                    },
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "document_id",
+                          "Description": "document_id",
+                          "Type": "String"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "query",
+                  "Description": "Query for documents",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "--pretty",
+                          "Description": "Colorized JSON output",
+                          "Aliases": [],
+                          "Arguments": []
+                        },
+                        {
+                          "Name": "--dataset",
+                          "Description": "NAME to override dataset",
+                          "Aliases": [],
+                          "Arguments": [
+                            {
+                              "Arguments": [
+                                {
+                                  "Name": "dataset",
+                                  "Description": "dataset",
+                                  "Type": "String"
+                                }
+                              ]
+                            }
+                          ]
+                        },
+                        {
+                          "Name": "--api-version",
+                          "Description": "API version to use (defaults to \u0060v1\u0060)",
+                          "Aliases": [],
+                          "Arguments": [
+                            {
+                              "Arguments": [
+                                {
+                                  "Name": "version",
+                                  "Description": "version",
+                                  "Type": "String"
+                                }
+                              ]
+                            }
+                          ]
+                        }
+                      ],
+                      "Optional": true
+                    },
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "query",
+                          "Description": "query",
+                          "Type": "String"
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ],
+              "DontAllowMultiple": true
+            }
+          ]
+        },
+        {
+          "Name": "exec",
+          "Description": "Runs a script in Sanity context",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "--with-user-token",
+                  "Description": "Preload access token from CLI config into \u0027part:@sanity/base/client\u0027 part",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "--mock-browser-env",
+                  "Description": "Mocks a browser-like environment using jsdom",
+                  "Aliases": [],
+                  "Arguments": []
+                }
+              ],
+              "Optional": true
+            },
+            {
+              "Arguments": [
+                {
+                  "Name": "script",
+                  "Description": "script",
+                  "Type": "FileSystemEntry"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "Name": "graphql",
+          "Description": "Interact with GraphQL APIs",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "deploy",
+                  "Description": "Deploy a GraphQL API from the current Sanity schema",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "--dataset",
+                          "Description": "Deploy API for the given dataset",
+                          "Aliases": [],
+                          "Arguments": [
+                            {
+                              "Arguments": [
+                                {
+                                  "Name": "dataset",
+                                  "Description": "dataset",
+                                  "Type": "String"
+                                }
+                              ]
+                            }
+                          ]
+                        },
+                        {
+                          "Name": "--tag",
+                          "Description": "Deploy API to given tag (defaults to \u0027default\u0027)",
+                          "Aliases": [],
+                          "Arguments": [
+                            {
+                              "Arguments": [
+                                {
+                                  "Name": "tag",
+                                  "Description": "tag",
+                                  "Type": "String"
+                                }
+                              ]
+                            }
+                          ]
+                        },
+                        {
+                          "Name": "--generation",
+                          "Description": "API generation to deploy (defaults to \u0027gen3\u0027)",
+                          "Aliases": [],
+                          "Arguments": [
+                            {
+                              "Arguments": [
+                                {
+                                  "Name": "generation",
+                                  "Description": "generation",
+                                  "Type": "String"
+                                }
+                              ]
+                            }
+                          ]
+                        },
+                        {
+                          "Name": "--non-null-document-fields",
+                          "Description": "Set document interface fields (_id, _type etc) as non-null",
+                          "Aliases": [],
+                          "Arguments": []
+                        },
+                        {
+                          "Name": "--playground",
+                          "Description": "Deploy a GraphQL playground for easily testing queries (public)",
+                          "Aliases": [],
+                          "Arguments": []
+                        },
+                        {
+                          "Name": "--no-playground",
+                          "Description": "Skip playground prompt (do not deploy a playground)",
+                          "Aliases": [],
+                          "Arguments": []
+                        },
+                        {
+                          "Name": "--force",
+                          "Description": "Deploy API without confirming breaking changes",
+                          "Aliases": [],
+                          "Arguments": []
+                        }
+                      ],
+                      "Optional": true
+                    }
+                  ]
+                },
+                {
+                  "Name": "list",
+                  "Description": "Lists all the GraphQL endpoints deployed for this project",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "undeploy",
+                  "Description": "Remove a deployed GraphQL API",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "--dataset",
+                          "Description": "Delete GraphQL API for the given dataset",
+                          "Aliases": [],
+                          "Arguments": [
+                            {
+                              "Arguments": [
+                                {
+                                  "Name": "dataset",
+                                  "Description": "dataset",
+                                  "Type": "String"
+                                }
+                              ]
+                            }
+                          ]
+                        },
+                        {
+                          "Name": "--tag",
+                          "Description": "Delete GraphQL API for the given tag (defaults to \u0027default\u0027)",
+                          "Aliases": [],
+                          "Arguments": [
+                            {
+                              "Arguments": [
+                                {
+                                  "Name": "tag",
+                                  "Description": "tag",
+                                  "Type": "String"
+                                }
+                              ]
+                            }
+                          ]
+                        }
+                      ],
+                      "Optional": true
+                    }
+                  ]
+                }
+              ],
+              "DontAllowMultiple": true
+            }
+          ]
+        },
+        {
+          "Name": "hook",
+          "Description": "Interact with hooks in your project",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "attempt",
+                  "Description": "Print details of a given webhook delivery attempt",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "attempt_id",
+                          "Description": "attempt_id",
+                          "Type": "String"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "create",
+                  "Description": "Create a new hook for the given dataset",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "delete",
+                  "Description": "Delete a hook within your project",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "name",
+                          "Description": "name",
+                          "Type": "String"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "list",
+                  "Description": "List hooks for a given project",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "logs",
+                  "Description": "List latest log entries for a given hook",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "name",
+                          "Description": "name",
+                          "Type": "String"
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ],
+              "DontAllowMultiple": true
+            }
+          ]
+        },
+        {
+          "Name": "init",
+          "Description": "Initialize a new Sanity project or plugin",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "-y",
+                  "Description": "Use unattended mode, accepting defaults and using only flags for choices",
+                  "Aliases": [
+                    "--yes"
+                  ],
+                  "Arguments": []
+                },
+                {
+                  "Name": "--project",
+                  "Description": "Project ID to use for the studio",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "projectId",
+                          "Description": "projectId",
+                          "Type": "String"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "--organization",
+                  "Description": "Organization ID to use for the project",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "organizationId",
+                          "Description": "organizationId",
+                          "Type": "String"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "--dataset",
+                  "Description": "Dataset name for the studio",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "dataset",
+                          "Description": "dataset",
+                          "Type": "String"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "--dataset-default",
+                  "Description": "Set up a project with a public dataset named \u0022production\u0022",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "--output-path",
+                  "Description": "Path to write studio project to",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "path",
+                          "Description": "path",
+                          "Type": "String"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "--template",
+                  "Description": "Project template to use [default: \u0022clean\u0022]",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "template",
+                          "Description": "template",
+                          "Type": "String"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "--provider",
+                  "Description": "Login provider to use",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "provider",
+                          "Description": "provider",
+                          "Type": "String"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "--visibility",
+                  "Description": "Visibility mode for dataset (public/private)",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "mode",
+                          "Description": "mode",
+                          "Type": "String"
+                        },
+                        {
+                          "Name": "public",
+                          "Description": "mode"
+                        },
+                        {
+                          "Name": "private",
+                          "Description": "mode"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "--create-project",
+                  "Description": "Create a new project with the given name",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "name",
+                          "Description": "name",
+                          "Type": "String"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "--project-plan",
+                  "Description": "Optionally select a plan for a new project",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "name",
+                          "Description": "name",
+                          "Type": "String"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "--coupon",
+                  "Description": "Optionally select a coupon for a new project (cannot be used with --project-plan)",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "name",
+                          "Description": "name",
+                          "Type": "String"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "--reconfigure",
+                  "Description": "Reconfigure Sanity studio in current folder with new project/dataset",
+                  "Aliases": [],
+                  "Arguments": []
+                }
+              ],
+              "Optional": true
+            }
+          ]
+        },
+        {
+          "Name": "install",
+          "Description": "Installs a Sanity plugin to the current Sanity configuration",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "plugin",
+                  "Description": "plugin",
+                  "Type": "String"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "Name": "login",
+          "Description": "Authenticates against the Sanity.io API (no flag) or a third-party identity provider (with --sso flag)",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "--sso",
+                  "Description": "Authenticate against a third-party identity provider",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "slug",
+                          "Description": "slug",
+                          "Type": "String"
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ],
+              "Optional": true
+            }
+          ]
+        },
+        {
+          "Name": "logout",
+          "Description": "Logs out of the Sanity.io session",
+          "Aliases": [],
+          "Arguments": []
+        },
+        {
+          "Name": "manage",
+          "Description": "Opens the Sanity project management UI",
+          "Aliases": [],
+          "Arguments": []
+        },
+        {
+          "Name": "projects",
+          "Description": "Interact with projects connected to your logged in user",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "list",
+                  "Description": "Lists projects connected to your user",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "--sort",
+                          "Description": "Sort output by specified column",
+                          "Aliases": [],
+                          "Arguments": [
+                            {
+                              "Arguments": [
+                                {
+                                  "Name": "field",
+                                  "Description": "field",
+                                  "Type": "String"
+                                }
+                              ]
+                            }
+                          ]
+                        },
+                        {
+                          "Name": "--order",
+                          "Description": "Sort output ascending/descending",
+                          "Aliases": [],
+                          "Arguments": [
+                            {
+                              "Arguments": [
+                                {
+                                  "Name": "order",
+                                  "Description": "order",
+                                  "Type": "String"
+                                },
+                                {
+                                  "Name": "asc",
+                                  "Description": "order"
+                                },
+                                {
+                                  "Name": "desc",
+                                  "Description": "order"
+                                }
+                              ]
+                            }
+                          ]
+                        }
+                      ],
+                      "Optional": true
+                    }
+                  ]
+                }
+              ],
+              "DontAllowMultiple": true
+            }
+          ]
+        },
+        {
+          "Name": "start",
+          "Description": "Starts a web server for the Content Studio",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "--port",
+                  "Description": "TCP port to start server on. [default: 3333]",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "port",
+                          "Description": "port",
+                          "Type": "String"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "--host",
+                  "Description": "The local network interface at which to listen. [default: \u0022127.0.0.1\u0022]",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "host",
+                          "Description": "host",
+                          "Type": "String"
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ],
+              "Optional": true
+            }
+          ]
+        },
+        {
+          "Name": "undeploy",
+          "Description": "Removes the deployed studio from \u003Chostname\u003E.sanity.studio",
+          "Aliases": [],
+          "Arguments": []
+        },
+        {
+          "Name": "uninstall",
+          "Description": "Removes a Sanity plugin from the current Sanity configuration",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "plugin",
+                  "Description": "plugin",
+                  "Type": "String"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "Name": "upgrade",
+          "Description": "Upgrades all (or some) Sanity modules to their latest versions",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "--range",
+                  "Description": "Version range to upgrade to, eg \u0027^2.2.7\u0027 or \u00272.1.x\u0027",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "range",
+                          "Description": "range",
+                          "Type": "String"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "--tag",
+                  "Description": "Tagged release to upgrade to, eg \u0027canary\u0027 or \u0027some-feature\u0027",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "tag",
+                          "Description": "tag",
+                          "Type": "String"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "--save-exact",
+                  "Description": "Pin the resolved version numbers in package.json (no ^ prefix)",
+                  "Aliases": [],
+                  "Arguments": []
+                }
+              ],
+              "Optional": true
+            }
+          ]
+        },
+        {
+          "Name": "users",
+          "Description": "Manage users of your project",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "invite",
+                  "Description": "Invite a new user to the project",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "--role",
+                          "Description": "Role to invite the user as",
+                          "Aliases": [],
+                          "Arguments": [
+                            {
+                              "Arguments": [
+                                {
+                                  "Name": "role",
+                                  "Description": "role",
+                                  "Type": "String"
+                                }
+                              ]
+                            }
+                          ]
+                        }
+                      ],
+                      "Optional": true
+                    },
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "email",
+                          "Description": "email",
+                          "Type": "String"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "list",
+                  "Description": "List users of the project",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "--no-invitations",
+                          "Description": "Don\u0027t include pending invitations",
+                          "Aliases": [],
+                          "Arguments": []
+                        },
+                        {
+                          "Name": "--no-robots",
+                          "Description": "Don\u0027t include robots (token users)",
+                          "Aliases": [],
+                          "Arguments": []
+                        },
+                        {
+                          "Name": "--sort",
+                          "Description": "Sort users by specified column: id, name, role, date",
+                          "Aliases": [],
+                          "Arguments": [
+                            {
+                              "Arguments": [
+                                {
+                                  "Name": "field",
+                                  "Description": "field",
+                                  "Type": "String"
+                                },
+                                {
+                                  "Name": "id",
+                                  "Description": "field"
+                                },
+                                {
+                                  "Name": "name",
+                                  "Description": "field"
+                                },
+                                {
+                                  "Name": "role",
+                                  "Description": "field"
+                                },
+                                {
+                                  "Name": "date",
+                                  "Description": "field"
+                                }
+                              ]
+                            }
+                          ]
+                        },
+                        {
+                          "Name": "--order",
+                          "Description": "Sort output ascending/descending",
+                          "Aliases": [],
+                          "Arguments": [
+                            {
+                              "Arguments": [
+                                {
+                                  "Name": "order",
+                                  "Description": "order",
+                                  "Type": "String"
+                                },
+                                {
+                                  "Name": "asc",
+                                  "Description": "order"
+                                },
+                                {
+                                  "Name": "desc",
+                                  "Description": "order"
+                                }
+                              ]
+                            }
+                          ]
+                        }
+                      ],
+                      "Optional": true
+                    }
+                  ]
+                }
+              ],
+              "DontAllowMultiple": true
+            }
+          ]
+        },
+        {
+          "Name": "versions",
+          "Description": "Shows the installed versions of Sanity CLI and core components",
+          "Aliases": [],
+          "Arguments": []
+        }
+      ],
+      "DontAllowMultiple": true
+    }
+  ]
+}

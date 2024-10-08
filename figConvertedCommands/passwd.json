@@ -1,0 +1,81 @@
+{
+  "Comment": "This command info is generated from fig",
+  "Name": "passwd",
+  "Description": "Modify a user\u0027s password",
+  "Arguments": [
+    {
+      "Arguments": [
+        {
+          "Name": "i",
+          "Description": "Specify where the password update should be applied",
+          "Type": "Flag",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "infosystem",
+                  "Description": "infosystem",
+                  "Type": "String"
+                },
+                {
+                  "Name": "PAM",
+                  "Description": "infosystem"
+                },
+                {
+                  "Name": "opendirectory",
+                  "Description": "infosystem"
+                },
+                {
+                  "Name": "file",
+                  "Description": "infosystem"
+                },
+                {
+                  "Name": "nis",
+                  "Description": "infosystem"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "Name": "l",
+          "Description": "Causes the password to be updated in the given location of the chosen directory system",
+          "Type": "Flag",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "location",
+                  "Description": "location",
+                  "Type": "FileSystemEntry"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "Name": "u",
+          "Description": "Specify the user name to use when authenticating to the directory node",
+          "Type": "Flag",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "authname",
+                  "Description": "authname",
+                  "Type": "CustomArgument",
+                  "Extensions": [],
+                  "CustomCommand": "bash -c dscl . -list /Users | grep -E -v \u0027^_\u0027"
+                }
+              ]
+            }
+          ]
+        }
+      ],
+      "Optional": true
+    }
+  ]
+}

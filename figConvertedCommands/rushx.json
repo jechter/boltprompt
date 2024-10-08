@@ -1,0 +1,39 @@
+{
+  "Comment": "This command info is generated from fig",
+  "Name": "rushx",
+  "Description": "Run arbitrary package scripts for rush project. analogous to npm run",
+  "Arguments": [
+    {
+      "Arguments": [
+        {
+          "Name": "-h",
+          "Description": "Show this help message and exit",
+          "Aliases": [
+            "--help"
+          ],
+          "Arguments": []
+        },
+        {
+          "Name": "-q",
+          "Description": "Hide rushx startup information",
+          "Aliases": [
+            "--quiet"
+          ],
+          "Arguments": []
+        }
+      ],
+      "Optional": true
+    },
+    {
+      "Arguments": [
+        {
+          "Name": "Scripts",
+          "Description": "Scripts",
+          "Type": "CustomArgument",
+          "Extensions": [],
+          "CustomCommand": "bash -c until [[ -f package.json ]] || [[ $PWD = \u0027/\u0027 ]]; do cd ..; done; cat package.json"
+        }
+      ]
+    }
+  ]
+}

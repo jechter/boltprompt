@@ -1,0 +1,683 @@
+{
+  "Comment": "This command info is generated from fig",
+  "Name": "csdx",
+  "Description": "Content Stack CLI",
+  "Arguments": [
+    {
+      "Arguments": [
+        {
+          "Name": "--help",
+          "Description": "Show help for csdx",
+          "Aliases": [
+            "-h"
+          ],
+          "Arguments": []
+        }
+      ],
+      "Optional": true
+    },
+    {
+      "Arguments": [
+        {
+          "Name": "login",
+          "Description": "The auth:login command lets you log in to Contentstack and save the session",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "-u",
+                  "Description": "Email address of your Contentstack account",
+                  "Aliases": [
+                    "--username"
+                  ],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "email address",
+                          "Description": "email address",
+                          "Type": "String"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "-p",
+                  "Description": "Password can be passed in command",
+                  "Aliases": [
+                    "--password"
+                  ],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "password",
+                          "Description": "password",
+                          "Type": "String"
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ],
+              "Optional": true
+            }
+          ]
+        },
+        {
+          "Name": "auth:tokens:add",
+          "Description": "Lets you add an existing management token from your Contentstack account and save it to the session for further use",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "-a",
+                  "Description": "Alias (name) you want to assign to the token",
+                  "Aliases": [
+                    "--alias"
+                  ],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "alias",
+                          "Description": "alias",
+                          "Type": "String"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "--management",
+                  "Description": "Alias (name) you want to assign to the token",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "--delivery",
+                  "Description": "Flag to set delivery token",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "-k",
+                  "Description": "API key of the stack where the token exists",
+                  "Aliases": [
+                    "--stack-api-key"
+                  ],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "stack-api-key",
+                          "Description": "stack-api-key",
+                          "Type": "String"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "--token",
+                  "Description": "Value of the token",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "token",
+                          "Description": "token",
+                          "Type": "String"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "-f",
+                  "Description": "Force token replace",
+                  "Aliases": [
+                    "--force"
+                  ],
+                  "Arguments": []
+                }
+              ],
+              "Optional": true
+            }
+          ]
+        },
+        {
+          "Name": "auth:tokens:remove",
+          "Description": "The auth:tokens:remove command lets you delete a management/ delivery token from your local CLI session",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "-a",
+                  "Description": "Alias (name) you want to assign to the token",
+                  "Aliases": [
+                    "--alias"
+                  ],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "alias",
+                          "Description": "alias",
+                          "Type": "String"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "-i",
+                  "Description": "Ignores if token not present. Command",
+                  "Aliases": [
+                    "--ignore"
+                  ],
+                  "Arguments": []
+                }
+              ],
+              "Optional": true
+            }
+          ]
+        },
+        {
+          "Name": "cm:bootstrap",
+          "Description": "The \u0027Bootstrap\u0027 plugin in Contentstack CLI allows users to automate the process of project setup for starter apps",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "--app-name",
+                  "Description": "The name of the starter app you want to use. Example: reactjs-starter, nextjs-starter, gatsby-starter, angular-starter, nuxt-starter",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "app-name",
+                          "Description": "app-name",
+                          "Type": "String"
+                        },
+                        {
+                          "Name": "reactjs-starter",
+                          "Description": "app-name"
+                        },
+                        {
+                          "Name": "nextjs-starter",
+                          "Description": "app-name"
+                        },
+                        {
+                          "Name": "gatsby-starter",
+                          "Description": "app-name"
+                        },
+                        {
+                          "Name": "angular-starter",
+                          "Description": "app-name"
+                        },
+                        {
+                          "Name": "nuxt-starter",
+                          "Description": "app-name"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "--project-dir",
+                  "Description": "Directory/path to setup the project. If directory name has a space then provide the path as a string or escap the space using back slash as shown in the below example",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "project-dir",
+                          "Description": "project-dir",
+                          "Type": "String"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "--app-type",
+                  "Description": "Sample or Starter app",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "app-type",
+                          "Description": "app-type",
+                          "Type": "String"
+                        },
+                        {
+                          "Name": "Sample",
+                          "Description": "app-type"
+                        },
+                        {
+                          "Name": "Starter",
+                          "Description": "app-type"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "-k",
+                  "Description": "Provide stack API key to seed content",
+                  "Aliases": [
+                    "--stack-api-key"
+                  ],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "stack-api-key",
+                          "Description": "stack-api-key",
+                          "Type": "String"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "--org",
+                  "Description": "Provide organization UID to create a new stack",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "org",
+                          "Description": "org",
+                          "Type": "String"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "-n",
+                  "Description": "Name of the new stack that will be created",
+                  "Aliases": [
+                    "--stack-name"
+                  ],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "stack-name",
+                          "Description": "stack-name",
+                          "Type": "String"
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ],
+              "Optional": true
+            }
+          ]
+        },
+        {
+          "Name": "auth:tokens",
+          "Description": "The auth:tokens command lists the existing tokens added to the session",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "-x",
+                  "Description": "To show extra columns",
+                  "Aliases": [
+                    "--extended"
+                  ],
+                  "Arguments": []
+                },
+                {
+                  "Name": "--columns",
+                  "Description": "To display specific columns, separated by comma",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "columns",
+                          "Description": "columns",
+                          "Type": "String"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "--csv",
+                  "Description": "Output is csv format",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "--filter",
+                  "Description": "To filter the property by partial string matching, ex: name=foo",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "filter",
+                          "Description": "filter",
+                          "Type": "String"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "--no-header",
+                  "Description": "To hide table\u2019s header in output",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "--no-truncate",
+                  "Description": "To not truncate output to fit screen",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "--output",
+                  "Description": "To display output in a particular format",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "format",
+                          "Description": "format",
+                          "Type": "String"
+                        },
+                        {
+                          "Name": "csv",
+                          "Description": "format"
+                        },
+                        {
+                          "Name": "json",
+                          "Description": "format"
+                        },
+                        {
+                          "Name": "yaml",
+                          "Description": "format"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "--sort",
+                  "Description": "To sort the list, prepend \u0027-\u0027 to sort in a descending order",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "sort",
+                          "Description": "sort",
+                          "Type": "String"
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ],
+              "Optional": true
+            }
+          ]
+        },
+        {
+          "Name": "config:get:region",
+          "Description": "The config:get:region command will return the name of the region on which you are performing actions in Contentstack, via the CLI",
+          "Aliases": [],
+          "Arguments": []
+        },
+        {
+          "Name": "config:set:region",
+          "Description": "The config:set:region command lets you select a region, from the available Contentstack regions, to perform actions using the CLI",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "region",
+                  "Description": "region",
+                  "Type": "String"
+                },
+                {
+                  "Name": "EU",
+                  "Description": "region"
+                },
+                {
+                  "Name": "AZURE-NA",
+                  "Description": "region"
+                },
+                {
+                  "Name": "NA",
+                  "Description": "region"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "Name": "cm:stacks:export",
+          "Description": "The cm:stacks:export command lets you export content from one stack to another",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "-c",
+                  "Description": "[optional] path of the config",
+                  "Aliases": [
+                    "--config"
+                  ],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "config",
+                          "Description": "config",
+                          "Type": "String"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "-k",
+                  "Description": "API key of the source stack",
+                  "Aliases": [
+                    "--stack-api-key"
+                  ],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "stack-api-key",
+                          "Description": "stack-api-key",
+                          "Type": "String"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "-a",
+                  "Description": "The management token of the source stack from which you will export content",
+                  "Aliases": [
+                    "--alias"
+                  ],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "alias",
+                          "Description": "alias",
+                          "Type": "String"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "-d",
+                  "Description": "The path or the location in your file system to store the exported content. For e.g., ./content",
+                  "Aliases": [
+                    "--data-dir"
+                  ],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "data-dir",
+                          "Description": "data-dir",
+                          "Type": "String"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "--branch",
+                  "Description": "The name of the branch where you want to export your content. If you don\u2019t mention the branch name, then by default the content will be exported from all the branches of your stack",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "branch",
+                          "Description": "branch",
+                          "Type": "String"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "--module",
+                  "Description": "[optional] Specific module name. If not specified, the export command will export all the modules to the stack. The available modules are assets, content-types, entries, environments, extensions, global-fields, labels, locales, webhooks, and workflows",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "module",
+                          "Description": "module",
+                          "Type": "String"
+                        },
+                        {
+                          "Name": "assets",
+                          "Description": "module"
+                        },
+                        {
+                          "Name": "content-types",
+                          "Description": "module"
+                        },
+                        {
+                          "Name": "entries",
+                          "Description": "module"
+                        },
+                        {
+                          "Name": "environments",
+                          "Description": "module"
+                        },
+                        {
+                          "Name": "extensions",
+                          "Description": "module"
+                        },
+                        {
+                          "Name": "global-fields",
+                          "Description": "module"
+                        },
+                        {
+                          "Name": "labels",
+                          "Description": "module"
+                        },
+                        {
+                          "Name": "locales",
+                          "Description": "module"
+                        },
+                        {
+                          "Name": "webhooks",
+                          "Description": "module"
+                        },
+                        {
+                          "Name": "workflows",
+                          "Description": "module"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "--content-types",
+                  "Description": "[optional] content type",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "content-types",
+                          "Description": "content-types",
+                          "Type": "String"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "--secured-assets",
+                  "Description": "[optional] use when assets are secured",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "secured-assets",
+                          "Description": "secured-assets",
+                          "Type": "String"
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ],
+              "Optional": true
+            }
+          ]
+        },
+        {
+          "Name": "logout",
+          "Description": "The auth:logout command lets you log out of Contentstack and clear the session",
+          "Aliases": [],
+          "Arguments": []
+        },
+        {
+          "Name": "whoami",
+          "Description": "The csdx auth:whoami command returns the username (email address) of the user who is currently logged in to the session",
+          "Aliases": [],
+          "Arguments": []
+        }
+      ],
+      "DontAllowMultiple": true
+    }
+  ]
+}

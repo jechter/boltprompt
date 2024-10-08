@@ -1,0 +1,397 @@
+{
+  "Comment": "This command info is generated from fig",
+  "Name": "coda",
+  "Description": "Coda Local development CLI tool. It comes bundled with the Pack SDK and makes it easy to build and manage Packs from the CLI",
+  "Arguments": [
+    {
+      "Arguments": [
+        {
+          "Name": "--version",
+          "Description": "Show version number",
+          "Aliases": [],
+          "Arguments": []
+        },
+        {
+          "Name": "--help",
+          "Description": "Show help",
+          "Aliases": [],
+          "Arguments": []
+        }
+      ],
+      "Optional": true
+    },
+    {
+      "Arguments": [
+        {
+          "Name": "init",
+          "Description": "Initialize an empty project with the recommended settings and dependencies",
+          "Aliases": [],
+          "Arguments": []
+        },
+        {
+          "Name": "execute",
+          "Description": "Execute the formula and print the output to the terminal",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "--dynamicUrl",
+                  "Description": "To run a sync for a dynamic sync table, use this parameter to specify which URL to sync from",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "url",
+                          "Description": "url",
+                          "Type": "String"
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ],
+              "Optional": true
+            },
+            {
+              "Arguments": [
+                {
+                  "Name": "path/to/pack.ts",
+                  "Description": "path/to/pack.ts",
+                  "Type": "File",
+                  "Extensions": [
+                    "ts"
+                  ],
+                  "CustomCommand": ""
+                }
+              ]
+            },
+            {
+              "Arguments": [
+                {
+                  "Name": "formula",
+                  "Description": "formula",
+                  "Type": "CustomArgument",
+                  "Extensions": [],
+                  "CustomCommand": "bash -c grep -A5 --include=*.ts --exclude-dir=node_modules -r \u0027addFormula\\|addSyncTable\\|makeFormula\\|makeSyncTable\u0027 . | grep -A3 -i formula | grep name: | grep -oE \u0022[\u0027\\\u0022]\\w*[\u0027\\\u0022]\u0022"
+                }
+              ]
+            },
+            {
+              "Arguments": [
+                {
+                  "Name": "params",
+                  "Description": "params",
+                  "Type": "String"
+                }
+              ],
+              "Optional": true
+            }
+          ]
+        },
+        {
+          "Name": "auth",
+          "Description": "Set up authentication in your development environment so that you can execute Pack formulas with authentication applied to them",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "path/to/pack.ts",
+                  "Description": "path/to/pack.ts",
+                  "Type": "File",
+                  "Extensions": [
+                    "ts"
+                  ],
+                  "CustomCommand": ""
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "Name": "register",
+          "Description": "Create a new API token or register an existing one to be used with future commands",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "apiToken",
+                  "Description": "apiToken",
+                  "Type": "String"
+                }
+              ],
+              "Optional": true
+            }
+          ]
+        },
+        {
+          "Name": "create",
+          "Description": "Create a new Pack on Coda\u2019s servers and get assigned a Pack ID. Run this command just once for each Pack you create",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "--name",
+                  "Description": "Specify a name for the Pack. You can always set or update the name in the Pack management UI later",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "name",
+                          "Description": "name",
+                          "Type": "String"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "--description",
+                  "Description": "Specify a description for the Pack. You can always set or update the description in the Pack management UI later",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "description",
+                          "Description": "description",
+                          "Type": "String"
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ],
+              "Optional": true
+            },
+            {
+              "Arguments": [
+                {
+                  "Name": "path/to/pack.ts",
+                  "Description": "path/to/pack.ts",
+                  "Type": "File",
+                  "Extensions": [
+                    "ts"
+                  ],
+                  "CustomCommand": ""
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "Name": "upload",
+          "Description": "Use this command to upload a new version of your Pack based on your latest code",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "path/to/pack.ts",
+                  "Description": "path/to/pack.ts",
+                  "Type": "File",
+                  "Extensions": [
+                    "ts"
+                  ],
+                  "CustomCommand": ""
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "Name": "release",
+          "Description": "Release a Pack version and make it live for your users",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "path/to/pack.ts",
+                  "Description": "path/to/pack.ts",
+                  "Type": "File",
+                  "Extensions": [
+                    "ts"
+                  ],
+                  "CustomCommand": ""
+                }
+              ]
+            },
+            {
+              "Arguments": [
+                {
+                  "Name": "version",
+                  "Description": "version",
+                  "Type": "String"
+                }
+              ],
+              "Optional": true
+            }
+          ]
+        },
+        {
+          "Name": "clone",
+          "Description": "Migrate the development of a Pack from the Pack Studio to a new local CLI Pack development",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "urlOrPackId",
+                  "Description": "urlOrPackId",
+                  "Type": "String"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "Name": "link",
+          "Description": "Link the development of a Pack from the Pack studio to an existing local CLI Pack development",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "path/to/pack.ts",
+                  "Description": "path/to/pack.ts",
+                  "Type": "File",
+                  "Extensions": [
+                    "ts"
+                  ],
+                  "CustomCommand": ""
+                }
+              ]
+            },
+            {
+              "Arguments": [
+                {
+                  "Name": "urlOrPackId",
+                  "Description": "urlOrPackId",
+                  "Type": "String"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "Name": "whoami",
+          "Description": "Looks up information about the API token that is registered in this environment",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "apiToken",
+                  "Description": "apiToken",
+                  "Type": "String"
+                }
+              ],
+              "Optional": true
+            }
+          ]
+        },
+        {
+          "Name": "build",
+          "Description": "Generate a bundle for your Pack",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "path/to/pack.ts",
+                  "Description": "path/to/pack.ts",
+                  "Type": "File",
+                  "Extensions": [
+                    "ts"
+                  ],
+                  "CustomCommand": ""
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "Name": "validate",
+          "Description": "Validate your Pack definition",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "path/to/pack.ts",
+                  "Description": "path/to/pack.ts",
+                  "Type": "File",
+                  "Extensions": [
+                    "ts"
+                  ],
+                  "CustomCommand": ""
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "Name": "setOption",
+          "Description": "Set a persistent build option for the Pack. This will be used for all builds of the Pack",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "path/to/pack.ts",
+                  "Description": "path/to/pack.ts",
+                  "Type": "File",
+                  "Extensions": [
+                    "ts"
+                  ],
+                  "CustomCommand": ""
+                }
+              ]
+            },
+            {
+              "Arguments": [
+                {
+                  "Name": "option",
+                  "Description": "option",
+                  "Type": "String"
+                },
+                {
+                  "Name": "timerStrategy",
+                  "Description": "option"
+                }
+              ]
+            },
+            {
+              "Arguments": [
+                {
+                  "Name": "value",
+                  "Description": "value",
+                  "Type": "String"
+                },
+                {
+                  "Name": "none",
+                  "Description": "value"
+                },
+                {
+                  "Name": "error",
+                  "Description": "value"
+                },
+                {
+                  "Name": "fake",
+                  "Description": "value"
+                }
+              ]
+            }
+          ]
+        }
+      ],
+      "DontAllowMultiple": true
+    }
+  ]
+}

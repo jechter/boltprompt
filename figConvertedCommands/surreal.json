@@ -1,0 +1,694 @@
+{
+  "Comment": "This command info is generated from fig",
+  "Name": "surreal",
+  "Description": "SurrealDB is the ultimate cloud database for tomorrow\u0027s applications - https://surrealdb.com/",
+  "Arguments": [
+    {
+      "Arguments": [
+        {
+          "Name": "--help",
+          "Description": "Print help information",
+          "Aliases": [
+            "-h"
+          ],
+          "Arguments": []
+        }
+      ],
+      "Optional": true
+    },
+    {
+      "Arguments": [
+        {
+          "Name": "help",
+          "Description": "Print this message or the help of the given subcommand(s)",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "command",
+                  "Description": "command",
+                  "Type": "String"
+                }
+              ],
+              "Optional": true
+            }
+          ]
+        },
+        {
+          "Name": "start",
+          "Description": "Start the database server",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "-",
+                  "Description": "Everything after this is an argument",
+                  "Type": "Flag",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "--addr",
+                  "Description": "The allowed networks for master authentication [env: ADDR=] [default: 127.0.0.1/32]",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "addr",
+                          "Description": "addr",
+                          "Type": "String"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "--bind",
+                  "Description": "The hostname or ip address to listen for connections on [env: BIND=] [default: 0.0.0.0:8000]",
+                  "Aliases": [
+                    "-b"
+                  ],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "bind",
+                          "Description": "bind",
+                          "Type": "String"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "--key",
+                  "Description": "Encryption key to use for on-disk encryption [env: KEY=]",
+                  "Aliases": [
+                    "-k"
+                  ],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "key",
+                          "Description": "key",
+                          "Type": "String"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "--kvs-ca",
+                  "Description": "Path to the CA file used when connecting to the remote KV store [env: KVS_CA=]",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "kvs-ca",
+                          "Description": "kvs-ca",
+                          "Type": "String"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "--kvs-crt",
+                  "Description": "Path to the certificate file used when connecting to the remote KV store [env: KVS_CRT=]",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "kvs-crt",
+                          "Description": "kvs-crt",
+                          "Type": "String"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "--kvs-key",
+                  "Description": "Path to the private key file used when connecting to the remote KV store [env: KVS_KEY=]",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "kvs-key",
+                          "Description": "kvs-key",
+                          "Type": "String"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "--log",
+                  "Description": "The logging level for the database server [env: LOG=] [default: info] [possible values: warn, info, debug, trace, full]",
+                  "Aliases": [
+                    "-l"
+                  ],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "log",
+                          "Description": "log",
+                          "Type": "String"
+                        },
+                        {
+                          "Name": "warn",
+                          "Description": "log"
+                        },
+                        {
+                          "Name": "info",
+                          "Description": "log"
+                        },
+                        {
+                          "Name": "debug",
+                          "Description": "log"
+                        },
+                        {
+                          "Name": "trace",
+                          "Description": "log"
+                        },
+                        {
+                          "Name": "full",
+                          "Description": "log"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "--pass",
+                  "Description": "The master password for the database [env: PASS=]",
+                  "Aliases": [
+                    "-p"
+                  ],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "pass",
+                          "Description": "pass",
+                          "Type": "String"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "--strict",
+                  "Description": "Whether strict mode is enabled on this database instance [env: STRICT=]",
+                  "Aliases": [
+                    "-s"
+                  ],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "strict",
+                          "Description": "strict",
+                          "Type": "String"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "--user",
+                  "Description": "The master username for the database [env: USER=] [default: root]",
+                  "Aliases": [
+                    "-u"
+                  ],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "user",
+                          "Description": "user",
+                          "Type": "String"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "--web-crt",
+                  "Description": "Path to the certificate file for encrypted client connections [env: WEB_CRT=]",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "web-crt",
+                          "Description": "web-crt",
+                          "Type": "String"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "--web-key",
+                  "Description": "Path to the private key file for encrypted client connections [env: WEB_KEY=]",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "web-key",
+                          "Description": "web-key",
+                          "Type": "String"
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ],
+              "Optional": true
+            },
+            {
+              "Arguments": [
+                {
+                  "Name": "path",
+                  "Description": "path",
+                  "Type": "String"
+                }
+              ],
+              "Optional": true
+            }
+          ]
+        },
+        {
+          "Name": "backup",
+          "Description": "Backup data to or from an existing database",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "--pass",
+                  "Description": "Database authentication password to use when connecting [default: root]",
+                  "Aliases": [
+                    "-p"
+                  ],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "pass",
+                          "Description": "pass",
+                          "Type": "String"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "--user",
+                  "Description": "Database authentication username to use when connecting [default: root]",
+                  "Aliases": [
+                    "-u"
+                  ],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "user",
+                          "Description": "user",
+                          "Type": "String"
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ],
+              "Optional": true
+            },
+            {
+              "Arguments": [
+                {
+                  "Name": "from",
+                  "Description": "from",
+                  "Type": "String"
+                }
+              ]
+            },
+            {
+              "Arguments": [
+                {
+                  "Name": "into",
+                  "Description": "into",
+                  "Type": "String"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "Name": "import",
+          "Description": "Import a SurrealQL script into an existing database",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "--pass",
+                  "Description": "Database authentication password to use when connecting [default: root]",
+                  "Aliases": [
+                    "-p"
+                  ],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "pass",
+                          "Description": "pass",
+                          "Type": "String"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "--user",
+                  "Description": "Database authentication username to use when connecting [default: root]",
+                  "Aliases": [
+                    "-u"
+                  ],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "user",
+                          "Description": "user",
+                          "Type": "String"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "--conn",
+                  "Description": "Remote database server url to connect to [default: https://cloud.surrealdb.com]",
+                  "Aliases": [
+                    "-c"
+                  ],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "conn",
+                          "Description": "conn",
+                          "Type": "String"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "--ns",
+                  "Description": "The namespace to import the data into",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "ns",
+                          "Description": "ns",
+                          "Type": "String"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "--db",
+                  "Description": "The database to import the data into",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "db",
+                          "Description": "db",
+                          "Type": "String"
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ],
+              "Optional": true
+            },
+            {
+              "Arguments": [
+                {
+                  "Name": "file",
+                  "Description": "file",
+                  "Type": "String"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "Name": "export",
+          "Description": "Export an existing database as a SurrealQL script",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "--pass",
+                  "Description": "Database authentication password to use when connecting [default: root]",
+                  "Aliases": [
+                    "-p"
+                  ],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "pass",
+                          "Description": "pass",
+                          "Type": "String"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "--user",
+                  "Description": "Database authentication username to use when connecting [default: root]",
+                  "Aliases": [
+                    "-u"
+                  ],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "user",
+                          "Description": "user",
+                          "Type": "String"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "--conn",
+                  "Description": "Remote database server url to connect to [default: https://cloud.surrealdb.com]",
+                  "Aliases": [
+                    "-c"
+                  ],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "conn",
+                          "Description": "conn",
+                          "Type": "String"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "--ns",
+                  "Description": "The namespace to export the data from",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "ns",
+                          "Description": "ns",
+                          "Type": "String"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "--db",
+                  "Description": "The database to export the data from",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "db",
+                          "Description": "db",
+                          "Type": "String"
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ],
+              "Optional": true
+            },
+            {
+              "Arguments": [
+                {
+                  "Name": "file",
+                  "Description": "file",
+                  "Type": "String"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "Name": "version",
+          "Description": "Output the command-line tool version information",
+          "Aliases": [],
+          "Arguments": []
+        },
+        {
+          "Name": "sql",
+          "Description": "Start an SQL REPL in your terminal with pipe support",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "--pass",
+                  "Description": "Database authentication password to use when connecting [default: root]",
+                  "Aliases": [
+                    "-p"
+                  ],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "pass",
+                          "Description": "pass",
+                          "Type": "String"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "--user",
+                  "Description": "Database authentication username to use when connecting [default: root]",
+                  "Aliases": [
+                    "-u"
+                  ],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "user",
+                          "Description": "user",
+                          "Type": "String"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "--conn",
+                  "Description": "Remote database server url to connect to [default: https://cloud.surrealdb.com]",
+                  "Aliases": [
+                    "-c"
+                  ],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "conn",
+                          "Description": "conn",
+                          "Type": "String"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "--ns",
+                  "Description": "The namespace to export the data from",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "ns",
+                          "Description": "ns",
+                          "Type": "String"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "--db",
+                  "Description": "The database to export the data from",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "db",
+                          "Description": "db",
+                          "Type": "String"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "--pretty",
+                  "Description": "Whether database responses should be pretty printed",
+                  "Aliases": [],
+                  "Arguments": []
+                }
+              ],
+              "Optional": true
+            },
+            {
+              "Arguments": [
+                {
+                  "Name": "file",
+                  "Description": "file",
+                  "Type": "String"
+                }
+              ]
+            }
+          ]
+        }
+      ],
+      "DontAllowMultiple": true
+    }
+  ]
+}

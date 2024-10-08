@@ -1,0 +1,262 @@
+{
+  "Comment": "This command info is generated from fig",
+  "Name": "ghq",
+  "Description": "\u0027ghq\u0027 provides a way to organize remote repository clones, like go get does. When you clone a remote repository by ghq get, ghq makes a directory under a specific root directory (by default ~/ghq) using the remote repository URL\u2019s host and path",
+  "Arguments": [
+    {
+      "Arguments": [
+        {
+          "Name": "-h",
+          "Description": "Show help",
+          "Aliases": [
+            "--help",
+            "h",
+            "help"
+          ],
+          "Arguments": []
+        },
+        {
+          "Name": "-v",
+          "Description": "Print the version",
+          "Aliases": [
+            "--version"
+          ],
+          "Arguments": []
+        }
+      ],
+      "Optional": true
+    },
+    {
+      "Arguments": [
+        {
+          "Name": "get",
+          "Description": "Clone/sync with a remote repository",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "-u",
+                  "Description": "Update local repository if cloned already (default: false)",
+                  "Aliases": [
+                    "--update"
+                  ],
+                  "Arguments": []
+                },
+                {
+                  "Name": "p",
+                  "Description": "Clone with SSH (default: false)",
+                  "Type": "Flag",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "--shallow",
+                  "Description": "Do a shallow clone (default: false)",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "-l",
+                  "Description": "Look after get (default: false)",
+                  "Aliases": [
+                    "--look"
+                  ],
+                  "Arguments": []
+                },
+                {
+                  "Name": "--vcs",
+                  "Description": "Specify vcs backend for cloning",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "vcs",
+                          "Description": "vcs",
+                          "Type": "String"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "-s",
+                  "Description": "Clone or update silently (default: false)",
+                  "Aliases": [
+                    "--silent"
+                  ],
+                  "Arguments": []
+                },
+                {
+                  "Name": "--no-recursive",
+                  "Description": "Prevent recursive fetching (default: false)",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "-b",
+                  "Description": "Specify branch name. This flag implies --single-branch on Git",
+                  "Aliases": [
+                    "--branch"
+                  ],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "branch",
+                          "Description": "branch",
+                          "Type": "String"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "-P",
+                  "Description": "Import parallelly (default: false)",
+                  "Aliases": [
+                    "--parallel"
+                  ],
+                  "Arguments": []
+                },
+                {
+                  "Name": "--bare",
+                  "Description": "Do a bare clone (default: false)",
+                  "Aliases": [],
+                  "Arguments": []
+                }
+              ],
+              "Optional": true
+            },
+            {
+              "Arguments": [
+                {
+                  "Name": "\u003Crepository URL\u003E|\u003Cproject\u003E|\u003Cuser\u003E/\u003Cproject\u003E|\u003Chost\u003E/\u003Cuser\u003E/\u003Cproject\u003E",
+                  "Description": "\u003Crepository URL\u003E|\u003Cproject\u003E|\u003Cuser\u003E/\u003Cproject\u003E|\u003Chost\u003E/\u003Cuser\u003E/\u003Cproject\u003E",
+                  "Type": "String"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "Name": "list",
+          "Description": "List local repositories",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "-e",
+                  "Description": "Perform an exact match (default: false)",
+                  "Aliases": [
+                    "--exact"
+                  ],
+                  "Arguments": []
+                },
+                {
+                  "Name": "--vcs",
+                  "Description": "Specify vcs backend for matching",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "vcs",
+                          "Description": "vcs",
+                          "Type": "String"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "-p",
+                  "Description": "Print full paths (default: false)",
+                  "Aliases": [
+                    "--full-path"
+                  ],
+                  "Arguments": []
+                },
+                {
+                  "Name": "--unique",
+                  "Description": "Print unique subpaths (default: false)",
+                  "Aliases": [],
+                  "Arguments": []
+                }
+              ],
+              "Optional": true
+            },
+            {
+              "Arguments": [
+                {
+                  "Name": "query",
+                  "Description": "query",
+                  "Type": "String"
+                }
+              ],
+              "Optional": true
+            }
+          ]
+        },
+        {
+          "Name": "root",
+          "Description": "Show repositories\u0027 root",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "--all",
+                  "Description": "Show all roots (default: false)",
+                  "Aliases": [],
+                  "Arguments": []
+                }
+              ],
+              "Optional": true
+            }
+          ]
+        },
+        {
+          "Name": "create",
+          "Description": "Create a new repository",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "--vcs",
+                  "Description": "Specify vcs backend explicitly",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "vcs",
+                          "Description": "vcs",
+                          "Type": "String"
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ],
+              "Optional": true
+            },
+            {
+              "Arguments": [
+                {
+                  "Name": "\u003Cproject\u003E|\u003Cuser\u003E/\u003Cproject\u003E|\u003Chost\u003E/\u003Cuser\u003E/\u003Cproject\u003E",
+                  "Description": "\u003Cproject\u003E|\u003Cuser\u003E/\u003Cproject\u003E|\u003Chost\u003E/\u003Cuser\u003E/\u003Cproject\u003E",
+                  "Type": "String"
+                }
+              ]
+            }
+          ]
+        }
+      ],
+      "DontAllowMultiple": true
+    }
+  ]
+}

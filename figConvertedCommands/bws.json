@@ -1,0 +1,579 @@
+{
+  "Comment": "This command info is generated from fig",
+  "Name": "bws",
+  "Description": "",
+  "Arguments": [
+    {
+      "Arguments": [
+        {
+          "Name": "-o",
+          "Description": "Output format [default: json]",
+          "Aliases": [
+            "--output"
+          ],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "Format",
+                  "Description": "Format",
+                  "Type": "String"
+                },
+                {
+                  "Name": "json",
+                  "Description": "Produce json output"
+                },
+                {
+                  "Name": "yaml",
+                  "Description": "Produce yaml output"
+                },
+                {
+                  "Name": "env",
+                  "Description": "Produce env output"
+                },
+                {
+                  "Name": "table",
+                  "Description": "Produce table output"
+                },
+                {
+                  "Name": "tsv",
+                  "Description": "Produce tsv output"
+                },
+                {
+                  "Name": "none",
+                  "Description": "Produce no output"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "Name": "-c",
+          "Description": "Use colors in the output [default: auto]",
+          "Aliases": [
+            "--color"
+          ],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "Color",
+                  "Description": "Color",
+                  "Type": "String"
+                },
+                {
+                  "Name": "no",
+                  "Description": "Do not color output"
+                },
+                {
+                  "Name": "yes",
+                  "Description": "Colorize output"
+                },
+                {
+                  "Name": "auto",
+                  "Description": "Use default terminal colors"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "Name": "-t",
+          "Description": "Specify access token for the service account [env: BWS_ACCESS_TOKEN]",
+          "Aliases": [
+            "--access-token"
+          ],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "Access Token",
+                  "Description": "Access Token",
+                  "Type": "String"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "Name": "-f",
+          "Description": "Config file to use [default: ~/.bws.config]",
+          "Aliases": [
+            "--config-file"
+          ],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "Config File",
+                  "Description": "Config File",
+                  "Type": "FileSystemEntry"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "Name": "-p",
+          "Description": "Profile to use from the config file [env: BWS_PROFILE=]",
+          "Aliases": [
+            "--profile"
+          ],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "Profile",
+                  "Description": "Profile",
+                  "Type": "String"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "Name": "-u",
+          "Description": "Override the server URL from the config file [env: BWS_SERVER_URL=]",
+          "Aliases": [
+            "--server-url"
+          ],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "Server URL",
+                  "Description": "Server URL",
+                  "Type": "String"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "Name": "-h",
+          "Description": "Print help",
+          "Aliases": [
+            "--help"
+          ],
+          "Arguments": []
+        },
+        {
+          "Name": "-V",
+          "Description": "Print version",
+          "Aliases": [
+            "--version"
+          ],
+          "Arguments": []
+        }
+      ],
+      "Optional": true
+    },
+    {
+      "Arguments": [
+        {
+          "Name": "config",
+          "Description": "Specify server settings for the Secrets Manager CLI",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "--profile",
+                  "Description": "Save specified value(s) to an alternate profile",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "profile",
+                          "Description": "profile",
+                          "Type": "String"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "--config-file",
+                  "Description": "Save specified value(s) to an alternative config file",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "Config file path",
+                          "Description": "Config file path",
+                          "Type": "FileSystemEntry"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "-h",
+                  "Description": "Display help for login command",
+                  "Aliases": [
+                    "--help"
+                  ],
+                  "Arguments": []
+                }
+              ],
+              "Optional": true
+            },
+            {
+              "Arguments": [
+                {
+                  "Name": "Setting",
+                  "Description": "Setting",
+                  "Type": "String"
+                },
+                {
+                  "Name": "server-base",
+                  "Description": "Base server URL"
+                },
+                {
+                  "Name": "server-api",
+                  "Description": "Server API endpoint URL"
+                },
+                {
+                  "Name": "server-identity",
+                  "Description": "Server Identity endpoint URL"
+                },
+                {
+                  "Name": "state-file-dir",
+                  "Description": "Server file storage location"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "Name": "completions",
+          "Description": "Generate shell completions",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "-h",
+                  "Description": "Display help for logout command",
+                  "Aliases": [
+                    "--help"
+                  ],
+                  "Arguments": []
+                }
+              ],
+              "Optional": true
+            },
+            {
+              "Arguments": [
+                {
+                  "Name": "SHELL",
+                  "Description": "SHELL",
+                  "Type": "String"
+                },
+                {
+                  "Name": "bash",
+                  "Description": "Generate shell completions for bash"
+                },
+                {
+                  "Name": "elvish",
+                  "Description": "Generate shell completions for elvish"
+                },
+                {
+                  "Name": "fish",
+                  "Description": "Generate shell completions for fish"
+                },
+                {
+                  "Name": "powershell",
+                  "Description": "Generate shell completions for powershell"
+                },
+                {
+                  "Name": "zsh",
+                  "Description": "Generate shell completions for zsh"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "Name": "project",
+          "Description": "Access, manipulate and create projects",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "-h",
+                  "Description": "Access, manipulate and create projects",
+                  "Aliases": [
+                    "--help"
+                  ],
+                  "Arguments": []
+                }
+              ],
+              "Optional": true
+            },
+            {
+              "Arguments": [
+                {
+                  "Name": "create",
+                  "Description": "Create a new project",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "NAME",
+                          "Description": "NAME",
+                          "Type": "String"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "delete",
+                  "Description": "Delete one or more existing projects",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "PROJECT_ID(s)",
+                          "Description": "PROJECT_ID(s)",
+                          "Type": "String"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "edit",
+                  "Description": "Change the name of an existing project",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "--name",
+                          "Description": "--name",
+                          "Type": "String"
+                        }
+                      ]
+                    },
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "PROJECT_ID",
+                          "Description": "PROJECT_ID",
+                          "Type": "String"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "get",
+                  "Description": "Retrieve a specific project accessible to this service account",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "PROJECT_ID",
+                          "Description": "PROJECT_ID",
+                          "Type": "String"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "list",
+                  "Description": "List projects accessible to this service account",
+                  "Aliases": [],
+                  "Arguments": []
+                }
+              ],
+              "DontAllowMultiple": true
+            }
+          ]
+        },
+        {
+          "Name": "secret",
+          "Description": "Access, manipulate and create secrets",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "-h",
+                  "Description": "Display help for unlock command",
+                  "Aliases": [
+                    "--help"
+                  ],
+                  "Arguments": []
+                }
+              ],
+              "Optional": true
+            },
+            {
+              "Arguments": [
+                {
+                  "Name": "create",
+                  "Description": "Create a new secret",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "--note",
+                          "Description": "Optional notes about this secret",
+                          "Aliases": [],
+                          "Arguments": []
+                        }
+                      ],
+                      "Optional": true
+                    },
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "KEY",
+                          "Description": "KEY",
+                          "Type": "String"
+                        }
+                      ]
+                    },
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "VALUE",
+                          "Description": "VALUE",
+                          "Type": "String"
+                        }
+                      ]
+                    },
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "PROJECT_ID",
+                          "Description": "PROJECT_ID",
+                          "Type": "String"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "delete",
+                  "Description": "Delete an existing secret",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "SECRET_IDS",
+                          "Description": "SECRET_IDS",
+                          "Type": "String"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "edit",
+                  "Description": "Edit an existing secret",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "key",
+                          "Description": "Edit the Secret Key",
+                          "Aliases": [],
+                          "Arguments": []
+                        },
+                        {
+                          "Name": "value",
+                          "Description": "Edit the Secret Value",
+                          "Aliases": [],
+                          "Arguments": []
+                        },
+                        {
+                          "Name": "project-id",
+                          "Description": "Edit the ID of project this secret belongs to",
+                          "Aliases": [],
+                          "Arguments": []
+                        },
+                        {
+                          "Name": "note",
+                          "Description": "Edit the optional notes about this secret",
+                          "Aliases": [],
+                          "Arguments": []
+                        }
+                      ],
+                      "Optional": true
+                    },
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "SECRET_ID",
+                          "Description": "SECRET_ID",
+                          "Type": "String"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "get",
+                  "Description": "Retrieve an existing secret",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "SECRET_ID",
+                          "Description": "SECRET_ID",
+                          "Type": "String"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "list",
+                  "Description": "List the secrets this service account can access",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "Project",
+                          "Description": "Project",
+                          "Type": "String"
+                        }
+                      ],
+                      "Optional": true
+                    }
+                  ]
+                }
+              ],
+              "DontAllowMultiple": true
+            }
+          ]
+        },
+        {
+          "Name": "--help",
+          "Description": "Get help about using the Bitwarden Secrets Manager CLI tool",
+          "Aliases": [
+            "-h"
+          ],
+          "Arguments": []
+        }
+      ],
+      "DontAllowMultiple": true
+    }
+  ]
+}

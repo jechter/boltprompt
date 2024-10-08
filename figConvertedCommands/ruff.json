@@ -1,0 +1,548 @@
+{
+  "Comment": "This command info is generated from fig",
+  "Name": "ruff",
+  "Description": "Ruff: An extremely fast Python linter",
+  "Arguments": [
+    {
+      "Arguments": [
+        {
+          "Name": "--config",
+          "Description": "Path to the \u0060pyproject.toml\u0060 or \u0060ruff.toml\u0060 file to use for configuration",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "config",
+                  "Description": "config",
+                  "Type": "FileSystemEntry"
+                }
+              ],
+              "Optional": true
+            }
+          ]
+        },
+        {
+          "Name": "--select",
+          "Description": "Comma-separated list of rule codes to enable (or ALL, to enable all rules)",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "select",
+                  "Description": "select",
+                  "Type": "String"
+                }
+              ],
+              "Optional": true
+            }
+          ]
+        },
+        {
+          "Name": "--extend-select",
+          "Description": "Like --select, but adds additional rule codes on top of the selected ones",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "extend_select",
+                  "Description": "extend_select",
+                  "Type": "String"
+                }
+              ],
+              "Optional": true
+            }
+          ]
+        },
+        {
+          "Name": "--ignore",
+          "Description": "Comma-separated list of rule codes to disable",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "ignore",
+                  "Description": "ignore",
+                  "Type": "String"
+                }
+              ],
+              "Optional": true
+            }
+          ]
+        },
+        {
+          "Name": "--extend-ignore",
+          "Description": "Like --ignore, but adds additional rule codes on top of the ignored ones",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "extend_ignore",
+                  "Description": "extend_ignore",
+                  "Type": "String"
+                }
+              ],
+              "Optional": true
+            }
+          ]
+        },
+        {
+          "Name": "--exclude",
+          "Description": "List of paths, used to omit files and/or directories from analysis",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "exclude",
+                  "Description": "exclude",
+                  "Type": "String"
+                }
+              ],
+              "Optional": true
+            }
+          ]
+        },
+        {
+          "Name": "--extend-exclude",
+          "Description": "Like --exclude, but adds additional files and directories on top of those already excluded",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "extend_exclude",
+                  "Description": "extend_exclude",
+                  "Type": "String"
+                }
+              ],
+              "Optional": true
+            }
+          ]
+        },
+        {
+          "Name": "--fixable",
+          "Description": "List of rule codes to treat as eligible for autofix. Only applicable when autofix itself is enabled (e.g., via \u0060--fix\u0060)",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "fixable",
+                  "Description": "fixable",
+                  "Type": "String"
+                }
+              ],
+              "Optional": true
+            }
+          ]
+        },
+        {
+          "Name": "--unfixable",
+          "Description": "List of rule codes to treat as ineligible for autofix. Only applicable when autofix itself is enabled (e.g., via \u0060--fix\u0060)",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "unfixable",
+                  "Description": "unfixable",
+                  "Type": "String"
+                }
+              ],
+              "Optional": true
+            }
+          ]
+        },
+        {
+          "Name": "--per-file-ignores",
+          "Description": "List of mappings from file pattern to code to exclude",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "per_file_ignores",
+                  "Description": "per_file_ignores",
+                  "Type": "String"
+                }
+              ],
+              "Optional": true
+            }
+          ]
+        },
+        {
+          "Name": "--format",
+          "Description": "Output serialization format for violations",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "format",
+                  "Description": "format",
+                  "Type": "String"
+                },
+                {
+                  "Name": "text",
+                  "Description": "format"
+                },
+                {
+                  "Name": "json",
+                  "Description": "format"
+                },
+                {
+                  "Name": "junit",
+                  "Description": "format"
+                },
+                {
+                  "Name": "grouped",
+                  "Description": "format"
+                },
+                {
+                  "Name": "github",
+                  "Description": "format"
+                },
+                {
+                  "Name": "gitlab",
+                  "Description": "format"
+                }
+              ],
+              "Optional": true
+            }
+          ]
+        },
+        {
+          "Name": "--stdin-filename",
+          "Description": "The name of the file when passing it through stdin",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "stdin_filename",
+                  "Description": "stdin_filename",
+                  "Type": "FileSystemEntry"
+                }
+              ],
+              "Optional": true
+            }
+          ]
+        },
+        {
+          "Name": "--cache-dir",
+          "Description": "Path to the cache directory",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "cache_dir",
+                  "Description": "cache_dir",
+                  "Type": "FileSystemEntry"
+                }
+              ],
+              "Optional": true
+            }
+          ]
+        },
+        {
+          "Name": "--dummy-variable-rgx",
+          "Description": "Regular expression matching the name of dummy variables",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "dummy_variable_rgx",
+                  "Description": "dummy_variable_rgx",
+                  "Type": "String"
+                }
+              ],
+              "Optional": true
+            }
+          ]
+        },
+        {
+          "Name": "--target-version",
+          "Description": "The minimum Python version that should be supported",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "target_version",
+                  "Description": "target_version",
+                  "Type": "String"
+                }
+              ],
+              "Optional": true
+            }
+          ]
+        },
+        {
+          "Name": "--line-length",
+          "Description": "Set the line-length for length-associated rules and automatic formatting",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "line_length",
+                  "Description": "line_length",
+                  "Type": "String"
+                }
+              ],
+              "Optional": true
+            }
+          ]
+        },
+        {
+          "Name": "--explain",
+          "Description": "Explain a rule",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "explain",
+                  "Description": "explain",
+                  "Type": "String"
+                }
+              ],
+              "Optional": true
+            }
+          ]
+        },
+        {
+          "Name": "--generate-shell-completion",
+          "Description": "Generate shell completion",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "generate_shell_completion",
+                  "Description": "generate_shell_completion",
+                  "Type": "String"
+                },
+                {
+                  "Name": "bash",
+                  "Description": "generate_shell_completion"
+                },
+                {
+                  "Name": "elvish",
+                  "Description": "generate_shell_completion"
+                },
+                {
+                  "Name": "fig",
+                  "Description": "generate_shell_completion"
+                },
+                {
+                  "Name": "fish",
+                  "Description": "generate_shell_completion"
+                },
+                {
+                  "Name": "powershell",
+                  "Description": "generate_shell_completion"
+                },
+                {
+                  "Name": "zsh",
+                  "Description": "generate_shell_completion"
+                }
+              ],
+              "Optional": true
+            }
+          ]
+        },
+        {
+          "Name": "-v",
+          "Description": "Enable verbose logging",
+          "Aliases": [
+            "--verbose"
+          ],
+          "Arguments": []
+        },
+        {
+          "Name": "-q",
+          "Description": "Print lint violations, but nothing else",
+          "Aliases": [
+            "--quiet"
+          ],
+          "Arguments": []
+        },
+        {
+          "Name": "-s",
+          "Description": "Disable all logging (but still exit with status code \u00221\u0022 upon detecting lint violations)",
+          "Aliases": [
+            "--silent"
+          ],
+          "Arguments": []
+        },
+        {
+          "Name": "-e",
+          "Description": "Exit with status code \u00220\u0022, even upon detecting lint violations",
+          "Aliases": [
+            "--exit-zero"
+          ],
+          "Arguments": []
+        },
+        {
+          "Name": "-w",
+          "Description": "Run in watch mode by re-running whenever files change",
+          "Aliases": [
+            "--watch"
+          ],
+          "Arguments": []
+        },
+        {
+          "Name": "--fix",
+          "Description": "Attempt to automatically fix lint violations",
+          "Aliases": [],
+          "Arguments": []
+        },
+        {
+          "Name": "--no-fix",
+          "Description": "",
+          "Aliases": [],
+          "Arguments": []
+        },
+        {
+          "Name": "--fix-only",
+          "Description": "Fix any fixable lint violations, but don\u0027t report on leftover violations. Implies \u0060--fix\u0060",
+          "Aliases": [],
+          "Arguments": []
+        },
+        {
+          "Name": "--no-fix-only",
+          "Description": "",
+          "Aliases": [],
+          "Arguments": []
+        },
+        {
+          "Name": "--diff",
+          "Description": "Avoid writing any fixed files back; instead, output a diff for each changed file to stdout",
+          "Aliases": [],
+          "Arguments": []
+        },
+        {
+          "Name": "-n",
+          "Description": "Disable cache reads",
+          "Aliases": [
+            "--no-cache"
+          ],
+          "Arguments": []
+        },
+        {
+          "Name": "--isolated",
+          "Description": "Ignore all configuration files",
+          "Aliases": [],
+          "Arguments": []
+        },
+        {
+          "Name": "--show-source",
+          "Description": "Show violations with source code",
+          "Aliases": [],
+          "Arguments": []
+        },
+        {
+          "Name": "--no-show-source",
+          "Description": "",
+          "Aliases": [],
+          "Arguments": []
+        },
+        {
+          "Name": "--respect-gitignore",
+          "Description": "Respect file exclusions via \u0060.gitignore\u0060 and other standard ignore files",
+          "Aliases": [],
+          "Arguments": []
+        },
+        {
+          "Name": "--no-respect-gitignore",
+          "Description": "",
+          "Aliases": [],
+          "Arguments": []
+        },
+        {
+          "Name": "--force-exclude",
+          "Description": "Enforce exclusions, even for paths passed to Ruff directly on the command-line",
+          "Aliases": [],
+          "Arguments": []
+        },
+        {
+          "Name": "--no-force-exclude",
+          "Description": "",
+          "Aliases": [],
+          "Arguments": []
+        },
+        {
+          "Name": "--update-check",
+          "Description": "Enable or disable automatic update checks",
+          "Aliases": [],
+          "Arguments": []
+        },
+        {
+          "Name": "--no-update-check",
+          "Description": "",
+          "Aliases": [],
+          "Arguments": []
+        },
+        {
+          "Name": "--add-noqa",
+          "Description": "Enable automatic additions of \u0060noqa\u0060 directives to failing lines",
+          "Aliases": [],
+          "Arguments": []
+        },
+        {
+          "Name": "--clean",
+          "Description": "Clear any caches in the current directory or any subdirectories",
+          "Aliases": [],
+          "Arguments": []
+        },
+        {
+          "Name": "--show-files",
+          "Description": "See the files Ruff will be run against with the current settings",
+          "Aliases": [],
+          "Arguments": []
+        },
+        {
+          "Name": "--show-settings",
+          "Description": "See the settings Ruff will use to lint a given Python file",
+          "Aliases": [],
+          "Arguments": []
+        },
+        {
+          "Name": "-h",
+          "Description": "Print help",
+          "Aliases": [
+            "--help"
+          ],
+          "Arguments": []
+        },
+        {
+          "Name": "-V",
+          "Description": "Print version",
+          "Aliases": [
+            "--version"
+          ],
+          "Arguments": []
+        }
+      ],
+      "Optional": true
+    },
+    {
+      "Arguments": [
+        {
+          "Name": "files",
+          "Description": "files",
+          "Type": "FileSystemEntry"
+        }
+      ],
+      "Optional": true
+    }
+  ]
+}

@@ -1,0 +1,575 @@
+{
+  "Comment": "This command info is generated from fig",
+  "Name": "eb",
+  "Description": "AWS Elastic Beanstalk",
+  "Arguments": [
+    {
+      "Arguments": [
+        {
+          "Name": "init",
+          "Description": "Initialize a new AWS Elastic Beanstalk application",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "-i",
+                  "Description": "Forces EB CLI to prompt you to provide a value for every eb init command option",
+                  "Aliases": [
+                    "--interactive"
+                  ],
+                  "Arguments": []
+                },
+                {
+                  "Name": "-k",
+                  "Description": "The name of the AWS EC2 key pair",
+                  "Aliases": [
+                    "--keyname"
+                  ],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "keyname",
+                          "Description": "keyname",
+                          "Type": "String"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "--modules",
+                  "Description": "List of child directories to initialize",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "-p",
+                  "Description": "The platform version to use",
+                  "Aliases": [
+                    "--platform"
+                  ],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "plataform-version",
+                          "Description": "plataform-version",
+                          "Type": "String"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "--tags",
+                  "Description": "List of tags to apply to the application",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "key=value",
+                          "Description": "key=value",
+                          "Type": "String"
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ],
+              "Optional": true
+            },
+            {
+              "Arguments": [
+                {
+                  "Name": "name",
+                  "Description": "name",
+                  "Type": "String"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "Name": "deploy",
+          "Description": "Deploys the application source bundle from the initialized project directory to the running application",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "-l",
+                  "Description": "Specify a label to use for the version that the EB CLI creates",
+                  "Aliases": [
+                    "--label"
+                  ],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "version-label",
+                          "Description": "version-label",
+                          "Type": "String"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "--env-group-suffix",
+                  "Description": "Group name to append to the environment name",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "groupname",
+                          "Description": "groupname",
+                          "Type": "String"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "-m",
+                  "Description": "The description for the application version, enclosed in double quotation marks",
+                  "Aliases": [
+                    "--message"
+                  ],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "version-description",
+                          "Description": "version-description",
+                          "Type": "String"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "--modules",
+                  "Description": "List of components to update. Only for Compose Environments",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "component",
+                          "Description": "component",
+                          "Type": "String"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "-p",
+                  "Description": "Preprocess and validate the environment manifest and configuration files in the source bundle",
+                  "Aliases": [
+                    "--platform"
+                  ],
+                  "Arguments": []
+                },
+                {
+                  "Name": "--source",
+                  "Description": "CodeCommit repository and branch",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "repository-name/repository-branch",
+                          "Description": "repository-name/repository-branch",
+                          "Type": "String"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "--staged",
+                  "Description": "Deploy files staged in the git index instead of the HEAD commit",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "--timeout",
+                  "Description": "The number of minutes before the command times out",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "minutes",
+                          "Description": "minutes",
+                          "Type": "String"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "--version",
+                  "Description": "An existing application version to deploy",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "version-label",
+                          "Description": "version-label",
+                          "Type": "String"
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ],
+              "Optional": true
+            },
+            {
+              "Arguments": [
+                {
+                  "Name": "environment-name",
+                  "Description": "environment-name",
+                  "Type": "CustomArgument",
+                  "Extensions": [],
+                  "CustomCommand": "eb list"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "Name": "abort",
+          "Description": "Abort the current running process",
+          "Aliases": [],
+          "Arguments": []
+        },
+        {
+          "Name": "clone",
+          "Description": "Clones an environment to a new environment so that both have identical environment settings",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "-n",
+                  "Description": "Desired name for the cloned environment",
+                  "Aliases": [
+                    "--clone_name"
+                  ],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "string",
+                          "Description": "string",
+                          "Type": "String"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "-c",
+                  "Description": "Desired CNAME prefix for the cloned environment",
+                  "Aliases": [
+                    "--cname"
+                  ],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "cname",
+                          "Description": "cname",
+                          "Type": "String"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "--envvars",
+                  "Description": "Environment properties in a comma-separated list with the format name=value",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "--exact",
+                  "Description": "Prevents Elastic Beanstalk from updating the solution stack version for the new clone environment to the most recent version available",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "--scale",
+                  "Description": "The number of instances to run in the clone environment when it is launched",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "number",
+                          "Description": "number",
+                          "Type": "String"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "--tags",
+                  "Description": "Tags for the resources in your environment in a comma-separated list with the format name=value",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "name=value",
+                          "Description": "name=value",
+                          "Type": "String"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "--timeout",
+                  "Description": "The number of minutes before the command times out",
+                  "Aliases": [],
+                  "Arguments": []
+                }
+              ],
+              "Optional": true
+            },
+            {
+              "Arguments": [
+                {
+                  "Name": "environment-name",
+                  "Description": "environment-name",
+                  "Type": "CustomArgument",
+                  "Extensions": [],
+                  "CustomCommand": "eb list"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "Name": "open",
+          "Description": "Opens the public URL of your website in the default browser",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "environment-name",
+                  "Description": "environment-name",
+                  "Type": "CustomArgument",
+                  "Extensions": [],
+                  "CustomCommand": "eb list"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "Name": "list",
+          "Description": "List environments",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "-a",
+                  "Description": "List all environments from all applications",
+                  "Aliases": [
+                    "--all"
+                  ],
+                  "Arguments": []
+                },
+                {
+                  "Name": "-v",
+                  "Description": "Provides more detailed information about all environments, including instances",
+                  "Aliases": [
+                    "--verbose"
+                  ],
+                  "Arguments": []
+                }
+              ],
+              "Optional": true
+            }
+          ]
+        },
+        {
+          "Name": "printenv",
+          "Description": "Prints all the environment properties in the command window",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "environment-name",
+                  "Description": "environment-name",
+                  "Type": "CustomArgument",
+                  "Extensions": [],
+                  "CustomCommand": "eb list"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "Name": "ssh",
+          "Description": "Connect to a Linux Amazon EC2 instance in your environment using Secure Shell",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "-i",
+                  "Description": "The ID of the instance to connect to",
+                  "Aliases": [
+                    "--instance"
+                  ],
+                  "Arguments": []
+                },
+                {
+                  "Name": "-n",
+                  "Description": "The number of the instance to connect to by number",
+                  "Aliases": [
+                    "--number"
+                  ],
+                  "Arguments": []
+                },
+                {
+                  "Name": "-o",
+                  "Description": "Leave port 22 open on the security group after the SSH session ends",
+                  "Aliases": [
+                    "--keep_open"
+                  ],
+                  "Arguments": []
+                },
+                {
+                  "Name": "--command",
+                  "Description": "Execute a shell command on the specified instance instead of starting an SSH session",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "--custom",
+                  "Description": "Specify an SSH command to use instead of \u0027ssh -i keyfile\u0027. Do not include the remote user and hostname",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "--setup",
+                  "Description": "Change the key pair assigned to the environment\u0027s instances",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "--force",
+                  "Description": "Open port 22 to incoming traffic from 0.0.0.0/0 in the environment\u0027s security group, even if the security group is already configured for SSH",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "--timeout",
+                  "Description": "Set number of minutes before the command times out",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "minutes",
+                          "Description": "minutes",
+                          "Type": "String"
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ],
+              "Optional": true
+            },
+            {
+              "Arguments": [
+                {
+                  "Name": "environment-name",
+                  "Description": "environment-name",
+                  "Type": "CustomArgument",
+                  "Extensions": [],
+                  "CustomCommand": "eb list"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "Name": "use",
+          "Description": "Sets the specified environment as the default environment",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "-r",
+                  "Description": "Change the region in which you create environments",
+                  "Aliases": [
+                    "--region"
+                  ],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "region",
+                          "Description": "region",
+                          "Type": "String"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "--source",
+                  "Description": "CodeCommit repository and branch",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "codecommit/repository-name/repository-branch",
+                          "Description": "codecommit/repository-name/repository-branch",
+                          "Type": "String"
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ],
+              "Optional": true
+            },
+            {
+              "Arguments": [
+                {
+                  "Name": "environment-name",
+                  "Description": "environment-name",
+                  "Type": "CustomArgument",
+                  "Extensions": [],
+                  "CustomCommand": "eb list"
+                }
+              ]
+            }
+          ]
+        }
+      ],
+      "DontAllowMultiple": true
+    }
+  ]
+}

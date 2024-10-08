@@ -1,0 +1,2157 @@
+{
+  "Comment": "This command info is generated from fig",
+  "Name": "clilol",
+  "Description": "A cli for omg.lol",
+  "Arguments": [
+    {
+      "Arguments": [
+        {
+          "Name": "--help",
+          "Description": "Display help",
+          "Aliases": [
+            "-h"
+          ],
+          "Arguments": []
+        }
+      ],
+      "Optional": true
+    },
+    {
+      "Arguments": [
+        {
+          "Name": "create",
+          "Description": "Create things",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "dns",
+                  "Description": "Create a DNS record",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "--priority",
+                          "Description": "Priority of the DNS record",
+                          "Aliases": [
+                            "-p"
+                          ],
+                          "Arguments": [
+                            {
+                              "Arguments": [
+                                {
+                                  "Name": "priority",
+                                  "Description": "priority",
+                                  "Type": "String"
+                                }
+                              ]
+                            }
+                          ]
+                        },
+                        {
+                          "Name": "--ttl",
+                          "Description": "Time to live of the DNS record",
+                          "Aliases": [
+                            "-T"
+                          ],
+                          "Arguments": [
+                            {
+                              "Arguments": [
+                                {
+                                  "Name": "ttl",
+                                  "Description": "ttl",
+                                  "Type": "String"
+                                }
+                              ]
+                            }
+                          ]
+                        }
+                      ],
+                      "Optional": true
+                    },
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "name",
+                          "Description": "name",
+                          "Type": "String"
+                        }
+                      ]
+                    },
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "type",
+                          "Description": "type",
+                          "Type": "String"
+                        }
+                      ]
+                    },
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "data",
+                          "Description": "data",
+                          "Type": "String"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "paste",
+                  "Description": "Create or update a paste",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "--filename",
+                          "Description": "File to read paste from (default stdin)",
+                          "Aliases": [
+                            "-f"
+                          ],
+                          "Arguments": [
+                            {
+                              "Arguments": [
+                                {
+                                  "Name": "filename",
+                                  "Description": "filename",
+                                  "Type": "FileSystemEntry"
+                                }
+                              ]
+                            }
+                          ]
+                        },
+                        {
+                          "Name": "--listed",
+                          "Description": "Create paste as listed (default false)",
+                          "Aliases": [
+                            "-l"
+                          ],
+                          "Arguments": []
+                        }
+                      ],
+                      "Optional": true
+                    },
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "title",
+                          "Description": "title",
+                          "Type": "String"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "picture",
+                  "Description": "Upload a picture to some.pics",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "--description",
+                          "Description": "Description of the picture (default empty/unlisted)",
+                          "Aliases": [
+                            "-d"
+                          ],
+                          "Arguments": []
+                        }
+                      ],
+                      "Optional": true
+                    },
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "filename",
+                          "Description": "filename",
+                          "Type": "String"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "purl",
+                  "Description": "Create a PURL",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "--listed",
+                          "Description": "Create as listed (default false)",
+                          "Aliases": [
+                            "-l"
+                          ],
+                          "Arguments": []
+                        }
+                      ],
+                      "Optional": true
+                    },
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "name",
+                          "Description": "name",
+                          "Type": "String"
+                        }
+                      ]
+                    },
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "url",
+                          "Description": "url",
+                          "Type": "String"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "status",
+                  "Description": "Create a status",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "--emoji",
+                          "Description": "Emoji to add to status (default sparkles)",
+                          "Aliases": [
+                            "-e"
+                          ],
+                          "Arguments": [
+                            {
+                              "Arguments": [
+                                {
+                                  "Name": "emoji",
+                                  "Description": "emoji",
+                                  "Type": "String"
+                                }
+                              ]
+                            }
+                          ]
+                        },
+                        {
+                          "Name": "--skip-mastodon-post",
+                          "Description": "Do not cross-post to Mastodon",
+                          "Aliases": [],
+                          "Arguments": []
+                        }
+                      ],
+                      "Optional": true
+                    },
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "text",
+                          "Description": "text",
+                          "Type": "String"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "weblog",
+                  "Description": "Create a weblog entry",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "--filename",
+                          "Description": "File to read entry from (default stdin)",
+                          "Aliases": [
+                            "-f"
+                          ],
+                          "Arguments": [
+                            {
+                              "Arguments": [
+                                {
+                                  "Name": "filename",
+                                  "Description": "filename",
+                                  "Type": "FileSystemEntry"
+                                }
+                              ]
+                            }
+                          ]
+                        }
+                      ],
+                      "Optional": true
+                    }
+                  ]
+                }
+              ],
+              "DontAllowMultiple": true
+            }
+          ]
+        },
+        {
+          "Name": "delete",
+          "Description": "Delete things",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "account",
+                  "Description": "Delete information about your account",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "session",
+                          "Description": "Delete a session",
+                          "Aliases": [],
+                          "Arguments": [
+                            {
+                              "Arguments": [
+                                {
+                                  "Name": "id",
+                                  "Description": "id",
+                                  "Type": "String"
+                                }
+                              ]
+                            }
+                          ]
+                        }
+                      ],
+                      "DontAllowMultiple": true
+                    }
+                  ]
+                },
+                {
+                  "Name": "dns",
+                  "Description": "Delete a DNS record",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "id",
+                          "Description": "id",
+                          "Type": "String"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "paste",
+                  "Description": "Delete a paste",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "id",
+                          "Description": "id",
+                          "Type": "String"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "picture",
+                  "Description": "Delete a picture from some.pics",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "id",
+                          "Description": "id",
+                          "Type": "String"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "purl",
+                  "Description": "Delete a PURL",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "id",
+                          "Description": "id",
+                          "Type": "String"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "status",
+                  "Description": "Delete a status",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "id",
+                          "Description": "id",
+                          "Type": "String"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "weblog",
+                  "Description": "Delete a weblog entry",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "id",
+                          "Description": "id",
+                          "Type": "String"
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ],
+              "DontAllowMultiple": true
+            }
+          ]
+        },
+        {
+          "Name": "get",
+          "Description": "Get things",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "account",
+                  "Description": "Get information about your account",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "info",
+                          "Description": "Get info about your account",
+                          "Aliases": [],
+                          "Arguments": []
+                        },
+                        {
+                          "Name": "name",
+                          "Description": "Get your account name",
+                          "Aliases": [],
+                          "Arguments": []
+                        },
+                        {
+                          "Name": "settings",
+                          "Description": "Get your account settings",
+                          "Aliases": [],
+                          "Arguments": []
+                        }
+                      ],
+                      "DontAllowMultiple": true
+                    }
+                  ]
+                },
+                {
+                  "Name": "address",
+                  "Description": "Get information about an address",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "availability",
+                          "Description": "Get address availability",
+                          "Aliases": [],
+                          "Arguments": [
+                            {
+                              "Arguments": [
+                                {
+                                  "Name": "address",
+                                  "Description": "address",
+                                  "Type": "String"
+                                }
+                              ]
+                            }
+                          ]
+                        },
+                        {
+                          "Name": "expiration",
+                          "Description": "Get address expiration",
+                          "Aliases": [],
+                          "Arguments": [
+                            {
+                              "Arguments": [
+                                {
+                                  "Name": "address",
+                                  "Description": "address",
+                                  "Type": "String"
+                                }
+                              ]
+                            }
+                          ]
+                        },
+                        {
+                          "Name": "info",
+                          "Description": "Get information about an address",
+                          "Aliases": [],
+                          "Arguments": [
+                            {
+                              "Arguments": [
+                                {
+                                  "Name": "private",
+                                  "Description": "Get private information about an address",
+                                  "Aliases": [],
+                                  "Arguments": [
+                                    {
+                                      "Arguments": [
+                                        {
+                                          "Name": "address",
+                                          "Description": "address",
+                                          "Type": "String"
+                                        }
+                                      ]
+                                    }
+                                  ]
+                                },
+                                {
+                                  "Name": "public",
+                                  "Description": "Get public information about an address",
+                                  "Aliases": [],
+                                  "Arguments": [
+                                    {
+                                      "Arguments": [
+                                        {
+                                          "Name": "address",
+                                          "Description": "address",
+                                          "Type": "String"
+                                        }
+                                      ]
+                                    }
+                                  ]
+                                }
+                              ],
+                              "DontAllowMultiple": true
+                            }
+                          ]
+                        }
+                      ],
+                      "DontAllowMultiple": true
+                    }
+                  ]
+                },
+                {
+                  "Name": "email",
+                  "Description": "Get email forwarding address(es)",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "now",
+                  "Description": "Get a Now page",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "--address",
+                          "Description": "Address whose Now page to get",
+                          "Aliases": [
+                            "-a"
+                          ],
+                          "Arguments": [
+                            {
+                              "Arguments": [
+                                {
+                                  "Name": "address",
+                                  "Description": "address",
+                                  "Type": "String"
+                                }
+                              ]
+                            }
+                          ]
+                        },
+                        {
+                          "Name": "--filename",
+                          "Description": "File to write Now page to (default stdout)",
+                          "Aliases": [
+                            "-f"
+                          ],
+                          "Arguments": [
+                            {
+                              "Arguments": [
+                                {
+                                  "Name": "filename",
+                                  "Description": "filename",
+                                  "Type": "FileSystemEntry"
+                                }
+                              ]
+                            }
+                          ]
+                        }
+                      ],
+                      "Optional": true
+                    }
+                  ]
+                },
+                {
+                  "Name": "paste",
+                  "Description": "Get a paste",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "--address",
+                          "Description": "Address whose paste to get",
+                          "Aliases": [
+                            "-a"
+                          ],
+                          "Arguments": [
+                            {
+                              "Arguments": [
+                                {
+                                  "Name": "address",
+                                  "Description": "address",
+                                  "Type": "String"
+                                }
+                              ]
+                            }
+                          ]
+                        },
+                        {
+                          "Name": "--filename",
+                          "Description": "File to write paste to (default stdout)",
+                          "Aliases": [
+                            "-f"
+                          ],
+                          "Arguments": [
+                            {
+                              "Arguments": [
+                                {
+                                  "Name": "filename",
+                                  "Description": "filename",
+                                  "Type": "FileSystemEntry"
+                                }
+                              ]
+                            }
+                          ]
+                        }
+                      ],
+                      "Optional": true
+                    },
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "title",
+                          "Description": "title",
+                          "Type": "String"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "purl",
+                  "Description": "Get a PURL",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "--address",
+                          "Description": "Address whose PURL to get",
+                          "Aliases": [
+                            "-a"
+                          ],
+                          "Arguments": [
+                            {
+                              "Arguments": [
+                                {
+                                  "Name": "address",
+                                  "Description": "address",
+                                  "Type": "String"
+                                }
+                              ]
+                            }
+                          ]
+                        }
+                      ],
+                      "Optional": true
+                    },
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "name",
+                          "Description": "name",
+                          "Type": "String"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "service",
+                  "Description": "Get service stats",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "status",
+                  "Description": "Get status",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "--address",
+                          "Description": "Address whose status to get",
+                          "Aliases": [
+                            "-a"
+                          ],
+                          "Arguments": [
+                            {
+                              "Arguments": [
+                                {
+                                  "Name": "address",
+                                  "Description": "address",
+                                  "Type": "String"
+                                }
+                              ]
+                            }
+                          ]
+                        }
+                      ],
+                      "Optional": true
+                    },
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "id",
+                          "Description": "id",
+                          "Type": "String"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "status-bio",
+                  "Description": "Get status bio",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "--address",
+                          "Description": "Address whose status bio to get",
+                          "Aliases": [
+                            "-a"
+                          ],
+                          "Arguments": [
+                            {
+                              "Arguments": [
+                                {
+                                  "Name": "address",
+                                  "Description": "address",
+                                  "Type": "String"
+                                }
+                              ]
+                            }
+                          ]
+                        }
+                      ],
+                      "Optional": true
+                    }
+                  ]
+                },
+                {
+                  "Name": "theme",
+                  "Description": "Get theme information",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "name",
+                          "Description": "name",
+                          "Type": "String"
+                        }
+                      ]
+                    },
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "preview",
+                          "Description": "Get theme preview",
+                          "Aliases": [],
+                          "Arguments": [
+                            {
+                              "Arguments": [
+                                {
+                                  "Name": "--filename",
+                                  "Description": "File to write preview to (default stdout)",
+                                  "Aliases": [
+                                    "-f"
+                                  ],
+                                  "Arguments": [
+                                    {
+                                      "Arguments": [
+                                        {
+                                          "Name": "filename",
+                                          "Description": "filename",
+                                          "Type": "FileSystemEntry"
+                                        }
+                                      ]
+                                    }
+                                  ]
+                                }
+                              ],
+                              "Optional": true
+                            },
+                            {
+                              "Arguments": [
+                                {
+                                  "Name": "name",
+                                  "Description": "name",
+                                  "Type": "String"
+                                }
+                              ]
+                            }
+                          ]
+                        }
+                      ],
+                      "DontAllowMultiple": true
+                    }
+                  ]
+                },
+                {
+                  "Name": "web",
+                  "Description": "Get your webpage content",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "--filename",
+                          "Description": "File to write webpage to (default stdout)",
+                          "Aliases": [
+                            "-f"
+                          ],
+                          "Arguments": [
+                            {
+                              "Arguments": [
+                                {
+                                  "Name": "filename",
+                                  "Description": "filename",
+                                  "Type": "FileSystemEntry"
+                                }
+                              ]
+                            }
+                          ]
+                        }
+                      ],
+                      "Optional": true
+                    }
+                  ]
+                },
+                {
+                  "Name": "weblog",
+                  "Description": "Get a weblog entry",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "id",
+                          "Description": "id",
+                          "Type": "String"
+                        }
+                      ]
+                    },
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "config",
+                          "Description": "Get your weblog config",
+                          "Aliases": [],
+                          "Arguments": [
+                            {
+                              "Arguments": [
+                                {
+                                  "Name": "--filename",
+                                  "Description": "File to write configuration to (default stdout)",
+                                  "Aliases": [
+                                    "-f"
+                                  ],
+                                  "Arguments": [
+                                    {
+                                      "Arguments": [
+                                        {
+                                          "Name": "filename",
+                                          "Description": "filename",
+                                          "Type": "FileSystemEntry"
+                                        }
+                                      ]
+                                    }
+                                  ]
+                                }
+                              ],
+                              "Optional": true
+                            }
+                          ]
+                        },
+                        {
+                          "Name": "latest",
+                          "Description": "Get the latest weblog entry",
+                          "Aliases": [],
+                          "Arguments": []
+                        },
+                        {
+                          "Name": "template",
+                          "Description": "Get your weblog template",
+                          "Aliases": [],
+                          "Arguments": [
+                            {
+                              "Arguments": [
+                                {
+                                  "Name": "--filename",
+                                  "Description": "File to write template to (default stdout)",
+                                  "Aliases": [
+                                    "-f"
+                                  ],
+                                  "Arguments": [
+                                    {
+                                      "Arguments": [
+                                        {
+                                          "Name": "filename",
+                                          "Description": "filename",
+                                          "Type": "FileSystemEntry"
+                                        }
+                                      ]
+                                    }
+                                  ]
+                                }
+                              ],
+                              "Optional": true
+                            }
+                          ]
+                        }
+                      ],
+                      "DontAllowMultiple": true
+                    }
+                  ]
+                }
+              ],
+              "DontAllowMultiple": true
+            }
+          ]
+        },
+        {
+          "Name": "list",
+          "Description": "List things",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "account",
+                  "Description": "List information about your account",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "addresses",
+                          "Description": "List your addresses",
+                          "Aliases": [],
+                          "Arguments": []
+                        },
+                        {
+                          "Name": "sessions",
+                          "Description": "List your sessions",
+                          "Aliases": [],
+                          "Arguments": []
+                        }
+                      ],
+                      "DontAllowMultiple": true
+                    }
+                  ]
+                },
+                {
+                  "Name": "directory",
+                  "Description": "List the address directory",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "dns",
+                  "Description": "List your dns records",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "now",
+                  "Description": "List Now pages",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "paste",
+                  "Description": "List pastes",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "--address",
+                          "Description": "Address whose pastes to list",
+                          "Aliases": [
+                            "-a"
+                          ],
+                          "Arguments": [
+                            {
+                              "Arguments": [
+                                {
+                                  "Name": "address",
+                                  "Description": "address",
+                                  "Type": "String"
+                                }
+                              ]
+                            }
+                          ]
+                        }
+                      ],
+                      "Optional": true
+                    }
+                  ]
+                },
+                {
+                  "Name": "picture",
+                  "Description": "List pictures",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "purl",
+                  "Description": "List all PURLs",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "--address",
+                          "Description": "Address whose PURLs to get",
+                          "Aliases": [
+                            "-a"
+                          ],
+                          "Arguments": [
+                            {
+                              "Arguments": [
+                                {
+                                  "Name": "address",
+                                  "Description": "address",
+                                  "Type": "String"
+                                }
+                              ]
+                            }
+                          ]
+                        }
+                      ],
+                      "Optional": true
+                    }
+                  ]
+                },
+                {
+                  "Name": "status",
+                  "Description": "List statuses",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "--address",
+                          "Description": "Address whose status(es) to get",
+                          "Aliases": [
+                            "-a"
+                          ],
+                          "Arguments": [
+                            {
+                              "Arguments": [
+                                {
+                                  "Name": "address",
+                                  "Description": "address",
+                                  "Type": "String"
+                                }
+                              ]
+                            }
+                          ]
+                        },
+                        {
+                          "Name": "--limit",
+                          "Description": "How many status(es) to get (default all)",
+                          "Aliases": [
+                            "-l"
+                          ],
+                          "Arguments": [
+                            {
+                              "Arguments": [
+                                {
+                                  "Name": "limit",
+                                  "Description": "limit",
+                                  "Type": "String"
+                                }
+                              ]
+                            }
+                          ]
+                        }
+                      ],
+                      "Optional": true
+                    }
+                  ]
+                },
+                {
+                  "Name": "statuslog",
+                  "Description": "List the statuslog",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "--all",
+                          "Description": "Get the entire statuslog (default is latest statuses only)",
+                          "Aliases": [
+                            "-A"
+                          ],
+                          "Arguments": []
+                        }
+                      ],
+                      "Optional": true
+                    }
+                  ]
+                },
+                {
+                  "Name": "theme",
+                  "Description": "List profile themes",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "weblog",
+                  "Description": "List all weblog entries",
+                  "Aliases": [],
+                  "Arguments": []
+                }
+              ],
+              "DontAllowMultiple": true
+            }
+          ]
+        },
+        {
+          "Name": "update",
+          "Description": "Update things",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "account",
+                  "Description": "Update information about your account",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "name",
+                          "Description": "Set the name on your account",
+                          "Aliases": [],
+                          "Arguments": []
+                        },
+                        {
+                          "Name": "settings",
+                          "Description": "Set the settings on your account",
+                          "Aliases": [],
+                          "Arguments": [
+                            {
+                              "Arguments": [
+                                {
+                                  "Name": "--communication",
+                                  "Description": "Communication preference",
+                                  "Aliases": [
+                                    "-c"
+                                  ],
+                                  "Arguments": [
+                                    {
+                                      "Arguments": [
+                                        {
+                                          "Name": "communication",
+                                          "Description": "communication",
+                                          "Type": "String"
+                                        }
+                                      ]
+                                    }
+                                  ]
+                                },
+                                {
+                                  "Name": "--date-format",
+                                  "Description": "Date format preference",
+                                  "Aliases": [
+                                    "-d"
+                                  ],
+                                  "Arguments": [
+                                    {
+                                      "Arguments": [
+                                        {
+                                          "Name": "date-format",
+                                          "Description": "date-format",
+                                          "Type": "String"
+                                        }
+                                      ]
+                                    }
+                                  ]
+                                },
+                                {
+                                  "Name": "--web-editor",
+                                  "Description": "Web editor preference",
+                                  "Aliases": [
+                                    "-w"
+                                  ],
+                                  "Arguments": [
+                                    {
+                                      "Arguments": [
+                                        {
+                                          "Name": "web-editor",
+                                          "Description": "web-editor",
+                                          "Type": "String"
+                                        }
+                                      ]
+                                    }
+                                  ]
+                                }
+                              ],
+                              "Optional": true
+                            }
+                          ]
+                        }
+                      ],
+                      "DontAllowMultiple": true
+                    }
+                  ]
+                },
+                {
+                  "Name": "dns",
+                  "Description": "Update a DNS record",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "--priority",
+                          "Description": "Updated priority",
+                          "Aliases": [
+                            "-p"
+                          ],
+                          "Arguments": [
+                            {
+                              "Arguments": [
+                                {
+                                  "Name": "priority",
+                                  "Description": "priority",
+                                  "Type": "String"
+                                }
+                              ]
+                            }
+                          ]
+                        },
+                        {
+                          "Name": "--ttl",
+                          "Description": "Updated TTL",
+                          "Aliases": [
+                            "-T"
+                          ],
+                          "Arguments": [
+                            {
+                              "Arguments": [
+                                {
+                                  "Name": "ttl",
+                                  "Description": "ttl",
+                                  "Type": "String"
+                                }
+                              ]
+                            }
+                          ]
+                        }
+                      ],
+                      "Optional": true
+                    }
+                  ]
+                },
+                {
+                  "Name": "email",
+                  "Description": "Set email forwarding address(es)",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "--destination",
+                          "Description": "Address(es) to forward to",
+                          "Aliases": [
+                            "-d"
+                          ],
+                          "Arguments": [
+                            {
+                              "Arguments": [
+                                {
+                                  "Name": "destination",
+                                  "Description": "destination",
+                                  "Type": "String"
+                                }
+                              ]
+                            }
+                          ]
+                        }
+                      ],
+                      "Optional": true
+                    }
+                  ]
+                },
+                {
+                  "Name": "preference",
+                  "Description": "Set a preference",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "set",
+                  "Description": "Set Now page content",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "--filename",
+                          "Description": "File to read Now page from (default stdin)",
+                          "Aliases": [
+                            "-f"
+                          ],
+                          "Arguments": [
+                            {
+                              "Arguments": [
+                                {
+                                  "Name": "filename",
+                                  "Description": "filename",
+                                  "Type": "FileSystemEntry"
+                                }
+                              ]
+                            }
+                          ]
+                        },
+                        {
+                          "Name": "--listed",
+                          "Description": "Create Now page as listed (default false)",
+                          "Aliases": [
+                            "-l"
+                          ],
+                          "Arguments": []
+                        }
+                      ],
+                      "Optional": true
+                    }
+                  ]
+                },
+                {
+                  "Name": "status",
+                  "Description": "Update a status",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "--emoji",
+                          "Description": "Emoji to add to status (default sparkles)",
+                          "Aliases": [
+                            "-e"
+                          ],
+                          "Arguments": [
+                            {
+                              "Arguments": [
+                                {
+                                  "Name": "emoji",
+                                  "Description": "emoji",
+                                  "Type": "String"
+                                }
+                              ]
+                            }
+                          ]
+                        }
+                      ],
+                      "Optional": true
+                    }
+                  ]
+                },
+                {
+                  "Name": "status-bio",
+                  "Description": "Update your status bio",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "web",
+                  "Description": "Set webpage content",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "--filename",
+                          "Description": "File to read webpage from (default stdin)",
+                          "Aliases": [
+                            "-f"
+                          ],
+                          "Arguments": [
+                            {
+                              "Arguments": [
+                                {
+                                  "Name": "filename",
+                                  "Description": "filename",
+                                  "Type": "FileSystemEntry"
+                                }
+                              ]
+                            }
+                          ]
+                        },
+                        {
+                          "Name": "--publish",
+                          "Description": "Publish the updated page (default false)",
+                          "Aliases": [
+                            "-p"
+                          ],
+                          "Arguments": []
+                        }
+                      ],
+                      "Optional": true
+                    },
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "pfp",
+                          "Description": "Set your profile picture",
+                          "Aliases": [],
+                          "Arguments": []
+                        }
+                      ],
+                      "DontAllowMultiple": true
+                    }
+                  ]
+                },
+                {
+                  "Name": "weblog",
+                  "Description": "Set your weblog config",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "config",
+                          "Description": "Set your weblog config",
+                          "Aliases": [],
+                          "Arguments": [
+                            {
+                              "Arguments": [
+                                {
+                                  "Name": "--filename",
+                                  "Description": "File to read config from (default stdin)",
+                                  "Aliases": [
+                                    "-f"
+                                  ],
+                                  "Arguments": [
+                                    {
+                                      "Arguments": [
+                                        {
+                                          "Name": "filename",
+                                          "Description": "filename",
+                                          "Type": "FileSystemEntry"
+                                        }
+                                      ]
+                                    }
+                                  ]
+                                }
+                              ],
+                              "Optional": true
+                            }
+                          ]
+                        },
+                        {
+                          "Name": "template",
+                          "Description": "Set your weblog template",
+                          "Aliases": [],
+                          "Arguments": [
+                            {
+                              "Arguments": [
+                                {
+                                  "Name": "--filename",
+                                  "Description": "File to read template from (default stdin)",
+                                  "Aliases": [
+                                    "-f"
+                                  ],
+                                  "Arguments": [
+                                    {
+                                      "Arguments": [
+                                        {
+                                          "Name": "filename",
+                                          "Description": "filename",
+                                          "Type": "FileSystemEntry"
+                                        }
+                                      ]
+                                    }
+                                  ]
+                                }
+                              ],
+                              "Optional": true
+                            }
+                          ]
+                        }
+                      ],
+                      "DontAllowMultiple": true
+                    }
+                  ]
+                }
+              ],
+              "DontAllowMultiple": true
+            }
+          ]
+        },
+        {
+          "Name": "help",
+          "Description": "Help about any command",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "create",
+                  "Description": "Create things",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "dns",
+                          "Description": "Create a DNS record",
+                          "Aliases": [],
+                          "Arguments": []
+                        },
+                        {
+                          "Name": "paste",
+                          "Description": "Create or update a paste",
+                          "Aliases": [],
+                          "Arguments": []
+                        },
+                        {
+                          "Name": "purl",
+                          "Description": "Create a PURL",
+                          "Aliases": [],
+                          "Arguments": []
+                        },
+                        {
+                          "Name": "status",
+                          "Description": "Create a status",
+                          "Aliases": [],
+                          "Arguments": []
+                        },
+                        {
+                          "Name": "weblog",
+                          "Description": "Create a weblog entry",
+                          "Aliases": [],
+                          "Arguments": []
+                        }
+                      ],
+                      "DontAllowMultiple": true
+                    }
+                  ]
+                },
+                {
+                  "Name": "delete",
+                  "Description": "Delete things",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "account",
+                          "Description": "Delete information about your account",
+                          "Aliases": [],
+                          "Arguments": [
+                            {
+                              "Arguments": [
+                                {
+                                  "Name": "session",
+                                  "Description": "Delete a session",
+                                  "Aliases": [],
+                                  "Arguments": []
+                                }
+                              ],
+                              "DontAllowMultiple": true
+                            }
+                          ]
+                        },
+                        {
+                          "Name": "dns",
+                          "Description": "Delete a DNS record",
+                          "Aliases": [],
+                          "Arguments": []
+                        },
+                        {
+                          "Name": "paste",
+                          "Description": "Delete a paste",
+                          "Aliases": [],
+                          "Arguments": []
+                        },
+                        {
+                          "Name": "purl",
+                          "Description": "Delete a PURL",
+                          "Aliases": [],
+                          "Arguments": []
+                        },
+                        {
+                          "Name": "weblog",
+                          "Description": "Delete a weblog entry",
+                          "Aliases": [],
+                          "Arguments": []
+                        }
+                      ],
+                      "DontAllowMultiple": true
+                    }
+                  ]
+                },
+                {
+                  "Name": "get",
+                  "Description": "Get things",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "account",
+                          "Description": "Get information about your account",
+                          "Aliases": [],
+                          "Arguments": [
+                            {
+                              "Arguments": [
+                                {
+                                  "Name": "info",
+                                  "Description": "Get info about your account",
+                                  "Aliases": [],
+                                  "Arguments": []
+                                },
+                                {
+                                  "Name": "name",
+                                  "Description": "Get your account name",
+                                  "Aliases": [],
+                                  "Arguments": []
+                                },
+                                {
+                                  "Name": "settings",
+                                  "Description": "Get your account settings",
+                                  "Aliases": [],
+                                  "Arguments": []
+                                }
+                              ],
+                              "DontAllowMultiple": true
+                            }
+                          ]
+                        },
+                        {
+                          "Name": "address",
+                          "Description": "Get information about an address",
+                          "Aliases": [],
+                          "Arguments": [
+                            {
+                              "Arguments": [
+                                {
+                                  "Name": "availability",
+                                  "Description": "Get address availability",
+                                  "Aliases": [],
+                                  "Arguments": []
+                                },
+                                {
+                                  "Name": "expiration",
+                                  "Description": "Get address expiration",
+                                  "Aliases": [],
+                                  "Arguments": []
+                                },
+                                {
+                                  "Name": "info",
+                                  "Description": "Get information about an address",
+                                  "Aliases": [],
+                                  "Arguments": [
+                                    {
+                                      "Arguments": [
+                                        {
+                                          "Name": "private",
+                                          "Description": "Get private information about an address",
+                                          "Aliases": [],
+                                          "Arguments": []
+                                        },
+                                        {
+                                          "Name": "public",
+                                          "Description": "Get public information about an address",
+                                          "Aliases": [],
+                                          "Arguments": []
+                                        }
+                                      ],
+                                      "DontAllowMultiple": true
+                                    }
+                                  ]
+                                }
+                              ],
+                              "DontAllowMultiple": true
+                            }
+                          ]
+                        },
+                        {
+                          "Name": "email",
+                          "Description": "Get email forwarding address(es)",
+                          "Aliases": [],
+                          "Arguments": []
+                        },
+                        {
+                          "Name": "now",
+                          "Description": "Get a Now page",
+                          "Aliases": [],
+                          "Arguments": []
+                        },
+                        {
+                          "Name": "paste",
+                          "Description": "Get a paste",
+                          "Aliases": [],
+                          "Arguments": []
+                        },
+                        {
+                          "Name": "purl",
+                          "Description": "Get a PURL",
+                          "Aliases": [],
+                          "Arguments": []
+                        },
+                        {
+                          "Name": "service",
+                          "Description": "Get service stats",
+                          "Aliases": [],
+                          "Arguments": []
+                        },
+                        {
+                          "Name": "status",
+                          "Description": "Get status",
+                          "Aliases": [],
+                          "Arguments": []
+                        },
+                        {
+                          "Name": "status-bio",
+                          "Description": "Get status bio",
+                          "Aliases": [],
+                          "Arguments": []
+                        },
+                        {
+                          "Name": "theme",
+                          "Description": "Get theme information",
+                          "Aliases": [],
+                          "Arguments": [
+                            {
+                              "Arguments": [
+                                {
+                                  "Name": "preview",
+                                  "Description": "Get theme preview",
+                                  "Aliases": [],
+                                  "Arguments": []
+                                }
+                              ],
+                              "DontAllowMultiple": true
+                            }
+                          ]
+                        },
+                        {
+                          "Name": "web",
+                          "Description": "Get your webpage content",
+                          "Aliases": [],
+                          "Arguments": []
+                        },
+                        {
+                          "Name": "weblog",
+                          "Description": "Get a weblog entry",
+                          "Aliases": [],
+                          "Arguments": [
+                            {
+                              "Arguments": [
+                                {
+                                  "Name": "config",
+                                  "Description": "Get your weblog config",
+                                  "Aliases": [],
+                                  "Arguments": []
+                                },
+                                {
+                                  "Name": "latest",
+                                  "Description": "Get the latest weblog entry",
+                                  "Aliases": [],
+                                  "Arguments": []
+                                },
+                                {
+                                  "Name": "template",
+                                  "Description": "Get your weblog template",
+                                  "Aliases": [],
+                                  "Arguments": []
+                                }
+                              ],
+                              "DontAllowMultiple": true
+                            }
+                          ]
+                        }
+                      ],
+                      "DontAllowMultiple": true
+                    }
+                  ]
+                },
+                {
+                  "Name": "list",
+                  "Description": "List things",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "account",
+                          "Description": "List information about your account",
+                          "Aliases": [],
+                          "Arguments": [
+                            {
+                              "Arguments": [
+                                {
+                                  "Name": "addresses",
+                                  "Description": "List your addresses",
+                                  "Aliases": [],
+                                  "Arguments": []
+                                },
+                                {
+                                  "Name": "sessions",
+                                  "Description": "List your sessions",
+                                  "Aliases": [],
+                                  "Arguments": []
+                                }
+                              ],
+                              "DontAllowMultiple": true
+                            }
+                          ]
+                        },
+                        {
+                          "Name": "directory",
+                          "Description": "List the address directory",
+                          "Aliases": [],
+                          "Arguments": []
+                        },
+                        {
+                          "Name": "dns",
+                          "Description": "List your dns records",
+                          "Aliases": [],
+                          "Arguments": []
+                        },
+                        {
+                          "Name": "now",
+                          "Description": "List Now pages",
+                          "Aliases": [],
+                          "Arguments": []
+                        },
+                        {
+                          "Name": "paste",
+                          "Description": "List pastes",
+                          "Aliases": [],
+                          "Arguments": []
+                        },
+                        {
+                          "Name": "purl",
+                          "Description": "List all PURLs",
+                          "Aliases": [],
+                          "Arguments": []
+                        },
+                        {
+                          "Name": "status",
+                          "Description": "List statuses",
+                          "Aliases": [],
+                          "Arguments": []
+                        },
+                        {
+                          "Name": "statuslog",
+                          "Description": "List the statuslog",
+                          "Aliases": [],
+                          "Arguments": []
+                        },
+                        {
+                          "Name": "theme",
+                          "Description": "List profile themes",
+                          "Aliases": [],
+                          "Arguments": []
+                        },
+                        {
+                          "Name": "weblog",
+                          "Description": "List all weblog entries",
+                          "Aliases": [],
+                          "Arguments": []
+                        }
+                      ],
+                      "DontAllowMultiple": true
+                    }
+                  ]
+                },
+                {
+                  "Name": "update",
+                  "Description": "Update things",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "account",
+                          "Description": "Update information about your account",
+                          "Aliases": [],
+                          "Arguments": [
+                            {
+                              "Arguments": [
+                                {
+                                  "Name": "name",
+                                  "Description": "Set the name on your account",
+                                  "Aliases": [],
+                                  "Arguments": [
+                                    {
+                                      "Arguments": [
+                                        {
+                                          "Name": "name",
+                                          "Description": "name",
+                                          "Type": "String"
+                                        }
+                                      ]
+                                    }
+                                  ]
+                                },
+                                {
+                                  "Name": "settings",
+                                  "Description": "Set the settings on your account",
+                                  "Aliases": [],
+                                  "Arguments": []
+                                }
+                              ],
+                              "DontAllowMultiple": true
+                            }
+                          ]
+                        },
+                        {
+                          "Name": "dns",
+                          "Description": "Update a DNS record",
+                          "Aliases": [],
+                          "Arguments": [
+                            {
+                              "Arguments": [
+                                {
+                                  "Name": "id",
+                                  "Description": "id",
+                                  "Type": "String"
+                                }
+                              ]
+                            },
+                            {
+                              "Arguments": [
+                                {
+                                  "Name": "name",
+                                  "Description": "name",
+                                  "Type": "String"
+                                }
+                              ]
+                            },
+                            {
+                              "Arguments": [
+                                {
+                                  "Name": "type",
+                                  "Description": "type",
+                                  "Type": "String"
+                                }
+                              ]
+                            },
+                            {
+                              "Arguments": [
+                                {
+                                  "Name": "data",
+                                  "Description": "data",
+                                  "Type": "String"
+                                }
+                              ]
+                            }
+                          ]
+                        },
+                        {
+                          "Name": "email",
+                          "Description": "Set email forwarding address(es)",
+                          "Aliases": [],
+                          "Arguments": [
+                            {
+                              "Arguments": [
+                                {
+                                  "Name": "address",
+                                  "Description": "address",
+                                  "Type": "String"
+                                }
+                              ]
+                            }
+                          ]
+                        },
+                        {
+                          "Name": "preference",
+                          "Description": "Set a preference",
+                          "Aliases": [],
+                          "Arguments": [
+                            {
+                              "Arguments": [
+                                {
+                                  "Name": "item",
+                                  "Description": "item",
+                                  "Type": "String"
+                                }
+                              ]
+                            },
+                            {
+                              "Arguments": [
+                                {
+                                  "Name": "value",
+                                  "Description": "value",
+                                  "Type": "String"
+                                }
+                              ]
+                            }
+                          ]
+                        },
+                        {
+                          "Name": "now",
+                          "Description": "Update Now page content",
+                          "Aliases": [],
+                          "Arguments": []
+                        },
+                        {
+                          "Name": "status",
+                          "Description": "Update a status",
+                          "Aliases": [],
+                          "Arguments": [
+                            {
+                              "Arguments": [
+                                {
+                                  "Name": "id",
+                                  "Description": "id",
+                                  "Type": "String"
+                                }
+                              ]
+                            },
+                            {
+                              "Arguments": [
+                                {
+                                  "Name": "text",
+                                  "Description": "text",
+                                  "Type": "String"
+                                }
+                              ]
+                            }
+                          ]
+                        },
+                        {
+                          "Name": "status-bio",
+                          "Description": "Update your status bio",
+                          "Aliases": [],
+                          "Arguments": [
+                            {
+                              "Arguments": [
+                                {
+                                  "Name": "text",
+                                  "Description": "text",
+                                  "Type": "String"
+                                }
+                              ]
+                            }
+                          ]
+                        },
+                        {
+                          "Name": "web",
+                          "Description": "Set webpage content",
+                          "Aliases": [],
+                          "Arguments": [
+                            {
+                              "Arguments": [
+                                {
+                                  "Name": "pfp",
+                                  "Description": "Set your profile picture",
+                                  "Aliases": [],
+                                  "Arguments": [
+                                    {
+                                      "Arguments": [
+                                        {
+                                          "Name": "filename",
+                                          "Description": "filename",
+                                          "Type": "FileSystemEntry"
+                                        }
+                                      ]
+                                    }
+                                  ]
+                                }
+                              ],
+                              "DontAllowMultiple": true
+                            }
+                          ]
+                        },
+                        {
+                          "Name": "weblog",
+                          "Description": "Set your weblog config",
+                          "Aliases": [],
+                          "Arguments": [
+                            {
+                              "Arguments": [
+                                {
+                                  "Name": "config",
+                                  "Description": "Set your weblog config",
+                                  "Aliases": [],
+                                  "Arguments": []
+                                },
+                                {
+                                  "Name": "template",
+                                  "Description": "Set your weblog template",
+                                  "Aliases": [],
+                                  "Arguments": []
+                                }
+                              ],
+                              "DontAllowMultiple": true
+                            }
+                          ]
+                        }
+                      ],
+                      "DontAllowMultiple": true
+                    }
+                  ]
+                }
+              ],
+              "DontAllowMultiple": true
+            }
+          ]
+        }
+      ],
+      "DontAllowMultiple": true
+    }
+  ]
+}

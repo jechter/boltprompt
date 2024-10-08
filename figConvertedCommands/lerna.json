@@ -1,0 +1,2560 @@
+{
+  "Comment": "This command info is generated from fig",
+  "Name": "lerna",
+  "Description": "A tool for managing JavaScript projects with multiple packages",
+  "Arguments": [
+    {
+      "Arguments": [
+        {
+          "Name": "init",
+          "Description": "Create a new lerna repo or upgrade an existing repo to the current version of Lerna",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "--concurrency",
+                  "Description": "How many threads to use when Lerna parallelizes the tasks (defaults to count of logical CPU cores)",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "--loglevel",
+                  "Description": "What level of logs to report. On failure, all logs are written to lerna-debug.log in the current working directory",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "loglevel",
+                          "Description": "loglevel",
+                          "Type": "String"
+                        },
+                        {
+                          "Name": "silent",
+                          "Description": "loglevel"
+                        },
+                        {
+                          "Name": "error",
+                          "Description": "loglevel"
+                        },
+                        {
+                          "Name": "warn",
+                          "Description": "loglevel"
+                        },
+                        {
+                          "Name": "success",
+                          "Description": "loglevel"
+                        },
+                        {
+                          "Name": "info",
+                          "Description": "loglevel"
+                        },
+                        {
+                          "Name": "verbose",
+                          "Description": "loglevel"
+                        },
+                        {
+                          "Name": "silly",
+                          "Description": "loglevel"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "--max-buffer",
+                  "Description": "Set a max buffer length for each underlying process call",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "bytes",
+                          "Description": "bytes",
+                          "Type": "String"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "--no-progress",
+                  "Description": "Disable progress bars. This is always the case in a CI environment",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "--no-sort",
+                  "Description": "The --no-sort option disables sorting, instead executing tasks in an arbitrary order with maximum concurrency",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "--reject-cycles",
+                  "Description": "Fail immediately if a cycle is found (in bootstrap, exec, publish or run)",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "-h",
+                  "Description": "Show help",
+                  "Aliases": [
+                    "--help"
+                  ],
+                  "Arguments": []
+                },
+                {
+                  "Name": "-v",
+                  "Description": "Show version number",
+                  "Aliases": [
+                    "--version"
+                  ],
+                  "Arguments": []
+                },
+                {
+                  "Name": "--npm-client",
+                  "Description": "The exececutable to run the script with",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "client",
+                          "Description": "client",
+                          "Type": "String"
+                        },
+                        {
+                          "Name": "npm",
+                          "Description": "client"
+                        },
+                        {
+                          "Name": "yarn",
+                          "Description": "client"
+                        },
+                        {
+                          "Name": "pnpm",
+                          "Description": "client"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "-i",
+                  "Description": "Use independent versioning mode",
+                  "Aliases": [
+                    "--independent"
+                  ],
+                  "Arguments": []
+                },
+                {
+                  "Name": "--exact",
+                  "Description": "Set the exact version of lerna in the package.json file",
+                  "Aliases": [],
+                  "Arguments": []
+                }
+              ],
+              "Optional": true
+            }
+          ]
+        },
+        {
+          "Name": "bootstrap",
+          "Description": "Bootstrap the packages in the current Lerna repo. Installing all their dependencies and linking any cross-dependencies",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "--scope",
+                  "Description": "Include only packages with names matching the given glob",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "glob",
+                          "Description": "glob",
+                          "Type": "CustomArgument",
+                          "Extensions": [],
+                          "CustomCommand": "lerna ls"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "--ignore",
+                  "Description": "Exclude packages with names matching the given glob",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "glob",
+                          "Description": "glob",
+                          "Type": "CustomArgument",
+                          "Extensions": [],
+                          "CustomCommand": "lerna ls"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "--no-private",
+                  "Description": "Exclude private packages. They are included by default",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "--since",
+                  "Description": "Only include packages that have been changed since the specified ref. If no ref is passed, it defaults to the most-recent tag",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "ref",
+                          "Description": "ref",
+                          "Type": "String"
+                        }
+                      ],
+                      "Optional": true
+                    }
+                  ]
+                },
+                {
+                  "Name": "--exclude-dependents",
+                  "Description": "Exclude all transitive dependents when running a command with --since, overriding the default \u0027changed\u0027 algorithm",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "--include-dependents",
+                  "Description": "Exclude all transitive dependents when running a command with --since, overriding the default \u0027changed\u0027 algorithm",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "--include-dependencies",
+                  "Description": "Include all transitive dependencies when running a command regardless of --scope, --ignore, or --since",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "--include-merged-tags",
+                  "Description": "Include tags from merged branches when running a command with --since. This is only useful if you do a lot of publishing from feature branches, which is not generally recommended",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "--npm-client",
+                  "Description": "The exececutable to run the script with",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "client",
+                          "Description": "client",
+                          "Type": "String"
+                        },
+                        {
+                          "Name": "npm",
+                          "Description": "client"
+                        },
+                        {
+                          "Name": "yarn",
+                          "Description": "client"
+                        },
+                        {
+                          "Name": "pnpm",
+                          "Description": "client"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "--hoist",
+                  "Description": "Install external dependencies matching glob at the repo root so they\u0027re available to all packages",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "glob",
+                          "Description": "glob",
+                          "Type": "String"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "--nohoist",
+                  "Description": "Do not install external dependencies matching glob at the repo root. This can be used to opt out of hoisting for certain dependencies",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "glob",
+                          "Description": "glob",
+                          "Type": "String"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "--strict",
+                  "Description": "When used in conjunction with hoist will throw an error and stop bootstrapping after emitting the version warnings. Has no effect if you aren\u0027t hoisting, or if there are no version warnings",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "--ignore-prepublish",
+                  "Description": "Skip prepublish lifecycle scripts run by default in bootstrapped packages",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "--ignore-scripts",
+                  "Description": "Skip any lifecycle scripts normally run (prepare, etc) in bootstrapped packages",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "--registry",
+                  "Description": "Forwarded npm commands will use the specified registry for your package(s)",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "url",
+                          "Description": "url",
+                          "Type": "String"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "--use-workspaces",
+                  "Description": "Enables integration with Yarn Workspaces",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "--no-ci",
+                  "Description": "Disable usage of \u0060npm ci\u0060 in CI environments",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "--force-local",
+                  "Description": "When passed, this flag causes the bootstrap command to always symlink local dependencies regardless of matching version range",
+                  "Aliases": [],
+                  "Arguments": []
+                }
+              ],
+              "Optional": true
+            }
+          ]
+        },
+        {
+          "Name": "import",
+          "Description": "Import the package in the local path \u003CpathToRepo\u003E into packages/\u003Cdirectory-name\u003E with commit history",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "--concurrency",
+                  "Description": "How many threads to use when Lerna parallelizes the tasks (defaults to count of logical CPU cores)",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "--loglevel",
+                  "Description": "What level of logs to report. On failure, all logs are written to lerna-debug.log in the current working directory",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "loglevel",
+                          "Description": "loglevel",
+                          "Type": "String"
+                        },
+                        {
+                          "Name": "silent",
+                          "Description": "loglevel"
+                        },
+                        {
+                          "Name": "error",
+                          "Description": "loglevel"
+                        },
+                        {
+                          "Name": "warn",
+                          "Description": "loglevel"
+                        },
+                        {
+                          "Name": "success",
+                          "Description": "loglevel"
+                        },
+                        {
+                          "Name": "info",
+                          "Description": "loglevel"
+                        },
+                        {
+                          "Name": "verbose",
+                          "Description": "loglevel"
+                        },
+                        {
+                          "Name": "silly",
+                          "Description": "loglevel"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "--max-buffer",
+                  "Description": "Set a max buffer length for each underlying process call",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "bytes",
+                          "Description": "bytes",
+                          "Type": "String"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "--no-progress",
+                  "Description": "Disable progress bars. This is always the case in a CI environment",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "--no-sort",
+                  "Description": "The --no-sort option disables sorting, instead executing tasks in an arbitrary order with maximum concurrency",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "--reject-cycles",
+                  "Description": "Fail immediately if a cycle is found (in bootstrap, exec, publish or run)",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "-h",
+                  "Description": "Show help",
+                  "Aliases": [
+                    "--help"
+                  ],
+                  "Arguments": []
+                },
+                {
+                  "Name": "-v",
+                  "Description": "Show version number",
+                  "Aliases": [
+                    "--version"
+                  ],
+                  "Arguments": []
+                },
+                {
+                  "Name": "--flatten",
+                  "Description": "Flatten the git history of the repository to import",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "--dest",
+                  "Description": "Specify the destination directory by the directory listed in lerna.json",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "--preserve-commit",
+                  "Description": "Preserve the original committer and commit date",
+                  "Aliases": [],
+                  "Arguments": []
+                }
+              ],
+              "Optional": true
+            },
+            {
+              "Arguments": [
+                {
+                  "Name": "pathToRepo",
+                  "Description": "pathToRepo",
+                  "Type": "Directory"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "Name": "publish",
+          "Description": "Create a new release of the packages that have been updated. Prompts for a new version and updates all the packages on git and npm",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "--concurrency",
+                  "Description": "How many threads to use when Lerna parallelizes the tasks (defaults to count of logical CPU cores)",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "--loglevel",
+                  "Description": "What level of logs to report. On failure, all logs are written to lerna-debug.log in the current working directory",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "loglevel",
+                          "Description": "loglevel",
+                          "Type": "String"
+                        },
+                        {
+                          "Name": "silent",
+                          "Description": "loglevel"
+                        },
+                        {
+                          "Name": "error",
+                          "Description": "loglevel"
+                        },
+                        {
+                          "Name": "warn",
+                          "Description": "loglevel"
+                        },
+                        {
+                          "Name": "success",
+                          "Description": "loglevel"
+                        },
+                        {
+                          "Name": "info",
+                          "Description": "loglevel"
+                        },
+                        {
+                          "Name": "verbose",
+                          "Description": "loglevel"
+                        },
+                        {
+                          "Name": "silly",
+                          "Description": "loglevel"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "--max-buffer",
+                  "Description": "Set a max buffer length for each underlying process call",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "bytes",
+                          "Description": "bytes",
+                          "Type": "String"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "--no-progress",
+                  "Description": "Disable progress bars. This is always the case in a CI environment",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "--no-sort",
+                  "Description": "The --no-sort option disables sorting, instead executing tasks in an arbitrary order with maximum concurrency",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "--reject-cycles",
+                  "Description": "Fail immediately if a cycle is found (in bootstrap, exec, publish or run)",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "-h",
+                  "Description": "Show help",
+                  "Aliases": [
+                    "--help"
+                  ],
+                  "Arguments": []
+                },
+                {
+                  "Name": "-v",
+                  "Description": "Show version number",
+                  "Aliases": [
+                    "--version"
+                  ],
+                  "Arguments": []
+                },
+                {
+                  "Name": "--npm-tag",
+                  "Description": "Publish to npm with the given npm dist-tag (Defaults to latest)",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "tagname",
+                          "Description": "tagname",
+                          "Type": "String"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "--canary",
+                  "Description": "Create a canary release",
+                  "Aliases": [
+                    "-c"
+                  ],
+                  "Arguments": []
+                },
+                {
+                  "Name": "--skip-git",
+                  "Description": "Don\u0027t run any git commands",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "--force-publish",
+                  "Description": "Force publish for the specified packages (comma-separated)",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "packages",
+                          "Description": "packages",
+                          "Type": "CustomArgument",
+                          "Extensions": [],
+                          "CustomCommand": "lerna ls"
+                        },
+                        {
+                          "Name": "*",
+                          "Description": "Select all packages"
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ],
+              "Optional": true
+            }
+          ]
+        },
+        {
+          "Name": "ls",
+          "Description": "List local packages",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "--json",
+                  "Description": "Show information as a JSON array",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "--ndjson",
+                  "Description": "Show information as newline-delimited JSON",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "-a",
+                  "Description": "Show all packages (including private)",
+                  "Aliases": [
+                    "-all"
+                  ],
+                  "Arguments": []
+                },
+                {
+                  "Name": "-l",
+                  "Description": "Show extended information",
+                  "Aliases": [
+                    "--long"
+                  ],
+                  "Arguments": []
+                },
+                {
+                  "Name": "-p",
+                  "Description": "Show parseable output instead of columnified view",
+                  "Aliases": [
+                    "--parseable"
+                  ],
+                  "Arguments": []
+                },
+                {
+                  "Name": "--toposort",
+                  "Description": "Sort packages in topological order (dependencies before dependents) instead of lexical by directory",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "--graph",
+                  "Description": "Show dependency graph as a JSON-formatted adjacency list",
+                  "Aliases": [],
+                  "Arguments": []
+                }
+              ],
+              "Optional": true
+            }
+          ]
+        },
+        {
+          "Name": "ll",
+          "Description": "List local packages",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "--json",
+                  "Description": "Show information as a JSON array",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "--ndjson",
+                  "Description": "Show information as newline-delimited JSON",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "-a",
+                  "Description": "Show all packages (including private)",
+                  "Aliases": [
+                    "-all"
+                  ],
+                  "Arguments": []
+                },
+                {
+                  "Name": "-l",
+                  "Description": "Show extended information",
+                  "Aliases": [
+                    "--long"
+                  ],
+                  "Arguments": []
+                },
+                {
+                  "Name": "-p",
+                  "Description": "Show parseable output instead of columnified view",
+                  "Aliases": [
+                    "--parseable"
+                  ],
+                  "Arguments": []
+                },
+                {
+                  "Name": "--toposort",
+                  "Description": "Sort packages in topological order (dependencies before dependents) instead of lexical by directory",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "--graph",
+                  "Description": "Show dependency graph as a JSON-formatted adjacency list",
+                  "Aliases": [],
+                  "Arguments": []
+                }
+              ],
+              "Optional": true
+            }
+          ]
+        },
+        {
+          "Name": "la",
+          "Description": "List local packages",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "--json",
+                  "Description": "Show information as a JSON array",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "--ndjson",
+                  "Description": "Show information as newline-delimited JSON",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "-a",
+                  "Description": "Show all packages (including private)",
+                  "Aliases": [
+                    "-all"
+                  ],
+                  "Arguments": []
+                },
+                {
+                  "Name": "-l",
+                  "Description": "Show extended information",
+                  "Aliases": [
+                    "--long"
+                  ],
+                  "Arguments": []
+                },
+                {
+                  "Name": "-p",
+                  "Description": "Show parseable output instead of columnified view",
+                  "Aliases": [
+                    "--parseable"
+                  ],
+                  "Arguments": []
+                },
+                {
+                  "Name": "--toposort",
+                  "Description": "Sort packages in topological order (dependencies before dependents) instead of lexical by directory",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "--graph",
+                  "Description": "Show dependency graph as a JSON-formatted adjacency list",
+                  "Aliases": [],
+                  "Arguments": []
+                }
+              ],
+              "Optional": true
+            }
+          ]
+        },
+        {
+          "Name": "list",
+          "Description": "List local packages",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "--json",
+                  "Description": "Show information as a JSON array",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "--ndjson",
+                  "Description": "Show information as newline-delimited JSON",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "-a",
+                  "Description": "Show all packages (including private)",
+                  "Aliases": [
+                    "-all"
+                  ],
+                  "Arguments": []
+                },
+                {
+                  "Name": "-l",
+                  "Description": "Show extended information",
+                  "Aliases": [
+                    "--long"
+                  ],
+                  "Arguments": []
+                },
+                {
+                  "Name": "-p",
+                  "Description": "Show parseable output instead of columnified view",
+                  "Aliases": [
+                    "--parseable"
+                  ],
+                  "Arguments": []
+                },
+                {
+                  "Name": "--toposort",
+                  "Description": "Sort packages in topological order (dependencies before dependents) instead of lexical by directory",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "--graph",
+                  "Description": "Show dependency graph as a JSON-formatted adjacency list",
+                  "Aliases": [],
+                  "Arguments": []
+                }
+              ],
+              "Optional": true
+            }
+          ]
+        },
+        {
+          "Name": "changed",
+          "Description": "Check which packages have changed since the last release",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "--concurrency",
+                  "Description": "How many threads to use when Lerna parallelizes the tasks (defaults to count of logical CPU cores)",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "--loglevel",
+                  "Description": "What level of logs to report. On failure, all logs are written to lerna-debug.log in the current working directory",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "loglevel",
+                          "Description": "loglevel",
+                          "Type": "String"
+                        },
+                        {
+                          "Name": "silent",
+                          "Description": "loglevel"
+                        },
+                        {
+                          "Name": "error",
+                          "Description": "loglevel"
+                        },
+                        {
+                          "Name": "warn",
+                          "Description": "loglevel"
+                        },
+                        {
+                          "Name": "success",
+                          "Description": "loglevel"
+                        },
+                        {
+                          "Name": "info",
+                          "Description": "loglevel"
+                        },
+                        {
+                          "Name": "verbose",
+                          "Description": "loglevel"
+                        },
+                        {
+                          "Name": "silly",
+                          "Description": "loglevel"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "--max-buffer",
+                  "Description": "Set a max buffer length for each underlying process call",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "bytes",
+                          "Description": "bytes",
+                          "Type": "String"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "--no-progress",
+                  "Description": "Disable progress bars. This is always the case in a CI environment",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "--no-sort",
+                  "Description": "The --no-sort option disables sorting, instead executing tasks in an arbitrary order with maximum concurrency",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "--reject-cycles",
+                  "Description": "Fail immediately if a cycle is found (in bootstrap, exec, publish or run)",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "-h",
+                  "Description": "Show help",
+                  "Aliases": [
+                    "--help"
+                  ],
+                  "Arguments": []
+                },
+                {
+                  "Name": "-v",
+                  "Description": "Show version number",
+                  "Aliases": [
+                    "--version"
+                  ],
+                  "Arguments": []
+                }
+              ],
+              "Optional": true
+            },
+            {
+              "Arguments": [
+                {
+                  "Name": "package",
+                  "Description": "package",
+                  "Type": "CustomArgument",
+                  "Extensions": [],
+                  "CustomCommand": "lerna ls"
+                }
+              ],
+              "Optional": true
+            }
+          ]
+        },
+        {
+          "Name": "run",
+          "Description": "Run an npm script in each package that contains that script",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "--concurrency",
+                  "Description": "How many threads to use when Lerna parallelizes the tasks (defaults to count of logical CPU cores)",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "--loglevel",
+                  "Description": "What level of logs to report. On failure, all logs are written to lerna-debug.log in the current working directory",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "loglevel",
+                          "Description": "loglevel",
+                          "Type": "String"
+                        },
+                        {
+                          "Name": "silent",
+                          "Description": "loglevel"
+                        },
+                        {
+                          "Name": "error",
+                          "Description": "loglevel"
+                        },
+                        {
+                          "Name": "warn",
+                          "Description": "loglevel"
+                        },
+                        {
+                          "Name": "success",
+                          "Description": "loglevel"
+                        },
+                        {
+                          "Name": "info",
+                          "Description": "loglevel"
+                        },
+                        {
+                          "Name": "verbose",
+                          "Description": "loglevel"
+                        },
+                        {
+                          "Name": "silly",
+                          "Description": "loglevel"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "--max-buffer",
+                  "Description": "Set a max buffer length for each underlying process call",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "bytes",
+                          "Description": "bytes",
+                          "Type": "String"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "--no-progress",
+                  "Description": "Disable progress bars. This is always the case in a CI environment",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "--no-sort",
+                  "Description": "The --no-sort option disables sorting, instead executing tasks in an arbitrary order with maximum concurrency",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "--reject-cycles",
+                  "Description": "Fail immediately if a cycle is found (in bootstrap, exec, publish or run)",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "-h",
+                  "Description": "Show help",
+                  "Aliases": [
+                    "--help"
+                  ],
+                  "Arguments": []
+                },
+                {
+                  "Name": "-v",
+                  "Description": "Show version number",
+                  "Aliases": [
+                    "--version"
+                  ],
+                  "Arguments": []
+                },
+                {
+                  "Name": "--scope",
+                  "Description": "Include only packages with names matching the given glob",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "glob",
+                          "Description": "glob",
+                          "Type": "CustomArgument",
+                          "Extensions": [],
+                          "CustomCommand": "lerna ls"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "--ignore",
+                  "Description": "Exclude packages with names matching the given glob",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "glob",
+                          "Description": "glob",
+                          "Type": "CustomArgument",
+                          "Extensions": [],
+                          "CustomCommand": "lerna ls"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "--no-private",
+                  "Description": "Exclude private packages. They are included by default",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "--since",
+                  "Description": "Only include packages that have been changed since the specified ref. If no ref is passed, it defaults to the most-recent tag",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "ref",
+                          "Description": "ref",
+                          "Type": "String"
+                        }
+                      ],
+                      "Optional": true
+                    }
+                  ]
+                },
+                {
+                  "Name": "--exclude-dependents",
+                  "Description": "Exclude all transitive dependents when running a command with --since, overriding the default \u0027changed\u0027 algorithm",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "--include-dependents",
+                  "Description": "Exclude all transitive dependents when running a command with --since, overriding the default \u0027changed\u0027 algorithm",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "--include-dependencies",
+                  "Description": "Include all transitive dependencies when running a command regardless of --scope, --ignore, or --since",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "--include-merged-tags",
+                  "Description": "Include tags from merged branches when running a command with --since. This is only useful if you do a lot of publishing from feature branches, which is not generally recommended",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "--stream",
+                  "Description": "Stream output from child processes immediately, prefixed with the originating package name. This allows output from different packages to be interleaved",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "--parallel",
+                  "Description": "Similar to --stream, but completely disregards concurrency and topological sorting, running a given command or script immediately in all matching packages with prefixed streaming output",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "--no-bail",
+                  "Description": "By default, lerna run will exit with an error if any script run returns a non-zero exit code. Pass --no-bail to disable this behavior, running the script in all packages that contain it regardless of exit code",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "--no-prefix",
+                  "Description": "Disable package name prefixing when output is streaming (--stream or --parallel). This option can be useful when piping results to other processes, such as editor plugins",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "--profile",
+                  "Description": "Profiles the script executions and produces a performance profile which can be analyzed using DevTools",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "--profile-location",
+                  "Description": "You can provide a custom location for the performance profile output. The path provided will be resolved relative to the current working directory",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "location",
+                          "Description": "location",
+                          "Type": "Directory"
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ],
+              "Optional": true
+            },
+            {
+              "Arguments": [
+                {
+                  "Name": "script",
+                  "Description": "script",
+                  "Type": "CustomArgument",
+                  "Extensions": [],
+                  "CustomCommand": "bash -c lerna list -p | while read p; do\n \\cat $p/package.json \u0026\u0026 echo END\ndone"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "Name": "link",
+          "Description": "Symlink together all Lerna packages that are dependencies of each other in the current Lerna repo",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "--concurrency",
+                  "Description": "How many threads to use when Lerna parallelizes the tasks (defaults to count of logical CPU cores)",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "--loglevel",
+                  "Description": "What level of logs to report. On failure, all logs are written to lerna-debug.log in the current working directory",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "loglevel",
+                          "Description": "loglevel",
+                          "Type": "String"
+                        },
+                        {
+                          "Name": "silent",
+                          "Description": "loglevel"
+                        },
+                        {
+                          "Name": "error",
+                          "Description": "loglevel"
+                        },
+                        {
+                          "Name": "warn",
+                          "Description": "loglevel"
+                        },
+                        {
+                          "Name": "success",
+                          "Description": "loglevel"
+                        },
+                        {
+                          "Name": "info",
+                          "Description": "loglevel"
+                        },
+                        {
+                          "Name": "verbose",
+                          "Description": "loglevel"
+                        },
+                        {
+                          "Name": "silly",
+                          "Description": "loglevel"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "--max-buffer",
+                  "Description": "Set a max buffer length for each underlying process call",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "bytes",
+                          "Description": "bytes",
+                          "Type": "String"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "--no-progress",
+                  "Description": "Disable progress bars. This is always the case in a CI environment",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "--no-sort",
+                  "Description": "The --no-sort option disables sorting, instead executing tasks in an arbitrary order with maximum concurrency",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "--reject-cycles",
+                  "Description": "Fail immediately if a cycle is found (in bootstrap, exec, publish or run)",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "-h",
+                  "Description": "Show help",
+                  "Aliases": [
+                    "--help"
+                  ],
+                  "Arguments": []
+                },
+                {
+                  "Name": "-v",
+                  "Description": "Show version number",
+                  "Aliases": [
+                    "--version"
+                  ],
+                  "Arguments": []
+                },
+                {
+                  "Name": "--force-local",
+                  "Description": "When passed, this flag causes the link command to always symlink local dependencies regardless of matching version range",
+                  "Aliases": [],
+                  "Arguments": []
+                }
+              ],
+              "Optional": true
+            }
+          ]
+        },
+        {
+          "Name": "info",
+          "Description": "Prints local environment information that proves to be useful especially while submitting bug reports",
+          "Aliases": [],
+          "Arguments": []
+        },
+        {
+          "Name": "version",
+          "Description": "Bump version of packages changed since the last release",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "--allow-branch",
+                  "Description": "An allowlist of globs that match git branches where lerna version is enabled",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "glob",
+                          "Description": "glob",
+                          "Type": "CustomArgument",
+                          "Extensions": [],
+                          "CustomCommand": "git branch --no-color"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "--amend",
+                  "Description": "Perform all changes on the current commit, instead of adding a new one",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "--changelog-preset",
+                  "Description": "Change the changelog preset type",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "--conventional-commits",
+                  "Description": "Use the Conventional Commits Specification to determine the version bump and generate CHANGELOG.md files",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "--conventional-graduate",
+                  "Description": "Graduate the specified packages (comma-separated) or all packages using *",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "--conventional-prerelease",
+                  "Description": "Release with prerelease versions the specified packages (comma-separated) or all packages using *",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "--create-release",
+                  "Description": "Create an official release based on the changes packages",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "type",
+                          "Description": "type",
+                          "Type": "String"
+                        },
+                        {
+                          "Name": "github",
+                          "Description": "type"
+                        },
+                        {
+                          "Name": "gitlab",
+                          "Description": "type"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "--exact",
+                  "Description": "Specify updated dependencies in updated packages exactly",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "--force-publish",
+                  "Description": "Force publish the specified packages (comma-separated) or all packages using *",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "--git-remote",
+                  "Description": "Push the git changes to the specified remote instead of origin",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "remote",
+                          "Description": "remote",
+                          "Type": "CustomArgument",
+                          "Extensions": [],
+                          "CustomCommand": "git remote"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "--ignore-changes",
+                  "Description": "Ignore changes in files matched by glob(s) when detecting changed packages",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "glob",
+                          "Description": "glob",
+                          "Type": "Directory"
+                        }
+                      ],
+                      "Optional": true
+                    }
+                  ]
+                },
+                {
+                  "Name": "--ignore-scripts",
+                  "Description": "Disable running lifecycle scripts during lerna version",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "--include-merged-tags",
+                  "Description": "Include tags from merged branches when detecting changed packages",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "-m",
+                  "Description": "Use the provided message when committing the version updates for publication",
+                  "Aliases": [
+                    "--message"
+                  ],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "msg",
+                          "Description": "msg",
+                          "Type": "String"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "--no-changelog",
+                  "Description": "When using conventional-commits, do not generate any CHANGELOG.md files",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "--no-commit-hooks",
+                  "Description": "Disable running git commit hooks",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "--no-git-tag-version",
+                  "Description": "Don\u0027t commit changes to package.json files and don\u0027t tag the release",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "--no-granular-pathspec",
+                  "Description": "",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "--no-private",
+                  "Description": "Don\u0027t include private packages",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "--preid",
+                  "Description": "Bump semver using the specified prerelease identifier",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "identifier",
+                          "Description": "identifier",
+                          "Type": "String"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "--sign-git-commit",
+                  "Description": "",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "--sign-git-tag",
+                  "Description": "",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "--force-git-tag",
+                  "Description": "",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "--tag-version-prefix",
+                  "Description": "Change the custom version prefix",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "prefix",
+                          "Description": "prefix",
+                          "Type": "String"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "--yes",
+                  "Description": "Skip all confirmation prompts",
+                  "Aliases": [],
+                  "Arguments": []
+                }
+              ],
+              "Optional": true
+            },
+            {
+              "Arguments": [
+                {
+                  "Name": "version",
+                  "Description": "version",
+                  "Type": "String"
+                },
+                {
+                  "Name": "major",
+                  "Description": "version"
+                },
+                {
+                  "Name": "minor",
+                  "Description": "version"
+                },
+                {
+                  "Name": "patch",
+                  "Description": "version"
+                },
+                {
+                  "Name": "premajor",
+                  "Description": "version"
+                },
+                {
+                  "Name": "preminor",
+                  "Description": "version"
+                },
+                {
+                  "Name": "prepatch",
+                  "Description": "version"
+                },
+                {
+                  "Name": "prerelease",
+                  "Description": "version"
+                }
+              ],
+              "Optional": true
+            }
+          ]
+        },
+        {
+          "Name": "diff",
+          "Description": "Diff all packages or a single package since the last release",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "package",
+                  "Description": "package",
+                  "Type": "CustomArgument",
+                  "Extensions": [],
+                  "CustomCommand": "lerna ls"
+                }
+              ],
+              "Optional": true
+            }
+          ]
+        },
+        {
+          "Name": "exec",
+          "Description": "Execute an arbitrary command in each package",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "--concurrency",
+                  "Description": "How many threads to use when Lerna parallelizes the tasks (defaults to count of logical CPU cores)",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "--loglevel",
+                  "Description": "What level of logs to report. On failure, all logs are written to lerna-debug.log in the current working directory",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "loglevel",
+                          "Description": "loglevel",
+                          "Type": "String"
+                        },
+                        {
+                          "Name": "silent",
+                          "Description": "loglevel"
+                        },
+                        {
+                          "Name": "error",
+                          "Description": "loglevel"
+                        },
+                        {
+                          "Name": "warn",
+                          "Description": "loglevel"
+                        },
+                        {
+                          "Name": "success",
+                          "Description": "loglevel"
+                        },
+                        {
+                          "Name": "info",
+                          "Description": "loglevel"
+                        },
+                        {
+                          "Name": "verbose",
+                          "Description": "loglevel"
+                        },
+                        {
+                          "Name": "silly",
+                          "Description": "loglevel"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "--max-buffer",
+                  "Description": "Set a max buffer length for each underlying process call",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "bytes",
+                          "Description": "bytes",
+                          "Type": "String"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "--no-progress",
+                  "Description": "Disable progress bars. This is always the case in a CI environment",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "--no-sort",
+                  "Description": "The --no-sort option disables sorting, instead executing tasks in an arbitrary order with maximum concurrency",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "--reject-cycles",
+                  "Description": "Fail immediately if a cycle is found (in bootstrap, exec, publish or run)",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "-h",
+                  "Description": "Show help",
+                  "Aliases": [
+                    "--help"
+                  ],
+                  "Arguments": []
+                },
+                {
+                  "Name": "-v",
+                  "Description": "Show version number",
+                  "Aliases": [
+                    "--version"
+                  ],
+                  "Arguments": []
+                },
+                {
+                  "Name": "--scope",
+                  "Description": "Include only packages with names matching the given glob",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "glob",
+                          "Description": "glob",
+                          "Type": "CustomArgument",
+                          "Extensions": [],
+                          "CustomCommand": "lerna ls"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "--ignore",
+                  "Description": "Exclude packages with names matching the given glob",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "glob",
+                          "Description": "glob",
+                          "Type": "CustomArgument",
+                          "Extensions": [],
+                          "CustomCommand": "lerna ls"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "--no-private",
+                  "Description": "Exclude private packages. They are included by default",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "--since",
+                  "Description": "Only include packages that have been changed since the specified ref. If no ref is passed, it defaults to the most-recent tag",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "ref",
+                          "Description": "ref",
+                          "Type": "String"
+                        }
+                      ],
+                      "Optional": true
+                    }
+                  ]
+                },
+                {
+                  "Name": "--exclude-dependents",
+                  "Description": "Exclude all transitive dependents when running a command with --since, overriding the default \u0027changed\u0027 algorithm",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "--include-dependents",
+                  "Description": "Exclude all transitive dependents when running a command with --since, overriding the default \u0027changed\u0027 algorithm",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "--include-dependencies",
+                  "Description": "Include all transitive dependencies when running a command regardless of --scope, --ignore, or --since",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "--include-merged-tags",
+                  "Description": "Include tags from merged branches when running a command with --since. This is only useful if you do a lot of publishing from feature branches, which is not generally recommended",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "--stream",
+                  "Description": "Stream output from child processes immediately, prefixed with the originating package name. This allows output from different packages to be interleaved",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "--parallel",
+                  "Description": "Similar to --stream, but completely disregards concurrency and topological sorting, running a given command or script immediately in all matching packages with prefixed streaming output",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "--no-bail",
+                  "Description": "By default, lerna run will exit with an error if any script run returns a non-zero exit code. Pass --no-bail to disable this behavior, running the script in all packages that contain it regardless of exit code",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "--no-prefix",
+                  "Description": "Disable package name prefixing when output is streaming (--stream or --parallel). This option can be useful when piping results to other processes, such as editor plugins",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "--profile",
+                  "Description": "Profiles the script executions and produces a performance profile which can be analyzed using DevTools",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "--profile-location",
+                  "Description": "You can provide a custom location for the performance profile output. The path provided will be resolved relative to the current working directory",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "location",
+                          "Description": "location",
+                          "Type": "Directory"
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ],
+              "Optional": true
+            },
+            {
+              "Arguments": [
+                {
+                  "Name": "command",
+                  "Description": "command",
+                  "Type": "CustomArgument",
+                  "Extensions": [],
+                  "CustomCommand": "bash -c lerna list -p | while read p; do\n \\cat $p/package.json \u0026\u0026 echo END\ndone"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "Name": "add",
+          "Description": "Add a dependency to matched packages",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "--concurrency",
+                  "Description": "How many threads to use when Lerna parallelizes the tasks (defaults to count of logical CPU cores)",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "--loglevel",
+                  "Description": "What level of logs to report. On failure, all logs are written to lerna-debug.log in the current working directory",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "loglevel",
+                          "Description": "loglevel",
+                          "Type": "String"
+                        },
+                        {
+                          "Name": "silent",
+                          "Description": "loglevel"
+                        },
+                        {
+                          "Name": "error",
+                          "Description": "loglevel"
+                        },
+                        {
+                          "Name": "warn",
+                          "Description": "loglevel"
+                        },
+                        {
+                          "Name": "success",
+                          "Description": "loglevel"
+                        },
+                        {
+                          "Name": "info",
+                          "Description": "loglevel"
+                        },
+                        {
+                          "Name": "verbose",
+                          "Description": "loglevel"
+                        },
+                        {
+                          "Name": "silly",
+                          "Description": "loglevel"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "--max-buffer",
+                  "Description": "Set a max buffer length for each underlying process call",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "bytes",
+                          "Description": "bytes",
+                          "Type": "String"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "--no-progress",
+                  "Description": "Disable progress bars. This is always the case in a CI environment",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "--no-sort",
+                  "Description": "The --no-sort option disables sorting, instead executing tasks in an arbitrary order with maximum concurrency",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "--reject-cycles",
+                  "Description": "Fail immediately if a cycle is found (in bootstrap, exec, publish or run)",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "-h",
+                  "Description": "Show help",
+                  "Aliases": [
+                    "--help"
+                  ],
+                  "Arguments": []
+                },
+                {
+                  "Name": "-v",
+                  "Description": "Show version number",
+                  "Aliases": [
+                    "--version"
+                  ],
+                  "Arguments": []
+                },
+                {
+                  "Name": "--scope",
+                  "Description": "Include only packages with names matching the given glob",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "glob",
+                          "Description": "glob",
+                          "Type": "CustomArgument",
+                          "Extensions": [],
+                          "CustomCommand": "lerna ls"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "--ignore",
+                  "Description": "Exclude packages with names matching the given glob",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "glob",
+                          "Description": "glob",
+                          "Type": "CustomArgument",
+                          "Extensions": [],
+                          "CustomCommand": "lerna ls"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "--no-private",
+                  "Description": "Exclude private packages. They are included by default",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "--since",
+                  "Description": "Only include packages that have been changed since the specified ref. If no ref is passed, it defaults to the most-recent tag",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "ref",
+                          "Description": "ref",
+                          "Type": "String"
+                        }
+                      ],
+                      "Optional": true
+                    }
+                  ]
+                },
+                {
+                  "Name": "--exclude-dependents",
+                  "Description": "Exclude all transitive dependents when running a command with --since, overriding the default \u0027changed\u0027 algorithm",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "--include-dependents",
+                  "Description": "Exclude all transitive dependents when running a command with --since, overriding the default \u0027changed\u0027 algorithm",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "--include-dependencies",
+                  "Description": "Include all transitive dependencies when running a command regardless of --scope, --ignore, or --since",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "--include-merged-tags",
+                  "Description": "Include tags from merged branches when running a command with --since. This is only useful if you do a lot of publishing from feature branches, which is not generally recommended",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "--dev",
+                  "Description": "Add the new package to devDependencies instead of dependencies",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "--exact",
+                  "Description": "Add the new package with an exact version",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "--peer",
+                  "Description": "Add the new package to peerDependencies instead of dependencies",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "--registry",
+                  "Description": "Use a custom registry to install the targeted package",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "registry",
+                          "Description": "registry",
+                          "Type": "String"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "--no-bootstrap",
+                  "Description": "Skip the chained lerna bootstrap",
+                  "Aliases": [],
+                  "Arguments": []
+                }
+              ],
+              "Optional": true
+            }
+          ]
+        },
+        {
+          "Name": "clean",
+          "Description": "Remove the node_modules directory from all packages",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "--concurrency",
+                  "Description": "How many threads to use when Lerna parallelizes the tasks (defaults to count of logical CPU cores)",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "--loglevel",
+                  "Description": "What level of logs to report. On failure, all logs are written to lerna-debug.log in the current working directory",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "loglevel",
+                          "Description": "loglevel",
+                          "Type": "String"
+                        },
+                        {
+                          "Name": "silent",
+                          "Description": "loglevel"
+                        },
+                        {
+                          "Name": "error",
+                          "Description": "loglevel"
+                        },
+                        {
+                          "Name": "warn",
+                          "Description": "loglevel"
+                        },
+                        {
+                          "Name": "success",
+                          "Description": "loglevel"
+                        },
+                        {
+                          "Name": "info",
+                          "Description": "loglevel"
+                        },
+                        {
+                          "Name": "verbose",
+                          "Description": "loglevel"
+                        },
+                        {
+                          "Name": "silly",
+                          "Description": "loglevel"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "--max-buffer",
+                  "Description": "Set a max buffer length for each underlying process call",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "bytes",
+                          "Description": "bytes",
+                          "Type": "String"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "--no-progress",
+                  "Description": "Disable progress bars. This is always the case in a CI environment",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "--no-sort",
+                  "Description": "The --no-sort option disables sorting, instead executing tasks in an arbitrary order with maximum concurrency",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "--reject-cycles",
+                  "Description": "Fail immediately if a cycle is found (in bootstrap, exec, publish or run)",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "-h",
+                  "Description": "Show help",
+                  "Aliases": [
+                    "--help"
+                  ],
+                  "Arguments": []
+                },
+                {
+                  "Name": "-v",
+                  "Description": "Show version number",
+                  "Aliases": [
+                    "--version"
+                  ],
+                  "Arguments": []
+                },
+                {
+                  "Name": "--scope",
+                  "Description": "Include only packages with names matching the given glob",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "glob",
+                          "Description": "glob",
+                          "Type": "CustomArgument",
+                          "Extensions": [],
+                          "CustomCommand": "lerna ls"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "--ignore",
+                  "Description": "Exclude packages with names matching the given glob",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "glob",
+                          "Description": "glob",
+                          "Type": "CustomArgument",
+                          "Extensions": [],
+                          "CustomCommand": "lerna ls"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "--no-private",
+                  "Description": "Exclude private packages. They are included by default",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "--since",
+                  "Description": "Only include packages that have been changed since the specified ref. If no ref is passed, it defaults to the most-recent tag",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "ref",
+                          "Description": "ref",
+                          "Type": "String"
+                        }
+                      ],
+                      "Optional": true
+                    }
+                  ]
+                },
+                {
+                  "Name": "--exclude-dependents",
+                  "Description": "Exclude all transitive dependents when running a command with --since, overriding the default \u0027changed\u0027 algorithm",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "--include-dependents",
+                  "Description": "Exclude all transitive dependents when running a command with --since, overriding the default \u0027changed\u0027 algorithm",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "--include-dependencies",
+                  "Description": "Include all transitive dependencies when running a command regardless of --scope, --ignore, or --since",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "--include-merged-tags",
+                  "Description": "Include tags from merged branches when running a command with --since. This is only useful if you do a lot of publishing from feature branches, which is not generally recommended",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "--yes",
+                  "Description": "Skip all confirmation prompts",
+                  "Aliases": [],
+                  "Arguments": []
+                }
+              ],
+              "Optional": true
+            }
+          ]
+        },
+        {
+          "Name": "create",
+          "Description": "Create a new lerna-managed package",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "--access",
+                  "Description": "Set the scope of the package",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "scope",
+                          "Description": "scope",
+                          "Type": "String"
+                        },
+                        {
+                          "Name": "public",
+                          "Description": "scope"
+                        },
+                        {
+                          "Name": "restricted",
+                          "Description": "scope"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "--bin",
+                  "Description": "Package has an executable",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "executableName",
+                          "Description": "executableName",
+                          "Type": "String"
+                        }
+                      ],
+                      "Optional": true
+                    }
+                  ]
+                },
+                {
+                  "Name": "--description",
+                  "Description": "Package description",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "--dependencies",
+                  "Description": "A list of package dependencies",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "dependencies",
+                          "Description": "dependencies",
+                          "Type": "String"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "--es-module",
+                  "Description": "Initialize a transpiled ES Module",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "--homepage",
+                  "Description": "The package homepage, defaulting to a subpath of the root pkg.homepage",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "--keywords",
+                  "Description": "A list of package keywords",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "keywords",
+                          "Description": "keywords",
+                          "Type": "String"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "--license",
+                  "Description": "The desired package license (SPDX identifier)",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "--private",
+                  "Description": "Make the new package private, never published",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "--registry",
+                  "Description": "Configure the package\u0027s publishConfig.registry",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "--tag",
+                  "Description": "Configure the package\u0027s publishConfig.tag",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "--yes",
+                  "Description": "Skip all prompts, accepting default values",
+                  "Aliases": [],
+                  "Arguments": []
+                }
+              ],
+              "Optional": true
+            },
+            {
+              "Arguments": [
+                {
+                  "Name": "name",
+                  "Description": "name",
+                  "Type": "String"
+                }
+              ]
+            },
+            {
+              "Arguments": [
+                {
+                  "Name": "loc",
+                  "Description": "loc",
+                  "Type": "String"
+                }
+              ],
+              "Optional": true
+            }
+          ]
+        }
+      ],
+      "DontAllowMultiple": true
+    }
+  ]
+}

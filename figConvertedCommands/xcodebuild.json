@@ -1,0 +1,992 @@
+{
+  "Comment": "This command info is generated from fig",
+  "Name": "xcodebuild",
+  "Description": "Build Xcode projects",
+  "Arguments": [
+    {
+      "Arguments": [
+        {
+          "Name": "-usage",
+          "Description": "Print brief usage",
+          "Aliases": [],
+          "Arguments": []
+        },
+        {
+          "Name": "-help",
+          "Description": "Print complete usage",
+          "Aliases": [],
+          "Arguments": []
+        },
+        {
+          "Name": "-verbose",
+          "Description": "Provide additional status output",
+          "Aliases": [],
+          "Arguments": []
+        },
+        {
+          "Name": "-license",
+          "Description": "Show the Xcode and SDK license agreements",
+          "Aliases": [],
+          "Arguments": []
+        },
+        {
+          "Name": "-checkFirstLaunchStatus",
+          "Description": "Check if any First Launch tasks need to be performed",
+          "Aliases": [],
+          "Arguments": []
+        },
+        {
+          "Name": "-runFirstLaunch",
+          "Description": "Install packages and agree to the license",
+          "Aliases": [],
+          "Arguments": []
+        },
+        {
+          "Name": "-project",
+          "Description": "Build the project NAME",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "NAME",
+                  "Description": "NAME",
+                  "Type": "String"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "Name": "-target",
+          "Description": "Build the target NAME",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "NAME",
+                  "Description": "NAME",
+                  "Type": "String"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "Name": "-alltargets",
+          "Description": "Build all targets",
+          "Aliases": [],
+          "Arguments": []
+        },
+        {
+          "Name": "-workspace",
+          "Description": "Build the workspace NAME",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "NAME",
+                  "Description": "NAME",
+                  "Type": "FileSystemEntry"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "Name": "-scheme",
+          "Description": "Build the scheme NAME",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "NAME",
+                  "Description": "NAME",
+                  "Type": "String"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "Name": "-configuration",
+          "Description": "Use the build configuration NAME for building each target",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "NAME",
+                  "Description": "NAME",
+                  "Type": "String"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "Name": "-xcconfig",
+          "Description": "Apply the build settings defined in the file at PATH as overrides",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "NAME",
+                  "Description": "NAME",
+                  "Type": "FileSystemEntry"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "Name": "-arch",
+          "Description": "Build each target for the architecture ARCH; this will override architectures defined in the project",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "ARCH",
+                  "Description": "ARCH",
+                  "Type": "String"
+                },
+                {
+                  "Name": "x86_64",
+                  "Description": "ARCH"
+                },
+                {
+                  "Name": "arm64",
+                  "Description": "ARCH"
+                },
+                {
+                  "Name": "armv7",
+                  "Description": "ARCH"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "Name": "-sdk",
+          "Description": "Use SDK as the name or path of the base SDK when building the project",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "SDK",
+                  "Description": "SDK",
+                  "Type": "Directory"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "Name": "-toolchain",
+          "Description": "Use the toolchain with identifier or name NAME",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "NAME",
+                  "Description": "NAME",
+                  "Type": "String"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "Name": "-destination",
+          "Description": "Use the destination described by DESTINATIONSPECIFIER (a comma-separated set of key=value pairs describing the destination to use)",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "DESTINATION SPECIFIER",
+                  "Description": "DESTINATION SPECIFIER",
+                  "Type": "Directory"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "Name": "-destination-timeout",
+          "Description": "Wait for TIMEOUT seconds while searching for the destination device",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "TIMEOUT",
+                  "Description": "TIMEOUT",
+                  "Type": "String"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "Name": "-parallelizeTargets",
+          "Description": "Build independent targets in parallel",
+          "Aliases": [],
+          "Arguments": []
+        },
+        {
+          "Name": "-jobs",
+          "Description": "Specify the maximum number of concurrent build operations",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "NUMBER",
+                  "Description": "NUMBER",
+                  "Type": "String"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "Name": "-maximum-concurrent-test-device-destinations",
+          "Description": "The maximum number of device destinations to test on concurrently",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "NUMBER",
+                  "Description": "NUMBER",
+                  "Type": "String"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "Name": "-maximum-concurrent-test-simulator-destinations",
+          "Description": "The maximum number of simulator destinations to test on concurrently",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "NUMBER",
+                  "Description": "NUMBER",
+                  "Type": "String"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "Name": "-parallel-testing-enabled",
+          "Description": "Overrides the per-target setting in the scheme",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "mode",
+                  "Description": "mode",
+                  "Type": "String"
+                },
+                {
+                  "Name": "YES",
+                  "Description": "mode"
+                },
+                {
+                  "Name": "NO",
+                  "Description": "mode"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "Name": "-parallel-testing-worker-count",
+          "Description": "The exact number of test runners that will be spawned during parallel testing",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "NUMBER",
+                  "Description": "NUMBER",
+                  "Type": "String"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "Name": "-maximum-parallel-testing-workers",
+          "Description": "The maximum number of test runners that will be spawned during parallel testing",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "NUMBER",
+                  "Description": "NUMBER",
+                  "Type": "String"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "Name": "-dry-run",
+          "Description": "Do everything except actually running the commands",
+          "Aliases": [],
+          "Arguments": []
+        },
+        {
+          "Name": "-quiet",
+          "Description": "Do not print any output except for warnings and errors",
+          "Aliases": [],
+          "Arguments": []
+        },
+        {
+          "Name": "-hideShellScriptEnvironment",
+          "Description": "Don\u0027t show shell script environment variables in build log",
+          "Aliases": [],
+          "Arguments": []
+        },
+        {
+          "Name": "-showsdks",
+          "Description": "Display a compact list of the installed SDKs",
+          "Aliases": [],
+          "Arguments": []
+        },
+        {
+          "Name": "-showdestinations",
+          "Description": "Display a list of destinations",
+          "Aliases": [],
+          "Arguments": []
+        },
+        {
+          "Name": "-showTestPlans",
+          "Description": "Display a list of test plans",
+          "Aliases": [],
+          "Arguments": []
+        },
+        {
+          "Name": "-showBuildSettings",
+          "Description": "Display a list of build settings and values",
+          "Aliases": [],
+          "Arguments": []
+        },
+        {
+          "Name": "-showBuildSettingsForIndex",
+          "Description": "Display build settings for the index service",
+          "Aliases": [],
+          "Arguments": []
+        },
+        {
+          "Name": "-list",
+          "Description": "Lists the targets and configurations in a project, or the schemes in a workspace",
+          "Aliases": [],
+          "Arguments": []
+        },
+        {
+          "Name": "-find-executable",
+          "Description": "Display the full path to executable NAME in the provided SDK and toolchain",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "NAME",
+                  "Description": "NAME",
+                  "Type": "String"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "Name": "-find-library",
+          "Description": "Display the full path to library NAME in the provided SDK and toolchain",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "NAME",
+                  "Description": "NAME",
+                  "Type": "String"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "Name": "-version",
+          "Description": "Display the version of Xcode; with -sdk will display info about one or all installed SDKs",
+          "Aliases": [],
+          "Arguments": []
+        },
+        {
+          "Name": "-enableAddressSanitizer",
+          "Description": "Turn the address sanitizer on or off",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "mode",
+                  "Description": "mode",
+                  "Type": "String"
+                },
+                {
+                  "Name": "YES",
+                  "Description": "mode"
+                },
+                {
+                  "Name": "NO",
+                  "Description": "mode"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "Name": "-enableThreadSanitizer",
+          "Description": "Turn the thread sanitizer on or off",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "mode",
+                  "Description": "mode",
+                  "Type": "String"
+                },
+                {
+                  "Name": "YES",
+                  "Description": "mode"
+                },
+                {
+                  "Name": "NO",
+                  "Description": "mode"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "Name": "-enableUndefinedBehaviorSanitizer",
+          "Description": "Turn the undefined behavior sanitizer on or off",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "mode",
+                  "Description": "mode",
+                  "Type": "String"
+                },
+                {
+                  "Name": "YES",
+                  "Description": "mode"
+                },
+                {
+                  "Name": "NO",
+                  "Description": "mode"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "Name": "-resultBundlePath",
+          "Description": "Specifies the directory where a result bundle describing what occurred will be placed",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "PATH",
+                  "Description": "PATH",
+                  "Type": "Directory"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "Name": "-resultStreamPath",
+          "Description": "Specifies the file where a result stream will be written to (the file must already exist)",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "PATH",
+                  "Description": "PATH",
+                  "Type": "FileSystemEntry"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "Name": "-resultBundleVersion",
+          "Description": "Specifies which result bundle version should be used",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "version",
+                  "Description": "version",
+                  "Type": "String"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "Name": "-clonedSourcePackagesDirPath",
+          "Description": "Specifies the directory to which remote source packages are fetch or expected to be found",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "PATH",
+                  "Description": "PATH",
+                  "Type": "Directory"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "Name": "-derivedDataPath",
+          "Description": "Specifies the directory where build products and other derived data will go",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "PATH",
+                  "Description": "PATH",
+                  "Type": "Directory"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "Name": "-archivePath",
+          "Description": "Specifies the directory where any created archives will be placed, or the archive that should be exported",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "PATH",
+                  "Description": "PATH",
+                  "Type": "Directory"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "Name": "-exportArchive",
+          "Description": "Specifies that an archive should be exported",
+          "Aliases": [],
+          "Arguments": []
+        },
+        {
+          "Name": "-exportNotarizedApp",
+          "Description": "Export an archive that has been notarized by Apple",
+          "Aliases": [],
+          "Arguments": []
+        },
+        {
+          "Name": "-exportOptionsPlist",
+          "Description": "Specifies a path to a plist file that configures archive exporting",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "PATH",
+                  "Description": "PATH",
+                  "Type": "FileSystemEntry"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "Name": "-enableCodeCoverage",
+          "Description": "Turn code coverage on or off when testing",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "mode",
+                  "Description": "mode",
+                  "Type": "String"
+                },
+                {
+                  "Name": "YES",
+                  "Description": "mode"
+                },
+                {
+                  "Name": "NO",
+                  "Description": "mode"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "Name": "-exportPath",
+          "Description": "Specifies the destination for the product exported from an archive",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "PATH",
+                  "Description": "PATH",
+                  "Type": "Directory"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "Name": "-skipUnavailableActions",
+          "Description": "Specifies that scheme actions that cannot be performed should be skipped instead of causing a failure",
+          "Aliases": [],
+          "Arguments": []
+        },
+        {
+          "Name": "-exportLocalizations",
+          "Description": "Exports completed and outstanding project localizations",
+          "Aliases": [],
+          "Arguments": []
+        },
+        {
+          "Name": "-importLocalizations",
+          "Description": "Imports localizations for a project, assuming any necessary localized resources have been created in Xcode",
+          "Aliases": [],
+          "Arguments": []
+        },
+        {
+          "Name": "-localizationPath",
+          "Description": "Specifies a path to XLIFF localization file",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "PATH",
+                  "Description": "PATH",
+                  "Type": "FileSystemEntry"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "Name": "-exportLanguage",
+          "Description": "Specifies multiple optional ISO 639-1 languages included in a localization export",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "languages",
+                  "Description": "languages",
+                  "Type": "String"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "Name": "-xcroot",
+          "Description": "Specifies a path to a .xcroot to use for building and/or testing",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "path",
+                  "Description": "path",
+                  "Type": "Directory"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "Name": "-xctestrun",
+          "Description": "Specifies a path to a test run specification",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "path",
+                  "Description": "path",
+                  "Type": "Directory"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "Name": "-testPlan",
+          "Description": "Specifies the name of the test plan associated with the scheme to use for testing",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "test plan",
+                  "Description": "test plan",
+                  "Type": "String"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "Name": "-only-testing",
+          "Description": "Constrains testing by specifying tests to include, and excluding other tests",
+          "Aliases": [],
+          "Arguments": []
+        },
+        {
+          "Name": "-only-testing:",
+          "Description": "Constrains testing by specifying tests to include, and excluding other tests",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "Test Identifier",
+                  "Description": "Test Identifier",
+                  "Type": "String"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "Name": "-skip-testing",
+          "Description": "Constrains testing by specifying tests to exclude, but including other tests",
+          "Aliases": [],
+          "Arguments": []
+        },
+        {
+          "Name": "-skip-testing:",
+          "Description": "Constrains testing by specifying tests to exclude, but including other tests",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "Test Identifier",
+                  "Description": "Test Identifier",
+                  "Type": "String"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "Name": "-test-timeouts-enabled",
+          "Description": "Enable or disable test timeout behavior",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "mode",
+                  "Description": "mode",
+                  "Type": "String"
+                },
+                {
+                  "Name": "YES",
+                  "Description": "mode"
+                },
+                {
+                  "Name": "NO",
+                  "Description": "mode"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "Name": "-default-test-execution-time-allowance",
+          "Description": "The default execution time an individual test is given to execute, if test timeouts are enabled",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "SECONDS",
+                  "Description": "SECONDS",
+                  "Type": "String"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "Name": "-maximum-test-execution-time-allowance",
+          "Description": "The maximum execution time an individual test is given to execute, regardless of the test\u0027s preferred allowance",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "SECONDS",
+                  "Description": "SECONDS",
+                  "Type": "String"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "Name": "-only-test-configuration",
+          "Description": "Constrains testing by specifying test configurations to include, and excluding other test configurations",
+          "Aliases": [],
+          "Arguments": []
+        },
+        {
+          "Name": "-skip-test-configuration",
+          "Description": "Constrains testing by specifying test configurations to exclude, but including other test configurations",
+          "Aliases": [],
+          "Arguments": []
+        },
+        {
+          "Name": "-testLanguage",
+          "Description": "Constrains testing by specifying ISO 639-1 language in which to run the tests",
+          "Aliases": [],
+          "Arguments": []
+        },
+        {
+          "Name": "-testRegion",
+          "Description": "Constrains testing by specifying ISO 3166-1 region in which to run the tests",
+          "Aliases": [],
+          "Arguments": []
+        },
+        {
+          "Name": "-resolvePackageDependencies",
+          "Description": "Resolves any Swift package dependencies referenced by the project or workspace",
+          "Aliases": [],
+          "Arguments": []
+        },
+        {
+          "Name": "-disableAutomaticPackageResolution",
+          "Description": "Prevents packages from automatically being resolved to versions other than those recorded in the \u0060Package.resolved\u0060 file",
+          "Aliases": [],
+          "Arguments": []
+        },
+        {
+          "Name": "-json",
+          "Description": "Output as JSON",
+          "Aliases": [],
+          "Arguments": []
+        },
+        {
+          "Name": "-allowProvisioningUpdates",
+          "Description": "Allow xcodebuild to communicate with the Apple Developer website. For automatically signed targets, xcodebuild will create and update profiles, app IDs, and certificates. For manually signed targets, xcodebuild will download missing or updated provisioning profiles. Requires a developer account to have been added in Xcode\u0027s Accounts preference pane",
+          "Aliases": [],
+          "Arguments": []
+        },
+        {
+          "Name": "-allowProvisioningDeviceRegistration",
+          "Description": "Allow xcodebuild to register your destination device on the developer portal if necessary. This flag only takes effect if -allowProvisioningUpdates is also passed",
+          "Aliases": [],
+          "Arguments": []
+        },
+        {
+          "Name": "-scmProvider",
+          "Description": "Which implementation to use for Git operations (system/xcode)",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "Implementation",
+                  "Description": "Implementation",
+                  "Type": "String"
+                },
+                {
+                  "Name": "system",
+                  "Description": "Implementation"
+                },
+                {
+                  "Name": "xcode",
+                  "Description": "Implementation"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "Name": "-showBuildTimingSummary",
+          "Description": "Display a report of the timings of all the commands invoked during the build",
+          "Aliases": [],
+          "Arguments": []
+        },
+        {
+          "Name": "-create-xcframework",
+          "Description": "Create an xcframework from prebuilt libraries; -help for more information",
+          "Aliases": [],
+          "Arguments": []
+        },
+        {
+          "Name": "build",
+          "Description": "Build the target in the build root (SYMROOT).  This is the default build action",
+          "Aliases": [],
+          "Arguments": []
+        },
+        {
+          "Name": "installsrc",
+          "Description": "Copy the source of the project to the source root (SRCROOT)",
+          "Aliases": [],
+          "Arguments": []
+        },
+        {
+          "Name": "install",
+          "Description": "Build the target and install it into the target\u0027s installation directory in the distribution root (DSTROOT)",
+          "Aliases": [],
+          "Arguments": []
+        },
+        {
+          "Name": "clean",
+          "Description": "Remove build products and intermediate files from the build root (SYMROOT)",
+          "Aliases": [],
+          "Arguments": []
+        }
+      ],
+      "Optional": true
+    }
+  ]
+}

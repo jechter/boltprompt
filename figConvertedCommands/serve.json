@@ -1,0 +1,214 @@
+{
+  "Comment": "This command info is generated from fig",
+  "Name": "serve",
+  "Description": "Static file serving and directory listing",
+  "Arguments": [
+    {
+      "Arguments": [
+        {
+          "Name": "-h",
+          "Description": "Shows help message",
+          "Aliases": [
+            "--help"
+          ],
+          "Arguments": []
+        },
+        {
+          "Name": "-v",
+          "Description": "Displays the current version of serve",
+          "Aliases": [
+            "--version"
+          ],
+          "Arguments": []
+        },
+        {
+          "Name": "-l",
+          "Description": "Specify a URI endpoint on which to listen - more than one may be specified to listen in multiple places",
+          "Aliases": [
+            "--listen"
+          ],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "listen_uri",
+                  "Description": "listen_uri",
+                  "Type": "String"
+                },
+                {
+                  "Name": "port",
+                  "Description": "E.g. serve --listen 1234"
+                },
+                {
+                  "Name": "host/port",
+                  "Description": "E.g. serve --listen tcp://hostname:1234"
+                },
+                {
+                  "Name": "unix domain",
+                  "Description": "E.g. serve --listen unix:/path/to/socket.sock"
+                },
+                {
+                  "Name": "windows pipe",
+                  "Description": "E.g. serve -l pipe:\\.pipePipeName"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "Name": "p",
+          "Description": "Specify custom port",
+          "Type": "Flag",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "port",
+                  "Description": "port",
+                  "Type": "String"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "Name": "-d",
+          "Description": "Show debugging information",
+          "Aliases": [
+            "--debug"
+          ],
+          "Arguments": []
+        },
+        {
+          "Name": "-s",
+          "Description": "Rewrite all not-found requests to \u0060index.html\u0060",
+          "Aliases": [
+            "--single"
+          ],
+          "Arguments": []
+        },
+        {
+          "Name": "-c",
+          "Description": "Specify custom path to \u0060serve.json\u0060",
+          "Aliases": [
+            "--config"
+          ],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "path to config file",
+                  "Description": "path to config file",
+                  "Type": "FileSystemEntry"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "Name": "-C",
+          "Description": "Enable CORS, sets \u0060Access-Control-Allow-Origin\u0060 to \u0060*\u0060",
+          "Aliases": [
+            "--cors"
+          ],
+          "Arguments": []
+        },
+        {
+          "Name": "-n",
+          "Description": "Do not copy the local address to the clipboard",
+          "Aliases": [
+            "--no-clipboard"
+          ],
+          "Arguments": []
+        },
+        {
+          "Name": "-u",
+          "Description": "Do not compress files",
+          "Aliases": [
+            "--no-compression"
+          ],
+          "Arguments": []
+        },
+        {
+          "Name": "--no-etag",
+          "Description": "Send \u0060Last-Modified\u0060 header instead of \u0060ETag\u0060",
+          "Aliases": [],
+          "Arguments": []
+        },
+        {
+          "Name": "-S",
+          "Description": "Resolve symlinks instead of showing 404 errors",
+          "Aliases": [
+            "--symlinks"
+          ],
+          "Arguments": []
+        },
+        {
+          "Name": "--ssl-cert",
+          "Description": "Optional path to an SSL/TLS certificate to serve with HTTPS",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "path to SSL/TLS certificate",
+                  "Description": "path to SSL/TLS certificate",
+                  "Type": "FileSystemEntry"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "Name": "--ssl-key",
+          "Description": "Optional path to the SSL/TLS certificate\u0027s private key",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "path to private key",
+                  "Description": "path to private key",
+                  "Type": "FileSystemEntry"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "Name": "--ssl-pass",
+          "Description": "Optional path to the SSL/TLS certificate\u0027s passphrase",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "path to passphrase",
+                  "Description": "path to passphrase",
+                  "Type": "FileSystemEntry"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "Name": "--no-port-switching",
+          "Description": "Do not open a port other than the one specified when it\u0027s taken",
+          "Aliases": [],
+          "Arguments": []
+        }
+      ],
+      "Optional": true
+    },
+    {
+      "Arguments": [
+        {
+          "Name": "location",
+          "Description": "location",
+          "Type": "Directory"
+        }
+      ]
+    }
+  ]
+}

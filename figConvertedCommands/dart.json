@@ -1,0 +1,2395 @@
+{
+  "Comment": "This command info is generated from fig",
+  "Name": "dart",
+  "Description": "A command-line utility for Dart development",
+  "Arguments": [
+    {
+      "Arguments": [
+        {
+          "Name": "-h",
+          "Description": "Print this usage information",
+          "Aliases": [
+            "--help"
+          ],
+          "Arguments": []
+        },
+        {
+          "Name": "-v",
+          "Description": "Print verbose output",
+          "Aliases": [
+            "--verbose"
+          ],
+          "Arguments": []
+        },
+        {
+          "Name": "--version",
+          "Description": "Current Dart version",
+          "Aliases": [],
+          "Arguments": []
+        },
+        {
+          "Name": "--enable-analytics",
+          "Description": "Enables analytics",
+          "Aliases": [],
+          "Arguments": []
+        },
+        {
+          "Name": "--disable-analytics",
+          "Description": "Disables analytics",
+          "Aliases": [],
+          "Arguments": []
+        }
+      ],
+      "Optional": true
+    },
+    {
+      "Arguments": [
+        {
+          "Name": "analyze",
+          "Description": "Analyze Dart code in a directory",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "-h",
+                  "Description": "Print this usage information",
+                  "Aliases": [
+                    "--help"
+                  ],
+                  "Arguments": []
+                },
+                {
+                  "Name": "--fatal-infos",
+                  "Description": "Treat info level issues as fatal",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "--fatal-warnings",
+                  "Description": "Treat warning level issues as fatal (defaults to on)",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "--no-fatal-warnings",
+                  "Description": "Do not treat warning level issues as fatal (defaults to on)",
+                  "Aliases": [],
+                  "Arguments": []
+                }
+              ],
+              "Optional": true
+            },
+            {
+              "Arguments": [
+                {
+                  "Name": "directory",
+                  "Description": "directory",
+                  "Type": "Directory"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "Name": "compile",
+          "Description": "Compile Dart to various formats",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "-h",
+                  "Description": "Print this usage information",
+                  "Aliases": [
+                    "--help"
+                  ],
+                  "Arguments": []
+                }
+              ],
+              "Optional": true
+            },
+            {
+              "Arguments": [
+                {
+                  "Name": "aot-snapshot",
+                  "Description": "Compile Dart to an AOT snapshot",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "-h",
+                          "Description": "Print this usage information",
+                          "Aliases": [
+                            "--help"
+                          ],
+                          "Arguments": []
+                        },
+                        {
+                          "Name": "-o",
+                          "Description": "Write the output to \u003Cfile-name\u003E",
+                          "Aliases": [
+                            "--output"
+                          ],
+                          "Arguments": [
+                            {
+                              "Arguments": [
+                                {
+                                  "Name": "dart-entry-point",
+                                  "Description": "dart-entry-point",
+                                  "Type": "FileSystemEntry"
+                                }
+                              ]
+                            }
+                          ]
+                        },
+                        {
+                          "Name": "--verbosity",
+                          "Description": "Sets the verbosity level of the compilation",
+                          "Aliases": [],
+                          "Arguments": [
+                            {
+                              "Arguments": [
+                                {
+                                  "Name": "verbosity-level",
+                                  "Description": "verbosity-level",
+                                  "Type": "String"
+                                },
+                                {
+                                  "Name": "all",
+                                  "Description": "Show all messages"
+                                },
+                                {
+                                  "Name": "error",
+                                  "Description": "Show only error messages"
+                                },
+                                {
+                                  "Name": "info",
+                                  "Description": "Show error, warning, and info messages"
+                                },
+                                {
+                                  "Name": "warning",
+                                  "Description": "Show only error and warning messages"
+                                }
+                              ]
+                            }
+                          ]
+                        },
+                        {
+                          "Name": "-D",
+                          "Description": "Define an environment declaration. To specify multiple declarations, use multiple options or use commas to separate key-value pairs. For example: dart compile aot-snapshot -D a=1,b=2 main.dart",
+                          "Aliases": [
+                            "--define"
+                          ],
+                          "Arguments": [
+                            {
+                              "Arguments": [
+                                {
+                                  "Name": "key-value-pairs",
+                                  "Description": "key-value-pairs",
+                                  "Type": "String"
+                                }
+                              ]
+                            }
+                          ]
+                        },
+                        {
+                          "Name": "--enable-asserts",
+                          "Description": "Enable assert statements",
+                          "Aliases": [],
+                          "Arguments": []
+                        },
+                        {
+                          "Name": "-p",
+                          "Description": "Get package locations from the specified file instead of .packages. \u003Cpath\u003E can be relative or absolute",
+                          "Aliases": [
+                            "--packages"
+                          ],
+                          "Arguments": [
+                            {
+                              "Arguments": [
+                                {
+                                  "Name": "args-path",
+                                  "Description": "args-path",
+                                  "Type": "FileSystemEntry"
+                                }
+                              ]
+                            }
+                          ]
+                        },
+                        {
+                          "Name": "--no-sound-null-safety",
+                          "Description": "Respect the nullability of types at runtime",
+                          "Aliases": [
+                            "--sound-null-safety"
+                          ],
+                          "Arguments": []
+                        },
+                        {
+                          "Name": "-S",
+                          "Description": "Remove debugging information from the output and save it separately to the specified file.. \u003Cpath\u003E can be relative or absolute",
+                          "Aliases": [
+                            "--save-debugging-info"
+                          ],
+                          "Arguments": [
+                            {
+                              "Arguments": [
+                                {
+                                  "Name": "debug-info-path",
+                                  "Description": "debug-info-path",
+                                  "Type": "FileSystemEntry"
+                                }
+                              ]
+                            }
+                          ]
+                        }
+                      ],
+                      "Optional": true
+                    },
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "dart-entry-point",
+                          "Description": "dart-entry-point",
+                          "Type": "String"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "exe",
+                  "Description": "Compile Dart to a self-contained executable",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "-h",
+                          "Description": "Print this usage information",
+                          "Aliases": [
+                            "--help"
+                          ],
+                          "Arguments": []
+                        },
+                        {
+                          "Name": "-o",
+                          "Description": "Write the output to \u003Cfile-name\u003E",
+                          "Aliases": [
+                            "--output"
+                          ],
+                          "Arguments": [
+                            {
+                              "Arguments": [
+                                {
+                                  "Name": "dart-entry-point",
+                                  "Description": "dart-entry-point",
+                                  "Type": "FileSystemEntry"
+                                }
+                              ]
+                            }
+                          ]
+                        },
+                        {
+                          "Name": "--verbosity",
+                          "Description": "Sets the verbosity level of the compilation",
+                          "Aliases": [],
+                          "Arguments": [
+                            {
+                              "Arguments": [
+                                {
+                                  "Name": "verbosity-level",
+                                  "Description": "verbosity-level",
+                                  "Type": "String"
+                                },
+                                {
+                                  "Name": "all",
+                                  "Description": "Show all messages"
+                                },
+                                {
+                                  "Name": "error",
+                                  "Description": "Show only error messages"
+                                },
+                                {
+                                  "Name": "info",
+                                  "Description": "Show error, warning, and info messages"
+                                },
+                                {
+                                  "Name": "warning",
+                                  "Description": "Show only error and warning messages"
+                                }
+                              ]
+                            }
+                          ]
+                        },
+                        {
+                          "Name": "-D",
+                          "Description": "Define an environment declaration. To specify multiple declarations, use multiple options or use commas to separate key-value pairs. For example: dart compile aot-snapshot -D a=1,b=2 main.dart",
+                          "Aliases": [
+                            "--define"
+                          ],
+                          "Arguments": [
+                            {
+                              "Arguments": [
+                                {
+                                  "Name": "key-value-pairs",
+                                  "Description": "key-value-pairs",
+                                  "Type": "String"
+                                }
+                              ]
+                            }
+                          ]
+                        },
+                        {
+                          "Name": "--enable-asserts",
+                          "Description": "Enable assert statements",
+                          "Aliases": [],
+                          "Arguments": []
+                        },
+                        {
+                          "Name": "-p",
+                          "Description": "Get package locations from the specified file instead of .packages. \u003Cpath\u003E can be relative or absolute",
+                          "Aliases": [
+                            "--packages"
+                          ],
+                          "Arguments": [
+                            {
+                              "Arguments": [
+                                {
+                                  "Name": "args-path",
+                                  "Description": "args-path",
+                                  "Type": "FileSystemEntry"
+                                }
+                              ]
+                            }
+                          ]
+                        },
+                        {
+                          "Name": "--no-sound-null-safety",
+                          "Description": "Respect the nullability of types at runtime",
+                          "Aliases": [
+                            "--sound-null-safety"
+                          ],
+                          "Arguments": []
+                        },
+                        {
+                          "Name": "-S",
+                          "Description": "Remove debugging information from the output and save it separately to the specified file.. \u003Cpath\u003E can be relative or absolute",
+                          "Aliases": [
+                            "--save-debugging-info"
+                          ],
+                          "Arguments": [
+                            {
+                              "Arguments": [
+                                {
+                                  "Name": "debug-info-path",
+                                  "Description": "debug-info-path",
+                                  "Type": "FileSystemEntry"
+                                }
+                              ]
+                            }
+                          ]
+                        }
+                      ],
+                      "Optional": true
+                    },
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "dart-entry-point",
+                          "Description": "dart-entry-point",
+                          "Type": "String"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "jit-snapshot",
+                  "Description": "Compile Dart to a JIT snapshot",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "-h",
+                          "Description": "Print this usage information",
+                          "Aliases": [
+                            "--help"
+                          ],
+                          "Arguments": []
+                        },
+                        {
+                          "Name": "-o",
+                          "Description": "Write the output to \u003Cfile-name\u003E",
+                          "Aliases": [
+                            "--output"
+                          ],
+                          "Arguments": [
+                            {
+                              "Arguments": [
+                                {
+                                  "Name": "dart-entry-point",
+                                  "Description": "dart-entry-point",
+                                  "Type": "FileSystemEntry"
+                                }
+                              ]
+                            }
+                          ]
+                        },
+                        {
+                          "Name": "--verbosity",
+                          "Description": "Sets the verbosity level of the compilation",
+                          "Aliases": [],
+                          "Arguments": [
+                            {
+                              "Arguments": [
+                                {
+                                  "Name": "verbosity-level",
+                                  "Description": "verbosity-level",
+                                  "Type": "String"
+                                },
+                                {
+                                  "Name": "all",
+                                  "Description": "Show all messages"
+                                },
+                                {
+                                  "Name": "error",
+                                  "Description": "Show only error messages"
+                                },
+                                {
+                                  "Name": "info",
+                                  "Description": "Show error, warning, and info messages"
+                                },
+                                {
+                                  "Name": "warning",
+                                  "Description": "Show only error and warning messages"
+                                }
+                              ]
+                            }
+                          ]
+                        }
+                      ],
+                      "Optional": true
+                    },
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "dart-entry-point",
+                          "Description": "dart-entry-point",
+                          "Type": "String"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "js",
+                  "Description": "Compile Dart to JavaScript",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "-h",
+                          "Description": "Print this usage information",
+                          "Aliases": [
+                            "--help"
+                          ],
+                          "Arguments": []
+                        },
+                        {
+                          "Name": "-o",
+                          "Description": "Write the output to \u003Cfile-name\u003E",
+                          "Aliases": [
+                            "--output"
+                          ],
+                          "Arguments": [
+                            {
+                              "Arguments": [
+                                {
+                                  "Name": "dart-entry-point",
+                                  "Description": "dart-entry-point",
+                                  "Type": "FileSystemEntry"
+                                }
+                              ]
+                            }
+                          ]
+                        },
+                        {
+                          "Name": "--verbosity",
+                          "Description": "Sets the verbosity level of the compilation",
+                          "Aliases": [],
+                          "Arguments": [
+                            {
+                              "Arguments": [
+                                {
+                                  "Name": "verbosity-level",
+                                  "Description": "verbosity-level",
+                                  "Type": "String"
+                                },
+                                {
+                                  "Name": "all",
+                                  "Description": "Show all messages"
+                                },
+                                {
+                                  "Name": "error",
+                                  "Description": "Show only error messages"
+                                },
+                                {
+                                  "Name": "info",
+                                  "Description": "Show error, warning, and info messages"
+                                },
+                                {
+                                  "Name": "warning",
+                                  "Description": "Show only error and warning messages"
+                                }
+                              ]
+                            }
+                          ]
+                        },
+                        {
+                          "Name": "-m",
+                          "Description": "Generate minified output",
+                          "Aliases": [
+                            "--minified"
+                          ],
+                          "Arguments": []
+                        },
+                        {
+                          "Name": "-D",
+                          "Description": "Define an environment declaration. To specify multiple declarations, use multiple options or use commas to separate key-value pairs. For example: dart compile aot-snapshot -D a=1,b=2 main.dart",
+                          "Aliases": [
+                            "--define"
+                          ],
+                          "Arguments": [
+                            {
+                              "Arguments": [
+                                {
+                                  "Name": "key-value-pairs",
+                                  "Description": "key-value-pairs",
+                                  "Type": "String"
+                                }
+                              ]
+                            }
+                          ]
+                        }
+                      ],
+                      "Optional": true
+                    },
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "dart-entry-point",
+                          "Description": "dart-entry-point",
+                          "Type": "String"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "kernel",
+                  "Description": "Compile Dart to a kernel snapshot",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "-h",
+                          "Description": "Print this usage information",
+                          "Aliases": [
+                            "--help"
+                          ],
+                          "Arguments": []
+                        },
+                        {
+                          "Name": "-o",
+                          "Description": "Write the output to \u003Cfile-name\u003E",
+                          "Aliases": [
+                            "--output"
+                          ],
+                          "Arguments": [
+                            {
+                              "Arguments": [
+                                {
+                                  "Name": "dart-entry-point",
+                                  "Description": "dart-entry-point",
+                                  "Type": "FileSystemEntry"
+                                }
+                              ]
+                            }
+                          ]
+                        },
+                        {
+                          "Name": "--verbosity",
+                          "Description": "Sets the verbosity level of the compilation",
+                          "Aliases": [],
+                          "Arguments": [
+                            {
+                              "Arguments": [
+                                {
+                                  "Name": "verbosity-level",
+                                  "Description": "verbosity-level",
+                                  "Type": "String"
+                                },
+                                {
+                                  "Name": "all",
+                                  "Description": "Show all messages"
+                                },
+                                {
+                                  "Name": "error",
+                                  "Description": "Show only error messages"
+                                },
+                                {
+                                  "Name": "info",
+                                  "Description": "Show error, warning, and info messages"
+                                },
+                                {
+                                  "Name": "warning",
+                                  "Description": "Show only error and warning messages"
+                                }
+                              ]
+                            }
+                          ]
+                        }
+                      ],
+                      "Optional": true
+                    },
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "dart-entry-point",
+                          "Description": "dart-entry-point",
+                          "Type": "String"
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ],
+              "DontAllowMultiple": true
+            }
+          ]
+        },
+        {
+          "Name": "create",
+          "Description": "Create a new Dart project",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "-h",
+                  "Description": "Print this usage information",
+                  "Aliases": [
+                    "--help"
+                  ],
+                  "Arguments": []
+                },
+                {
+                  "Name": "-t",
+                  "Description": "The project template to use",
+                  "Aliases": [
+                    "--template"
+                  ],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "template-type",
+                          "Description": "template-type",
+                          "Type": "String"
+                        },
+                        {
+                          "Name": "console",
+                          "Description": "A simple command-line application"
+                        },
+                        {
+                          "Name": "package",
+                          "Description": "A starting point for Dart libraries or applications"
+                        },
+                        {
+                          "Name": "server-shelf",
+                          "Description": "A web server built using package:shelf"
+                        },
+                        {
+                          "Name": "web",
+                          "Description": "A web app that uses only core Dart libraries"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "--pub",
+                  "Description": "Run \u0027pub get\u0027 after the project has been created. Default to on",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "--no-pub",
+                  "Description": "Do not run \u0027pub get\u0027 after the project has been created. Default to on",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "--force",
+                  "Description": "Force project generation, even if the target directory already exists",
+                  "Aliases": [],
+                  "Arguments": []
+                }
+              ],
+              "Optional": true
+            }
+          ]
+        },
+        {
+          "Name": "fix",
+          "Description": "Apply automated fixes to Dart source code",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "-h",
+                  "Description": "Print this usage information",
+                  "Aliases": [
+                    "--help"
+                  ],
+                  "Arguments": []
+                },
+                {
+                  "Name": "-n",
+                  "Description": "Preview the proposed changes but make no changes",
+                  "Aliases": [
+                    "--dry-run"
+                  ],
+                  "Arguments": []
+                },
+                {
+                  "Name": "--apply",
+                  "Description": "Apply the proposed changes",
+                  "Aliases": [],
+                  "Arguments": []
+                }
+              ],
+              "Optional": true
+            }
+          ]
+        },
+        {
+          "Name": "format",
+          "Description": "Idiomatically format Dart source code",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "-h",
+                  "Description": "Print this usage information",
+                  "Aliases": [
+                    "--help"
+                  ],
+                  "Arguments": []
+                },
+                {
+                  "Name": "-v",
+                  "Description": "Show all options and flags with --help",
+                  "Aliases": [
+                    "--verbose"
+                  ],
+                  "Arguments": []
+                },
+                {
+                  "Name": "-o",
+                  "Description": "Set where to write formatted output",
+                  "Aliases": [
+                    "--output"
+                  ],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "json",
+                          "Description": "json",
+                          "Type": "String"
+                        }
+                      ]
+                    },
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "none",
+                          "Description": "none",
+                          "Type": "String"
+                        }
+                      ]
+                    },
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "show",
+                          "Description": "show",
+                          "Type": "String"
+                        }
+                      ]
+                    },
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "write",
+                          "Description": "write",
+                          "Type": "String"
+                        }
+                      ]
+                    },
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "--show",
+                          "Description": "--show",
+                          "Type": "String"
+                        },
+                        {
+                          "Name": "all",
+                          "Description": "All visited files and directories"
+                        },
+                        {
+                          "Name": "changed",
+                          "Description": "Nly the names of files whose formatting is changed"
+                        },
+                        {
+                          "Name": "none",
+                          "Description": "No file names or directories"
+                        }
+                      ]
+                    },
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "--summary",
+                          "Description": "--summary",
+                          "Type": "String"
+                        },
+                        {
+                          "Name": "line",
+                          "Description": "Single-line summary"
+                        },
+                        {
+                          "Name": "none",
+                          "Description": "No summary"
+                        },
+                        {
+                          "Name": "profile",
+                          "Description": "How long it took to format each file"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "--set-exit-if-changed",
+                  "Description": "Return exist code 1 if there are any formatting changes",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "--fix",
+                  "Description": "Apply all style fixes",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "--fix-doc-comments",
+                  "Description": "Use triple slash for documentation comments",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "--fix-function-typedefs",
+                  "Description": "Use new syntax for function type typedefs",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "--fix-named-default-separator",
+                  "Description": "Use \u0027=\u0027 as the separator before named parameter default values",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "--fix-optional-const",
+                  "Description": "Remove \u0027const\u0027 keyword inside constant context",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "--fix-optional-new",
+                  "Description": "Remove \u0027new\u0027 keyword",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "--fix-single-cascade-statements",
+                  "Description": "Remove unnecessary single cascades from expression statements",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "-l",
+                  "Description": "Wrap lines longer than this. Defaults to 80",
+                  "Aliases": [
+                    "--line-length"
+                  ],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "line-length",
+                          "Description": "line-length",
+                          "Type": "String"
+                        },
+                        {
+                          "Name": "80",
+                          "Description": "line-length"
+                        },
+                        {
+                          "Name": "120",
+                          "Description": "line-length"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "-i",
+                  "Description": "Add this many spaces of leading indentation",
+                  "Aliases": [
+                    "--indent"
+                  ],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "number-of-spaces",
+                          "Description": "number-of-spaces",
+                          "Type": "String"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "--follow-links",
+                  "Description": "Follow links to files and directories. If unset, links will be ignored",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "--version",
+                  "Description": "Show dart_style version",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "--selection",
+                  "Description": "Track selection (given as \u0027start:length\u0027) through formatting",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "--stdin-name",
+                  "Description": "Use this path in error messages when input is read from stdin. (defaults to \u0027stdin\u0027)",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "name",
+                          "Description": "name",
+                          "Type": "String"
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ],
+              "Optional": true
+            },
+            {
+              "Arguments": [
+                {
+                  "Name": "files-or-directory",
+                  "Description": "files-or-directory",
+                  "Type": "FileSystemEntry"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "Name": "migrate",
+          "Description": "Perform null safety migration on a project",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "-h",
+                  "Description": "Print this usage information",
+                  "Aliases": [
+                    "--help"
+                  ],
+                  "Arguments": []
+                },
+                {
+                  "Name": "-v",
+                  "Description": "Show additional command output",
+                  "Aliases": [
+                    "--verbose"
+                  ],
+                  "Arguments": []
+                },
+                {
+                  "Name": "--apply-changes",
+                  "Description": "Apply the proposed null safety changes to the files on disk",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "--ignore-errors",
+                  "Description": "Attempt to perform null safety analysis even if the project has analysis errors",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "--skip-import-check",
+                  "Description": "Go ahead with migration even if some imported files have not yet been migrated",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "--web-preview",
+                  "Description": "Show and interactive preview of the proposed null safety changes in a browser window. (defaults to on)",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "--no-web-preview",
+                  "Description": "Do not show and interactive preview of the proposed null safety changes in a browser window. (defaults to off)",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "--preview-hostname",
+                  "Description": "Run the preview server on the specified hostname. If not specified, \u0027localhost\u0027 is used. Use \u0027any\u0027 to specify IPv6.any or IPv4.any. (defaults to the \u0027localhost\u0027)",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "host",
+                          "Description": "host",
+                          "Type": "String"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "--preview-port",
+                  "Description": "Run the preview server on the specified port. If not specified, dynamically allocate a port",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "port",
+                          "Description": "port",
+                          "Type": "String"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "--summary",
+                  "Description": "Output a machine-readable summary of migration changes",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "path",
+                          "Description": "path",
+                          "Type": "FileSystemEntry"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "--ignore-exceptions",
+                  "Description": "Attempt to perform null safety analysis even if exceptions occur",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "--sdk-path",
+                  "Description": "The path to the Dart SDK",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "sdk-path",
+                          "Description": "sdk-path",
+                          "Type": "String"
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ],
+              "Optional": true
+            }
+          ]
+        },
+        {
+          "Name": "pub",
+          "Description": "Work with packages",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "-h",
+                  "Description": "Print this usage information",
+                  "Aliases": [
+                    "--help"
+                  ],
+                  "Arguments": []
+                },
+                {
+                  "Name": "--trace",
+                  "Description": "Print debugging information when an error occurs",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "--no-trace",
+                  "Description": "Do not print debugging information when an error occurs",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "-v",
+                  "Description": "Shortcut for \u0027--verbose=all",
+                  "Aliases": [
+                    "--verbose"
+                  ],
+                  "Arguments": []
+                }
+              ],
+              "Optional": true
+            },
+            {
+              "Arguments": [
+                {
+                  "Name": "add",
+                  "Description": "Add a dependency to pubspec.yaml",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "-h",
+                          "Description": "Print this usage information",
+                          "Aliases": [
+                            "--help"
+                          ],
+                          "Arguments": []
+                        },
+                        {
+                          "Name": "-d",
+                          "Description": "Adds package to the development dependencies instead",
+                          "Aliases": [
+                            "--dev"
+                          ],
+                          "Arguments": []
+                        },
+                        {
+                          "Name": "--git-url",
+                          "Description": "Git URL of the package",
+                          "Aliases": [],
+                          "Arguments": []
+                        },
+                        {
+                          "Name": "--git-ref",
+                          "Description": "Git branch or commit to be retrieved",
+                          "Aliases": [],
+                          "Arguments": []
+                        },
+                        {
+                          "Name": "--git-path",
+                          "Description": "Path of git package in repository",
+                          "Aliases": [],
+                          "Arguments": []
+                        },
+                        {
+                          "Name": "--hosted-url",
+                          "Description": "URL of package host server",
+                          "Aliases": [],
+                          "Arguments": []
+                        },
+                        {
+                          "Name": "--path",
+                          "Description": "Local path",
+                          "Aliases": [],
+                          "Arguments": []
+                        },
+                        {
+                          "Name": "--sdk",
+                          "Description": "SDK source for package",
+                          "Aliases": [],
+                          "Arguments": []
+                        },
+                        {
+                          "Name": "--offline",
+                          "Description": "Use cached packages instead of accessing the network",
+                          "Aliases": [],
+                          "Arguments": []
+                        },
+                        {
+                          "Name": "--no-offline",
+                          "Description": "Do not use cached packages instead of accessing the network",
+                          "Aliases": [],
+                          "Arguments": []
+                        },
+                        {
+                          "Name": "-n",
+                          "Description": "Report what dependencies would change but don\u0027t change any",
+                          "Aliases": [
+                            "--dry-run"
+                          ],
+                          "Arguments": []
+                        },
+                        {
+                          "Name": "--precompile",
+                          "Description": "Precompile executables in immediate dependencies",
+                          "Aliases": [],
+                          "Arguments": []
+                        },
+                        {
+                          "Name": "--no-precompile",
+                          "Description": "Do not precompile executables in immediate dependencies",
+                          "Aliases": [],
+                          "Arguments": []
+                        }
+                      ],
+                      "Optional": true
+                    },
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "package",
+                          "Description": "package",
+                          "Type": "String"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "cache",
+                  "Description": "Work with the Pub system cache",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "-h",
+                          "Description": "Print this usage information",
+                          "Aliases": [
+                            "--help"
+                          ],
+                          "Arguments": []
+                        }
+                      ],
+                      "Optional": true
+                    },
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "add",
+                          "Description": "Install a package",
+                          "Aliases": [],
+                          "Arguments": [
+                            {
+                              "Arguments": [
+                                {
+                                  "Name": "-h",
+                                  "Description": "Print this usage information",
+                                  "Aliases": [
+                                    "--help"
+                                  ],
+                                  "Arguments": []
+                                },
+                                {
+                                  "Name": "--all",
+                                  "Description": "Install all matching versions",
+                                  "Aliases": [],
+                                  "Arguments": []
+                                },
+                                {
+                                  "Name": "-v",
+                                  "Description": "Version constraint",
+                                  "Aliases": [
+                                    "--version"
+                                  ],
+                                  "Arguments": []
+                                }
+                              ],
+                              "Optional": true
+                            },
+                            {
+                              "Arguments": [
+                                {
+                                  "Name": "package",
+                                  "Description": "package",
+                                  "Type": "String"
+                                }
+                              ]
+                            }
+                          ]
+                        },
+                        {
+                          "Name": "repair",
+                          "Description": "Reinstall a cached package",
+                          "Aliases": [],
+                          "Arguments": [
+                            {
+                              "Arguments": [
+                                {
+                                  "Name": "-h",
+                                  "Description": "Print this usage information",
+                                  "Aliases": [
+                                    "--help"
+                                  ],
+                                  "Arguments": []
+                                }
+                              ],
+                              "Optional": true
+                            }
+                          ]
+                        }
+                      ],
+                      "DontAllowMultiple": true
+                    }
+                  ]
+                },
+                {
+                  "Name": "deps",
+                  "Description": "Print package dependencies",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "-h",
+                          "Description": "Print this usage information",
+                          "Aliases": [
+                            "--help"
+                          ],
+                          "Arguments": []
+                        },
+                        {
+                          "Name": "-s",
+                          "Description": "How output should be displayed",
+                          "Aliases": [
+                            "--style"
+                          ],
+                          "Arguments": [
+                            {
+                              "Arguments": [
+                                {
+                                  "Name": "style",
+                                  "Description": "style",
+                                  "Type": "String"
+                                },
+                                {
+                                  "Name": "compact",
+                                  "Description": "style"
+                                },
+                                {
+                                  "Name": "tree",
+                                  "Description": "style"
+                                },
+                                {
+                                  "Name": "list",
+                                  "Description": "style"
+                                }
+                              ]
+                            }
+                          ]
+                        },
+                        {
+                          "Name": "--dev",
+                          "Description": "Include dev dependencies. (defaults to on)",
+                          "Aliases": [],
+                          "Arguments": []
+                        },
+                        {
+                          "Name": "--no-dev",
+                          "Description": "Do not include dev dependencies. (defaults to off)",
+                          "Aliases": [],
+                          "Arguments": []
+                        },
+                        {
+                          "Name": "--executables",
+                          "Description": "List all available executables",
+                          "Aliases": [],
+                          "Arguments": []
+                        }
+                      ],
+                      "Optional": true
+                    }
+                  ]
+                },
+                {
+                  "Name": "downgrade",
+                  "Description": "Downgrade packages in a Flutter project",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "-h",
+                          "Description": "Print this usage information",
+                          "Aliases": [
+                            "--help"
+                          ],
+                          "Arguments": []
+                        },
+                        {
+                          "Name": "--offline",
+                          "Description": "Use cached packages instead of accessing the network",
+                          "Aliases": [],
+                          "Arguments": []
+                        },
+                        {
+                          "Name": "--no-offline",
+                          "Description": "Do not use cached packages instead of accessing the network",
+                          "Aliases": [],
+                          "Arguments": []
+                        },
+                        {
+                          "Name": "-n",
+                          "Description": "Report what dependencies would change but don\u0027t change any",
+                          "Aliases": [
+                            "--dry-run"
+                          ],
+                          "Arguments": []
+                        }
+                      ],
+                      "Optional": true
+                    }
+                  ]
+                },
+                {
+                  "Name": "get",
+                  "Description": "Get packages in a Flutter project",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "-h",
+                          "Description": "Print this usage information",
+                          "Aliases": [
+                            "--help"
+                          ],
+                          "Arguments": []
+                        },
+                        {
+                          "Name": "--offline",
+                          "Description": "Use cached packages instead of accessing the network",
+                          "Aliases": [],
+                          "Arguments": []
+                        },
+                        {
+                          "Name": "--no-offline",
+                          "Description": "Do not use cached packages instead of accessing the network",
+                          "Aliases": [],
+                          "Arguments": []
+                        },
+                        {
+                          "Name": "-n",
+                          "Description": "Report what dependencies would change but don\u0027t change any",
+                          "Aliases": [
+                            "--dry-run"
+                          ],
+                          "Arguments": []
+                        },
+                        {
+                          "Name": "--precompile",
+                          "Description": "Precompile executables in immediate dependencies",
+                          "Aliases": [],
+                          "Arguments": []
+                        },
+                        {
+                          "Name": "--no-precompile",
+                          "Description": "Do not precompile executables in immediate dependencies",
+                          "Aliases": [],
+                          "Arguments": []
+                        }
+                      ],
+                      "Optional": true
+                    }
+                  ]
+                },
+                {
+                  "Name": "global",
+                  "Description": "Work with Pub global packages",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "-h",
+                          "Description": "Print this usage information",
+                          "Aliases": [
+                            "--help"
+                          ],
+                          "Arguments": []
+                        }
+                      ],
+                      "Optional": true
+                    },
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "activate",
+                          "Description": "Make a package\u0027s executables globally available",
+                          "Aliases": [],
+                          "Arguments": [
+                            {
+                              "Arguments": [
+                                {
+                                  "Name": "-h",
+                                  "Description": "Print this usage information",
+                                  "Aliases": [
+                                    "--help"
+                                  ],
+                                  "Arguments": []
+                                },
+                                {
+                                  "Name": "-s",
+                                  "Description": "The source used to find the package",
+                                  "Aliases": [
+                                    "--source"
+                                  ],
+                                  "Arguments": [
+                                    {
+                                      "Arguments": [
+                                        {
+                                          "Name": "source",
+                                          "Description": "source",
+                                          "Type": "String"
+                                        },
+                                        {
+                                          "Name": "git",
+                                          "Description": "source"
+                                        },
+                                        {
+                                          "Name": "hosted",
+                                          "Description": "source"
+                                        },
+                                        {
+                                          "Name": "path",
+                                          "Description": "source"
+                                        }
+                                      ]
+                                    }
+                                  ]
+                                },
+                                {
+                                  "Name": "--no-executables",
+                                  "Description": "Do not put executables on PATH",
+                                  "Aliases": [],
+                                  "Arguments": []
+                                },
+                                {
+                                  "Name": "-x",
+                                  "Description": "Executable(s) to place on PATH",
+                                  "Aliases": [
+                                    "--executable"
+                                  ],
+                                  "Arguments": []
+                                },
+                                {
+                                  "Name": "--overwrite",
+                                  "Description": "Overwrite executables from other packages with the same name",
+                                  "Aliases": [],
+                                  "Arguments": []
+                                },
+                                {
+                                  "Name": "-u",
+                                  "Description": "A custom pub server URL for the package. Only applies when using the \u0027hosted\u0027 source",
+                                  "Aliases": [
+                                    "--hosted-url"
+                                  ],
+                                  "Arguments": [
+                                    {
+                                      "Arguments": [
+                                        {
+                                          "Name": "url",
+                                          "Description": "url",
+                                          "Type": "String"
+                                        }
+                                      ]
+                                    }
+                                  ]
+                                }
+                              ],
+                              "Optional": true
+                            }
+                          ]
+                        },
+                        {
+                          "Name": "deactivate",
+                          "Description": "Remove a previously activated package",
+                          "Aliases": [],
+                          "Arguments": [
+                            {
+                              "Arguments": [
+                                {
+                                  "Name": "-h",
+                                  "Description": "Print this usage information",
+                                  "Aliases": [
+                                    "--help"
+                                  ],
+                                  "Arguments": []
+                                }
+                              ],
+                              "Optional": true
+                            }
+                          ]
+                        },
+                        {
+                          "Name": "list",
+                          "Description": "List globally activated packages",
+                          "Aliases": [],
+                          "Arguments": [
+                            {
+                              "Arguments": [
+                                {
+                                  "Name": "-h",
+                                  "Description": "Print this usage information",
+                                  "Aliases": [
+                                    "--help"
+                                  ],
+                                  "Arguments": []
+                                }
+                              ],
+                              "Optional": true
+                            }
+                          ]
+                        },
+                        {
+                          "Name": "run",
+                          "Description": "Run an executable from a globally activated package",
+                          "Aliases": [],
+                          "Arguments": [
+                            {
+                              "Arguments": [
+                                {
+                                  "Name": "-h",
+                                  "Description": "Print this usage information",
+                                  "Aliases": [
+                                    "--help"
+                                  ],
+                                  "Arguments": []
+                                },
+                                {
+                                  "Name": "--enable-asserts",
+                                  "Description": "Enable assert statements",
+                                  "Aliases": [],
+                                  "Arguments": []
+                                },
+                                {
+                                  "Name": "--no-enable-asserts",
+                                  "Description": "Do not enable assert statements",
+                                  "Aliases": [],
+                                  "Arguments": []
+                                },
+                                {
+                                  "Name": "--enable-experiment",
+                                  "Description": "Runs the executable in a VM with the given experiments enabled. (Will disable snapshotting, resulting in slower startup)",
+                                  "Aliases": [],
+                                  "Arguments": [
+                                    {
+                                      "Arguments": [
+                                        {
+                                          "Name": "experiment",
+                                          "Description": "experiment",
+                                          "Type": "String"
+                                        }
+                                      ]
+                                    }
+                                  ]
+                                },
+                                {
+                                  "Name": "--sound-null-safety",
+                                  "Description": "Override the default null safety execution mode",
+                                  "Aliases": [],
+                                  "Arguments": []
+                                },
+                                {
+                                  "Name": "--no-sound-null-safety",
+                                  "Description": "Do not override the default null safety execution mode",
+                                  "Aliases": [],
+                                  "Arguments": []
+                                }
+                              ],
+                              "Optional": true
+                            }
+                          ]
+                        }
+                      ],
+                      "DontAllowMultiple": true
+                    }
+                  ]
+                },
+                {
+                  "Name": "login",
+                  "Description": "Log into pub.dev",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "-h",
+                          "Description": "Print this usage information",
+                          "Aliases": [
+                            "--help"
+                          ],
+                          "Arguments": []
+                        }
+                      ],
+                      "Optional": true
+                    }
+                  ]
+                },
+                {
+                  "Name": "logout",
+                  "Description": "Log out of pub.dev",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "-h",
+                          "Description": "Print this usage information",
+                          "Aliases": [
+                            "--help"
+                          ],
+                          "Arguments": []
+                        }
+                      ],
+                      "Optional": true
+                    }
+                  ]
+                },
+                {
+                  "Name": "outdated",
+                  "Description": "Analyze dependencies to find which ones can be upgraded",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "-h",
+                          "Description": "Print this usage information",
+                          "Aliases": [
+                            "--help"
+                          ],
+                          "Arguments": []
+                        },
+                        {
+                          "Name": "--color",
+                          "Description": "Color the the output. Defaults to color when connected to a terminal, and no-color otherwise",
+                          "Aliases": [],
+                          "Arguments": []
+                        },
+                        {
+                          "Name": "--no-color",
+                          "Description": "Do not color the output. Defaults to color when connected to a terminal, and no-color otherwise",
+                          "Aliases": [],
+                          "Arguments": []
+                        },
+                        {
+                          "Name": "--dependency-overrides",
+                          "Description": "Show resolutions with \u0027dependency_overrides\u0027. (defaults to on)",
+                          "Aliases": [],
+                          "Arguments": []
+                        },
+                        {
+                          "Name": "--no-dependency-overrides",
+                          "Description": "Do not show resolutions with \u0027dependency_overrides\u0027. (defaults to on)",
+                          "Aliases": [],
+                          "Arguments": []
+                        },
+                        {
+                          "Name": "--json",
+                          "Description": "Output the results sing a JSON format",
+                          "Aliases": [],
+                          "Arguments": []
+                        },
+                        {
+                          "Name": "--mode",
+                          "Description": "Highlight versions with PROPERTY. Only packages missing the PROPERTY will be included unless --show-all",
+                          "Aliases": [],
+                          "Arguments": [
+                            {
+                              "Arguments": [
+                                {
+                                  "Name": "property",
+                                  "Description": "property",
+                                  "Type": "String"
+                                },
+                                {
+                                  "Name": "outdated",
+                                  "Description": "property"
+                                },
+                                {
+                                  "Name": "null-safety",
+                                  "Description": "property"
+                                }
+                              ]
+                            }
+                          ]
+                        },
+                        {
+                          "Name": "--prereleases",
+                          "Description": "Include prereleases in latest version. (defaults to on in --mode=null-safety)",
+                          "Aliases": [],
+                          "Arguments": []
+                        },
+                        {
+                          "Name": "--no-prereleases",
+                          "Description": "Do not include prereleases in latest version. (defaults to off in --mode=null-safety)",
+                          "Aliases": [],
+                          "Arguments": []
+                        },
+                        {
+                          "Name": "--show-all",
+                          "Description": "Include dependencies that are already fulfilling --mode",
+                          "Aliases": [],
+                          "Arguments": []
+                        },
+                        {
+                          "Name": "--no-show-all",
+                          "Description": "Do not include dependencies that are already fulfilling --mode",
+                          "Aliases": [],
+                          "Arguments": []
+                        },
+                        {
+                          "Name": "--transitive",
+                          "Description": "Show transitive dependencies. (defaults to off in --mode=null-safety",
+                          "Aliases": [
+                            "--no-transitive"
+                          ],
+                          "Arguments": []
+                        }
+                      ],
+                      "Optional": true
+                    }
+                  ]
+                },
+                {
+                  "Name": "publish",
+                  "Description": "Publish the current package to pub.dartlang.org",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "-h",
+                          "Description": "Print this usage information",
+                          "Aliases": [
+                            "--help"
+                          ],
+                          "Arguments": []
+                        },
+                        {
+                          "Name": "-n",
+                          "Description": "Report what dependencies would change but don\u0027t change any",
+                          "Aliases": [
+                            "--dry-run"
+                          ],
+                          "Arguments": []
+                        },
+                        {
+                          "Name": "-f",
+                          "Description": "Publish without confirmation if there are no errors",
+                          "Aliases": [
+                            "--force"
+                          ],
+                          "Arguments": []
+                        }
+                      ],
+                      "Optional": true
+                    }
+                  ]
+                },
+                {
+                  "Name": "remove",
+                  "Description": "Removes a dependency from the current package",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "-h",
+                          "Description": "Print this usage information",
+                          "Aliases": [
+                            "--help"
+                          ],
+                          "Arguments": []
+                        },
+                        {
+                          "Name": "--offline",
+                          "Description": "Use cached packages instead of accessing the network",
+                          "Aliases": [],
+                          "Arguments": []
+                        },
+                        {
+                          "Name": "--no-offline",
+                          "Description": "Do not use cached packages instead of accessing the network",
+                          "Aliases": [],
+                          "Arguments": []
+                        },
+                        {
+                          "Name": "-n",
+                          "Description": "Report what dependencies would change but don\u0027t change any",
+                          "Aliases": [
+                            "--dry-run"
+                          ],
+                          "Arguments": []
+                        },
+                        {
+                          "Name": "--precompile",
+                          "Description": "Precompile executables in immediate dependencies",
+                          "Aliases": [],
+                          "Arguments": []
+                        },
+                        {
+                          "Name": "--no-precompile",
+                          "Description": "Do not precompile executables in immediate dependencies",
+                          "Aliases": [],
+                          "Arguments": []
+                        }
+                      ],
+                      "Optional": true
+                    }
+                  ]
+                },
+                {
+                  "Name": "upgrade",
+                  "Description": "Upgrade the current package\u0027s dependencies to latest versions",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "-h",
+                          "Description": "Print this usage information",
+                          "Aliases": [
+                            "--help"
+                          ],
+                          "Arguments": []
+                        },
+                        {
+                          "Name": "--offline",
+                          "Description": "Use cached packages instead of accessing the network",
+                          "Aliases": [],
+                          "Arguments": []
+                        },
+                        {
+                          "Name": "--no-offline",
+                          "Description": "Do not use cached packages instead of accessing the network",
+                          "Aliases": [],
+                          "Arguments": []
+                        },
+                        {
+                          "Name": "-n",
+                          "Description": "Report what dependencies would change but don\u0027t change any",
+                          "Aliases": [
+                            "--dry-run"
+                          ],
+                          "Arguments": []
+                        },
+                        {
+                          "Name": "--precompile",
+                          "Description": "Precompile executables in immediate dependencies",
+                          "Aliases": [],
+                          "Arguments": []
+                        },
+                        {
+                          "Name": "--no-precompile",
+                          "Description": "Do not precompile executables in immediate dependencies",
+                          "Aliases": [],
+                          "Arguments": []
+                        },
+                        {
+                          "Name": "--null-safety",
+                          "Description": "Upgrade constraints in pubspec.yaml to null-safety versions",
+                          "Aliases": [],
+                          "Arguments": []
+                        },
+                        {
+                          "Name": "--major-versions",
+                          "Description": "Upgrades packages to their latest resolvable versions, and updates pubspec.yaml",
+                          "Aliases": [],
+                          "Arguments": []
+                        }
+                      ],
+                      "Optional": true
+                    }
+                  ]
+                },
+                {
+                  "Name": "uploader",
+                  "Description": "Manage uploaders for a package on pub.dev",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "-h",
+                          "Description": "Print this usage information",
+                          "Aliases": [
+                            "--help"
+                          ],
+                          "Arguments": []
+                        },
+                        {
+                          "Name": "--package",
+                          "Description": "The package whose uploaders will be modified. (defaults to the current package)",
+                          "Aliases": [],
+                          "Arguments": []
+                        }
+                      ],
+                      "Optional": true
+                    }
+                  ]
+                }
+              ],
+              "DontAllowMultiple": true
+            }
+          ]
+        },
+        {
+          "Name": "run",
+          "Description": "Run a Dart program",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "-h",
+                  "Description": "Print this usage information",
+                  "Aliases": [
+                    "--help"
+                  ],
+                  "Arguments": []
+                },
+                {
+                  "Name": "--observe",
+                  "Description": "The observe flag is a convenience flag used to run a program with a set of common options. Useful for debugging",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "port-or-address",
+                          "Description": "port-or-address",
+                          "Type": "String"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "--enable-vm-service",
+                  "Description": "Enables the VM service and listens on the specified port for connections (default port number is 8181, default dind address is localhost)",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "port-or-address",
+                          "Description": "port-or-address",
+                          "Type": "String"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "--pause-isolates-on-exit",
+                  "Description": "Pause isolates on exit when running with --enable-vm-service",
+                  "Aliases": [
+                    "--no-pause-isolates-on-exit"
+                  ],
+                  "Arguments": []
+                },
+                {
+                  "Name": "--pause-isolates-on-unhandled-exceptions",
+                  "Description": "Pause isolates when an unhandled exception is encountered when running with --enable-vm-service",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "--no-pause-isolates-on-unhandled-exceptions",
+                  "Description": "Do not pause isolates when an unhandled exception is encountered when running with --enable-vm-service",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "--warn-on-pause-with-no-debugger",
+                  "Description": "Print a warning when an isolate pauses with no attahed debugger when running with --enable-vm-service",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "--no-warn-on-pause-with-no-debugger",
+                  "Description": "Do not print a warning when an isolate pauses with no attahed debugger when running with --enable-vm-service",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "--pause-isolates-on-start",
+                  "Description": "Pause isolates on start when running with --enable-vm-service",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "--no-pause-isolates-on-start",
+                  "Description": "Do not pause isolates on start when running with --enable-vm-service",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "--enable-asserts",
+                  "Description": "Enable assert statements",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "--no-enable-asserts",
+                  "Description": "Do not enable assert statements",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "--verbosity",
+                  "Description": "Sets the verbosity level of the compilation",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "verbosity-level",
+                          "Description": "verbosity-level",
+                          "Type": "String"
+                        },
+                        {
+                          "Name": "all",
+                          "Description": "Show all messages"
+                        },
+                        {
+                          "Name": "error",
+                          "Description": "Show only error messages"
+                        },
+                        {
+                          "Name": "info",
+                          "Description": "Show error, warning, and info messages"
+                        },
+                        {
+                          "Name": "warning",
+                          "Description": "Show only error and warning messages"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "-D",
+                  "Description": "Define an environment declaration. To specify multiple declarations, use multiple options or use commas to separate key-value pairs. For example: dart compile aot-snapshot -D a=1,b=2 main.dart",
+                  "Aliases": [
+                    "--define"
+                  ],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "key-value-pairs",
+                          "Description": "key-value-pairs",
+                          "Type": "String"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "--disable-service-auth-codes",
+                  "Description": "Disables the requirement for an authentication code to communicate with the VM service. Authentication codes help protect against CSRF attacks, so it is not recommended to disable them unless behind a firewall on a secure device",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "--enable-service-port-fallback",
+                  "Description": "When the VM service is told to bind to a particular port, fallback to 0 if it fails to bind instead of failing to start",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "--namespace",
+                  "Description": "The path to a directory that dart:io calls will treat as the root of the filesystem",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "path",
+                          "Description": "path",
+                          "Type": "Directory"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "--root-certs-file",
+                  "Description": "The The path to a file containing the trusted root certificates to use for secure socket connections",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "path",
+                          "Description": "path",
+                          "Type": "FileSystemEntry"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "--root-certs-cache",
+                  "Description": "The path to a cache directory containing the trusted root certificates to use for secure socket connections",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "path",
+                          "Description": "path",
+                          "Type": "Directory"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "--trace-loading",
+                  "Description": "Enables tracing of library and script loading",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "--enable-experiment",
+                  "Description": "Enable one or more experimental features (see dart.dev/go/experiments",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "experiment",
+                          "Description": "experiment",
+                          "Type": "String"
+                        },
+                        {
+                          "Name": "const-functions",
+                          "Description": "Allow more of the Dart language to be executed in const expressions"
+                        },
+                        {
+                          "Name": "extension-methods",
+                          "Description": "Extension methods (no-op - enabled by default)"
+                        },
+                        {
+                          "Name": "extension-types",
+                          "Description": "Extension types"
+                        },
+                        {
+                          "Name": "generic-metadata",
+                          "Description": "Allow annotations to accept type arguments; also allow generic function types as type arguments"
+                        },
+                        {
+                          "Name": "non-nullable",
+                          "Description": "Non-nullable by default. (no-op - on by default)"
+                        },
+                        {
+                          "Name": "nonfunction-type-aliases",
+                          "Description": "Type aliases define a \u003Ctype\u003E, not just \u003CfunctionType\u003E. (no-op - enabled by default)"
+                        },
+                        {
+                          "Name": "triple-shift",
+                          "Description": "Triple-shift operator"
+                        },
+                        {
+                          "Name": "value-class",
+                          "Description": "Value classes"
+                        },
+                        {
+                          "Name": "variance",
+                          "Description": "Sound variance"
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ],
+              "Optional": true
+            }
+          ]
+        },
+        {
+          "Name": "test",
+          "Description": "Run tests for a project",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "-h",
+                  "Description": "Print this usage information",
+                  "Aliases": [
+                    "--help"
+                  ],
+                  "Arguments": []
+                }
+              ],
+              "Optional": true
+            }
+          ]
+        }
+      ],
+      "DontAllowMultiple": true
+    }
+  ]
+}

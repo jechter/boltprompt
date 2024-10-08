@@ -1,0 +1,314 @@
+{
+  "Comment": "This command info is generated from fig",
+  "Name": "ansible-lint",
+  "Description": "Ansible static code analysis",
+  "Arguments": [
+    {
+      "Arguments": [
+        {
+          "Name": "--help",
+          "Description": "Show help for ansible-lint",
+          "Aliases": [
+            "-h"
+          ],
+          "Arguments": []
+        },
+        {
+          "Name": "--list-rules",
+          "Description": "List all the rules",
+          "Aliases": [
+            "-L"
+          ],
+          "Arguments": []
+        },
+        {
+          "Name": "--list-tags",
+          "Description": "List all the tags and the rules they cover",
+          "Aliases": [
+            "-T"
+          ],
+          "Arguments": []
+        },
+        {
+          "Name": "--format",
+          "Description": "Stdout formatting",
+          "Aliases": [
+            "-f"
+          ],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "-f",
+                  "Description": "-f",
+                  "Type": "String"
+                },
+                {
+                  "Name": "rich",
+                  "Description": "-f"
+                },
+                {
+                  "Name": "plain",
+                  "Description": "-f"
+                },
+                {
+                  "Name": "md",
+                  "Description": "-f"
+                },
+                {
+                  "Name": "json",
+                  "Description": "-f"
+                },
+                {
+                  "Name": "codeclimate",
+                  "Description": "-f"
+                },
+                {
+                  "Name": "quiet",
+                  "Description": "-f"
+                },
+                {
+                  "Name": "pep8",
+                  "Description": "-f"
+                },
+                {
+                  "Name": "sarif",
+                  "Description": "-f"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "Name": "q",
+          "Description": "Quieter, reduce verbosity, can be specified twice",
+          "Type": "Flag",
+          "Aliases": [],
+          "Arguments": []
+        },
+        {
+          "Name": "p",
+          "Description": "Parseable output, same as \u0027-f pep8\u0027",
+          "Type": "Flag",
+          "Aliases": [],
+          "Arguments": []
+        },
+        {
+          "Name": "--progressive",
+          "Description": "Return success if it detects a reduction in number of violations compared with previous git commit. This feature works only in git repositories",
+          "Aliases": [],
+          "Arguments": []
+        },
+        {
+          "Name": "--project-dir",
+          "Description": "Location of project/repository, autodetected based on location of configuration file",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "PROJECT_DIR",
+                  "Description": "PROJECT_DIR",
+                  "Type": "Directory"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "Name": "--rules-dir",
+          "Description": "Specify custom rule directories",
+          "Aliases": [
+            "-r"
+          ],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "RULESDIR",
+                  "Description": "RULESDIR",
+                  "Type": "Directory"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "Name": "R",
+          "Description": "Keep using embedded rules when using \u0027-r\u0027",
+          "Type": "Flag",
+          "Aliases": [],
+          "Arguments": []
+        },
+        {
+          "Name": "--write",
+          "Description": "Allow ansible-lint to reformat YAML files and run rule transforms",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "WRITE_LIST",
+                  "Description": "WRITE_LIST",
+                  "Type": "String"
+                },
+                {
+                  "Name": "all",
+                  "Description": "WRITE_LIST"
+                },
+                {
+                  "Name": "none",
+                  "Description": "WRITE_LIST"
+                },
+                {
+                  "Name": "rule1,rule2,...",
+                  "Description": "WRITE_LIST"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "Name": "--show-relpath",
+          "Description": "Display path relative to CWD",
+          "Aliases": [],
+          "Arguments": []
+        },
+        {
+          "Name": "--tags",
+          "Description": "Only check rules whose id/tags match these values",
+          "Aliases": [
+            "-t"
+          ],
+          "Arguments": []
+        },
+        {
+          "Name": "v",
+          "Description": "Increase verbosity level (-vv for more)",
+          "Type": "Flag",
+          "Aliases": [],
+          "Arguments": []
+        },
+        {
+          "Name": "--skip-list",
+          "Description": "Only check rules whose id/tags do not match these values",
+          "Aliases": [
+            "-x"
+          ],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "SKIP_LIST",
+                  "Description": "SKIP_LIST",
+                  "Type": "String"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "Name": "--warn-list",
+          "Description": "Only warn about these rules, unless overridden in config file defaults to \u0027experimental\u0027",
+          "Aliases": [
+            "-w"
+          ],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "WARN_LIST",
+                  "Description": "WARN_LIST",
+                  "Type": "String"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "Name": "--enable-list",
+          "Description": "Activate optional rules by their tag name",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "ENABLE_LIST",
+                  "Description": "ENABLE_LIST",
+                  "Type": "String"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "Name": "--nocolor",
+          "Description": "Disable colored output, same as NO_COLOR=1",
+          "Aliases": [],
+          "Arguments": []
+        },
+        {
+          "Name": "--force-color",
+          "Description": "Force colored output, same as FORCE_COLOR=1",
+          "Aliases": [],
+          "Arguments": []
+        },
+        {
+          "Name": "--exclude-paths",
+          "Description": "Path to directories or files to skip. This option is repeatable",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "EXCLUDE_PATHS",
+                  "Description": "EXCLUDE_PATHS",
+                  "Type": "Directory"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "Name": "--config-file",
+          "Description": "Specify configuration file to use. By default it will look for \u0027.ansible-lint\u0027 or \u0027.config/ansible-lint.yml\u0027",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "CONFIG_FILE",
+                  "Description": "CONFIG_FILE",
+                  "Type": "FileSystemEntry"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "Name": "--offline",
+          "Description": "Disable installation of requirements.yml",
+          "Aliases": [],
+          "Arguments": []
+        },
+        {
+          "Name": "--version",
+          "Description": "Show version of ansible-lint",
+          "Aliases": [],
+          "Arguments": []
+        }
+      ],
+      "Optional": true
+    },
+    {
+      "Arguments": [
+        {
+          "Name": "lintables",
+          "Description": "lintables",
+          "Type": "FileSystemEntry"
+        }
+      ],
+      "Optional": true
+    }
+  ]
+}

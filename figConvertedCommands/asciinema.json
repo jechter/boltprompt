@@ -1,0 +1,304 @@
+{
+  "Comment": "This command info is generated from fig",
+  "Name": "asciinema",
+  "Description": "Terminal session recorder",
+  "Arguments": [
+    {
+      "Arguments": [
+        {
+          "Name": "--version",
+          "Description": "Ouput version information and exit",
+          "Aliases": [],
+          "Arguments": []
+        },
+        {
+          "Name": "-h",
+          "Description": "Output help message and exit",
+          "Aliases": [
+            "--help"
+          ],
+          "Arguments": []
+        }
+      ],
+      "Optional": true
+    },
+    {
+      "Arguments": [
+        {
+          "Name": "rec",
+          "Description": "Start a recording",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "--stdin",
+                  "Description": "Enable stdin (keyboard) recording",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "--append",
+                  "Description": "Append to existing recording",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "--raw",
+                  "Description": "Save raw output, without timing or other metadata",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "--overwrite",
+                  "Description": "Overwrite the recording if it already exists",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "-c",
+                  "Description": "Specify command to record, defaults to $SHELL",
+                  "Aliases": [
+                    "--command"
+                  ],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "command",
+                          "Description": "command",
+                          "Type": "String"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "-e",
+                  "Description": "List of environment variables to capture",
+                  "Aliases": [
+                    "--env"
+                  ],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "variables",
+                          "Description": "variables",
+                          "Type": "String"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "-t",
+                  "Description": "Specify the title of the asciicast",
+                  "Aliases": [
+                    "--title"
+                  ],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "title",
+                          "Description": "title",
+                          "Type": "String"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "-i",
+                  "Description": "Limit recorded terminal inactivity to max amount of seconds",
+                  "Aliases": [
+                    "--idle-time-limit"
+                  ],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "seconds",
+                          "Description": "seconds",
+                          "Type": "String"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "--cols",
+                  "Description": "Override terminal columns for recorded process",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "cols",
+                          "Description": "cols",
+                          "Type": "String"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "--rows",
+                  "Description": "Override terminal rows for recorded process",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "rows",
+                          "Description": "rows",
+                          "Type": "String"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "-y",
+                  "Description": "Answer \u201Cyes\u201D to all prompts (e.g. upload confirmation)",
+                  "Aliases": [
+                    "--yes"
+                  ],
+                  "Arguments": []
+                },
+                {
+                  "Name": "-q",
+                  "Description": "Be quiet, suppress all notices/warnings (implies -y)",
+                  "Aliases": [
+                    "--quiet"
+                  ],
+                  "Arguments": []
+                }
+              ],
+              "Optional": true
+            },
+            {
+              "Arguments": [
+                {
+                  "Name": "filename",
+                  "Description": "filename",
+                  "Type": "String"
+                }
+              ],
+              "Optional": true
+            }
+          ]
+        },
+        {
+          "Name": "play",
+          "Description": "Replay recorded asciicast in a terminal",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "-i",
+                  "Description": "Limit replayed terminal inactivity",
+                  "Aliases": [
+                    "--idle-time-linit"
+                  ],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "seconds",
+                          "Description": "seconds",
+                          "Type": "String"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "-s",
+                  "Description": "Playback speed",
+                  "Aliases": [
+                    "--speed"
+                  ],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "factor",
+                          "Description": "factor",
+                          "Type": "String"
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ],
+              "Optional": true
+            },
+            {
+              "Arguments": [
+                {
+                  "Name": "file or URL",
+                  "Description": "file or URL",
+                  "Type": "FileSystemEntry"
+                },
+                {
+                  "Name": "-",
+                  "Description": "Stdin"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "Name": "cat",
+          "Description": "Print full output of recorded asciicast to a terminal",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "file or URL",
+                  "Description": "file or URL",
+                  "Type": "FileSystemEntry"
+                },
+                {
+                  "Name": "-",
+                  "Description": "Stdin"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "Name": "upload",
+          "Description": "Upload recorded asciicast to asciinema.org site",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "file or URL",
+                  "Description": "file or URL",
+                  "Type": "FileSystemEntry"
+                },
+                {
+                  "Name": "-",
+                  "Description": "Stdin"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "Name": "auth",
+          "Description": "Link and manage your install ID with your asciinema.org user account",
+          "Aliases": [],
+          "Arguments": []
+        }
+      ],
+      "DontAllowMultiple": true
+    }
+  ]
+}

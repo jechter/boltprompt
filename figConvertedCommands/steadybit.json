@@ -1,0 +1,429 @@
+{
+  "Comment": "This command info is generated from fig",
+  "Name": "steadybit",
+  "Description": "Command-line interface to interact with the Steadybit API",
+  "Arguments": [
+    {
+      "Arguments": [
+        {
+          "Name": "--help",
+          "Description": "Display usage information",
+          "Aliases": [
+            "-h"
+          ],
+          "Arguments": []
+        }
+      ],
+      "Optional": true
+    },
+    {
+      "Arguments": [
+        {
+          "Name": "config",
+          "Description": "Show/modify the CLI configuration and authentication profiles",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "show",
+                  "Description": "Show the active CLI configuration. Warning: Prints secrets!",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "profile",
+                  "Description": "Configure authentication profiles",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "add",
+                          "Description": "Interactively configure a new profile",
+                          "Aliases": [],
+                          "Arguments": []
+                        },
+                        {
+                          "Name": "list",
+                          "Description": "List all configured profiles",
+                          "Aliases": [
+                            "ls"
+                          ],
+                          "Arguments": []
+                        },
+                        {
+                          "Name": "remove",
+                          "Description": "Interactively remove an existing profile",
+                          "Aliases": [],
+                          "Arguments": []
+                        },
+                        {
+                          "Name": "select",
+                          "Description": "Interactively change the currently active profile",
+                          "Aliases": [],
+                          "Arguments": []
+                        }
+                      ],
+                      "DontAllowMultiple": true
+                    }
+                  ]
+                }
+              ],
+              "DontAllowMultiple": true
+            }
+          ]
+        },
+        {
+          "Name": "def-repo",
+          "Description": "Change versions and verify a task/policy definition repository state",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "set-version",
+                  "Description": "Set the versions in policies and task references",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "-v",
+                          "Description": "Version to set",
+                          "Aliases": [
+                            "--version"
+                          ],
+                          "Arguments": [
+                            {
+                              "Arguments": [
+                                {
+                                  "Name": "version",
+                                  "Description": "version",
+                                  "Type": "String"
+                                }
+                              ]
+                            }
+                          ]
+                        },
+                        {
+                          "Name": "-d",
+                          "Description": "The directory to search for task and policy files",
+                          "Aliases": [
+                            "--directory"
+                          ],
+                          "Arguments": [
+                            {
+                              "Arguments": [
+                                {
+                                  "Name": "directory",
+                                  "Description": "directory",
+                                  "Type": "Directory"
+                                }
+                              ]
+                            }
+                          ]
+                        }
+                      ],
+                      "Optional": true
+                    }
+                  ]
+                },
+                {
+                  "Name": "check",
+                  "Description": "Checks that the tasks and policies are valid",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "-v",
+                          "Description": "The version to check",
+                          "Aliases": [
+                            "--version"
+                          ],
+                          "Arguments": [
+                            {
+                              "Arguments": [
+                                {
+                                  "Name": "version",
+                                  "Description": "version",
+                                  "Type": "String"
+                                }
+                              ]
+                            }
+                          ]
+                        },
+                        {
+                          "Name": "-d",
+                          "Description": "The directory to search for task and policy files",
+                          "Aliases": [
+                            "--directory"
+                          ],
+                          "Arguments": [
+                            {
+                              "Arguments": [
+                                {
+                                  "Name": "directory",
+                                  "Description": "directory",
+                                  "Type": "Directory"
+                                }
+                              ]
+                            }
+                          ]
+                        }
+                      ],
+                      "Optional": true
+                    }
+                  ]
+                }
+              ],
+              "DontAllowMultiple": true
+            }
+          ]
+        },
+        {
+          "Name": "service",
+          "Description": "Configure or verify service definitions",
+          "Aliases": [
+            "service-definition"
+          ],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "apply",
+                  "Description": "Upload a service definition",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "-f",
+                          "Description": "Path to the service definition file",
+                          "Aliases": [
+                            "--file"
+                          ],
+                          "Arguments": [
+                            {
+                              "Arguments": [
+                                {
+                                  "Name": "file",
+                                  "Description": "file",
+                                  "Type": "FileSystemEntry"
+                                }
+                              ]
+                            }
+                          ]
+                        }
+                      ],
+                      "Optional": true
+                    }
+                  ]
+                },
+                {
+                  "Name": "delete",
+                  "Description": "Delete a service definition",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "-f",
+                          "Description": "Path to the service definition file",
+                          "Aliases": [
+                            "--file"
+                          ],
+                          "Arguments": [
+                            {
+                              "Arguments": [
+                                {
+                                  "Name": "file",
+                                  "Description": "file",
+                                  "Type": "FileSystemEntry"
+                                }
+                              ]
+                            }
+                          ]
+                        },
+                        {
+                          "Name": "-i",
+                          "Description": "ID of the service definition to delete",
+                          "Aliases": [
+                            "--id"
+                          ],
+                          "Arguments": [
+                            {
+                              "Arguments": [
+                                {
+                                  "Name": "id",
+                                  "Description": "id",
+                                  "Type": "String"
+                                }
+                              ]
+                            }
+                          ]
+                        }
+                      ],
+                      "Optional": true
+                    }
+                  ]
+                },
+                {
+                  "Name": "init",
+                  "Description": "Initialize a service definition file",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "open",
+                  "Description": "Open the service in the Steadybit UI",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "-f",
+                          "Description": "Path to the service definition file",
+                          "Aliases": [
+                            "--file"
+                          ],
+                          "Arguments": [
+                            {
+                              "Arguments": [
+                                {
+                                  "Name": "file",
+                                  "Description": "file",
+                                  "Type": "FileSystemEntry"
+                                }
+                              ]
+                            }
+                          ]
+                        }
+                      ],
+                      "Optional": true
+                    }
+                  ]
+                },
+                {
+                  "Name": "verify",
+                  "Description": "Read the current service definition and state",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "-f",
+                          "Description": "Path to the service definition file",
+                          "Aliases": [
+                            "--file"
+                          ],
+                          "Arguments": [
+                            {
+                              "Arguments": [
+                                {
+                                  "Name": "file",
+                                  "Description": "file",
+                                  "Type": "FileSystemEntry"
+                                }
+                              ]
+                            }
+                          ]
+                        },
+                        {
+                          "Name": "-pp",
+                          "Description": "Print task parameters when listing tasks",
+                          "Aliases": [
+                            "--print-parameters"
+                          ],
+                          "Arguments": []
+                        },
+                        {
+                          "Name": "-pm",
+                          "Description": "Print the matrix execution context information when listing tasks",
+                          "Aliases": [
+                            "--print-matrix-context"
+                          ],
+                          "Arguments": []
+                        }
+                      ],
+                      "Optional": true
+                    }
+                  ]
+                },
+                {
+                  "Name": "show",
+                  "Description": "Show a list of tasks and policies referenced by this service",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "-f",
+                          "Description": "Path to the service definition file",
+                          "Aliases": [
+                            "--file"
+                          ],
+                          "Arguments": [
+                            {
+                              "Arguments": [
+                                {
+                                  "Name": "file",
+                                  "Description": "file",
+                                  "Type": "FileSystemEntry"
+                                }
+                              ]
+                            }
+                          ]
+                        },
+                        {
+                          "Name": "-n",
+                          "Description": "Optional task name to filter the result list",
+                          "Aliases": [
+                            "--name"
+                          ],
+                          "Arguments": [
+                            {
+                              "Arguments": [
+                                {
+                                  "Name": "name",
+                                  "Description": "name",
+                                  "Type": "String"
+                                }
+                              ]
+                            }
+                          ]
+                        },
+                        {
+                          "Name": "-v",
+                          "Description": "Optional task version to filter the result list",
+                          "Aliases": [
+                            "--version"
+                          ],
+                          "Arguments": [
+                            {
+                              "Arguments": [
+                                {
+                                  "Name": "version",
+                                  "Description": "version",
+                                  "Type": "String"
+                                }
+                              ]
+                            }
+                          ]
+                        }
+                      ],
+                      "Optional": true
+                    }
+                  ]
+                }
+              ],
+              "DontAllowMultiple": true
+            }
+          ]
+        }
+      ],
+      "DontAllowMultiple": true
+    }
+  ]
+}

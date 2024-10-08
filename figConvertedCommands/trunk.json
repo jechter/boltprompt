@@ -1,0 +1,676 @@
+{
+  "Comment": "This command info is generated from fig",
+  "Name": "trunk",
+  "Description": "An all-in-one tool for scalably checking, formatting, and monitoring code",
+  "Arguments": [
+    {
+      "Arguments": [
+        {
+          "Name": "-h",
+          "Description": "Usage information",
+          "Aliases": [
+            "--help"
+          ],
+          "Arguments": []
+        },
+        {
+          "Name": "--version",
+          "Description": "The version",
+          "Aliases": [],
+          "Arguments": []
+        },
+        {
+          "Name": "-m",
+          "Description": "Enable the trunk daemon to monitor file changes in your repo",
+          "Aliases": [
+            "--monitor"
+          ],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "value",
+                  "Description": "value",
+                  "Type": "String"
+                },
+                {
+                  "Name": "true",
+                  "Description": "value"
+                },
+                {
+                  "Name": "false",
+                  "Description": "value"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "Name": "--ci",
+          "Description": "Run in continuous integration mode",
+          "Aliases": [],
+          "Arguments": []
+        },
+        {
+          "Name": "-o",
+          "Description": "Output format",
+          "Aliases": [
+            "--output"
+          ],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "format",
+                  "Description": "format",
+                  "Type": "String"
+                },
+                {
+                  "Name": "text",
+                  "Description": "format"
+                },
+                {
+                  "Name": "json",
+                  "Description": "format"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "Name": "--no-progress",
+          "Description": "Don\u0027t show progress updates",
+          "Aliases": [],
+          "Arguments": []
+        },
+        {
+          "Name": "--ci-progress",
+          "Description": "Show updates every 30 seconds without clearing terminal screen (implicit with --ci)",
+          "Aliases": [],
+          "Arguments": []
+        },
+        {
+          "Name": "--action_timeout",
+          "Description": "How long actions (downloads, lint runs, etc.) have to time out, with units (s, ms, etc)",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "timeout",
+                  "Description": "timeout",
+                  "Type": "String"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "Name": "-v",
+          "Description": "Output details about what\u0027s happening under the hood",
+          "Aliases": [
+            "--verbose"
+          ],
+          "Arguments": []
+        }
+      ],
+      "Optional": true
+    },
+    {
+      "Arguments": [
+        {
+          "Name": "init",
+          "Description": "Setup trunk in this repo",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "--lock",
+                  "Description": "Add sha256s to trunk.yaml for additional verification",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "--check-sample",
+                  "Description": "Run \u0060trunk check sample\u0060 without prompting",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "--nocheck-sample",
+                  "Description": "Do not run \u0060trunk check sample\u0060 post-init",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "--force",
+                  "Description": "Overwrite existing trunk.yaml",
+                  "Aliases": [],
+                  "Arguments": []
+                }
+              ],
+              "Optional": true
+            }
+          ]
+        },
+        {
+          "Name": "check",
+          "Description": "Universal code checker",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "-y",
+                  "Description": "Automatically apply all fixes without prompting",
+                  "Aliases": [
+                    "--fix"
+                  ],
+                  "Arguments": []
+                },
+                {
+                  "Name": "-a",
+                  "Description": "Run on all files instead of only changed files",
+                  "Aliases": [
+                    "--all"
+                  ],
+                  "Arguments": []
+                },
+                {
+                  "Name": "-n",
+                  "Description": "Don\u0027t automatically apply fixes",
+                  "Aliases": [
+                    "--no-fix"
+                  ],
+                  "Arguments": []
+                },
+                {
+                  "Name": "--include-existing-autofixes",
+                  "Description": "Show autofixes for existing issues",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "--force",
+                  "Description": "Run on all files, even if ignored",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "--diff",
+                  "Description": "Diff printing mode",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "mode",
+                          "Description": "mode",
+                          "Type": "String"
+                        },
+                        {
+                          "Name": "none",
+                          "Description": "mode"
+                        },
+                        {
+                          "Name": "compact",
+                          "Description": "mode"
+                        },
+                        {
+                          "Name": "full",
+                          "Description": "mode"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "--filter",
+                  "Description": "Filter the set of executed linters and/or the returned codes; use a leading \u0027-\u0027 to exclude a linter or code",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "linter or code",
+                          "Description": "linter or code",
+                          "Type": "String"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "--exclude",
+                  "Description": "Shorthand for an inverse --filter",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "linter or code",
+                          "Description": "linter or code",
+                          "Type": "String"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "-j",
+                  "Description": "Number of concurrent jobs (does not affect background linting)",
+                  "Aliases": [
+                    "--jobs"
+                  ],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "number",
+                          "Description": "number",
+                          "Type": "String"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "--sample",
+                  "Description": "Run each linter on N files (implies --no-fix and --all if no paths are given)",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "N",
+                          "Description": "N",
+                          "Type": "String"
+                        }
+                      ]
+                    },
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "paths",
+                          "Description": "paths",
+                          "Type": "FileSystemEntry"
+                        }
+                      ],
+                      "Optional": true
+                    }
+                  ]
+                },
+                {
+                  "Name": "--upstream",
+                  "Description": "Upstream branch used to compute changed files (autodetected by default)",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "branch",
+                          "Description": "branch",
+                          "Type": "String"
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ],
+              "Optional": true
+            },
+            {
+              "Arguments": [
+                {
+                  "Name": "paths",
+                  "Description": "paths",
+                  "Type": "FileSystemEntry"
+                }
+              ],
+              "Optional": true
+            },
+            {
+              "Arguments": [
+                {
+                  "Name": "upgrade",
+                  "Description": "Upgrade all linters to latest versions",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "linters",
+                          "Description": "linters",
+                          "Type": "String"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "download",
+                  "Description": "Download all files needed for trunk to work offline",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "tools",
+                          "Description": "tools",
+                          "Type": "String"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "enable",
+                  "Description": "Enable linters",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "linters",
+                          "Description": "linters",
+                          "Type": "String"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "disable",
+                  "Description": "Disable linters",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "linters",
+                          "Description": "linters",
+                          "Type": "String"
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ],
+              "DontAllowMultiple": true
+            }
+          ]
+        },
+        {
+          "Name": "fmt",
+          "Description": "Universal code formatter",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "-a",
+                  "Description": "Run on all files instead of only changed files",
+                  "Aliases": [
+                    "--all"
+                  ],
+                  "Arguments": []
+                },
+                {
+                  "Name": "-n",
+                  "Description": "Don\u0027t automatically apply fixes",
+                  "Aliases": [
+                    "--no-fix"
+                  ],
+                  "Arguments": []
+                },
+                {
+                  "Name": "--include-existing-autofixes",
+                  "Description": "Show autofixes for existing issues",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "--force",
+                  "Description": "Run on all files, even if ignored",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "--diff",
+                  "Description": "Diff printing mode",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "mode",
+                          "Description": "mode",
+                          "Type": "String"
+                        },
+                        {
+                          "Name": "none",
+                          "Description": "mode"
+                        },
+                        {
+                          "Name": "compact",
+                          "Description": "mode"
+                        },
+                        {
+                          "Name": "full",
+                          "Description": "mode"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "--filter",
+                  "Description": "Filter the set of executed linters and/or the returned codes; use a leading \u0027-\u0027 to exclude a linter or code",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "linter or code",
+                          "Description": "linter or code",
+                          "Type": "String"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "--exclude",
+                  "Description": "Shorthand for an inverse --filter",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "linter or code",
+                          "Description": "linter or code",
+                          "Type": "String"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "-j",
+                  "Description": "Number of concurrent jobs (does not affect background linting)",
+                  "Aliases": [
+                    "--jobs"
+                  ],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "number",
+                          "Description": "number",
+                          "Type": "String"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "--sample",
+                  "Description": "Run each linter on N files (implies --no-fix and --all if no paths are given)",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "N",
+                          "Description": "N",
+                          "Type": "String"
+                        }
+                      ]
+                    },
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "paths",
+                          "Description": "paths",
+                          "Type": "FileSystemEntry"
+                        }
+                      ],
+                      "Optional": true
+                    }
+                  ]
+                },
+                {
+                  "Name": "--upstream",
+                  "Description": "Upstream branch used to compute changed files (autodetected by default)",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "branch",
+                          "Description": "branch",
+                          "Type": "String"
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ],
+              "Optional": true
+            },
+            {
+              "Arguments": [
+                {
+                  "Name": "paths",
+                  "Description": "paths",
+                  "Type": "FileSystemEntry"
+                }
+              ],
+              "Optional": true
+            }
+          ]
+        },
+        {
+          "Name": "upgrade",
+          "Description": "Upgrade trunk to the latest release",
+          "Aliases": [],
+          "Arguments": []
+        },
+        {
+          "Name": "git-hooks",
+          "Description": "Git hooks",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "install",
+                  "Description": "Install trunk git hooks",
+                  "Aliases": [],
+                  "Arguments": []
+                }
+              ],
+              "DontAllowMultiple": true
+            }
+          ]
+        },
+        {
+          "Name": "cache",
+          "Description": "Cache management",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "clean",
+                  "Description": "Clean the cache",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "--all",
+                          "Description": "Delete all files (including results cache)",
+                          "Aliases": [],
+                          "Arguments": []
+                        },
+                        {
+                          "Name": "-n",
+                          "Description": "Print all directories that would be cleaned out without running deletion",
+                          "Aliases": [
+                            "--dry-run"
+                          ],
+                          "Arguments": []
+                        }
+                      ],
+                      "Optional": true
+                    }
+                  ]
+                }
+              ],
+              "DontAllowMultiple": true
+            }
+          ]
+        },
+        {
+          "Name": "print-config",
+          "Description": "Print the resolved trunk config",
+          "Aliases": [],
+          "Arguments": []
+        },
+        {
+          "Name": "daemon",
+          "Description": "Daemon management",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "launch",
+                  "Description": "Start the trunk daemon if its not already running",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "shutdown",
+                  "Description": "Shutdown the trunk daemon if it is running",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "status",
+                  "Description": "Report daemon status",
+                  "Aliases": [],
+                  "Arguments": []
+                }
+              ],
+              "DontAllowMultiple": true
+            }
+          ]
+        }
+      ],
+      "DontAllowMultiple": true
+    }
+  ]
+}

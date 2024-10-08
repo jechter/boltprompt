@@ -1,0 +1,885 @@
+{
+  "Comment": "This command info is generated from fig",
+  "Name": "julia",
+  "Description": "The Julia Programming Language",
+  "Arguments": [
+    {
+      "Arguments": [
+        {
+          "Name": "-v",
+          "Description": "Display version information",
+          "Aliases": [
+            "--version"
+          ],
+          "Arguments": []
+        },
+        {
+          "Name": "-h",
+          "Description": "Print help message for julia (--help-hidden for more)",
+          "Aliases": [
+            "--help"
+          ],
+          "Arguments": []
+        },
+        {
+          "Name": "--help-hidden",
+          "Description": "Uncommon options not shown by \u0060-h\u0060",
+          "Aliases": [],
+          "Arguments": []
+        },
+        {
+          "Name": "--project",
+          "Description": "Set given directory as the home project/environment",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "project folder",
+                  "Description": "project folder",
+                  "Type": "String",
+                  "Extensions": [],
+                  "CustomCommand": ""
+                },
+                {
+                  "Name": "@.",
+                  "Description": "Search through parent directories until a Project.toml or JuliaProject.toml file is found"
+                }
+              ],
+              "Optional": true
+            }
+          ]
+        },
+        {
+          "Name": "-J",
+          "Description": "Start up with the given system image file",
+          "Aliases": [
+            "--sysimage"
+          ],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "system image",
+                  "Description": "system image",
+                  "Type": "File",
+                  "Extensions": [
+                    "dylib",
+                    "so",
+                    "dll"
+                  ],
+                  "CustomCommand": ""
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "Name": "-H",
+          "Description": "Set location of \u0060julia\u0060 executable",
+          "Aliases": [
+            "--home"
+          ],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "Directory",
+                  "Description": "",
+                  "Type": "Directory"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "Name": "--startup-file",
+          "Description": "Load \u0060~/.julia/config/startup.jl\u0060",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "String",
+                  "Description": "",
+                  "Type": "String"
+                },
+                {
+                  "Name": "yes",
+                  "Description": ""
+                },
+                {
+                  "Name": "no",
+                  "Description": ""
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "Name": "--handle-signals",
+          "Description": "Enable or disable Julia\u0027s default signal handlers",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "String",
+                  "Description": "",
+                  "Type": "String"
+                },
+                {
+                  "Name": "yes",
+                  "Description": ""
+                },
+                {
+                  "Name": "no",
+                  "Description": ""
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "Name": "--sysimage-native-code",
+          "Description": "Use native code from system image if available",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "String",
+                  "Description": "",
+                  "Type": "String"
+                },
+                {
+                  "Name": "yes",
+                  "Description": ""
+                },
+                {
+                  "Name": "no",
+                  "Description": ""
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "Name": "--compiled-modules",
+          "Description": "Enable or disable incremental precompilation of modules",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "String",
+                  "Description": "",
+                  "Type": "String"
+                },
+                {
+                  "Name": "yes",
+                  "Description": ""
+                },
+                {
+                  "Name": "no",
+                  "Description": ""
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "Name": "-e",
+          "Description": "Evaluate given expr",
+          "Aliases": [
+            "--eval"
+          ],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "expr",
+                  "Description": "expr",
+                  "Type": "String"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "Name": "-E",
+          "Description": "Evaluate given expr and display the result",
+          "Aliases": [
+            "--print"
+          ],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "expr",
+                  "Description": "expr",
+                  "Type": "String"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "Name": "-L",
+          "Description": "Load given file immediately on all processors",
+          "Aliases": [
+            "--load"
+          ],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "julia script",
+                  "Description": "julia script",
+                  "Type": "File",
+                  "Extensions": [
+                    "jl"
+                  ],
+                  "CustomCommand": ""
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "Name": "-t",
+          "Description": "Enable N threads; \u0022auto\u0022 sets N to the number of local CPU threads",
+          "Aliases": [
+            "--threads"
+          ],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "String",
+                  "Description": "",
+                  "Type": "String"
+                },
+                {
+                  "Name": "auto",
+                  "Description": ""
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "Name": "-p",
+          "Description": "Integer value N launches N additional local worker processes \u0022auto\u0022 launches as many workers as the number of local CPU threads",
+          "Aliases": [
+            "--procs"
+          ],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "String",
+                  "Description": "",
+                  "Type": "String"
+                },
+                {
+                  "Name": "auto",
+                  "Description": ""
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "Name": "--machine-file",
+          "Description": "Run processes on hosts listed in given file",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "FileSystemEntry",
+                  "Description": "",
+                  "Type": "FileSystemEntry"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "Name": "i",
+          "Description": "Interactive mode; REPL runs and isinteractive() is true",
+          "Type": "Flag",
+          "Aliases": [],
+          "Arguments": []
+        },
+        {
+          "Name": "-q",
+          "Description": "Quiet startup: no banner, suppress REPL warnings",
+          "Aliases": [
+            "--quiet"
+          ],
+          "Arguments": []
+        },
+        {
+          "Name": "--banner",
+          "Description": "Enable or disable startup banner",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "String",
+                  "Description": "",
+                  "Type": "String"
+                },
+                {
+                  "Name": "yes",
+                  "Description": ""
+                },
+                {
+                  "Name": "no",
+                  "Description": ""
+                },
+                {
+                  "Name": "auto",
+                  "Description": ""
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "Name": "--color",
+          "Description": "Enable or disable color text",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "String",
+                  "Description": "",
+                  "Type": "String"
+                },
+                {
+                  "Name": "yes",
+                  "Description": ""
+                },
+                {
+                  "Name": "no",
+                  "Description": ""
+                },
+                {
+                  "Name": "auto",
+                  "Description": ""
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "Name": "--history-file",
+          "Description": "Load or save history",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "String",
+                  "Description": "",
+                  "Type": "String"
+                },
+                {
+                  "Name": "yes",
+                  "Description": ""
+                },
+                {
+                  "Name": "no",
+                  "Description": ""
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "Name": "--depwarn",
+          "Description": "Enable or disable syntax and method deprecation warnings (\u0022error\u0022 turns warnings into errors)",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "String",
+                  "Description": "",
+                  "Type": "String"
+                },
+                {
+                  "Name": "yes",
+                  "Description": ""
+                },
+                {
+                  "Name": "no",
+                  "Description": ""
+                },
+                {
+                  "Name": "error",
+                  "Description": ""
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "Name": "--warn-overwrite",
+          "Description": "Enable or disable method overwrite warnings",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "String",
+                  "Description": "",
+                  "Type": "String"
+                },
+                {
+                  "Name": "yes",
+                  "Description": ""
+                },
+                {
+                  "Name": "no",
+                  "Description": ""
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "Name": "--warn-scope",
+          "Description": "Enable or disable warning for ambiguous top-level scope",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "String",
+                  "Description": "",
+                  "Type": "String"
+                },
+                {
+                  "Name": "yes",
+                  "Description": ""
+                },
+                {
+                  "Name": "no",
+                  "Description": ""
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "Name": "-C",
+          "Description": "Limit usage of CPU features up to \u003Ctarget\u003E; set to \u0022help\u0022 to see the available options",
+          "Aliases": [
+            "--cpu-target"
+          ],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "String",
+                  "Description": "",
+                  "Type": "String"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "Name": "-O",
+          "Description": "Set the optimization level (default level is 2 if unspecified or 3 if used without a level)",
+          "Aliases": [
+            "--optimize"
+          ],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "level",
+                  "Description": "level",
+                  "Type": "String"
+                }
+              ],
+              "Optional": true
+            }
+          ]
+        },
+        {
+          "Name": "g",
+          "Description": "Enable / Set the level of debug info generation",
+          "Type": "Flag",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "level",
+                  "Description": "level",
+                  "Type": "String"
+                }
+              ],
+              "Optional": true
+            }
+          ]
+        },
+        {
+          "Name": "--inline",
+          "Description": "Control whether inlining is permitted, including overriding @inline declarations",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "String",
+                  "Description": "",
+                  "Type": "String"
+                },
+                {
+                  "Name": "yes",
+                  "Description": ""
+                },
+                {
+                  "Name": "no",
+                  "Description": ""
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "Name": "--check-bounds",
+          "Description": "Emit bounds checks always, never, or respect @inbounds declarations",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "String",
+                  "Description": "",
+                  "Type": "String"
+                },
+                {
+                  "Name": "yes",
+                  "Description": ""
+                },
+                {
+                  "Name": "no",
+                  "Description": ""
+                },
+                {
+                  "Name": "auto",
+                  "Description": ""
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "Name": "--polly",
+          "Description": "Enable or disable the polyhedral optimizer Polly (overrides @polly declaration)",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "String",
+                  "Description": "",
+                  "Type": "String"
+                },
+                {
+                  "Name": "yes",
+                  "Description": ""
+                },
+                {
+                  "Name": "no",
+                  "Description": ""
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "Name": "--math-mode",
+          "Description": "Disallow or enable unsafe floating point optimizations (overrides @fastmath declaration)",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "String",
+                  "Description": "",
+                  "Type": "String"
+                },
+                {
+                  "Name": "ieee",
+                  "Description": ""
+                },
+                {
+                  "Name": "fast",
+                  "Description": ""
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "Name": "--code-coverage",
+          "Description": "Count executions of source lines (omitting setting is equivalent to \u0022user\u0022)",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "String",
+                  "Description": "",
+                  "Type": "String"
+                },
+                {
+                  "Name": "none",
+                  "Description": ""
+                },
+                {
+                  "Name": "user",
+                  "Description": ""
+                },
+                {
+                  "Name": "all",
+                  "Description": ""
+                }
+              ],
+              "Optional": true
+            }
+          ]
+        },
+        {
+          "Name": "--track-allocation",
+          "Description": "Count bytes allocated by each source line (omitting setting is equivalent to \u0022user\u0022)",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "String",
+                  "Description": "",
+                  "Type": "String"
+                },
+                {
+                  "Name": "none",
+                  "Description": ""
+                },
+                {
+                  "Name": "user",
+                  "Description": ""
+                },
+                {
+                  "Name": "all",
+                  "Description": ""
+                }
+              ],
+              "Optional": true
+            }
+          ]
+        },
+        {
+          "Name": "--bug-report",
+          "Description": "Launch a bug report session. It can be used to start a REPL, run a script, or evaluate  expressions. It first tries to use BugReporting.jl installed in current environment and fallbacks to the latest compatible BugReporting.jl if not. For more information, see --bug-report=help",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "KIND",
+                  "Description": "KIND",
+                  "Type": "String"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "Name": "--compile",
+          "Description": "Enable or disable JIT compiler, or request exhaustive or minimal compilation",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "String",
+                  "Description": "",
+                  "Type": "String"
+                },
+                {
+                  "Name": "yes",
+                  "Description": ""
+                },
+                {
+                  "Name": "no",
+                  "Description": ""
+                },
+                {
+                  "Name": "all",
+                  "Description": ""
+                },
+                {
+                  "Name": "min",
+                  "Description": ""
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "Name": "--output-o",
+          "Description": "Generate an object file (including system image data)",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "name",
+                  "Description": "name",
+                  "Type": "FileSystemEntry"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "Name": "--output-ji",
+          "Description": "Generate a system image data file (.ji)",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "name",
+                  "Description": "name",
+                  "Type": "FileSystemEntry"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "Name": "--output-unopt-bc",
+          "Description": "Generate unoptimized LLVM bitcode (.bc)",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "name",
+                  "Description": "name",
+                  "Type": "FileSystemEntry"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "Name": "--output-jit-bc",
+          "Description": "Dump all IR generated by the frontend (not including system image)",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "name",
+                  "Description": "name",
+                  "Type": "FileSystemEntry"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "Name": "--output-bc",
+          "Description": "Generate LLVM bitcode (.bc)",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "name",
+                  "Description": "name",
+                  "Type": "FileSystemEntry"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "Name": "--output-asm",
+          "Description": "Generate an assembly file (.s)",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "name",
+                  "Description": "name",
+                  "Type": "FileSystemEntry"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "Name": "--output-incremental",
+          "Description": "Generate an incremental output file (rather than complete)",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "String",
+                  "Description": "",
+                  "Type": "String"
+                },
+                {
+                  "Name": "yes",
+                  "Description": ""
+                },
+                {
+                  "Name": "no",
+                  "Description": ""
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "Name": "--image-codegen",
+          "Description": "Force generate code in imaging mode",
+          "Aliases": [],
+          "Arguments": []
+        }
+      ],
+      "Optional": true
+    },
+    {
+      "Arguments": [
+        {
+          "Name": "julia script",
+          "Description": "julia script",
+          "Type": "File",
+          "Extensions": [
+            "jl"
+          ],
+          "CustomCommand": ""
+        }
+      ],
+      "Optional": true
+    }
+  ]
+}

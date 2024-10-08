@@ -1,0 +1,440 @@
+{
+  "Comment": "This command info is generated from fig",
+  "Name": "hop",
+  "Description": "Interact with Hop in your terminal",
+  "Arguments": [
+    {
+      "Arguments": [
+        {
+          "Name": "--help",
+          "Description": "Prints help information",
+          "Aliases": [
+            "-h"
+          ],
+          "Arguments": []
+        },
+        {
+          "Name": "--version",
+          "Description": "Prints version information",
+          "Aliases": [
+            "-v"
+          ],
+          "Arguments": []
+        },
+        {
+          "Name": "--project",
+          "Description": "Namespace or ID of the project to use",
+          "Aliases": [
+            "-p"
+          ],
+          "Arguments": []
+        }
+      ],
+      "Optional": true
+    },
+    {
+      "Arguments": [
+        {
+          "Name": "auth",
+          "Description": "Authenticate with Hop",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "help",
+                  "Description": "Prints this message or the help of the given subcommand(s)",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "login",
+                  "Description": "Login to Hop",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "logout",
+                  "Description": "Logout the current user",
+                  "Aliases": [],
+                  "Arguments": []
+                }
+              ],
+              "DontAllowMultiple": true
+            }
+          ]
+        },
+        {
+          "Name": "deploy",
+          "Description": "Deploy a new container",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "--type",
+                  "Description": "Type of the container, defaults to \u0060ephemeral\u0060",
+                  "Aliases": [
+                    "-t"
+                  ],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "container type",
+                          "Description": "container type",
+                          "Type": "String"
+                        },
+                        {
+                          "Name": "ephemeral",
+                          "Description": "container type"
+                        },
+                        {
+                          "Name": "persistent",
+                          "Description": "container type"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "--containers",
+                  "Description": "Number of containers to use, defaults to 1 if \u0060scaling\u0060 is manual",
+                  "Aliases": [
+                    "-i"
+                  ],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "container amount",
+                          "Description": "container amount",
+                          "Type": "String"
+                        },
+                        {
+                          "Name": "1",
+                          "Description": "container amount"
+                        },
+                        {
+                          "Name": "2",
+                          "Description": "container amount"
+                        },
+                        {
+                          "Name": "4",
+                          "Description": "container amount"
+                        },
+                        {
+                          "Name": "8",
+                          "Description": "container amount"
+                        },
+                        {
+                          "Name": "10",
+                          "Description": "container amount"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "--cpu",
+                  "Description": "The number of CPUs to use, defaults to 1",
+                  "Aliases": [
+                    "-c"
+                  ],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "cpu amount",
+                          "Description": "cpu amount",
+                          "Type": "String"
+                        },
+                        {
+                          "Name": "1",
+                          "Description": "cpu amount"
+                        },
+                        {
+                          "Name": "2",
+                          "Description": "cpu amount"
+                        },
+                        {
+                          "Name": "4",
+                          "Description": "cpu amount"
+                        },
+                        {
+                          "Name": "8",
+                          "Description": "cpu amount"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "--env",
+                  "Description": "Environment variables to set, in the form of KEY=VALUE",
+                  "Aliases": [
+                    "-e"
+                  ],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "environment variable",
+                          "Description": "environment variable",
+                          "Type": "String"
+                        },
+                        {
+                          "Name": "port=",
+                          "Description": "environment variable"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "--name",
+                  "Description": "Name of the deployment, defaults to the directory name",
+                  "Aliases": [
+                    "-n"
+                  ],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "deployment name",
+                          "Description": "deployment name",
+                          "Type": "String"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "--project",
+                  "Description": "Namespace or ID of the project to use",
+                  "Aliases": [
+                    "-p"
+                  ],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "project",
+                          "Description": "project",
+                          "Type": "String"
+                        }
+                      ],
+                      "Optional": true
+                    }
+                  ]
+                },
+                {
+                  "Name": "--ram",
+                  "Description": "Amount of RAM to use, defaults to 512MB",
+                  "Aliases": [
+                    "-m"
+                  ],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "ram amount",
+                          "Description": "ram amount",
+                          "Type": "String"
+                        },
+                        {
+                          "Name": "128MB",
+                          "Description": "ram amount"
+                        },
+                        {
+                          "Name": "256MB",
+                          "Description": "ram amount"
+                        },
+                        {
+                          "Name": "512MB",
+                          "Description": "ram amount"
+                        },
+                        {
+                          "Name": "1G",
+                          "Description": "ram amount"
+                        },
+                        {
+                          "Name": "2G",
+                          "Description": "ram amount"
+                        },
+                        {
+                          "Name": "4G",
+                          "Description": "ram amount"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "--scaling",
+                  "Description": "Scaling strategy, defaults to \u0060manual\u0060",
+                  "Aliases": [
+                    "-s"
+                  ],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "scaling strategy",
+                          "Description": "scaling strategy",
+                          "Type": "String"
+                        },
+                        {
+                          "Name": "manual",
+                          "Description": "scaling strategy"
+                        },
+                        {
+                          "Name": "autoscale",
+                          "Description": "scaling strategy"
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ],
+              "Optional": true
+            },
+            {
+              "Arguments": [
+                {
+                  "Name": "dir",
+                  "Description": "dir",
+                  "Type": "String"
+                }
+              ],
+              "Optional": true
+            }
+          ]
+        },
+        {
+          "Name": "help",
+          "Description": "Prints this message or the help of the given subcommand(s)",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "command",
+                  "Description": "command",
+                  "Type": "String"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "Name": "ignite",
+          "Description": "Interact with Ignite containers",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "ls",
+                  "Description": "List all deployments",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "--project",
+                          "Description": "Namespace or ID of the project to use",
+                          "Aliases": [
+                            "-p"
+                          ],
+                          "Arguments": []
+                        }
+                      ],
+                      "Optional": true
+                    }
+                  ]
+                },
+                {
+                  "Name": "rm",
+                  "Description": "Delete a deployment",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "--project",
+                          "Description": "Namespace or ID of the project to use",
+                          "Aliases": [
+                            "-p"
+                          ],
+                          "Arguments": []
+                        }
+                      ],
+                      "Optional": true
+                    }
+                  ]
+                }
+              ],
+              "DontAllowMultiple": true
+            }
+          ]
+        },
+        {
+          "Name": "link",
+          "Description": "Link an existing deployment to a hopfile",
+          "Aliases": [],
+          "Arguments": []
+        },
+        {
+          "Name": "projects",
+          "Description": "Interact with projects",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "info",
+                  "Description": "Get information about a project",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "ls",
+                  "Description": "List all projects that you\u0027re authorized to",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "new",
+                  "Description": "Create a new project",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "rm",
+                  "Description": "Delete a project",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "switch",
+                  "Description": "Switch to a different project",
+                  "Aliases": [],
+                  "Arguments": []
+                }
+              ],
+              "DontAllowMultiple": true
+            }
+          ]
+        },
+        {
+          "Name": "whoami",
+          "Description": "Get information about the current user",
+          "Aliases": [],
+          "Arguments": []
+        }
+      ],
+      "DontAllowMultiple": true
+    }
+  ]
+}

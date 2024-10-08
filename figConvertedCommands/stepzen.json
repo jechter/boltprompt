@@ -1,0 +1,165 @@
+{
+  "Comment": "This command info is generated from fig",
+  "Name": "stepzen",
+  "Description": "The StepZen CLI is the primary way to build, deploy and test your schemas on StepZen",
+  "Arguments": [
+    {
+      "Arguments": [
+        {
+          "Name": "help",
+          "Description": "Display help for StepZen",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "command",
+                  "Description": "command",
+                  "Type": "String"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "Name": "login",
+          "Description": "Login to StepZen",
+          "Aliases": [],
+          "Arguments": []
+        },
+        {
+          "Name": "logout",
+          "Description": "Logout of StepZen",
+          "Aliases": [],
+          "Arguments": []
+        },
+        {
+          "Name": "start",
+          "Description": "Deploy, watch and develop your API",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "--dir",
+                  "Description": "The working directory for StepZen assets",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "path",
+                          "Description": "path",
+                          "Type": "Directory"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "--endpoint",
+                  "Description": "The folder/endpoint to deploy to",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "endpoint",
+                          "Description": "endpoint",
+                          "Type": "CustomArgument",
+                          "Extensions": [],
+                          "CustomCommand": "stepzen list schemas"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "--port",
+                  "Description": "The port number to use for the GraphiQL explorer",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "port",
+                          "Description": "port",
+                          "Type": "String"
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ],
+              "Optional": true
+            }
+          ]
+        },
+        {
+          "Name": "import",
+          "Description": "Import pre-configured schemas to Your API",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "--dir",
+                  "Description": "The directory to which the schema will be imported",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "path",
+                          "Description": "path",
+                          "Type": "Directory"
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ],
+              "Optional": true
+            },
+            {
+              "Arguments": [
+                {
+                  "Name": "name",
+                  "Description": "name",
+                  "Type": "CustomArgument",
+                  "Extensions": [],
+                  "CustomCommand": "curl https://api.github.com/repos/steprz/stepzen-schemas/contents"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "Name": "list",
+          "Description": "List the assets of a specified type that are linked to the StepZen account",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "type",
+                  "Description": "type",
+                  "Type": "String"
+                },
+                {
+                  "Name": "schemas",
+                  "Description": "type"
+                },
+                {
+                  "Name": "configurationsets",
+                  "Description": "type"
+                }
+              ]
+            }
+          ]
+        }
+      ],
+      "DontAllowMultiple": true
+    }
+  ]
+}

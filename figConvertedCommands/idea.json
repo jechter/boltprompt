@@ -1,0 +1,281 @@
+{
+  "Comment": "This command info is generated from fig",
+  "Name": "idea",
+  "Description": "InteliJ IDEA cli",
+  "Arguments": [
+    {
+      "Arguments": [
+        {
+          "Name": "nosplash",
+          "Description": "Do not show the splash screen when loading InteliJ IDEA",
+          "Aliases": [],
+          "Arguments": []
+        },
+        {
+          "Name": "dontReopenProjects",
+          "Description": "Do not reopen projects and show the welcome screen",
+          "Aliases": [],
+          "Arguments": []
+        },
+        {
+          "Name": "disableNonBundledPlugins",
+          "Description": "Do not load manually installed plugins",
+          "Aliases": [],
+          "Arguments": []
+        },
+        {
+          "Name": "--wait",
+          "Description": "Wait for the files to be closed before returning to the command prompt",
+          "Aliases": [],
+          "Arguments": []
+        }
+      ],
+      "Optional": true
+    },
+    {
+      "Arguments": [
+        {
+          "Name": "path",
+          "Description": "path",
+          "Type": "FileSystemEntry"
+        }
+      ]
+    },
+    {
+      "Arguments": [
+        {
+          "Name": "diff",
+          "Description": "Open the diff viewer to see the differences between two specified files",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "path",
+                  "Description": "path",
+                  "Type": "FileSystemEntry"
+                }
+              ]
+            },
+            {
+              "Arguments": [
+                {
+                  "Name": "path2",
+                  "Description": "path2",
+                  "Type": "FileSystemEntry"
+                }
+              ]
+            },
+            {
+              "Arguments": [
+                {
+                  "Name": "path3-optional",
+                  "Description": "path3-optional",
+                  "Type": "FileSystemEntry"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "Name": "merge",
+          "Description": "Open the Merge dialog to merge the specified files",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "path",
+                  "Description": "path",
+                  "Type": "FileSystemEntry"
+                }
+              ]
+            },
+            {
+              "Arguments": [
+                {
+                  "Name": "path2",
+                  "Description": "path2",
+                  "Type": "FileSystemEntry"
+                }
+              ]
+            },
+            {
+              "Arguments": [
+                {
+                  "Name": "base-optional",
+                  "Description": "base-optional",
+                  "Type": "FileSystemEntry"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "Name": "format",
+          "Description": "Apply code style formatting to the specified files",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "h",
+                  "Description": "Show help for format command",
+                  "Type": "Flag",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "-m",
+                  "Description": "Specify a comma-separated list of file masks that define the files to be processed",
+                  "Aliases": [
+                    "-mask"
+                  ],
+                  "Arguments": []
+                },
+                {
+                  "Name": "r",
+                  "Description": "Process specified directories recursively",
+                  "Type": "Flag",
+                  "Aliases": [
+                    "R"
+                  ],
+                  "Arguments": []
+                },
+                {
+                  "Name": "-s",
+                  "Description": "Specify the code style settings file to use for formatting",
+                  "Aliases": [
+                    "-settings"
+                  ],
+                  "Arguments": []
+                },
+                {
+                  "Name": "-allowDefaults",
+                  "Description": "Use the default code style settings when the code style is not defined for a file or a group of files",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "-charset",
+                  "Description": "Preserve encoding and enforce the charset for reading and writing source files",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "-d",
+                  "Description": "Run the formatter in the validation mode",
+                  "Aliases": [
+                    "-dry"
+                  ],
+                  "Arguments": []
+                }
+              ],
+              "Optional": true
+            },
+            {
+              "Arguments": [
+                {
+                  "Name": "path...",
+                  "Description": "path...",
+                  "Type": "FileSystemEntry"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "Name": "inspect",
+          "Description": "Perform code inspection on the specified project",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "-changes",
+                  "Description": "Run inspections only on local uncommitted changes",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "d",
+                  "Description": "Specify the full path to the subdirectory if you don\u0027t want to inspect the whole project",
+                  "Type": "Flag",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "-format",
+                  "Description": "Specify the format of the output file with inspection results",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "v",
+                  "Description": "Set the verbosity level of the output",
+                  "Type": "Flag",
+                  "Aliases": [],
+                  "Arguments": []
+                }
+              ],
+              "Optional": true
+            },
+            {
+              "Arguments": [
+                {
+                  "Name": "project",
+                  "Description": "project",
+                  "Type": "Directory"
+                }
+              ]
+            },
+            {
+              "Arguments": [
+                {
+                  "Name": "inspection-profile",
+                  "Description": "inspection-profile",
+                  "Type": "FileSystemEntry"
+                }
+              ]
+            },
+            {
+              "Arguments": [
+                {
+                  "Name": "output",
+                  "Description": "output",
+                  "Type": "FileSystemEntry"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "Name": "installPlugins",
+          "Description": "Install plugins by plugin ID from JetBrains Marketplace or a custom plugin repository",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "plugin-id",
+                  "Description": "plugin-id",
+                  "Type": "String"
+                }
+              ]
+            },
+            {
+              "Arguments": [
+                {
+                  "Name": "repository-url ",
+                  "Description": "repository-url ",
+                  "Type": "String"
+                }
+              ]
+            }
+          ]
+        }
+      ],
+      "DontAllowMultiple": true
+    }
+  ]
+}

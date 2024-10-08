@@ -1,0 +1,714 @@
+{
+  "Comment": "This command info is generated from fig",
+  "Name": "pg_dump",
+  "Description": "Dumps a database as a text file or to other formats",
+  "Arguments": [
+    {
+      "Arguments": [
+        {
+          "Name": "--help",
+          "Description": "Show help for pg_dump",
+          "Aliases": [
+            "-?"
+          ],
+          "Arguments": []
+        },
+        {
+          "Name": "--file",
+          "Description": "Output file or directory name",
+          "Aliases": [
+            "-f"
+          ],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "filename",
+                  "Description": "filename",
+                  "Type": "String"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "Name": "--format",
+          "Description": "Output file format",
+          "Aliases": [
+            "-F"
+          ],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "format",
+                  "Description": "format",
+                  "Type": "String"
+                },
+                {
+                  "Name": "c",
+                  "Description": "format"
+                },
+                {
+                  "Name": "d",
+                  "Description": "format"
+                },
+                {
+                  "Name": "t",
+                  "Description": "format"
+                },
+                {
+                  "Name": "p",
+                  "Description": "format"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "Name": "--jobs",
+          "Description": "Number of parallel job to dump",
+          "Aliases": [
+            "-j"
+          ],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "num",
+                  "Description": "num",
+                  "Type": "String"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "Name": "--verbose",
+          "Description": "Verbose mode",
+          "Aliases": [
+            "-v"
+          ],
+          "Arguments": []
+        },
+        {
+          "Name": "--version",
+          "Description": "Output version information",
+          "Aliases": [
+            "-V"
+          ],
+          "Arguments": []
+        },
+        {
+          "Name": "--compress",
+          "Description": "Compression level for compressed formats",
+          "Aliases": [
+            "-Z"
+          ],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "level",
+                  "Description": "level",
+                  "Type": "String"
+                },
+                {
+                  "Name": "0",
+                  "Description": "level"
+                },
+                {
+                  "Name": "1",
+                  "Description": "level"
+                },
+                {
+                  "Name": "2",
+                  "Description": "level"
+                },
+                {
+                  "Name": "3",
+                  "Description": "level"
+                },
+                {
+                  "Name": "4",
+                  "Description": "level"
+                },
+                {
+                  "Name": "5",
+                  "Description": "level"
+                },
+                {
+                  "Name": "6",
+                  "Description": "level"
+                },
+                {
+                  "Name": "7",
+                  "Description": "level"
+                },
+                {
+                  "Name": "8",
+                  "Description": "level"
+                },
+                {
+                  "Name": "9",
+                  "Description": "level"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "Name": "--lock-wait-timeout",
+          "Description": "Fail after waiting \u003Ctimeout\u003E for a table lock",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "timeout",
+                  "Description": "timeout",
+                  "Type": "String"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "Name": "--no-sync",
+          "Description": "Do not wait for changes to be written safely to disk",
+          "Aliases": [],
+          "Arguments": []
+        },
+        {
+          "Name": "--data-only",
+          "Description": "Dump only the data, not the schema",
+          "Aliases": [
+            "-a"
+          ],
+          "Arguments": []
+        },
+        {
+          "Name": "--blobs",
+          "Description": "Include large objects in dump",
+          "Aliases": [
+            "-b"
+          ],
+          "Arguments": []
+        },
+        {
+          "Name": "--no-blobs",
+          "Description": "Exclude large objects in dump",
+          "Aliases": [
+            "-B"
+          ],
+          "Arguments": []
+        },
+        {
+          "Name": "--clean",
+          "Description": "Clean (drop) database objects before recreating",
+          "Aliases": [
+            "-c"
+          ],
+          "Arguments": []
+        },
+        {
+          "Name": "--create",
+          "Description": "Include commands to create database in dump",
+          "Aliases": [
+            "-C"
+          ],
+          "Arguments": []
+        },
+        {
+          "Name": "--extension",
+          "Description": "Dump the specified extension(s) only",
+          "Aliases": [
+            "-e"
+          ],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "pattern",
+                  "Description": "pattern",
+                  "Type": "String"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "Name": "--encoding",
+          "Description": "Dump the data in encoding \u003Cencoding\u003E",
+          "Aliases": [
+            "-E"
+          ],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "encoding",
+                  "Description": "encoding",
+                  "Type": "String"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "Name": "--schema",
+          "Description": "Dump the specified schema(s) only",
+          "Aliases": [
+            "-n"
+          ],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "pattern",
+                  "Description": "pattern",
+                  "Type": "String"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "Name": "--exclude-schema",
+          "Description": "Do NOT dump the specified schema(s)",
+          "Aliases": [
+            "-N"
+          ],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "pattern",
+                  "Description": "pattern",
+                  "Type": "String"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "Name": "--no-owner",
+          "Description": "Skip restoration of object ownership in plain-text format",
+          "Aliases": [
+            "-O"
+          ],
+          "Arguments": []
+        },
+        {
+          "Name": "--schema-only",
+          "Description": "Dump only the schema, no data",
+          "Aliases": [
+            "-s"
+          ],
+          "Arguments": []
+        },
+        {
+          "Name": "--superuser",
+          "Description": "Superuser user name to use in plain-text format",
+          "Aliases": [
+            "-S"
+          ],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "name",
+                  "Description": "name",
+                  "Type": "String"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "Name": "--table",
+          "Description": "Dump the specified table(s) only",
+          "Aliases": [
+            "-t"
+          ],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "table",
+                  "Description": "table",
+                  "Type": "String"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "Name": "--exclude-table",
+          "Description": "Do NOT dump the specified table(s)",
+          "Aliases": [
+            "-T"
+          ],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "table",
+                  "Description": "table",
+                  "Type": "String"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "Name": "--no-privileges",
+          "Description": "Do not dump privileges (grant/revoke)",
+          "Aliases": [
+            "-x",
+            "--no-acl"
+          ],
+          "Arguments": []
+        },
+        {
+          "Name": "--binary-upgrade",
+          "Description": "For use by upgrade utilities only",
+          "Aliases": [],
+          "Arguments": []
+        },
+        {
+          "Name": "--column-inserts",
+          "Description": "Dump data as INSERT commands with column names",
+          "Aliases": [
+            "--attribute-inserts"
+          ],
+          "Arguments": []
+        },
+        {
+          "Name": "--disable-dollar-quoting",
+          "Description": "Disable dollar quoting, use SQL standard quoting",
+          "Aliases": [],
+          "Arguments": []
+        },
+        {
+          "Name": "--disable-triggers",
+          "Description": "Disable triggers during data-only restore",
+          "Aliases": [],
+          "Arguments": []
+        },
+        {
+          "Name": "--enable-row-security",
+          "Description": "Enable row security (dump only content user has access to)",
+          "Aliases": [],
+          "Arguments": []
+        },
+        {
+          "Name": "--exclude-table-data",
+          "Description": "Do NOT dump data for the specified table(s)",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "table",
+                  "Description": "table",
+                  "Type": "String"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "Name": "--extra-float-digits",
+          "Description": "Override default setting for extra_float_digits",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "num",
+                  "Description": "num",
+                  "Type": "String"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "Name": "--if-exists",
+          "Description": "Use IF EXISTS when dropping objects",
+          "Aliases": [],
+          "Arguments": []
+        },
+        {
+          "Name": "--include-foreign-data",
+          "Description": "Include data of foreign tables on foreign servers matching PATTERN",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "pattern",
+                  "Description": "pattern",
+                  "Type": "String"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "Name": "--inserts",
+          "Description": "Dump data as INSERT commands, rather than COPY",
+          "Aliases": [],
+          "Arguments": []
+        },
+        {
+          "Name": "--load-via-partition-root",
+          "Description": "Load partitions via the root table",
+          "Aliases": [],
+          "Arguments": []
+        },
+        {
+          "Name": "--no-comments",
+          "Description": "Do not dump comments",
+          "Aliases": [],
+          "Arguments": []
+        },
+        {
+          "Name": "--no-publications",
+          "Description": "Do not dump publications",
+          "Aliases": [],
+          "Arguments": []
+        },
+        {
+          "Name": "--no-security-labels",
+          "Description": "Do not dump security label assignments",
+          "Aliases": [],
+          "Arguments": []
+        },
+        {
+          "Name": "--no-subscriptions",
+          "Description": "Do not dump subscriptions",
+          "Aliases": [],
+          "Arguments": []
+        },
+        {
+          "Name": "--no-synchronized-snapshots",
+          "Description": "Do not use synchronized snapshots in parallel jobs",
+          "Aliases": [],
+          "Arguments": []
+        },
+        {
+          "Name": "--no-tablespaces",
+          "Description": "Do not dump tablespace assignments",
+          "Aliases": [],
+          "Arguments": []
+        },
+        {
+          "Name": "--no-toast-compression",
+          "Description": "Do not dump TOAST compression methods",
+          "Aliases": [],
+          "Arguments": []
+        },
+        {
+          "Name": "--no-unlogged-table-data",
+          "Description": "Do not dump unlogged table data",
+          "Aliases": [],
+          "Arguments": []
+        },
+        {
+          "Name": "--on-conflict-do-nothing",
+          "Description": "Add ON CONFLICT DO NOTHING to INSERT commands",
+          "Aliases": [],
+          "Arguments": []
+        },
+        {
+          "Name": "--quote-all-identifiers",
+          "Description": "Quote all identifiers, even if not key words",
+          "Aliases": [],
+          "Arguments": []
+        },
+        {
+          "Name": "--rows-per-insert",
+          "Description": "Number of rows per INSERT; implies --inserts",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "numbers",
+                  "Description": "numbers",
+                  "Type": "String"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "Name": "--section",
+          "Description": "Dump named section (pre-data, data, or post-data)",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "section",
+                  "Description": "section",
+                  "Type": "String"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "Name": "--serializable-deferrable",
+          "Description": "Wait until the dump can run without anomalies",
+          "Aliases": [],
+          "Arguments": []
+        },
+        {
+          "Name": "--snapshot",
+          "Description": "Use given snapshot for the dump",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "snapshot",
+                  "Description": "snapshot",
+                  "Type": "String"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "Name": "--strict-names",
+          "Description": "Require table and/or schema include patterns to match at least one entity each",
+          "Aliases": [],
+          "Arguments": []
+        },
+        {
+          "Name": "--use-set-session-authorization",
+          "Description": "Use SET SESSION AUTHORIZATION commands instead of ALTER OWNER commands to set ownership",
+          "Aliases": [],
+          "Arguments": []
+        },
+        {
+          "Name": "--dbname",
+          "Description": "Database to dump",
+          "Aliases": [
+            "-d"
+          ],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "database",
+                  "Description": "database",
+                  "Type": "String"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "Name": "--host",
+          "Description": "Database server host or socket directory",
+          "Aliases": [
+            "-h"
+          ],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "host",
+                  "Description": "host",
+                  "Type": "String"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "Name": "--port",
+          "Description": "Database server port number",
+          "Aliases": [
+            "-p"
+          ],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "number",
+                  "Description": "number",
+                  "Type": "String"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "Name": "--username",
+          "Description": "Connect as specified database user",
+          "Aliases": [
+            "-U"
+          ],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "name",
+                  "Description": "name",
+                  "Type": "String"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "Name": "--no-password",
+          "Description": "Never prompt for password",
+          "Aliases": [
+            "-w"
+          ],
+          "Arguments": []
+        },
+        {
+          "Name": "--password",
+          "Description": "Force password prompt (should happen automatically)",
+          "Aliases": [
+            "-W"
+          ],
+          "Arguments": []
+        },
+        {
+          "Name": "--role",
+          "Description": "Do SET ROLE before dump",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "name",
+                  "Description": "name",
+                  "Type": "String"
+                }
+              ]
+            }
+          ]
+        }
+      ],
+      "Optional": true
+    },
+    {
+      "Arguments": [
+        {
+          "Name": "dbname",
+          "Description": "dbname",
+          "Type": "String"
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,1163 @@
+{
+  "Comment": "This command info is generated from fig",
+  "Name": "watson",
+  "Description": "A wonderful CLI to track your time",
+  "Arguments": [
+    {
+      "Arguments": [
+        {
+          "Name": "--help",
+          "Description": "Show help for watson",
+          "Aliases": [],
+          "Arguments": []
+        },
+        {
+          "Name": "--version",
+          "Description": "Show the version for watson",
+          "Aliases": [],
+          "Arguments": []
+        },
+        {
+          "Name": "--color",
+          "Description": "Color output",
+          "Aliases": [],
+          "Arguments": []
+        },
+        {
+          "Name": "--no-color",
+          "Description": "No color output",
+          "Aliases": [],
+          "Arguments": []
+        }
+      ],
+      "Optional": true
+    },
+    {
+      "Arguments": [
+        {
+          "Name": "add",
+          "Description": "Add time to a project with tag(s) that was not tracked live",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "--from",
+                  "Description": "Date and time of start of tracked activity",
+                  "Aliases": [
+                    "-f"
+                  ],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "DATETIME",
+                          "Description": "DATETIME",
+                          "Type": "String"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "--to",
+                  "Description": "Date and time of end of tracked activity",
+                  "Aliases": [
+                    "-t"
+                  ],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "DATETIME",
+                          "Description": "DATETIME",
+                          "Type": "String"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "--confirm-new-project",
+                  "Description": "Confirm creation of new tag",
+                  "Aliases": [
+                    "-c"
+                  ],
+                  "Arguments": []
+                }
+              ],
+              "Optional": true
+            },
+            {
+              "Arguments": [
+                {
+                  "Name": "CustomArgument",
+                  "Description": "",
+                  "Type": "CustomArgument",
+                  "Extensions": [],
+                  "CustomCommand": "watson projects"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "Name": "aggregate",
+          "Description": "Display a report of the time spent on each project aggregated by day",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "--current",
+                  "Description": "Include currently running frame in report",
+                  "Aliases": [
+                    "-c"
+                  ],
+                  "Arguments": []
+                },
+                {
+                  "Name": "--no-current",
+                  "Description": "Don\u0027t include currently running frame in report",
+                  "Aliases": [
+                    "-C"
+                  ],
+                  "Arguments": []
+                },
+                {
+                  "Name": "--from",
+                  "Description": "The date from when the reports should start. Defaults to seven days ago",
+                  "Aliases": [
+                    "-f"
+                  ],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "DATETIME",
+                          "Description": "DATETIME",
+                          "Type": "String"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "--to",
+                  "Description": "The date at which the report should stop (inclusive). Defaults to tomorrow",
+                  "Aliases": [
+                    "-t"
+                  ],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "DATETIME",
+                          "Description": "DATETIME",
+                          "Type": "String"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "--project",
+                  "Description": "Reports activity only for the given project. You can add other projects by using this option several times",
+                  "Aliases": [
+                    "-p"
+                  ],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "PROJECT",
+                          "Description": "PROJECT",
+                          "Type": "CustomArgument",
+                          "Extensions": [],
+                          "CustomCommand": "watson projects"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "--tag",
+                  "Description": "Reports activity only for frames containing the given tag. You can add several tags by using this option multiple times",
+                  "Aliases": [
+                    "-T"
+                  ],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "TAG",
+                          "Description": "TAG",
+                          "Type": "CustomArgument",
+                          "Extensions": [],
+                          "CustomCommand": "watson tags"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "--json",
+                  "Description": "Format output in JSON instead of plain text",
+                  "Aliases": [
+                    "-j"
+                  ],
+                  "Arguments": []
+                },
+                {
+                  "Name": "--csv",
+                  "Description": "Format output in CSV instead of plain text",
+                  "Aliases": [
+                    "-s"
+                  ],
+                  "Arguments": []
+                },
+                {
+                  "Name": "--pager",
+                  "Description": "View output through a pager",
+                  "Aliases": [
+                    "-g"
+                  ],
+                  "Arguments": []
+                },
+                {
+                  "Name": "--no-pager",
+                  "Description": "Don\u0027t view output through a pager",
+                  "Aliases": [
+                    "-G"
+                  ],
+                  "Arguments": []
+                }
+              ],
+              "Optional": true
+            }
+          ]
+        },
+        {
+          "Name": "cancel",
+          "Description": "Cancel the last call to the start command. The time will not be recorded",
+          "Aliases": [],
+          "Arguments": []
+        },
+        {
+          "Name": "config",
+          "Description": "Get and set configuration options",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "--edit",
+                  "Description": "Edit the configuration file with an editor",
+                  "Aliases": [
+                    "-e"
+                  ],
+                  "Arguments": []
+                }
+              ],
+              "Optional": true
+            },
+            {
+              "Arguments": [
+                {
+                  "Name": "SECTION.OPTION",
+                  "Description": "SECTION.OPTION",
+                  "Type": "String"
+                },
+                {
+                  "Name": "backend.url",
+                  "Description": "This is the API root url of your repository, e.g. https://my.server.com/api/"
+                },
+                {
+                  "Name": "backend.token",
+                  "Description": "To authenticate watson as an API client, once generated, you will need to set up your API token in your configuration, e.g. 7e329263e329"
+                },
+                {
+                  "Name": "options.confirm_new_project",
+                  "Description": "If true, the user will be asked for confirmation before creating a new project. The option can be overriden in the command line with --confirm-new-project flag. Default: false"
+                },
+                {
+                  "Name": "options.confirm_new_tag",
+                  "Description": "If true, the user will be asked for confirmation before creating a new tag. The option can be overriden in the command line with --confirm-new-tag flag. Default: false"
+                },
+                {
+                  "Name": "options.date_format",
+                  "Description": "Globally configure how dates should be formatted. All python\u2019s strftime directives are supported. Default: %Y.%m.%d"
+                },
+                {
+                  "Name": "options.log_current",
+                  "Description": "If true, the output of the log command will include the currently running frame (if any) by default. The option can be overridden on the command line with the -c/-C resp. --current/--no-current flags. Default: false"
+                },
+                {
+                  "Name": "options.pager",
+                  "Description": "If true, the output of the log and report command will be run through a pager by default. The option can be overridden on the command line with the -g/-G or --pager/--no-pager flags. If other commands output in colour, but log or report do not, try disabling the pager. Default: true"
+                },
+                {
+                  "Name": "options.report_current",
+                  "Description": "If true, the output of the report command will include the currently running frame (if any) by default. The option can be overridden on the command line with the -c/-C resp. --current/--no-current flags. Default: false"
+                },
+                {
+                  "Name": "options.reverse_log",
+                  "Description": "If true, the output of the log command will reverse the order of the days to display the latest day\u2019s entries on top and the oldest day\u2019s entries at the bottom. The option can be overridden on the command line with the -r/-R resp. --reverse/--no-reverse flags. Default: true"
+                },
+                {
+                  "Name": "options.stop_on_start",
+                  "Description": "If true, starting a new project will stop running projects. Default false"
+                },
+                {
+                  "Name": "options.stop_on_restart",
+                  "Description": "Similar to the options.stop_on_start option, but for the restart command. Default: false"
+                },
+                {
+                  "Name": "options.time_format",
+                  "Description": "Globally configure how time should be formatted. All python\u2019s strftime directives are supported. Default: %H.%M:%S%z"
+                },
+                {
+                  "Name": "options.week_start",
+                  "Description": "Globally configure which day corresponds to the start of a week. Allowable values are monday, tuesday, wednesday, thursday, friday, saturday, and sunday"
+                }
+              ]
+            },
+            {
+              "Arguments": [
+                {
+                  "Name": "VALUE",
+                  "Description": "VALUE",
+                  "Type": "String"
+                }
+              ],
+              "Optional": true
+            }
+          ]
+        },
+        {
+          "Name": "edit",
+          "Description": "Edit a frame",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "--confirm-new-project",
+                  "Description": "Confirm addition of new project",
+                  "Aliases": [
+                    "-c"
+                  ],
+                  "Arguments": []
+                },
+                {
+                  "Name": "--confirm-new-tag",
+                  "Description": "Confirm creation of new tag",
+                  "Aliases": [
+                    "-b"
+                  ],
+                  "Arguments": []
+                }
+              ],
+              "Optional": true
+            },
+            {
+              "Arguments": [
+                {
+                  "Name": "FRAME ID",
+                  "Description": "FRAME ID",
+                  "Type": "CustomArgument",
+                  "Extensions": [],
+                  "CustomCommand": "watson log --json --reverse"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "Name": "frames",
+          "Description": "Display the list of all frame IDs",
+          "Aliases": [],
+          "Arguments": []
+        },
+        {
+          "Name": "help",
+          "Description": "Display help information",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "COMMAND",
+                  "Description": "COMMAND",
+                  "Type": "String"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "Name": "log",
+          "Description": "Display each recorded session during the given timespan",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "--current",
+                  "Description": "Include currently running frame in report",
+                  "Aliases": [
+                    "-c"
+                  ],
+                  "Arguments": []
+                },
+                {
+                  "Name": "--no-current",
+                  "Description": "Don\u0027t include currently running frame in report",
+                  "Aliases": [
+                    "-C"
+                  ],
+                  "Arguments": []
+                },
+                {
+                  "Name": "--reverse",
+                  "Description": "Reverse the order of the days in output",
+                  "Aliases": [
+                    "-r"
+                  ],
+                  "Arguments": []
+                },
+                {
+                  "Name": "--no-reverse",
+                  "Description": "Don\u0027t Reverse the order of the days in output",
+                  "Aliases": [
+                    "-R"
+                  ],
+                  "Arguments": []
+                },
+                {
+                  "Name": "--from",
+                  "Description": "The date from when the log should start. Defaults to seven days ago",
+                  "Aliases": [
+                    "-f"
+                  ],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "DATETIME",
+                          "Description": "DATETIME",
+                          "Type": "String"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "--to",
+                  "Description": "The date at which the log should stop (inclusive). Defaults to tomorrow",
+                  "Aliases": [
+                    "-t"
+                  ],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "DATETIME",
+                          "Description": "DATETIME",
+                          "Type": "String"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "--year",
+                  "Description": "Reports activity for the current year",
+                  "Aliases": [
+                    "-y"
+                  ],
+                  "Arguments": []
+                },
+                {
+                  "Name": "--month",
+                  "Description": "Reports activity for the current month",
+                  "Aliases": [
+                    "-m"
+                  ],
+                  "Arguments": []
+                },
+                {
+                  "Name": "--luna",
+                  "Description": "Reports activity for the current moon cycle",
+                  "Aliases": [
+                    "-l"
+                  ],
+                  "Arguments": []
+                },
+                {
+                  "Name": "--week",
+                  "Description": "Reports activity for the current week",
+                  "Aliases": [
+                    "-w"
+                  ],
+                  "Arguments": []
+                },
+                {
+                  "Name": "--day",
+                  "Description": "Reports activity for the current day",
+                  "Aliases": [
+                    "-d"
+                  ],
+                  "Arguments": []
+                },
+                {
+                  "Name": "--all",
+                  "Description": "Reports all activities",
+                  "Aliases": [
+                    "-a"
+                  ],
+                  "Arguments": []
+                },
+                {
+                  "Name": "--project",
+                  "Description": "Logs activity only for the given project. You can add other projects by using this option several times",
+                  "Aliases": [
+                    "-p"
+                  ],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "PROJECT",
+                          "Description": "PROJECT",
+                          "Type": "CustomArgument",
+                          "Extensions": [],
+                          "CustomCommand": "watson projects"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "--tag",
+                  "Description": "Logs activity only for frames containing the given tag. You can add several tags by using this option multiple times",
+                  "Aliases": [
+                    "-T"
+                  ],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "TAG",
+                          "Description": "TAG",
+                          "Type": "CustomArgument",
+                          "Extensions": [],
+                          "CustomCommand": "watson tags"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "--ignore-project",
+                  "Description": "Logs activity for all projects but the given ones. You can ignore several projects by using the option multiple times. Any given project will be ignored",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "PROJECT",
+                          "Description": "PROJECT",
+                          "Type": "CustomArgument",
+                          "Extensions": [],
+                          "CustomCommand": "watson projects"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "--ignore-tag",
+                  "Description": "Logs activity for all tags but the given ones. You can ignore several tags by using the option multiple times. Any given tag will be ignored",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "TAG",
+                          "Description": "TAG",
+                          "Type": "CustomArgument",
+                          "Extensions": [],
+                          "CustomCommand": "watson tags"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "--json",
+                  "Description": "Format output in JSON instead of plain text",
+                  "Aliases": [
+                    "-j"
+                  ],
+                  "Arguments": []
+                },
+                {
+                  "Name": "--csv",
+                  "Description": "Format output in CSV instead of plain text",
+                  "Aliases": [
+                    "-s"
+                  ],
+                  "Arguments": []
+                },
+                {
+                  "Name": "--pager",
+                  "Description": "View output through a pager",
+                  "Aliases": [
+                    "-g"
+                  ],
+                  "Arguments": []
+                },
+                {
+                  "Name": "--no-pager",
+                  "Description": "Don\u0027t view output through a pager",
+                  "Aliases": [
+                    "-G"
+                  ],
+                  "Arguments": []
+                }
+              ],
+              "Optional": true
+            }
+          ]
+        },
+        {
+          "Name": "merge",
+          "Description": "Perform a merge of the existing frames with a conflicting frames file.  When storing the frames on a file hosting service, there is the possibility that the frame file goes out-of-sync due to one or more of the connected clients going offline. This can cause the frames to diverge",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "-f",
+                  "Description": "If specified, then the merge will automatically be performed",
+                  "Aliases": [
+                    "--force"
+                  ],
+                  "Arguments": []
+                }
+              ],
+              "Optional": true
+            },
+            {
+              "Arguments": [
+                {
+                  "Name": "FRAMES_WITH_CONFLICT",
+                  "Description": "FRAMES_WITH_CONFLICT",
+                  "Type": "String"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "Name": "projects",
+          "Description": "Display the list of all the existing projects",
+          "Aliases": [],
+          "Arguments": []
+        },
+        {
+          "Name": "remove",
+          "Description": "Remove a frame. You can specify the frame either by id or by position (ex: -1 for the last frame)",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "-f",
+                  "Description": "Don\u2019t ask for confirmation",
+                  "Aliases": [
+                    "--force"
+                  ],
+                  "Arguments": []
+                }
+              ],
+              "Optional": true
+            },
+            {
+              "Arguments": [
+                {
+                  "Name": "ID",
+                  "Description": "ID",
+                  "Type": "CustomArgument",
+                  "Extensions": [],
+                  "CustomCommand": "watson log --json --reverse"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "Name": "rename",
+          "Description": "Rename a project or tag",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "type",
+                  "Description": "type",
+                  "Type": "String"
+                },
+                {
+                  "Name": "project",
+                  "Description": "type"
+                },
+                {
+                  "Name": "tag",
+                  "Description": "type"
+                }
+              ]
+            },
+            {
+              "Arguments": [
+                {
+                  "Name": "OLD_NAME",
+                  "Description": "OLD_NAME",
+                  "Type": "CustomArgument",
+                  "Extensions": [],
+                  "CustomCommand": "watson projects"
+                }
+              ]
+            },
+            {
+              "Arguments": [
+                {
+                  "Name": "NEW_NAME",
+                  "Description": "NEW_NAME",
+                  "Type": "String"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "Name": "report",
+          "Description": "Display a report of the time spent on each project",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "--current",
+                  "Description": "Include currently running frame in report",
+                  "Aliases": [
+                    "-c"
+                  ],
+                  "Arguments": []
+                },
+                {
+                  "Name": "--no-current",
+                  "Description": "Don\u0027t include currently running frame in report",
+                  "Aliases": [
+                    "-C"
+                  ],
+                  "Arguments": []
+                },
+                {
+                  "Name": "--from",
+                  "Description": "The date from when the report should start. Defaults to seven days ago",
+                  "Aliases": [
+                    "-f"
+                  ],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "DATETIME",
+                          "Description": "DATETIME",
+                          "Type": "String"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "--to",
+                  "Description": "The date at which the report should stop (inclusive). Defaults to tomorrow",
+                  "Aliases": [
+                    "-t"
+                  ],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "DATETIME",
+                          "Description": "DATETIME",
+                          "Type": "String"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "--year",
+                  "Description": "Reports activity for the current year",
+                  "Aliases": [
+                    "-y"
+                  ],
+                  "Arguments": []
+                },
+                {
+                  "Name": "--month",
+                  "Description": "Reports activity for the current month",
+                  "Aliases": [
+                    "-m"
+                  ],
+                  "Arguments": []
+                },
+                {
+                  "Name": "--luna",
+                  "Description": "Reports activity for the current moon cycle",
+                  "Aliases": [
+                    "-l"
+                  ],
+                  "Arguments": []
+                },
+                {
+                  "Name": "--week",
+                  "Description": "Reports activity for the current week",
+                  "Aliases": [
+                    "-w"
+                  ],
+                  "Arguments": []
+                },
+                {
+                  "Name": "--day",
+                  "Description": "Reports activity for the current day",
+                  "Aliases": [
+                    "-d"
+                  ],
+                  "Arguments": []
+                },
+                {
+                  "Name": "--project",
+                  "Description": "Reports activity only for the given project. You can add other projects by using this option several times",
+                  "Aliases": [
+                    "-p"
+                  ],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "PROJECT",
+                          "Description": "PROJECT",
+                          "Type": "CustomArgument",
+                          "Extensions": [],
+                          "CustomCommand": "watson projects"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "--tag",
+                  "Description": "Reports activity only for frames containing the given tag. You can add several tags by using this option multiple times",
+                  "Aliases": [
+                    "-T"
+                  ],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "TAG",
+                          "Description": "TAG",
+                          "Type": "CustomArgument",
+                          "Extensions": [],
+                          "CustomCommand": "watson tags"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "--ignore-project",
+                  "Description": "Reports activity for all projects but the given ones. You can ignore several projects by using the option multiple times. Any given project will be ignored",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "PROJECT",
+                          "Description": "PROJECT",
+                          "Type": "CustomArgument",
+                          "Extensions": [],
+                          "CustomCommand": "watson projects"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "--ignore-tag",
+                  "Description": "Reports activity for all tags but the given ones. You can ignore several tags by using the option multiple times. Any given tag will be ignored",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "TAG",
+                          "Description": "TAG",
+                          "Type": "CustomArgument",
+                          "Extensions": [],
+                          "CustomCommand": "watson tags"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "--json",
+                  "Description": "Format output in JSON instead of plain text",
+                  "Aliases": [
+                    "-j"
+                  ],
+                  "Arguments": []
+                },
+                {
+                  "Name": "--csv",
+                  "Description": "Format output in CSV instead of plain text",
+                  "Aliases": [
+                    "-s"
+                  ],
+                  "Arguments": []
+                },
+                {
+                  "Name": "--pager",
+                  "Description": "View output through a pager",
+                  "Aliases": [
+                    "-g"
+                  ],
+                  "Arguments": []
+                },
+                {
+                  "Name": "--no-pager",
+                  "Description": "Don\u0027t view output through a pager",
+                  "Aliases": [
+                    "-G"
+                  ],
+                  "Arguments": []
+                }
+              ],
+              "Optional": true
+            }
+          ]
+        },
+        {
+          "Name": "restart",
+          "Description": "Restart monitoring time for a previously stopped project",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "--at",
+                  "Description": "Start frame at this time. Must be in (YYYY-MM-DDT)?HH:MM(:SS)? format",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "DATETIME",
+                          "Description": "DATETIME",
+                          "Type": "String"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "--stop",
+                  "Description": "Stop an already running project",
+                  "Aliases": [
+                    "-s"
+                  ],
+                  "Arguments": []
+                },
+                {
+                  "Name": "--no-stop",
+                  "Description": "Don\u0027t stop an already running project",
+                  "Aliases": [
+                    "-S"
+                  ],
+                  "Arguments": []
+                }
+              ],
+              "Optional": true
+            },
+            {
+              "Arguments": [
+                {
+                  "Name": "FRAME",
+                  "Description": "FRAME",
+                  "Type": "CustomArgument",
+                  "Extensions": [],
+                  "CustomCommand": "watson log --json --reverse"
+                }
+              ],
+              "Optional": true
+            }
+          ]
+        },
+        {
+          "Name": "start",
+          "Description": "Start monitoring time for the given project. You can add tags indicating more specifically what you are working on with \u002Btag",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "--at",
+                  "Description": "Start frame at this time. Must be in (YYYY-MM-DDT)?HH:MM(:SS)? format",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "DATETIME",
+                          "Description": "DATETIME",
+                          "Type": "String"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "--gap",
+                  "Description": "Leave gap between end time of previous project and start time of the current",
+                  "Aliases": [
+                    "-g"
+                  ],
+                  "Arguments": []
+                },
+                {
+                  "Name": "--no-gap",
+                  "Description": "Don\u0027t leave gap between end time of previous project and start time of the current",
+                  "Aliases": [
+                    "-G"
+                  ],
+                  "Arguments": []
+                },
+                {
+                  "Name": "--confirm-new-project",
+                  "Description": "Confirm addition of new project",
+                  "Aliases": [
+                    "-c"
+                  ],
+                  "Arguments": []
+                },
+                {
+                  "Name": "--confirm-new-tag",
+                  "Description": "Confirm creation of new tag",
+                  "Aliases": [
+                    "-b"
+                  ],
+                  "Arguments": []
+                }
+              ],
+              "Optional": true
+            },
+            {
+              "Arguments": [
+                {
+                  "Name": "ARGS",
+                  "Description": "ARGS",
+                  "Type": "CustomArgument",
+                  "Extensions": [],
+                  "CustomCommand": "watson projects"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "Name": "status",
+          "Description": "Display when the current project was started and the time spent since",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "--project",
+                  "Description": "Only output project",
+                  "Aliases": [
+                    "-p"
+                  ],
+                  "Arguments": []
+                },
+                {
+                  "Name": "--tags",
+                  "Description": "Only show tags",
+                  "Aliases": [
+                    "-t"
+                  ],
+                  "Arguments": []
+                },
+                {
+                  "Name": "--elapsed",
+                  "Description": "Only show time elapsed",
+                  "Aliases": [
+                    "-e"
+                  ],
+                  "Arguments": []
+                }
+              ],
+              "Optional": true
+            }
+          ]
+        },
+        {
+          "Name": "stop",
+          "Description": "Stop monitoring time for the current project",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "--at",
+                  "Description": "Stop frame at this time. Must be in (YYYY-MM-DDT)?HH:MM(:SS)? format",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "DATETIME",
+                          "Description": "DATETIME",
+                          "Type": "String"
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ],
+              "Optional": true
+            }
+          ]
+        },
+        {
+          "Name": "sync",
+          "Description": "Get the frames from the server and push the new ones",
+          "Aliases": [],
+          "Arguments": []
+        },
+        {
+          "Name": "tags",
+          "Description": "Display the list of all the tags",
+          "Aliases": [],
+          "Arguments": []
+        }
+      ],
+      "DontAllowMultiple": true
+    }
+  ]
+}

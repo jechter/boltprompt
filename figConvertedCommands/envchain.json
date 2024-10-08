@@ -1,0 +1,98 @@
+{
+  "Comment": "This command info is generated from fig",
+  "Name": "envchain",
+  "Description": "Set environment variables with macOS keychain or D-Bus secret service",
+  "Arguments": [
+    {
+      "Arguments": [
+        {
+          "Name": "NAMESPACE",
+          "Description": "NAMESPACE",
+          "Type": "CustomArgument",
+          "Extensions": [],
+          "CustomCommand": "envchain --list"
+        }
+      ]
+    },
+    {
+      "Arguments": [
+        {
+          "Name": "CMD",
+          "Description": "CMD",
+          "Type": "String"
+        }
+      ]
+    },
+    {
+      "Arguments": [
+        {
+          "Name": "-s",
+          "Description": "Add keychain item of environment variable \u002BENV\u002B for namespace \u002BNAMESPACE\u002B",
+          "Aliases": [
+            "--set"
+          ],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "-n",
+                  "Description": "Do not echo user input",
+                  "Aliases": [
+                    "--noecho"
+                  ],
+                  "Arguments": []
+                },
+                {
+                  "Name": "-p",
+                  "Description": "Always ask for keychain passphrase",
+                  "Aliases": [
+                    "--require-passphrase"
+                  ],
+                  "Arguments": []
+                },
+                {
+                  "Name": "-P",
+                  "Description": "Do not ask for keychain passphrase",
+                  "Aliases": [
+                    "--no-require-passphrase"
+                  ],
+                  "Arguments": []
+                }
+              ],
+              "Optional": true
+            },
+            {
+              "Arguments": [
+                {
+                  "Name": "NAMESPACE",
+                  "Description": "NAMESPACE",
+                  "Type": "CustomArgument",
+                  "Extensions": [],
+                  "CustomCommand": "envchain --list"
+                }
+              ]
+            },
+            {
+              "Arguments": [
+                {
+                  "Name": "ENV",
+                  "Description": "ENV",
+                  "Type": "String"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "Name": "-l",
+          "Description": "List namespaces that have been created",
+          "Aliases": [
+            "--list"
+          ],
+          "Arguments": []
+        }
+      ],
+      "DontAllowMultiple": true
+    }
+  ]
+}

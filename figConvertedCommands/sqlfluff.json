@@ -1,0 +1,1296 @@
+{
+  "Comment": "This command info is generated from fig",
+  "Name": "sqlfluff",
+  "Description": "A dialect-flexible and configurable SQL linter",
+  "Arguments": [
+    {
+      "Arguments": [
+        {
+          "Name": "--version",
+          "Description": "Show the version and exit",
+          "Aliases": [],
+          "Arguments": []
+        },
+        {
+          "Name": "--help",
+          "Description": "Show help for sqlfluff",
+          "Aliases": [
+            "-h"
+          ],
+          "Arguments": []
+        }
+      ],
+      "Optional": true
+    },
+    {
+      "Arguments": [
+        {
+          "Name": "lint",
+          "Description": "Lint SQL files via passing a list of files or using stdin",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "--nocolor",
+                  "Description": "No color - output will be without ANSI color codes",
+                  "Aliases": [
+                    "-n"
+                  ],
+                  "Arguments": []
+                },
+                {
+                  "Name": "--ignore",
+                  "Description": "Ignore particular families of errors so that they don\u2019t cause a failed run. -\u2013ignore behaves somewhat like noqa comments, except it applies globally",
+                  "Aliases": [
+                    "-i"
+                  ],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "error",
+                          "Description": "error",
+                          "Type": "String"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "--verbose",
+                  "Description": "Verbosity, how detailed should the output be. This is stackable, so -vv is more verbose than -v. For the most verbose option try -vvvv or -vvvvv",
+                  "Aliases": [
+                    "-v"
+                  ],
+                  "Arguments": []
+                },
+                {
+                  "Name": "--exclude-rules",
+                  "Description": "Exclude specific rules. This could either be the allowlist, or the general set if there is no specific allowlist",
+                  "Aliases": [
+                    "-e"
+                  ],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "exclude_rules",
+                          "Description": "exclude_rules",
+                          "Type": "String"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "--rules",
+                  "Description": "Narrow the search to only specific rules",
+                  "Aliases": [
+                    "-r"
+                  ],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "rules",
+                          "Description": "rules",
+                          "Type": "String"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "--templater",
+                  "Description": "The templater to use (default=jinja)",
+                  "Aliases": [
+                    "-t"
+                  ],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "templater",
+                          "Description": "templater",
+                          "Type": "String"
+                        },
+                        {
+                          "Name": "raw",
+                          "Description": "templater"
+                        },
+                        {
+                          "Name": "jinja",
+                          "Description": "templater"
+                        },
+                        {
+                          "Name": "python",
+                          "Description": "templater"
+                        },
+                        {
+                          "Name": "placeholders",
+                          "Description": "templater"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "--dialect",
+                  "Description": "The dialect of SQL to lint",
+                  "Aliases": [
+                    "-d"
+                  ],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "dialect",
+                          "Description": "dialect",
+                          "Type": "String"
+                        },
+                        {
+                          "Name": "ansi",
+                          "Description": "dialect"
+                        },
+                        {
+                          "Name": "bigquery",
+                          "Description": "dialect"
+                        },
+                        {
+                          "Name": "exasol",
+                          "Description": "dialect"
+                        },
+                        {
+                          "Name": "hive",
+                          "Description": "dialect"
+                        },
+                        {
+                          "Name": "mysql",
+                          "Description": "dialect"
+                        },
+                        {
+                          "Name": "oracle",
+                          "Description": "dialect"
+                        },
+                        {
+                          "Name": "postgres",
+                          "Description": "dialect"
+                        },
+                        {
+                          "Name": "redshift",
+                          "Description": "dialect"
+                        },
+                        {
+                          "Name": "snowflake",
+                          "Description": "dialect"
+                        },
+                        {
+                          "Name": "spark3",
+                          "Description": "dialect"
+                        },
+                        {
+                          "Name": "sqllite",
+                          "Description": "dialect"
+                        },
+                        {
+                          "Name": "teradata",
+                          "Description": "dialect"
+                        },
+                        {
+                          "Name": "tsql",
+                          "Description": "dialect"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "--format",
+                  "Description": "What format to return the lint result in (default=human)",
+                  "Aliases": [
+                    "-f"
+                  ],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "format",
+                          "Description": "format",
+                          "Type": "String"
+                        },
+                        {
+                          "Name": "human",
+                          "Description": "format"
+                        },
+                        {
+                          "Name": "json",
+                          "Description": "format"
+                        },
+                        {
+                          "Name": "yaml",
+                          "Description": "format"
+                        },
+                        {
+                          "Name": "github-annotation",
+                          "Description": "format"
+                        },
+                        {
+                          "Name": "github-annotation-native",
+                          "Description": "format"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "--processes",
+                  "Description": "The number of parallel processes to run. Positive numbers work as expected. Zero and negative numbers will work as number_of_cpus - number. e.g -1 means all cpus except one. 0 means all cpus",
+                  "Aliases": [
+                    "-p"
+                  ],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "processes",
+                          "Description": "processes",
+                          "Type": "String"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "--disable-noqa",
+                  "Description": "Set this flag to ignore inline noqa comments",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "--bench",
+                  "Description": "Set this flag to engage the benchmarking tool output",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "--logger",
+                  "Description": "Choose to limit the logging to one of the loggers",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "logger",
+                          "Description": "logger",
+                          "Type": "String"
+                        },
+                        {
+                          "Name": "templater",
+                          "Description": "logger"
+                        },
+                        {
+                          "Name": "lexer",
+                          "Description": "logger"
+                        },
+                        {
+                          "Name": "parser",
+                          "Description": "logger"
+                        },
+                        {
+                          "Name": "linter",
+                          "Description": "logger"
+                        },
+                        {
+                          "Name": "rules",
+                          "Description": "logger"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "--encoding",
+                  "Description": "Specify encoding to use when reading and writing files. Defaults to autodetect",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "encoding",
+                          "Description": "encoding",
+                          "Type": "String"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "--ignore-local-config",
+                  "Description": "Ignore config files in default search path locations. This option allows the user to lint with the default config or can be used in conjunction with \u2013config to only reference the custom config file",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "--config",
+                  "Description": "Include additional config file. By default the config is generated from the standard configuration files described in the documentation. This argument allows you to specify an additional configuration file that overrides the standard configuration files. N.B. cfg format is required",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "extra_config_path",
+                          "Description": "extra_config_path",
+                          "Type": "FileSystemEntry"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "--write-output",
+                  "Description": "Optionally provide a filename to write the results to, mostly used in tandem with \u2013format. NB: Setting an output file re-enables normal stdout logging",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "write_output",
+                          "Description": "write_output",
+                          "Type": "FileSystemEntry"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "--annotation-level",
+                  "Description": "When format is set to github-annotation or github-annotation-native, default annotation level (default=notice). failure and error are equivalent",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "annotation-level",
+                          "Description": "annotation-level",
+                          "Type": "String"
+                        },
+                        {
+                          "Name": "notice",
+                          "Description": "annotation-level"
+                        },
+                        {
+                          "Name": "warning",
+                          "Description": "annotation-level"
+                        },
+                        {
+                          "Name": "failure",
+                          "Description": "annotation-level"
+                        },
+                        {
+                          "Name": "error",
+                          "Description": "annotation-level"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "--disregard-sqlfluffignores",
+                  "Description": "Perform the operation regardless of .sqlfluffignore configurations",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "--disable-progress-bar",
+                  "Description": "Disables progress bars",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "--nofail",
+                  "Description": "If set, the exit code will always be zero, regardless of violations found. This is potentially useful during rollout",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "--help",
+                  "Description": "Show help for sqlfluff",
+                  "Aliases": [
+                    "-h"
+                  ],
+                  "Arguments": []
+                }
+              ],
+              "Optional": true
+            },
+            {
+              "Arguments": [
+                {
+                  "Name": "FileSystemEntry",
+                  "Description": "",
+                  "Type": "FileSystemEntry"
+                }
+              ],
+              "Optional": true
+            }
+          ]
+        },
+        {
+          "Name": "fix",
+          "Description": "Fix SQL files",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "--nocolor",
+                  "Description": "No color - output will be without ANSI color codes",
+                  "Aliases": [
+                    "-n"
+                  ],
+                  "Arguments": []
+                },
+                {
+                  "Name": "--ignore",
+                  "Description": "Ignore particular families of errors so that they don\u2019t cause a failed run. -\u2013ignore behaves somewhat like noqa comments, except it applies globally",
+                  "Aliases": [
+                    "-i"
+                  ],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "errors",
+                          "Description": "errors",
+                          "Type": "String"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "--verbose",
+                  "Description": "Verbosity, how detailed should the output be. This is stackable, so -vv is more verbose than -v. For the most verbose option try -vvvv or -vvvvv",
+                  "Aliases": [
+                    "-v"
+                  ],
+                  "Arguments": []
+                },
+                {
+                  "Name": "--exclude-rules",
+                  "Description": "Exclude specific rules. This could either be the allowlist, or the general set if there is no specific allowlist",
+                  "Aliases": [
+                    "-e"
+                  ],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "exclude_rules",
+                          "Description": "exclude_rules",
+                          "Type": "String"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "--rules",
+                  "Description": "Narrow the search to only specific rules",
+                  "Aliases": [
+                    "-r"
+                  ],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "rules",
+                          "Description": "rules",
+                          "Type": "String"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "--templater",
+                  "Description": "The templater to use (default=jinja)",
+                  "Aliases": [
+                    "-t"
+                  ],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "templater",
+                          "Description": "templater",
+                          "Type": "String"
+                        },
+                        {
+                          "Name": "raw",
+                          "Description": "templater"
+                        },
+                        {
+                          "Name": "jinja",
+                          "Description": "templater"
+                        },
+                        {
+                          "Name": "python",
+                          "Description": "templater"
+                        },
+                        {
+                          "Name": "placeholders",
+                          "Description": "templater"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "--dialect",
+                  "Description": "The dialect of SQL to lint",
+                  "Aliases": [
+                    "-d"
+                  ],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "dialect",
+                          "Description": "dialect",
+                          "Type": "String"
+                        },
+                        {
+                          "Name": "ansi",
+                          "Description": "dialect"
+                        },
+                        {
+                          "Name": "bigquery",
+                          "Description": "dialect"
+                        },
+                        {
+                          "Name": "exasol",
+                          "Description": "dialect"
+                        },
+                        {
+                          "Name": "hive",
+                          "Description": "dialect"
+                        },
+                        {
+                          "Name": "mysql",
+                          "Description": "dialect"
+                        },
+                        {
+                          "Name": "oracle",
+                          "Description": "dialect"
+                        },
+                        {
+                          "Name": "postgres",
+                          "Description": "dialect"
+                        },
+                        {
+                          "Name": "redshift",
+                          "Description": "dialect"
+                        },
+                        {
+                          "Name": "snowflake",
+                          "Description": "dialect"
+                        },
+                        {
+                          "Name": "spark3",
+                          "Description": "dialect"
+                        },
+                        {
+                          "Name": "sqllite",
+                          "Description": "dialect"
+                        },
+                        {
+                          "Name": "teradata",
+                          "Description": "dialect"
+                        },
+                        {
+                          "Name": "tsql",
+                          "Description": "dialect"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "--format",
+                  "Description": "What format to return the lint result in (default=human)",
+                  "Aliases": [
+                    "-f"
+                  ],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "format",
+                          "Description": "format",
+                          "Type": "String"
+                        },
+                        {
+                          "Name": "human",
+                          "Description": "format"
+                        },
+                        {
+                          "Name": "json",
+                          "Description": "format"
+                        },
+                        {
+                          "Name": "yaml",
+                          "Description": "format"
+                        },
+                        {
+                          "Name": "github-annotation",
+                          "Description": "format"
+                        },
+                        {
+                          "Name": "github-annotation-native",
+                          "Description": "format"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "--processes",
+                  "Description": "The number of parallel processes to run. Positive numbers work as expected. Zero and negative numbers will work as number_of_cpus - number. e.g -1 means all cpus except one. 0 means all cpus",
+                  "Aliases": [
+                    "-p"
+                  ],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "processes",
+                          "Description": "processes",
+                          "Type": "String"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "--fixed-suffix",
+                  "Description": "An optional suffix to add to fixed files",
+                  "Aliases": [
+                    "-x"
+                  ],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "fixed_suffix",
+                          "Description": "fixed_suffix",
+                          "Type": "String"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "--disable-noqa",
+                  "Description": "Set this flag to ignore inline noqa comments",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "--bench",
+                  "Description": "Set this flag to engage the benchmarking tool output",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "--logger",
+                  "Description": "Choose to limit the logging to one of the loggers",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "logger",
+                          "Description": "logger",
+                          "Type": "String"
+                        },
+                        {
+                          "Name": "templater",
+                          "Description": "logger"
+                        },
+                        {
+                          "Name": "lexer",
+                          "Description": "logger"
+                        },
+                        {
+                          "Name": "parser",
+                          "Description": "logger"
+                        },
+                        {
+                          "Name": "linter",
+                          "Description": "logger"
+                        },
+                        {
+                          "Name": "rules",
+                          "Description": "logger"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "--encoding",
+                  "Description": "Specify encoding to use when reading and writing files. Defaults to autodetect",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "encoding",
+                          "Description": "encoding",
+                          "Type": "String"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "--ignore-local-config",
+                  "Description": "Ignore config files in default search path locations. This option allows the user to lint with the default config or can be used in conjunction with \u2013config to only reference the custom config file",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "--config",
+                  "Description": "Include additional config file. By default the config is generated from the standard configuration files described in the documentation. This argument allows you to specify an additional configuration file that overrides the standard configuration files. N.B. cfg format is required",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "extra_config_path",
+                          "Description": "extra_config_path",
+                          "Type": "FileSystemEntry"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "--write-output",
+                  "Description": "Optionally provide a filename to write the results to, mostly used in tandem with \u2013format. NB: Setting an output file re-enables normal stdout logging",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "write_output",
+                          "Description": "write_output",
+                          "Type": "FileSystemEntry"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "--disable-progress-bar",
+                  "Description": "Disables progress bars",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "--FIX-EVEN-UNPARSABLE",
+                  "Description": "Enables fixing of files that have templating or parse errors",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "--show-lint-violations",
+                  "Description": "Show lint violations",
+                  "Aliases": [],
+                  "Arguments": []
+                }
+              ],
+              "Optional": true
+            },
+            {
+              "Arguments": [
+                {
+                  "Name": "FileSystemEntry",
+                  "Description": "",
+                  "Type": "FileSystemEntry"
+                }
+              ],
+              "Optional": true
+            }
+          ]
+        },
+        {
+          "Name": "parse",
+          "Description": "Parse SQL files and just spit out the result",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "--nocolor",
+                  "Description": "No color - output will be without ANSI color codes",
+                  "Aliases": [
+                    "-n"
+                  ],
+                  "Arguments": []
+                },
+                {
+                  "Name": "--ignore",
+                  "Description": "Ignore particular families of errors so that they don\u2019t cause a failed run. -\u2013ignore behaves somewhat like noqa comments, except it applies globally",
+                  "Aliases": [
+                    "-i"
+                  ],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "errors",
+                          "Description": "errors",
+                          "Type": "String"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "--verbose",
+                  "Description": "Verbosity, how detailed should the output be. This is stackable, so -vv is more verbose than -v. For the most verbose option try -vvvv or -vvvvv",
+                  "Aliases": [
+                    "-v"
+                  ],
+                  "Arguments": []
+                },
+                {
+                  "Name": "--exclude-rules",
+                  "Description": "Exclude specific rules. This could either be the allowlist, or the general set if there is no specific allowlist",
+                  "Aliases": [
+                    "-e"
+                  ],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "exclude_rules",
+                          "Description": "exclude_rules",
+                          "Type": "String"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "--rules",
+                  "Description": "Narrow the search to only specific rules",
+                  "Aliases": [
+                    "-r"
+                  ],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "rules",
+                          "Description": "rules",
+                          "Type": "String"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "--templater",
+                  "Description": "The templater to use (default=jinja)",
+                  "Aliases": [
+                    "-t"
+                  ],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "templater",
+                          "Description": "templater",
+                          "Type": "String"
+                        },
+                        {
+                          "Name": "raw",
+                          "Description": "templater"
+                        },
+                        {
+                          "Name": "jinja",
+                          "Description": "templater"
+                        },
+                        {
+                          "Name": "python",
+                          "Description": "templater"
+                        },
+                        {
+                          "Name": "placeholders",
+                          "Description": "templater"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "--dialect",
+                  "Description": "The dialect of SQL to lint",
+                  "Aliases": [
+                    "-d"
+                  ],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "dialect",
+                          "Description": "dialect",
+                          "Type": "String"
+                        },
+                        {
+                          "Name": "ansi",
+                          "Description": "dialect"
+                        },
+                        {
+                          "Name": "bigquery",
+                          "Description": "dialect"
+                        },
+                        {
+                          "Name": "exasol",
+                          "Description": "dialect"
+                        },
+                        {
+                          "Name": "hive",
+                          "Description": "dialect"
+                        },
+                        {
+                          "Name": "mysql",
+                          "Description": "dialect"
+                        },
+                        {
+                          "Name": "oracle",
+                          "Description": "dialect"
+                        },
+                        {
+                          "Name": "postgres",
+                          "Description": "dialect"
+                        },
+                        {
+                          "Name": "redshift",
+                          "Description": "dialect"
+                        },
+                        {
+                          "Name": "snowflake",
+                          "Description": "dialect"
+                        },
+                        {
+                          "Name": "spark3",
+                          "Description": "dialect"
+                        },
+                        {
+                          "Name": "sqllite",
+                          "Description": "dialect"
+                        },
+                        {
+                          "Name": "teradata",
+                          "Description": "dialect"
+                        },
+                        {
+                          "Name": "tsql",
+                          "Description": "dialect"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "--code-only",
+                  "Description": "Output only the code elements of the parse tree",
+                  "Aliases": [
+                    "-c"
+                  ],
+                  "Arguments": []
+                },
+                {
+                  "Name": "--include-meta",
+                  "Description": "Include meta segments (indents, dedents and placeholders) in the output. This only applies when outputting json or yaml",
+                  "Aliases": [
+                    "-m"
+                  ],
+                  "Arguments": []
+                },
+                {
+                  "Name": "--format",
+                  "Description": "What format to return the lint result in (default=human)",
+                  "Aliases": [
+                    "-f"
+                  ],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "format",
+                          "Description": "format",
+                          "Type": "String"
+                        },
+                        {
+                          "Name": "human",
+                          "Description": "format"
+                        },
+                        {
+                          "Name": "json",
+                          "Description": "format"
+                        },
+                        {
+                          "Name": "yaml",
+                          "Description": "format"
+                        },
+                        {
+                          "Name": "github-annotation",
+                          "Description": "format"
+                        },
+                        {
+                          "Name": "github-annotation-native",
+                          "Description": "format"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "--disable-noqa",
+                  "Description": "Set this flag to ignore inline noqa comments",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "--bench",
+                  "Description": "Set this flag to engage the benchmarking tool output",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "--recurse",
+                  "Description": "The depth to recursively parse to (0 for unlimited)",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "recurse",
+                          "Description": "recurse",
+                          "Type": "String"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "--logger",
+                  "Description": "Choose to limit the logging to one of the loggers",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "logger",
+                          "Description": "logger",
+                          "Type": "String"
+                        },
+                        {
+                          "Name": "templater",
+                          "Description": "logger"
+                        },
+                        {
+                          "Name": "lexer",
+                          "Description": "logger"
+                        },
+                        {
+                          "Name": "parser",
+                          "Description": "logger"
+                        },
+                        {
+                          "Name": "linter",
+                          "Description": "logger"
+                        },
+                        {
+                          "Name": "rules",
+                          "Description": "logger"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "--encoding",
+                  "Description": "Specify encoding to use when reading and writing files. Defaults to autodetect",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "encoding",
+                          "Description": "encoding",
+                          "Type": "String"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "--ignore-local-config",
+                  "Description": "Ignore config files in default search path locations. This option allows the user to lint with the default config or can be used in conjunction with \u2013config to only reference the custom config file",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "--config",
+                  "Description": "Include additional config file. By default the config is generated from the standard configuration files described in the documentation. This argument allows you to specify an additional configuration file that overrides the standard configuration files. N.B. cfg format is required",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "extra_config_path",
+                          "Description": "extra_config_path",
+                          "Type": "FileSystemEntry"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "--write-output",
+                  "Description": "Optionally provide a filename to write the results to, mostly used in tandem with \u2013format. NB: Setting an output file re-enables normal stdout logging",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "write_output",
+                          "Description": "write_output",
+                          "Type": "FileSystemEntry"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "--profiler",
+                  "Description": "Set this flag to engage the python profiler",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "--nofail",
+                  "Description": "If set, the exit code will always be zero, regardless of violations found. This is potentially useful during rollout",
+                  "Aliases": [],
+                  "Arguments": []
+                }
+              ],
+              "Optional": true
+            },
+            {
+              "Arguments": [
+                {
+                  "Name": "FileSystemEntry",
+                  "Description": "",
+                  "Type": "FileSystemEntry"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "Name": "dialects",
+          "Description": "Show the current dialects available",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "--nocolor",
+                  "Description": "No color - output will be without ANSI color codes",
+                  "Aliases": [
+                    "-n"
+                  ],
+                  "Arguments": []
+                },
+                {
+                  "Name": "--verbose",
+                  "Description": "Verbosity, how detailed should the output be. This is stackable, so -vv is more verbose than -v. For the most verbose option try -vvvv or -vvvvv",
+                  "Aliases": [
+                    "-v"
+                  ],
+                  "Arguments": []
+                }
+              ],
+              "Optional": true
+            }
+          ]
+        },
+        {
+          "Name": "version",
+          "Description": "Show the version of sqlfluff",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "--nocolor",
+                  "Description": "No color - output will be without ANSI color codes",
+                  "Aliases": [
+                    "-n"
+                  ],
+                  "Arguments": []
+                },
+                {
+                  "Name": "--verbose",
+                  "Description": "Verbosity, how detailed should the output be. This is stackable, so -vv is more verbose than -v. For the most verbose option try -vvvv or -vvvvv",
+                  "Aliases": [
+                    "-v"
+                  ],
+                  "Arguments": []
+                }
+              ],
+              "Optional": true
+            }
+          ]
+        },
+        {
+          "Name": "rules",
+          "Description": "Show the current rules in use",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "--nocolor",
+                  "Description": "No color - output will be without ANSI color codes",
+                  "Aliases": [
+                    "-n"
+                  ],
+                  "Arguments": []
+                },
+                {
+                  "Name": "--verbose",
+                  "Description": "Verbosity, how detailed should the output be. This is stackable, so -vv is more verbose than -v. For the most verbose option try -vvvv or -vvvvv",
+                  "Aliases": [
+                    "-v"
+                  ],
+                  "Arguments": []
+                }
+              ],
+              "Optional": true
+            }
+          ]
+        }
+      ],
+      "DontAllowMultiple": true
+    }
+  ]
+}

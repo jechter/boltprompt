@@ -1,0 +1,262 @@
+{
+  "Comment": "This command info is generated from fig",
+  "Name": "open",
+  "Description": "Open files, apps, or URLs using default application",
+  "Arguments": [
+    {
+      "Arguments": [
+        {
+          "Name": "a",
+          "Description": "Specify the application to use for opening the file",
+          "Type": "Flag",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "Application",
+                  "Description": "Application",
+                  "Type": "CustomArgument",
+                  "Extensions": [],
+                  "CustomCommand": "mdfind kMDItemContentTypeTree=com.apple.application-bundle -onlyin /"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "Name": "b",
+          "Description": "Specify the bundle identifier of the app to use to open the file",
+          "Type": "Flag",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "Bundle Identifier",
+                  "Description": "Bundle Identifier",
+                  "Type": "CustomArgument",
+                  "Extensions": [],
+                  "CustomCommand": "bash -c mdfind kMDItemContentTypeTree=com.apple.application-bundle -onlyin / | while read line; do echo $(mdls -name kMDItemCFBundleIdentifier -r \u0022$line\u0022) $line; done"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "Name": "D",
+          "Description": "Reveals the enclosing folder in finder",
+          "Type": "Flag",
+          "Aliases": [],
+          "Arguments": []
+        },
+        {
+          "Name": "e",
+          "Description": "Opens the file with /Applications/TextEdit",
+          "Type": "Flag",
+          "Aliases": [],
+          "Arguments": []
+        },
+        {
+          "Name": "t",
+          "Description": "Open the file with the default text editor",
+          "Type": "Flag",
+          "Aliases": [],
+          "Arguments": []
+        },
+        {
+          "Name": "f",
+          "Description": "Read input from standard input and open the results in the default text editor",
+          "Type": "Flag",
+          "Aliases": [],
+          "Arguments": []
+        },
+        {
+          "Name": "-F",
+          "Description": "Opens the application without restoring windows",
+          "Aliases": [
+            "--fresh"
+          ],
+          "Arguments": []
+        },
+        {
+          "Name": "-W",
+          "Description": "Waits until the applications exit",
+          "Aliases": [
+            "--wait-apps"
+          ],
+          "Arguments": []
+        },
+        {
+          "Name": "-R",
+          "Description": "Reveals the file(s) in the Finder instead of opening them",
+          "Aliases": [
+            "--reveal"
+          ],
+          "Arguments": []
+        },
+        {
+          "Name": "-n",
+          "Description": "Open a new instance of the application(s) even if one is already running",
+          "Aliases": [
+            "--new"
+          ],
+          "Arguments": []
+        },
+        {
+          "Name": "-j",
+          "Description": "Launches the app hidden",
+          "Aliases": [
+            "--hide"
+          ],
+          "Arguments": []
+        },
+        {
+          "Name": "-g",
+          "Description": "Do not bring the application to the foreground",
+          "Aliases": [
+            "--background"
+          ],
+          "Arguments": []
+        },
+        {
+          "Name": "-h",
+          "Description": "Searches header locations for a header whose name matches the given string and then opens it",
+          "Aliases": [
+            "--header"
+          ],
+          "Arguments": []
+        },
+        {
+          "Name": "s",
+          "Description": "For -h, the SDK to use; if supplied, only SDKs whose names contain the argument value are searched",
+          "Type": "Flag",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "partial SDK name",
+                  "Description": "partial SDK name",
+                  "Type": "String"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "Name": "-u",
+          "Description": "Open this URL, even if it matches exactly a filepath",
+          "Aliases": [
+            "--url"
+          ],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "URL",
+                  "Description": "URL",
+                  "Type": "String"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "Name": "-i",
+          "Description": "Launches the application with stdin connected to PATH; defaults to /dev/null",
+          "Aliases": [
+            "--stdin"
+          ],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "PATH",
+                  "Description": "PATH",
+                  "Type": "FileSystemEntry"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "Name": "-o",
+          "Description": "Launches the application with /dev/stdout connected to PATH",
+          "Aliases": [
+            "--stdout"
+          ],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "PATH",
+                  "Description": "PATH",
+                  "Type": "FileSystemEntry"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "Name": "--stderr",
+          "Description": "Launches the application with /dev/stderr connected to PATH",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "PATH",
+                  "Description": "PATH",
+                  "Type": "FileSystemEntry"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "Name": "--env",
+          "Description": "Add an enviroment variable to the launched process, where VAR is formatted AAA=foo",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "VAR",
+                  "Description": "VAR",
+                  "Type": "String"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "Name": "--args",
+          "Description": "All remaining arguments are passed to the opened application in the argv parameter to main().  These arguments are not opened or interpreted by the open tool",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "Arguments",
+                  "Description": "Arguments",
+                  "Type": "String"
+                }
+              ]
+            }
+          ]
+        }
+      ],
+      "Optional": true
+    },
+    {
+      "Arguments": [
+        {
+          "Name": "FileSystemEntry",
+          "Description": "",
+          "Type": "FileSystemEntry"
+        }
+      ]
+    }
+  ]
+}

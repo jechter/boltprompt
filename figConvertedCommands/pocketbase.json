@@ -1,0 +1,226 @@
+{
+  "Comment": "This command info is generated from fig",
+  "Name": "pocketbase",
+  "Description": "PocketBase CLI",
+  "Arguments": [
+    {
+      "Arguments": [
+        {
+          "Name": "--debug",
+          "Description": "Enable debug mode, aka showing more detailed logs",
+          "Aliases": [],
+          "Arguments": []
+        },
+        {
+          "Name": "--dir",
+          "Description": "PocketBase data directory (default \u0022pb_data\u0022)",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "dir",
+                  "Description": "dir",
+                  "Type": "Directory"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "Name": "--encryptionEnv",
+          "Description": "Environment variable whose value of 32 chars will be used as encryption key for the app settings (default none)",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "env",
+                  "Description": "env",
+                  "Type": "String"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "Name": "-h",
+          "Description": "Show help for pocketbase",
+          "Aliases": [
+            "--help"
+          ],
+          "Arguments": []
+        },
+        {
+          "Name": "-v",
+          "Description": "Show version for pocketbase",
+          "Aliases": [
+            "--version"
+          ],
+          "Arguments": []
+        }
+      ],
+      "Optional": true
+    },
+    {
+      "Arguments": [
+        {
+          "Name": "help",
+          "Description": "Help about any command",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "subcommand",
+                  "Description": "subcommand",
+                  "Type": "String"
+                }
+              ],
+              "Optional": true
+            }
+          ]
+        },
+        {
+          "Name": "migrate",
+          "Description": "Executes DB migration scripts",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "collections",
+                  "Description": "(Experimental) Creates new migration file with the most recent local collections configuration",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "folder",
+                          "Description": "folder",
+                          "Type": "Directory"
+                        }
+                      ],
+                      "Optional": true
+                    }
+                  ]
+                },
+                {
+                  "Name": "create",
+                  "Description": "Creates new migration template file",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "name",
+                          "Description": "name",
+                          "Type": "String"
+                        }
+                      ]
+                    },
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "folder",
+                          "Description": "folder",
+                          "Type": "Directory"
+                        }
+                      ],
+                      "Optional": true
+                    }
+                  ]
+                },
+                {
+                  "Name": "down",
+                  "Description": "Reverts the last [number] applied migrations",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "number",
+                          "Description": "number",
+                          "Type": "String"
+                        }
+                      ],
+                      "Optional": true
+                    }
+                  ]
+                },
+                {
+                  "Name": "up",
+                  "Description": "Runs all available migrations",
+                  "Aliases": [],
+                  "Arguments": []
+                }
+              ],
+              "DontAllowMultiple": true
+            }
+          ]
+        },
+        {
+          "Name": "serve",
+          "Description": "Starts the web server (default to 127.0.0.1:8090)",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "--http",
+                  "Description": "API HTTP server address (default \u0022127.0.0.1:8090\u0022)",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "string",
+                          "Description": "string",
+                          "Type": "String"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "--https",
+                  "Description": "API HTTPS server address (auto TLS via Let\u0027s Encrypt). The incoming --http address traffic also will be redirected to this address",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "string",
+                          "Description": "string",
+                          "Type": "String"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "--origins",
+                  "Description": "CORS allowed domain origins list (default [*])",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "strings",
+                          "Description": "strings",
+                          "Type": "String"
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ],
+              "Optional": true
+            }
+          ]
+        }
+      ],
+      "DontAllowMultiple": true
+    }
+  ]
+}

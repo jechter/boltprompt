@@ -1,0 +1,1678 @@
+{
+  "Comment": "This command info is generated from fig",
+  "Name": "blitz",
+  "Description": "Blitz.js CLI is your single access point for interacting with your app, from database management to code generation",
+  "Arguments": [
+    {
+      "Arguments": [
+        {
+          "Name": "build",
+          "Description": "Creates a production build",
+          "Aliases": [
+            "b"
+          ],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "--help",
+                  "Description": "Show help for command",
+                  "Aliases": [
+                    "-h"
+                  ],
+                  "Arguments": []
+                }
+              ],
+              "Optional": true
+            }
+          ]
+        },
+        {
+          "Name": "codegen",
+          "Description": "Generates Routes Manifest",
+          "Aliases": [
+            "cg"
+          ],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "--help",
+                  "Description": "Show help for command",
+                  "Aliases": [
+                    "-h"
+                  ],
+                  "Arguments": []
+                }
+              ],
+              "Optional": true
+            }
+          ]
+        },
+        {
+          "Name": "console",
+          "Description": "Run the Blitz console REPL",
+          "Aliases": [
+            "c"
+          ],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "--help",
+                  "Description": "Show help for command",
+                  "Aliases": [
+                    "-h"
+                  ],
+                  "Arguments": []
+                }
+              ],
+              "Optional": true
+            }
+          ]
+        },
+        {
+          "Name": "db",
+          "Description": "Run database commands",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "--help",
+                  "Description": "Show help for command",
+                  "Aliases": [
+                    "-h"
+                  ],
+                  "Arguments": []
+                }
+              ],
+              "Optional": true
+            },
+            {
+              "Arguments": [
+                {
+                  "Name": "command",
+                  "Description": "command",
+                  "Type": "String"
+                },
+                {
+                  "Name": "seed",
+                  "Description": "Generates seeded data in database via Prisma 2. You need db/seeds.ts or db/seeds/index.ts"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "Name": "dev",
+          "Description": "Start a development server",
+          "Aliases": [
+            "d"
+          ],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "--help",
+                  "Description": "Show help for command",
+                  "Aliases": [
+                    "-h"
+                  ],
+                  "Arguments": []
+                },
+                {
+                  "Name": "-p",
+                  "Description": "Set port number",
+                  "Aliases": [
+                    "--port"
+                  ],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "port",
+                          "Description": "port",
+                          "Type": "String"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "-H",
+                  "Description": "Set server hostname",
+                  "Aliases": [
+                    "--hostname"
+                  ],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "hostname",
+                          "Description": "hostname",
+                          "Type": "String"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "--inspect",
+                  "Description": "Enable the Node.js inspector",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "--no-incremental-build",
+                  "Description": "Disable incremental build and start from a fresh cache",
+                  "Aliases": [],
+                  "Arguments": []
+                }
+              ],
+              "Optional": true
+            }
+          ]
+        },
+        {
+          "Name": "export",
+          "Description": "Exports a static page",
+          "Aliases": [
+            "e"
+          ],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "--help",
+                  "Description": "Show help for command",
+                  "Aliases": [
+                    "-h"
+                  ],
+                  "Arguments": []
+                },
+                {
+                  "Name": "-o",
+                  "Description": "Set the output dir (defaults to \u0027out\u0027)",
+                  "Aliases": [
+                    "--outdir"
+                  ],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "outdir",
+                          "Description": "outdir",
+                          "Type": "String"
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ],
+              "Optional": true
+            }
+          ]
+        },
+        {
+          "Name": "generate",
+          "Description": "Generate new files for your Blitz project",
+          "Aliases": [
+            "g"
+          ],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "--help",
+                  "Description": "Show help for command",
+                  "Aliases": [
+                    "-h"
+                  ],
+                  "Arguments": []
+                },
+                {
+                  "Name": "-c",
+                  "Description": "Provide a context folder within which we\u0027ll place the generated files for better code organization. You can also supply this in the name of the model to be generated (e.g. \u0060blitz generate query admin/projects\u0060). Combining the \u0060--context\u0060 flags and supplying context via the model name in the same command is not supported",
+                  "Aliases": [
+                    "--context"
+                  ],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "context",
+                          "Description": "context",
+                          "Type": "String"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "-p",
+                  "Description": "Specify a parent model to be used for generating nested routes for dependent data when generating pages, or to create hierarchical validation in queries and mutations. The code will be generated with the nested data model in mind. Most often this should be used in conjunction with \u0027blitz generate all\u0027",
+                  "Aliases": [
+                    "--parent"
+                  ],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "parent",
+                          "Description": "parent",
+                          "Type": "String"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "-d",
+                  "Description": "Show what files will be created without writing them to disk",
+                  "Aliases": [
+                    "--dry-run"
+                  ],
+                  "Arguments": []
+                }
+              ],
+              "Optional": true
+            },
+            {
+              "Arguments": [
+                {
+                  "Name": "type",
+                  "Description": "type",
+                  "Type": "String"
+                },
+                {
+                  "Name": "all",
+                  "Description": "type"
+                },
+                {
+                  "Name": "crud",
+                  "Description": "type"
+                },
+                {
+                  "Name": "model",
+                  "Description": "type"
+                },
+                {
+                  "Name": "pages",
+                  "Description": "type"
+                },
+                {
+                  "Name": "queries",
+                  "Description": "type"
+                },
+                {
+                  "Name": "query",
+                  "Description": "type"
+                },
+                {
+                  "Name": "mutations",
+                  "Description": "type"
+                },
+                {
+                  "Name": "mutation",
+                  "Description": "type"
+                },
+                {
+                  "Name": "resource",
+                  "Description": "type"
+                }
+              ]
+            },
+            {
+              "Arguments": [
+                {
+                  "Name": "model",
+                  "Description": "model",
+                  "Type": "String"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "Name": "help",
+          "Description": "Display help for \u003C%= config.bin %\u003E",
+          "Aliases": [
+            "h"
+          ],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "--all",
+                  "Description": "See all commands in CLI",
+                  "Aliases": [],
+                  "Arguments": []
+                }
+              ],
+              "Optional": true
+            },
+            {
+              "Arguments": [
+                {
+                  "Name": "command",
+                  "Description": "command",
+                  "Type": "String"
+                }
+              ],
+              "Optional": true
+            }
+          ]
+        },
+        {
+          "Name": "install",
+          "Description": "Install a Recipe into your Blitz app",
+          "Aliases": [
+            "i"
+          ],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "--help",
+                  "Description": "Show help for command",
+                  "Aliases": [
+                    "-h"
+                  ],
+                  "Arguments": []
+                }
+              ],
+              "Optional": true
+            },
+            {
+              "Arguments": [
+                {
+                  "Name": "recipe",
+                  "Description": "recipe",
+                  "Type": "String"
+                }
+              ]
+            },
+            {
+              "Arguments": [
+                {
+                  "Name": "recipe-flags",
+                  "Description": "recipe-flags",
+                  "Type": "String"
+                }
+              ],
+              "Optional": true
+            }
+          ]
+        },
+        {
+          "Name": "new",
+          "Description": "Create a new Blitz project",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "--help",
+                  "Description": "Show help for command",
+                  "Aliases": [
+                    "-h"
+                  ],
+                  "Arguments": []
+                },
+                {
+                  "Name": "--npm",
+                  "Description": "Use npm as the package manager",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "--yarn",
+                  "Description": "Use yarn as the package manager",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "--form",
+                  "Description": "A form library",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "form",
+                          "Description": "form",
+                          "Type": "String"
+                        },
+                        {
+                          "Name": "react-final-form",
+                          "Description": "form"
+                        },
+                        {
+                          "Name": "react-hook-form",
+                          "Description": "form"
+                        },
+                        {
+                          "Name": "formik",
+                          "Description": "form"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "-d",
+                  "Description": "Show what files will be created without writing them to disk",
+                  "Aliases": [
+                    "--dry-run"
+                  ],
+                  "Arguments": []
+                },
+                {
+                  "Name": "--no-git",
+                  "Description": "Skip git repository creation",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "--skip-upgrade",
+                  "Description": "Skip blitz upgrade if outdated",
+                  "Aliases": [],
+                  "Arguments": []
+                }
+              ],
+              "Optional": true
+            },
+            {
+              "Arguments": [
+                {
+                  "Name": "name",
+                  "Description": "name",
+                  "Type": "String"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "Name": "prisma",
+          "Description": "Loads env variables then proxies all args to Prisma CLI",
+          "Aliases": [
+            "p"
+          ],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "init",
+                  "Description": "Setup Prisma for your app",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "-h",
+                          "Description": "Display this help message",
+                          "Aliases": [
+                            "--help"
+                          ],
+                          "Arguments": []
+                        },
+                        {
+                          "Name": "--datasource-provider",
+                          "Description": "Define the datasource provider to use",
+                          "Aliases": [],
+                          "Arguments": [
+                            {
+                              "Arguments": [
+                                {
+                                  "Name": "String",
+                                  "Description": "",
+                                  "Type": "String"
+                                },
+                                {
+                                  "Name": "PostgreSQL",
+                                  "Description": ""
+                                },
+                                {
+                                  "Name": "MySQL",
+                                  "Description": ""
+                                },
+                                {
+                                  "Name": "SQLite",
+                                  "Description": ""
+                                },
+                                {
+                                  "Name": "SQLServer",
+                                  "Description": ""
+                                },
+                                {
+                                  "Name": "MongoDB",
+                                  "Description": ""
+                                },
+                                {
+                                  "Name": "CockroachDB",
+                                  "Description": ""
+                                }
+                              ]
+                            }
+                          ]
+                        },
+                        {
+                          "Name": "--url",
+                          "Description": "Define a custom datasource url",
+                          "Aliases": [],
+                          "Arguments": [
+                            {
+                              "Arguments": [
+                                {
+                                  "Name": "full url",
+                                  "Description": "full url",
+                                  "Type": "FileSystemEntry"
+                                }
+                              ]
+                            }
+                          ]
+                        }
+                      ],
+                      "Optional": true
+                    }
+                  ]
+                },
+                {
+                  "Name": "generate",
+                  "Description": "Generate artifacts (e.g. Prisma Client)",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "-h",
+                          "Description": "Display this help message",
+                          "Aliases": [
+                            "--help"
+                          ],
+                          "Arguments": []
+                        },
+                        {
+                          "Name": "--schema",
+                          "Description": "Custom path to your Prisma schema",
+                          "Aliases": [],
+                          "Arguments": [
+                            {
+                              "Arguments": [
+                                {
+                                  "Name": "Schema path",
+                                  "Description": "Schema path",
+                                  "Type": "FileSystemEntry"
+                                }
+                              ]
+                            }
+                          ]
+                        },
+                        {
+                          "Name": "--data-proxy",
+                          "Description": "Enable the Data Proxy in the Prisma Client",
+                          "Aliases": [],
+                          "Arguments": []
+                        },
+                        {
+                          "Name": "--no-hints",
+                          "Description": "Hides the hint messages but still outputs errors and warnings",
+                          "Aliases": [],
+                          "Arguments": []
+                        },
+                        {
+                          "Name": "--no-engine",
+                          "Description": "Generate a client for use with Accelerate only",
+                          "Aliases": [],
+                          "Arguments": []
+                        },
+                        {
+                          "Name": "--watch",
+                          "Description": "Watch the Prisma schema and rerun after a change",
+                          "Aliases": [],
+                          "Arguments": []
+                        },
+                        {
+                          "Name": "--allow-no-models",
+                          "Description": "Allow generating a client without models",
+                          "Aliases": [],
+                          "Arguments": []
+                        }
+                      ],
+                      "Optional": true
+                    }
+                  ]
+                },
+                {
+                  "Name": "studio",
+                  "Description": "Open Prisma Studio",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "-h",
+                          "Description": "Display this help message",
+                          "Aliases": [
+                            "--help"
+                          ],
+                          "Arguments": []
+                        },
+                        {
+                          "Name": "--schema",
+                          "Description": "Custom path to your Prisma schema",
+                          "Aliases": [],
+                          "Arguments": [
+                            {
+                              "Arguments": [
+                                {
+                                  "Name": "Schema path",
+                                  "Description": "Schema path",
+                                  "Type": "FileSystemEntry"
+                                }
+                              ]
+                            }
+                          ]
+                        },
+                        {
+                          "Name": "-p",
+                          "Description": "Port to start Studio on",
+                          "Aliases": [
+                            "--port"
+                          ],
+                          "Arguments": [
+                            {
+                              "Arguments": [
+                                {
+                                  "Name": "port",
+                                  "Description": "port",
+                                  "Type": "String"
+                                }
+                              ]
+                            }
+                          ]
+                        },
+                        {
+                          "Name": "-b",
+                          "Description": "Browser to open Studio in",
+                          "Aliases": [
+                            "--browser"
+                          ],
+                          "Arguments": [
+                            {
+                              "Arguments": [
+                                {
+                                  "Name": "Browser choice",
+                                  "Description": "Browser choice",
+                                  "Type": "String"
+                                },
+                                {
+                                  "Name": "firefox",
+                                  "Description": "Browser choice"
+                                },
+                                {
+                                  "Name": "chrome",
+                                  "Description": "Browser choice"
+                                },
+                                {
+                                  "Name": "safari",
+                                  "Description": "Browser choice"
+                                },
+                                {
+                                  "Name": "none",
+                                  "Description": "Browser choice"
+                                }
+                              ]
+                            }
+                          ]
+                        },
+                        {
+                          "Name": "-n",
+                          "Description": "Hostname to bind the Express server to",
+                          "Aliases": [
+                            "--hostname"
+                          ],
+                          "Arguments": [
+                            {
+                              "Arguments": [
+                                {
+                                  "Name": "port",
+                                  "Description": "port",
+                                  "Type": "String"
+                                }
+                              ]
+                            }
+                          ]
+                        }
+                      ],
+                      "Optional": true
+                    }
+                  ]
+                },
+                {
+                  "Name": "format",
+                  "Description": "Format your schema",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "-h",
+                          "Description": "Display this help message",
+                          "Aliases": [
+                            "--help"
+                          ],
+                          "Arguments": []
+                        },
+                        {
+                          "Name": "--schema",
+                          "Description": "Custom path to your Prisma schema",
+                          "Aliases": [],
+                          "Arguments": [
+                            {
+                              "Arguments": [
+                                {
+                                  "Name": "Schema path",
+                                  "Description": "Schema path",
+                                  "Type": "FileSystemEntry"
+                                }
+                              ]
+                            }
+                          ]
+                        }
+                      ],
+                      "Optional": true
+                    }
+                  ]
+                },
+                {
+                  "Name": "migrate",
+                  "Description": "Migrate your database",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "dev",
+                          "Description": "The migrate dev command updates your database using migrations files during development",
+                          "Aliases": [],
+                          "Arguments": [
+                            {
+                              "Arguments": [
+                                {
+                                  "Name": "-h",
+                                  "Description": "Display this help message",
+                                  "Aliases": [
+                                    "--help"
+                                  ],
+                                  "Arguments": []
+                                },
+                                {
+                                  "Name": "--schema",
+                                  "Description": "Custom path to your Prisma schema",
+                                  "Aliases": [],
+                                  "Arguments": [
+                                    {
+                                      "Arguments": [
+                                        {
+                                          "Name": "Schema path",
+                                          "Description": "Schema path",
+                                          "Type": "FileSystemEntry"
+                                        }
+                                      ]
+                                    }
+                                  ]
+                                },
+                                {
+                                  "Name": "--skip-seed",
+                                  "Description": "Skip triggering seed",
+                                  "Aliases": [],
+                                  "Arguments": []
+                                },
+                                {
+                                  "Name": "--skip-generate",
+                                  "Description": "Skip triggering generators (e.g. Prisma Client)",
+                                  "Aliases": [],
+                                  "Arguments": []
+                                },
+                                {
+                                  "Name": "--create-only",
+                                  "Description": "Create a new migration but do not apply it. The migration will be empty if there are no changes in Prisma schema",
+                                  "Aliases": [],
+                                  "Arguments": []
+                                },
+                                {
+                                  "Name": "-n",
+                                  "Description": "The name of the migration. If no name is provided, the CLI will prompt you",
+                                  "Aliases": [
+                                    "--name"
+                                  ],
+                                  "Arguments": [
+                                    {
+                                      "Arguments": [
+                                        {
+                                          "Name": "filename",
+                                          "Description": "filename",
+                                          "Type": "String"
+                                        }
+                                      ],
+                                      "Optional": true
+                                    }
+                                  ]
+                                }
+                              ],
+                              "Optional": true
+                            }
+                          ]
+                        },
+                        {
+                          "Name": "reset",
+                          "Description": "Reset your database and apply all migrations, all data will be lost",
+                          "Aliases": [],
+                          "Arguments": [
+                            {
+                              "Arguments": [
+                                {
+                                  "Name": "-h",
+                                  "Description": "Display this help message",
+                                  "Aliases": [
+                                    "--help"
+                                  ],
+                                  "Arguments": []
+                                },
+                                {
+                                  "Name": "--schema",
+                                  "Description": "Custom path to your Prisma schema",
+                                  "Aliases": [],
+                                  "Arguments": [
+                                    {
+                                      "Arguments": [
+                                        {
+                                          "Name": "Schema path",
+                                          "Description": "Schema path",
+                                          "Type": "FileSystemEntry"
+                                        }
+                                      ]
+                                    }
+                                  ]
+                                },
+                                {
+                                  "Name": "--skip-seed",
+                                  "Description": "Skip triggering seed",
+                                  "Aliases": [],
+                                  "Arguments": []
+                                },
+                                {
+                                  "Name": "--skip-generate",
+                                  "Description": "Skip triggering generators (e.g. Prisma Client)",
+                                  "Aliases": [],
+                                  "Arguments": []
+                                },
+                                {
+                                  "Name": "-f",
+                                  "Description": "Skip the confirmation prompt",
+                                  "Aliases": [
+                                    "--force"
+                                  ],
+                                  "Arguments": []
+                                }
+                              ],
+                              "Optional": true
+                            }
+                          ]
+                        },
+                        {
+                          "Name": "deploy",
+                          "Description": "Apply pending migrations to update the database schema in production/staging",
+                          "Aliases": [],
+                          "Arguments": [
+                            {
+                              "Arguments": [
+                                {
+                                  "Name": "-h",
+                                  "Description": "Display this help message",
+                                  "Aliases": [
+                                    "--help"
+                                  ],
+                                  "Arguments": []
+                                },
+                                {
+                                  "Name": "--schema",
+                                  "Description": "Custom path to your Prisma schema",
+                                  "Aliases": [],
+                                  "Arguments": [
+                                    {
+                                      "Arguments": [
+                                        {
+                                          "Name": "Schema path",
+                                          "Description": "Schema path",
+                                          "Type": "FileSystemEntry"
+                                        }
+                                      ]
+                                    }
+                                  ]
+                                }
+                              ],
+                              "Optional": true
+                            }
+                          ]
+                        },
+                        {
+                          "Name": "resolve",
+                          "Description": "Resolve issues with database migrations in deployment databases",
+                          "Aliases": [],
+                          "Arguments": [
+                            {
+                              "Arguments": [
+                                {
+                                  "Name": "-h",
+                                  "Description": "Display this help message",
+                                  "Aliases": [
+                                    "--help"
+                                  ],
+                                  "Arguments": []
+                                },
+                                {
+                                  "Name": "--schema",
+                                  "Description": "Custom path to your Prisma schema",
+                                  "Aliases": [],
+                                  "Arguments": [
+                                    {
+                                      "Arguments": [
+                                        {
+                                          "Name": "Schema path",
+                                          "Description": "Schema path",
+                                          "Type": "FileSystemEntry"
+                                        }
+                                      ]
+                                    }
+                                  ]
+                                },
+                                {
+                                  "Name": "--applied",
+                                  "Description": "Record a specific migration as applied",
+                                  "Aliases": [],
+                                  "Arguments": [
+                                    {
+                                      "Arguments": [
+                                        {
+                                          "Name": "migration file path",
+                                          "Description": "migration file path",
+                                          "Type": "FileSystemEntry"
+                                        }
+                                      ]
+                                    }
+                                  ]
+                                },
+                                {
+                                  "Name": "--rolled-back",
+                                  "Description": "Record a specific migration as rolled back",
+                                  "Aliases": [],
+                                  "Arguments": [
+                                    {
+                                      "Arguments": [
+                                        {
+                                          "Name": "migration file path",
+                                          "Description": "migration file path",
+                                          "Type": "FileSystemEntry"
+                                        }
+                                      ]
+                                    }
+                                  ]
+                                }
+                              ],
+                              "Optional": true
+                            }
+                          ]
+                        },
+                        {
+                          "Name": "status",
+                          "Description": "Check the status of your database migrations",
+                          "Aliases": [],
+                          "Arguments": [
+                            {
+                              "Arguments": [
+                                {
+                                  "Name": "-h",
+                                  "Description": "Display this help message",
+                                  "Aliases": [
+                                    "--help"
+                                  ],
+                                  "Arguments": []
+                                },
+                                {
+                                  "Name": "--schema",
+                                  "Description": "Custom path to your Prisma schema",
+                                  "Aliases": [],
+                                  "Arguments": [
+                                    {
+                                      "Arguments": [
+                                        {
+                                          "Name": "Schema path",
+                                          "Description": "Schema path",
+                                          "Type": "FileSystemEntry"
+                                        }
+                                      ]
+                                    }
+                                  ]
+                                }
+                              ],
+                              "Optional": true
+                            }
+                          ]
+                        },
+                        {
+                          "Name": "diff",
+                          "Description": "Compares the database schema from two arbitrary sources, and outputs the differences either as a human-readable summary (by default) or an executable script",
+                          "Aliases": [],
+                          "Arguments": [
+                            {
+                              "Arguments": [
+                                {
+                                  "Name": "-h",
+                                  "Description": "Display this help message",
+                                  "Aliases": [
+                                    "--help"
+                                  ],
+                                  "Arguments": []
+                                },
+                                {
+                                  "Name": "--from-url",
+                                  "Description": "A datasource url",
+                                  "Aliases": [],
+                                  "Arguments": [
+                                    {
+                                      "Arguments": [
+                                        {
+                                          "Name": "full url",
+                                          "Description": "full url",
+                                          "Type": "FileSystemEntry"
+                                        }
+                                      ]
+                                    }
+                                  ]
+                                },
+                                {
+                                  "Name": "--to-url",
+                                  "Description": "A datasource url",
+                                  "Aliases": [],
+                                  "Arguments": [
+                                    {
+                                      "Arguments": [
+                                        {
+                                          "Name": "full url",
+                                          "Description": "full url",
+                                          "Type": "FileSystemEntry"
+                                        }
+                                      ]
+                                    }
+                                  ]
+                                },
+                                {
+                                  "Name": "--from-empty",
+                                  "Description": "Flag to assume from is an empty datamodel",
+                                  "Aliases": [],
+                                  "Arguments": []
+                                },
+                                {
+                                  "Name": "--to-empty",
+                                  "Description": "Flag to assume to is an empty datamodel",
+                                  "Aliases": [],
+                                  "Arguments": []
+                                },
+                                {
+                                  "Name": "--from-schema-datamodel",
+                                  "Description": "Path to a Prisma schema file, uses the \u0027datamodel\u0027 for the diff",
+                                  "Aliases": [],
+                                  "Arguments": [
+                                    {
+                                      "Arguments": [
+                                        {
+                                          "Name": "filepath",
+                                          "Description": "filepath",
+                                          "Type": "FileSystemEntry"
+                                        }
+                                      ]
+                                    }
+                                  ]
+                                },
+                                {
+                                  "Name": "--to-schema-datamodel",
+                                  "Description": "Path to a Prisma schema file, uses the \u0027datamodel\u0027 for the diff",
+                                  "Aliases": [],
+                                  "Arguments": [
+                                    {
+                                      "Arguments": [
+                                        {
+                                          "Name": "filepath",
+                                          "Description": "filepath",
+                                          "Type": "FileSystemEntry"
+                                        }
+                                      ]
+                                    }
+                                  ]
+                                },
+                                {
+                                  "Name": "--from-schema-datasource",
+                                  "Description": "Path to a Prisma schema file, uses the \u0027datasource url\u0027 for the diff",
+                                  "Aliases": [],
+                                  "Arguments": [
+                                    {
+                                      "Arguments": [
+                                        {
+                                          "Name": "filepath",
+                                          "Description": "filepath",
+                                          "Type": "FileSystemEntry"
+                                        }
+                                      ]
+                                    }
+                                  ]
+                                },
+                                {
+                                  "Name": "--to-schema-datasource",
+                                  "Description": "Path to a Prisma schema file, uses the \u0027datasource url\u0027 for the diff",
+                                  "Aliases": [],
+                                  "Arguments": [
+                                    {
+                                      "Arguments": [
+                                        {
+                                          "Name": "filepath",
+                                          "Description": "filepath",
+                                          "Type": "FileSystemEntry"
+                                        }
+                                      ]
+                                    }
+                                  ]
+                                },
+                                {
+                                  "Name": "--from-migrations",
+                                  "Description": "Path to the Prisma Migrate migrations directory",
+                                  "Aliases": [],
+                                  "Arguments": [
+                                    {
+                                      "Arguments": [
+                                        {
+                                          "Name": "folder",
+                                          "Description": "folder",
+                                          "Type": "Directory"
+                                        }
+                                      ]
+                                    }
+                                  ]
+                                },
+                                {
+                                  "Name": "--to-migrations",
+                                  "Description": "Path to the Prisma Migrate migrations directory",
+                                  "Aliases": [],
+                                  "Arguments": [
+                                    {
+                                      "Arguments": [
+                                        {
+                                          "Name": "folder",
+                                          "Description": "folder",
+                                          "Type": "Directory"
+                                        }
+                                      ]
+                                    }
+                                  ]
+                                },
+                                {
+                                  "Name": "--shadow-database-url",
+                                  "Description": "URL for the shadow database. Only required if using --from-migrations or --to-migrations",
+                                  "Aliases": [],
+                                  "Arguments": [
+                                    {
+                                      "Arguments": [
+                                        {
+                                          "Name": "full url",
+                                          "Description": "full url",
+                                          "Type": "FileSystemEntry"
+                                        }
+                                      ]
+                                    }
+                                  ]
+                                },
+                                {
+                                  "Name": "--script",
+                                  "Description": "Render a SQL script to stdout instead of the default human readable summary (not supported on MongoDB)",
+                                  "Aliases": [],
+                                  "Arguments": [
+                                    {
+                                      "Arguments": [
+                                        {
+                                          "Name": "filepath",
+                                          "Description": "filepath",
+                                          "Type": "FileSystemEntry"
+                                        }
+                                      ]
+                                    }
+                                  ]
+                                },
+                                {
+                                  "Name": "--exit-code",
+                                  "Description": "Change the exit code behavior to signal if the diff is empty or not (Empty: 0, Error: 1, Not empty: 2). Default behavior is Success: 0, Error: 1.\u0060",
+                                  "Aliases": [],
+                                  "Arguments": []
+                                }
+                              ],
+                              "Optional": true
+                            }
+                          ]
+                        }
+                      ],
+                      "DontAllowMultiple": true
+                    }
+                  ]
+                },
+                {
+                  "Name": "db",
+                  "Description": "Manage your database schema and lifecycle (Preview)",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "pull",
+                          "Description": "",
+                          "Aliases": [],
+                          "Arguments": [
+                            {
+                              "Arguments": [
+                                {
+                                  "Name": "-h",
+                                  "Description": "Display this help message",
+                                  "Aliases": [
+                                    "--help"
+                                  ],
+                                  "Arguments": []
+                                },
+                                {
+                                  "Name": "--schema",
+                                  "Description": "Custom path to your Prisma schema",
+                                  "Aliases": [],
+                                  "Arguments": [
+                                    {
+                                      "Arguments": [
+                                        {
+                                          "Name": "Schema path",
+                                          "Description": "Schema path",
+                                          "Type": "FileSystemEntry"
+                                        }
+                                      ]
+                                    }
+                                  ]
+                                },
+                                {
+                                  "Name": "--force",
+                                  "Description": "Ignore current Prisma schema file",
+                                  "Aliases": [],
+                                  "Arguments": []
+                                },
+                                {
+                                  "Name": "--print",
+                                  "Description": "Print the introspected Prisma schema to stdout",
+                                  "Aliases": [],
+                                  "Arguments": []
+                                },
+                                {
+                                  "Name": "--url",
+                                  "Description": "The datasource url",
+                                  "Aliases": [],
+                                  "Arguments": [
+                                    {
+                                      "Arguments": [
+                                        {
+                                          "Name": "full url",
+                                          "Description": "full url",
+                                          "Type": "FileSystemEntry"
+                                        }
+                                      ]
+                                    }
+                                  ]
+                                },
+                                {
+                                  "Name": "--composite-type-depth",
+                                  "Description": "Specify the depth for introspecting composite types (e.g. Embedded Documents in MongoDB). Number, default is -1 for infinite depth, 0 = off",
+                                  "Aliases": [],
+                                  "Arguments": [
+                                    {
+                                      "Arguments": [
+                                        {
+                                          "Name": "number",
+                                          "Description": "number",
+                                          "Type": "String"
+                                        }
+                                      ]
+                                    }
+                                  ]
+                                }
+                              ],
+                              "Optional": true
+                            }
+                          ]
+                        },
+                        {
+                          "Name": "push",
+                          "Description": "This command pushes the state of your Prisma schema file to the database without using migrations files",
+                          "Aliases": [],
+                          "Arguments": [
+                            {
+                              "Arguments": [
+                                {
+                                  "Name": "-h",
+                                  "Description": "Display this help message",
+                                  "Aliases": [
+                                    "--help"
+                                  ],
+                                  "Arguments": []
+                                },
+                                {
+                                  "Name": "--schema",
+                                  "Description": "Custom path to your Prisma schema",
+                                  "Aliases": [],
+                                  "Arguments": [
+                                    {
+                                      "Arguments": [
+                                        {
+                                          "Name": "Schema path",
+                                          "Description": "Schema path",
+                                          "Type": "FileSystemEntry"
+                                        }
+                                      ]
+                                    }
+                                  ]
+                                },
+                                {
+                                  "Name": "--skip-generate",
+                                  "Description": "Skip generation of artifacts such as Prisma Client",
+                                  "Aliases": [],
+                                  "Arguments": []
+                                },
+                                {
+                                  "Name": "--force-reset",
+                                  "Description": "Resets the database and then updates the schema - useful if you need to start from scratch due to unexecutable migrations",
+                                  "Aliases": [],
+                                  "Arguments": []
+                                },
+                                {
+                                  "Name": "--accept-data-loss",
+                                  "Description": "Ignore data loss warnings. This option is required if as a result of making the schema changes, data may be lost",
+                                  "Aliases": [],
+                                  "Arguments": []
+                                }
+                              ],
+                              "Optional": true
+                            }
+                          ]
+                        },
+                        {
+                          "Name": "seed",
+                          "Description": "Seed your database",
+                          "Aliases": [],
+                          "Arguments": [
+                            {
+                              "Arguments": [
+                                {
+                                  "Name": "-h",
+                                  "Description": "Display this help message",
+                                  "Aliases": [
+                                    "--help"
+                                  ],
+                                  "Arguments": []
+                                },
+                                {
+                                  "Name": "--schema",
+                                  "Description": "Custom path to your Prisma schema",
+                                  "Aliases": [],
+                                  "Arguments": [
+                                    {
+                                      "Arguments": [
+                                        {
+                                          "Name": "Schema path",
+                                          "Description": "Schema path",
+                                          "Type": "FileSystemEntry"
+                                        }
+                                      ]
+                                    }
+                                  ]
+                                }
+                              ],
+                              "Optional": true
+                            }
+                          ]
+                        },
+                        {
+                          "Name": "execute",
+                          "Description": "Execute native commands to your database",
+                          "Aliases": [],
+                          "Arguments": [
+                            {
+                              "Arguments": [
+                                {
+                                  "Name": "-h",
+                                  "Description": "Display this help message",
+                                  "Aliases": [
+                                    "--help"
+                                  ],
+                                  "Arguments": []
+                                },
+                                {
+                                  "Name": "--schema",
+                                  "Description": "Custom path to your Prisma schema",
+                                  "Aliases": [],
+                                  "Arguments": [
+                                    {
+                                      "Arguments": [
+                                        {
+                                          "Name": "Schema path",
+                                          "Description": "Schema path",
+                                          "Type": "FileSystemEntry"
+                                        }
+                                      ]
+                                    }
+                                  ]
+                                },
+                                {
+                                  "Name": "--url",
+                                  "Description": "The datasource url",
+                                  "Aliases": [],
+                                  "Arguments": [
+                                    {
+                                      "Arguments": [
+                                        {
+                                          "Name": "full url",
+                                          "Description": "full url",
+                                          "Type": "FileSystemEntry"
+                                        }
+                                      ]
+                                    }
+                                  ]
+                                },
+                                {
+                                  "Name": "--file",
+                                  "Description": "Path to a file. The content will be sent as the script to be executed",
+                                  "Aliases": [],
+                                  "Arguments": [
+                                    {
+                                      "Arguments": [
+                                        {
+                                          "Name": "filepath",
+                                          "Description": "filepath",
+                                          "Type": "FileSystemEntry"
+                                        }
+                                      ]
+                                    }
+                                  ]
+                                },
+                                {
+                                  "Name": "--stdin",
+                                  "Description": "Use the terminal standard input as the script to be executed",
+                                  "Aliases": [],
+                                  "Arguments": []
+                                }
+                              ],
+                              "Optional": true
+                            }
+                          ]
+                        }
+                      ],
+                      "DontAllowMultiple": true
+                    }
+                  ]
+                },
+                {
+                  "Name": "version",
+                  "Description": "Print current version of Prisma components",
+                  "Aliases": [
+                    "-v"
+                  ],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "--json",
+                          "Description": "Output JSON",
+                          "Aliases": [],
+                          "Arguments": []
+                        }
+                      ],
+                      "DontAllowMultiple": true
+                    }
+                  ]
+                }
+              ],
+              "DontAllowMultiple": true
+            }
+          ]
+        },
+        {
+          "Name": "routes",
+          "Description": "Display all Blitz URL Routes",
+          "Aliases": [
+            "r"
+          ],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "--help",
+                  "Description": "Show help for command",
+                  "Aliases": [
+                    "-h"
+                  ],
+                  "Arguments": []
+                }
+              ],
+              "Optional": true
+            }
+          ]
+        },
+        {
+          "Name": "start",
+          "Description": "Start the production server",
+          "Aliases": [
+            "s"
+          ],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "--help",
+                  "Description": "Show help for command",
+                  "Aliases": [
+                    "-h"
+                  ],
+                  "Arguments": []
+                },
+                {
+                  "Name": "-p",
+                  "Description": "Set port number",
+                  "Aliases": [
+                    "--port"
+                  ],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "port",
+                          "Description": "port",
+                          "Type": "String"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "-H",
+                  "Description": "Set server hostname",
+                  "Aliases": [
+                    "--hostname"
+                  ],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "hostname",
+                          "Description": "hostname",
+                          "Type": "String"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "--inspect",
+                  "Description": "Enable the Node.js inspector",
+                  "Aliases": [],
+                  "Arguments": []
+                }
+              ],
+              "Optional": true
+            }
+          ]
+        },
+        {
+          "Name": "autocomplete",
+          "Description": "Display autocomplete installation instructions",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "-r",
+                  "Description": "Refresh cache (ignores displaying instructions)",
+                  "Aliases": [
+                    "--refresh-cache"
+                  ],
+                  "Arguments": []
+                }
+              ],
+              "Optional": true
+            },
+            {
+              "Arguments": [
+                {
+                  "Name": "shell",
+                  "Description": "shell",
+                  "Type": "String"
+                },
+                {
+                  "Name": "zsh",
+                  "Description": "shell"
+                },
+                {
+                  "Name": "bash",
+                  "Description": "shell"
+                }
+              ],
+              "Optional": true
+            }
+          ]
+        }
+      ],
+      "DontAllowMultiple": true
+    }
+  ]
+}

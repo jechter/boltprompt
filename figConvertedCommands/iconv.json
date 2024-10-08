@@ -1,0 +1,136 @@
+{
+  "Comment": "This command info is generated from fig",
+  "Name": "iconv",
+  "Description": "Character set conversion",
+  "Arguments": [
+    {
+      "Arguments": [
+        {
+          "Name": "--help",
+          "Description": "Show help for iconv",
+          "Aliases": [],
+          "Arguments": []
+        },
+        {
+          "Name": "--version",
+          "Description": "Output version information and exit",
+          "Aliases": [],
+          "Arguments": []
+        },
+        {
+          "Name": "-f",
+          "Description": "Specifies the encoding of the input",
+          "Aliases": [
+            "--from-code"
+          ],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "encoding",
+                  "Description": "encoding",
+                  "Type": "CustomArgument",
+                  "Extensions": [],
+                  "CustomCommand": "bash -c iconv -l | command tr \u0027 \u0027 \u0027\\n\u0027 | sort"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "Name": "-t",
+          "Description": "Specifies the encoding of the output",
+          "Aliases": [
+            "--to-code"
+          ],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "encoding",
+                  "Description": "encoding",
+                  "Type": "CustomArgument",
+                  "Extensions": [],
+                  "CustomCommand": "bash -c iconv -l | command tr \u0027 \u0027 \u0027\\n\u0027 | sort"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "Name": "c",
+          "Description": "Discard unconvertible characters",
+          "Type": "Flag",
+          "Aliases": [],
+          "Arguments": []
+        },
+        {
+          "Name": "-l",
+          "Description": "List the supported encodings",
+          "Aliases": [
+            "--list"
+          ],
+          "Arguments": []
+        },
+        {
+          "Name": "--unicode-subst",
+          "Description": "Substitution for unconvertible Unicode characters",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "FORMATSTRING",
+                  "Description": "FORMATSTRING",
+                  "Type": "String"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "Name": "--byte-subst",
+          "Description": "Substitution for unconvertible bytes",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "FORMATSTRING",
+                  "Description": "FORMATSTRING",
+                  "Type": "String"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "Name": "--widechar-subst",
+          "Description": "Substitution for unconvertible wide characters",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "FORMATSTRING",
+                  "Description": "FORMATSTRING",
+                  "Type": "String"
+                }
+              ]
+            }
+          ]
+        }
+      ],
+      "Optional": true
+    },
+    {
+      "Arguments": [
+        {
+          "Name": "inputfile",
+          "Description": "inputfile",
+          "Type": "FileSystemEntry"
+        }
+      ]
+    }
+  ]
+}

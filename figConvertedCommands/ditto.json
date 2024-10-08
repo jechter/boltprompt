@@ -1,0 +1,243 @@
+{
+  "Comment": "This command info is generated from fig",
+  "Name": "ditto",
+  "Description": "Copy directory hierarchies, create and extract archives",
+  "Arguments": [
+    {
+      "Arguments": [
+        {
+          "Name": "--help",
+          "Description": "Show help for ditto",
+          "Aliases": [],
+          "Arguments": []
+        },
+        {
+          "Name": "h",
+          "Description": "Print full usage",
+          "Type": "Flag",
+          "Aliases": [],
+          "Arguments": []
+        },
+        {
+          "Name": "X",
+          "Description": "When copying one or more source directories, do not descend into directories that have a different device ID",
+          "Type": "Flag",
+          "Aliases": [],
+          "Arguments": []
+        },
+        {
+          "Name": "c",
+          "Description": "Create an archive at the destination path",
+          "Type": "Flag",
+          "Aliases": [],
+          "Arguments": []
+        },
+        {
+          "Name": "z",
+          "Description": "Create compressed CPIO archives, using gzip(1) compression",
+          "Type": "Flag",
+          "Aliases": [],
+          "Arguments": []
+        },
+        {
+          "Name": "j",
+          "Description": "Create compressed CPIO archives, using bzip2(1) compression",
+          "Type": "Flag",
+          "Aliases": [],
+          "Arguments": []
+        },
+        {
+          "Name": "v",
+          "Description": "Print a line of output to stderr for each source directory copied",
+          "Type": "Flag",
+          "Aliases": [],
+          "Arguments": []
+        },
+        {
+          "Name": "V",
+          "Description": "Print a line of output to stderr for every file, symbolic link, and device copied",
+          "Type": "Flag",
+          "Aliases": [],
+          "Arguments": []
+        },
+        {
+          "Name": "x",
+          "Description": "Extract the archives given as source arguments",
+          "Type": "Flag",
+          "Aliases": [],
+          "Arguments": []
+        },
+        {
+          "Name": "k",
+          "Description": "Create or extract from a PKZip archive instead of the default CPIO",
+          "Type": "Flag",
+          "Aliases": [],
+          "Arguments": []
+        },
+        {
+          "Name": "--keepParent",
+          "Description": "When creating an archive, embed the parent directory name src in dst_archive",
+          "Aliases": [],
+          "Arguments": []
+        },
+        {
+          "Name": "--arch",
+          "Description": "Thin Universal binaries to the specified architecture.  If multiple --arch options are specified then the resulting destination file will contain each of the specified architectures (if they are present in the source file).  arch should be specified as \u0027i386\u0027, \u0027x86_64\u0027, etc",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "arch",
+                  "Description": "arch",
+                  "Type": "String"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "Name": "--bom",
+          "Description": "Copy only files, links, devices, and directories that are present in the specified BOM",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "bom",
+                  "Description": "bom",
+                  "Type": "String"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "Name": "-rsrc",
+          "Description": "Preserve resource forks and HFS meta-data.  ditto will store this data in Carbon-compatible ._ AppleDouble files on filesystems that do not natively support resource forks.  As of Mac OS X 10.4, --rsrc is default behavior",
+          "Aliases": [],
+          "Arguments": []
+        },
+        {
+          "Name": "--norsrc",
+          "Description": "Do not preserve resource forks and HFS meta-data.  If both --norsrc and --rsrc are passed, whichever is passed last will take precedence.  Both options override DITTONORSRC. Unless explicitly specified, --norsrc also implies --noextattr and --noacl to match the behavior of Mac OS X 10.4",
+          "Aliases": [],
+          "Arguments": []
+        },
+        {
+          "Name": "--extattr",
+          "Description": "Preserve extended attributes (requires --rsrc). As of Mac OS X 10.5, --extattr is the default",
+          "Aliases": [],
+          "Arguments": []
+        },
+        {
+          "Name": "--noextattr",
+          "Description": "Do not preserve extended attributes (requires --norsrc)",
+          "Aliases": [],
+          "Arguments": []
+        },
+        {
+          "Name": "--qtn",
+          "Description": "Preserve quarantine information.  As of Mac OS X 10.5, --qtn is the default",
+          "Aliases": [],
+          "Arguments": []
+        },
+        {
+          "Name": "--noqtn",
+          "Description": "Do not preserve quarantine information",
+          "Aliases": [],
+          "Arguments": []
+        },
+        {
+          "Name": "--acl",
+          "Description": "Preserve Access Control Lists (ACLs).  As of Mac OS X 10.5, --acl is the default",
+          "Aliases": [],
+          "Arguments": []
+        },
+        {
+          "Name": "--noacl",
+          "Description": "Do not preserve ACLs",
+          "Aliases": [],
+          "Arguments": []
+        },
+        {
+          "Name": "--nocache",
+          "Description": "Do not perform copies using the Mac OS X Unified Buffer Cache. Files read and written will not be cached, although if the file is already present in the cache, the cached information will be used",
+          "Aliases": [],
+          "Arguments": []
+        },
+        {
+          "Name": "--hfsCompression",
+          "Description": "When copying files or extracting content from an archive, if the destination is an HFS\u002B volume that supports compression, all the content will be compressed if appropriate. This is only supported on Mac OS X 10.6 or later, and is only intended to be used in installation and backup scenarios that involve system files. Since files using HFS\u002B compression are not readable on versions of Mac OS X earlier than 10.6, this flag should not be used when dealing with non-system files or other user-generated content that will be used on a version of Mac OS X earlier than 10.6",
+          "Aliases": [],
+          "Arguments": []
+        },
+        {
+          "Name": "--nohfsCompression",
+          "Description": "Do not compress files with HFS\u002B compression when copying or extracting content from an archive unless the content is already compressed with HFS\u002B compression.  This flag is only supported on Mac OS X 10.6 or later.  --nohfsCompression is the default",
+          "Aliases": [],
+          "Arguments": []
+        },
+        {
+          "Name": "--preserveHFSCompression",
+          "Description": "When copying files to an HFS\u002B volume that supports compression, ditto will preserve the compression of any source files that were using HFS\u002B compression.  This flag is only supported on Mac OS X 10.6 or later. --preserveHFSCompression is the default",
+          "Aliases": [],
+          "Arguments": []
+        },
+        {
+          "Name": "--nopreserveHFSCompression",
+          "Description": "Do not preserve HFS\u002B compression when copying files that are already compressed with HFS\u002B compression. This is only supported on Mac OS X 10.6 or later",
+          "Aliases": [],
+          "Arguments": []
+        },
+        {
+          "Name": "--sequesterRsrc",
+          "Description": "When creating a PKZip archive, preserve resource forks and HFS meta-data in the subdirectory __MACOSX.  PKZip extraction will automatically find these resources",
+          "Aliases": [],
+          "Arguments": []
+        },
+        {
+          "Name": "--zlibCompressionLevel",
+          "Description": "Sets the compression level to use when creating a PKZip archive. The compression level can be set from 0 to 9, where 0 represents no compression, and 9 represents optimal (slowest) compression. By default, ditto will use the default compression level as defined by zlib",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "compression level",
+                  "Description": "compression level",
+                  "Type": "String"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "Name": "--password",
+          "Description": "When extracting a password-encrypted ZIP archive, you must specify --password to allow ditto to prompt for a password to use to extract the contents of the file. If this option is not provided, and a password-encrypted file is encountered, ditto will emit an error message",
+          "Aliases": [],
+          "Arguments": []
+        }
+      ],
+      "Optional": true
+    },
+    {
+      "Arguments": [
+        {
+          "Name": "source",
+          "Description": "source",
+          "Type": "FileSystemEntry"
+        }
+      ]
+    },
+    {
+      "Arguments": [
+        {
+          "Name": "dest",
+          "Description": "dest",
+          "Type": "Directory"
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,2662 @@
+{
+  "Comment": "This command info is generated from fig",
+  "Name": "pnpm",
+  "Description": "Fast, disk space efficient package manager",
+  "Arguments": [
+    {
+      "Arguments": [
+        {
+          "Name": "-C",
+          "Description": "Run as if pnpm was started in \u003Cpath\u003E instead of the current working directory",
+          "Aliases": [
+            "--dir"
+          ],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "path",
+                  "Description": "path",
+                  "Type": "Directory"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "Name": "-w",
+          "Description": "Run as if pnpm was started in the root of the \u003Cworkspace\u003E instead of the current working directory",
+          "Aliases": [
+            "--workspace-root"
+          ],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "workspace",
+                  "Description": "workspace",
+                  "Type": "String"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "Name": "-h",
+          "Description": "Output usage information",
+          "Aliases": [
+            "--help"
+          ],
+          "Arguments": []
+        },
+        {
+          "Name": "-v",
+          "Description": "Show pnpm\u0027s version",
+          "Aliases": [
+            "--version"
+          ],
+          "Arguments": []
+        }
+      ],
+      "Optional": true
+    },
+    {
+      "Arguments": [
+        {
+          "Name": "Scripts",
+          "Description": "Scripts",
+          "Type": "CustomArgument",
+          "Extensions": [],
+          "CustomCommand": "bash -c until [[ -f package.json ]] || [[ $PWD = \u0027/\u0027 ]]; do cd ..; done; cat package.json"
+        }
+      ]
+    },
+    {
+      "Arguments": [
+        {
+          "Name": "add",
+          "Description": "Installs a package and any packages that it depends on. By default, any new package is installed as a production dependency",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "--offline",
+                  "Description": "If true, pnpm will use only packages already available in the store. If a package won\u0027t be found locally, the installation will fail",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "--prefer-offline",
+                  "Description": "If true, staleness checks for cached data will be bypassed, but missing data will be requested from the server. To force full offline mode, use --offline",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "--ignore-scripts",
+                  "Description": "Do not execute any scripts defined in the project package.json and its dependencies",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "--reporter",
+                  "Description": "Allows you to choose the reporter that will log debug info to the terminal about the installation progress",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "Reporter Type",
+                          "Description": "Reporter Type",
+                          "Type": "String"
+                        },
+                        {
+                          "Name": "silent",
+                          "Description": "Reporter Type"
+                        },
+                        {
+                          "Name": "default",
+                          "Description": "Reporter Type"
+                        },
+                        {
+                          "Name": "append-only",
+                          "Description": "Reporter Type"
+                        },
+                        {
+                          "Name": "ndjson",
+                          "Description": "Reporter Type"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "-P",
+                  "Description": "Install the specified packages as regular dependencies",
+                  "Aliases": [
+                    "--save-prod"
+                  ],
+                  "Arguments": []
+                },
+                {
+                  "Name": "-D",
+                  "Description": "Install the specified packages as devDependencies",
+                  "Aliases": [
+                    "--save-dev"
+                  ],
+                  "Arguments": []
+                },
+                {
+                  "Name": "-O",
+                  "Description": "Install the specified packages as optionalDependencies",
+                  "Aliases": [
+                    "--save-optional"
+                  ],
+                  "Arguments": []
+                },
+                {
+                  "Name": "--no-save",
+                  "Description": "Prevents saving to \u0060dependencies\u0060",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "-E",
+                  "Description": "Saved dependencies will be configured with an exact version rather than using pnpm\u0027s default semver range operator",
+                  "Aliases": [
+                    "--save-exact"
+                  ],
+                  "Arguments": []
+                },
+                {
+                  "Name": "--save-peer",
+                  "Description": "Using --save-peer will add one or more packages to peerDependencies and install them as dev dependencies",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "--ignore-workspace-root-check",
+                  "Description": "Adding a new dependency to the root workspace package fails, unless the --ignore-workspace-root-check or -W flag is used.\nFor instance, pnpm add debug -W",
+                  "Aliases": [
+                    "-W#"
+                  ],
+                  "Arguments": []
+                },
+                {
+                  "Name": "--global",
+                  "Description": "Install a package globally",
+                  "Aliases": [
+                    "-g"
+                  ],
+                  "Arguments": []
+                },
+                {
+                  "Name": "--workspace",
+                  "Description": "Only adds the new dependency if it is found in the workspace",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "--filter",
+                  "Description": "Filtering allows you to restrict commands to specific subsets of packages.\npnpm supports a rich selector syntax for picking packages by name or by relation.\nMore details: https://pnpm.io/filtering",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "Filepath / Package",
+                          "Description": "Filepath / Package",
+                          "Type": "FileSystemEntry"
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ],
+              "Optional": true
+            },
+            {
+              "Arguments": [
+                {
+                  "Name": "package",
+                  "Description": "package",
+                  "Type": "String",
+                  "Extensions": [],
+                  "CustomCommand": ""
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "Name": "install",
+          "Description": "Pnpm install is used to install all dependencies for a project.\nIn a CI environment, installation fails if a lockfile is present but needs an update.\nInside a workspace, pnpm install installs all dependencies in all the projects.\nIf you want to disable this behavior, set the recursive-install setting to false",
+          "Aliases": [
+            "i"
+          ],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "package",
+                  "Description": "package",
+                  "Type": "String",
+                  "Extensions": [],
+                  "CustomCommand": ""
+                }
+              ],
+              "Optional": true
+            }
+          ]
+        },
+        {
+          "Name": "install-test",
+          "Description": "Runs pnpm install followed immediately by pnpm test. It takes exactly the same arguments as pnpm install",
+          "Aliases": [
+            "it"
+          ],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "--offline",
+                  "Description": "If true, pnpm will use only packages already available in the store. If a package won\u0027t be found locally, the installation will fail",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "--prefer-offline",
+                  "Description": "If true, staleness checks for cached data will be bypassed, but missing data will be requested from the server. To force full offline mode, use --offline",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "--ignore-scripts",
+                  "Description": "Do not execute any scripts defined in the project package.json and its dependencies",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "--reporter",
+                  "Description": "Allows you to choose the reporter that will log debug info to the terminal about the installation progress",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "Reporter Type",
+                          "Description": "Reporter Type",
+                          "Type": "String"
+                        },
+                        {
+                          "Name": "silent",
+                          "Description": "Reporter Type"
+                        },
+                        {
+                          "Name": "default",
+                          "Description": "Reporter Type"
+                        },
+                        {
+                          "Name": "append-only",
+                          "Description": "Reporter Type"
+                        },
+                        {
+                          "Name": "ndjson",
+                          "Description": "Reporter Type"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "-P",
+                  "Description": "Pnpm will not install any package listed in devDependencies if the NODE_ENV environment variable is set to production.\nUse this flag to instruct pnpm to ignore NODE_ENV and take its production status from this flag instead",
+                  "Aliases": [
+                    "--save-prod"
+                  ],
+                  "Arguments": []
+                },
+                {
+                  "Name": "-D",
+                  "Description": "Only devDependencies are installed regardless of the NODE_ENV",
+                  "Aliases": [
+                    "--save-dev"
+                  ],
+                  "Arguments": []
+                },
+                {
+                  "Name": "--no-optional",
+                  "Description": "OptionalDependencies are not installed",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "--lockfile-only",
+                  "Description": "When used, only updates pnpm-lock.yaml and package.json instead of checking node_modules and downloading dependencies",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "--frozen-lockfile",
+                  "Description": "If true, pnpm doesn\u0027t generate a lockfile and fails to install if the lockfile is out of sync with the manifest / an update is needed or no lockfile is present",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "--use-store-server",
+                  "Description": "Starts a store server in the background. The store server will keep running after installation is done. To stop the store server, run pnpm server stop",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "--shamefully-hoist",
+                  "Description": "Creates a flat node_modules structure, similar to that of npm or yarn. WARNING: This is highly discouraged",
+                  "Aliases": [],
+                  "Arguments": []
+                }
+              ],
+              "Optional": true
+            }
+          ]
+        },
+        {
+          "Name": "update",
+          "Description": "Pnpm update updates packages to their latest version based on the specified range.\nWhen used without arguments, updates all dependencies. You can use patterns to update specific dependencies",
+          "Aliases": [
+            "upgrade",
+            "up"
+          ],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "--recursive",
+                  "Description": "Concurrently runs update in all subdirectories with a package.json (excluding node_modules)",
+                  "Aliases": [
+                    "-r"
+                  ],
+                  "Arguments": []
+                },
+                {
+                  "Name": "--latest",
+                  "Description": "Ignores the version range specified in package.json. Instead, the version specified by the latest tag will be used (potentially upgrading the packages across major versions)",
+                  "Aliases": [
+                    "-L"
+                  ],
+                  "Arguments": []
+                },
+                {
+                  "Name": "--global",
+                  "Description": "Update global packages",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "-P",
+                  "Description": "Only update packages in dependencies and optionalDependencies",
+                  "Aliases": [
+                    "--save-prod"
+                  ],
+                  "Arguments": []
+                },
+                {
+                  "Name": "-D",
+                  "Description": "Only update packages in devDependencies",
+                  "Aliases": [
+                    "--save-dev"
+                  ],
+                  "Arguments": []
+                },
+                {
+                  "Name": "--no-optional",
+                  "Description": "Don\u0027t update packages in optionalDependencies",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "--interactive",
+                  "Description": "Show outdated dependencies and select which ones to update",
+                  "Aliases": [
+                    "-i"
+                  ],
+                  "Arguments": []
+                },
+                {
+                  "Name": "--workspace",
+                  "Description": "Tries to link all packages from the workspace. Versions are updated to match the versions of packages inside the workspace.\nIf specific packages are updated, the command will fail if any of the updated dependencies are not found inside the workspace. For instance, the following command fails if express is not a workspace package: pnpm up -r --workspace express",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "--filter",
+                  "Description": "Filtering allows you to restrict commands to specific subsets of packages.\npnpm supports a rich selector syntax for picking packages by name or by relation.\nMore details: https://pnpm.io/filtering",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "Filepath / Package",
+                          "Description": "Filepath / Package",
+                          "Type": "FileSystemEntry"
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ],
+              "Optional": true
+            },
+            {
+              "Arguments": [
+                {
+                  "Name": "Package",
+                  "Description": "Package",
+                  "Type": "CustomArgument",
+                  "Extensions": [],
+                  "CustomCommand": "bash -c until [[ -f package.json ]] || [[ $PWD = \u0027/\u0027 ]]; do cd ..; done; cat package.json"
+                }
+              ],
+              "Optional": true
+            }
+          ]
+        },
+        {
+          "Name": "remove",
+          "Description": "Removes packages from node_modules and from the project\u0027s package.json",
+          "Aliases": [
+            "rm",
+            "uninstall",
+            "un"
+          ],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "--recursive",
+                  "Description": "When used inside a workspace, removes a dependency (or dependencies) from every workspace package.\nWhen used not inside a workspace, removes a dependency (or dependencies) from every package found in subdirectories",
+                  "Aliases": [
+                    "-r"
+                  ],
+                  "Arguments": []
+                },
+                {
+                  "Name": "--global",
+                  "Description": "Remove a global package",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "-P",
+                  "Description": "Only remove the dependency from dependencies",
+                  "Aliases": [
+                    "--save-prod"
+                  ],
+                  "Arguments": []
+                },
+                {
+                  "Name": "-D",
+                  "Description": "Only remove the dependency from devDependencies",
+                  "Aliases": [
+                    "--save-dev"
+                  ],
+                  "Arguments": []
+                },
+                {
+                  "Name": "--save-optional",
+                  "Description": "Only remove the dependency from optionalDependencies",
+                  "Aliases": [
+                    "-O"
+                  ],
+                  "Arguments": []
+                },
+                {
+                  "Name": "--filter",
+                  "Description": "Filtering allows you to restrict commands to specific subsets of packages.\npnpm supports a rich selector syntax for picking packages by name or by relation.\nMore details: https://pnpm.io/filtering",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "Filepath / Package",
+                          "Description": "Filepath / Package",
+                          "Type": "FileSystemEntry"
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ],
+              "Optional": true
+            },
+            {
+              "Arguments": [
+                {
+                  "Name": "Package",
+                  "Description": "Package",
+                  "Type": "CustomArgument",
+                  "Extensions": [],
+                  "CustomCommand": "bash -c until [[ -f package.json ]] || [[ $PWD = \u0027/\u0027 ]]; do cd ..; done; cat package.json"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "Name": "link",
+          "Description": "Makes the current local package accessible system-wide, or in another location",
+          "Aliases": [
+            "ln"
+          ],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "--dir",
+                  "Description": "Changes the link location to \u003Cdir\u003E",
+                  "Aliases": [
+                    "-C"
+                  ],
+                  "Arguments": []
+                },
+                {
+                  "Name": "--global",
+                  "Description": "Links the specified package (\u003Cpkg\u003E) from global node_modules to the node_nodules of package from where this command was executed or specified via --dir option",
+                  "Aliases": [],
+                  "Arguments": []
+                }
+              ],
+              "Optional": true
+            },
+            {
+              "Arguments": [
+                {
+                  "Name": "Package",
+                  "Description": "Package",
+                  "Type": "CustomArgument",
+                  "Extensions": [],
+                  "CustomCommand": "bash -c until [[ -f package.json ]] || [[ $PWD = \u0027/\u0027 ]]; do cd ..; done; cat package.json"
+                }
+              ]
+            },
+            {
+              "Arguments": [
+                {
+                  "Name": "FileSystemEntry",
+                  "Description": "",
+                  "Type": "FileSystemEntry"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "Name": "unlink",
+          "Description": "Unlinks a system-wide package (inverse of pnpm link).\nIf called without arguments, all linked dependencies will be unlinked.\nThis is similar to yarn unlink, except pnpm re-installs the dependency after removing the external link",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "--recursive",
+                  "Description": "Unlink in every package found in subdirectories or in every workspace package, when executed inside a workspace",
+                  "Aliases": [
+                    "-r"
+                  ],
+                  "Arguments": []
+                },
+                {
+                  "Name": "--filter",
+                  "Description": "Filtering allows you to restrict commands to specific subsets of packages.\npnpm supports a rich selector syntax for picking packages by name or by relation.\nMore details: https://pnpm.io/filtering",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "Filepath / Package",
+                          "Description": "Filepath / Package",
+                          "Type": "FileSystemEntry"
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ],
+              "Optional": true
+            },
+            {
+              "Arguments": [
+                {
+                  "Name": "Package",
+                  "Description": "Package",
+                  "Type": "CustomArgument",
+                  "Extensions": [],
+                  "CustomCommand": "bash -c until [[ -f package.json ]] || [[ $PWD = \u0027/\u0027 ]]; do cd ..; done; cat package.json"
+                }
+              ]
+            },
+            {
+              "Arguments": [
+                {
+                  "Name": "FileSystemEntry",
+                  "Description": "",
+                  "Type": "FileSystemEntry"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "Name": "import",
+          "Description": "Pnpm import generates a pnpm-lock.yaml from an npm package-lock.json (or npm-shrinkwrap.json) file",
+          "Aliases": [],
+          "Arguments": []
+        },
+        {
+          "Name": "rebuild",
+          "Description": "Rebuild a package",
+          "Aliases": [
+            "rb"
+          ],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "--recursive",
+                  "Description": "This command runs the pnpm rebuild command in every package of the monorepo",
+                  "Aliases": [
+                    "-r"
+                  ],
+                  "Arguments": []
+                },
+                {
+                  "Name": "--filter",
+                  "Description": "Filtering allows you to restrict commands to specific subsets of packages.\npnpm supports a rich selector syntax for picking packages by name or by relation.\nMore details: https://pnpm.io/filtering",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "Filepath / Package",
+                          "Description": "Filepath / Package",
+                          "Type": "FileSystemEntry"
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ],
+              "Optional": true
+            },
+            {
+              "Arguments": [
+                {
+                  "Name": "Package",
+                  "Description": "Package",
+                  "Type": "CustomArgument",
+                  "Extensions": [],
+                  "CustomCommand": "bash -c until [[ -f package.json ]] || [[ $PWD = \u0027/\u0027 ]]; do cd ..; done; cat package.json"
+                }
+              ]
+            },
+            {
+              "Arguments": [
+                {
+                  "Name": "FileSystemEntry",
+                  "Description": "",
+                  "Type": "FileSystemEntry"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "Name": "prune",
+          "Description": "Removes unnecessary packages",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "--prod",
+                  "Description": "Remove the packages specified in devDependencies",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "--no-optional",
+                  "Description": "Remove the packages specified in optionalDependencies",
+                  "Aliases": [],
+                  "Arguments": []
+                }
+              ],
+              "Optional": true
+            }
+          ]
+        },
+        {
+          "Name": "fetch",
+          "Description": "EXPERIMENTAL FEATURE: Fetch packages from a lockfile into virtual store, package manifest is ignored: https://pnpm.io/cli/fetch",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "--prod",
+                  "Description": "Development packages will not be fetched",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "--dev",
+                  "Description": "Only development packages will be fetched",
+                  "Aliases": [],
+                  "Arguments": []
+                }
+              ],
+              "Optional": true
+            }
+          ]
+        },
+        {
+          "Name": "patch",
+          "Description": "This command will cause a package to be extracted in a temporary directory intended to be editable at will",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "--edit-dir",
+                  "Description": "The package that needs to be patched will be extracted to this directory",
+                  "Aliases": [],
+                  "Arguments": []
+                }
+              ],
+              "Optional": true
+            },
+            {
+              "Arguments": [
+                {
+                  "Name": "package",
+                  "Description": "package",
+                  "Type": "CustomArgument",
+                  "Extensions": [],
+                  "CustomCommand": "pnpm ls"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "Name": "patch-commit",
+          "Description": "Generate a patch out of a directory",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "dir",
+                  "Description": "dir",
+                  "Type": "String"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "Name": "patch-remove",
+          "Description": "",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "package",
+                  "Description": "package",
+                  "Type": "String"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "Name": "audit",
+          "Description": "Checks for known security issues with the installed packages.\nIf security issues are found, try to update your dependencies via pnpm update.\nIf a simple update does not fix all the issues, use overrides to force versions that are not vulnerable.\nFor instance, if lodash@\u003C2.1.0 is vulnerable, use overrides to force lodash@^2.1.0.\nDetails at: https://pnpm.io/cli/audit",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "--audit-level",
+                  "Description": "Only print advisories with severity greater than or equal to \u003Cseverity\u003E",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "Audit Level",
+                          "Description": "Audit Level",
+                          "Type": "String"
+                        },
+                        {
+                          "Name": "low",
+                          "Description": "Audit Level"
+                        },
+                        {
+                          "Name": "moderate",
+                          "Description": "Audit Level"
+                        },
+                        {
+                          "Name": "high",
+                          "Description": "Audit Level"
+                        },
+                        {
+                          "Name": "critical",
+                          "Description": "Audit Level"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "--fix",
+                  "Description": "Add overrides to the package.json file in order to force non-vulnerable versions of the dependencies",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "--json",
+                  "Description": "Output audit report in JSON format",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "--dev",
+                  "Description": "Only audit dev dependencies",
+                  "Aliases": [
+                    "-D"
+                  ],
+                  "Arguments": []
+                },
+                {
+                  "Name": "--prod",
+                  "Description": "Only audit production dependencies",
+                  "Aliases": [
+                    "-P"
+                  ],
+                  "Arguments": []
+                },
+                {
+                  "Name": "--no-optional",
+                  "Description": "Don\u0027t audit optionalDependencies",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "--ignore-registry-errors",
+                  "Description": "If the registry responds with a non-200 status code, the process should exit with 0. So the process will fail only if the registry actually successfully responds with found vulnerabilities",
+                  "Aliases": [],
+                  "Arguments": []
+                }
+              ],
+              "Optional": true
+            }
+          ]
+        },
+        {
+          "Name": "list",
+          "Description": "This command will output all the versions of packages that are installed, as well as their dependencies, in a tree-structure.\nPositional arguments are name-pattern@version-range identifiers, which will limit the results to only the packages named. For example, pnpm list \u0022babel-*\u0022 \u0022eslint-*\u0022 semver@5",
+          "Aliases": [
+            "ls"
+          ],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "--recursive",
+                  "Description": "Perform command on every package in subdirectories or on every workspace package, when executed inside a workspace",
+                  "Aliases": [
+                    "-r"
+                  ],
+                  "Arguments": []
+                },
+                {
+                  "Name": "--json",
+                  "Description": "Log output in JSON format",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "--long",
+                  "Description": "Show extended information",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "--parseable",
+                  "Description": "Outputs package directories in a parseable format instead of their tree view",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "--global",
+                  "Description": "List packages in the global install directory instead of in the current project",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "--depth",
+                  "Description": "Max display depth of the dependency tree.\npnpm ls --depth 0 will list direct dependencies only. pnpm ls --depth -1 will list projects only. Useful inside a workspace when used with the -r option",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "number",
+                          "Description": "number",
+                          "Type": "String"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "--dev",
+                  "Description": "Only list dev dependencies",
+                  "Aliases": [
+                    "-D"
+                  ],
+                  "Arguments": []
+                },
+                {
+                  "Name": "--prod",
+                  "Description": "Only list production dependencies",
+                  "Aliases": [
+                    "-P"
+                  ],
+                  "Arguments": []
+                },
+                {
+                  "Name": "--no-optional",
+                  "Description": "Don\u0027t list optionalDependencies",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "--filter",
+                  "Description": "Filtering allows you to restrict commands to specific subsets of packages.\npnpm supports a rich selector syntax for picking packages by name or by relation.\nMore details: https://pnpm.io/filtering",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "Filepath / Package",
+                          "Description": "Filepath / Package",
+                          "Type": "FileSystemEntry"
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ],
+              "Optional": true
+            }
+          ]
+        },
+        {
+          "Name": "outdated",
+          "Description": "Checks for outdated packages. The check can be limited to a subset of the installed packages by providing arguments (patterns are supported)",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "--recursive",
+                  "Description": "Check for outdated dependencies in every package found in subdirectories, or in every workspace package when executed inside a workspace",
+                  "Aliases": [
+                    "-r"
+                  ],
+                  "Arguments": []
+                },
+                {
+                  "Name": "--long",
+                  "Description": "Print details",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "--global",
+                  "Description": "List outdated global packages",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "--no-table",
+                  "Description": "Prints the outdated dependencies in a list format instead of the default table. Good for small consoles",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "--compatible",
+                  "Description": "Prints only versions that satisfy specifications in package.json",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "--dev",
+                  "Description": "Only list dev dependencies",
+                  "Aliases": [
+                    "-D"
+                  ],
+                  "Arguments": []
+                },
+                {
+                  "Name": "--prod",
+                  "Description": "Only list production dependencies",
+                  "Aliases": [
+                    "-P"
+                  ],
+                  "Arguments": []
+                },
+                {
+                  "Name": "--no-optional",
+                  "Description": "Doesn\u0027t check optionalDependencies",
+                  "Aliases": [],
+                  "Arguments": []
+                }
+              ],
+              "Optional": true
+            }
+          ]
+        },
+        {
+          "Name": "why",
+          "Description": "Shows all packages that depend on the specified package",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "--recursive",
+                  "Description": "Show the dependency tree for the specified package on every package in subdirectories or on every workspace package when executed inside a workspace",
+                  "Aliases": [
+                    "-r"
+                  ],
+                  "Arguments": []
+                },
+                {
+                  "Name": "--json",
+                  "Description": "Log output in JSON format",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "--long",
+                  "Description": "Show verbose output",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "--parseable",
+                  "Description": "Show parseable output instead of tree view",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "--global",
+                  "Description": "List packages in the global install directory instead of in the current project",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "--dev",
+                  "Description": "Only display the dependency tree for packages in devDependencies",
+                  "Aliases": [
+                    "-D"
+                  ],
+                  "Arguments": []
+                },
+                {
+                  "Name": "--prod",
+                  "Description": "Only display the dependency tree for packages in dependencies",
+                  "Aliases": [
+                    "-P"
+                  ],
+                  "Arguments": []
+                },
+                {
+                  "Name": "--filter",
+                  "Description": "Filtering allows you to restrict commands to specific subsets of packages.\npnpm supports a rich selector syntax for picking packages by name or by relation.\nMore details: https://pnpm.io/filtering",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "Filepath / Package",
+                          "Description": "Filepath / Package",
+                          "Type": "FileSystemEntry"
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ],
+              "Optional": true
+            },
+            {
+              "Arguments": [
+                {
+                  "Name": "Scripts",
+                  "Description": "Scripts",
+                  "Type": "CustomArgument",
+                  "Extensions": [],
+                  "CustomCommand": "bash -c until [[ -f package.json ]] || [[ $PWD = \u0027/\u0027 ]]; do cd ..; done; cat package.json"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "Name": "run",
+          "Description": "Runs a script defined in the package\u0027s manifest file",
+          "Aliases": [
+            "run-script"
+          ],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "-r",
+                  "Description": "This runs an arbitrary command from each package\u0027s \u0022scripts\u0022 object. If a package doesn\u0027t have the command, it is skipped. If none of the packages have the command, the command fails",
+                  "Aliases": [
+                    "--recursive"
+                  ],
+                  "Arguments": []
+                },
+                {
+                  "Name": "--if-present",
+                  "Description": "You can use the --if-present flag to avoid exiting with a non-zero exit code when the script is undefined. This lets you run potentially undefined scripts without breaking the execution chain",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "--parallel",
+                  "Description": "Completely disregard concurrency and topological sorting, running a given script immediately in all matching packages with prefixed streaming output. This is the preferred flag for long-running processes over many packages, for instance, a lengthy build process",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "--stream",
+                  "Description": "Stream output from child processes immediately, prefixed with the originating package directory. This allows output from different packages to be interleaved",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "--filter",
+                  "Description": "Filtering allows you to restrict commands to specific subsets of packages.\npnpm supports a rich selector syntax for picking packages by name or by relation.\nMore details: https://pnpm.io/filtering",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "Filepath / Package",
+                          "Description": "Filepath / Package",
+                          "Type": "FileSystemEntry"
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ],
+              "Optional": true
+            },
+            {
+              "Arguments": [
+                {
+                  "Name": "Scripts",
+                  "Description": "Scripts",
+                  "Type": "CustomArgument",
+                  "Extensions": [],
+                  "CustomCommand": "bash -c until [[ -f package.json ]] || [[ $PWD = \u0027/\u0027 ]]; do cd ..; done; cat package.json"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "Name": "exec",
+          "Description": "Execute a shell command in scope of a project.\nnode_modules/.bin is added to the PATH, so pnpm exec allows executing commands of dependencies",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "-r",
+                  "Description": "Execute the shell command in every project of the workspace.\nThe name of the current package is available through the environment variable PNPM_PACKAGE_NAME (supported from pnpm v2.22.0 onwards)",
+                  "Aliases": [
+                    "--recursive"
+                  ],
+                  "Arguments": []
+                },
+                {
+                  "Name": "--parallel",
+                  "Description": "Completely disregard concurrency and topological sorting, running a given script immediately in all matching packages with prefixed streaming output. This is the preferred flag for long-running processes over many packages, for instance, a lengthy build process",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "--filter",
+                  "Description": "Filtering allows you to restrict commands to specific subsets of packages.\npnpm supports a rich selector syntax for picking packages by name or by relation.\nMore details: https://pnpm.io/filtering",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "Filepath / Package",
+                          "Description": "Filepath / Package",
+                          "Type": "FileSystemEntry"
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ],
+              "Optional": true
+            },
+            {
+              "Arguments": [
+                {
+                  "Name": "Scripts",
+                  "Description": "Scripts",
+                  "Type": "CustomArgument",
+                  "Extensions": [],
+                  "CustomCommand": "bash -c until [[ -f package.json ]] || [[ $PWD = \u0027/\u0027 ]]; do cd ..; done; cat package.json"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "Name": "test",
+          "Description": "Runs an arbitrary command specified in the package\u0027s test property of its scripts object.\nThe intended usage of the property is to specify a command that runs unit or integration testing for your program",
+          "Aliases": [
+            "t",
+            "tst"
+          ],
+          "Arguments": []
+        },
+        {
+          "Name": "start",
+          "Description": "Runs an arbitrary command specified in the package\u0027s start property of its scripts object. If no start property is specified on the scripts object, it will attempt to run node server.js as a default, failing if neither are present.\nThe intended usage of the property is to specify a command that starts your program",
+          "Aliases": [],
+          "Arguments": []
+        },
+        {
+          "Name": "publish",
+          "Description": "Publishes a package to the registry.\nWhen publishing a package inside a workspace, the LICENSE file from the root of the workspace is packed with the package (unless the package has a license of its own).\nYou may override some fields before publish, using the publishConfig field in package.json. You also can use the publishConfig.directory to customize the published subdirectory (usually using third party build tools).\nWhen running this command recursively (pnpm -r publish), pnpm will publish all the packages that have versions not yet published to the registry",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "--tag",
+                  "Description": "Publishes the package with the given tag. By default, pnpm publish updates the latest tag",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "\u003Ctag\u003E",
+                          "Description": "\u003Ctag\u003E",
+                          "Type": "String"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "--dry-run",
+                  "Description": "Does everything a publish would do except actually publishing to the registry",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "--ignore-scripts",
+                  "Description": "Ignores any publish related lifecycle scripts (prepublishOnly, postpublish, and the like)",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "--no-git-checks",
+                  "Description": "Don\u0027t check if current branch is your publish branch, clean, and up-to-date",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "--access",
+                  "Description": "Tells the registry whether the published package should be public or restricted",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "Type",
+                          "Description": "Type",
+                          "Type": "String"
+                        },
+                        {
+                          "Name": "public",
+                          "Description": "Type"
+                        },
+                        {
+                          "Name": "private",
+                          "Description": "Type"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "--force",
+                  "Description": "Try to publish packages even if their current version is already found in the registry",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "--report-summary",
+                  "Description": "Save the list of published packages to pnpm-publish-summary.json. Useful when some other tooling is used to report the list of published packages",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "--filter",
+                  "Description": "Filtering allows you to restrict commands to specific subsets of packages.\npnpm supports a rich selector syntax for picking packages by name or by relation.\nMore details: https://pnpm.io/filtering",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "Filepath / Package",
+                          "Description": "Filepath / Package",
+                          "Type": "FileSystemEntry"
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ],
+              "Optional": true
+            },
+            {
+              "Arguments": [
+                {
+                  "Name": "Branch",
+                  "Description": "Branch",
+                  "Type": "CustomArgument",
+                  "Extensions": [],
+                  "CustomCommand": "git branch --no-color"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "Name": "recursive",
+          "Description": "Runs a pnpm command recursively on all subdirectories in the package or every available workspace",
+          "Aliases": [
+            "m",
+            "multi",
+            "-r"
+          ],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "--link-workspace-packages",
+                  "Description": "Link locally available packages in workspaces of a monorepo into node_modules instead of re-downloading them from the registry. This emulates functionality similar to yarn workspaces.\nWhen this is set to deep, local packages can also be linked to subdependencies.\nBe advised that it is encouraged instead to use npmrc for this setting, to enforce the same behaviour in all environments. This option exists solely so you may override that if necessary",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "bool or \u0060deep\u0060",
+                          "Description": "bool or \u0060deep\u0060",
+                          "Type": "String"
+                        },
+                        {
+                          "Name": "dee[",
+                          "Description": "bool or \u0060deep\u0060"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "--workspace-concurrency",
+                  "Description": "Set the maximum number of tasks to run simultaneously. For unlimited concurrency use Infinity",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "\u003Cnumber\u003E",
+                          "Description": "\u003Cnumber\u003E",
+                          "Type": "String"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "--bail",
+                  "Description": "Stops when a task throws an error",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "--no-bail",
+                  "Description": "Don\u0027t stop when a task throws an error",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "--sort",
+                  "Description": "Packages are sorted topologically (dependencies before dependents)",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "--no-sort",
+                  "Description": "Disable packages sorting",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "--reverse",
+                  "Description": "The order of packages is reversed",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "--filter",
+                  "Description": "Filtering allows you to restrict commands to specific subsets of packages.\npnpm supports a rich selector syntax for picking packages by name or by relation.\nMore details: https://pnpm.io/filtering",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "Filepath / Package",
+                          "Description": "Filepath / Package",
+                          "Type": "FileSystemEntry"
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ],
+              "Optional": true
+            },
+            {
+              "Arguments": [
+                {
+                  "Name": "add",
+                  "Description": "Installs a package and any packages that it depends on. By default, any new package is installed as a production dependency",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "--offline",
+                          "Description": "If true, pnpm will use only packages already available in the store. If a package won\u0027t be found locally, the installation will fail",
+                          "Aliases": [],
+                          "Arguments": []
+                        },
+                        {
+                          "Name": "--prefer-offline",
+                          "Description": "If true, staleness checks for cached data will be bypassed, but missing data will be requested from the server. To force full offline mode, use --offline",
+                          "Aliases": [],
+                          "Arguments": []
+                        },
+                        {
+                          "Name": "--ignore-scripts",
+                          "Description": "Do not execute any scripts defined in the project package.json and its dependencies",
+                          "Aliases": [],
+                          "Arguments": []
+                        },
+                        {
+                          "Name": "--reporter",
+                          "Description": "Allows you to choose the reporter that will log debug info to the terminal about the installation progress",
+                          "Aliases": [],
+                          "Arguments": [
+                            {
+                              "Arguments": [
+                                {
+                                  "Name": "Reporter Type",
+                                  "Description": "Reporter Type",
+                                  "Type": "String"
+                                },
+                                {
+                                  "Name": "silent",
+                                  "Description": "Reporter Type"
+                                },
+                                {
+                                  "Name": "default",
+                                  "Description": "Reporter Type"
+                                },
+                                {
+                                  "Name": "append-only",
+                                  "Description": "Reporter Type"
+                                },
+                                {
+                                  "Name": "ndjson",
+                                  "Description": "Reporter Type"
+                                }
+                              ]
+                            }
+                          ]
+                        },
+                        {
+                          "Name": "-P",
+                          "Description": "Install the specified packages as regular dependencies",
+                          "Aliases": [
+                            "--save-prod"
+                          ],
+                          "Arguments": []
+                        },
+                        {
+                          "Name": "-D",
+                          "Description": "Install the specified packages as devDependencies",
+                          "Aliases": [
+                            "--save-dev"
+                          ],
+                          "Arguments": []
+                        },
+                        {
+                          "Name": "-O",
+                          "Description": "Install the specified packages as optionalDependencies",
+                          "Aliases": [
+                            "--save-optional"
+                          ],
+                          "Arguments": []
+                        },
+                        {
+                          "Name": "--no-save",
+                          "Description": "Prevents saving to \u0060dependencies\u0060",
+                          "Aliases": [],
+                          "Arguments": []
+                        },
+                        {
+                          "Name": "-E",
+                          "Description": "Saved dependencies will be configured with an exact version rather than using pnpm\u0027s default semver range operator",
+                          "Aliases": [
+                            "--save-exact"
+                          ],
+                          "Arguments": []
+                        },
+                        {
+                          "Name": "--save-peer",
+                          "Description": "Using --save-peer will add one or more packages to peerDependencies and install them as dev dependencies",
+                          "Aliases": [],
+                          "Arguments": []
+                        },
+                        {
+                          "Name": "--ignore-workspace-root-check",
+                          "Description": "Adding a new dependency to the root workspace package fails, unless the --ignore-workspace-root-check or -W flag is used.\nFor instance, pnpm add debug -W",
+                          "Aliases": [
+                            "-W#"
+                          ],
+                          "Arguments": []
+                        },
+                        {
+                          "Name": "--global",
+                          "Description": "Install a package globally",
+                          "Aliases": [
+                            "-g"
+                          ],
+                          "Arguments": []
+                        },
+                        {
+                          "Name": "--workspace",
+                          "Description": "Only adds the new dependency if it is found in the workspace",
+                          "Aliases": [],
+                          "Arguments": []
+                        },
+                        {
+                          "Name": "--filter",
+                          "Description": "Filtering allows you to restrict commands to specific subsets of packages.\npnpm supports a rich selector syntax for picking packages by name or by relation.\nMore details: https://pnpm.io/filtering",
+                          "Aliases": [],
+                          "Arguments": [
+                            {
+                              "Arguments": [
+                                {
+                                  "Name": "Filepath / Package",
+                                  "Description": "Filepath / Package",
+                                  "Type": "FileSystemEntry"
+                                }
+                              ]
+                            }
+                          ]
+                        }
+                      ],
+                      "Optional": true
+                    },
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "package",
+                          "Description": "package",
+                          "Type": "String",
+                          "Extensions": [],
+                          "CustomCommand": ""
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "install",
+                  "Description": "Pnpm install is used to install all dependencies for a project.\nIn a CI environment, installation fails if a lockfile is present but needs an update.\nInside a workspace, pnpm install installs all dependencies in all the projects.\nIf you want to disable this behavior, set the recursive-install setting to false",
+                  "Aliases": [
+                    "i"
+                  ],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "package",
+                          "Description": "package",
+                          "Type": "String",
+                          "Extensions": [],
+                          "CustomCommand": ""
+                        }
+                      ],
+                      "Optional": true
+                    }
+                  ]
+                },
+                {
+                  "Name": "update",
+                  "Description": "Pnpm update updates packages to their latest version based on the specified range.\nWhen used without arguments, updates all dependencies. You can use patterns to update specific dependencies",
+                  "Aliases": [
+                    "upgrade",
+                    "up"
+                  ],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "--recursive",
+                          "Description": "Concurrently runs update in all subdirectories with a package.json (excluding node_modules)",
+                          "Aliases": [
+                            "-r"
+                          ],
+                          "Arguments": []
+                        },
+                        {
+                          "Name": "--latest",
+                          "Description": "Ignores the version range specified in package.json. Instead, the version specified by the latest tag will be used (potentially upgrading the packages across major versions)",
+                          "Aliases": [
+                            "-L"
+                          ],
+                          "Arguments": []
+                        },
+                        {
+                          "Name": "--global",
+                          "Description": "Update global packages",
+                          "Aliases": [],
+                          "Arguments": []
+                        },
+                        {
+                          "Name": "-P",
+                          "Description": "Only update packages in dependencies and optionalDependencies",
+                          "Aliases": [
+                            "--save-prod"
+                          ],
+                          "Arguments": []
+                        },
+                        {
+                          "Name": "-D",
+                          "Description": "Only update packages in devDependencies",
+                          "Aliases": [
+                            "--save-dev"
+                          ],
+                          "Arguments": []
+                        },
+                        {
+                          "Name": "--no-optional",
+                          "Description": "Don\u0027t update packages in optionalDependencies",
+                          "Aliases": [],
+                          "Arguments": []
+                        },
+                        {
+                          "Name": "--interactive",
+                          "Description": "Show outdated dependencies and select which ones to update",
+                          "Aliases": [
+                            "-i"
+                          ],
+                          "Arguments": []
+                        },
+                        {
+                          "Name": "--workspace",
+                          "Description": "Tries to link all packages from the workspace. Versions are updated to match the versions of packages inside the workspace.\nIf specific packages are updated, the command will fail if any of the updated dependencies are not found inside the workspace. For instance, the following command fails if express is not a workspace package: pnpm up -r --workspace express",
+                          "Aliases": [],
+                          "Arguments": []
+                        },
+                        {
+                          "Name": "--filter",
+                          "Description": "Filtering allows you to restrict commands to specific subsets of packages.\npnpm supports a rich selector syntax for picking packages by name or by relation.\nMore details: https://pnpm.io/filtering",
+                          "Aliases": [],
+                          "Arguments": [
+                            {
+                              "Arguments": [
+                                {
+                                  "Name": "Filepath / Package",
+                                  "Description": "Filepath / Package",
+                                  "Type": "FileSystemEntry"
+                                }
+                              ]
+                            }
+                          ]
+                        }
+                      ],
+                      "Optional": true
+                    },
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "Package",
+                          "Description": "Package",
+                          "Type": "CustomArgument",
+                          "Extensions": [],
+                          "CustomCommand": "bash -c until [[ -f package.json ]] || [[ $PWD = \u0027/\u0027 ]]; do cd ..; done; cat package.json"
+                        }
+                      ],
+                      "Optional": true
+                    }
+                  ]
+                },
+                {
+                  "Name": "remove",
+                  "Description": "Removes packages from node_modules and from the project\u0027s package.json",
+                  "Aliases": [
+                    "rm",
+                    "uninstall",
+                    "un"
+                  ],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "--recursive",
+                          "Description": "When used inside a workspace, removes a dependency (or dependencies) from every workspace package.\nWhen used not inside a workspace, removes a dependency (or dependencies) from every package found in subdirectories",
+                          "Aliases": [
+                            "-r"
+                          ],
+                          "Arguments": []
+                        },
+                        {
+                          "Name": "--global",
+                          "Description": "Remove a global package",
+                          "Aliases": [],
+                          "Arguments": []
+                        },
+                        {
+                          "Name": "-P",
+                          "Description": "Only remove the dependency from dependencies",
+                          "Aliases": [
+                            "--save-prod"
+                          ],
+                          "Arguments": []
+                        },
+                        {
+                          "Name": "-D",
+                          "Description": "Only remove the dependency from devDependencies",
+                          "Aliases": [
+                            "--save-dev"
+                          ],
+                          "Arguments": []
+                        },
+                        {
+                          "Name": "--save-optional",
+                          "Description": "Only remove the dependency from optionalDependencies",
+                          "Aliases": [
+                            "-O"
+                          ],
+                          "Arguments": []
+                        },
+                        {
+                          "Name": "--filter",
+                          "Description": "Filtering allows you to restrict commands to specific subsets of packages.\npnpm supports a rich selector syntax for picking packages by name or by relation.\nMore details: https://pnpm.io/filtering",
+                          "Aliases": [],
+                          "Arguments": [
+                            {
+                              "Arguments": [
+                                {
+                                  "Name": "Filepath / Package",
+                                  "Description": "Filepath / Package",
+                                  "Type": "FileSystemEntry"
+                                }
+                              ]
+                            }
+                          ]
+                        }
+                      ],
+                      "Optional": true
+                    },
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "Package",
+                          "Description": "Package",
+                          "Type": "CustomArgument",
+                          "Extensions": [],
+                          "CustomCommand": "bash -c until [[ -f package.json ]] || [[ $PWD = \u0027/\u0027 ]]; do cd ..; done; cat package.json"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "unlink",
+                  "Description": "Unlinks a system-wide package (inverse of pnpm link).\nIf called without arguments, all linked dependencies will be unlinked.\nThis is similar to yarn unlink, except pnpm re-installs the dependency after removing the external link",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "--recursive",
+                          "Description": "Unlink in every package found in subdirectories or in every workspace package, when executed inside a workspace",
+                          "Aliases": [
+                            "-r"
+                          ],
+                          "Arguments": []
+                        },
+                        {
+                          "Name": "--filter",
+                          "Description": "Filtering allows you to restrict commands to specific subsets of packages.\npnpm supports a rich selector syntax for picking packages by name or by relation.\nMore details: https://pnpm.io/filtering",
+                          "Aliases": [],
+                          "Arguments": [
+                            {
+                              "Arguments": [
+                                {
+                                  "Name": "Filepath / Package",
+                                  "Description": "Filepath / Package",
+                                  "Type": "FileSystemEntry"
+                                }
+                              ]
+                            }
+                          ]
+                        }
+                      ],
+                      "Optional": true
+                    },
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "Package",
+                          "Description": "Package",
+                          "Type": "CustomArgument",
+                          "Extensions": [],
+                          "CustomCommand": "bash -c until [[ -f package.json ]] || [[ $PWD = \u0027/\u0027 ]]; do cd ..; done; cat package.json"
+                        }
+                      ]
+                    },
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "FileSystemEntry",
+                          "Description": "",
+                          "Type": "FileSystemEntry"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "rebuild",
+                  "Description": "Rebuild a package",
+                  "Aliases": [
+                    "rb"
+                  ],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "--recursive",
+                          "Description": "This command runs the pnpm rebuild command in every package of the monorepo",
+                          "Aliases": [
+                            "-r"
+                          ],
+                          "Arguments": []
+                        },
+                        {
+                          "Name": "--filter",
+                          "Description": "Filtering allows you to restrict commands to specific subsets of packages.\npnpm supports a rich selector syntax for picking packages by name or by relation.\nMore details: https://pnpm.io/filtering",
+                          "Aliases": [],
+                          "Arguments": [
+                            {
+                              "Arguments": [
+                                {
+                                  "Name": "Filepath / Package",
+                                  "Description": "Filepath / Package",
+                                  "Type": "FileSystemEntry"
+                                }
+                              ]
+                            }
+                          ]
+                        }
+                      ],
+                      "Optional": true
+                    },
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "Package",
+                          "Description": "Package",
+                          "Type": "CustomArgument",
+                          "Extensions": [],
+                          "CustomCommand": "bash -c until [[ -f package.json ]] || [[ $PWD = \u0027/\u0027 ]]; do cd ..; done; cat package.json"
+                        }
+                      ]
+                    },
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "FileSystemEntry",
+                          "Description": "",
+                          "Type": "FileSystemEntry"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "list",
+                  "Description": "This command will output all the versions of packages that are installed, as well as their dependencies, in a tree-structure.\nPositional arguments are name-pattern@version-range identifiers, which will limit the results to only the packages named. For example, pnpm list \u0022babel-*\u0022 \u0022eslint-*\u0022 semver@5",
+                  "Aliases": [
+                    "ls"
+                  ],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "--recursive",
+                          "Description": "Perform command on every package in subdirectories or on every workspace package, when executed inside a workspace",
+                          "Aliases": [
+                            "-r"
+                          ],
+                          "Arguments": []
+                        },
+                        {
+                          "Name": "--json",
+                          "Description": "Log output in JSON format",
+                          "Aliases": [],
+                          "Arguments": []
+                        },
+                        {
+                          "Name": "--long",
+                          "Description": "Show extended information",
+                          "Aliases": [],
+                          "Arguments": []
+                        },
+                        {
+                          "Name": "--parseable",
+                          "Description": "Outputs package directories in a parseable format instead of their tree view",
+                          "Aliases": [],
+                          "Arguments": []
+                        },
+                        {
+                          "Name": "--global",
+                          "Description": "List packages in the global install directory instead of in the current project",
+                          "Aliases": [],
+                          "Arguments": []
+                        },
+                        {
+                          "Name": "--depth",
+                          "Description": "Max display depth of the dependency tree.\npnpm ls --depth 0 will list direct dependencies only. pnpm ls --depth -1 will list projects only. Useful inside a workspace when used with the -r option",
+                          "Aliases": [],
+                          "Arguments": [
+                            {
+                              "Arguments": [
+                                {
+                                  "Name": "number",
+                                  "Description": "number",
+                                  "Type": "String"
+                                }
+                              ]
+                            }
+                          ]
+                        },
+                        {
+                          "Name": "--dev",
+                          "Description": "Only list dev dependencies",
+                          "Aliases": [
+                            "-D"
+                          ],
+                          "Arguments": []
+                        },
+                        {
+                          "Name": "--prod",
+                          "Description": "Only list production dependencies",
+                          "Aliases": [
+                            "-P"
+                          ],
+                          "Arguments": []
+                        },
+                        {
+                          "Name": "--no-optional",
+                          "Description": "Don\u0027t list optionalDependencies",
+                          "Aliases": [],
+                          "Arguments": []
+                        },
+                        {
+                          "Name": "--filter",
+                          "Description": "Filtering allows you to restrict commands to specific subsets of packages.\npnpm supports a rich selector syntax for picking packages by name or by relation.\nMore details: https://pnpm.io/filtering",
+                          "Aliases": [],
+                          "Arguments": [
+                            {
+                              "Arguments": [
+                                {
+                                  "Name": "Filepath / Package",
+                                  "Description": "Filepath / Package",
+                                  "Type": "FileSystemEntry"
+                                }
+                              ]
+                            }
+                          ]
+                        }
+                      ],
+                      "Optional": true
+                    }
+                  ]
+                },
+                {
+                  "Name": "outdated",
+                  "Description": "Checks for outdated packages. The check can be limited to a subset of the installed packages by providing arguments (patterns are supported)",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "--recursive",
+                          "Description": "Check for outdated dependencies in every package found in subdirectories, or in every workspace package when executed inside a workspace",
+                          "Aliases": [
+                            "-r"
+                          ],
+                          "Arguments": []
+                        },
+                        {
+                          "Name": "--long",
+                          "Description": "Print details",
+                          "Aliases": [],
+                          "Arguments": []
+                        },
+                        {
+                          "Name": "--global",
+                          "Description": "List outdated global packages",
+                          "Aliases": [],
+                          "Arguments": []
+                        },
+                        {
+                          "Name": "--no-table",
+                          "Description": "Prints the outdated dependencies in a list format instead of the default table. Good for small consoles",
+                          "Aliases": [],
+                          "Arguments": []
+                        },
+                        {
+                          "Name": "--compatible",
+                          "Description": "Prints only versions that satisfy specifications in package.json",
+                          "Aliases": [],
+                          "Arguments": []
+                        },
+                        {
+                          "Name": "--dev",
+                          "Description": "Only list dev dependencies",
+                          "Aliases": [
+                            "-D"
+                          ],
+                          "Arguments": []
+                        },
+                        {
+                          "Name": "--prod",
+                          "Description": "Only list production dependencies",
+                          "Aliases": [
+                            "-P"
+                          ],
+                          "Arguments": []
+                        },
+                        {
+                          "Name": "--no-optional",
+                          "Description": "Doesn\u0027t check optionalDependencies",
+                          "Aliases": [],
+                          "Arguments": []
+                        }
+                      ],
+                      "Optional": true
+                    }
+                  ]
+                },
+                {
+                  "Name": "why",
+                  "Description": "Shows all packages that depend on the specified package",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "--recursive",
+                          "Description": "Show the dependency tree for the specified package on every package in subdirectories or on every workspace package when executed inside a workspace",
+                          "Aliases": [
+                            "-r"
+                          ],
+                          "Arguments": []
+                        },
+                        {
+                          "Name": "--json",
+                          "Description": "Log output in JSON format",
+                          "Aliases": [],
+                          "Arguments": []
+                        },
+                        {
+                          "Name": "--long",
+                          "Description": "Show verbose output",
+                          "Aliases": [],
+                          "Arguments": []
+                        },
+                        {
+                          "Name": "--parseable",
+                          "Description": "Show parseable output instead of tree view",
+                          "Aliases": [],
+                          "Arguments": []
+                        },
+                        {
+                          "Name": "--global",
+                          "Description": "List packages in the global install directory instead of in the current project",
+                          "Aliases": [],
+                          "Arguments": []
+                        },
+                        {
+                          "Name": "--dev",
+                          "Description": "Only display the dependency tree for packages in devDependencies",
+                          "Aliases": [
+                            "-D"
+                          ],
+                          "Arguments": []
+                        },
+                        {
+                          "Name": "--prod",
+                          "Description": "Only display the dependency tree for packages in dependencies",
+                          "Aliases": [
+                            "-P"
+                          ],
+                          "Arguments": []
+                        },
+                        {
+                          "Name": "--filter",
+                          "Description": "Filtering allows you to restrict commands to specific subsets of packages.\npnpm supports a rich selector syntax for picking packages by name or by relation.\nMore details: https://pnpm.io/filtering",
+                          "Aliases": [],
+                          "Arguments": [
+                            {
+                              "Arguments": [
+                                {
+                                  "Name": "Filepath / Package",
+                                  "Description": "Filepath / Package",
+                                  "Type": "FileSystemEntry"
+                                }
+                              ]
+                            }
+                          ]
+                        }
+                      ],
+                      "Optional": true
+                    },
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "Scripts",
+                          "Description": "Scripts",
+                          "Type": "CustomArgument",
+                          "Extensions": [],
+                          "CustomCommand": "bash -c until [[ -f package.json ]] || [[ $PWD = \u0027/\u0027 ]]; do cd ..; done; cat package.json"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "run",
+                  "Description": "Runs a script defined in the package\u0027s manifest file",
+                  "Aliases": [
+                    "run-script"
+                  ],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "-r",
+                          "Description": "This runs an arbitrary command from each package\u0027s \u0022scripts\u0022 object. If a package doesn\u0027t have the command, it is skipped. If none of the packages have the command, the command fails",
+                          "Aliases": [
+                            "--recursive"
+                          ],
+                          "Arguments": []
+                        },
+                        {
+                          "Name": "--if-present",
+                          "Description": "You can use the --if-present flag to avoid exiting with a non-zero exit code when the script is undefined. This lets you run potentially undefined scripts without breaking the execution chain",
+                          "Aliases": [],
+                          "Arguments": []
+                        },
+                        {
+                          "Name": "--parallel",
+                          "Description": "Completely disregard concurrency and topological sorting, running a given script immediately in all matching packages with prefixed streaming output. This is the preferred flag for long-running processes over many packages, for instance, a lengthy build process",
+                          "Aliases": [],
+                          "Arguments": []
+                        },
+                        {
+                          "Name": "--stream",
+                          "Description": "Stream output from child processes immediately, prefixed with the originating package directory. This allows output from different packages to be interleaved",
+                          "Aliases": [],
+                          "Arguments": []
+                        },
+                        {
+                          "Name": "--filter",
+                          "Description": "Filtering allows you to restrict commands to specific subsets of packages.\npnpm supports a rich selector syntax for picking packages by name or by relation.\nMore details: https://pnpm.io/filtering",
+                          "Aliases": [],
+                          "Arguments": [
+                            {
+                              "Arguments": [
+                                {
+                                  "Name": "Filepath / Package",
+                                  "Description": "Filepath / Package",
+                                  "Type": "FileSystemEntry"
+                                }
+                              ]
+                            }
+                          ]
+                        }
+                      ],
+                      "Optional": true
+                    },
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "Scripts",
+                          "Description": "Scripts",
+                          "Type": "CustomArgument",
+                          "Extensions": [],
+                          "CustomCommand": "bash -c until [[ -f package.json ]] || [[ $PWD = \u0027/\u0027 ]]; do cd ..; done; cat package.json"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "exec",
+                  "Description": "Execute a shell command in scope of a project.\nnode_modules/.bin is added to the PATH, so pnpm exec allows executing commands of dependencies",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "-r",
+                          "Description": "Execute the shell command in every project of the workspace.\nThe name of the current package is available through the environment variable PNPM_PACKAGE_NAME (supported from pnpm v2.22.0 onwards)",
+                          "Aliases": [
+                            "--recursive"
+                          ],
+                          "Arguments": []
+                        },
+                        {
+                          "Name": "--parallel",
+                          "Description": "Completely disregard concurrency and topological sorting, running a given script immediately in all matching packages with prefixed streaming output. This is the preferred flag for long-running processes over many packages, for instance, a lengthy build process",
+                          "Aliases": [],
+                          "Arguments": []
+                        },
+                        {
+                          "Name": "--filter",
+                          "Description": "Filtering allows you to restrict commands to specific subsets of packages.\npnpm supports a rich selector syntax for picking packages by name or by relation.\nMore details: https://pnpm.io/filtering",
+                          "Aliases": [],
+                          "Arguments": [
+                            {
+                              "Arguments": [
+                                {
+                                  "Name": "Filepath / Package",
+                                  "Description": "Filepath / Package",
+                                  "Type": "FileSystemEntry"
+                                }
+                              ]
+                            }
+                          ]
+                        }
+                      ],
+                      "Optional": true
+                    },
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "Scripts",
+                          "Description": "Scripts",
+                          "Type": "CustomArgument",
+                          "Extensions": [],
+                          "CustomCommand": "bash -c until [[ -f package.json ]] || [[ $PWD = \u0027/\u0027 ]]; do cd ..; done; cat package.json"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "test",
+                  "Description": "Runs an arbitrary command specified in the package\u0027s test property of its scripts object.\nThe intended usage of the property is to specify a command that runs unit or integration testing for your program",
+                  "Aliases": [
+                    "t",
+                    "tst"
+                  ],
+                  "Arguments": []
+                },
+                {
+                  "Name": "publish",
+                  "Description": "Publishes a package to the registry.\nWhen publishing a package inside a workspace, the LICENSE file from the root of the workspace is packed with the package (unless the package has a license of its own).\nYou may override some fields before publish, using the publishConfig field in package.json. You also can use the publishConfig.directory to customize the published subdirectory (usually using third party build tools).\nWhen running this command recursively (pnpm -r publish), pnpm will publish all the packages that have versions not yet published to the registry",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "--tag",
+                          "Description": "Publishes the package with the given tag. By default, pnpm publish updates the latest tag",
+                          "Aliases": [],
+                          "Arguments": [
+                            {
+                              "Arguments": [
+                                {
+                                  "Name": "\u003Ctag\u003E",
+                                  "Description": "\u003Ctag\u003E",
+                                  "Type": "String"
+                                }
+                              ]
+                            }
+                          ]
+                        },
+                        {
+                          "Name": "--dry-run",
+                          "Description": "Does everything a publish would do except actually publishing to the registry",
+                          "Aliases": [],
+                          "Arguments": []
+                        },
+                        {
+                          "Name": "--ignore-scripts",
+                          "Description": "Ignores any publish related lifecycle scripts (prepublishOnly, postpublish, and the like)",
+                          "Aliases": [],
+                          "Arguments": []
+                        },
+                        {
+                          "Name": "--no-git-checks",
+                          "Description": "Don\u0027t check if current branch is your publish branch, clean, and up-to-date",
+                          "Aliases": [],
+                          "Arguments": []
+                        },
+                        {
+                          "Name": "--access",
+                          "Description": "Tells the registry whether the published package should be public or restricted",
+                          "Aliases": [],
+                          "Arguments": [
+                            {
+                              "Arguments": [
+                                {
+                                  "Name": "Type",
+                                  "Description": "Type",
+                                  "Type": "String"
+                                },
+                                {
+                                  "Name": "public",
+                                  "Description": "Type"
+                                },
+                                {
+                                  "Name": "private",
+                                  "Description": "Type"
+                                }
+                              ]
+                            }
+                          ]
+                        },
+                        {
+                          "Name": "--force",
+                          "Description": "Try to publish packages even if their current version is already found in the registry",
+                          "Aliases": [],
+                          "Arguments": []
+                        },
+                        {
+                          "Name": "--report-summary",
+                          "Description": "Save the list of published packages to pnpm-publish-summary.json. Useful when some other tooling is used to report the list of published packages",
+                          "Aliases": [],
+                          "Arguments": []
+                        },
+                        {
+                          "Name": "--filter",
+                          "Description": "Filtering allows you to restrict commands to specific subsets of packages.\npnpm supports a rich selector syntax for picking packages by name or by relation.\nMore details: https://pnpm.io/filtering",
+                          "Aliases": [],
+                          "Arguments": [
+                            {
+                              "Arguments": [
+                                {
+                                  "Name": "Filepath / Package",
+                                  "Description": "Filepath / Package",
+                                  "Type": "FileSystemEntry"
+                                }
+                              ]
+                            }
+                          ]
+                        }
+                      ],
+                      "Optional": true
+                    },
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "Branch",
+                          "Description": "Branch",
+                          "Type": "CustomArgument",
+                          "Extensions": [],
+                          "CustomCommand": "git branch --no-color"
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ],
+              "DontAllowMultiple": true
+            }
+          ]
+        },
+        {
+          "Name": "server",
+          "Description": "Manage a store server",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "start",
+                  "Description": "Starts a server that performs all interactions with the store. Other commands will delegate any store-related tasks to this server",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "--background",
+                          "Description": "Runs the server in the background, similar to daemonizing on UNIX systems",
+                          "Aliases": [],
+                          "Arguments": []
+                        },
+                        {
+                          "Name": "--network-concurrency",
+                          "Description": "The maximum number of network requests to process simultaneously",
+                          "Aliases": [],
+                          "Arguments": [
+                            {
+                              "Arguments": [
+                                {
+                                  "Name": "number",
+                                  "Description": "number",
+                                  "Type": "String"
+                                }
+                              ]
+                            }
+                          ]
+                        },
+                        {
+                          "Name": "--protocol",
+                          "Description": "The communication protocol used by the server. When this is set to auto, IPC is used on all systems except for Windows, which uses TCP",
+                          "Aliases": [],
+                          "Arguments": [
+                            {
+                              "Arguments": [
+                                {
+                                  "Name": "Type",
+                                  "Description": "Type",
+                                  "Type": "String"
+                                },
+                                {
+                                  "Name": "auto",
+                                  "Description": "Type"
+                                },
+                                {
+                                  "Name": "tcp",
+                                  "Description": "Type"
+                                },
+                                {
+                                  "Name": "ipc",
+                                  "Description": "Type"
+                                }
+                              ]
+                            }
+                          ]
+                        },
+                        {
+                          "Name": "--port",
+                          "Description": "The port number to use when TCP is used for communication. If a port is specified and the protocol is set to auto, regardless of system type, the protocol is automatically set to use TCP",
+                          "Aliases": [],
+                          "Arguments": [
+                            {
+                              "Arguments": [
+                                {
+                                  "Name": "port number",
+                                  "Description": "port number",
+                                  "Type": "String"
+                                }
+                              ]
+                            }
+                          ]
+                        },
+                        {
+                          "Name": "--store-dir",
+                          "Description": "The directory to use for the content addressable store",
+                          "Aliases": [],
+                          "Arguments": [
+                            {
+                              "Arguments": [
+                                {
+                                  "Name": "Path",
+                                  "Description": "Path",
+                                  "Type": "FileSystemEntry"
+                                }
+                              ]
+                            }
+                          ]
+                        },
+                        {
+                          "Name": "--lock",
+                          "Description": "Set to make the package store immutable to external processes while the server is running or not",
+                          "Aliases": [],
+                          "Arguments": []
+                        },
+                        {
+                          "Name": "--no-lock",
+                          "Description": "Set to make the package store mutable to external processes while the server is running or not",
+                          "Aliases": [],
+                          "Arguments": []
+                        },
+                        {
+                          "Name": "--ignore-stop-requests",
+                          "Description": "Prevents you from stopping the server using pnpm server stop",
+                          "Aliases": [],
+                          "Arguments": []
+                        },
+                        {
+                          "Name": "--ignore-upload-requests",
+                          "Description": "Prevents creating a new side effect cache during install",
+                          "Aliases": [],
+                          "Arguments": []
+                        }
+                      ],
+                      "Optional": true
+                    }
+                  ]
+                },
+                {
+                  "Name": "stop",
+                  "Description": "Stops the store server",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "status",
+                  "Description": "Prints information about the running server",
+                  "Aliases": [],
+                  "Arguments": []
+                }
+              ],
+              "DontAllowMultiple": true
+            }
+          ]
+        },
+        {
+          "Name": "store",
+          "Description": "Managing the package store",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "status",
+                  "Description": "Checks for modified packages in the store.\nReturns exit code 0 if the content of the package is the same as it was at the time of unpacking",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "add",
+                  "Description": "Functionally equivalent to pnpm add,\nexcept this adds new packages to the store directly without modifying any projects or files outside of the store",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "prune",
+                  "Description": "Removes orphan packages from the store.\nPruning the store will save disk space, however may slow down future installations involving pruned packages.\nUltimately, it is a safe operation, however not recommended if you have orphaned packages from a package you intend to reinstall.\nPlease read the FAQ for more information on unreferenced packages and best practices.\nPlease note that this is prohibited when a store server is running",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "path",
+                  "Description": "Returns the path to the active store directory",
+                  "Aliases": [],
+                  "Arguments": []
+                }
+              ],
+              "DontAllowMultiple": true
+            }
+          ]
+        },
+        {
+          "Name": "init",
+          "Description": "Creates a basic package.json file in the current directory, if it doesn\u0027t exist already",
+          "Aliases": [],
+          "Arguments": []
+        },
+        {
+          "Name": "doctor",
+          "Description": "Checks for known common issues with pnpm configuration",
+          "Aliases": [],
+          "Arguments": []
+        }
+      ],
+      "DontAllowMultiple": true
+    }
+  ]
+}

@@ -1,0 +1,500 @@
+{
+  "Comment": "This command info is generated from fig",
+  "Name": "maigret",
+  "Description": "Maigret is an easy-to-use and powerful OSINT tool for collecting a dossier on a person by username only",
+  "Arguments": [
+    {
+      "Arguments": [
+        {
+          "Name": "-a",
+          "Description": "Use all sites for scan",
+          "Aliases": [
+            "--all-sites"
+          ],
+          "Arguments": []
+        },
+        {
+          "Name": "--version",
+          "Description": "Display version information and dependencies",
+          "Aliases": [],
+          "Arguments": []
+        },
+        {
+          "Name": "--timeout",
+          "Description": "Time in seconds to wait for response to requests (default {settings.timeout}s). A longer timeout will be more likely to get results from slow sites. On the other hand, this may cause a long delay to gather all results",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "Timeout",
+                  "Description": "Timeout",
+                  "Type": "String"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "Name": "--retries",
+          "Description": "Attempts to restart temporarily failed requests",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "Retries",
+                  "Description": "Retries",
+                  "Type": "String"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "Name": "-n",
+          "Description": "Allowed number of concurrent connections (default {settings.max_connections})",
+          "Aliases": [
+            "--max-connections"
+          ],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "Connections",
+                  "Description": "Connections",
+                  "Type": "String"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "Name": "--no-recursion",
+          "Description": "Disable recursive search by additional data extracted from pages",
+          "Aliases": [],
+          "Arguments": []
+        },
+        {
+          "Name": "--no-extracting",
+          "Description": "Disable parsing pages for additional data and other usernames",
+          "Aliases": [],
+          "Arguments": []
+        },
+        {
+          "Name": "--id-type",
+          "Description": "Specify identifier(s) type (default: username)",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "Type",
+                  "Description": "Type",
+                  "Type": "String"
+                },
+                {
+                  "Name": "username",
+                  "Description": "Type"
+                },
+                {
+                  "Name": "yandex_public_id",
+                  "Description": "Type"
+                },
+                {
+                  "Name": "gaia_id",
+                  "Description": "Type"
+                },
+                {
+                  "Name": "vk_id",
+                  "Description": "Type"
+                },
+                {
+                  "Name": "ok_id",
+                  "Description": "Type"
+                },
+                {
+                  "Name": "wikimapia_uid",
+                  "Description": "Type"
+                },
+                {
+                  "Name": "steam_id",
+                  "Description": "Type"
+                },
+                {
+                  "Name": "uidme_uguid",
+                  "Description": "Type"
+                },
+                {
+                  "Name": "yelp_userid",
+                  "Description": "Type"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "Name": "--db",
+          "Description": "Load Maigret database from a JSON file or HTTP web resource",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "DB path",
+                  "Description": "DB path",
+                  "Type": "FileSystemEntry"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "Name": "--cookies-jar-file",
+          "Description": "File with cookies",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "Cookie file",
+                  "Description": "Cookie file",
+                  "Type": "FileSystemEntry"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "Name": "--ignore-ids",
+          "Description": "Do not make search by the specified username or other ids",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "Ignored ids",
+                  "Description": "Ignored ids",
+                  "Type": "String"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "Name": "-fo",
+          "Description": "If using multiple usernames, the output of the results will be saved to this folder",
+          "Aliases": [
+            "--folderoutput"
+          ],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "Reports path",
+                  "Description": "Reports path",
+                  "Type": "Directory"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "Name": "-p",
+          "Description": "Make requests over a proxy. e.g. socks5://127.0.0.1:1080",
+          "Aliases": [
+            "--proxy"
+          ],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "Proxy URL",
+                  "Description": "Proxy URL",
+                  "Type": "String"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "Name": "--tor-proxy",
+          "Description": "Specify URL of your Tor gateway. Default is socks5://127.0.0.1:9050",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "Tor Proxy URL",
+                  "Description": "Tor Proxy URL",
+                  "Type": "String"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "Name": "--i2p-proxy",
+          "Description": "Specify URL of your I2P gateway. Default is http://127.0.0.1:4444",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "I2P URL",
+                  "Description": "I2P URL",
+                  "Type": "String"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "Name": "--with-domains",
+          "Description": "Enable (experimental) feature of checking domains on usernames",
+          "Aliases": [],
+          "Arguments": []
+        },
+        {
+          "Name": "--tags",
+          "Description": "Specify tags of sites (see \u0060--stats\u0060)",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "Tags",
+                  "Description": "Tags",
+                  "Type": "String"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "Name": "--site",
+          "Description": "Limit analysis to just the specified sites (multiple option)",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "Site name",
+                  "Description": "Site name",
+                  "Type": "String"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "Name": "--use-disabled-sites",
+          "Description": "Use disabled sites to search (may cause many false positives)",
+          "Aliases": [],
+          "Arguments": []
+        },
+        {
+          "Name": "--parse",
+          "Description": "Parse page by URL and extract username and IDs to use for search",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "Parse URL",
+                  "Description": "Parse URL",
+                  "Type": "String"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "Name": "--submit",
+          "Description": "URL of existing profile in new site to submit",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "Site URL",
+                  "Description": "Site URL",
+                  "Type": "String"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "Name": "--self-check",
+          "Description": "Do self check for sites and database and disable non-working ones",
+          "Aliases": [],
+          "Arguments": []
+        },
+        {
+          "Name": "--stats",
+          "Description": "Show database statistics (most frequent sites engines and tags)",
+          "Aliases": [],
+          "Arguments": []
+        },
+        {
+          "Name": "--print-not-found",
+          "Description": "Print sites where the username was not found",
+          "Aliases": [],
+          "Arguments": []
+        },
+        {
+          "Name": "--print-errors",
+          "Description": "Print errors messages: connection, captcha, site country ban, etc",
+          "Aliases": [],
+          "Arguments": []
+        },
+        {
+          "Name": "-v",
+          "Description": "Display extra information and metrics",
+          "Aliases": [
+            "--verbose"
+          ],
+          "Arguments": []
+        },
+        {
+          "Name": "-info",
+          "Description": "Display extra/service information and metrics",
+          "Aliases": [
+            "--vv"
+          ],
+          "Arguments": []
+        },
+        {
+          "Name": "--debug",
+          "Description": "Display extra/service/debug information and metrics, save responses in debug.log",
+          "Aliases": [
+            "-vvv",
+            "-d"
+          ],
+          "Arguments": []
+        },
+        {
+          "Name": "--no-color",
+          "Description": "Don\u0027t color terminal output",
+          "Aliases": [],
+          "Arguments": []
+        },
+        {
+          "Name": "--no-progressbar",
+          "Description": "Don\u0027t show progressbar",
+          "Aliases": [],
+          "Arguments": []
+        },
+        {
+          "Name": "-T",
+          "Description": "Create a TXT report (one report per username)",
+          "Aliases": [
+            "--txt"
+          ],
+          "Arguments": []
+        },
+        {
+          "Name": "-C",
+          "Description": "Create a CSV report (one report per username)",
+          "Aliases": [
+            "--csv"
+          ],
+          "Arguments": []
+        },
+        {
+          "Name": "-H",
+          "Description": "Create an HTML report (one report per username)",
+          "Aliases": [
+            "--html"
+          ],
+          "Arguments": []
+        },
+        {
+          "Name": "-X",
+          "Description": "Create a XMind 8 mindmap report (one report per username)",
+          "Aliases": [
+            "--xmind"
+          ],
+          "Arguments": []
+        },
+        {
+          "Name": "-P",
+          "Description": "Create a PDF report (one report per username)",
+          "Aliases": [
+            "--pdf"
+          ],
+          "Arguments": []
+        },
+        {
+          "Name": "-G",
+          "Description": "Create a graph report (one report per username)",
+          "Aliases": [
+            "--graph"
+          ],
+          "Arguments": []
+        },
+        {
+          "Name": "-J",
+          "Description": "Generate a JSON report of specific type: simple, ndjson (one report per username)",
+          "Aliases": [
+            "--json"
+          ],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "Type",
+                  "Description": "Type",
+                  "Type": "String"
+                },
+                {
+                  "Name": "simple",
+                  "Description": "Type"
+                },
+                {
+                  "Name": "ndjson",
+                  "Description": "Type"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "Name": "--reports-sorting",
+          "Description": "Method of results sorting in reports (default: in order of getting the result)",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "Type",
+                  "Description": "Type",
+                  "Type": "String"
+                },
+                {
+                  "Name": "default",
+                  "Description": "Type"
+                },
+                {
+                  "Name": "data",
+                  "Description": "Type"
+                }
+              ]
+            }
+          ]
+        }
+      ],
+      "Optional": true
+    },
+    {
+      "Arguments": [
+        {
+          "Name": "user",
+          "Description": "user",
+          "Type": "String"
+        }
+      ]
+    }
+  ]
+}

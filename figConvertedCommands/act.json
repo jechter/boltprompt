@@ -1,0 +1,623 @@
+{
+  "Comment": "This command info is generated from fig",
+  "Name": "act",
+  "Description": "Run GitHub actions locally by specifying the event name (e.g. \u0060push\u0060) or an action name directly",
+  "Arguments": [
+    {
+      "Arguments": [
+        {
+          "Name": "--bind",
+          "Description": "Bind working directory to container, rather than copy",
+          "Aliases": [
+            "-b"
+          ],
+          "Arguments": []
+        },
+        {
+          "Name": "--bug-report",
+          "Description": "Display system information for bug report",
+          "Aliases": [],
+          "Arguments": []
+        },
+        {
+          "Name": "--container-cap-add",
+          "Description": "Kernel capabilities to add to the workflow containers (e.g. --container-cap-add SYS_PTRACE)",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "container-cap-add",
+                  "Description": "container-cap-add",
+                  "Type": "String"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "Name": "--container-cap-drop",
+          "Description": "Kernel capabilities to remove from the workflow containers (e.g. --container-cap-drop SYS_PTRACE)",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "container-cap-drop",
+                  "Description": "container-cap-drop",
+                  "Type": "String"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "Name": "--defaultbranch",
+          "Description": "The name of the main branch",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "defaultbranch",
+                  "Description": "defaultbranch",
+                  "Type": "String"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "Name": "--detect-event",
+          "Description": "Use first event type from workflow as event that triggered the workflow",
+          "Aliases": [],
+          "Arguments": []
+        },
+        {
+          "Name": "--env",
+          "Description": "Env to make available to actions with optional value (e.g. --env myenv=foo or --env myenv)",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "env",
+                  "Description": "env",
+                  "Type": "String"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "Name": "--eventpath",
+          "Description": "Path to event JSON file",
+          "Aliases": [
+            "-e"
+          ],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "eventpath",
+                  "Description": "eventpath",
+                  "Type": "String"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "Name": "--graph",
+          "Description": "Draw workflows",
+          "Aliases": [
+            "-g"
+          ],
+          "Arguments": []
+        },
+        {
+          "Name": "--job",
+          "Description": "Run job",
+          "Aliases": [
+            "-j"
+          ],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "job",
+                  "Description": "job",
+                  "Type": "String"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "Name": "--list",
+          "Description": "List workflows",
+          "Aliases": [
+            "-l"
+          ],
+          "Arguments": []
+        },
+        {
+          "Name": "--platform",
+          "Description": "Custom image to use per platform (e.g. -P ubuntu-18.04=nektos/act-environments-ubuntu:18.04)",
+          "Aliases": [
+            "-P"
+          ],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "platform",
+                  "Description": "platform",
+                  "Type": "String"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "Name": "--privileged",
+          "Description": "Use privileged mode",
+          "Aliases": [],
+          "Arguments": []
+        },
+        {
+          "Name": "--pull",
+          "Description": "Pull docker image(s) even if already present",
+          "Aliases": [
+            "-p"
+          ],
+          "Arguments": []
+        },
+        {
+          "Name": "--rebuild",
+          "Description": "Rebuild local action docker image(s) even if already present",
+          "Aliases": [],
+          "Arguments": []
+        },
+        {
+          "Name": "--remote-name",
+          "Description": "Git remote name that will be used to retrieve url of git repo",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "remote-name",
+                  "Description": "remote-name",
+                  "Type": "String"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "Name": "--reuse",
+          "Description": "Don\u0027t remove container(s) on successfully completed workflow(s) to maintain state between runs",
+          "Aliases": [
+            "-r"
+          ],
+          "Arguments": []
+        },
+        {
+          "Name": "--rm",
+          "Description": "Automatically remove container(s)/volume(s) after a workflow(s) failure",
+          "Aliases": [],
+          "Arguments": []
+        },
+        {
+          "Name": "--secret",
+          "Description": "Secret to make available to actions with optional value (e.g. -s mysecret=foo or -s mysecret)",
+          "Aliases": [
+            "-s"
+          ],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "secret",
+                  "Description": "secret",
+                  "Type": "String"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "Name": "--use-gitignore",
+          "Description": "Controls whether paths specified in .gitignore should be copied into container",
+          "Aliases": [],
+          "Arguments": []
+        },
+        {
+          "Name": "--userns",
+          "Description": "User namespace to use",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "userns",
+                  "Description": "userns",
+                  "Type": "String"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "Name": "--watch",
+          "Description": "Watch the contents of the local repo and run when files change",
+          "Aliases": [
+            "-w"
+          ],
+          "Arguments": []
+        },
+        {
+          "Name": "--actor",
+          "Description": "User that triggered the event",
+          "Aliases": [
+            "-a"
+          ],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "actor",
+                  "Description": "actor",
+                  "Type": "String"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "Name": "--artifact-server-path",
+          "Description": "Defines the path where the artifact server stores uploads and retrieves downloads from. If not specified the artifact server will not start",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "artifact-server-path",
+                  "Description": "artifact-server-path",
+                  "Type": "String"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "Name": "--artifact-server-port",
+          "Description": "Defines the port where the artifact server listens (will only bind to localhost)",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "artifact-server-port",
+                  "Description": "artifact-server-port",
+                  "Type": "String"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "Name": "--container-architecture",
+          "Description": "Architecture which should be used to run containers, e.g.: linux/amd64. If not specified, will use host default architecture. Requires Docker server API Version 1.41\u002B. Ignored on earlier Docker server platforms",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "container-architecture",
+                  "Description": "container-architecture",
+                  "Type": "String"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "Name": "--container-daemon-socket",
+          "Description": "Path to Docker daemon socket which will be mounted to containers",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "container-daemon-socket",
+                  "Description": "container-daemon-socket",
+                  "Type": "String"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "Name": "--directory",
+          "Description": "Working directory",
+          "Aliases": [
+            "-C"
+          ],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "directory",
+                  "Description": "directory",
+                  "Type": "Directory"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "Name": "--dryrun",
+          "Description": "Dryrun mode",
+          "Aliases": [
+            "-n"
+          ],
+          "Arguments": []
+        },
+        {
+          "Name": "--env-file",
+          "Description": "Environment file to read and use as env in the containers",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "env-file",
+                  "Description": "env-file",
+                  "Type": "String"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "Name": "--github-instance",
+          "Description": "GitHub instance to use. Don\u0027t use this if you are not using GitHub Enterprise Server",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "github-instance",
+                  "Description": "github-instance",
+                  "Type": "String"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "Name": "--insecure-secrets",
+          "Description": "NOT RECOMMENDED! Doesn\u0027t hide secrets while printing logs",
+          "Aliases": [],
+          "Arguments": []
+        },
+        {
+          "Name": "--json",
+          "Description": "Output logs in json format",
+          "Aliases": [],
+          "Arguments": []
+        },
+        {
+          "Name": "--no-recurse",
+          "Description": "Flag to disable running workflows from subdirectories of specified path in \u0027--workflows\u0027/\u0027-W\u0027 flag",
+          "Aliases": [],
+          "Arguments": []
+        },
+        {
+          "Name": "--no-skip-checkout",
+          "Description": "Do not skip actions/checkout",
+          "Aliases": [],
+          "Arguments": []
+        },
+        {
+          "Name": "--quiet",
+          "Description": "Disable logging of output from steps",
+          "Aliases": [
+            "-q"
+          ],
+          "Arguments": []
+        },
+        {
+          "Name": "--secret-file",
+          "Description": "File with list of secrets to read from (e.g. --secret-file .secrets)",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "secret-file",
+                  "Description": "secret-file",
+                  "Type": "String"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "Name": "--verbose",
+          "Description": "Verbose output",
+          "Aliases": [
+            "-v"
+          ],
+          "Arguments": []
+        },
+        {
+          "Name": "--workflows",
+          "Description": "Path to workflow file(s)",
+          "Aliases": [
+            "-W"
+          ],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "workflows",
+                  "Description": "workflows",
+                  "Type": "FileSystemEntry"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "Name": "--help",
+          "Description": "Display help",
+          "Aliases": [
+            "-h"
+          ],
+          "Arguments": []
+        }
+      ],
+      "Optional": true
+    },
+    {
+      "Arguments": [
+        {
+          "Name": "completion",
+          "Description": "Generate the autocompletion script for the specified shell",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "bash",
+                  "Description": "Generate the autocompletion script for bash",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "--no-descriptions",
+                          "Description": "Disable completion descriptions",
+                          "Aliases": [],
+                          "Arguments": []
+                        }
+                      ],
+                      "Optional": true
+                    }
+                  ]
+                },
+                {
+                  "Name": "fish",
+                  "Description": "Generate the autocompletion script for fish",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "--no-descriptions",
+                          "Description": "Disable completion descriptions",
+                          "Aliases": [],
+                          "Arguments": []
+                        }
+                      ],
+                      "Optional": true
+                    }
+                  ]
+                },
+                {
+                  "Name": "powershell",
+                  "Description": "Generate the autocompletion script for powershell",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "--no-descriptions",
+                          "Description": "Disable completion descriptions",
+                          "Aliases": [],
+                          "Arguments": []
+                        }
+                      ],
+                      "Optional": true
+                    }
+                  ]
+                },
+                {
+                  "Name": "zsh",
+                  "Description": "Generate the autocompletion script for zsh",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "--no-descriptions",
+                          "Description": "Disable completion descriptions",
+                          "Aliases": [],
+                          "Arguments": []
+                        }
+                      ],
+                      "Optional": true
+                    }
+                  ]
+                }
+              ],
+              "DontAllowMultiple": true
+            }
+          ]
+        },
+        {
+          "Name": "help",
+          "Description": "Help about any command",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "completion",
+                  "Description": "Generate the autocompletion script for the specified shell",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "bash",
+                          "Description": "Generate the autocompletion script for bash",
+                          "Aliases": [],
+                          "Arguments": []
+                        },
+                        {
+                          "Name": "fish",
+                          "Description": "Generate the autocompletion script for fish",
+                          "Aliases": [],
+                          "Arguments": []
+                        },
+                        {
+                          "Name": "powershell",
+                          "Description": "Generate the autocompletion script for powershell",
+                          "Aliases": [],
+                          "Arguments": []
+                        },
+                        {
+                          "Name": "zsh",
+                          "Description": "Generate the autocompletion script for zsh",
+                          "Aliases": [],
+                          "Arguments": []
+                        }
+                      ],
+                      "DontAllowMultiple": true
+                    }
+                  ]
+                }
+              ],
+              "DontAllowMultiple": true
+            }
+          ]
+        }
+      ],
+      "DontAllowMultiple": true
+    }
+  ]
+}

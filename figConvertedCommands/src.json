@@ -1,0 +1,505 @@
+{
+  "Comment": "This command info is generated from fig",
+  "Name": "src",
+  "Description": "Interact with Sourcegraph from the command line",
+  "Arguments": [
+    {
+      "Arguments": [
+        {
+          "Name": "--help",
+          "Description": "Show help for src",
+          "Aliases": [
+            "-h"
+          ],
+          "Arguments": []
+        }
+      ],
+      "Optional": true
+    },
+    {
+      "Arguments": [
+        {
+          "Name": "search",
+          "Description": "Run a code search",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "-display",
+                  "Description": "Limit the number of results that are displayed. Only supported together with stream flag. Statistics continue to report all results",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "-dump-requests",
+                  "Description": "Log GraphQL requests and responses to stdout",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "-explain-json",
+                  "Description": "Explain the JSON output schema and exit",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "-get-curl",
+                  "Description": "Print the curl command for executing this query and exit. (WARNING: Includes printing your access token!)",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "-insecure-skip-verify",
+                  "Description": "Skip validation of TLD certificates against trusted chains",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "-json",
+                  "Description": "Whether or not to output results as JSON",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "-less",
+                  "Description": "Pipe output to \u0060less -R\u0060 (only if stdout is terminal, and not json flag)",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "-stream",
+                  "Description": "Consume results as stream. Streaming search only supports a subset of flags and parameters: trace, insecure-skip-verify, display, json",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "-trace",
+                  "Description": "Log the trace ID for requests",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "-user-agent-telemetry",
+                  "Description": "Include the operating system and architecture in the User-Agent sent with requests to Sourcegraph",
+                  "Aliases": [],
+                  "Arguments": []
+                }
+              ],
+              "Optional": true
+            }
+          ]
+        },
+        {
+          "Name": "api",
+          "Description": "Sourcegraph API Access",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "-get-curl",
+                  "Description": "Print the curl command for executing this query and exit (WARNING: includes printing your access token!)",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "-dump-requests",
+                  "Description": "Log GraphQL requests and responses to stdout",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "-insecure-skip-verify",
+                  "Description": "Skip validation of TLS certificates against trusted chains",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "-query",
+                  "Description": "GraphQL query to execute, e.g. \u2018query { currentUser { username } }\u2019 (stdin otherwise)",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "-trace",
+                  "Description": "Log the trace ID for requests",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "-user-agent-telemetry",
+                  "Description": "Include the operating system and architecture in the User-Agent sent with requests to Sourcegraph",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "-vars",
+                  "Description": "GraphQL query variables to include as JSON string, e.g. \u2018{\u201Cvar\u201D: \u201Cval\u201D, \u201Cvar2\u201D: \u201Cval2\u201D}\u2019",
+                  "Aliases": [],
+                  "Arguments": []
+                }
+              ],
+              "Optional": true
+            }
+          ]
+        },
+        {
+          "Name": "login",
+          "Description": "\u0027src login\u0027 helps you authenticate \u0027src\u0027 to access a Sourcegraph instance with your user credentials",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "-dump-requests",
+                  "Description": "Log GraphQL requests and responses to stdout",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "-get-curl",
+                  "Description": "Print the curl command for executing this query and exit (WARNING: includes printing your access token!)",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "-insecure-skip-verify",
+                  "Description": "Skip validation of TLS certificates against trusted chains",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "-trace",
+                  "Description": "Log the trace ID for requests",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "-user-agent-telemetry",
+                  "Description": "Include the operating system and architecture in the User-Agent sent with requests to Sourcegraph",
+                  "Aliases": [],
+                  "Arguments": []
+                }
+              ],
+              "Optional": true
+            }
+          ]
+        },
+        {
+          "Name": "batch",
+          "Description": "\u0027Batch gives you a declarative structure for finding and modifying code across all of your repositories",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "apply",
+                  "Description": "Apply batch",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "exec",
+                  "Description": "Execute batch",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "new",
+                  "Description": "New batch",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "preview",
+                  "Description": "Preview batch",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "repositories",
+                  "Description": "Repositories to batch",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "validate",
+                  "Description": "Validate batch",
+                  "Aliases": [],
+                  "Arguments": []
+                }
+              ],
+              "DontAllowMultiple": true
+            }
+          ]
+        },
+        {
+          "Name": "config",
+          "Description": "\u0027src config\u0027 helps you configure \u0027src\u0027",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "edit",
+                  "Description": "Edit config",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "get",
+                  "Description": "Get configs",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "list",
+                  "Description": "List configs",
+                  "Aliases": [],
+                  "Arguments": []
+                }
+              ],
+              "DontAllowMultiple": true
+            }
+          ]
+        },
+        {
+          "Name": "extsvc",
+          "Description": "Edit or view external service configuration on the Sourcegraph instance",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "edit",
+                  "Description": "Edit external service configuration",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "list",
+                  "Description": "List external service configurations",
+                  "Aliases": [],
+                  "Arguments": []
+                }
+              ],
+              "DontAllowMultiple": true
+            }
+          ]
+        },
+        {
+          "Name": "lsif",
+          "Description": "Upload an LSIF dumps",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "upload",
+                  "Description": "Upload LSIF dump",
+                  "Aliases": [],
+                  "Arguments": []
+                }
+              ],
+              "DontAllowMultiple": true
+            }
+          ]
+        },
+        {
+          "Name": "orgs",
+          "Description": "Create, edit, view, or delete organizations and members",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "create",
+                  "Description": "Create an organization",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "delete",
+                  "Description": "Delete an organization",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "get",
+                  "Description": "Get an organization",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "list",
+                  "Description": "List organizations",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "members",
+                  "Description": "List organization members",
+                  "Aliases": [],
+                  "Arguments": []
+                }
+              ],
+              "DontAllowMultiple": true
+            }
+          ]
+        },
+        {
+          "Name": "repos",
+          "Description": "View or delete repositories",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "delete",
+                  "Description": "Delete repository",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "get",
+                  "Description": "Get repository",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "list",
+                  "Description": "List repositories",
+                  "Aliases": [],
+                  "Arguments": []
+                }
+              ],
+              "DontAllowMultiple": true
+            }
+          ]
+        },
+        {
+          "Name": "serve-git",
+          "Description": "By default \u0027src serve-git\u0027 will recursively serve your current directory on the address \u0027:3434\u0027",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "-addr",
+                  "Description": "Address on which to server (end with : for unused port)",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "-list",
+                  "Description": "List found repository names",
+                  "Aliases": [],
+                  "Arguments": []
+                }
+              ],
+              "Optional": true
+            }
+          ]
+        },
+        {
+          "Name": "users",
+          "Description": "Create, edit, view, tag, or delete users",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "create",
+                  "Description": "Create user",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "delete",
+                  "Description": "Delete user",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "get",
+                  "Description": "Get user",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "list",
+                  "Description": "List users",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "tag",
+                  "Description": "Tag user",
+                  "Aliases": [],
+                  "Arguments": []
+                }
+              ],
+              "DontAllowMultiple": true
+            }
+          ]
+        },
+        {
+          "Name": "validate",
+          "Description": "EXPERIMENTAL: Instance validation provides a quick way to check that a Sourcegraph instance functions properly after a fresh install or an update",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "-context",
+                  "Description": "Comma-separated list of key=value pairs to add to the script execution context",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "-dump-requests",
+                  "Description": "Log GraphQL requests and responses to stdout",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "-get-curl",
+                  "Description": "Print the curl command for executing this query and exit (WARNING: includes printing your access token!)",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "-insecure-skip-verify",
+                  "Description": "Skip validation of TLS certificates against trusted chains",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "-secrets",
+                  "Description": "Path to a file containing key=value lines. The key value pairs will be added to the script context",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "-trace",
+                  "Description": "Log the trace ID for requests",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "-user-agent-telemetry",
+                  "Description": "Include the operating system and architecture in the User-Agent sent with requests to Sourcegraph",
+                  "Aliases": [],
+                  "Arguments": []
+                }
+              ],
+              "Optional": true
+            }
+          ]
+        }
+      ],
+      "DontAllowMultiple": true
+    }
+  ]
+}

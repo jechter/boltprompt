@@ -1,0 +1,855 @@
+{
+  "Comment": "This command info is generated from fig",
+  "Name": "deta",
+  "Description": "Deta CLI for managing Deta Micros",
+  "Arguments": [
+    {
+      "Arguments": [
+        {
+          "Name": "h",
+          "Description": "Show help for deta",
+          "Type": "Flag",
+          "Aliases": [],
+          "Arguments": []
+        }
+      ],
+      "Optional": true
+    },
+    {
+      "Arguments": [
+        {
+          "Name": "login",
+          "Description": "Trigger the login process for the Deta CLI",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "h",
+                  "Description": "Show help for login",
+                  "Type": "Flag",
+                  "Aliases": [],
+                  "Arguments": []
+                }
+              ],
+              "Optional": true
+            }
+          ]
+        },
+        {
+          "Name": "version",
+          "Description": "Print the Deta version",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "h",
+                  "Description": "Show help for version",
+                  "Type": "Flag",
+                  "Aliases": [],
+                  "Arguments": []
+                }
+              ],
+              "Optional": true
+            },
+            {
+              "Arguments": [
+                {
+                  "Name": "upgrade",
+                  "Description": "Upgrade Deta CLI version",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "h",
+                          "Description": "Show help for upgrade",
+                          "Type": "Flag",
+                          "Aliases": [],
+                          "Arguments": []
+                        },
+                        {
+                          "Name": "v",
+                          "Description": "Upgrade CLI to specific version",
+                          "Type": "Flag",
+                          "Aliases": [],
+                          "Arguments": [
+                            {
+                              "Arguments": [
+                                {
+                                  "Name": "Version number",
+                                  "Description": "Version number",
+                                  "Type": "String"
+                                }
+                              ]
+                            }
+                          ]
+                        }
+                      ],
+                      "Optional": true
+                    }
+                  ]
+                }
+              ],
+              "DontAllowMultiple": true
+            }
+          ]
+        },
+        {
+          "Name": "projects",
+          "Description": "List Deta projects",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "h",
+                  "Description": "Show help for projects",
+                  "Type": "Flag",
+                  "Aliases": [],
+                  "Arguments": []
+                }
+              ],
+              "Optional": true
+            }
+          ]
+        },
+        {
+          "Name": "new",
+          "Description": "Create a new Deta Micro",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "h",
+                  "Description": "Show help for new",
+                  "Type": "Flag",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "n",
+                  "Description": "Create a micro with Node (node14.x) runtime",
+                  "Type": "Flag",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "p",
+                  "Description": "Create a micro with Python (python 3.9) runtime",
+                  "Type": "Flag",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "--name",
+                  "Description": "Set the name of the new micro",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "name",
+                          "Description": "name",
+                          "Type": "String"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "--project",
+                  "Description": "Set the project under which the micro is created",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "project",
+                          "Description": "project",
+                          "Type": "String"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "--runtime",
+                  "Description": "Create a micro with a specified runtime",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "runtime",
+                          "Description": "runtime",
+                          "Type": "String"
+                        },
+                        {
+                          "Name": "node12",
+                          "Description": "Runtime"
+                        },
+                        {
+                          "Name": "node14",
+                          "Description": "Runtime"
+                        },
+                        {
+                          "Name": "python3.7",
+                          "Description": "Runtime"
+                        },
+                        {
+                          "Name": "python3.9",
+                          "Description": "Runtime"
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ],
+              "Optional": true
+            },
+            {
+              "Arguments": [
+                {
+                  "Name": "path",
+                  "Description": "path",
+                  "Type": "String"
+                }
+              ],
+              "Optional": true
+            }
+          ]
+        },
+        {
+          "Name": "deploy",
+          "Description": "Deploy new code to a Deta Micro",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "h",
+                  "Description": "Show help for deploy",
+                  "Type": "Flag",
+                  "Aliases": [],
+                  "Arguments": []
+                }
+              ],
+              "Optional": true
+            },
+            {
+              "Arguments": [
+                {
+                  "Name": "path",
+                  "Description": "path",
+                  "Type": "Directory"
+                }
+              ],
+              "Optional": true
+            }
+          ]
+        },
+        {
+          "Name": "details",
+          "Description": "Get detailed information about a specific Deta micro",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "h",
+                  "Description": "Show help for details",
+                  "Type": "Flag",
+                  "Aliases": [],
+                  "Arguments": []
+                }
+              ],
+              "Optional": true
+            },
+            {
+              "Arguments": [
+                {
+                  "Name": "path",
+                  "Description": "path",
+                  "Type": "Directory"
+                }
+              ],
+              "Optional": true
+            }
+          ]
+        },
+        {
+          "Name": "watch",
+          "Description": "Auto-deploy locally saved changes in real time to your Deta micro",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "h",
+                  "Description": "Show help for watch",
+                  "Type": "Flag",
+                  "Aliases": [],
+                  "Arguments": []
+                }
+              ],
+              "Optional": true
+            },
+            {
+              "Arguments": [
+                {
+                  "Name": "path",
+                  "Description": "path",
+                  "Type": "Directory"
+                }
+              ],
+              "Optional": true
+            }
+          ]
+        },
+        {
+          "Name": "auth",
+          "Description": "Change auth settings for a Deta Micro",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "h",
+                  "Description": "Show help for auth",
+                  "Type": "Flag",
+                  "Aliases": [],
+                  "Arguments": []
+                }
+              ],
+              "Optional": true
+            },
+            {
+              "Arguments": [
+                {
+                  "Name": "disable",
+                  "Description": "Disable HTTP Auth for a Deta Micro",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "h",
+                          "Description": "Show help for auth disable",
+                          "Type": "Flag",
+                          "Aliases": [],
+                          "Arguments": []
+                        }
+                      ],
+                      "Optional": true
+                    }
+                  ]
+                },
+                {
+                  "Name": "enable",
+                  "Description": "Enable HTTP Auth for a Deta Micro",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "h",
+                          "Description": "Show help for auth enable",
+                          "Type": "Flag",
+                          "Aliases": [],
+                          "Arguments": []
+                        }
+                      ],
+                      "Optional": true
+                    }
+                  ]
+                },
+                {
+                  "Name": "create-api-key",
+                  "Description": "Create an API key for a Deta Micro",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "h",
+                          "Description": "Show help for auth create-api-key",
+                          "Type": "Flag",
+                          "Aliases": [],
+                          "Arguments": []
+                        },
+                        {
+                          "Name": "d",
+                          "Description": "Set the api-key description",
+                          "Type": "Flag",
+                          "Aliases": [],
+                          "Arguments": [
+                            {
+                              "Arguments": [
+                                {
+                                  "Name": "description",
+                                  "Description": "description",
+                                  "Type": "String"
+                                }
+                              ]
+                            }
+                          ]
+                        },
+                        {
+                          "Name": "n",
+                          "Description": "Set the api-key name",
+                          "Type": "Flag",
+                          "Aliases": [],
+                          "Arguments": [
+                            {
+                              "Arguments": [
+                                {
+                                  "Name": "name",
+                                  "Description": "name",
+                                  "Type": "String"
+                                }
+                              ]
+                            }
+                          ]
+                        },
+                        {
+                          "Name": "o",
+                          "Description": "Set the api-key output file",
+                          "Type": "Flag",
+                          "Aliases": [],
+                          "Arguments": [
+                            {
+                              "Arguments": [
+                                {
+                                  "Name": "outfile",
+                                  "Description": "outfile",
+                                  "Type": "FileSystemEntry"
+                                }
+                              ]
+                            }
+                          ]
+                        }
+                      ],
+                      "Optional": true
+                    }
+                  ]
+                },
+                {
+                  "Name": "delete-api-key",
+                  "Description": "Delete an API key for a Deta Micro",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "h",
+                          "Description": "Show help for auth delete-api-key",
+                          "Type": "Flag",
+                          "Aliases": [],
+                          "Arguments": []
+                        },
+                        {
+                          "Name": "n",
+                          "Description": "Set the api-key name",
+                          "Type": "Flag",
+                          "Aliases": [],
+                          "Arguments": [
+                            {
+                              "Arguments": [
+                                {
+                                  "Name": "name",
+                                  "Description": "name",
+                                  "Type": "String"
+                                }
+                              ]
+                            }
+                          ]
+                        }
+                      ],
+                      "Optional": true
+                    }
+                  ]
+                }
+              ],
+              "DontAllowMultiple": true
+            }
+          ]
+        },
+        {
+          "Name": "pull",
+          "Description": "Pull the latest deployed code of a Deta Micro to your local machine",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "h",
+                  "Description": "Show help for pull",
+                  "Type": "Flag",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "f",
+                  "Description": "Force the overwrite of existing files",
+                  "Type": "Flag",
+                  "Aliases": [],
+                  "Arguments": []
+                }
+              ],
+              "Optional": true
+            }
+          ]
+        },
+        {
+          "Name": "clone",
+          "Description": "Clone a Deta Micro",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "h",
+                  "Description": "Show help for clone",
+                  "Type": "Flag",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "n",
+                  "Description": "The name of the micro to be cloned",
+                  "Type": "Flag",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "name",
+                          "Description": "name",
+                          "Type": "String"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "p",
+                  "Description": "The name of the project with the micro to be cloned",
+                  "Type": "Flag",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "project",
+                          "Description": "project",
+                          "Type": "String"
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ],
+              "Optional": true
+            },
+            {
+              "Arguments": [
+                {
+                  "Name": "path",
+                  "Description": "path",
+                  "Type": "String"
+                }
+              ],
+              "Optional": true
+            }
+          ]
+        },
+        {
+          "Name": "update",
+          "Description": "Update a Deta Micro\u0027s name or environment variables",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "h",
+                  "Description": "Show help for pull",
+                  "Type": "Flag",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "n",
+                  "Description": "The new name of the micro",
+                  "Type": "Flag",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "name",
+                          "Description": "name",
+                          "Type": "String"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "r",
+                  "Description": "The new runtime of the micro",
+                  "Type": "Flag",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "runtime",
+                          "Description": "runtime",
+                          "Type": "String"
+                        },
+                        {
+                          "Name": "node12",
+                          "Description": "Runtime"
+                        },
+                        {
+                          "Name": "node14",
+                          "Description": "Runtime"
+                        },
+                        {
+                          "Name": "python3.7",
+                          "Description": "Runtime"
+                        },
+                        {
+                          "Name": "python3.9",
+                          "Description": "Runtime"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "e",
+                  "Description": "The new env file of the micro",
+                  "Type": "Flag",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "env",
+                          "Description": "env",
+                          "Type": "FileSystemEntry"
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ],
+              "Optional": true
+            }
+          ]
+        },
+        {
+          "Name": "visor",
+          "Description": "Change the Visor settings for a Deta Micro",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "h",
+                  "Description": "Show help for visor",
+                  "Type": "Flag",
+                  "Aliases": [],
+                  "Arguments": []
+                }
+              ],
+              "Optional": true
+            },
+            {
+              "Arguments": [
+                {
+                  "Name": "open",
+                  "Description": "Open Micro\u0027s visor page in the browser",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "h",
+                          "Description": "Show help for visor open",
+                          "Type": "Flag",
+                          "Aliases": [],
+                          "Arguments": []
+                        }
+                      ],
+                      "Optional": true
+                    }
+                  ]
+                },
+                {
+                  "Name": "enable",
+                  "Description": "Enable Visor for a Deta Micro",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "h",
+                          "Description": "Show help for visor enable",
+                          "Type": "Flag",
+                          "Aliases": [],
+                          "Arguments": []
+                        }
+                      ],
+                      "Optional": true
+                    }
+                  ]
+                },
+                {
+                  "Name": "disable",
+                  "Description": "Disable Visor for a Deta Micro",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "h",
+                          "Description": "Show help for visor disable",
+                          "Type": "Flag",
+                          "Aliases": [],
+                          "Arguments": []
+                        }
+                      ],
+                      "Optional": true
+                    }
+                  ]
+                }
+              ],
+              "DontAllowMultiple": true
+            }
+          ]
+        },
+        {
+          "Name": "run",
+          "Description": "Run a Deta Micro from the CLI",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "h",
+                  "Description": "Show help for run",
+                  "Type": "Flag",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "l",
+                  "Description": "Show the micro logs",
+                  "Type": "Flag",
+                  "Aliases": [],
+                  "Arguments": []
+                }
+              ],
+              "Optional": true
+            },
+            {
+              "Arguments": [
+                {
+                  "Name": "action",
+                  "Description": "action",
+                  "Type": "String"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "Name": "cron",
+          "Description": "Change cron settings for a Deta Micro",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "h",
+                  "Description": "Show help for cron",
+                  "Type": "Flag",
+                  "Aliases": [],
+                  "Arguments": []
+                }
+              ],
+              "Optional": true
+            },
+            {
+              "Arguments": [
+                {
+                  "Name": "set",
+                  "Description": "Set Deta Micro to run on a schedule",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "h",
+                          "Description": "Show help for cron set",
+                          "Type": "Flag",
+                          "Aliases": [],
+                          "Arguments": []
+                        }
+                      ],
+                      "Optional": true
+                    },
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "expression",
+                          "Description": "expression",
+                          "Type": "String"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "remove",
+                  "Description": "Remove a schedule from a Deta Micro",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "h",
+                          "Description": "Show help for cron remove",
+                          "Type": "Flag",
+                          "Aliases": [],
+                          "Arguments": []
+                        }
+                      ],
+                      "Optional": true
+                    },
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "expression",
+                          "Description": "expression",
+                          "Type": "String"
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ],
+              "DontAllowMultiple": true
+            }
+          ]
+        }
+      ],
+      "DontAllowMultiple": true
+    }
+  ]
+}

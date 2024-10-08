@@ -1,0 +1,1350 @@
+{
+  "Comment": "This command info is generated from fig",
+  "Name": "circleci",
+  "Description": "CircleCI CLI",
+  "Arguments": [
+    {
+      "Arguments": [
+        {
+          "Name": "--help",
+          "Description": "Show help for CircleCI",
+          "Aliases": [
+            "-h"
+          ],
+          "Arguments": []
+        },
+        {
+          "Name": "--skip-update-check",
+          "Description": "Skip update check before every command",
+          "Aliases": [],
+          "Arguments": []
+        }
+      ],
+      "Optional": true
+    },
+    {
+      "Arguments": [
+        {
+          "Name": "completion",
+          "Description": "Generate shell completion scripts",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "bash",
+                  "Description": "Generate bash completion scripts",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "zsh",
+                  "Description": "Generate zsh completion scripts",
+                  "Aliases": [],
+                  "Arguments": []
+                }
+              ],
+              "DontAllowMultiple": true
+            }
+          ]
+        },
+        {
+          "Name": "config",
+          "Description": "Operate on build config files",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "pack",
+                  "Description": "Pack CircleCI config files into a single file",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "process",
+                  "Description": "Validate and display extended config",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "validate",
+                  "Description": "Checks that config is valid",
+                  "Aliases": [],
+                  "Arguments": []
+                }
+              ],
+              "DontAllowMultiple": true
+            }
+          ]
+        },
+        {
+          "Name": "context",
+          "Description": "Secure and share environment variables across projects",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "create",
+                  "Description": "Create a new context",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "vcs-type",
+                          "Description": "vcs-type",
+                          "Type": "String"
+                        },
+                        {
+                          "Name": "github",
+                          "Description": "vcs-type"
+                        },
+                        {
+                          "Name": "bitbucket",
+                          "Description": "vcs-type"
+                        }
+                      ],
+                      "Optional": true
+                    },
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "org-name",
+                          "Description": "org-name",
+                          "Type": "String"
+                        }
+                      ],
+                      "Optional": true
+                    },
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "context-name",
+                          "Description": "context-name",
+                          "Type": "String"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "delete",
+                  "Description": "Delete the named context",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "vcs-type",
+                          "Description": "vcs-type",
+                          "Type": "String"
+                        },
+                        {
+                          "Name": "github",
+                          "Description": "vcs-type"
+                        },
+                        {
+                          "Name": "bitbucket",
+                          "Description": "vcs-type"
+                        }
+                      ]
+                    },
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "org-name",
+                          "Description": "org-name",
+                          "Type": "String"
+                        }
+                      ]
+                    },
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "context-name",
+                          "Description": "context-name",
+                          "Type": "String"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "list",
+                  "Description": "List all contexts",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "vcs-type",
+                          "Description": "vcs-type",
+                          "Type": "String"
+                        },
+                        {
+                          "Name": "github",
+                          "Description": "vcs-type"
+                        },
+                        {
+                          "Name": "bitbucket",
+                          "Description": "vcs-type"
+                        }
+                      ]
+                    },
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "org-name",
+                          "Description": "org-name",
+                          "Type": "String"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "remove-secret",
+                  "Description": "Remove environment variable from a context",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "vcs-type",
+                          "Description": "vcs-type",
+                          "Type": "String"
+                        },
+                        {
+                          "Name": "github",
+                          "Description": "vcs-type"
+                        },
+                        {
+                          "Name": "bitbucket",
+                          "Description": "vcs-type"
+                        }
+                      ]
+                    },
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "org-name",
+                          "Description": "org-name",
+                          "Type": "String"
+                        }
+                      ]
+                    },
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "context-name",
+                          "Description": "context-name",
+                          "Type": "String"
+                        }
+                      ]
+                    },
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "secret name",
+                          "Description": "secret name",
+                          "Type": "String"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "show",
+                  "Description": "Show a context",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "vcs-type",
+                          "Description": "vcs-type",
+                          "Type": "String"
+                        },
+                        {
+                          "Name": "github",
+                          "Description": "vcs-type"
+                        },
+                        {
+                          "Name": "bitbucket",
+                          "Description": "vcs-type"
+                        }
+                      ]
+                    },
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "org-name",
+                          "Description": "org-name",
+                          "Type": "String"
+                        }
+                      ]
+                    },
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "context-name",
+                          "Description": "context-name",
+                          "Type": "String"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "store-secret",
+                  "Description": "Store environment variables",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "vcs-type",
+                          "Description": "vcs-type",
+                          "Type": "String"
+                        },
+                        {
+                          "Name": "github",
+                          "Description": "vcs-type"
+                        },
+                        {
+                          "Name": "bitbucket",
+                          "Description": "vcs-type"
+                        }
+                      ]
+                    },
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "org-name",
+                          "Description": "org-name",
+                          "Type": "String"
+                        }
+                      ]
+                    },
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "context-name",
+                          "Description": "context-name",
+                          "Type": "String"
+                        }
+                      ]
+                    },
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "secret name",
+                          "Description": "secret name",
+                          "Type": "String"
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ],
+              "DontAllowMultiple": true
+            }
+          ]
+        },
+        {
+          "Name": "diagnostic",
+          "Description": "Check the status of your CircleCI CLI",
+          "Aliases": [],
+          "Arguments": []
+        },
+        {
+          "Name": "follow",
+          "Description": "Attempt to follow the project for the current git repo",
+          "Aliases": [],
+          "Arguments": []
+        },
+        {
+          "Name": "help",
+          "Description": "Help about any command",
+          "Aliases": [],
+          "Arguments": []
+        },
+        {
+          "Name": "local",
+          "Description": "Debug jobs on the local machine",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "execute",
+                  "Description": "Run a job in a container on the local machine",
+                  "Aliases": [],
+                  "Arguments": []
+                }
+              ],
+              "DontAllowMultiple": true
+            }
+          ]
+        },
+        {
+          "Name": "namespace",
+          "Description": "Operate on namespaces",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "create",
+                  "Description": "Create a namespace",
+                  "Aliases": [],
+                  "Arguments": []
+                }
+              ],
+              "DontAllowMultiple": true
+            }
+          ]
+        },
+        {
+          "Name": "open",
+          "Description": "Open the current project in the browser",
+          "Aliases": [],
+          "Arguments": []
+        },
+        {
+          "Name": "orb",
+          "Description": "Operate on orbs",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "add-to-category",
+                  "Description": "Add an orb to a category",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "namespace/orb",
+                          "Description": "namespace/orb",
+                          "Type": "String"
+                        }
+                      ]
+                    },
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "category name",
+                          "Description": "category name",
+                          "Type": "String"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "create",
+                  "Description": "Create an orb in a namespace",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "--private",
+                          "Description": "Specify that this orb is for private use within your org, unlisted from the public registry",
+                          "Aliases": [],
+                          "Arguments": []
+                        }
+                      ],
+                      "Optional": true
+                    },
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "namespace/orb",
+                          "Description": "namespace/orb",
+                          "Type": "String"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "info",
+                  "Description": "Show metadata of an orb",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "orb",
+                          "Description": "orb",
+                          "Type": "String"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "init",
+                  "Description": "Initialize a new orb",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "--private",
+                          "Description": "Specify that this orb is for private use within your org, unlisted from the public registry",
+                          "Aliases": [],
+                          "Arguments": []
+                        }
+                      ],
+                      "Optional": true
+                    },
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "path",
+                          "Description": "path",
+                          "Type": "String"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "list",
+                  "Description": "List orbs",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "--private",
+                          "Description": "Specify that this orb is for private use within your org, unlisted from the public registry",
+                          "Aliases": [],
+                          "Arguments": []
+                        },
+                        {
+                          "Name": "--sort",
+                          "Description": "Specify the sorting",
+                          "Aliases": [],
+                          "Arguments": [
+                            {
+                              "Arguments": [
+                                {
+                                  "Name": "String",
+                                  "Description": "",
+                                  "Type": "String"
+                                },
+                                {
+                                  "Name": "builds",
+                                  "Description": ""
+                                },
+                                {
+                                  "Name": "projects",
+                                  "Description": ""
+                                },
+                                {
+                                  "Name": "orgs",
+                                  "Description": ""
+                                }
+                              ]
+                            }
+                          ]
+                        },
+                        {
+                          "Name": "-u",
+                          "Description": "Include uncertified orbs",
+                          "Aliases": [
+                            "--uncertified"
+                          ],
+                          "Arguments": []
+                        }
+                      ],
+                      "Optional": true
+                    },
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "namespace",
+                          "Description": "namespace",
+                          "Type": "String"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "list-categories",
+                  "Description": "List orb categories",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "pack",
+                  "Description": "Pack an orb with local scripts",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "path",
+                          "Description": "path",
+                          "Type": "String"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "process",
+                  "Description": "Validate an orb and print its form after all pre-registration processing is complete",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "path",
+                          "Description": "path",
+                          "Type": "String"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "publish",
+                  "Description": "Publish an orb to the registry",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "path",
+                          "Description": "path",
+                          "Type": "String"
+                        }
+                      ]
+                    },
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "orb",
+                          "Description": "orb",
+                          "Type": "String"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "remove-from-category",
+                  "Description": "Remove an orb from a category",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "namespace/orb",
+                          "Description": "namespace/orb",
+                          "Type": "String"
+                        }
+                      ]
+                    },
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "category name",
+                          "Description": "category name",
+                          "Type": "String"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "source",
+                  "Description": "Show source code of an orb",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "orb",
+                          "Description": "orb",
+                          "Type": "String"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "unlist",
+                  "Description": "Disable/enable an orb\u0027s listing in the registry",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "namespace/orb",
+                          "Description": "namespace/orb",
+                          "Type": "String"
+                        }
+                      ]
+                    },
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "condition",
+                          "Description": "condition",
+                          "Type": "String"
+                        },
+                        {
+                          "Name": "true",
+                          "Description": "condition"
+                        },
+                        {
+                          "Name": "false",
+                          "Description": "condition"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "validate",
+                  "Description": "Validate an orb.yml",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "path",
+                          "Description": "path",
+                          "Type": "String"
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ],
+              "DontAllowMultiple": true
+            }
+          ]
+        },
+        {
+          "Name": "policy",
+          "Description": "Manage security policies",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "decide",
+                  "Description": "Make a decision",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "--input",
+                          "Description": "Path to input file, i.e. ./.circleci/config.yml",
+                          "Aliases": [],
+                          "Arguments": [
+                            {
+                              "Arguments": [
+                                {
+                                  "Name": "string",
+                                  "Description": "string",
+                                  "Type": "String"
+                                }
+                              ]
+                            }
+                          ]
+                        },
+                        {
+                          "Name": "--metafile",
+                          "Description": "Path to decision metadata file",
+                          "Aliases": [],
+                          "Arguments": [
+                            {
+                              "Arguments": [
+                                {
+                                  "Name": "string",
+                                  "Description": "string",
+                                  "Type": "String"
+                                }
+                              ]
+                            }
+                          ]
+                        },
+                        {
+                          "Name": "--owner-id",
+                          "Description": "The id of the policy\u0027s owner",
+                          "Aliases": [],
+                          "Arguments": [
+                            {
+                              "Arguments": [
+                                {
+                                  "Name": "string",
+                                  "Description": "string",
+                                  "Type": "String"
+                                }
+                              ]
+                            }
+                          ]
+                        },
+                        {
+                          "Name": "--strict",
+                          "Description": "Return non-zero status code for decision resulting in HARD_FAIL",
+                          "Aliases": [],
+                          "Arguments": []
+                        },
+                        {
+                          "Name": "--context",
+                          "Description": "Policy context for decision, default is \u0027config\u0027",
+                          "Aliases": [],
+                          "Arguments": [
+                            {
+                              "Arguments": [
+                                {
+                                  "Name": "string",
+                                  "Description": "string",
+                                  "Type": "String"
+                                }
+                              ]
+                            }
+                          ]
+                        }
+                      ],
+                      "Optional": true
+                    },
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "path",
+                          "Description": "path",
+                          "Type": "String"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "diff",
+                  "Description": "Get diff between local and remote policy bundles",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "--context",
+                          "Description": "Policy context for decision, default is \u0027config\u0027",
+                          "Aliases": [],
+                          "Arguments": [
+                            {
+                              "Arguments": [
+                                {
+                                  "Name": "string",
+                                  "Description": "string",
+                                  "Type": "String"
+                                }
+                              ]
+                            }
+                          ]
+                        },
+                        {
+                          "Name": "--owner-id",
+                          "Description": "The id of the policy\u0027s owner",
+                          "Aliases": [],
+                          "Arguments": [
+                            {
+                              "Arguments": [
+                                {
+                                  "Name": "string",
+                                  "Description": "string",
+                                  "Type": "String"
+                                }
+                              ]
+                            }
+                          ]
+                        }
+                      ],
+                      "Optional": true
+                    },
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "policy_dir_path",
+                          "Description": "policy_dir_path",
+                          "Type": "String"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "eval",
+                  "Description": "Perform raw opa evaluation locally",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "--input",
+                          "Description": "Path to input file, i.e. ./.circleci/config.yml",
+                          "Aliases": [],
+                          "Arguments": [
+                            {
+                              "Arguments": [
+                                {
+                                  "Name": "string",
+                                  "Description": "string",
+                                  "Type": "String"
+                                }
+                              ]
+                            }
+                          ]
+                        },
+                        {
+                          "Name": "--metafile",
+                          "Description": "Path to decision metadata file",
+                          "Aliases": [],
+                          "Arguments": [
+                            {
+                              "Arguments": [
+                                {
+                                  "Name": "string",
+                                  "Description": "string",
+                                  "Type": "String"
+                                }
+                              ]
+                            }
+                          ]
+                        },
+                        {
+                          "Name": "--query",
+                          "Description": "Policy decision query, default is \u0027data\u0027",
+                          "Aliases": [],
+                          "Arguments": [
+                            {
+                              "Arguments": [
+                                {
+                                  "Name": "string",
+                                  "Description": "string",
+                                  "Type": "String"
+                                }
+                              ]
+                            }
+                          ]
+                        }
+                      ],
+                      "Optional": true
+                    },
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "policy_dir_path",
+                          "Description": "policy_dir_path",
+                          "Type": "String"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "fetch",
+                  "Description": "Fetch policy bundle (or a single policy)",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "--context",
+                          "Description": "Policy context for decision, default is \u0027config\u0027",
+                          "Aliases": [],
+                          "Arguments": [
+                            {
+                              "Arguments": [
+                                {
+                                  "Name": "string",
+                                  "Description": "string",
+                                  "Type": "String"
+                                }
+                              ]
+                            }
+                          ]
+                        },
+                        {
+                          "Name": "--owner-id",
+                          "Description": "The id of the policy\u0027s owner",
+                          "Aliases": [],
+                          "Arguments": []
+                        }
+                      ],
+                      "Optional": true
+                    },
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "policy name",
+                          "Description": "policy name",
+                          "Type": "String"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "logs",
+                  "Description": "Get policy decision logs / decision log (or policy bundle) by decision ID",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "--after",
+                          "Description": "Filter decision logs triggered AFTER this datetime",
+                          "Aliases": [],
+                          "Arguments": [
+                            {
+                              "Arguments": [
+                                {
+                                  "Name": "string",
+                                  "Description": "string",
+                                  "Type": "String"
+                                }
+                              ]
+                            }
+                          ]
+                        },
+                        {
+                          "Name": "--before",
+                          "Description": "Filter decision logs triggered BEFORE this datetime",
+                          "Aliases": [],
+                          "Arguments": [
+                            {
+                              "Arguments": [
+                                {
+                                  "Name": "string",
+                                  "Description": "string",
+                                  "Type": "String"
+                                }
+                              ]
+                            }
+                          ]
+                        },
+                        {
+                          "Name": "--branch",
+                          "Description": "Filter decision logs based on branch name",
+                          "Aliases": [],
+                          "Arguments": [
+                            {
+                              "Arguments": [
+                                {
+                                  "Name": "string",
+                                  "Description": "string",
+                                  "Type": "String"
+                                }
+                              ]
+                            }
+                          ]
+                        },
+                        {
+                          "Name": "--context",
+                          "Description": "Policy context for decision, default is \u0027config\u0027",
+                          "Aliases": [],
+                          "Arguments": [
+                            {
+                              "Arguments": [
+                                {
+                                  "Name": "string",
+                                  "Description": "string",
+                                  "Type": "String"
+                                }
+                              ]
+                            }
+                          ]
+                        },
+                        {
+                          "Name": "--owner-id",
+                          "Description": "The id of the policy\u0027s owner",
+                          "Aliases": [],
+                          "Arguments": [
+                            {
+                              "Arguments": [
+                                {
+                                  "Name": "string",
+                                  "Description": "string",
+                                  "Type": "String"
+                                }
+                              ]
+                            }
+                          ]
+                        },
+                        {
+                          "Name": "--out",
+                          "Description": "Specify output file name",
+                          "Aliases": [],
+                          "Arguments": [
+                            {
+                              "Arguments": [
+                                {
+                                  "Name": "string",
+                                  "Description": "string",
+                                  "Type": "String"
+                                }
+                              ]
+                            }
+                          ]
+                        },
+                        {
+                          "Name": "--policy-bundle",
+                          "Description": "Get only the policy bundle for given decisionID",
+                          "Aliases": [],
+                          "Arguments": []
+                        },
+                        {
+                          "Name": "--project-id",
+                          "Description": "Filter decision logs based on project-id",
+                          "Aliases": [],
+                          "Arguments": [
+                            {
+                              "Arguments": [
+                                {
+                                  "Name": "string",
+                                  "Description": "string",
+                                  "Type": "String"
+                                }
+                              ]
+                            }
+                          ]
+                        },
+                        {
+                          "Name": "--status",
+                          "Description": "Filter decision logs based on their status",
+                          "Aliases": [],
+                          "Arguments": [
+                            {
+                              "Arguments": [
+                                {
+                                  "Name": "string",
+                                  "Description": "string",
+                                  "Type": "String"
+                                }
+                              ]
+                            }
+                          ]
+                        }
+                      ],
+                      "Optional": true
+                    },
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "decision ID",
+                          "Description": "decision ID",
+                          "Type": "String"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "push",
+                  "Description": "Push policy bundle (or a single policy)",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "--context",
+                          "Description": "Policy context for decision, default is \u0027config\u0027",
+                          "Aliases": [],
+                          "Arguments": [
+                            {
+                              "Arguments": [
+                                {
+                                  "Name": "string",
+                                  "Description": "string",
+                                  "Type": "String"
+                                }
+                              ]
+                            }
+                          ]
+                        },
+                        {
+                          "Name": "--owner-id",
+                          "Description": "The id of the policy\u0027s owner",
+                          "Aliases": [],
+                          "Arguments": [
+                            {
+                              "Arguments": [
+                                {
+                                  "Name": "string",
+                                  "Description": "string",
+                                  "Type": "String"
+                                }
+                              ]
+                            }
+                          ]
+                        },
+                        {
+                          "Name": "--no-prompt",
+                          "Description": "Removes the prompt",
+                          "Aliases": [],
+                          "Arguments": []
+                        }
+                      ],
+                      "Optional": true
+                    },
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "policy_dir_path",
+                          "Description": "policy_dir_path",
+                          "Type": "String"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "settings",
+                  "Description": "Get/set policy decision settings (To read settings: run command without any settings flags)",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "--context",
+                          "Description": "Policy context for decision, default is \u0027config\u0027",
+                          "Aliases": [],
+                          "Arguments": []
+                        },
+                        {
+                          "Name": "--enabled",
+                          "Description": "Enable/disable policy decision evaluation in build pipeline",
+                          "Aliases": [],
+                          "Arguments": [
+                            {
+                              "Arguments": [
+                                {
+                                  "Name": "boolean",
+                                  "Description": "boolean",
+                                  "Type": "String"
+                                },
+                                {
+                                  "Name": "true",
+                                  "Description": "boolean"
+                                },
+                                {
+                                  "Name": "false",
+                                  "Description": "boolean"
+                                }
+                              ],
+                              "Optional": true
+                            }
+                          ]
+                        },
+                        {
+                          "Name": "--owner-id",
+                          "Description": "The id of the policy\u0027s owner",
+                          "Aliases": [],
+                          "Arguments": [
+                            {
+                              "Arguments": [
+                                {
+                                  "Name": "string",
+                                  "Description": "string",
+                                  "Type": "String"
+                                }
+                              ]
+                            }
+                          ]
+                        }
+                      ],
+                      "Optional": true
+                    }
+                  ]
+                }
+              ],
+              "DontAllowMultiple": true
+            }
+          ]
+        },
+        {
+          "Name": "runner",
+          "Description": "Operate on runners",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "instance",
+                  "Description": "Operate on runner instances",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "resource-class",
+                  "Description": "Operate on runner resource-classes",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "token",
+                  "Description": "Operate on runner tokens",
+                  "Aliases": [],
+                  "Arguments": []
+                }
+              ],
+              "DontAllowMultiple": true
+            }
+          ]
+        },
+        {
+          "Name": "setup",
+          "Description": "Setup CLI with your credentials",
+          "Aliases": [],
+          "Arguments": []
+        },
+        {
+          "Name": "update",
+          "Description": "Update and switch to new CLI version",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "check",
+                  "Description": "Check for new CLI version",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "install",
+                  "Description": "Install new CLI version",
+                  "Aliases": [],
+                  "Arguments": []
+                }
+              ],
+              "DontAllowMultiple": true
+            }
+          ]
+        },
+        {
+          "Name": "version",
+          "Description": "Display CircleCI CLI version",
+          "Aliases": [],
+          "Arguments": []
+        }
+      ],
+      "DontAllowMultiple": true
+    }
+  ]
+}

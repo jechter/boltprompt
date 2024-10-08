@@ -1,0 +1,1702 @@
+{
+  "Comment": "This command info is generated from fig",
+  "Name": "zapier",
+  "Description": "The Zapier CLI is a developer-focused way to create and maintain Zapier integrations. See more at https://github.com/zapier/zapier-platform",
+  "Arguments": [
+    {
+      "Arguments": [
+        {
+          "Name": "analytics",
+          "Description": "Show the status of the analytics that are collected. Also used to change what is collected",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "-m",
+                  "Description": "Choose how much information to share. Anonymous mode drops the OS type and Zapier user id, but keeps command info. Identifying information is used only for debugging purposes",
+                  "Aliases": [
+                    "--mode"
+                  ],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "mode",
+                          "Description": "mode",
+                          "Type": "String"
+                        },
+                        {
+                          "Name": "enabled",
+                          "Description": "mode"
+                        },
+                        {
+                          "Name": "anonymous",
+                          "Description": "mode"
+                        },
+                        {
+                          "Name": "disabled",
+                          "Description": "mode"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "-d",
+                  "Description": "Show extra debugging output",
+                  "Aliases": [
+                    "--debug"
+                  ],
+                  "Arguments": []
+                }
+              ],
+              "Optional": true
+            }
+          ]
+        },
+        {
+          "Name": "build",
+          "Description": "Build a pushable zip from the current directory",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "--disable-dependency-detection",
+                  "Description": "Disable \u0022smart\u0022 file inclusion. By default, Zapier only includes files that are required by \u0060index.js\u0060. If you (or your dependencies) require files dynamically (such as with \u0060require(someVar)\u0060), then you may see \u0022Cannot find module\u0022 errors. Disabling this may make your \u0060build.zip\u0060 too large. If that\u0027s the case, try using the \u0060includeInBuild\u0060 option in your \u0060.zapierapprc\u0060. See the docs about \u0060includeInBuild\u0060 for more info",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "-d",
+                  "Description": "Show extra debugging output",
+                  "Aliases": [
+                    "--debug"
+                  ],
+                  "Arguments": []
+                }
+              ],
+              "Optional": true
+            }
+          ]
+        },
+        {
+          "Name": "convert",
+          "Description": "Convert a Legacy Web Builder app or Visual Builder integration to a CLI integration",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "-v",
+                  "Description": "Convert a specific version. Required when converting a Visual Builder integration",
+                  "Aliases": [
+                    "--version"
+                  ],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "version",
+                          "Description": "version",
+                          "Type": "String"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "-d",
+                  "Description": "Show extra debugging output",
+                  "Aliases": [
+                    "--debug"
+                  ],
+                  "Arguments": []
+                }
+              ],
+              "Optional": true
+            },
+            {
+              "Arguments": [
+                {
+                  "Name": "integrationId",
+                  "Description": "integrationId",
+                  "Type": "String"
+                }
+              ]
+            },
+            {
+              "Arguments": [
+                {
+                  "Name": "path",
+                  "Description": "path",
+                  "Type": "Directory"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "Name": "delete:integration",
+          "Description": "Delete your integration (including all versions)",
+          "Aliases": [
+            "delete:app"
+          ],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "-d",
+                  "Description": "Show extra debugging output",
+                  "Aliases": [
+                    "--debug"
+                  ],
+                  "Arguments": []
+                }
+              ],
+              "Optional": true
+            }
+          ]
+        },
+        {
+          "Name": "delete:version",
+          "Description": "Delete a specific version of your integration",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "-d",
+                  "Description": "Show extra debugging output",
+                  "Aliases": [
+                    "--debug"
+                  ],
+                  "Arguments": []
+                }
+              ],
+              "Optional": true
+            },
+            {
+              "Arguments": [
+                {
+                  "Name": "version",
+                  "Description": "version",
+                  "Type": "String"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "Name": "deprecate",
+          "Description": "Mark a non-production version of your integration as deprecated, with removal by a certain date",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "-d",
+                  "Description": "Show extra debugging output",
+                  "Aliases": [
+                    "--debug"
+                  ],
+                  "Arguments": []
+                }
+              ],
+              "Optional": true
+            },
+            {
+              "Arguments": [
+                {
+                  "Name": "version",
+                  "Description": "version",
+                  "Type": "String"
+                }
+              ]
+            },
+            {
+              "Arguments": [
+                {
+                  "Name": "date",
+                  "Description": "date",
+                  "Type": "String"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "Name": "describe",
+          "Description": "Describe the current integraiton",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "-f",
+                  "Description": "Change the way structured data is presented. If \u0022json\u0022 or \u0022raw\u0022, you can pipe the output of the command into other tools, such as jq",
+                  "Aliases": [
+                    "--format"
+                  ],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "format",
+                          "Description": "format",
+                          "Type": "String"
+                        },
+                        {
+                          "Name": "plain",
+                          "Description": "format"
+                        },
+                        {
+                          "Name": "json",
+                          "Description": "format"
+                        },
+                        {
+                          "Name": "raw",
+                          "Description": "format"
+                        },
+                        {
+                          "Name": "row",
+                          "Description": "format"
+                        },
+                        {
+                          "Name": "table",
+                          "Description": "format"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "-d",
+                  "Description": "Show extra debugging output",
+                  "Aliases": [
+                    "--debug"
+                  ],
+                  "Arguments": []
+                }
+              ],
+              "Optional": true
+            }
+          ]
+        },
+        {
+          "Name": "env:get",
+          "Description": "Get environment variables for a version",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "-f",
+                  "Description": "Change the way structured data is presented. If \u0022json\u0022 or \u0022raw\u0022, you can pipe the output of the command into other tools, such as jq",
+                  "Aliases": [
+                    "--format"
+                  ],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "format",
+                          "Description": "format",
+                          "Type": "String"
+                        },
+                        {
+                          "Name": "plain",
+                          "Description": "format"
+                        },
+                        {
+                          "Name": "json",
+                          "Description": "format"
+                        },
+                        {
+                          "Name": "raw",
+                          "Description": "format"
+                        },
+                        {
+                          "Name": "row",
+                          "Description": "format"
+                        },
+                        {
+                          "Name": "table",
+                          "Description": "format"
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ],
+              "Optional": true
+            },
+            {
+              "Arguments": [
+                {
+                  "Name": "version",
+                  "Description": "version",
+                  "Type": "String"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "Name": "env:set",
+          "Description": "Set environment variables for a version",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "-d",
+                  "Description": "Show extra debugging output",
+                  "Aliases": [
+                    "--debug"
+                  ],
+                  "Arguments": []
+                }
+              ],
+              "Optional": true
+            },
+            {
+              "Arguments": [
+                {
+                  "Name": "version",
+                  "Description": "version",
+                  "Type": "String"
+                }
+              ]
+            },
+            {
+              "Arguments": [
+                {
+                  "Name": "key-value pairs...",
+                  "Description": "key-value pairs...",
+                  "Type": "String"
+                }
+              ],
+              "Optional": true
+            }
+          ]
+        },
+        {
+          "Name": "env:unset",
+          "Description": "Unset environment variables for a version",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "-d",
+                  "Description": "Show extra debugging output",
+                  "Aliases": [
+                    "--debug"
+                  ],
+                  "Arguments": []
+                }
+              ],
+              "Optional": true
+            },
+            {
+              "Arguments": [
+                {
+                  "Name": "version",
+                  "Description": "version",
+                  "Type": "String"
+                }
+              ]
+            },
+            {
+              "Arguments": [
+                {
+                  "Name": "keys...",
+                  "Description": "keys...",
+                  "Type": "String"
+                }
+              ],
+              "Optional": true
+            }
+          ]
+        },
+        {
+          "Name": "history",
+          "Description": "Get the history of your integration",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "-f",
+                  "Description": "Change the way structured data is presented. If \u0022json\u0022 or \u0022raw\u0022, you can pipe the output of the command into other tools, such as jq",
+                  "Aliases": [
+                    "--format"
+                  ],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "format",
+                          "Description": "format",
+                          "Type": "String"
+                        },
+                        {
+                          "Name": "plain",
+                          "Description": "format"
+                        },
+                        {
+                          "Name": "json",
+                          "Description": "format"
+                        },
+                        {
+                          "Name": "raw",
+                          "Description": "format"
+                        },
+                        {
+                          "Name": "row",
+                          "Description": "format"
+                        },
+                        {
+                          "Name": "table",
+                          "Description": "format"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "-d",
+                  "Description": "Show extra debugging output",
+                  "Aliases": [
+                    "--debug"
+                  ],
+                  "Arguments": []
+                }
+              ],
+              "Optional": true
+            }
+          ]
+        },
+        {
+          "Name": "init",
+          "Description": "Initialize a new Zapier integration with a project template",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "-t",
+                  "Description": "The template to start your integration with",
+                  "Aliases": [
+                    "--template"
+                  ],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "template",
+                          "Description": "template",
+                          "Type": "String"
+                        },
+                        {
+                          "Name": "basic-auth",
+                          "Description": "template"
+                        },
+                        {
+                          "Name": "callback",
+                          "Description": "template"
+                        },
+                        {
+                          "Name": "custom-auth",
+                          "Description": "template"
+                        },
+                        {
+                          "Name": "digest-auth",
+                          "Description": "template"
+                        },
+                        {
+                          "Name": "dynamic-dropdown",
+                          "Description": "template"
+                        },
+                        {
+                          "Name": "files",
+                          "Description": "template"
+                        },
+                        {
+                          "Name": "minimal",
+                          "Description": "template"
+                        },
+                        {
+                          "Name": "oauth1-trello",
+                          "Description": "template"
+                        },
+                        {
+                          "Name": "oauth2",
+                          "Description": "template"
+                        },
+                        {
+                          "Name": "search-or-create",
+                          "Description": "template"
+                        },
+                        {
+                          "Name": "session-auth",
+                          "Description": "template"
+                        },
+                        {
+                          "Name": "typescript",
+                          "Description": "template"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "-d",
+                  "Description": "Show extra debugging output",
+                  "Aliases": [
+                    "--debug"
+                  ],
+                  "Arguments": []
+                }
+              ],
+              "Optional": true
+            },
+            {
+              "Arguments": [
+                {
+                  "Name": "path",
+                  "Description": "path",
+                  "Type": "Directory"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "Name": "integrations",
+          "Description": "List integrations you have admin access to",
+          "Aliases": [
+            "apps"
+          ],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "-f",
+                  "Description": "Change the way structured data is presented. If \u0022json\u0022 or \u0022raw\u0022, you can pipe the output of the command into other tools, such as jq",
+                  "Aliases": [
+                    "--format"
+                  ],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "format",
+                          "Description": "format",
+                          "Type": "String"
+                        },
+                        {
+                          "Name": "plain",
+                          "Description": "format"
+                        },
+                        {
+                          "Name": "json",
+                          "Description": "format"
+                        },
+                        {
+                          "Name": "raw",
+                          "Description": "format"
+                        },
+                        {
+                          "Name": "row",
+                          "Description": "format"
+                        },
+                        {
+                          "Name": "table",
+                          "Description": "format"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "-d",
+                  "Description": "Show extra debugging output",
+                  "Aliases": [
+                    "--debug"
+                  ],
+                  "Arguments": []
+                }
+              ],
+              "Optional": true
+            }
+          ]
+        },
+        {
+          "Name": "link",
+          "Description": "Link the current directory with an existing integration",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "-d",
+                  "Description": "Show extra debugging output",
+                  "Aliases": [
+                    "--debug"
+                  ],
+                  "Arguments": []
+                }
+              ],
+              "Optional": true
+            }
+          ]
+        },
+        {
+          "Name": "login",
+          "Description": "Configure your \u0060~/.zapierrc\u0060 with a deploy key",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "-s",
+                  "Description": "Use this flag if you log into Zapier a Single Sign-On (SSO) button and don\u0027t have a Zapier password",
+                  "Aliases": [
+                    "--sso"
+                  ],
+                  "Arguments": []
+                },
+                {
+                  "Name": "-d",
+                  "Description": "Show extra debugging output",
+                  "Aliases": [
+                    "--debug"
+                  ],
+                  "Arguments": []
+                }
+              ],
+              "Optional": true
+            }
+          ]
+        },
+        {
+          "Name": "logout",
+          "Description": "Deactivate your active deploy key and reset \u0060~/.zapierrc\u0060",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "-d",
+                  "Description": "Show extra debugging output",
+                  "Aliases": [
+                    "--debug"
+                  ],
+                  "Arguments": []
+                }
+              ],
+              "Optional": true
+            }
+          ]
+        },
+        {
+          "Name": "logs",
+          "Description": "Print recent logs",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "-v",
+                  "Description": "Filter logs to the specified version",
+                  "Aliases": [
+                    "--version"
+                  ],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "version",
+                          "Description": "version",
+                          "Type": "String"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "-s",
+                  "Description": "Filter logs to only see errors or successes",
+                  "Aliases": [
+                    "--status"
+                  ],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "status",
+                          "Description": "status",
+                          "Type": "String"
+                        },
+                        {
+                          "Name": "any",
+                          "Description": "status"
+                        },
+                        {
+                          "Name": "success",
+                          "Description": "status"
+                        },
+                        {
+                          "Name": "error",
+                          "Description": "status"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "-t",
+                  "Description": "See logs of the specified type",
+                  "Aliases": [
+                    "--type"
+                  ],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "type",
+                          "Description": "type",
+                          "Type": "String"
+                        },
+                        {
+                          "Name": "console",
+                          "Description": "type"
+                        },
+                        {
+                          "Name": "bundle",
+                          "Description": "type"
+                        },
+                        {
+                          "Name": "http",
+                          "Description": "type"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "--detailed",
+                  "Description": "See extra info, like request/response body and headers",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "-u",
+                  "Description": "Only show logs for this user. Defaults to your account",
+                  "Aliases": [
+                    "--user"
+                  ],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "user",
+                          "Description": "user",
+                          "Type": "String"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "--limit",
+                  "Description": "Cap the number of logs returned. Max is 50 (also the default)",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "limit",
+                          "Description": "limit",
+                          "Type": "String"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "-f",
+                  "Description": "Change the way structured data is presented. If \u0022json\u0022 or \u0022raw\u0022, you can pipe the output of the command into other tools, such as jq",
+                  "Aliases": [
+                    "--format"
+                  ],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "format",
+                          "Description": "format",
+                          "Type": "String"
+                        },
+                        {
+                          "Name": "plain",
+                          "Description": "format"
+                        },
+                        {
+                          "Name": "json",
+                          "Description": "format"
+                        },
+                        {
+                          "Name": "raw",
+                          "Description": "format"
+                        },
+                        {
+                          "Name": "row",
+                          "Description": "format"
+                        },
+                        {
+                          "Name": "table",
+                          "Description": "format"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "-d",
+                  "Description": "Show extra debugging output",
+                  "Aliases": [
+                    "--debug"
+                  ],
+                  "Arguments": []
+                }
+              ],
+              "Optional": true
+            }
+          ]
+        },
+        {
+          "Name": "migrate",
+          "Description": "Migrate users from one version of your integration to another",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "--user",
+                  "Description": "Migrate only this user",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "user",
+                          "Description": "user",
+                          "Type": "String"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "-d",
+                  "Description": "Show extra debugging output",
+                  "Aliases": [
+                    "--debug"
+                  ],
+                  "Arguments": []
+                }
+              ],
+              "Optional": true
+            },
+            {
+              "Arguments": [
+                {
+                  "Name": "fromVersion",
+                  "Description": "fromVersion",
+                  "Type": "String"
+                }
+              ]
+            },
+            {
+              "Arguments": [
+                {
+                  "Name": "toVersion",
+                  "Description": "toVersion",
+                  "Type": "String"
+                }
+              ]
+            },
+            {
+              "Arguments": [
+                {
+                  "Name": "percent",
+                  "Description": "percent",
+                  "Type": "String"
+                }
+              ],
+              "Optional": true
+            }
+          ]
+        },
+        {
+          "Name": "promote",
+          "Description": "Promote a specific version to public access",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "-d",
+                  "Description": "Show extra debugging output",
+                  "Aliases": [
+                    "--debug"
+                  ],
+                  "Arguments": []
+                }
+              ],
+              "Optional": true
+            },
+            {
+              "Arguments": [
+                {
+                  "Name": "version",
+                  "Description": "version",
+                  "Type": "String"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "Name": "push",
+          "Description": "Build and upload the current integration",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "--disable-dependency-detection",
+                  "Description": "Disable \u0022smart\u0022 file inclusion. By default, Zapier only includes files that are required by \u0060index.js\u0060. If you (or your dependencies) require files dynamically (such as with \u0060require(someVar)\u0060), then you may see \u0022Cannot find module\u0022 errors. Disabling this may make your \u0060build.zip\u0060 too large. If that\u0027s the case, try using the \u0060includeInBuild\u0060 option in your \u0060.zapierapprc\u0060. See the docs about \u0060includeInBuild\u0060 for more info",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "-d",
+                  "Description": "Show extra debugging output",
+                  "Aliases": [
+                    "--debug"
+                  ],
+                  "Arguments": []
+                }
+              ],
+              "Optional": true
+            }
+          ]
+        },
+        {
+          "Name": "register",
+          "Description": "Register a new integration in your account",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "-d",
+                  "Description": "Show extra debugging output",
+                  "Aliases": [
+                    "--debug"
+                  ],
+                  "Arguments": []
+                }
+              ],
+              "Optional": true
+            },
+            {
+              "Arguments": [
+                {
+                  "Name": "title",
+                  "Description": "title",
+                  "Type": "String"
+                }
+              ],
+              "Optional": true
+            }
+          ]
+        },
+        {
+          "Name": "scaffold",
+          "Description": "Add a starting trigger, create, search, or resource to your integration",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "-d",
+                  "Description": "Specify the new file\u0027s directory. Use this flag when you want to create a different folder structure such as \u0060src/triggers\u0060 instead of the default \u0060triggers\u0060. Defaults to \u0060[triggers|searches|creates]/{noun}\u0060",
+                  "Aliases": [
+                    "--dest"
+                  ],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "dest",
+                          "Description": "dest",
+                          "Type": "Directory"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "--test-dest",
+                  "Description": "Specify the new test file\u0027s directory. Use this flag when you want to create a different folder structure such as \u0060src/triggers\u0060 instead of the default \u0060triggers\u0060. Defaults to \u0060test/[triggers|searches|creates]/{noun}\u0060",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "test-dest",
+                          "Description": "test-dest",
+                          "Type": "Directory"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "-e",
+                  "Description": "Supply the path to your integration\u0027s root (\u0060index.js\u0060). Only needed if your \u0060index.js\u0060 is in a subfolder, like \u0060src\u0060",
+                  "Aliases": [
+                    "--entry"
+                  ],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "entry",
+                          "Description": "entry",
+                          "Type": "FileSystemEntry"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "-f",
+                  "Description": "Should we overwrite an existing trigger/search/create file?",
+                  "Aliases": [
+                    "--force"
+                  ],
+                  "Arguments": []
+                },
+                {
+                  "Name": "--no-help",
+                  "Description": "When scaffolding, should we skip adding helpful intro comments? Useful if this isn\u0027t your first rodeo",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "-d",
+                  "Description": "Show extra debugging output",
+                  "Aliases": [
+                    "--debug"
+                  ],
+                  "Arguments": []
+                }
+              ],
+              "Optional": true
+            },
+            {
+              "Arguments": [
+                {
+                  "Name": "actionType",
+                  "Description": "actionType",
+                  "Type": "String"
+                },
+                {
+                  "Name": "trigger",
+                  "Description": "actionType"
+                },
+                {
+                  "Name": "search",
+                  "Description": "actionType"
+                },
+                {
+                  "Name": "create",
+                  "Description": "actionType"
+                },
+                {
+                  "Name": "resource",
+                  "Description": "actionType"
+                }
+              ]
+            },
+            {
+              "Arguments": [
+                {
+                  "Name": "noun",
+                  "Description": "noun",
+                  "Type": "String"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "Name": "team:add",
+          "Description": "Add a team member to your integration",
+          "Aliases": [
+            "team:invite"
+          ],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "-d",
+                  "Description": "Show extra debugging output",
+                  "Aliases": [
+                    "--debug"
+                  ],
+                  "Arguments": []
+                }
+              ],
+              "Optional": true
+            },
+            {
+              "Arguments": [
+                {
+                  "Name": "email",
+                  "Description": "email",
+                  "Type": "String"
+                }
+              ]
+            },
+            {
+              "Arguments": [
+                {
+                  "Name": "role",
+                  "Description": "role",
+                  "Type": "String"
+                },
+                {
+                  "Name": "admin",
+                  "Description": "role"
+                },
+                {
+                  "Name": "subscriber",
+                  "Description": "role"
+                }
+              ]
+            },
+            {
+              "Arguments": [
+                {
+                  "Name": "message",
+                  "Description": "message",
+                  "Type": "String"
+                }
+              ],
+              "Optional": true
+            }
+          ]
+        },
+        {
+          "Name": "team:get",
+          "Description": "Get team members involved with your integration",
+          "Aliases": [
+            "team:list"
+          ],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "-f",
+                  "Description": "Change the way structured data is presented. If \u0022json\u0022 or \u0022raw\u0022, you can pipe the output of the command into other tools, such as jq",
+                  "Aliases": [
+                    "--format"
+                  ],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "format",
+                          "Description": "format",
+                          "Type": "String"
+                        },
+                        {
+                          "Name": "plain",
+                          "Description": "format"
+                        },
+                        {
+                          "Name": "json",
+                          "Description": "format"
+                        },
+                        {
+                          "Name": "raw",
+                          "Description": "format"
+                        },
+                        {
+                          "Name": "row",
+                          "Description": "format"
+                        },
+                        {
+                          "Name": "table",
+                          "Description": "format"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "-d",
+                  "Description": "Show extra debugging output",
+                  "Aliases": [
+                    "--debug"
+                  ],
+                  "Arguments": []
+                }
+              ],
+              "Optional": true
+            }
+          ]
+        },
+        {
+          "Name": "team:remove",
+          "Description": "Remove a team member from all versions of your integration",
+          "Aliases": [
+            "team:delete"
+          ],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "-d",
+                  "Description": "Show extra debugging output",
+                  "Aliases": [
+                    "--debug"
+                  ],
+                  "Arguments": []
+                }
+              ],
+              "Optional": true
+            }
+          ]
+        },
+        {
+          "Name": "test",
+          "Description": "Test your integration via the \u0022test\u0022 script in your \u0022package.json\u0022",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "--skip-validate",
+                  "Description": "Forgo running \u0060zapier validate\u0060 before tests are run. This will speed up tests if you\u0027re modifying functionality of an existing integration rather than adding new actions",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "--yarn",
+                  "Description": "Use \u0060yarn\u0060 instead of \u0060npm\u0060. This happens automatically if there\u0027s a \u0060yarn.lock\u0060 file, but you can manually force \u0060yarn\u0060 if you run tests from a sub-directory",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "-d",
+                  "Description": "Show extra debugging output",
+                  "Aliases": [
+                    "--debug"
+                  ],
+                  "Arguments": []
+                }
+              ],
+              "Optional": true
+            }
+          ]
+        },
+        {
+          "Name": "upload",
+          "Description": "Upload the latest build of your integration to Zapier",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "-d",
+                  "Description": "Show extra debugging output",
+                  "Aliases": [
+                    "--debug"
+                  ],
+                  "Arguments": []
+                }
+              ],
+              "Optional": true
+            }
+          ]
+        },
+        {
+          "Name": "users:add",
+          "Description": "Add a user to some or all versions of your integration",
+          "Aliases": [
+            "users:invite"
+          ],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "-f",
+                  "Description": "Skip confirmation. Useful for running programmatically",
+                  "Aliases": [
+                    "--force"
+                  ],
+                  "Arguments": []
+                },
+                {
+                  "Name": "-d",
+                  "Description": "Show extra debugging output",
+                  "Aliases": [
+                    "--debug"
+                  ],
+                  "Arguments": []
+                }
+              ],
+              "Optional": true
+            },
+            {
+              "Arguments": [
+                {
+                  "Name": "email",
+                  "Description": "email",
+                  "Type": "String"
+                }
+              ]
+            },
+            {
+              "Arguments": [
+                {
+                  "Name": "version",
+                  "Description": "version",
+                  "Type": "String"
+                }
+              ],
+              "Optional": true
+            }
+          ]
+        },
+        {
+          "Name": "users:get",
+          "Description": "Get a list of users who have been invited to your integration",
+          "Aliases": [
+            "users:list"
+          ],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "-f",
+                  "Description": "Change the way structured data is presented. If \u0022json\u0022 or \u0022raw\u0022, you can pipe the output of the command into other tools, such as jq",
+                  "Aliases": [
+                    "--format"
+                  ],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "format",
+                          "Description": "format",
+                          "Type": "String"
+                        },
+                        {
+                          "Name": "plain",
+                          "Description": "format"
+                        },
+                        {
+                          "Name": "json",
+                          "Description": "format"
+                        },
+                        {
+                          "Name": "raw",
+                          "Description": "format"
+                        },
+                        {
+                          "Name": "row",
+                          "Description": "format"
+                        },
+                        {
+                          "Name": "table",
+                          "Description": "format"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "-d",
+                  "Description": "Show extra debugging output",
+                  "Aliases": [
+                    "--debug"
+                  ],
+                  "Arguments": []
+                }
+              ],
+              "Optional": true
+            }
+          ]
+        },
+        {
+          "Name": "users:links",
+          "Description": "Get a list of links that are used to invite users to your integration",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "-f",
+                  "Description": "Change the way structured data is presented. If \u0022json\u0022 or \u0022raw\u0022, you can pipe the output of the command into other tools, such as jq",
+                  "Aliases": [
+                    "--format"
+                  ],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "format",
+                          "Description": "format",
+                          "Type": "String"
+                        },
+                        {
+                          "Name": "plain",
+                          "Description": "format"
+                        },
+                        {
+                          "Name": "json",
+                          "Description": "format"
+                        },
+                        {
+                          "Name": "raw",
+                          "Description": "format"
+                        },
+                        {
+                          "Name": "row",
+                          "Description": "format"
+                        },
+                        {
+                          "Name": "table",
+                          "Description": "format"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "-d",
+                  "Description": "Show extra debugging output",
+                  "Aliases": [
+                    "--debug"
+                  ],
+                  "Arguments": []
+                }
+              ],
+              "Optional": true
+            }
+          ]
+        },
+        {
+          "Name": "users:remove",
+          "Description": "Remove a user from all versions of your integration",
+          "Aliases": [
+            "users:delete"
+          ],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "-f",
+                  "Description": "Skips confirmation. Useful for running programmatically",
+                  "Aliases": [
+                    "--force"
+                  ],
+                  "Arguments": []
+                },
+                {
+                  "Name": "-d",
+                  "Description": "Show extra debugging output",
+                  "Aliases": [
+                    "--debug"
+                  ],
+                  "Arguments": []
+                }
+              ],
+              "Optional": true
+            },
+            {
+              "Arguments": [
+                {
+                  "Name": "email",
+                  "Description": "email",
+                  "Type": "String"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "Name": "validate",
+          "Description": "Validate your integration",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "--without-style",
+                  "Description": "Forgo pinging the Zapier server to run further checks",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "-f",
+                  "Description": "Change the way structured data is presented. If \u0022json\u0022 or \u0022raw\u0022, you can pipe the output of the command into other tools, such as jq",
+                  "Aliases": [
+                    "--format"
+                  ],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "format",
+                          "Description": "format",
+                          "Type": "String"
+                        },
+                        {
+                          "Name": "plain",
+                          "Description": "format"
+                        },
+                        {
+                          "Name": "json",
+                          "Description": "format"
+                        },
+                        {
+                          "Name": "raw",
+                          "Description": "format"
+                        },
+                        {
+                          "Name": "row",
+                          "Description": "format"
+                        },
+                        {
+                          "Name": "table",
+                          "Description": "format"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "-d",
+                  "Description": "Show extra debugging output",
+                  "Aliases": [
+                    "--debug"
+                  ],
+                  "Arguments": []
+                }
+              ],
+              "Optional": true
+            }
+          ]
+        },
+        {
+          "Name": "versions",
+          "Description": "List the versions of your integration available for use in the Zapier editor",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "-f",
+                  "Description": "Change the way structured data is presented. If \u0022json\u0022 or \u0022raw\u0022, you can pipe the output of the command into other tools, such as jq",
+                  "Aliases": [
+                    "--format"
+                  ],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "format",
+                          "Description": "format",
+                          "Type": "String"
+                        },
+                        {
+                          "Name": "plain",
+                          "Description": "format"
+                        },
+                        {
+                          "Name": "json",
+                          "Description": "format"
+                        },
+                        {
+                          "Name": "raw",
+                          "Description": "format"
+                        },
+                        {
+                          "Name": "row",
+                          "Description": "format"
+                        },
+                        {
+                          "Name": "table",
+                          "Description": "format"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "-d",
+                  "Description": "Show extra debugging output",
+                  "Aliases": [
+                    "--debug"
+                  ],
+                  "Arguments": []
+                }
+              ],
+              "Optional": true
+            }
+          ]
+        },
+        {
+          "Name": "help",
+          "Description": "Display help for \u003C%= config.bin %\u003E",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "--all",
+                  "Description": "See all commands in CLI",
+                  "Aliases": [],
+                  "Arguments": []
+                }
+              ],
+              "Optional": true
+            },
+            {
+              "Arguments": [
+                {
+                  "Name": "command",
+                  "Description": "command",
+                  "Type": "String"
+                }
+              ],
+              "Optional": true
+            }
+          ]
+        }
+      ],
+      "DontAllowMultiple": true
+    }
+  ]
+}

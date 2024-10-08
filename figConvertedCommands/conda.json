@@ -1,0 +1,3040 @@
+{
+  "Comment": "This command info is generated from fig",
+  "Name": "conda",
+  "Description": "Conda package manager",
+  "Arguments": [
+    {
+      "Arguments": [
+        {
+          "Name": "-h",
+          "Description": "Show this help message and exit",
+          "Aliases": [
+            "--help"
+          ],
+          "Arguments": []
+        },
+        {
+          "Name": "-V",
+          "Description": "Show the conda version number and exit",
+          "Aliases": [
+            "--version"
+          ],
+          "Arguments": []
+        }
+      ],
+      "Optional": true
+    },
+    {
+      "Arguments": [
+        {
+          "Name": "activate",
+          "Description": "Activate an environment",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "--stack",
+                  "Description": "Stack the environment being activated on top of the previous active environment",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "--no-stack",
+                  "Description": "Do not stack the environment. Overrides \u0027auto_stack\u0027 setting",
+                  "Aliases": [],
+                  "Arguments": []
+                }
+              ],
+              "Optional": true
+            },
+            {
+              "Arguments": [
+                {
+                  "Name": "CustomArgument",
+                  "Description": "",
+                  "Type": "CustomArgument",
+                  "Extensions": [],
+                  "CustomCommand": "conda env list"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "Name": "deactivate",
+          "Description": "Deactivate an environment",
+          "Aliases": [],
+          "Arguments": []
+        },
+        {
+          "Name": "clean",
+          "Description": "Remove unused packages and caches",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "-a",
+                  "Description": "Remove index cache, lock files, unused cache packages, and tarballs",
+                  "Aliases": [
+                    "--all"
+                  ],
+                  "Arguments": []
+                },
+                {
+                  "Name": "-i",
+                  "Description": "Remove index cache",
+                  "Aliases": [
+                    "--index-cache"
+                  ],
+                  "Arguments": []
+                },
+                {
+                  "Name": "-p",
+                  "Description": "Remove unused packages from writable package caches",
+                  "Aliases": [
+                    "--packages"
+                  ],
+                  "Arguments": []
+                },
+                {
+                  "Name": "-t",
+                  "Description": "Remove cached package tarballs",
+                  "Aliases": [
+                    "--tarballs"
+                  ],
+                  "Arguments": []
+                },
+                {
+                  "Name": "-f",
+                  "Description": "Remove all writable package caches",
+                  "Aliases": [
+                    "--force-pkgs-dirs"
+                  ],
+                  "Arguments": []
+                },
+                {
+                  "Name": "-c",
+                  "Description": "Remove temporary files that could not be deleted earlier due to being in-use. Argument is path(s) to prefix(es) where files should be found and removed",
+                  "Aliases": [
+                    "--tempfiles"
+                  ],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "FileSystemEntry",
+                          "Description": "",
+                          "Type": "FileSystemEntry"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "-d",
+                  "Description": "Only display what would have been done",
+                  "Aliases": [
+                    "--dry-run"
+                  ],
+                  "Arguments": []
+                },
+                {
+                  "Name": "--json",
+                  "Description": "Report all output as json. Suitable for using conda programmatically",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "-q",
+                  "Description": "Do not display progress bar",
+                  "Aliases": [
+                    "--quiet"
+                  ],
+                  "Arguments": []
+                },
+                {
+                  "Name": "-v",
+                  "Description": "Can be used multiple times. Once for INFO, twice for DEBUG, three times for TRACE",
+                  "Aliases": [
+                    "--verbose"
+                  ],
+                  "Arguments": []
+                },
+                {
+                  "Name": "-y",
+                  "Description": "Do not ask for confirmation",
+                  "Aliases": [
+                    "--yes"
+                  ],
+                  "Arguments": []
+                }
+              ],
+              "Optional": true
+            },
+            {
+              "Arguments": [
+                {
+                  "Name": "String",
+                  "Description": "",
+                  "Type": "String"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "Name": "compare",
+          "Description": "Compare packages between conda environments",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "-n",
+                  "Description": "Name of environment",
+                  "Aliases": [
+                    "--name"
+                  ],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "Environment",
+                          "Description": "Environment",
+                          "Type": "String"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "-p",
+                  "Description": "Full path to environment location (i.e. prefix)",
+                  "Aliases": [
+                    "--prefix"
+                  ],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "path",
+                          "Description": "path",
+                          "Type": "FileSystemEntry"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "-h",
+                  "Description": "Show this help message and exit",
+                  "Aliases": [
+                    "--help"
+                  ],
+                  "Arguments": []
+                },
+                {
+                  "Name": "--json",
+                  "Description": "Report all output as json. Suitable for using conda programmatically",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "-v",
+                  "Description": "Use once for info, twice for debug, three times for trace",
+                  "Aliases": [
+                    "--verbose"
+                  ],
+                  "Arguments": []
+                },
+                {
+                  "Name": "-q",
+                  "Description": "Do not display progress bar",
+                  "Aliases": [
+                    "--quiet"
+                  ],
+                  "Arguments": []
+                }
+              ],
+              "Optional": true
+            },
+            {
+              "Arguments": [
+                {
+                  "Name": "file",
+                  "Description": "file",
+                  "Type": "FileSystemEntry"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "Name": "config",
+          "Description": "Modify configuration values in .condarc. This is modeled after the git config command. Writes to the user .condarc file by default",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "--json",
+                  "Description": "Report all output as json. Suitable for using conda programmatically",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "-v",
+                  "Description": "Use once for info, twice for debug, three times for trace",
+                  "Aliases": [
+                    "--verbose"
+                  ],
+                  "Arguments": []
+                },
+                {
+                  "Name": "-q",
+                  "Description": "Do not display progress bar",
+                  "Aliases": [
+                    "--quiet"
+                  ],
+                  "Arguments": []
+                },
+                {
+                  "Name": "--system",
+                  "Description": "Write to the system .condarc file at \u0027/home/docs/checkouts/readthedocs.org/user_builds/continuumio-conda/conda/latest/.condarc\u0027",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "--env",
+                  "Description": "Write to the active conda environment .condarc file (\u003Cno active environment\u003E). If no environment is active, write to the user config file (/home/docs/.condarc)",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "--file",
+                  "Description": "Write to the given file",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "Target File",
+                          "Description": "Target File",
+                          "Type": "FileSystemEntry"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "--show",
+                  "Description": "Display configuration values as calculated and compiled. If no arguments given, show information for all configuration values",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "Configuration values",
+                          "Description": "Configuration values",
+                          "Type": "CustomArgument",
+                          "Extensions": [],
+                          "CustomCommand": "conda config --show"
+                        }
+                      ],
+                      "Optional": true
+                    }
+                  ]
+                },
+                {
+                  "Name": "--show-sources",
+                  "Description": "Display all identified configuration sources",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "--validate",
+                  "Description": "Validate all configuration sources",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "--describe",
+                  "Description": "Describe given configuration parameters. If no arguments given, show information for all configuration parameters",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "Configuration values",
+                          "Description": "Configuration values",
+                          "Type": "CustomArgument",
+                          "Extensions": [],
+                          "CustomCommand": "conda config --show"
+                        }
+                      ],
+                      "Optional": true
+                    }
+                  ]
+                },
+                {
+                  "Name": "--write-default",
+                  "Description": "Write the default configuration to a file. Equivalent to conda config --describe \u003E ~/.condarc",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "--get",
+                  "Description": "Get a configuration value",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "key",
+                          "Description": "key",
+                          "Type": "String"
+                        }
+                      ],
+                      "Optional": true
+                    }
+                  ]
+                },
+                {
+                  "Name": "--append",
+                  "Description": "Add one configuration value to the end of a list key",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "key",
+                          "Description": "key",
+                          "Type": "String"
+                        }
+                      ]
+                    },
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "value",
+                          "Description": "value",
+                          "Type": "String"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "--prepend",
+                  "Description": "Add one configuration value to the beginning of a list key",
+                  "Aliases": [
+                    "--add"
+                  ],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "key",
+                          "Description": "key",
+                          "Type": "String"
+                        }
+                      ]
+                    },
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "value",
+                          "Description": "value",
+                          "Type": "String"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "--set",
+                  "Description": "Set a boolean or string key",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "key",
+                          "Description": "key",
+                          "Type": "String"
+                        }
+                      ]
+                    },
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "value",
+                          "Description": "value",
+                          "Type": "String"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "--remove",
+                  "Description": "Remove a configuration value from a list key. This removes all instances of the value",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "key",
+                          "Description": "key",
+                          "Type": "String"
+                        }
+                      ]
+                    },
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "value",
+                          "Description": "value",
+                          "Type": "String"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "--remove-key",
+                  "Description": "Remove a configuration key (and all its values)",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "key",
+                          "Description": "key",
+                          "Type": "String"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "--stdin",
+                  "Description": "Apply configuration information given in yaml format piped through stdin",
+                  "Aliases": [],
+                  "Arguments": []
+                }
+              ],
+              "Optional": true
+            }
+          ]
+        },
+        {
+          "Name": "create",
+          "Description": "Create a new conda environment from a list of specified packages",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "--clone",
+                  "Description": "Path to (or name of) existing local environment",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "CustomArgument",
+                          "Description": "",
+                          "Type": "CustomArgument",
+                          "Extensions": [],
+                          "CustomCommand": "conda env list"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "--file",
+                  "Description": "Read package versions from the given file. Repeated file specifications can be passed (e.g. --file=file1 --file=file2)",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "FileSystemEntry",
+                          "Description": "",
+                          "Type": "FileSystemEntry"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "--dev",
+                  "Description": "Use sys.executable -m conda in wrapper scripts instead of CONDA_EXE. This is mainly for use during tests where we test new conda source against old Python versions",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "-n",
+                  "Description": "Name of environment",
+                  "Aliases": [
+                    "--name"
+                  ],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "Environment",
+                          "Description": "Environment",
+                          "Type": "String"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "-p",
+                  "Description": "Full path to environment location (i.e. prefix)",
+                  "Aliases": [
+                    "--prefix"
+                  ],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "path",
+                          "Description": "path",
+                          "Type": "FileSystemEntry"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "-c",
+                  "Description": "They are given (including local directories using the \u0027file://\u0027 syntax or simply a path like \u0027/home/conda/mychan\u0027 or \u0027../mychan\u0027). Then, the defaults or channels from .condarc are searched (unless --override-channels is given). You can use \u0027defaults\u0027 to get the default packages for conda. You can also use any name and the .condarc channel_alias value will be prepended. The default channel_alias is http://conda.anaconda.org/",
+                  "Aliases": [
+                    "--channel"
+                  ],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "String",
+                          "Description": "",
+                          "Type": "String"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "--use-local",
+                  "Description": "Use locally built packages. Identical to \u0027-c local\u0027",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "--override-channels",
+                  "Description": "Do not search default or .condarc channels. Requires --channel",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "--repodata-fn",
+                  "Description": "Specify name of repodata on remote server. Conda will try whatever you specify, but will ultimately fall back to repodata.json if your specs are not satisfiable with what you specify here. This is used to employ repodata that is reduced in time scope. You may pass this flag more than once. Leftmost entries are tried first, and the fallback to repodata.json is added for you automatically",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "String",
+                          "Description": "",
+                          "Type": "String"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "--strict-channel-priority",
+                  "Description": "Packages in lower priority channels are not considered if a package with the same name appears in a higher priority channel",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "--no-channel-priority",
+                  "Description": "Package version takes precedence over channel priority. Overrides the value given by conda config --show channel_priority",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "--no-deps",
+                  "Description": "Do not install, update, remove, or change dependencies. This WILL lead to broken environments and inconsistent behavior. Use at your own risk",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "--only-deps",
+                  "Description": "Only install dependencies",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "--no-pin",
+                  "Description": "Ignore pinned file",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "--no-default-packages",
+                  "Description": "Ignore create_default_packages in the .condarc file",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "--copy",
+                  "Description": "Install all packages using copies instead of hard- or soft-linking",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "-C",
+                  "Description": "Use cache of channel index files, even if it has expired",
+                  "Aliases": [
+                    "--use-index-cache"
+                  ],
+                  "Arguments": []
+                },
+                {
+                  "Name": "-k",
+                  "Description": "Allow conda to perform insecure SSL connections and transfers. Equivalent to setting \u0027ssl_verify\u0027 to \u0027false\u0027",
+                  "Aliases": [
+                    "--insecure"
+                  ],
+                  "Arguments": []
+                },
+                {
+                  "Name": "--offline",
+                  "Description": "Offline mode. Don\u0027t connect to the Internet",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "-d",
+                  "Description": "Only display what would have been done",
+                  "Aliases": [
+                    "--dry-run"
+                  ],
+                  "Arguments": []
+                },
+                {
+                  "Name": "--json",
+                  "Description": "Report all output as json. Suitable for using conda programmatically",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "-q",
+                  "Description": "Do not display progress bar",
+                  "Aliases": [
+                    "--quiet"
+                  ],
+                  "Arguments": []
+                },
+                {
+                  "Name": "-v",
+                  "Description": "Can be used multiple times. Once for INFO, twice for DEBUG, three times for TRACE",
+                  "Aliases": [
+                    "--verbose"
+                  ],
+                  "Arguments": []
+                },
+                {
+                  "Name": "-y",
+                  "Description": "Do not ask for confirmation",
+                  "Aliases": [
+                    "--yes"
+                  ],
+                  "Arguments": []
+                },
+                {
+                  "Name": "--download-only",
+                  "Description": "Solve an environment and ensure package caches are populated, but exit prior to unlinking and linking packages into the prefix",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "--show-channel-urls",
+                  "Description": "Show channel urls. Overrides the value given by conda config --show show_channel_urls",
+                  "Aliases": [],
+                  "Arguments": []
+                }
+              ],
+              "Optional": true
+            },
+            {
+              "Arguments": [
+                {
+                  "Name": "package_spec",
+                  "Description": "package_spec",
+                  "Type": "String"
+                }
+              ],
+              "Optional": true
+            }
+          ]
+        },
+        {
+          "Name": "help",
+          "Description": "Displays a list of available conda commands and their help strings",
+          "Aliases": [],
+          "Arguments": []
+        },
+        {
+          "Name": "info",
+          "Description": "Display information about current conda install",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "-a",
+                  "Description": "Show all information",
+                  "Aliases": [
+                    "--all"
+                  ],
+                  "Arguments": []
+                },
+                {
+                  "Name": "--base",
+                  "Description": "Display base environment path",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "-e",
+                  "Description": "List all known conda environments",
+                  "Aliases": [
+                    "--envs"
+                  ],
+                  "Arguments": []
+                },
+                {
+                  "Name": "-s",
+                  "Description": "List environment variables",
+                  "Aliases": [
+                    "--system"
+                  ],
+                  "Arguments": []
+                },
+                {
+                  "Name": "--unsafe-channels",
+                  "Description": "Display list of channels with tokens exposed",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "--json",
+                  "Description": "Report all output as json. Suitable for using conda programmatically",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "-v",
+                  "Description": "Use once for info, twice for debug, three times for trace",
+                  "Aliases": [
+                    "--verbose"
+                  ],
+                  "Arguments": []
+                },
+                {
+                  "Name": "-q",
+                  "Description": "Do not display progress bar",
+                  "Aliases": [
+                    "--quiet"
+                  ],
+                  "Arguments": []
+                }
+              ],
+              "Optional": true
+            }
+          ]
+        },
+        {
+          "Name": "init",
+          "Description": "Initialize conda for shell interaction. [Experimental]",
+          "Aliases": [],
+          "Arguments": []
+        },
+        {
+          "Name": "install",
+          "Description": "Installs a list of packages into a specified conda environment",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "--revision",
+                  "Description": "Revert to the specified REVISION",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "String",
+                          "Description": "",
+                          "Type": "String"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "--file",
+                  "Description": "Read package versions from the given file. Repeated file specifications can be passed (e.g. --file=file1 --file=file2)",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "FileSystemEntry",
+                          "Description": "",
+                          "Type": "FileSystemEntry"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "--dev",
+                  "Description": "Use sys.executable -m conda in wrapper scripts instead of CONDA_EXE. This is mainly for use during tests where we test new conda source against old Python versions",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "-n",
+                  "Description": "Name of environment",
+                  "Aliases": [
+                    "--name"
+                  ],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "Environment",
+                          "Description": "Environment",
+                          "Type": "String"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "-p",
+                  "Description": "Full path to environment location (i.e. prefix)",
+                  "Aliases": [
+                    "--prefix"
+                  ],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "path",
+                          "Description": "path",
+                          "Type": "FileSystemEntry"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "-c",
+                  "Description": "They are given (including local directories using the \u0027file://\u0027 syntax or simply a path like \u0027/home/conda/mychan\u0027 or \u0027../mychan\u0027). Then, the defaults or channels from .condarc are searched (unless --override-channels is given). You can use \u0027defaults\u0027 to get the default packages for conda. You can also use any name and the .condarc channel_alias value will be prepended. The default channel_alias is http://conda.anaconda.org/",
+                  "Aliases": [
+                    "--channel"
+                  ],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "String",
+                          "Description": "",
+                          "Type": "String"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "--use-local",
+                  "Description": "Use locally built packages. Identical to \u0027-c local\u0027",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "--override-channels",
+                  "Description": "Do not search default or .condarc channels. Requires --channel",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "--repodata-fn",
+                  "Description": "Specify name of repodata on remote server. Conda will try whatever you specify, but will ultimately fall back to repodata.json if your specs are not satisfiable with what you specify here. This is used to employ repodata that is reduced in time scope. You may pass this flag more than once. Leftmost entries are tried first, and the fallback to repodata.json is added for you automatically",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "String",
+                          "Description": "",
+                          "Type": "String"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "--strict-channel-priority",
+                  "Description": "Packages in lower priority channels are not considered if a package with the same name appears in a higher priority channel",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "--no-channel-priority",
+                  "Description": "Package version takes precedence over channel priority. Overrides the value given by conda config --show channel_priority",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "--no-deps",
+                  "Description": "Do not install, update, remove, or change dependencies. This WILL lead to broken environments and inconsistent behavior. Use at your own risk",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "--only-deps",
+                  "Description": "Only install dependencies",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "--no-pin",
+                  "Description": "Ignore pinned file",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "--force-reinstall",
+                  "Description": "Ensure that any user-requested package for the current operation is uninstalled and reinstalled, even if that package already exists in the environment",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "--freeze-installed",
+                  "Description": "Do not update or change already-installed dependencies",
+                  "Aliases": [
+                    "--no-update-deps"
+                  ],
+                  "Arguments": []
+                },
+                {
+                  "Name": "--update-deps",
+                  "Description": "Update dependencies",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "-S",
+                  "Description": "Exit early and do not run the solver if the requested specs are satisfied. Also skips aggressive updates as configured by \u0027aggressive_update_packages\u0027. Similar to the default behavior of \u0027pip install\u0027",
+                  "Aliases": [
+                    "--satisfied-skip-solve"
+                  ],
+                  "Arguments": []
+                },
+                {
+                  "Name": "--update-all",
+                  "Description": "Update all installed packages in the environment",
+                  "Aliases": [
+                    "--all"
+                  ],
+                  "Arguments": []
+                },
+                {
+                  "Name": "--update-specs",
+                  "Description": "Update based on provided specifications",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "--copy",
+                  "Description": "Install all packages using copies instead of hard- or soft-linking",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "-m",
+                  "Description": "Create the environment directory if necessary",
+                  "Aliases": [
+                    "--mkdir"
+                  ],
+                  "Arguments": []
+                },
+                {
+                  "Name": "--clobber",
+                  "Description": "Allow clobbering of overlapping file paths within packages, and suppress related warnings",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "-C",
+                  "Description": "Use cache of channel index files, even if it has expired",
+                  "Aliases": [
+                    "--use-index-cache"
+                  ],
+                  "Arguments": []
+                },
+                {
+                  "Name": "-k",
+                  "Description": "Allow conda to perform insecure SSL connections and transfers. Equivalent to setting \u0027ssl_verify\u0027 to \u0027false\u0027",
+                  "Aliases": [
+                    "--insecure"
+                  ],
+                  "Arguments": []
+                },
+                {
+                  "Name": "--offline",
+                  "Description": "Offline mode. Don\u0027t connect to the Internet",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "-d",
+                  "Description": "Only display what would have been done",
+                  "Aliases": [
+                    "--dry-run"
+                  ],
+                  "Arguments": []
+                },
+                {
+                  "Name": "--json",
+                  "Description": "Report all output as json. Suitable for using conda programmatically",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "-q",
+                  "Description": "Do not display progress bar",
+                  "Aliases": [
+                    "--quiet"
+                  ],
+                  "Arguments": []
+                },
+                {
+                  "Name": "-v",
+                  "Description": "Can be used multiple times. Once for INFO, twice for DEBUG, three times for TRACE",
+                  "Aliases": [
+                    "--verbose"
+                  ],
+                  "Arguments": []
+                },
+                {
+                  "Name": "-y",
+                  "Description": "Do not ask for confirmation",
+                  "Aliases": [
+                    "--yes"
+                  ],
+                  "Arguments": []
+                },
+                {
+                  "Name": "--download-only",
+                  "Description": "Solve an environment and ensure package caches are populated, but exit prior to unlinking and linking packages into the prefix",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "--show-channel-urls",
+                  "Description": "Show channel urls. Overrides the value given by conda config --show show_channel_urls",
+                  "Aliases": [],
+                  "Arguments": []
+                }
+              ],
+              "Optional": true
+            },
+            {
+              "Arguments": [
+                {
+                  "Name": "package spec",
+                  "Description": "package spec",
+                  "Type": "String"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "Name": "list",
+          "Description": "List linked packages in a conda environment",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "--show-channel-urls",
+                  "Description": "Show channel urls. Overrides the value given by conda config --show show_channel_urls",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "-c",
+                  "Description": "Output canonical names of packages only. Implies --no-pip",
+                  "Aliases": [
+                    "--canonical"
+                  ],
+                  "Arguments": []
+                },
+                {
+                  "Name": "-f",
+                  "Description": "Only search for full names, i.e., ^\u003Cregex\u003E$",
+                  "Aliases": [
+                    "--full-name"
+                  ],
+                  "Arguments": []
+                },
+                {
+                  "Name": "--explicit",
+                  "Description": "List explicitly all installed conda packaged with URL (output may be used by conda create --file)",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "--md5",
+                  "Description": "Add MD5 hashsum when using --explicit",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "-e",
+                  "Description": "Output requirement string only (output may be used by conda create --file)",
+                  "Aliases": [
+                    "--export"
+                  ],
+                  "Arguments": []
+                },
+                {
+                  "Name": "-r",
+                  "Description": "List the revision history and exit",
+                  "Aliases": [
+                    "--revisions"
+                  ],
+                  "Arguments": []
+                },
+                {
+                  "Name": "--no-pip",
+                  "Description": "Do not include pip-only installed packages",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "-n",
+                  "Description": "Name of environment",
+                  "Aliases": [
+                    "--name"
+                  ],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "Environment",
+                          "Description": "Environment",
+                          "Type": "String"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "-p",
+                  "Description": "Full path to environment location (i.e. prefix)",
+                  "Aliases": [
+                    "--prefix"
+                  ],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "path",
+                          "Description": "path",
+                          "Type": "FileSystemEntry"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "--json",
+                  "Description": "Report all output as json. Suitable for using conda programmatically",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "-v",
+                  "Description": "Use once for info, twice for debug, three times for trace",
+                  "Aliases": [
+                    "--verbose"
+                  ],
+                  "Arguments": []
+                },
+                {
+                  "Name": "-q",
+                  "Description": "Do not display progress bar",
+                  "Aliases": [
+                    "--quiet"
+                  ],
+                  "Arguments": []
+                }
+              ],
+              "Optional": true
+            },
+            {
+              "Arguments": [
+                {
+                  "Name": "regex",
+                  "Description": "regex",
+                  "Type": "String"
+                }
+              ],
+              "Optional": true
+            }
+          ]
+        },
+        {
+          "Name": "package",
+          "Description": "Low-level conda package utility. (EXPERIMENTAL)",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "-w",
+                  "Description": "Given some PATH print which conda package the file came from",
+                  "Aliases": [
+                    "--which"
+                  ],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "Path",
+                          "Description": "Path",
+                          "Type": "String"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "-r",
+                  "Description": "Remove all untracked files and exit",
+                  "Aliases": [
+                    "--reset"
+                  ],
+                  "Arguments": []
+                },
+                {
+                  "Name": "-u",
+                  "Description": "Display all untracked files and exit",
+                  "Aliases": [
+                    "--untracked"
+                  ],
+                  "Arguments": []
+                },
+                {
+                  "Name": "--pkg-name",
+                  "Description": "Package name of the created package",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "String",
+                          "Description": "",
+                          "Type": "String"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "--pkg-version",
+                  "Description": "Package version of the created package",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "String",
+                          "Description": "",
+                          "Type": "String"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "--pkg-build",
+                  "Description": "Package build number of the created package",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "String",
+                          "Description": "",
+                          "Type": "String"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "-n",
+                  "Description": "Name of environment",
+                  "Aliases": [
+                    "--name"
+                  ],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "Environment",
+                          "Description": "Environment",
+                          "Type": "String"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "-p",
+                  "Description": "Full path to environment location (i.e. prefix)",
+                  "Aliases": [
+                    "--prefix"
+                  ],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "path",
+                          "Description": "path",
+                          "Type": "FileSystemEntry"
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ],
+              "Optional": true
+            }
+          ]
+        },
+        {
+          "Name": "remove",
+          "Description": "Remove a list of packages from a specified conda environment",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "--dev",
+                  "Description": "Use sys.executable -m conda in wrapper scripts instead of CONDA_EXE. This is mainly for use during tests where we test new conda source against old Python versions",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "-n",
+                  "Description": "Name of environment",
+                  "Aliases": [
+                    "--name"
+                  ],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "Environment",
+                          "Description": "Environment",
+                          "Type": "String"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "-p",
+                  "Description": "Full path to environment location (i.e. prefix)",
+                  "Aliases": [
+                    "--prefix"
+                  ],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "path",
+                          "Description": "path",
+                          "Type": "FileSystemEntry"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "-c",
+                  "Description": "They are given (including local directories using the \u0027file://\u0027 syntax or simply a path like \u0027/home/conda/mychan\u0027 or \u0027../mychan\u0027). Then, the defaults or channels from .condarc are searched (unless --override-channels is given). You can use \u0027defaults\u0027 to get the default packages for conda. You can also use any name and the .condarc channel_alias value will be prepended. The default channel_alias is http://conda.anaconda.org/",
+                  "Aliases": [
+                    "--channel"
+                  ],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "String",
+                          "Description": "",
+                          "Type": "String"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "--use-local",
+                  "Description": "Use locally built packages. Identical to \u0027-c local\u0027",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "--override-channels",
+                  "Description": "Do not search default or .condarc channels. Requires --channel",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "--repodata-fn",
+                  "Description": "Specify name of repodata on remote server. Conda will try whatever you specify, but will ultimately fall back to repodata.json if your specs are not satisfiable with what you specify here. This is used to employ repodata that is reduced in time scope. You may pass this flag more than once. Leftmost entries are tried first, and the fallback to repodata.json is added for you automatically",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "String",
+                          "Description": "",
+                          "Type": "String"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "--all",
+                  "Description": "Remove all packages, i.e., the entire environment",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "--features",
+                  "Description": "Remove features (instead of packages)",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "--force-remove",
+                  "Description": "Forces removal of a package without removing packages that depend on it. Using this option will usually leave your environment in a broken and inconsistent state",
+                  "Aliases": [
+                    "--force"
+                  ],
+                  "Arguments": []
+                },
+                {
+                  "Name": "--no-pin",
+                  "Description": "Ignore pinned file",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "-C",
+                  "Description": "Use cache of channel index files, even if it has expired",
+                  "Aliases": [
+                    "--use-index-cache"
+                  ],
+                  "Arguments": []
+                },
+                {
+                  "Name": "-k",
+                  "Description": "Allow conda to perform insecure SSL connections and transfers. Equivalent to setting \u0027ssl_verify\u0027 to \u0027false\u0027",
+                  "Aliases": [
+                    "--insecure"
+                  ],
+                  "Arguments": []
+                },
+                {
+                  "Name": "--offline",
+                  "Description": "Offline mode. Don\u0027t connect to the Internet",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "-d",
+                  "Description": "Only display what would have been done",
+                  "Aliases": [
+                    "--dry-run"
+                  ],
+                  "Arguments": []
+                },
+                {
+                  "Name": "--json",
+                  "Description": "Report all output as json. Suitable for using conda programmatically",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "-q",
+                  "Description": "Do not display progress bar",
+                  "Aliases": [
+                    "--quiet"
+                  ],
+                  "Arguments": []
+                },
+                {
+                  "Name": "-v",
+                  "Description": "Can be used multiple times. Once for INFO, twice for DEBUG, three times for TRACE",
+                  "Aliases": [
+                    "--verbose"
+                  ],
+                  "Arguments": []
+                },
+                {
+                  "Name": "-y",
+                  "Description": "Do not ask for confirmation",
+                  "Aliases": [
+                    "--yes"
+                  ],
+                  "Arguments": []
+                }
+              ],
+              "Optional": true
+            },
+            {
+              "Arguments": [
+                {
+                  "Name": "package name",
+                  "Description": "package name",
+                  "Type": "CustomArgument",
+                  "Extensions": [],
+                  "CustomCommand": "conda list"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "Name": "uninstall",
+          "Description": "Alias for conda remove",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "--dev",
+                  "Description": "Use sys.executable -m conda in wrapper scripts instead of CONDA_EXE. This is mainly for use during tests where we test new conda source against old Python versions",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "-n",
+                  "Description": "Name of environment",
+                  "Aliases": [
+                    "--name"
+                  ],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "Environment",
+                          "Description": "Environment",
+                          "Type": "String"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "-p",
+                  "Description": "Full path to environment location (i.e. prefix)",
+                  "Aliases": [
+                    "--prefix"
+                  ],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "path",
+                          "Description": "path",
+                          "Type": "FileSystemEntry"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "-c",
+                  "Description": "They are given (including local directories using the \u0027file://\u0027 syntax or simply a path like \u0027/home/conda/mychan\u0027 or \u0027../mychan\u0027). Then, the defaults or channels from .condarc are searched (unless --override-channels is given). You can use \u0027defaults\u0027 to get the default packages for conda. You can also use any name and the .condarc channel_alias value will be prepended. The default channel_alias is http://conda.anaconda.org/",
+                  "Aliases": [
+                    "--channel"
+                  ],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "String",
+                          "Description": "",
+                          "Type": "String"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "--use-local",
+                  "Description": "Use locally built packages. Identical to \u0027-c local\u0027",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "--override-channels",
+                  "Description": "Do not search default or .condarc channels. Requires --channel",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "--repodata-fn",
+                  "Description": "Specify name of repodata on remote server. Conda will try whatever you specify, but will ultimately fall back to repodata.json if your specs are not satisfiable with what you specify here. This is used to employ repodata that is reduced in time scope. You may pass this flag more than once. Leftmost entries are tried first, and the fallback to repodata.json is added for you automatically",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "String",
+                          "Description": "",
+                          "Type": "String"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "--all",
+                  "Description": "Remove all packages, i.e., the entire environment",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "--features",
+                  "Description": "Remove features (instead of packages)",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "--force-remove",
+                  "Description": "Forces removal of a package without removing packages that depend on it. Using this option will usually leave your environment in a broken and inconsistent state",
+                  "Aliases": [
+                    "--force"
+                  ],
+                  "Arguments": []
+                },
+                {
+                  "Name": "--no-pin",
+                  "Description": "Ignore pinned file",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "-C",
+                  "Description": "Use cache of channel index files, even if it has expired",
+                  "Aliases": [
+                    "--use-index-cache"
+                  ],
+                  "Arguments": []
+                },
+                {
+                  "Name": "-k",
+                  "Description": "Allow conda to perform insecure SSL connections and transfers. Equivalent to setting \u0027ssl_verify\u0027 to \u0027false\u0027",
+                  "Aliases": [
+                    "--insecure"
+                  ],
+                  "Arguments": []
+                },
+                {
+                  "Name": "--offline",
+                  "Description": "Offline mode. Don\u0027t connect to the Internet",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "-d",
+                  "Description": "Only display what would have been done",
+                  "Aliases": [
+                    "--dry-run"
+                  ],
+                  "Arguments": []
+                },
+                {
+                  "Name": "--json",
+                  "Description": "Report all output as json. Suitable for using conda programmatically",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "-q",
+                  "Description": "Do not display progress bar",
+                  "Aliases": [
+                    "--quiet"
+                  ],
+                  "Arguments": []
+                },
+                {
+                  "Name": "-v",
+                  "Description": "Can be used multiple times. Once for INFO, twice for DEBUG, three times for TRACE",
+                  "Aliases": [
+                    "--verbose"
+                  ],
+                  "Arguments": []
+                },
+                {
+                  "Name": "-y",
+                  "Description": "Do not ask for confirmation",
+                  "Aliases": [
+                    "--yes"
+                  ],
+                  "Arguments": []
+                }
+              ],
+              "Optional": true
+            },
+            {
+              "Arguments": [
+                {
+                  "Name": "package name",
+                  "Description": "package name",
+                  "Type": "CustomArgument",
+                  "Extensions": [],
+                  "CustomCommand": "conda list"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "Name": "run",
+          "Description": "Run an executable in a conda environment. [Experimental]",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "-n",
+                  "Description": "Name of environment",
+                  "Aliases": [
+                    "--name"
+                  ],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "Environment",
+                          "Description": "Environment",
+                          "Type": "String"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "-p",
+                  "Description": "Full path to environment location (i.e. prefix)",
+                  "Aliases": [
+                    "--prefix"
+                  ],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "path",
+                          "Description": "path",
+                          "Type": "FileSystemEntry"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "-v",
+                  "Description": "Use once for info, twice for debug, three times for trace",
+                  "Aliases": [
+                    "--verbose"
+                  ],
+                  "Arguments": []
+                },
+                {
+                  "Name": "--dev",
+                  "Description": "Sets \u0060CONDA_EXE\u0060 to \u0060python -m conda\u0060, assuming the CWD contains the root of conda development sources",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "--debug-wrapper-scripts",
+                  "Description": "When this is set, where implemented, the shell wrapper scripts will echo to stderr a lot of debugging information",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "--cwd",
+                  "Description": "Current working directory for command to run in. Defaults to cwd",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "String",
+                          "Description": "",
+                          "Type": "String"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "--no-capture-output",
+                  "Description": "Don\u0027t capture stdout/stderr",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "--live-stream",
+                  "Description": "Display the output for the subprocess stdout and stderr on real time",
+                  "Aliases": [],
+                  "Arguments": []
+                }
+              ],
+              "Optional": true
+            },
+            {
+              "Arguments": [
+                {
+                  "Name": "executable",
+                  "Description": "executable",
+                  "Type": "FileSystemEntry"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "Name": "search",
+          "Description": "Search for packages and display associated information. The input is a MatchSpec, a query language for conda packages. See examples below",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "--envs",
+                  "Description": "Search all of the current user\u0027s environments. If run as Administrator (on Windows) or UID 0 (on unix), search all known environments on the system",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "-i",
+                  "Description": "Provide detailed information about each package",
+                  "Aliases": [
+                    "--info"
+                  ],
+                  "Arguments": []
+                },
+                {
+                  "Name": "--subdir",
+                  "Description": "Search the given subdir. Should be formatted like \u0027osx-64\u0027, \u0027linux-32\u0027, \u0027win-64\u0027, and so on. The default is to search the current platform",
+                  "Aliases": [
+                    "--platform"
+                  ],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "String",
+                          "Description": "",
+                          "Type": "String"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "-c",
+                  "Description": "They are given (including local directories using the \u0027file://\u0027 syntax or simply a path like \u0027/home/conda/mychan\u0027 or \u0027../mychan\u0027). Then, the defaults or channels from .condarc are searched (unless --override-channels is given). You can use \u0027defaults\u0027 to get the default packages for conda. You can also use any name and the .condarc channel_alias value will be prepended. The default channel_alias is http://conda.anaconda.org/",
+                  "Aliases": [
+                    "--channel"
+                  ],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "String",
+                          "Description": "",
+                          "Type": "String"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "--use-local",
+                  "Description": "Use locally built packages. Identical to \u0027-c local\u0027",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "--override-channels",
+                  "Description": "Do not search default or .condarc channels. Requires --channel",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "--repodata-fn",
+                  "Description": "Specify name of repodata on remote server. Conda will try whatever you specify, but will ultimately fall back to repodata.json if your specs are not satisfiable with what you specify here. This is used to employ repodata that is reduced in time scope. You may pass this flag more than once. Leftmost entries are tried first, and the fallback to repodata.json is added for you automatically",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "String",
+                          "Description": "",
+                          "Type": "String"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "-C",
+                  "Description": "Use cache of channel index files, even if it has expired",
+                  "Aliases": [
+                    "--use-index-cache"
+                  ],
+                  "Arguments": []
+                },
+                {
+                  "Name": "-k",
+                  "Description": "Allow conda to perform insecure SSL connections and transfers. Equivalent to setting \u0027ssl_verify\u0027 to \u0027false\u0027",
+                  "Aliases": [
+                    "--insecure"
+                  ],
+                  "Arguments": []
+                },
+                {
+                  "Name": "--offline",
+                  "Description": "Offline mode. Don\u0027t connect to the Internet",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "--json",
+                  "Description": "Report all output as json. Suitable for using conda programmatically",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "-v",
+                  "Description": "Use once for info, twice for debug, three times for trace",
+                  "Aliases": [
+                    "--verbose"
+                  ],
+                  "Arguments": []
+                },
+                {
+                  "Name": "-q",
+                  "Description": "Do not display progress bar",
+                  "Aliases": [
+                    "--quiet"
+                  ],
+                  "Arguments": []
+                }
+              ],
+              "Optional": true
+            },
+            {
+              "Arguments": [
+                {
+                  "Name": "query",
+                  "Description": "query",
+                  "Type": "String"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "Name": "update",
+          "Description": "Updates conda packages to the latest compatible version",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "--file",
+                  "Description": "Read package versions from the given file. Repeated file specifications can be passed (e.g. --file=file1 --file=file2)",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "FileSystemEntry",
+                          "Description": "",
+                          "Type": "FileSystemEntry"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "-n",
+                  "Description": "Name of environment",
+                  "Aliases": [
+                    "--name"
+                  ],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "Environment",
+                          "Description": "Environment",
+                          "Type": "String"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "-p",
+                  "Description": "Full path to environment location (i.e. prefix)",
+                  "Aliases": [
+                    "--prefix"
+                  ],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "path",
+                          "Description": "path",
+                          "Type": "FileSystemEntry"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "-c",
+                  "Description": "They are given (including local directories using the \u0027file://\u0027 syntax or simply a path like \u0027/home/conda/mychan\u0027 or \u0027../mychan\u0027). Then, the defaults or channels from .condarc are searched (unless --override-channels is given). You can use \u0027defaults\u0027 to get the default packages for conda. You can also use any name and the .condarc channel_alias value will be prepended. The default channel_alias is http://conda.anaconda.org/",
+                  "Aliases": [
+                    "--channel"
+                  ],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "String",
+                          "Description": "",
+                          "Type": "String"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "--use-local",
+                  "Description": "Use locally built packages. Identical to \u0027-c local\u0027",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "--override-channels",
+                  "Description": "Do not search default or .condarc channels. Requires --channel",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "--repodata-fn",
+                  "Description": "Specify name of repodata on remote server. Conda will try whatever you specify, but will ultimately fall back to repodata.json if your specs are not satisfiable with what you specify here. This is used to employ repodata that is reduced in time scope. You may pass this flag more than once. Leftmost entries are tried first, and the fallback to repodata.json is added for you automatically",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "String",
+                          "Description": "",
+                          "Type": "String"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "--strict-channel-priority",
+                  "Description": "Packages in lower priority channels are not considered if a package with the same name appears in a higher priority channel",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "--no-channel-priority",
+                  "Description": "Package version takes precedence over channel priority. Overrides the value given by conda config --show channel_priority",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "--no-deps",
+                  "Description": "Do not install, update, remove, or change dependencies. This WILL lead to broken environments and inconsistent behavior. Use at your own risk",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "--only-deps",
+                  "Description": "Only install dependencies",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "--no-pin",
+                  "Description": "Ignore pinned file",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "--force-reinstall",
+                  "Description": "Ensure that any user-requested package for the current operation is uninstalled and reinstalled, even if that package already exists in the environment",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "--freeze-installed",
+                  "Description": "Do not update or change already-installed dependencies",
+                  "Aliases": [
+                    "--no-update-deps"
+                  ],
+                  "Arguments": []
+                },
+                {
+                  "Name": "--update-deps",
+                  "Description": "Update dependencies",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "-S",
+                  "Description": "Exit early and do not run the solver if the requested specs are satisfied. Also skips aggressive updates as configured by \u0027aggressive_update_packages\u0027. Similar to the default behavior of \u0027pip install\u0027",
+                  "Aliases": [
+                    "--satisfied-skip-solve"
+                  ],
+                  "Arguments": []
+                },
+                {
+                  "Name": "--update-all",
+                  "Description": "Update all installed packages in the environment",
+                  "Aliases": [
+                    "--all"
+                  ],
+                  "Arguments": []
+                },
+                {
+                  "Name": "--update-specs",
+                  "Description": "Update based on provided specifications",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "--copy",
+                  "Description": "Install all packages using copies instead of hard- or soft-linking",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "--clobber",
+                  "Description": "Allow clobbering of overlapping file paths within packages, and suppress related warnings",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "-C",
+                  "Description": "Use cache of channel index files, even if it has expired",
+                  "Aliases": [
+                    "--use-index-cache"
+                  ],
+                  "Arguments": []
+                },
+                {
+                  "Name": "-k",
+                  "Description": "Allow conda to perform insecure SSL connections and transfers. Equivalent to setting \u0027ssl_verify\u0027 to \u0027false\u0027",
+                  "Aliases": [
+                    "--insecure"
+                  ],
+                  "Arguments": []
+                },
+                {
+                  "Name": "--offline",
+                  "Description": "Offline mode. Don\u0027t connect to the Internet",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "-d",
+                  "Description": "Only display what would have been done",
+                  "Aliases": [
+                    "--dry-run"
+                  ],
+                  "Arguments": []
+                },
+                {
+                  "Name": "--json",
+                  "Description": "Report all output as json. Suitable for using conda programmatically",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "-q",
+                  "Description": "Do not display progress bar",
+                  "Aliases": [
+                    "--quiet"
+                  ],
+                  "Arguments": []
+                },
+                {
+                  "Name": "-v",
+                  "Description": "Can be used multiple times. Once for INFO, twice for DEBUG, three times for TRACE",
+                  "Aliases": [
+                    "--verbose"
+                  ],
+                  "Arguments": []
+                },
+                {
+                  "Name": "-y",
+                  "Description": "Do not ask for confirmation",
+                  "Aliases": [
+                    "--yes"
+                  ],
+                  "Arguments": []
+                },
+                {
+                  "Name": "--download-only",
+                  "Description": "Solve an environment and ensure package caches are populated, but exit prior to unlinking and linking packages into the prefix",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "--show-channel-urls",
+                  "Description": "Show channel urls. Overrides the value given by conda config --show show_channel_urls",
+                  "Aliases": [],
+                  "Arguments": []
+                }
+              ],
+              "Optional": true
+            },
+            {
+              "Arguments": [
+                {
+                  "Name": "package",
+                  "Description": "package",
+                  "Type": "CustomArgument",
+                  "Extensions": [],
+                  "CustomCommand": "conda list"
+                },
+                {
+                  "Name": "conda",
+                  "Description": "Update conda"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "Name": "upgrade",
+          "Description": "Alias for conda update",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "--file",
+                  "Description": "Read package versions from the given file. Repeated file specifications can be passed (e.g. --file=file1 --file=file2)",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "FileSystemEntry",
+                          "Description": "",
+                          "Type": "FileSystemEntry"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "-n",
+                  "Description": "Name of environment",
+                  "Aliases": [
+                    "--name"
+                  ],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "Environment",
+                          "Description": "Environment",
+                          "Type": "String"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "-p",
+                  "Description": "Full path to environment location (i.e. prefix)",
+                  "Aliases": [
+                    "--prefix"
+                  ],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "path",
+                          "Description": "path",
+                          "Type": "FileSystemEntry"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "-c",
+                  "Description": "They are given (including local directories using the \u0027file://\u0027 syntax or simply a path like \u0027/home/conda/mychan\u0027 or \u0027../mychan\u0027). Then, the defaults or channels from .condarc are searched (unless --override-channels is given). You can use \u0027defaults\u0027 to get the default packages for conda. You can also use any name and the .condarc channel_alias value will be prepended. The default channel_alias is http://conda.anaconda.org/",
+                  "Aliases": [
+                    "--channel"
+                  ],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "String",
+                          "Description": "",
+                          "Type": "String"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "--use-local",
+                  "Description": "Use locally built packages. Identical to \u0027-c local\u0027",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "--override-channels",
+                  "Description": "Do not search default or .condarc channels. Requires --channel",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "--repodata-fn",
+                  "Description": "Specify name of repodata on remote server. Conda will try whatever you specify, but will ultimately fall back to repodata.json if your specs are not satisfiable with what you specify here. This is used to employ repodata that is reduced in time scope. You may pass this flag more than once. Leftmost entries are tried first, and the fallback to repodata.json is added for you automatically",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "String",
+                          "Description": "",
+                          "Type": "String"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "--strict-channel-priority",
+                  "Description": "Packages in lower priority channels are not considered if a package with the same name appears in a higher priority channel",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "--no-channel-priority",
+                  "Description": "Package version takes precedence over channel priority. Overrides the value given by conda config --show channel_priority",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "--no-deps",
+                  "Description": "Do not install, update, remove, or change dependencies. This WILL lead to broken environments and inconsistent behavior. Use at your own risk",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "--only-deps",
+                  "Description": "Only install dependencies",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "--no-pin",
+                  "Description": "Ignore pinned file",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "--force-reinstall",
+                  "Description": "Ensure that any user-requested package for the current operation is uninstalled and reinstalled, even if that package already exists in the environment",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "--freeze-installed",
+                  "Description": "Do not update or change already-installed dependencies",
+                  "Aliases": [
+                    "--no-update-deps"
+                  ],
+                  "Arguments": []
+                },
+                {
+                  "Name": "--update-deps",
+                  "Description": "Update dependencies",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "-S",
+                  "Description": "Exit early and do not run the solver if the requested specs are satisfied. Also skips aggressive updates as configured by \u0027aggressive_update_packages\u0027. Similar to the default behavior of \u0027pip install\u0027",
+                  "Aliases": [
+                    "--satisfied-skip-solve"
+                  ],
+                  "Arguments": []
+                },
+                {
+                  "Name": "--update-all",
+                  "Description": "Update all installed packages in the environment",
+                  "Aliases": [
+                    "--all"
+                  ],
+                  "Arguments": []
+                },
+                {
+                  "Name": "--update-specs",
+                  "Description": "Update based on provided specifications",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "--copy",
+                  "Description": "Install all packages using copies instead of hard- or soft-linking",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "--clobber",
+                  "Description": "Allow clobbering of overlapping file paths within packages, and suppress related warnings",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "-C",
+                  "Description": "Use cache of channel index files, even if it has expired",
+                  "Aliases": [
+                    "--use-index-cache"
+                  ],
+                  "Arguments": []
+                },
+                {
+                  "Name": "-k",
+                  "Description": "Allow conda to perform insecure SSL connections and transfers. Equivalent to setting \u0027ssl_verify\u0027 to \u0027false\u0027",
+                  "Aliases": [
+                    "--insecure"
+                  ],
+                  "Arguments": []
+                },
+                {
+                  "Name": "--offline",
+                  "Description": "Offline mode. Don\u0027t connect to the Internet",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "-d",
+                  "Description": "Only display what would have been done",
+                  "Aliases": [
+                    "--dry-run"
+                  ],
+                  "Arguments": []
+                },
+                {
+                  "Name": "--json",
+                  "Description": "Report all output as json. Suitable for using conda programmatically",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "-q",
+                  "Description": "Do not display progress bar",
+                  "Aliases": [
+                    "--quiet"
+                  ],
+                  "Arguments": []
+                },
+                {
+                  "Name": "-v",
+                  "Description": "Can be used multiple times. Once for INFO, twice for DEBUG, three times for TRACE",
+                  "Aliases": [
+                    "--verbose"
+                  ],
+                  "Arguments": []
+                },
+                {
+                  "Name": "-y",
+                  "Description": "Do not ask for confirmation",
+                  "Aliases": [
+                    "--yes"
+                  ],
+                  "Arguments": []
+                },
+                {
+                  "Name": "--download-only",
+                  "Description": "Solve an environment and ensure package caches are populated, but exit prior to unlinking and linking packages into the prefix",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "--show-channel-urls",
+                  "Description": "Show channel urls. Overrides the value given by conda config --show show_channel_urls",
+                  "Aliases": [],
+                  "Arguments": []
+                }
+              ],
+              "Optional": true
+            },
+            {
+              "Arguments": [
+                {
+                  "Name": "package",
+                  "Description": "package",
+                  "Type": "CustomArgument",
+                  "Extensions": [],
+                  "CustomCommand": "conda list"
+                },
+                {
+                  "Name": "conda",
+                  "Description": "Update conda"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "Name": "build",
+          "Description": "",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "String",
+                  "Description": "",
+                  "Type": "String"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "Name": "convert",
+          "Description": "Various tools to convert conda packages. Takes a pure Python package build for one platform and converts it to work on one or more other platforms, or all",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "-h",
+                  "Description": "Show this help message and exit",
+                  "Aliases": [
+                    "--help"
+                  ],
+                  "Arguments": []
+                },
+                {
+                  "Name": "-p",
+                  "Description": "Platform to convert the packages to",
+                  "Aliases": [
+                    "--platform"
+                  ],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "String",
+                          "Description": "",
+                          "Type": "String"
+                        },
+                        {
+                          "Name": "osx-64",
+                          "Description": ""
+                        },
+                        {
+                          "Name": "osx-arm64",
+                          "Description": ""
+                        },
+                        {
+                          "Name": "linux-32",
+                          "Description": ""
+                        },
+                        {
+                          "Name": "linux-64",
+                          "Description": ""
+                        },
+                        {
+                          "Name": "linux-ppc64",
+                          "Description": ""
+                        },
+                        {
+                          "Name": "linux-ppc64le",
+                          "Description": ""
+                        },
+                        {
+                          "Name": "linux-s390x",
+                          "Description": ""
+                        },
+                        {
+                          "Name": "linux-armv6l",
+                          "Description": ""
+                        },
+                        {
+                          "Name": "linux-armv7l",
+                          "Description": ""
+                        },
+                        {
+                          "Name": "linux-aarch64",
+                          "Description": ""
+                        },
+                        {
+                          "Name": "win-32",
+                          "Description": ""
+                        },
+                        {
+                          "Name": "win-64",
+                          "Description": ""
+                        },
+                        {
+                          "Name": "all",
+                          "Description": ""
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "--dependencies",
+                  "Description": "Additional (besides python) dependencies of the converted package",
+                  "Aliases": [
+                    "-d"
+                  ],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "Dependencies",
+                          "Description": "Dependencies",
+                          "Type": "String"
+                        }
+                      ],
+                      "Optional": true
+                    }
+                  ]
+                },
+                {
+                  "Name": "--show-imports",
+                  "Description": "Show Python imports for compiled parts of the package",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "-f",
+                  "Description": "Force convert, even when a package has compiled C extensions",
+                  "Aliases": [
+                    "--force"
+                  ],
+                  "Arguments": []
+                },
+                {
+                  "Name": "-o",
+                  "Description": "Directory to write the output files. The packages will be organized in platform/ subdirectories, e.g., win-32/package-1.0-py27_0.tar.bz2",
+                  "Aliases": [
+                    "--output-dir"
+                  ],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "Output Directory",
+                          "Description": "Output Directory",
+                          "Type": "String"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "-v",
+                  "Description": "Print verbose output",
+                  "Aliases": [
+                    "--verbose"
+                  ],
+                  "Arguments": []
+                },
+                {
+                  "Name": "--dry-run",
+                  "Description": "Only display what would have been done",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "-q",
+                  "Description": "Don\u0027t print as much output",
+                  "Aliases": [
+                    "--quiet"
+                  ],
+                  "Arguments": []
+                }
+              ],
+              "Optional": true
+            },
+            {
+              "Arguments": [
+                {
+                  "Name": "files",
+                  "Description": "files",
+                  "Type": "FileSystemEntry"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "Name": "debug",
+          "Description": "",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "String",
+                  "Description": "",
+                  "Type": "String"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "Name": "develop",
+          "Description": "",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "String",
+                  "Description": "",
+                  "Type": "String"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "Name": "env",
+          "Description": "",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "String",
+                  "Description": "",
+                  "Type": "String"
+                }
+              ]
+            },
+            {
+              "Arguments": [
+                {
+                  "Name": "list",
+                  "Description": "",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "remove",
+                  "Description": "",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "n",
+                          "Description": "",
+                          "Type": "Flag",
+                          "Aliases": [],
+                          "Arguments": [
+                            {
+                              "Arguments": [
+                                {
+                                  "Name": "environment variable",
+                                  "Description": "environment variable",
+                                  "Type": "String"
+                                }
+                              ]
+                            }
+                          ]
+                        }
+                      ],
+                      "Optional": true
+                    }
+                  ]
+                }
+              ],
+              "DontAllowMultiple": true
+            }
+          ]
+        },
+        {
+          "Name": "index",
+          "Description": "",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "String",
+                  "Description": "",
+                  "Type": "String"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "Name": "inspect",
+          "Description": "",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "String",
+                  "Description": "",
+                  "Type": "String"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "Name": "metapackage",
+          "Description": "",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "String",
+                  "Description": "",
+                  "Type": "String"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "Name": "render",
+          "Description": "",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "String",
+                  "Description": "",
+                  "Type": "String"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "Name": "server",
+          "Description": "",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "String",
+                  "Description": "",
+                  "Type": "String"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "Name": "skeleton",
+          "Description": "",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "String",
+                  "Description": "",
+                  "Type": "String"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "Name": "verify",
+          "Description": "",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "String",
+                  "Description": "",
+                  "Type": "String"
+                }
+              ]
+            }
+          ]
+        }
+      ],
+      "DontAllowMultiple": true
+    }
+  ]
+}

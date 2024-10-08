@@ -1,0 +1,365 @@
+{
+  "Comment": "This command info is generated from fig",
+  "Name": "codesign",
+  "Description": "Create and manipulate code signatures",
+  "Arguments": [
+    {
+      "Arguments": [
+        {
+          "Name": "--all-architectures",
+          "Description": "When verifying a code signature on code that has a universal (\u0027fat\u0027) Mach-O binary, separately verify each architecture contained. This is the default unless overridden with the -a (--architecture) option",
+          "Aliases": [],
+          "Arguments": []
+        },
+        {
+          "Name": "-a",
+          "Description": "When verifying or displaying signatures, explicitly select the Mach-O architecture given",
+          "Aliases": [
+            "--architecture"
+          ],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "architecture",
+                  "Description": "architecture",
+                  "Type": "String"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "Name": "--bundle-version",
+          "Description": "When handling versioned bundles such as frameworks, explicitly specify the version to operate on",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "version-string",
+                  "Description": "version-string",
+                  "Type": "String"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "Name": "-d",
+          "Description": "Display information about the code at the path(s) given",
+          "Aliases": [
+            "--display"
+          ],
+          "Arguments": []
+        },
+        {
+          "Name": "-D",
+          "Description": "When signing, designates that a detached signature should be written to the specified file",
+          "Aliases": [
+            "--detached"
+          ],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "file",
+                  "Description": "file",
+                  "Type": "FileSystemEntry"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "Name": "--deep",
+          "Description": "When signing a bundle, specifies that nested code content such as helpers, frameworks, and plug-ins, should be recursively signed in turn. Beware that all signing options you specify will apply, in turn, to such nested content",
+          "Aliases": [],
+          "Arguments": []
+        },
+        {
+          "Name": "--detached-database",
+          "Description": "When signing, specifies that a detached signature should be generated as with the --detached option, but that the resulting signature should be written into a system database, from where it is made automatically available whenever apparently unsigned code is validated on the system",
+          "Aliases": [],
+          "Arguments": []
+        },
+        {
+          "Name": "-f",
+          "Description": "When signing, causes codesign to replace any existing signature on the path(s) given",
+          "Aliases": [
+            "--force"
+          ],
+          "Arguments": []
+        },
+        {
+          "Name": "-h",
+          "Description": "Constructs and prints the hosting chain of a running program",
+          "Aliases": [
+            "--hosting"
+          ],
+          "Arguments": []
+        },
+        {
+          "Name": "-i",
+          "Description": "During signing, explicitly specify the unique identifier string that is embedded in code signatures",
+          "Aliases": [
+            "--identifier"
+          ],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "identifier",
+                  "Description": "identifier",
+                  "Type": "String"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "Name": "-o",
+          "Description": "During signing, specifies a set of option flags to be embedded in the code signature",
+          "Aliases": [
+            "--options"
+          ],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "version-string",
+                  "Description": "version-string",
+                  "Type": "String",
+                  "Extensions": [],
+                  "CustomCommand": ""
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "Name": "-P",
+          "Description": "Indicates the granularity of code signing. Pagesize must be a power of two",
+          "Aliases": [
+            "--pagesize"
+          ],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "size",
+                  "Description": "size",
+                  "Type": "String"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "Name": "-r",
+          "Description": "During signing, indicates that internal requirements should be embedded in the code path(s) as specified",
+          "Aliases": [
+            "--requirements"
+          ],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "requirements",
+                  "Description": "requirements",
+                  "Type": "String"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "Name": "-R",
+          "Description": "During verification, indicates that the path(s) given should be verified against the code requirement specified",
+          "Aliases": [
+            "--test-requirement"
+          ],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "requirement",
+                  "Description": "requirement",
+                  "Type": "String"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "Name": "-s",
+          "Description": "Sign the code at the path(s) given using this identity",
+          "Aliases": [
+            "--sign"
+          ],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "identity",
+                  "Description": "identity",
+                  "Type": "String"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "Name": "-v",
+          "Description": "Requests verification of code signatures",
+          "Aliases": [
+            "--verify"
+          ],
+          "Arguments": []
+        },
+        {
+          "Name": "--continue",
+          "Description": "Instructs codesign to continue processing path arguments even if processing one fails",
+          "Aliases": [],
+          "Arguments": []
+        },
+        {
+          "Name": "--dryrun",
+          "Description": "During signing, performs almost all signing operations, but does not actually write the result anywhere",
+          "Aliases": [],
+          "Arguments": []
+        },
+        {
+          "Name": "--entitlements",
+          "Description": "When signing, take the file at the given path and embed its contents in the signature as entitlement data",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "path",
+                  "Description": "path",
+                  "Type": "String"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "Name": "--extract-certificates",
+          "Description": "When displaying a signature, extract the certificates in the embedded certificate chain and write them to individual files",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "prefix",
+                  "Description": "prefix",
+                  "Type": "String"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "Name": "--file-list",
+          "Description": "When signing or displaying a signature, codesign writes to the given path a list of files that may have been modified as part of the signing process",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "file",
+                  "Description": "file",
+                  "Type": "FileSystemEntry"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "Name": "--ignore-resources",
+          "Description": "During static validation, do not validate the contents of the code\u0027s resources",
+          "Aliases": [],
+          "Arguments": []
+        },
+        {
+          "Name": "--keychain",
+          "Description": "During signing, only search for the signing identity in the keychain file specified",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "filename",
+                  "Description": "filename",
+                  "Type": "String"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "Name": "--prefix",
+          "Description": "If no explicit unique identifier is specified (using the -i option), and if the implicitly generated identifier does not contain any dot (.) characters, then the given string is prefixed to the identifier before use",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "prefix",
+                  "Description": "prefix",
+                  "Type": "String"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "Name": "--preserve-metadata=list",
+          "Description": "When re-signing code that is already signed, reuse some information from the old signature",
+          "Aliases": [],
+          "Arguments": []
+        },
+        {
+          "Name": "--resource-rules",
+          "Description": "During signing, this option overrides the default rules for identifying and collecting bundle resources and nested code to be sealed into the signature",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "file",
+                  "Description": "file",
+                  "Type": "File",
+                  "Extensions": [
+                    "plist"
+                  ],
+                  "CustomCommand": ""
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "Name": "--timestamp",
+          "Description": "During signing, requests that a timestamp authority server be contacted to authenticate the time of signing",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "URL",
+                  "Description": "URL",
+                  "Type": "String"
+                }
+              ],
+              "Optional": true
+            }
+          ]
+        }
+      ],
+      "Optional": true
+    }
+  ]
+}

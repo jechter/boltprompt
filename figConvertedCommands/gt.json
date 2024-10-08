@@ -1,0 +1,1305 @@
+{
+  "Comment": "This command info is generated from fig",
+  "Name": "gt",
+  "Description": "Graphite.dev CLI",
+  "Arguments": [
+    {
+      "Arguments": [
+        {
+          "Name": "--version",
+          "Description": "Show Graphite CLI version",
+          "Aliases": [],
+          "Arguments": []
+        },
+        {
+          "Name": "--help",
+          "Description": "Show help for Graphite CLI",
+          "Aliases": [
+            "-h"
+          ],
+          "Arguments": []
+        },
+        {
+          "Name": "--interactive",
+          "Description": "Prompt the user. Disable with --no-interactive",
+          "Aliases": [],
+          "Arguments": []
+        },
+        {
+          "Name": "--no-interactive",
+          "Description": "Run non interactive",
+          "Aliases": [],
+          "Arguments": []
+        },
+        {
+          "Name": "--quiet",
+          "Description": "Minimize output to the terminal. Implies --no-interactive",
+          "Aliases": [
+            "-q"
+          ],
+          "Arguments": []
+        },
+        {
+          "Name": "--verify",
+          "Description": "Run git hooks. Disable with --no-verify",
+          "Aliases": [],
+          "Arguments": []
+        },
+        {
+          "Name": "--no-verify",
+          "Description": "Disable git hooks",
+          "Aliases": [],
+          "Arguments": []
+        },
+        {
+          "Name": "--debug",
+          "Description": "Display debug output",
+          "Aliases": [],
+          "Arguments": []
+        },
+        {
+          "Name": "--cwd",
+          "Description": "Working directory in which to perform operations",
+          "Aliases": [],
+          "Arguments": []
+        }
+      ],
+      "Optional": true
+    },
+    {
+      "Arguments": [
+        {
+          "Name": "aliases",
+          "Description": "Edit your command aliases",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "--reset",
+                  "Description": "Reset your alias configuration",
+                  "Aliases": [],
+                  "Arguments": []
+                }
+              ],
+              "Optional": true
+            }
+          ]
+        },
+        {
+          "Name": "auth",
+          "Description": "Add your auth token to enable Graphite CLI to create and update your PRs on GitHub",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "--token",
+                  "Description": "Auth token. Get it from: https://app.graphite.dev/activate",
+                  "Aliases": [
+                    "-t"
+                  ],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "token",
+                          "Description": "token",
+                          "Type": "String"
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ],
+              "Optional": true
+            }
+          ]
+        },
+        {
+          "Name": "bottom",
+          "Description": "Switch to the first branch from trunk in the current stack",
+          "Aliases": [
+            "b"
+          ],
+          "Arguments": []
+        },
+        {
+          "Name": "changelog",
+          "Description": "Show the Graphite CLI changelog",
+          "Aliases": [],
+          "Arguments": []
+        },
+        {
+          "Name": "checkout",
+          "Description": "Switch to a branch. If no branch is provided, opens an interactive selector",
+          "Aliases": [
+            "co"
+          ],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "--show-untracked",
+                  "Description": "Include untracked branched in interactive selection",
+                  "Aliases": [
+                    "-u"
+                  ],
+                  "Arguments": []
+                }
+              ],
+              "Optional": true
+            },
+            {
+              "Arguments": [
+                {
+                  "Name": "branch",
+                  "Description": "branch",
+                  "Type": "String"
+                }
+              ],
+              "Optional": true
+            }
+          ]
+        },
+        {
+          "Name": "children",
+          "Description": "Show the children of the current branch",
+          "Aliases": [],
+          "Arguments": []
+        },
+        {
+          "Name": "completion",
+          "Description": "Set up bash or zsh tab completion",
+          "Aliases": [],
+          "Arguments": []
+        },
+        {
+          "Name": "config",
+          "Description": "Configure the Graphite CLI",
+          "Aliases": [],
+          "Arguments": []
+        },
+        {
+          "Name": "continue",
+          "Description": "Continues the most recent Graphite command halted by a merge conflict",
+          "Aliases": [
+            "cont"
+          ],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "--all",
+                  "Description": "Stage all changes before continuing",
+                  "Aliases": [
+                    "-a"
+                  ],
+                  "Arguments": []
+                }
+              ],
+              "Optional": true
+            }
+          ]
+        },
+        {
+          "Name": "create",
+          "Description": "Create a new branch stacked on top of the current branch and commit staged changes. If no branch name is specified but a commit message is passed, generate a branch name from the commit message",
+          "Aliases": [
+            "c"
+          ],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "--message",
+                  "Description": "Commit staged changes on the new branch with this message",
+                  "Aliases": [
+                    "-m"
+                  ],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "message",
+                          "Description": "message",
+                          "Type": "String"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "--all",
+                  "Description": "Stage all unstaged changes on the new branch with this message",
+                  "Aliases": [
+                    "-a"
+                  ],
+                  "Arguments": []
+                },
+                {
+                  "Name": "--patch",
+                  "Description": "Pick hunks to stage before committing",
+                  "Aliases": [
+                    "-p"
+                  ],
+                  "Arguments": []
+                },
+                {
+                  "Name": "--insert",
+                  "Description": "When true, any existing children of the current branch will become children of the new branch",
+                  "Aliases": [
+                    "-i"
+                  ],
+                  "Arguments": []
+                }
+              ],
+              "Optional": true
+            },
+            {
+              "Arguments": [
+                {
+                  "Name": "name",
+                  "Description": "name",
+                  "Type": "String"
+                }
+              ],
+              "Optional": true
+            }
+          ]
+        },
+        {
+          "Name": "dash",
+          "Description": "Open the web dashboard",
+          "Aliases": [],
+          "Arguments": []
+        },
+        {
+          "Name": "delete",
+          "Description": "Delete a branch and its corresponding Graphite metadata",
+          "Aliases": [
+            "dl"
+          ],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "--force",
+                  "Description": "Delete the branch even if it is not merged or closed",
+                  "Aliases": [
+                    "-f"
+                  ],
+                  "Arguments": []
+                }
+              ],
+              "Optional": true
+            },
+            {
+              "Arguments": [
+                {
+                  "Name": "name",
+                  "Description": "name",
+                  "Type": "String"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "Name": "docs",
+          "Description": "Show the Graphite CLI docs",
+          "Aliases": [],
+          "Arguments": []
+        },
+        {
+          "Name": "down",
+          "Description": "Switch to the parent of the current branch",
+          "Aliases": [
+            "d"
+          ],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "--steps",
+                  "Description": "The number of levels to traverse downstack",
+                  "Aliases": [
+                    "-n"
+                  ],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "steps",
+                          "Description": "steps",
+                          "Type": "String"
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ],
+              "Optional": true
+            },
+            {
+              "Arguments": [
+                {
+                  "Name": "steps",
+                  "Description": "steps",
+                  "Type": "String"
+                }
+              ],
+              "Optional": true
+            }
+          ]
+        },
+        {
+          "Name": "feedback",
+          "Description": "Commands for providing feedback and debug state",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "--print-debug-context",
+                  "Description": "Print a debug summary of your repository. Useful for creating bug report details",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "--with-debug-context",
+                  "Description": "Include a blob of json describing your repo\u0027s state to help with debugging. Run \u0027gt feedback debug-context\u0027 to see what would be included",
+                  "Aliases": [],
+                  "Arguments": []
+                }
+              ],
+              "Optional": true
+            },
+            {
+              "Arguments": [
+                {
+                  "Name": "message",
+                  "Description": "message",
+                  "Type": "String"
+                }
+              ],
+              "Optional": true
+            }
+          ]
+        },
+        {
+          "Name": "fish",
+          "Description": "Set up \u0027fish\u0027 tab completion",
+          "Aliases": [],
+          "Arguments": []
+        },
+        {
+          "Name": "fold",
+          "Description": "Fold a branch\u0027s changes into its parent, update dependencies of descendants of the new combined branch, and restack",
+          "Aliases": [
+            "f"
+          ],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "--keep",
+                  "Description": "Keeps the name of the current branch instead of using the name of its parent",
+                  "Aliases": [
+                    "-k"
+                  ],
+                  "Arguments": []
+                }
+              ],
+              "Optional": true
+            }
+          ]
+        },
+        {
+          "Name": "get",
+          "Description": "Get branches from trunk to the specified branch from remote, prompting the user to resolve conflicts. If no branch is provided, get downstack from the current branch",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "--force",
+                  "Description": "Overwrite all fetched branches with remote source of truth",
+                  "Aliases": [
+                    "-f"
+                  ],
+                  "Arguments": []
+                }
+              ],
+              "Optional": true
+            },
+            {
+              "Arguments": [
+                {
+                  "Name": "branch",
+                  "Description": "branch",
+                  "Type": "String"
+                }
+              ],
+              "Optional": true
+            }
+          ]
+        },
+        {
+          "Name": "info",
+          "Description": "Display information about the current branch",
+          "Aliases": [
+            "i"
+          ],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "--patch",
+                  "Description": "Show the changes made by each commit",
+                  "Aliases": [
+                    "-p"
+                  ],
+                  "Arguments": []
+                },
+                {
+                  "Name": "--diff",
+                  "Description": "Show the diff between this branch and its parent. Takes precedence over patch",
+                  "Aliases": [
+                    "-d"
+                  ],
+                  "Arguments": []
+                },
+                {
+                  "Name": "--body",
+                  "Description": "Show the PR body, if it exists",
+                  "Aliases": [
+                    "-b"
+                  ],
+                  "Arguments": []
+                },
+                {
+                  "Name": "--stat",
+                  "Description": "Show a diffstat instead of a full diff. Modifies either --patch or --diff. If neither is passed, implies --diff",
+                  "Aliases": [
+                    "-s"
+                  ],
+                  "Arguments": []
+                }
+              ],
+              "Optional": true
+            }
+          ]
+        },
+        {
+          "Name": "init",
+          "Description": "Initialize Graphite in this repository by selecting a trunk branch. Can also be used to change the trunk branch of the repository",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "--reset",
+                  "Description": "Untrack all branches",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "--trunk",
+                  "Description": "The name of your trunk branch. If no name is passed, you will be prompted to select one interactively",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "trunk",
+                          "Description": "trunk",
+                          "Type": "String"
+                        }
+                      ],
+                      "Optional": true
+                    }
+                  ]
+                }
+              ],
+              "Optional": true
+            }
+          ]
+        },
+        {
+          "Name": "log",
+          "Description": "Commands that log your stacks",
+          "Aliases": [
+            "l"
+          ],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "--classic",
+                  "Description": "Use the old short logging style, which runs out of screen real estate more quickly. Other options will not work in classic mode",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "--reverse",
+                  "Description": "Print the log upside down. Handy when you have a lot of branches",
+                  "Aliases": [
+                    "-r"
+                  ],
+                  "Arguments": []
+                },
+                {
+                  "Name": "--show-untracked",
+                  "Description": "Include untracked branched in interactive selection",
+                  "Aliases": [
+                    "-u"
+                  ],
+                  "Arguments": []
+                },
+                {
+                  "Name": "--stack",
+                  "Description": "Only show ancestors and descendants of the current branch",
+                  "Aliases": [
+                    "-s"
+                  ],
+                  "Arguments": []
+                },
+                {
+                  "Name": "--steps",
+                  "Description": "Only show this many levels upstack and downstack. Implies --stack",
+                  "Aliases": [
+                    "-n"
+                  ],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "Number of steps",
+                          "Description": "Number of steps",
+                          "Type": "String"
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ],
+              "Optional": true
+            },
+            {
+              "Arguments": [
+                {
+                  "Name": "",
+                  "Description": "Log all branches tracked by Graphite, showing dependencies and info for each",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "long",
+                  "Description": "Display a graph of the commit ancestry of all branches",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "short",
+                  "Description": "Log all stacks tracked by Graphite, arranged to show dependencies",
+                  "Aliases": [],
+                  "Arguments": []
+                }
+              ],
+              "DontAllowMultiple": true
+            }
+          ]
+        },
+        {
+          "Name": "merge",
+          "Description": "Merge the pull requests associated with all branches from trunk to the current branch via Graphite",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "--confirm",
+                  "Description": "Asks for confirmation before merging branches. Prompts for confirmation if the local branches differ from remote, regardless of the value of this flag",
+                  "Aliases": [
+                    "-c"
+                  ],
+                  "Arguments": []
+                },
+                {
+                  "Name": "--dry-run",
+                  "Description": "Reports the PRs that would be merged and terminates. No branches are merged",
+                  "Aliases": [],
+                  "Arguments": []
+                }
+              ],
+              "Optional": true
+            }
+          ]
+        },
+        {
+          "Name": "modify",
+          "Description": "Modify the current branch by amending its commit or creating a new commit. Automatically restacks descendants. If you have any unstaged changes, you will be asked whether you\u0027d like to stage them",
+          "Aliases": [
+            "m"
+          ],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "--all",
+                  "Description": "Stage all changes before committing",
+                  "Aliases": [
+                    "-a"
+                  ],
+                  "Arguments": []
+                },
+                {
+                  "Name": "--commit",
+                  "Description": "Create a new commit instead of amending the current commit. If this branch has no commits, this command always creates a new commit",
+                  "Aliases": [
+                    "-c"
+                  ],
+                  "Arguments": []
+                },
+                {
+                  "Name": "--edit",
+                  "Description": "If passed, open an editor to edit the commit message. When creating a new commit, this flag is ignored",
+                  "Aliases": [
+                    "-e"
+                  ],
+                  "Arguments": []
+                },
+                {
+                  "Name": "--interactive-rebase",
+                  "Description": "Ignore all other flags and start a git interactive rebase on the commits in this branch",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "--message",
+                  "Description": "The message for the new or amended commit. If passed, no editor is opened",
+                  "Aliases": [
+                    "-m"
+                  ],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "message",
+                          "Description": "message",
+                          "Type": "String"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "--patch",
+                  "Description": "Pick hunks to stage before committing",
+                  "Aliases": [
+                    "-p"
+                  ],
+                  "Arguments": []
+                }
+              ],
+              "Optional": true
+            }
+          ]
+        },
+        {
+          "Name": "move",
+          "Description": "Rebase the current branch onto the target branch and restack all of its descendants. If no branch is passed in, opens an interactive selector",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "--onto",
+                  "Description": "Branch to move the current branch onto",
+                  "Aliases": [
+                    "-o"
+                  ],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "branch",
+                          "Description": "branch",
+                          "Type": "String"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "--source",
+                  "Description": "Branch to move (defaults to current branch)",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "branch",
+                          "Description": "branch",
+                          "Type": "String"
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ],
+              "Optional": true
+            }
+          ]
+        },
+        {
+          "Name": "parent",
+          "Description": "Show the parent of the current branch",
+          "Aliases": [],
+          "Arguments": []
+        },
+        {
+          "Name": "pop",
+          "Description": "Delete the current branch but reaint the state of files in the working tree",
+          "Aliases": [],
+          "Arguments": []
+        },
+        {
+          "Name": "pr",
+          "Description": "Opens the pull request page for a branch or PR number. If no branch is passed, the current branch\u0027s PR is opened",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "branch",
+                  "Description": "branch",
+                  "Type": "String"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "Name": "rename",
+          "Description": "Rename a branch and update metadata referencing it. If no branch name is supplied, you will be prompted for a new branch name. Note that this removes any associated GitHub pull request",
+          "Aliases": [
+            "rn"
+          ],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "--force",
+                  "Description": "Allow renaming a branch that is already associated with an open GitHub pull request",
+                  "Aliases": [
+                    "-f"
+                  ],
+                  "Arguments": []
+                }
+              ],
+              "Optional": true
+            },
+            {
+              "Arguments": [
+                {
+                  "Name": "name",
+                  "Description": "name",
+                  "Type": "String"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "Name": "reorder",
+          "Description": "Reorder branches between trunk and the current branch, restacking all of their descendants. Opens an editor where you can reorder branches by moving around a line corresponding to each branch",
+          "Aliases": [],
+          "Arguments": []
+        },
+        {
+          "Name": "restack",
+          "Description": "Ensure the current branch is based on its parent, rebasing if necessary. If conflicts are encountered, you will be prompted to resolve them via an interactive Git rebase",
+          "Aliases": [
+            "r"
+          ],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "--branch",
+                  "Description": "Which branch to run this command from. Defaults to the current branch",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "branch",
+                          "Description": "branch",
+                          "Type": "String"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "--downstack",
+                  "Description": "Only restack this branch and its ancestors",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "--only",
+                  "Description": "Only restack this branch",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "--upstack",
+                  "Description": "Only restack this branch and its descendants",
+                  "Aliases": [],
+                  "Arguments": []
+                }
+              ],
+              "Optional": true
+            }
+          ]
+        },
+        {
+          "Name": "revert",
+          "Description": "Create a branch that reverts a commit on the trunk branch. Currently experimental",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "--edit",
+                  "Description": "Edit the commit message",
+                  "Aliases": [
+                    "-e"
+                  ],
+                  "Arguments": []
+                }
+              ],
+              "Optional": true
+            },
+            {
+              "Arguments": [
+                {
+                  "Name": "sha",
+                  "Description": "sha",
+                  "Type": "String"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "Name": "split",
+          "Description": "Split the current branch into multiple single-commit branches",
+          "Aliases": [
+            "sp"
+          ],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "--by-commit",
+                  "Description": "Split by commit - slice up the history of this branch",
+                  "Aliases": [
+                    "--commit",
+                    "-c"
+                  ],
+                  "Arguments": []
+                },
+                {
+                  "Name": "--by-hunk",
+                  "Description": "Split by hunk - split into new single-commit branches",
+                  "Aliases": [
+                    "--hunk",
+                    "-h"
+                  ],
+                  "Arguments": []
+                }
+              ],
+              "Optional": true
+            }
+          ]
+        },
+        {
+          "Name": "squash",
+          "Description": "Squash all commits in the current branch and restack upstack branches",
+          "Aliases": [
+            "sq"
+          ],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "--message",
+                  "Description": "The updated message for the commit",
+                  "Aliases": [
+                    "-m"
+                  ],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "message",
+                          "Description": "message",
+                          "Type": "String"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "--edit",
+                  "Description": "Modify the existing commit message",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "--no-edit",
+                  "Description": "Don\u0027t modify the existing commit message. Takes precedence over --edit",
+                  "Aliases": [
+                    "-n"
+                  ],
+                  "Arguments": []
+                }
+              ],
+              "Optional": true
+            }
+          ]
+        },
+        {
+          "Name": "submit",
+          "Description": "Idempotently force push the current branch to GitHub, creating or updating a pull request.  Opens an interactive prompt that allows you to input pull request metadata. \u0027gt ss\u0027 is a default alias for \u0027gt submit --stack\u0027",
+          "Aliases": [
+            "s"
+          ],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "--always",
+                  "Description": "Always push updates, even if the branch has not changed. Can be helpful for fixing an inconsistent Graphite stack view on Web/GitHub resulting from downtime/a bug",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "--branch",
+                  "Description": "Which branch to run this command from. Defaults to the current branch",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "branch",
+                          "Description": "branch",
+                          "Type": "String"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "--confirm",
+                  "Description": "Reports the PRs that would be submitted and asks for confirmation before pushing branches and opening/updating PRs. If either of --no-interactive or --dry-run is passed, this flag is ignored",
+                  "Aliases": [
+                    "-c"
+                  ],
+                  "Arguments": []
+                },
+                {
+                  "Name": "--draft",
+                  "Description": "If set, marks PR as draft. If --no-interactive is true, new PRs will be created in draft mode",
+                  "Aliases": [
+                    "-d"
+                  ],
+                  "Arguments": []
+                },
+                {
+                  "Name": "--dry-run",
+                  "Description": "Reports the PRs that would be submitted and terminates. No branches are pushed and no PRs are opened or updated",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "--edit",
+                  "Description": "Input metadata for all PRs interactively. If neither --edit nor --no-edit is passed, only prompts for new PRs",
+                  "Aliases": [
+                    "-e"
+                  ],
+                  "Arguments": []
+                },
+                {
+                  "Name": "--force",
+                  "Description": "Force push: overwrites the remote branch with your local branch. Otherwise defaults to --force-with-lease",
+                  "Aliases": [
+                    "-f"
+                  ],
+                  "Arguments": []
+                },
+                {
+                  "Name": "--merge-when-ready",
+                  "Description": "If set, marks all PRs being submitted as merge when ready, which will let them automatically merge as soon as all merge requirements are met",
+                  "Aliases": [
+                    "-m"
+                  ],
+                  "Arguments": []
+                },
+                {
+                  "Name": "--no-edit",
+                  "Description": "Don\u0027t edit PR fields inline. Takes precedence over --edit",
+                  "Aliases": [
+                    "-n"
+                  ],
+                  "Arguments": []
+                },
+                {
+                  "Name": "--publish",
+                  "Description": "If set, publishes PR. If --no-interactive is true, new PRs will be created in draft mode",
+                  "Aliases": [
+                    "-p"
+                  ],
+                  "Arguments": []
+                },
+                {
+                  "Name": "--rerequest-review",
+                  "Description": "Rerequest review from current reviewers",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "--restack",
+                  "Description": "Restack branches before submitting. If there are conflicts, output the branch names that could not be restacked",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "--reviewers",
+                  "Description": "If set without an argument, prompt to manually set reviewers. Alternatively, accepts a comma separated string of reviewers",
+                  "Aliases": [
+                    "-r"
+                  ],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "reviewers",
+                          "Description": "reviewers",
+                          "Type": "String"
+                        }
+                      ],
+                      "Optional": true
+                    }
+                  ]
+                },
+                {
+                  "Name": "--stack",
+                  "Description": "Submit descendants of the current branch in addition to its ancestors",
+                  "Aliases": [
+                    "-s"
+                  ],
+                  "Arguments": []
+                },
+                {
+                  "Name": "--update-only",
+                  "Description": "Only update the PRs that have been already been submitted",
+                  "Aliases": [
+                    "-u"
+                  ],
+                  "Arguments": []
+                }
+              ],
+              "Optional": true
+            }
+          ]
+        },
+        {
+          "Name": "sync",
+          "Description": "Pull the trunk branch from remote and prompt to delete any branches that have been merged. Restacks all branches in your repository that can be restacked without conflicts. If trunk cannot be fast-forwarded to match remote, overwrites trunk with the remote version",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "--delete",
+                  "Description": "Delete merged branches (true by default; skip with --no-delete)",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "--force",
+                  "Description": "Don\u0027t prompt for confirmation before deleting a branch or overwriting trunk to match remote if it can\u0027t be fast-forwarded",
+                  "Aliases": [
+                    "-f"
+                  ],
+                  "Arguments": []
+                },
+                {
+                  "Name": "--pull",
+                  "Description": "Pull the trunk branch from remote (true by default; skip with --no-pull)",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "--restack",
+                  "Description": "Restack any branches that can be restacked without conflicts (true by default; skip with --no-restack)",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "--show-delete-progress",
+                  "Description": "Show progress through merged branches",
+                  "Aliases": [],
+                  "Arguments": []
+                }
+              ],
+              "Optional": true
+            }
+          ]
+        },
+        {
+          "Name": "top",
+          "Description": "Switch to the tip branch of the current stack. Prompts if ambiguous",
+          "Aliases": [
+            "t"
+          ],
+          "Arguments": []
+        },
+        {
+          "Name": "track",
+          "Description": "Start tracking the current (or provided) branch with Graphite by selecting its parent. This command can also be used to fix corrupted Graphite metadata",
+          "Aliases": [
+            "tr"
+          ],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "--parent",
+                  "Description": "The tracked branch\u0027s parent. If unset, prompts for a parent branch",
+                  "Aliases": [
+                    "-p"
+                  ],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "parent",
+                          "Description": "parent",
+                          "Type": "String"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "--force",
+                  "Description": "Sets the parent to the most recent tracked ancestor of the branch being tracked. Takes precedence over \u0060--parent\u0060",
+                  "Aliases": [
+                    "-f"
+                  ],
+                  "Arguments": []
+                }
+              ],
+              "Optional": true
+            },
+            {
+              "Arguments": [
+                {
+                  "Name": "branch",
+                  "Description": "branch",
+                  "Type": "String"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "Name": "trunk",
+          "Description": "Switch to the trunk branch",
+          "Aliases": [],
+          "Arguments": []
+        },
+        {
+          "Name": "untrack",
+          "Description": "Stop tracking a branch with Graphite. If the branch has children, they will also be untracked. Default to the current branch if none is passed in",
+          "Aliases": [
+            "utr"
+          ],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "--force",
+                  "Description": "Will not prompt for confirmation before untracking a branch with children",
+                  "Aliases": [
+                    "-f"
+                  ],
+                  "Arguments": []
+                }
+              ],
+              "Optional": true
+            },
+            {
+              "Arguments": [
+                {
+                  "Name": "branch",
+                  "Description": "branch",
+                  "Type": "String"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "Name": "up",
+          "Description": "Switch to the child of the current branch. Prompts if ambiguous",
+          "Aliases": [
+            "u"
+          ],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "--steps",
+                  "Description": "The number of levels to traverse upstack",
+                  "Aliases": [
+                    "-n"
+                  ],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "steps",
+                          "Description": "steps",
+                          "Type": "String"
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ],
+              "Optional": true
+            },
+            {
+              "Arguments": [
+                {
+                  "Name": "steps",
+                  "Description": "steps",
+                  "Type": "String"
+                }
+              ],
+              "Optional": true
+            }
+          ]
+        }
+      ],
+      "DontAllowMultiple": true
+    }
+  ]
+}

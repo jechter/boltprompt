@@ -1,0 +1,1367 @@
+{
+  "Comment": "This command info is generated from fig",
+  "Name": "launchctl",
+  "Description": "Interfaces with launchd",
+  "Arguments": [
+    {
+      "Arguments": [
+        {
+          "Name": "String",
+          "Description": "",
+          "Type": "String"
+        }
+      ]
+    },
+    {
+      "Arguments": [
+        {
+          "Name": "bootstrap",
+          "Description": "Bootstraps a domain or a service into a domain",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "service",
+                  "Description": "service",
+                  "Type": "FileSystemEntry"
+                }
+              ]
+            },
+            {
+              "Arguments": [
+                {
+                  "Name": "service-path",
+                  "Description": "service-path",
+                  "Type": "FileSystemEntry"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "Name": "bootout",
+          "Description": "Tears down a domain or removes a service from a domain",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "service",
+                  "Description": "service",
+                  "Type": "FileSystemEntry"
+                }
+              ]
+            },
+            {
+              "Arguments": [
+                {
+                  "Name": "service-path",
+                  "Description": "service-path",
+                  "Type": "FileSystemEntry"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "Name": "enable",
+          "Description": "Enables an existing service",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "service",
+                  "Description": "service",
+                  "Type": "String"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "Name": "disable",
+          "Description": "Disables an existing service",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "service",
+                  "Description": "service",
+                  "Type": "String"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "Name": "kickstart",
+          "Description": "Forces an existing service to start",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "k",
+                  "Description": "Kill instance before restarting",
+                  "Type": "Flag",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "p",
+                  "Description": "Print PID",
+                  "Type": "Flag",
+                  "Aliases": [],
+                  "Arguments": []
+                }
+              ],
+              "Optional": true
+            },
+            {
+              "Arguments": [
+                {
+                  "Name": "service",
+                  "Description": "service",
+                  "Type": "String"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "Name": "attach",
+          "Description": "Attach the system\u0027s debugger to a service",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "k",
+                  "Description": "Kill instance",
+                  "Type": "Flag",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "s",
+                  "Description": "Force the service to start",
+                  "Type": "Flag",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "x",
+                  "Description": "Attach xpcproxy",
+                  "Type": "Flag",
+                  "Aliases": [],
+                  "Arguments": []
+                }
+              ],
+              "Optional": true
+            },
+            {
+              "Arguments": [
+                {
+                  "Name": "service",
+                  "Description": "service",
+                  "Type": "String"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "Name": "debug",
+          "Description": "Configures the next invocation of a service for debugging",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "--program",
+                  "Description": "Use program path as executable",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "program-path",
+                          "Description": "program-path",
+                          "Type": "String"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "--guard-malloc",
+                  "Description": "Turn on libgmalloc",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "--malloc-stack-logging",
+                  "Description": "Turn on malloc(3) stack logging",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "--malloc-nano-allocator",
+                  "Description": "Turn on malloc(3) nano allocator",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "--debug-libraries",
+                  "Description": "Set the DYLD_IMAGE_SUFFIX",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "--introspection-libraries",
+                  "Description": "Add introspection libraries to the DYLD_IMAGE_PATH",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "--NSZombie",
+                  "Description": "Enables NSZombie",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "--32",
+                  "Description": "Runs service on appropriate 32-bit architecture",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "--stdin",
+                  "Description": "Sets the stdin path",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "stdin-path",
+                          "Description": "stdin-path",
+                          "Type": "FileSystemEntry"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "--stdout",
+                  "Description": "Sets the stdout path",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "stdout-path",
+                          "Description": "stdout-path",
+                          "Type": "FileSystemEntry"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "--stderr",
+                  "Description": "Sets the stderr path",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "stderr-path",
+                          "Description": "stderr-path",
+                          "Type": "FileSystemEntry"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "--environment",
+                  "Description": "Sets environment variables",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "environment-variables",
+                          "Description": "environment-variables",
+                          "Type": "String"
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ],
+              "Optional": true
+            },
+            {
+              "Arguments": [
+                {
+                  "Name": "argv",
+                  "Description": "argv",
+                  "Type": "String"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "Name": "kill",
+          "Description": "Sends a signal to the service instance",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "signal",
+                  "Description": "signal",
+                  "Type": "String"
+                }
+              ]
+            },
+            {
+              "Arguments": [
+                {
+                  "Name": "service",
+                  "Description": "service",
+                  "Type": "String"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "Name": "blame",
+          "Description": "Prints the reason a service is running",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "service",
+                  "Description": "service",
+                  "Type": "String"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "Name": "print",
+          "Description": "Prints a description of a domain or service",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "service",
+                  "Description": "service",
+                  "Type": "FileSystemEntry"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "Name": "print-cache",
+          "Description": "Prints information about the service cache",
+          "Aliases": [],
+          "Arguments": []
+        },
+        {
+          "Name": "print-disabled",
+          "Description": "Prints which services are disabled",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "domain-target",
+                  "Description": "domain-target",
+                  "Type": "String"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "Name": "plist",
+          "Description": "Prints a property list embedded in a binary (targets the Info.plist by default)",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "segment",
+                  "Description": "segment",
+                  "Type": "String"
+                }
+              ]
+            },
+            {
+              "Arguments": [
+                {
+                  "Name": "Mach-O",
+                  "Description": "Mach-O",
+                  "Type": "FileSystemEntry"
+                }
+              ],
+              "Optional": true
+            }
+          ]
+        },
+        {
+          "Name": "procinfo",
+          "Description": "Prints port information about a process",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "pid",
+                  "Description": "pid",
+                  "Type": "String"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "Name": "hostinfo",
+          "Description": "Prints port information about the host",
+          "Aliases": [],
+          "Arguments": []
+        },
+        {
+          "Name": "resolveport",
+          "Description": "Resolves a port name from a process to an endpoint in launchd",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "owner-pid",
+                  "Description": "owner-pid",
+                  "Type": "String"
+                }
+              ]
+            },
+            {
+              "Arguments": [
+                {
+                  "Name": "port-name",
+                  "Description": "port-name",
+                  "Type": "String"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "Name": "limit",
+          "Description": "Reads or modifies launchd\u0027s resource limits",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "cpu",
+                  "Description": "",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "[both]",
+                          "Description": "[both]",
+                          "Type": "String"
+                        }
+                      ]
+                    },
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "[soft | hard]",
+                          "Description": "[soft | hard]",
+                          "Type": "String"
+                        }
+                      ],
+                      "Optional": true
+                    }
+                  ]
+                },
+                {
+                  "Name": "filesize",
+                  "Description": "",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "[both]",
+                          "Description": "[both]",
+                          "Type": "String"
+                        }
+                      ]
+                    },
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "[soft | hard]",
+                          "Description": "[soft | hard]",
+                          "Type": "String"
+                        }
+                      ],
+                      "Optional": true
+                    }
+                  ]
+                },
+                {
+                  "Name": "data",
+                  "Description": "",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "[both]",
+                          "Description": "[both]",
+                          "Type": "String"
+                        }
+                      ]
+                    },
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "[soft | hard]",
+                          "Description": "[soft | hard]",
+                          "Type": "String"
+                        }
+                      ],
+                      "Optional": true
+                    }
+                  ]
+                },
+                {
+                  "Name": "stack",
+                  "Description": "",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "[both]",
+                          "Description": "[both]",
+                          "Type": "String"
+                        }
+                      ]
+                    },
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "[soft | hard]",
+                          "Description": "[soft | hard]",
+                          "Type": "String"
+                        }
+                      ],
+                      "Optional": true
+                    }
+                  ]
+                },
+                {
+                  "Name": "core",
+                  "Description": "",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "[both]",
+                          "Description": "[both]",
+                          "Type": "String"
+                        }
+                      ]
+                    },
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "[soft | hard]",
+                          "Description": "[soft | hard]",
+                          "Type": "String"
+                        }
+                      ],
+                      "Optional": true
+                    }
+                  ]
+                },
+                {
+                  "Name": "rss",
+                  "Description": "",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "[both]",
+                          "Description": "[both]",
+                          "Type": "String"
+                        }
+                      ]
+                    },
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "[soft | hard]",
+                          "Description": "[soft | hard]",
+                          "Type": "String"
+                        }
+                      ],
+                      "Optional": true
+                    }
+                  ]
+                },
+                {
+                  "Name": "memlock",
+                  "Description": "",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "[both]",
+                          "Description": "[both]",
+                          "Type": "String"
+                        }
+                      ]
+                    },
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "[soft | hard]",
+                          "Description": "[soft | hard]",
+                          "Type": "String"
+                        }
+                      ],
+                      "Optional": true
+                    }
+                  ]
+                },
+                {
+                  "Name": "maxproc",
+                  "Description": "",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "[both]",
+                          "Description": "[both]",
+                          "Type": "String"
+                        }
+                      ]
+                    },
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "[soft | hard]",
+                          "Description": "[soft | hard]",
+                          "Type": "String"
+                        }
+                      ],
+                      "Optional": true
+                    }
+                  ]
+                },
+                {
+                  "Name": "maxfiles",
+                  "Description": "",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "[both]",
+                          "Description": "[both]",
+                          "Type": "String"
+                        }
+                      ]
+                    },
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "[soft | hard]",
+                          "Description": "[soft | hard]",
+                          "Type": "String"
+                        }
+                      ],
+                      "Optional": true
+                    }
+                  ]
+                }
+              ],
+              "Optional": true
+            }
+          ]
+        },
+        {
+          "Name": "runstats",
+          "Description": "Prints performance statistics for a service",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "service",
+                  "Description": "service",
+                  "Type": "String"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "Name": "examine",
+          "Description": "Runs the specified analysis tool against launchd in a non-re-entrant manner",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "tool",
+                  "Description": "tool",
+                  "Type": "String"
+                }
+              ]
+            },
+            {
+              "Arguments": [
+                {
+                  "Name": "[args | @PID]",
+                  "Description": "[args | @PID]",
+                  "Type": "String"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "Name": "config",
+          "Description": "Modifies persistent configuration parameters for launchd domains",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "[system | user]",
+                  "Description": "[system | user]",
+                  "Type": "String"
+                },
+                {
+                  "Name": "system",
+                  "Description": "[system | user]"
+                }
+              ]
+            },
+            {
+              "Arguments": [
+                {
+                  "Name": "param",
+                  "Description": "param",
+                  "Type": "String"
+                }
+              ]
+            },
+            {
+              "Arguments": [
+                {
+                  "Name": "value",
+                  "Description": "value",
+                  "Type": "String"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "Name": "dumpstate",
+          "Description": "Dumps launchd state to stdout",
+          "Aliases": [],
+          "Arguments": []
+        },
+        {
+          "Name": "dumpjpcategory",
+          "Description": "Dumps the jetsam properties category for all services",
+          "Aliases": [],
+          "Arguments": []
+        },
+        {
+          "Name": "reboot",
+          "Description": "Initiates a system reboot of the specified type",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "system",
+                  "Description": "",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "userspace",
+                  "Description": "",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "halt",
+                  "Description": "",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "logout",
+                  "Description": "",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "apps",
+                  "Description": "",
+                  "Aliases": [],
+                  "Arguments": []
+                }
+              ],
+              "Optional": true
+            }
+          ]
+        },
+        {
+          "Name": "load",
+          "Description": "Recommended alternatives: bootstrap | enable. Bootstraps a service or directory of services",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "w",
+                  "Description": "Enable if disabled",
+                  "Type": "Flag",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "F",
+                  "Description": "Force load",
+                  "Type": "Flag",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "S",
+                  "Description": "Session",
+                  "Type": "Flag",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "session",
+                          "Description": "session",
+                          "Type": "String"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "D",
+                  "Description": "Load files from specified domain",
+                  "Type": "Flag",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "domain",
+                          "Description": "domain",
+                          "Type": "String"
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ],
+              "Optional": true
+            },
+            {
+              "Arguments": [
+                {
+                  "Name": "path",
+                  "Description": "path",
+                  "Type": "FileSystemEntry"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "Name": "unload",
+          "Description": "Recommended alternatives: bootout | disable. Unloads a service or directory of services",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "w",
+                  "Description": "Enable if disabled",
+                  "Type": "Flag",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "F",
+                  "Description": "Force load",
+                  "Type": "Flag",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "S",
+                  "Description": "Session",
+                  "Type": "Flag",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "session",
+                          "Description": "session",
+                          "Type": "String"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "D",
+                  "Description": "Load files from specified domain",
+                  "Type": "Flag",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "domain",
+                          "Description": "domain",
+                          "Type": "String"
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ],
+              "Optional": true
+            },
+            {
+              "Arguments": [
+                {
+                  "Name": "path",
+                  "Description": "path",
+                  "Type": "FileSystemEntry"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "Name": "remove",
+          "Description": "Unloads the specified service name",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "label",
+                  "Description": "label",
+                  "Type": "CustomArgument",
+                  "Extensions": [],
+                  "CustomCommand": "launchctl list"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "Name": "list",
+          "Description": "Lists information about services",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "label",
+                  "Description": "label",
+                  "Type": "CustomArgument",
+                  "Extensions": [],
+                  "CustomCommand": "launchctl list"
+                }
+              ],
+              "Optional": true
+            }
+          ]
+        },
+        {
+          "Name": "start",
+          "Description": "Starts the specified service",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "label",
+                  "Description": "label",
+                  "Type": "CustomArgument",
+                  "Extensions": [],
+                  "CustomCommand": "launchctl list"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "Name": "stop",
+          "Description": "Stops the specified service if it is running",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "label",
+                  "Description": "label",
+                  "Type": "CustomArgument",
+                  "Extensions": [],
+                  "CustomCommand": "launchctl list"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "Name": "setenv",
+          "Description": "Sets the specified environment variables for all services within the domain",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "key",
+                  "Description": "key",
+                  "Type": "String"
+                }
+              ]
+            },
+            {
+              "Arguments": [
+                {
+                  "Name": "value",
+                  "Description": "value",
+                  "Type": "String"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "Name": "unsetenv",
+          "Description": "Unsets the specified environment variables for all services within the domain",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "key",
+                  "Description": "key",
+                  "Type": "String"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "Name": "getenv",
+          "Description": "Gets the value of an environment variable from within launchd",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "key",
+                  "Description": "key",
+                  "Type": "String"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "Name": "bsexec",
+          "Description": "Execute a program in another process\u0027 bootstrap context",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "PID",
+                  "Description": "PID",
+                  "Type": "String"
+                }
+              ]
+            },
+            {
+              "Arguments": [
+                {
+                  "Name": "command",
+                  "Description": "command",
+                  "Type": "String"
+                }
+              ]
+            },
+            {
+              "Arguments": [
+                {
+                  "Name": "args",
+                  "Description": "args",
+                  "Type": "String"
+                }
+              ],
+              "Optional": true
+            }
+          ]
+        },
+        {
+          "Name": "asuser",
+          "Description": "Execute a program in the bootstrap context of a given user",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "UID",
+                  "Description": "UID",
+                  "Type": "String"
+                }
+              ]
+            },
+            {
+              "Arguments": [
+                {
+                  "Name": "command",
+                  "Description": "command",
+                  "Type": "String"
+                }
+              ]
+            },
+            {
+              "Arguments": [
+                {
+                  "Name": "args",
+                  "Description": "args",
+                  "Type": "String"
+                }
+              ],
+              "Optional": true
+            }
+          ]
+        },
+        {
+          "Name": "submit",
+          "Description": "Submit a basic job from the command line",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "p",
+                  "Description": "Program to execute",
+                  "Type": "Flag",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "executable",
+                          "Description": "executable",
+                          "Type": "String"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "o",
+                  "Description": "Std out path",
+                  "Type": "Flag",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "stdout-path",
+                          "Description": "stdout-path",
+                          "Type": "FileSystemEntry"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "e",
+                  "Description": "Std err path",
+                  "Type": "Flag",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "stderr-path",
+                          "Description": "stderr-path",
+                          "Type": "FileSystemEntry"
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ],
+              "Optional": true
+            },
+            {
+              "Arguments": [
+                {
+                  "Name": "-l",
+                  "Description": "-l",
+                  "Type": "String"
+                }
+              ]
+            },
+            {
+              "Arguments": [
+                {
+                  "Name": "label",
+                  "Description": "label",
+                  "Type": "CustomArgument",
+                  "Extensions": [],
+                  "CustomCommand": "launchctl list"
+                }
+              ]
+            },
+            {
+              "Arguments": [
+                {
+                  "Name": "command",
+                  "Description": "command",
+                  "Type": "String"
+                }
+              ]
+            },
+            {
+              "Arguments": [
+                {
+                  "Name": "arg",
+                  "Description": "arg",
+                  "Type": "String"
+                }
+              ],
+              "Optional": true
+            }
+          ]
+        },
+        {
+          "Name": "managerpid",
+          "Description": "Prints the PID of the launchd controlling the session",
+          "Aliases": [],
+          "Arguments": []
+        },
+        {
+          "Name": "manageruid",
+          "Description": "Prints the UID of the current launchd session",
+          "Aliases": [],
+          "Arguments": []
+        },
+        {
+          "Name": "managername",
+          "Description": "Prints the name of the current launchd session",
+          "Aliases": [],
+          "Arguments": []
+        },
+        {
+          "Name": "error",
+          "Description": "Prints a description of an error",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "type",
+                  "Description": "type",
+                  "Type": "String"
+                },
+                {
+                  "Name": "posix",
+                  "Description": "type"
+                },
+                {
+                  "Name": "mach",
+                  "Description": "type"
+                },
+                {
+                  "Name": "bootstrap",
+                  "Description": "type"
+                }
+              ]
+            },
+            {
+              "Arguments": [
+                {
+                  "Name": "code",
+                  "Description": "code",
+                  "Type": "String"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "Name": "variant",
+          "Description": "Prints the launchd variant",
+          "Aliases": [],
+          "Arguments": []
+        },
+        {
+          "Name": "version",
+          "Description": "Prints the launchd version",
+          "Aliases": [],
+          "Arguments": []
+        },
+        {
+          "Name": "help",
+          "Description": "Prints the usage for a given subcommand",
+          "Aliases": [],
+          "Arguments": []
+        }
+      ],
+      "DontAllowMultiple": true
+    }
+  ]
+}

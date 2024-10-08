@@ -1,0 +1,1560 @@
+{
+  "Comment": "This command info is generated from fig",
+  "Name": "vultr-cli",
+  "Description": "Official command line interface for the Vultr API",
+  "Arguments": [
+    {
+      "Arguments": [
+        {
+          "Name": "account",
+          "Description": "Retrieve information about your account",
+          "Aliases": [],
+          "Arguments": []
+        },
+        {
+          "Name": "apps",
+          "Description": "Display all available applications",
+          "Aliases": [
+            "a"
+          ],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "list",
+                  "Description": "List applications",
+                  "Aliases": [
+                    "l"
+                  ],
+                  "Arguments": []
+                }
+              ],
+              "DontAllowMultiple": true
+            }
+          ]
+        },
+        {
+          "Name": "backups",
+          "Description": "Display backups",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "get",
+                  "Description": "Get backup",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "backupId",
+                          "Description": "backupId",
+                          "Type": "String"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "list",
+                  "Description": "List backups",
+                  "Aliases": [
+                    "l"
+                  ],
+                  "Arguments": []
+                }
+              ],
+              "DontAllowMultiple": true
+            }
+          ]
+        },
+        {
+          "Name": "bare-metal",
+          "Description": "Bare-metal is used to access bare metal server commands",
+          "Aliases": [
+            "bm"
+          ],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "app",
+                  "Description": "App is used to access bare metal server application commands",
+                  "Aliases": [
+                    "a"
+                  ],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "change",
+                          "Description": "Change a bare metal server\u0027s application",
+                          "Aliases": [
+                            "c"
+                          ],
+                          "Arguments": [
+                            {
+                              "Arguments": [
+                                {
+                                  "Name": "bareMetalId",
+                                  "Description": "bareMetalId",
+                                  "Type": "String"
+                                }
+                              ]
+                            },
+                            {
+                              "Arguments": [
+                                {
+                                  "Name": "appID",
+                                  "Description": "appID",
+                                  "Type": "String"
+                                }
+                              ]
+                            }
+                          ]
+                        },
+                        {
+                          "Name": "list",
+                          "Description": "Available apps a bare metal server can change to",
+                          "Aliases": [],
+                          "Arguments": [
+                            {
+                              "Arguments": [
+                                {
+                                  "Name": "bareMetalId",
+                                  "Description": "bareMetalId",
+                                  "Type": "String"
+                                }
+                              ]
+                            }
+                          ]
+                        }
+                      ],
+                      "DontAllowMultiple": true
+                    }
+                  ]
+                },
+                {
+                  "Name": "bandwidth",
+                  "Description": "Get a bare metal server\u0027s bandwidth usage",
+                  "Aliases": [
+                    "b"
+                  ],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "bareMetalId",
+                          "Description": "bareMetalId",
+                          "Type": "String"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "create",
+                  "Description": "Create a bare metal server",
+                  "Aliases": [
+                    "c"
+                  ],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "--os",
+                          "Description": "ID of the operating system that will be installed on the server",
+                          "Aliases": [
+                            "-o"
+                          ],
+                          "Arguments": [
+                            {
+                              "Arguments": [
+                                {
+                                  "Name": "osId",
+                                  "Description": "osId",
+                                  "Type": "String"
+                                }
+                              ]
+                            }
+                          ]
+                        },
+                        {
+                          "Name": "--persistent_pxe",
+                          "Description": "Enable persistent_pxe",
+                          "Aliases": [
+                            "-x"
+                          ],
+                          "Arguments": [
+                            {
+                              "Arguments": [
+                                {
+                                  "Name": "persistent",
+                                  "Description": "persistent",
+                                  "Type": "String"
+                                },
+                                {
+                                  "Name": "true",
+                                  "Description": "persistent"
+                                },
+                                {
+                                  "Name": "false",
+                                  "Description": "persistent"
+                                }
+                              ]
+                            }
+                          ]
+                        },
+                        {
+                          "Name": "--plan",
+                          "Description": "ID of the plan that the server will subscribe to",
+                          "Aliases": [
+                            "-p"
+                          ],
+                          "Arguments": [
+                            {
+                              "Arguments": [
+                                {
+                                  "Name": "planId",
+                                  "Description": "planId",
+                                  "Type": "String"
+                                }
+                              ]
+                            }
+                          ]
+                        },
+                        {
+                          "Name": "--region",
+                          "Description": "ID of the region where the server will be created",
+                          "Aliases": [
+                            "-r"
+                          ],
+                          "Arguments": [
+                            {
+                              "Arguments": [
+                                {
+                                  "Name": "regionId",
+                                  "Description": "regionId",
+                                  "Type": "String"
+                                }
+                              ]
+                            }
+                          ]
+                        }
+                      ],
+                      "Optional": true
+                    }
+                  ]
+                },
+                {
+                  "Name": "delete",
+                  "Description": "Delete a bare metal server",
+                  "Aliases": [
+                    "destroy"
+                  ],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "bareMetalId",
+                          "Description": "bareMetalId",
+                          "Type": "String"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "get",
+                  "Description": "Get a bare metal server by \u003CbareMetalID\u003E",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "bareMetalId",
+                          "Description": "bareMetalId",
+                          "Type": "String"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "halt",
+                  "Description": "Halt a bare metal server",
+                  "Aliases": [
+                    "h"
+                  ],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "bareMetalId",
+                          "Description": "bareMetalId",
+                          "Type": "String"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "image",
+                  "Description": "Image is used to access bare metal server image commands",
+                  "Aliases": [
+                    "i"
+                  ],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "change",
+                          "Description": "Change a bare metal server\u0027s image",
+                          "Aliases": [],
+                          "Arguments": [
+                            {
+                              "Arguments": [
+                                {
+                                  "Name": "bareMetalId",
+                                  "Description": "bareMetalId",
+                                  "Type": "String"
+                                }
+                              ]
+                            },
+                            {
+                              "Arguments": [
+                                {
+                                  "Name": "imageID",
+                                  "Description": "imageID",
+                                  "Type": "String"
+                                }
+                              ]
+                            }
+                          ]
+                        },
+                        {
+                          "Name": "list",
+                          "Description": "Available images a bare metal server can change to",
+                          "Aliases": [],
+                          "Arguments": [
+                            {
+                              "Arguments": [
+                                {
+                                  "Name": "bareMetalId",
+                                  "Description": "bareMetalId",
+                                  "Type": "String"
+                                }
+                              ]
+                            }
+                          ]
+                        }
+                      ],
+                      "DontAllowMultiple": true
+                    }
+                  ]
+                },
+                {
+                  "Name": "ipv4",
+                  "Description": "List the IPv4 information of a bare metal server",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "ipv6",
+                  "Description": "List the IPv6 information of a bare metal server",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "list",
+                  "Description": "List all bare metal servers",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "os",
+                  "Description": "Os is used to access bare metal server operating system commands",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "reboot",
+                  "Description": "Reboot a bare metal server. This is a hard reboot, which means that the server is powered off, then back on",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "reinstall",
+                  "Description": "Reinstall the operating system on a bare metal server",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "start",
+                  "Description": "Start a bare metal server",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "user-data",
+                  "Description": "User-data is used to access bare metal server user-data commands",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "vnc",
+                  "Description": "Get a bare metal server\u0027s VNC url by \u003CbareMetalID\u003E",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "bareMetalId",
+                          "Description": "bareMetalId",
+                          "Type": "String"
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ],
+              "DontAllowMultiple": true
+            }
+          ]
+        },
+        {
+          "Name": "block-storage",
+          "Description": "Block storage commands",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "attach",
+                  "Description": "Attaches a block storage to an instance",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "create",
+                  "Description": "Create a new block storage",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "delete",
+                  "Description": "Delete a block storage",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "detach",
+                  "Description": "Detaches a block storage from an instance",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "get",
+                  "Description": "Retrieves a block storage",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "label",
+                  "Description": "Sets a label for a block storage",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "list",
+                  "Description": "Retrieves a list of active block storage",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "resize",
+                  "Description": "Resize a block storage",
+                  "Aliases": [],
+                  "Arguments": []
+                }
+              ],
+              "DontAllowMultiple": true
+            }
+          ]
+        },
+        {
+          "Name": "completion",
+          "Description": "Generate the autocompletion script for the specified shell",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "bash",
+                  "Description": "Generate the autocompletion script for bash",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "fish",
+                  "Description": "Generate the autocompletion script for fish",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "powershell",
+                  "Description": "Generate the autocompletion script for powershell",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "zsh",
+                  "Description": "Generate the autocompletion script for zsh",
+                  "Aliases": [],
+                  "Arguments": []
+                }
+              ],
+              "DontAllowMultiple": true
+            }
+          ]
+        },
+        {
+          "Name": "dns",
+          "Description": "Dns is used to access dns commands",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "domain",
+                  "Description": "Dns domain",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "record",
+                  "Description": "Dns record",
+                  "Aliases": [],
+                  "Arguments": []
+                }
+              ],
+              "DontAllowMultiple": true
+            }
+          ]
+        },
+        {
+          "Name": "firewall",
+          "Description": "Firewall is used to access firewall commands",
+          "Aliases": [
+            "fw"
+          ],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "group",
+                  "Description": "Group is used to access firewall group commands",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "rule",
+                  "Description": "Rule is used to access firewall rule commands",
+                  "Aliases": [],
+                  "Arguments": []
+                }
+              ],
+              "DontAllowMultiple": true
+            }
+          ]
+        },
+        {
+          "Name": "help",
+          "Description": "Help about any command",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "account",
+                  "Description": "Retrieve information about your account",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "apps",
+                  "Description": "Display all available applications",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "backups",
+                  "Description": "Display backups",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "bare-metal",
+                  "Description": "Bare-metal is used to access bare metal server commands",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "block-storage",
+                  "Description": "Block storage commands",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "completion",
+                  "Description": "Generate the autocompletion script for the specified shell",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "dns",
+                  "Description": "Dns is used to access dns commands",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "firewall",
+                  "Description": "Firewall is used to access firewall commands",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "help",
+                  "Description": "Help about any command",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "instance",
+                  "Description": "Commands to interact with instances on vultr",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "iso",
+                  "Description": "Iso is used to access iso commands",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "kubernetes",
+                  "Description": "Kubernetes is used to access kubernetes commands",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "load-balancer",
+                  "Description": "Load balancer commands",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "network",
+                  "Description": "Network interacts with network actions",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "object-storage",
+                  "Description": "Object storage commands",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "os",
+                  "Description": "Os is used to access os commands",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "plans",
+                  "Description": "Get information about Vultr plans",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "regions",
+                  "Description": "Get regions",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "reserved-ip",
+                  "Description": "Reserved-ip lets you interact with reserved-ip",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "script",
+                  "Description": "Startup script commands",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "snapshot",
+                  "Description": "Snapshot commands",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "ssh-key",
+                  "Description": "Ssh-key commands",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "user",
+                  "Description": "User commands",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "version",
+                  "Description": "Display current version of Vultr-cli",
+                  "Aliases": [],
+                  "Arguments": []
+                }
+              ],
+              "DontAllowMultiple": true
+            }
+          ]
+        },
+        {
+          "Name": "instance",
+          "Description": "Commands to interact with instances on vultr",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "app",
+                  "Description": "Update application for an instance",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "backup",
+                  "Description": "List and create backup schedules for an instance",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "bandwidth",
+                  "Description": "Bandwidth for instance",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "create",
+                  "Description": "Create an instance",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "--os",
+                          "Description": "ID of the operating system that will be installed on the server",
+                          "Aliases": [
+                            "-o"
+                          ],
+                          "Arguments": [
+                            {
+                              "Arguments": [
+                                {
+                                  "Name": "osId",
+                                  "Description": "osId",
+                                  "Type": "String"
+                                }
+                              ]
+                            }
+                          ]
+                        },
+                        {
+                          "Name": "--persistent_pxe",
+                          "Description": "Enable persistent_pxe",
+                          "Aliases": [
+                            "-x"
+                          ],
+                          "Arguments": [
+                            {
+                              "Arguments": [
+                                {
+                                  "Name": "persistent",
+                                  "Description": "persistent",
+                                  "Type": "String"
+                                },
+                                {
+                                  "Name": "true",
+                                  "Description": "persistent"
+                                },
+                                {
+                                  "Name": "false",
+                                  "Description": "persistent"
+                                }
+                              ]
+                            }
+                          ]
+                        },
+                        {
+                          "Name": "--plan",
+                          "Description": "ID of the plan that the server will subscribe to",
+                          "Aliases": [
+                            "-p"
+                          ],
+                          "Arguments": [
+                            {
+                              "Arguments": [
+                                {
+                                  "Name": "planId",
+                                  "Description": "planId",
+                                  "Type": "String"
+                                }
+                              ]
+                            }
+                          ]
+                        },
+                        {
+                          "Name": "--region",
+                          "Description": "ID of the region where the server will be created",
+                          "Aliases": [
+                            "-r"
+                          ],
+                          "Arguments": [
+                            {
+                              "Arguments": [
+                                {
+                                  "Name": "regionId",
+                                  "Description": "regionId",
+                                  "Type": "String"
+                                }
+                              ]
+                            }
+                          ]
+                        }
+                      ],
+                      "Optional": true
+                    }
+                  ]
+                },
+                {
+                  "Name": "delete",
+                  "Description": "Delete/destroy an instance",
+                  "Aliases": [
+                    "destroy"
+                  ],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "instanceID",
+                          "Description": "instanceID",
+                          "Type": "CustomArgument",
+                          "Extensions": [],
+                          "CustomCommand": "vultr-cli instance list"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "get",
+                  "Description": "Get info about a specific instance",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "instanceID",
+                          "Description": "instanceID",
+                          "Type": "CustomArgument",
+                          "Extensions": [],
+                          "CustomCommand": "vultr-cli instance list"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "image",
+                  "Description": "Update image for an instance",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "ipv4",
+                  "Description": "List/create/delete ipv4 on instance",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "ipv6",
+                  "Description": "Commands for ipv6 on instance",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "iso",
+                  "Description": "Attach/detach ISOs to a given instance",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "label",
+                  "Description": "Label an instance",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "list",
+                  "Description": "List all available instances",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "os",
+                  "Description": "Update operating system for an instance",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "plan",
+                  "Description": "Update/list plans for an instance",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "reinstall",
+                  "Description": "Reinstall an instance",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "restart",
+                  "Description": "Restart an instance",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "restore",
+                  "Description": "Restore instance from backup/snapshot",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "reverse-dns",
+                  "Description": "Commands to handle reverse-dns on an instance",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "start",
+                  "Description": "Starts an instance",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "stop",
+                  "Description": "Stops an instance",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "tag",
+                  "Description": "Add/modify tag on instance",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "update-firewall-group",
+                  "Description": "Assign a firewall group to instance",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "user-data",
+                  "Description": "Commands to handle userdata on an instance",
+                  "Aliases": [],
+                  "Arguments": []
+                }
+              ],
+              "DontAllowMultiple": true
+            }
+          ]
+        },
+        {
+          "Name": "iso",
+          "Description": "Iso is used to access iso commands",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "create",
+                  "Description": "Create iso from url",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "delete",
+                  "Description": "Delete a private iso",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "get",
+                  "Description": "Get private ISO \u003CisoID\u003E",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "isoID",
+                          "Description": "isoID",
+                          "Type": "String"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "list",
+                  "Description": "List all private ISOs available",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "public",
+                  "Description": "List all public ISOs available",
+                  "Aliases": [],
+                  "Arguments": []
+                }
+              ],
+              "DontAllowMultiple": true
+            }
+          ]
+        },
+        {
+          "Name": "kubernetes",
+          "Description": "Kubernetes is used to access kubernetes commands",
+          "Aliases": [
+            "k"
+          ],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "config",
+                  "Description": "Gets a kubernetes cluster\u0027s config",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "create",
+                  "Description": "Create kubernetes cluster",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "delete",
+                  "Description": "Delete a kubernetes cluster",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "delete-with-resources",
+                  "Description": "Delete a kubernetes cluster and related resources",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "get",
+                  "Description": "Retrieves a kubernetes cluster",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "list",
+                  "Description": "List kubernetes clusters",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "node-pool",
+                  "Description": "Node pools commands for a kubernetes cluster",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "update",
+                  "Description": "Updates a kubernetes cluster",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "versions",
+                  "Description": "Gets supported kubernetes versions",
+                  "Aliases": [],
+                  "Arguments": []
+                }
+              ],
+              "DontAllowMultiple": true
+            }
+          ]
+        },
+        {
+          "Name": "load-balancer",
+          "Description": "Load balancer commands",
+          "Aliases": [
+            "lb"
+          ],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "create",
+                  "Description": "Create a load balancer",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "delete",
+                  "Description": "Deletes a load balancer",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "firewall-rule",
+                  "Description": "Get/list firewall rules for a load balancer",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "get",
+                  "Description": "Retrieves a load balancer",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "list",
+                  "Description": "Retrieves a list of active load balancers",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "rule",
+                  "Description": "Create/delete/list forwarding rules for a load balancer",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "update",
+                  "Description": "Updates a load balancer",
+                  "Aliases": [],
+                  "Arguments": []
+                }
+              ],
+              "DontAllowMultiple": true
+            }
+          ]
+        },
+        {
+          "Name": "network",
+          "Description": "Network interacts with network actions",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "create",
+                  "Description": "Create a private network",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "delete",
+                  "Description": "Delete a private network",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "get",
+                  "Description": "Get a private network",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "list",
+                  "Description": "List all private networks",
+                  "Aliases": [],
+                  "Arguments": []
+                }
+              ],
+              "DontAllowMultiple": true
+            }
+          ]
+        },
+        {
+          "Name": "object-storage",
+          "Description": "Object storage commands",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "create",
+                  "Description": "Create a new object storage subscription",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "delete",
+                  "Description": "Deletes an object storage subscription",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "get",
+                  "Description": "Retrieves a given object storage subscription",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "label",
+                  "Description": "Change the label for object storage subscription",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "list",
+                  "Description": "Retrieves a list of active object storage subscriptions",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "list-cluster",
+                  "Description": "Retrieves a list of object storage clusters",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "s3key-regenerate",
+                  "Description": "Regenerate the S3 API keys of an object storage subscription",
+                  "Aliases": [],
+                  "Arguments": []
+                }
+              ],
+              "DontAllowMultiple": true
+            }
+          ]
+        },
+        {
+          "Name": "os",
+          "Description": "Os is used to access os commands",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "list",
+                  "Description": "List all available operating systems",
+                  "Aliases": [],
+                  "Arguments": []
+                }
+              ],
+              "DontAllowMultiple": true
+            }
+          ]
+        },
+        {
+          "Name": "plans",
+          "Description": "Get information about Vultr plans",
+          "Aliases": [
+            "p"
+          ],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "list",
+                  "Description": "List plans",
+                  "Aliases": [],
+                  "Arguments": []
+                }
+              ],
+              "DontAllowMultiple": true
+            }
+          ]
+        },
+        {
+          "Name": "regions",
+          "Description": "Get regions",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "availability",
+                  "Description": "List availability in region",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "list",
+                  "Description": "List regions",
+                  "Aliases": [],
+                  "Arguments": []
+                }
+              ],
+              "DontAllowMultiple": true
+            }
+          ]
+        },
+        {
+          "Name": "reserved-ip",
+          "Description": "Reserved-ip lets you interact with reserved-ip",
+          "Aliases": [
+            "rip"
+          ],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "attach",
+                  "Description": "Attach a reservedIP to an instance",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "convert",
+                  "Description": "Convert IP address to reservedIP",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "create",
+                  "Description": "Create reservedIP",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "delete",
+                  "Description": "Delete a reserved ip",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "detach",
+                  "Description": "Detach a reservedIP to an instance",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "get",
+                  "Description": "Get a reserved IP",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "list",
+                  "Description": "List all reserved IPs",
+                  "Aliases": [],
+                  "Arguments": []
+                }
+              ],
+              "DontAllowMultiple": true
+            }
+          ]
+        },
+        {
+          "Name": "script",
+          "Description": "Startup script commands",
+          "Aliases": [
+            "ss"
+          ],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "create",
+                  "Description": "Create a startup script",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "delete",
+                  "Description": "Delete a startup script",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "get",
+                  "Description": "Displays the contents of specified script",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "list",
+                  "Description": "List all startup scripts",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "update",
+                  "Description": "Update startup script",
+                  "Aliases": [],
+                  "Arguments": []
+                }
+              ],
+              "DontAllowMultiple": true
+            }
+          ]
+        },
+        {
+          "Name": "snapshot",
+          "Description": "Snapshot commands",
+          "Aliases": [
+            "sn"
+          ],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "create",
+                  "Description": "Create a snapshot",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "create-url",
+                  "Description": "Create a snapshot from a URL",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "delete",
+                  "Description": "Delete a snapshot",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "get",
+                  "Description": "Get a snapshot",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "list",
+                  "Description": "List all snapshots",
+                  "Aliases": [],
+                  "Arguments": []
+                }
+              ],
+              "DontAllowMultiple": true
+            }
+          ]
+        },
+        {
+          "Name": "ssh-key",
+          "Description": "Ssh-key commands",
+          "Aliases": [
+            "ssh"
+          ],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "create",
+                  "Description": "Create an SSH key",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "delete",
+                  "Description": "Delete an SSH key",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "get",
+                  "Description": "Get an SSH key",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "list",
+                  "Description": "List all SSH keys",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "update",
+                  "Description": "Update SSH key",
+                  "Aliases": [],
+                  "Arguments": []
+                }
+              ],
+              "DontAllowMultiple": true
+            }
+          ]
+        },
+        {
+          "Name": "user",
+          "Description": "User commands",
+          "Aliases": [
+            "u"
+          ],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "create",
+                  "Description": "Create a user",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "delete",
+                  "Description": "Delete a user",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "get",
+                  "Description": "Get a user",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "list",
+                  "Description": "List all available users",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "update",
+                  "Description": "Update User",
+                  "Aliases": [],
+                  "Arguments": []
+                }
+              ],
+              "DontAllowMultiple": true
+            }
+          ]
+        },
+        {
+          "Name": "version",
+          "Description": "Display current version of Vultr-cli",
+          "Aliases": [],
+          "Arguments": []
+        }
+      ],
+      "DontAllowMultiple": true
+    }
+  ]
+}

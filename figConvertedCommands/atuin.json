@@ -1,0 +1,1229 @@
+{
+  "Comment": "This command info is generated from fig",
+  "Name": "atuin",
+  "Description": "Magical shell history",
+  "Arguments": [
+    {
+      "Arguments": [
+        {
+          "Name": "--help",
+          "Description": "Print help",
+          "Aliases": [
+            "-h"
+          ],
+          "Arguments": []
+        },
+        {
+          "Name": "--version",
+          "Description": "Print version",
+          "Aliases": [
+            "-V"
+          ],
+          "Arguments": []
+        }
+      ],
+      "Optional": true
+    },
+    {
+      "Arguments": [
+        {
+          "Name": "history",
+          "Description": "Manipulate shell history",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "start",
+                  "Description": "Begins a new command in the history",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "COMMAND",
+                          "Description": "COMMAND",
+                          "Type": "String"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "end",
+                  "Description": "Finishes a new command in the history (adds time, exit code)",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "--exit",
+                          "Description": "",
+                          "Aliases": [
+                            "-e"
+                          ],
+                          "Arguments": [
+                            {
+                              "Arguments": [
+                                {
+                                  "Name": "EXIT",
+                                  "Description": "EXIT",
+                                  "Type": "String"
+                                }
+                              ]
+                            }
+                          ]
+                        }
+                      ],
+                      "Optional": true
+                    },
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "ID",
+                          "Description": "ID",
+                          "Type": "String"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "list",
+                  "Description": "List all items in history",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "--cwd",
+                          "Description": "",
+                          "Aliases": [
+                            "-c"
+                          ],
+                          "Arguments": []
+                        },
+                        {
+                          "Name": "--session",
+                          "Description": "",
+                          "Aliases": [
+                            "-s"
+                          ],
+                          "Arguments": []
+                        },
+                        {
+                          "Name": "--human",
+                          "Description": "",
+                          "Aliases": [],
+                          "Arguments": []
+                        },
+                        {
+                          "Name": "--cmd-only",
+                          "Description": "Show only the text of the command",
+                          "Aliases": [],
+                          "Arguments": []
+                        },
+                        {
+                          "Name": "--format",
+                          "Description": "",
+                          "Aliases": [
+                            "-f"
+                          ],
+                          "Arguments": [
+                            {
+                              "Arguments": [
+                                {
+                                  "Name": "FORMAT",
+                                  "Description": "FORMAT",
+                                  "Type": "String"
+                                }
+                              ]
+                            }
+                          ]
+                        }
+                      ],
+                      "Optional": true
+                    }
+                  ]
+                },
+                {
+                  "Name": "last",
+                  "Description": "Get the last command ran",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "--human",
+                          "Description": "",
+                          "Aliases": [],
+                          "Arguments": []
+                        },
+                        {
+                          "Name": "--cmd-only",
+                          "Description": "Show only the text of the command",
+                          "Aliases": [],
+                          "Arguments": []
+                        },
+                        {
+                          "Name": "--format",
+                          "Description": "",
+                          "Aliases": [
+                            "-f"
+                          ],
+                          "Arguments": [
+                            {
+                              "Arguments": [
+                                {
+                                  "Name": "FORMAT",
+                                  "Description": "FORMAT",
+                                  "Type": "String"
+                                }
+                              ]
+                            }
+                          ]
+                        }
+                      ],
+                      "Optional": true
+                    }
+                  ]
+                }
+              ],
+              "DontAllowMultiple": true
+            }
+          ]
+        },
+        {
+          "Name": "import",
+          "Description": "Import shell history from file",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "auto",
+                  "Description": "Import history for the current shell",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "zsh",
+                  "Description": "Import history from the zsh history file",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "zsh-hist-db",
+                  "Description": "Import history from the zsh history file",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "bash",
+                  "Description": "Import history from the bash history file",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "resh",
+                  "Description": "Import history from the resh history file",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "fish",
+                  "Description": "Import history from the fish history file",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "nu",
+                  "Description": "Import history from the nu history file",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "nu-hist-db",
+                  "Description": "Import history from the nu history file",
+                  "Aliases": [],
+                  "Arguments": []
+                }
+              ],
+              "DontAllowMultiple": true
+            }
+          ]
+        },
+        {
+          "Name": "stats",
+          "Description": "Calculate statistics for your history",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "--count",
+                  "Description": "How many top commands to list",
+                  "Aliases": [
+                    "-c"
+                  ],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "COUNT",
+                          "Description": "COUNT",
+                          "Type": "String"
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ],
+              "Optional": true
+            },
+            {
+              "Arguments": [
+                {
+                  "Name": "PERIOD",
+                  "Description": "PERIOD",
+                  "Type": "String"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "Name": "search",
+          "Description": "Interactive history search",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "--cwd",
+                  "Description": "Filter search result by directory",
+                  "Aliases": [
+                    "-c"
+                  ],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "CWD",
+                          "Description": "CWD",
+                          "Type": "String"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "--exclude-cwd",
+                  "Description": "Exclude directory from results",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "EXCLUDE_CWD",
+                          "Description": "EXCLUDE_CWD",
+                          "Type": "String"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "--exit",
+                  "Description": "Filter search result by exit code",
+                  "Aliases": [
+                    "-e"
+                  ],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "EXIT",
+                          "Description": "EXIT",
+                          "Type": "String"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "--exclude-exit",
+                  "Description": "Exclude results with this exit code",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "EXCLUDE_EXIT",
+                          "Description": "EXCLUDE_EXIT",
+                          "Type": "String"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "--before",
+                  "Description": "Only include results added before this date",
+                  "Aliases": [
+                    "-b"
+                  ],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "BEFORE",
+                          "Description": "BEFORE",
+                          "Type": "String"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "--after",
+                  "Description": "Only include results after this date",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "AFTER",
+                          "Description": "AFTER",
+                          "Type": "String"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "--limit",
+                  "Description": "How many entries to return at most",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "LIMIT",
+                          "Description": "LIMIT",
+                          "Type": "String"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "--offset",
+                  "Description": "Offset from the start of the results",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "OFFSET",
+                          "Description": "OFFSET",
+                          "Type": "String"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "--interactive",
+                  "Description": "Open interactive search UI",
+                  "Aliases": [
+                    "-i"
+                  ],
+                  "Arguments": []
+                },
+                {
+                  "Name": "--filter-mode",
+                  "Description": "Allow overriding filter mode over config",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "FILTER_MODE",
+                          "Description": "FILTER_MODE",
+                          "Type": "String"
+                        },
+                        {
+                          "Name": "global",
+                          "Description": "FILTER_MODE"
+                        },
+                        {
+                          "Name": "host",
+                          "Description": "FILTER_MODE"
+                        },
+                        {
+                          "Name": "session",
+                          "Description": "FILTER_MODE"
+                        },
+                        {
+                          "Name": "directory",
+                          "Description": "FILTER_MODE"
+                        },
+                        {
+                          "Name": "workspace",
+                          "Description": "FILTER_MODE"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "--search-mode",
+                  "Description": "Allow overriding search mode over config",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "SEARCH_MODE",
+                          "Description": "SEARCH_MODE",
+                          "Type": "String"
+                        },
+                        {
+                          "Name": "prefix",
+                          "Description": "SEARCH_MODE"
+                        },
+                        {
+                          "Name": "full-text",
+                          "Description": "SEARCH_MODE"
+                        },
+                        {
+                          "Name": "fuzzy",
+                          "Description": "SEARCH_MODE"
+                        },
+                        {
+                          "Name": "skim",
+                          "Description": "SEARCH_MODE"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "--human",
+                  "Description": "Use human-readable formatting for time",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "--cmd-only",
+                  "Description": "Show only the text of the command",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "--delete",
+                  "Description": "Delete anything matching this query. Will not print out the match",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "--delete-it-all",
+                  "Description": "Delete EVERYTHING!",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "--reverse",
+                  "Description": "Reverse the order of results, oldest first",
+                  "Aliases": [
+                    "-r"
+                  ],
+                  "Arguments": []
+                },
+                {
+                  "Name": "--format",
+                  "Description": "",
+                  "Aliases": [
+                    "-f"
+                  ],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "FORMAT",
+                          "Description": "FORMAT",
+                          "Type": "String"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "--inline-height",
+                  "Description": "Set the maximum number of lines Atuin\u0027s interface should take up",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "INLINE_HEIGHT",
+                          "Description": "INLINE_HEIGHT",
+                          "Type": "String"
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ],
+              "Optional": true
+            },
+            {
+              "Arguments": [
+                {
+                  "Name": "QUERY",
+                  "Description": "QUERY",
+                  "Type": "String"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "Name": "sync",
+          "Description": "Sync with the configured server",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "--force",
+                  "Description": "Force re-download everything",
+                  "Aliases": [
+                    "-f"
+                  ],
+                  "Arguments": []
+                }
+              ],
+              "Optional": true
+            }
+          ]
+        },
+        {
+          "Name": "login",
+          "Description": "Login to the configured server",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "--username",
+                  "Description": "",
+                  "Aliases": [
+                    "-u"
+                  ],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "USERNAME",
+                          "Description": "USERNAME",
+                          "Type": "String"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "--password",
+                  "Description": "",
+                  "Aliases": [
+                    "-p"
+                  ],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "PASSWORD",
+                          "Description": "PASSWORD",
+                          "Type": "String"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "--key",
+                  "Description": "The encryption key for your account",
+                  "Aliases": [
+                    "-k"
+                  ],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "KEY",
+                          "Description": "KEY",
+                          "Type": "String"
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ],
+              "Optional": true
+            }
+          ]
+        },
+        {
+          "Name": "logout",
+          "Description": "Log out",
+          "Aliases": [],
+          "Arguments": []
+        },
+        {
+          "Name": "register",
+          "Description": "Register with the configured server",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "--username",
+                  "Description": "",
+                  "Aliases": [
+                    "-u"
+                  ],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "USERNAME",
+                          "Description": "USERNAME",
+                          "Type": "String"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "--password",
+                  "Description": "",
+                  "Aliases": [
+                    "-p"
+                  ],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "PASSWORD",
+                          "Description": "PASSWORD",
+                          "Type": "String"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "--email",
+                  "Description": "",
+                  "Aliases": [
+                    "-e"
+                  ],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "EMAIL",
+                          "Description": "EMAIL",
+                          "Type": "String"
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ],
+              "Optional": true
+            }
+          ]
+        },
+        {
+          "Name": "key",
+          "Description": "Print the encryption key for transfer to another machine",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "--base64",
+                  "Description": "Switch to base64 output of the key",
+                  "Aliases": [],
+                  "Arguments": []
+                }
+              ],
+              "Optional": true
+            }
+          ]
+        },
+        {
+          "Name": "status",
+          "Description": "",
+          "Aliases": [],
+          "Arguments": []
+        },
+        {
+          "Name": "account",
+          "Description": "",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "login",
+                  "Description": "Login to the configured server",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "--username",
+                          "Description": "",
+                          "Aliases": [
+                            "-u"
+                          ],
+                          "Arguments": [
+                            {
+                              "Arguments": [
+                                {
+                                  "Name": "USERNAME",
+                                  "Description": "USERNAME",
+                                  "Type": "String"
+                                }
+                              ]
+                            }
+                          ]
+                        },
+                        {
+                          "Name": "--password",
+                          "Description": "",
+                          "Aliases": [
+                            "-p"
+                          ],
+                          "Arguments": [
+                            {
+                              "Arguments": [
+                                {
+                                  "Name": "PASSWORD",
+                                  "Description": "PASSWORD",
+                                  "Type": "String"
+                                }
+                              ]
+                            }
+                          ]
+                        },
+                        {
+                          "Name": "--key",
+                          "Description": "The encryption key for your account",
+                          "Aliases": [
+                            "-k"
+                          ],
+                          "Arguments": [
+                            {
+                              "Arguments": [
+                                {
+                                  "Name": "KEY",
+                                  "Description": "KEY",
+                                  "Type": "String"
+                                }
+                              ]
+                            }
+                          ]
+                        }
+                      ],
+                      "Optional": true
+                    }
+                  ]
+                },
+                {
+                  "Name": "register",
+                  "Description": "",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "--username",
+                          "Description": "",
+                          "Aliases": [
+                            "-u"
+                          ],
+                          "Arguments": [
+                            {
+                              "Arguments": [
+                                {
+                                  "Name": "USERNAME",
+                                  "Description": "USERNAME",
+                                  "Type": "String"
+                                }
+                              ]
+                            }
+                          ]
+                        },
+                        {
+                          "Name": "--password",
+                          "Description": "",
+                          "Aliases": [
+                            "-p"
+                          ],
+                          "Arguments": [
+                            {
+                              "Arguments": [
+                                {
+                                  "Name": "PASSWORD",
+                                  "Description": "PASSWORD",
+                                  "Type": "String"
+                                }
+                              ]
+                            }
+                          ]
+                        },
+                        {
+                          "Name": "--email",
+                          "Description": "",
+                          "Aliases": [
+                            "-e"
+                          ],
+                          "Arguments": [
+                            {
+                              "Arguments": [
+                                {
+                                  "Name": "EMAIL",
+                                  "Description": "EMAIL",
+                                  "Type": "String"
+                                }
+                              ]
+                            }
+                          ]
+                        }
+                      ],
+                      "Optional": true
+                    }
+                  ]
+                },
+                {
+                  "Name": "logout",
+                  "Description": "Log out",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "delete",
+                  "Description": "",
+                  "Aliases": [],
+                  "Arguments": []
+                }
+              ],
+              "DontAllowMultiple": true
+            }
+          ]
+        },
+        {
+          "Name": "kv",
+          "Description": "",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "set",
+                  "Description": "",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "--key",
+                          "Description": "",
+                          "Aliases": [
+                            "-k"
+                          ],
+                          "Arguments": [
+                            {
+                              "Arguments": [
+                                {
+                                  "Name": "KEY",
+                                  "Description": "KEY",
+                                  "Type": "String"
+                                }
+                              ]
+                            }
+                          ]
+                        },
+                        {
+                          "Name": "--namespace",
+                          "Description": "",
+                          "Aliases": [
+                            "-n"
+                          ],
+                          "Arguments": [
+                            {
+                              "Arguments": [
+                                {
+                                  "Name": "NAMESPACE",
+                                  "Description": "NAMESPACE",
+                                  "Type": "String"
+                                }
+                              ]
+                            }
+                          ]
+                        }
+                      ],
+                      "Optional": true
+                    },
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "VALUE",
+                          "Description": "VALUE",
+                          "Type": "String"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "get",
+                  "Description": "",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "--namespace",
+                          "Description": "",
+                          "Aliases": [
+                            "-n"
+                          ],
+                          "Arguments": [
+                            {
+                              "Arguments": [
+                                {
+                                  "Name": "NAMESPACE",
+                                  "Description": "NAMESPACE",
+                                  "Type": "String"
+                                }
+                              ]
+                            }
+                          ]
+                        }
+                      ],
+                      "Optional": true
+                    },
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "KEY",
+                          "Description": "KEY",
+                          "Type": "String"
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ],
+              "DontAllowMultiple": true
+            }
+          ]
+        },
+        {
+          "Name": "server",
+          "Description": "Start an atuin server",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "start",
+                  "Description": "Start the server",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "--host",
+                          "Description": "The host address to bind",
+                          "Aliases": [],
+                          "Arguments": [
+                            {
+                              "Arguments": [
+                                {
+                                  "Name": "HOST",
+                                  "Description": "HOST",
+                                  "Type": "String"
+                                }
+                              ]
+                            }
+                          ]
+                        },
+                        {
+                          "Name": "--port",
+                          "Description": "The port to bind",
+                          "Aliases": [
+                            "-p"
+                          ],
+                          "Arguments": [
+                            {
+                              "Arguments": [
+                                {
+                                  "Name": "PORT",
+                                  "Description": "PORT",
+                                  "Type": "String"
+                                }
+                              ]
+                            }
+                          ]
+                        }
+                      ],
+                      "Optional": true
+                    }
+                  ]
+                }
+              ],
+              "DontAllowMultiple": true
+            }
+          ]
+        },
+        {
+          "Name": "init",
+          "Description": "Output shell setup",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "--disable-ctrl-r",
+                  "Description": "Disable the binding of CTRL-R to atuin",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "--disable-up-arrow",
+                  "Description": "Disable the binding of the Up Arrow key to atuin",
+                  "Aliases": [],
+                  "Arguments": []
+                }
+              ],
+              "Optional": true
+            },
+            {
+              "Arguments": [
+                {
+                  "Name": "SHELL",
+                  "Description": "SHELL",
+                  "Type": "String"
+                },
+                {
+                  "Name": "zsh",
+                  "Description": "SHELL"
+                },
+                {
+                  "Name": "bash",
+                  "Description": "SHELL"
+                },
+                {
+                  "Name": "fish",
+                  "Description": "SHELL"
+                },
+                {
+                  "Name": "nu",
+                  "Description": "SHELL"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "Name": "uuid",
+          "Description": "Generate a UUID",
+          "Aliases": [],
+          "Arguments": []
+        },
+        {
+          "Name": "contributors",
+          "Description": "",
+          "Aliases": [],
+          "Arguments": []
+        },
+        {
+          "Name": "gen-completions",
+          "Description": "Generate shell completions",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "--shell",
+                  "Description": "Set the shell for generating completions",
+                  "Aliases": [
+                    "-s"
+                  ],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "SHELL",
+                          "Description": "SHELL",
+                          "Type": "String"
+                        },
+                        {
+                          "Name": "bash",
+                          "Description": "SHELL"
+                        },
+                        {
+                          "Name": "elvish",
+                          "Description": "SHELL"
+                        },
+                        {
+                          "Name": "fish",
+                          "Description": "SHELL"
+                        },
+                        {
+                          "Name": "powershell",
+                          "Description": "SHELL"
+                        },
+                        {
+                          "Name": "zsh",
+                          "Description": "SHELL"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "--out-dir",
+                  "Description": "Set the output directory",
+                  "Aliases": [
+                    "-o"
+                  ],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "OUT_DIR",
+                          "Description": "OUT_DIR",
+                          "Type": "String"
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ],
+              "Optional": true
+            }
+          ]
+        }
+      ],
+      "DontAllowMultiple": true
+    }
+  ]
+}

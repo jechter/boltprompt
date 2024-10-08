@@ -1,0 +1,281 @@
+{
+  "Comment": "This command info is generated from fig",
+  "Name": "shortcuts",
+  "Description": "Command-line utility for running shortcuts",
+  "Arguments": [
+    {
+      "Arguments": [
+        {
+          "Name": "run",
+          "Description": "Run a shortcut",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "-i",
+                  "Description": "The input to provide to the shortcut",
+                  "Aliases": [
+                    "--input-path"
+                  ],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "input-path",
+                          "Description": "input-path",
+                          "Type": "FileSystemEntry"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "-o",
+                  "Description": "Where to write the shortcut output, if applicable",
+                  "Aliases": [
+                    "--output-path"
+                  ],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "output-path",
+                          "Description": "output-path",
+                          "Type": "FileSystemEntry"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "--output-type",
+                  "Description": "What type to output data in, in Universal Type Identifier format",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "output-type",
+                          "Description": "output-type",
+                          "Type": "String"
+                        },
+                        {
+                          "Name": "public.json",
+                          "Description": "JavaScript Object Notation (JSON)"
+                        },
+                        {
+                          "Name": "public.plain-text",
+                          "Description": "Plain text"
+                        },
+                        {
+                          "Name": "public.html",
+                          "Description": "HTML"
+                        },
+                        {
+                          "Name": "public.xml",
+                          "Description": "XML"
+                        },
+                        {
+                          "Name": "com.adobe.pdf",
+                          "Description": "Adobe PDF"
+                        },
+                        {
+                          "Name": "public.vcard",
+                          "Description": "VCard"
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ],
+              "Optional": true
+            },
+            {
+              "Arguments": [
+                {
+                  "Name": "shortcut-name",
+                  "Description": "shortcut-name",
+                  "Type": "CustomArgument",
+                  "Extensions": [],
+                  "CustomCommand": "shortcuts list"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "Name": "list",
+          "Description": "List your shortcuts",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "--folder-name",
+                  "Description": "The name of the folder to list",
+                  "Aliases": [
+                    "-f"
+                  ],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "folder-name",
+                          "Description": "folder-name",
+                          "Type": "CustomArgument",
+                          "Extensions": [],
+                          "CustomCommand": "shortcuts list --folders"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "--folders",
+                  "Description": "List folders instead of shortcuts",
+                  "Aliases": [],
+                  "Arguments": []
+                }
+              ],
+              "Optional": true
+            }
+          ]
+        },
+        {
+          "Name": "view",
+          "Description": "View a shortcut in Shortcuts",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "shortcut-name",
+                  "Description": "shortcut-name",
+                  "Type": "CustomArgument",
+                  "Extensions": [],
+                  "CustomCommand": "shortcuts list"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "Name": "sign",
+          "Description": "Sign a shortcut file",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "--input",
+                  "Description": "The shortcut file to sign",
+                  "Aliases": [
+                    "-i"
+                  ],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "input",
+                          "Description": "input",
+                          "Type": "File",
+                          "Extensions": [
+                            "shortcut"
+                          ],
+                          "CustomCommand": ""
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "--output",
+                  "Description": "Output path for the signed shortcut file",
+                  "Aliases": [
+                    "-o"
+                  ],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "output",
+                          "Description": "output",
+                          "Type": "FileSystemEntry"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "--mode",
+                  "Description": "The signing mode. (default: people-who-know-me)",
+                  "Aliases": [
+                    "-m"
+                  ],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "mode",
+                          "Description": "mode",
+                          "Type": "String"
+                        },
+                        {
+                          "Name": "people-who-know-me",
+                          "Description": "mode"
+                        },
+                        {
+                          "Name": "anyone",
+                          "Description": "mode"
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ],
+              "Optional": true
+            }
+          ]
+        },
+        {
+          "Name": "help",
+          "Description": "Show help information",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "run",
+                  "Description": "Run a shortcut",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "list",
+                  "Description": "List your shortcuts",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "view",
+                  "Description": "View a shortcut in Shortcuts",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "sign",
+                  "Description": "Sign a shortcut file",
+                  "Aliases": [],
+                  "Arguments": []
+                }
+              ],
+              "DontAllowMultiple": true
+            }
+          ]
+        }
+      ],
+      "DontAllowMultiple": true
+    }
+  ]
+}

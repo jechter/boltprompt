@@ -1,0 +1,1797 @@
+{
+  "Comment": "This command info is generated from fig",
+  "Name": "dbt",
+  "Description": "CLI for dbt - Data Build Tool",
+  "Arguments": [
+    {
+      "Arguments": [
+        {
+          "Name": "--version",
+          "Description": "Currently installed version",
+          "Aliases": [],
+          "Arguments": []
+        },
+        {
+          "Name": "-r",
+          "Description": "Create a new file to record timing info",
+          "Aliases": [
+            "--record-timing-info"
+          ],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "file name",
+                  "Description": "file name",
+                  "Type": "String"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "Name": "-d",
+          "Description": "Redirect debug logs to standard out",
+          "Aliases": [
+            "--debug"
+          ],
+          "Arguments": []
+        },
+        {
+          "Name": "--log-format",
+          "Description": "Specify how dbt\u0027s logs should be formatted",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "log format",
+                  "Description": "log format",
+                  "Type": "String"
+                },
+                {
+                  "Name": "text",
+                  "Description": "log format"
+                },
+                {
+                  "Name": "json",
+                  "Description": "log format"
+                },
+                {
+                  "Name": "default",
+                  "Description": "log format"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "Name": "--no-write-json",
+          "Description": "Prevent dbt from writing JSOn artifacts to the \u0027target/\u0027 directory",
+          "Aliases": [],
+          "Arguments": []
+        },
+        {
+          "Name": "-S",
+          "Description": "Perform extra validation of dbt objects and internal consistency checks during compilation. Use only during development",
+          "Aliases": [
+            "--strict"
+          ],
+          "Arguments": []
+        },
+        {
+          "Name": "--warn-error",
+          "Description": "Convert dbt warnings into errors",
+          "Aliases": [],
+          "Arguments": []
+        },
+        {
+          "Name": "--partial-parse",
+          "Description": "Configure partial parsing for your project",
+          "Aliases": [],
+          "Arguments": []
+        },
+        {
+          "Name": "--no-partial-parse",
+          "Description": "Turn off partial parsing for your project",
+          "Aliases": [],
+          "Arguments": []
+        },
+        {
+          "Name": "--use-colors",
+          "Description": "Default value -- colorize run logs",
+          "Aliases": [],
+          "Arguments": []
+        },
+        {
+          "Name": "--no-use-colors",
+          "Description": "Disable log colorizing",
+          "Aliases": [],
+          "Arguments": []
+        }
+      ],
+      "Optional": true
+    },
+    {
+      "Arguments": [
+        {
+          "Name": "build",
+          "Description": "Run models, test tests, snapshot snapshots, and seed seeds",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "--full-refresh",
+                  "Description": "Treat incremental models as table models",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "-x",
+                  "Description": "Exit immediately if a single model fails to build",
+                  "Aliases": [
+                    "--fail-fast"
+                  ],
+                  "Arguments": []
+                },
+                {
+                  "Name": "--profiles-dir",
+                  "Description": "Set the profiles directory",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "directory",
+                          "Description": "directory",
+                          "Type": "Directory"
+                        },
+                        {
+                          "Name": "profiles",
+                          "Description": "directory"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "--profile",
+                  "Description": "Use the selected profile",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "name",
+                          "Description": "name",
+                          "Type": "String"
+                        },
+                        {
+                          "Name": "default",
+                          "Description": "name"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "--target",
+                  "Description": "Target profile configuration i.e. prod/dev",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "profile",
+                          "Description": "profile",
+                          "Type": "String"
+                        },
+                        {
+                          "Name": "dev",
+                          "Description": "profile"
+                        },
+                        {
+                          "Name": "prod",
+                          "Description": "profile"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "--vars",
+                  "Description": "Variable values to override dbt_project.yml",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "variables",
+                          "Description": "variables",
+                          "Type": "String"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "--threads",
+                  "Description": "Number of concurrent database jobs",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "THREADS",
+                          "Description": "THREADS",
+                          "Type": "String"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "-s",
+                  "Description": "Select subset of models",
+                  "Aliases": [
+                    "--select"
+                  ],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "subset",
+                          "Description": "subset",
+                          "Type": "String"
+                        },
+                        {
+                          "Name": "path:",
+                          "Description": "subset"
+                        },
+                        {
+                          "Name": "tag:",
+                          "Description": "subset"
+                        },
+                        {
+                          "Name": "config:",
+                          "Description": "subset"
+                        },
+                        {
+                          "Name": "test_type:",
+                          "Description": "subset"
+                        },
+                        {
+                          "Name": "test_name:",
+                          "Description": "subset"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "--exclude",
+                  "Description": "Exclude subset of models",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "subset",
+                          "Description": "subset",
+                          "Type": "String"
+                        },
+                        {
+                          "Name": "path:",
+                          "Description": "subset"
+                        },
+                        {
+                          "Name": "tag:",
+                          "Description": "subset"
+                        },
+                        {
+                          "Name": "config:",
+                          "Description": "subset"
+                        },
+                        {
+                          "Name": "test_type:",
+                          "Description": "subset"
+                        },
+                        {
+                          "Name": "test_name:",
+                          "Description": "subset"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "--bypass-cache",
+                  "Description": "Bypass the cache",
+                  "Aliases": [],
+                  "Arguments": []
+                }
+              ],
+              "Optional": true
+            }
+          ]
+        },
+        {
+          "Name": "run",
+          "Description": "Runs the models in a project",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "--full-refresh",
+                  "Description": "Treat incremental models as table models",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "-x",
+                  "Description": "Exit immediately if a single model fails to build",
+                  "Aliases": [
+                    "--fail-fast"
+                  ],
+                  "Arguments": []
+                },
+                {
+                  "Name": "--use-colors",
+                  "Description": "Default value -- colorize run logs",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "--no-use-colors",
+                  "Description": "Disable log colorizing",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "--profiles-dir",
+                  "Description": "Set the profiles directory",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "directory",
+                          "Description": "directory",
+                          "Type": "Directory"
+                        },
+                        {
+                          "Name": "profiles",
+                          "Description": "directory"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "--profile",
+                  "Description": "Select the profile to use",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "name",
+                          "Description": "name",
+                          "Type": "String"
+                        },
+                        {
+                          "Name": "default",
+                          "Description": "name"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "--target",
+                  "Description": "The target profile",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "Target profile",
+                          "Description": "Target profile",
+                          "Type": "String"
+                        },
+                        {
+                          "Name": "dev",
+                          "Description": "Target profile"
+                        },
+                        {
+                          "Name": "prod",
+                          "Description": "Target profile"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "--vars",
+                  "Description": "Variable values to override dbt_project.yml",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "variables",
+                          "Description": "variables",
+                          "Type": "String"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "--threads",
+                  "Description": "Number of concurrent database jobs",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "threads",
+                          "Description": "threads",
+                          "Type": "String"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "-s",
+                  "Description": "Select subset of models",
+                  "Aliases": [
+                    "--select"
+                  ],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "subset",
+                          "Description": "subset",
+                          "Type": "String"
+                        },
+                        {
+                          "Name": "path:",
+                          "Description": "subset"
+                        },
+                        {
+                          "Name": "tag:",
+                          "Description": "subset"
+                        },
+                        {
+                          "Name": "config:",
+                          "Description": "subset"
+                        },
+                        {
+                          "Name": "test_type:",
+                          "Description": "subset"
+                        },
+                        {
+                          "Name": "test_name:",
+                          "Description": "subset"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "--exclude",
+                  "Description": "Exclude subset of models",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "subset",
+                          "Description": "subset",
+                          "Type": "String"
+                        },
+                        {
+                          "Name": "path:",
+                          "Description": "subset"
+                        },
+                        {
+                          "Name": "tag:",
+                          "Description": "subset"
+                        },
+                        {
+                          "Name": "config:",
+                          "Description": "subset"
+                        },
+                        {
+                          "Name": "test_type:",
+                          "Description": "subset"
+                        },
+                        {
+                          "Name": "test_name:",
+                          "Description": "subset"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "--bypass-cache",
+                  "Description": "Bypass the cache",
+                  "Aliases": [],
+                  "Arguments": []
+                }
+              ],
+              "Optional": true
+            }
+          ]
+        },
+        {
+          "Name": "debug",
+          "Description": "Debugs dbt connections and projects",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "--config-dir",
+                  "Description": "",
+                  "Aliases": [],
+                  "Arguments": []
+                }
+              ],
+              "Optional": true
+            }
+          ]
+        },
+        {
+          "Name": "init",
+          "Description": "Initializes a new dbt project",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "--adapter",
+                  "Description": "Add an adapter",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "adapter",
+                          "Description": "adapter",
+                          "Type": "String"
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ],
+              "Optional": true
+            },
+            {
+              "Arguments": [
+                {
+                  "Name": "name",
+                  "Description": "name",
+                  "Type": "String"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "Name": "compile",
+          "Description": "Compiles (but does not run) the models in a project",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "--profiles-dir",
+                  "Description": "Set the profiles directory",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "directory",
+                          "Description": "directory",
+                          "Type": "Directory"
+                        },
+                        {
+                          "Name": "profiles",
+                          "Description": "directory"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "--profile",
+                  "Description": "Select the profile to use",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "name",
+                          "Description": "name",
+                          "Type": "String"
+                        },
+                        {
+                          "Name": "default",
+                          "Description": "name"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "--target",
+                  "Description": "The target profile",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "Target profile",
+                          "Description": "Target profile",
+                          "Type": "String"
+                        },
+                        {
+                          "Name": "dev",
+                          "Description": "Target profile"
+                        },
+                        {
+                          "Name": "prod",
+                          "Description": "Target profile"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "--vars",
+                  "Description": "Variable values to override dbt_project.yml",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "Variable values",
+                          "Description": "Variable values",
+                          "Type": "String"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "--threads",
+                  "Description": "Number of concurrent database jobs",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "THREADS",
+                          "Description": "THREADS",
+                          "Type": "String"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "--select",
+                  "Description": "Select subset of models",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "Select subset",
+                          "Description": "Select subset",
+                          "Type": "String"
+                        },
+                        {
+                          "Name": "path:",
+                          "Description": "Select subset"
+                        },
+                        {
+                          "Name": "tag:",
+                          "Description": "Select subset"
+                        },
+                        {
+                          "Name": "config:",
+                          "Description": "Select subset"
+                        },
+                        {
+                          "Name": "test_type:",
+                          "Description": "Select subset"
+                        },
+                        {
+                          "Name": "test_name:",
+                          "Description": "Select subset"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "--exclude",
+                  "Description": "Exclude subset of models",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "Exclude subset",
+                          "Description": "Exclude subset",
+                          "Type": "String"
+                        },
+                        {
+                          "Name": "path:",
+                          "Description": "Exclude subset"
+                        },
+                        {
+                          "Name": "tag:",
+                          "Description": "Exclude subset"
+                        },
+                        {
+                          "Name": "config:",
+                          "Description": "Exclude subset"
+                        },
+                        {
+                          "Name": "test_type:",
+                          "Description": "Exclude subset"
+                        },
+                        {
+                          "Name": "test_name:",
+                          "Description": "Exclude subset"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "--bypass-cache",
+                  "Description": "Bypass the cache",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "--selector",
+                  "Description": "This flag specifies one or more named selectors, defined in a \u003Cselector name\u003E.yml file",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "YAML selector file name",
+                          "Description": "YAML selector file name",
+                          "Type": "String"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "--defer",
+                  "Description": "Defer",
+                  "Aliases": [],
+                  "Arguments": []
+                }
+              ],
+              "Optional": true
+            }
+          ]
+        },
+        {
+          "Name": "test",
+          "Description": "Executes tests defined in a project",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "-x",
+                  "Description": "Exit immediately if a single model fails to build",
+                  "Aliases": [
+                    "--fail-fast"
+                  ],
+                  "Arguments": []
+                },
+                {
+                  "Name": "--profiles-dir",
+                  "Description": "Set the profiles directory",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "directory",
+                          "Description": "directory",
+                          "Type": "Directory"
+                        },
+                        {
+                          "Name": "profiles",
+                          "Description": "directory"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "--profile",
+                  "Description": "Select the profile to use",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "name",
+                          "Description": "name",
+                          "Type": "String"
+                        },
+                        {
+                          "Name": "default",
+                          "Description": "name"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "--data",
+                  "Description": "Run only custom data tests",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "--schema",
+                  "Description": "Run only schema tests",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "-s",
+                  "Description": "Select subset of models",
+                  "Aliases": [
+                    "--select"
+                  ],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "subset",
+                          "Description": "subset",
+                          "Type": "String"
+                        },
+                        {
+                          "Name": "path:",
+                          "Description": "subset"
+                        },
+                        {
+                          "Name": "tag:",
+                          "Description": "subset"
+                        },
+                        {
+                          "Name": "config:",
+                          "Description": "subset"
+                        },
+                        {
+                          "Name": "test_type:",
+                          "Description": "subset"
+                        },
+                        {
+                          "Name": "test_name:",
+                          "Description": "subset"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "--exclude",
+                  "Description": "Exclude subset of models",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "subset",
+                          "Description": "subset",
+                          "Type": "String"
+                        },
+                        {
+                          "Name": "path:",
+                          "Description": "subset"
+                        },
+                        {
+                          "Name": "tag:",
+                          "Description": "subset"
+                        },
+                        {
+                          "Name": "config:",
+                          "Description": "subset"
+                        },
+                        {
+                          "Name": "test_type:",
+                          "Description": "subset"
+                        },
+                        {
+                          "Name": "test_name:",
+                          "Description": "subset"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "--bypass-cache",
+                  "Description": "Bypass the cache",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "--selector",
+                  "Description": "This flag specifies one or more named selectors, defined in a \u003Cselector name\u003E.yml file",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "YAML selector file name",
+                          "Description": "YAML selector file name",
+                          "Type": "String"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "--defer",
+                  "Description": "Defer",
+                  "Aliases": [],
+                  "Arguments": []
+                }
+              ],
+              "Optional": true
+            }
+          ]
+        },
+        {
+          "Name": "deps",
+          "Description": "Downloads dependencies for a project",
+          "Aliases": [],
+          "Arguments": []
+        },
+        {
+          "Name": "snapshot",
+          "Description": "Executes \u0027snapshot\u0027 jobs defined in a project",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "--profiles-dir",
+                  "Description": "Set the profiles directory",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "profiles directory",
+                          "Description": "profiles directory",
+                          "Type": "Directory"
+                        },
+                        {
+                          "Name": "profiles",
+                          "Description": "profiles directory"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "-x",
+                  "Description": "Exit immediately if a single model fails to build",
+                  "Aliases": [
+                    "--fail-fast"
+                  ],
+                  "Arguments": []
+                },
+                {
+                  "Name": "--profile",
+                  "Description": "Select the profile to use",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "Profile name",
+                          "Description": "Profile name",
+                          "Type": "String"
+                        },
+                        {
+                          "Name": "default",
+                          "Description": "Profile name"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "--target",
+                  "Description": "The target profile",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "Target profile",
+                          "Description": "Target profile",
+                          "Type": "String"
+                        },
+                        {
+                          "Name": "dev",
+                          "Description": "Target profile"
+                        },
+                        {
+                          "Name": "prod",
+                          "Description": "Target profile"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "--vars",
+                  "Description": "Variable values to override dbt_project.yml",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "Variable values",
+                          "Description": "Variable values",
+                          "Type": "String"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "--threads",
+                  "Description": "Number of concurrent database jobs",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "thread",
+                          "Description": "thread",
+                          "Type": "String"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "--select",
+                  "Description": "Select subset of models",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "subset",
+                          "Description": "subset",
+                          "Type": "String"
+                        },
+                        {
+                          "Name": "path:",
+                          "Description": "subset"
+                        },
+                        {
+                          "Name": "tag:",
+                          "Description": "subset"
+                        },
+                        {
+                          "Name": "config:",
+                          "Description": "subset"
+                        },
+                        {
+                          "Name": "test_type:",
+                          "Description": "subset"
+                        },
+                        {
+                          "Name": "test_name:",
+                          "Description": "subset"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "--exclude",
+                  "Description": "Exclude subset of models",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "Exclude subset",
+                          "Description": "Exclude subset",
+                          "Type": "String"
+                        },
+                        {
+                          "Name": "path:",
+                          "Description": "Exclude subset"
+                        },
+                        {
+                          "Name": "tag:",
+                          "Description": "Exclude subset"
+                        },
+                        {
+                          "Name": "config:",
+                          "Description": "Exclude subset"
+                        },
+                        {
+                          "Name": "test_type:",
+                          "Description": "Exclude subset"
+                        },
+                        {
+                          "Name": "test_name:",
+                          "Description": "Exclude subset"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "--bypass-cache",
+                  "Description": "Bypass the cache",
+                  "Aliases": [],
+                  "Arguments": []
+                }
+              ],
+              "Optional": true
+            }
+          ]
+        },
+        {
+          "Name": "clean",
+          "Description": "Deletes artifacts present in the dbt project",
+          "Aliases": [],
+          "Arguments": []
+        },
+        {
+          "Name": "seed",
+          "Description": "Loads CSV files into the database",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "--profiles-dir",
+                  "Description": "Set the profiles directory",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "profiles directory",
+                          "Description": "profiles directory",
+                          "Type": "Directory"
+                        },
+                        {
+                          "Name": "profiles",
+                          "Description": "profiles directory"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "--profile",
+                  "Description": "Select the profile to use",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "Profile name",
+                          "Description": "Profile name",
+                          "Type": "String"
+                        },
+                        {
+                          "Name": "default",
+                          "Description": "Profile name"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "-x",
+                  "Description": "Exit immediately if a single model fails to build",
+                  "Aliases": [
+                    "--fail-fast"
+                  ],
+                  "Arguments": []
+                },
+                {
+                  "Name": "--select",
+                  "Description": "Run specific seeds",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "Select subset",
+                          "Description": "Select subset",
+                          "Type": "String"
+                        },
+                        {
+                          "Name": "path:",
+                          "Description": "Select subset"
+                        },
+                        {
+                          "Name": "tag:",
+                          "Description": "Select subset"
+                        },
+                        {
+                          "Name": "config:",
+                          "Description": "Select subset"
+                        },
+                        {
+                          "Name": "test_type:",
+                          "Description": "Select subset"
+                        },
+                        {
+                          "Name": "test_name:",
+                          "Description": "Select subset"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "--exclude",
+                  "Description": "Exclude subset of models",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "Exclude subset",
+                          "Description": "Exclude subset",
+                          "Type": "String"
+                        },
+                        {
+                          "Name": "path:",
+                          "Description": "Exclude subset"
+                        },
+                        {
+                          "Name": "tag:",
+                          "Description": "Exclude subset"
+                        },
+                        {
+                          "Name": "config:",
+                          "Description": "Exclude subset"
+                        },
+                        {
+                          "Name": "test_type:",
+                          "Description": "Exclude subset"
+                        },
+                        {
+                          "Name": "test_name:",
+                          "Description": "Exclude subset"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "--bypass-cache",
+                  "Description": "Bypass the cache",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "--selector",
+                  "Description": "This flag specifies one or more named selectors, defined in a \u003Cselector name\u003E.yml file",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "YAML selector file name",
+                          "Description": "YAML selector file name",
+                          "Type": "String"
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ],
+              "Optional": true
+            }
+          ]
+        },
+        {
+          "Name": "docs",
+          "Description": "Generates documentation for a project",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "generate",
+                  "Description": "Generate your project\u0027s documentation website",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "--no-compile",
+                          "Description": "Skip re-compilation",
+                          "Aliases": [],
+                          "Arguments": []
+                        }
+                      ],
+                      "Optional": true
+                    }
+                  ]
+                },
+                {
+                  "Name": "serve",
+                  "Description": "Serve your documentation on a local webserver (default prot 8000)",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "--profiles-dir",
+                          "Description": "Skip re-compilation",
+                          "Aliases": [],
+                          "Arguments": [
+                            {
+                              "Arguments": [
+                                {
+                                  "Name": "PROFILES_DIR",
+                                  "Description": "PROFILES_DIR",
+                                  "Type": "Directory"
+                                }
+                              ]
+                            }
+                          ]
+                        },
+                        {
+                          "Name": "--profile",
+                          "Description": "Choose a profile",
+                          "Aliases": [],
+                          "Arguments": [
+                            {
+                              "Arguments": [
+                                {
+                                  "Name": "PROFILE NAME",
+                                  "Description": "PROFILE NAME",
+                                  "Type": "String"
+                                }
+                              ]
+                            }
+                          ]
+                        },
+                        {
+                          "Name": "--target",
+                          "Description": "The target profile",
+                          "Aliases": [],
+                          "Arguments": [
+                            {
+                              "Arguments": [
+                                {
+                                  "Name": "Target profile",
+                                  "Description": "Target profile",
+                                  "Type": "String"
+                                },
+                                {
+                                  "Name": "dev",
+                                  "Description": "Target profile"
+                                },
+                                {
+                                  "Name": "prod",
+                                  "Description": "Target profile"
+                                }
+                              ]
+                            }
+                          ]
+                        },
+                        {
+                          "Name": "--port",
+                          "Description": "Choose a port",
+                          "Aliases": [],
+                          "Arguments": [
+                            {
+                              "Arguments": [
+                                {
+                                  "Name": "port number",
+                                  "Description": "port number",
+                                  "Type": "String"
+                                }
+                              ]
+                            }
+                          ]
+                        }
+                      ],
+                      "Optional": true
+                    }
+                  ]
+                }
+              ],
+              "DontAllowMultiple": true
+            }
+          ]
+        },
+        {
+          "Name": "source",
+          "Description": "Provides tools for working with source data (including validating that sources are \u0027fresh\u0027)",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "snapshot-freshness",
+                  "Description": "",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "-o",
+                          "Description": "Override the destination for sources.json",
+                          "Aliases": [
+                            "--output"
+                          ],
+                          "Arguments": [
+                            {
+                              "Arguments": [
+                                {
+                                  "Name": "FILEPATH",
+                                  "Description": "FILEPATH",
+                                  "Type": "FileSystemEntry"
+                                }
+                              ]
+                            }
+                          ]
+                        },
+                        {
+                          "Name": "--select",
+                          "Description": "This flag specifies one or more selection-type arguments used to filter the nodes returned by the dbt ls command",
+                          "Aliases": [],
+                          "Arguments": [
+                            {
+                              "Arguments": [
+                                {
+                                  "Name": "Select subset",
+                                  "Description": "Select subset",
+                                  "Type": "String"
+                                },
+                                {
+                                  "Name": "path:",
+                                  "Description": "Select subset"
+                                },
+                                {
+                                  "Name": "tag:",
+                                  "Description": "Select subset"
+                                },
+                                {
+                                  "Name": "config:",
+                                  "Description": "Select subset"
+                                },
+                                {
+                                  "Name": "test_type:",
+                                  "Description": "Select subset"
+                                },
+                                {
+                                  "Name": "test_name:",
+                                  "Description": "Select subset"
+                                }
+                              ]
+                            }
+                          ]
+                        }
+                      ],
+                      "Optional": true
+                    }
+                  ]
+                }
+              ],
+              "DontAllowMultiple": true
+            }
+          ]
+        },
+        {
+          "Name": "run-operation",
+          "Description": "Runs arbitrary maintenance SQL against the database",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "--args",
+                  "Description": "Supply arguments to the macro",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "ARGS",
+                          "Description": "ARGS",
+                          "Type": "String"
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ],
+              "Optional": true
+            },
+            {
+              "Arguments": [
+                {
+                  "Name": "MACRO",
+                  "Description": "MACRO",
+                  "Type": "String"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "Name": "rpc",
+          "Description": "Runs an RPC server that clients can submit queries to",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "--host",
+                  "Description": "Specify the host to listen on",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "HOST",
+                          "Description": "HOST",
+                          "Type": "String"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "--port",
+                  "Description": "The port to use",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "PORT",
+                          "Description": "PORT",
+                          "Type": "String"
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ],
+              "Optional": true
+            }
+          ]
+        },
+        {
+          "Name": "ls",
+          "Description": "Lists resources defined in a dbt project",
+          "Aliases": [
+            "list"
+          ],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "--resource-type",
+                  "Description": "This flag limits the \u0027resource types\u0027 that dbt will return in the dbt ls command. By default, the following resources are included in the results of dbt ls: models, snapshots, seeds, tests, and sources",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "resource-type",
+                          "Description": "resource-type",
+                          "Type": "String"
+                        },
+                        {
+                          "Name": "source",
+                          "Description": "resource-type"
+                        },
+                        {
+                          "Name": "analysis",
+                          "Description": "resource-type"
+                        },
+                        {
+                          "Name": "model",
+                          "Description": "resource-type"
+                        },
+                        {
+                          "Name": "snapshot",
+                          "Description": "resource-type"
+                        },
+                        {
+                          "Name": "test",
+                          "Description": "resource-type"
+                        },
+                        {
+                          "Name": "seed",
+                          "Description": "resource-type"
+                        },
+                        {
+                          "Name": "default",
+                          "Description": "resource-type"
+                        },
+                        {
+                          "Name": "all",
+                          "Description": "resource-type"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "-s",
+                  "Description": "This flag specifies one or more selection-type arguments used to filter the nodes returned by the dbt ls command",
+                  "Aliases": [
+                    "--select"
+                  ],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "SELECTION_ARG",
+                          "Description": "SELECTION_ARG",
+                          "Type": "String"
+                        },
+                        {
+                          "Name": "path:",
+                          "Description": "SELECTION_ARG"
+                        },
+                        {
+                          "Name": "tag:",
+                          "Description": "SELECTION_ARG"
+                        },
+                        {
+                          "Name": "config:",
+                          "Description": "SELECTION_ARG"
+                        },
+                        {
+                          "Name": "test_type:",
+                          "Description": "SELECTION_ARG"
+                        },
+                        {
+                          "Name": "test_name:",
+                          "Description": "SELECTION_ARG"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "--exclude",
+                  "Description": "Specify selectors that should be excluded from the list of returned nodes",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "SELECTOR",
+                          "Description": "SELECTOR",
+                          "Type": "String"
+                        },
+                        {
+                          "Name": "path:",
+                          "Description": "SELECTOR"
+                        },
+                        {
+                          "Name": "tag:",
+                          "Description": "SELECTOR"
+                        },
+                        {
+                          "Name": "config:",
+                          "Description": "SELECTOR"
+                        },
+                        {
+                          "Name": "test_type:",
+                          "Description": "SELECTOR"
+                        },
+                        {
+                          "Name": "test_name:",
+                          "Description": "SELECTOR"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "--selector",
+                  "Description": "This flag specifies one or more named selectors, defined in a \u003Cselector name\u003E.yml file",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "YAML selector file name",
+                          "Description": "YAML selector file name",
+                          "Type": "String"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "--output",
+                  "Description": "This flag controls the format of output from the dbt ls command",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "output",
+                          "Description": "output",
+                          "Type": "String"
+                        },
+                        {
+                          "Name": "json",
+                          "Description": "output"
+                        },
+                        {
+                          "Name": "name",
+                          "Description": "output"
+                        },
+                        {
+                          "Name": "path",
+                          "Description": "output"
+                        },
+                        {
+                          "Name": "selector",
+                          "Description": "output"
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ],
+              "Optional": true
+            }
+          ]
+        },
+        {
+          "Name": "parse",
+          "Description": "Parse dbt project and write detailed timing information",
+          "Aliases": [],
+          "Arguments": []
+        }
+      ],
+      "DontAllowMultiple": true
+    }
+  ]
+}

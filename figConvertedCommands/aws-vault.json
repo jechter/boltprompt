@@ -1,0 +1,305 @@
+{
+  "Comment": "This command info is generated from fig",
+  "Name": "aws-vault",
+  "Description": "A vault for securely storing and accessing AWS credentials in development environments",
+  "Arguments": [
+    {
+      "Arguments": [
+        {
+          "Name": "--help",
+          "Description": "Show context-sensitive help (also try --help-long and --help-man)",
+          "Aliases": [],
+          "Arguments": []
+        },
+        {
+          "Name": "--version",
+          "Description": "Show application version",
+          "Aliases": [],
+          "Arguments": []
+        },
+        {
+          "Name": "--debug",
+          "Description": "Show debugging output",
+          "Aliases": [],
+          "Arguments": []
+        }
+      ],
+      "Optional": true
+    },
+    {
+      "Arguments": [
+        {
+          "Name": "add",
+          "Description": "Add credentials to the secure keystore",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "profile",
+                  "Description": "profile",
+                  "Type": "String"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "Name": "remove",
+          "Description": "Remove credentials from the secure keystore",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "-f",
+                  "Description": "Force-remove the profile without a prompt",
+                  "Aliases": [
+                    "--force"
+                  ],
+                  "Arguments": []
+                }
+              ],
+              "Optional": true
+            },
+            {
+              "Arguments": [
+                {
+                  "Name": "profile",
+                  "Description": "profile",
+                  "Type": "CustomArgument",
+                  "Extensions": [],
+                  "CustomCommand": "aws-vault list --profiles"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "Name": "list",
+          "Description": "List profiles, along with their credentials and sessions",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "--profiles",
+                  "Description": "Show only the profile names",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "--sessions",
+                  "Description": "Show only the session names",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "--credentials",
+                  "Description": "Show only the profiles with stored credential",
+                  "Aliases": [],
+                  "Arguments": []
+                }
+              ],
+              "Optional": true
+            }
+          ]
+        },
+        {
+          "Name": "rotate",
+          "Description": "Rotate credentials",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "-n",
+                  "Description": "Use master credentials, no session or role used",
+                  "Aliases": [
+                    "--no-session"
+                  ],
+                  "Arguments": []
+                }
+              ],
+              "Optional": true
+            },
+            {
+              "Arguments": [
+                {
+                  "Name": "profile",
+                  "Description": "profile",
+                  "Type": "CustomArgument",
+                  "Extensions": [],
+                  "CustomCommand": "aws-vault list --profiles"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "Name": "exec",
+          "Description": "Execute a command with AWS credentials",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "-d",
+                  "Description": "Duration of the temporary or assume-role session. Defaults to 1h",
+                  "Aliases": [
+                    "--duration"
+                  ],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "DURATION",
+                          "Description": "DURATION",
+                          "Type": "String"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "-n",
+                  "Description": "Use master credentials, no session or role used",
+                  "Aliases": [
+                    "--no-session"
+                  ],
+                  "Arguments": []
+                },
+                {
+                  "Name": "--region",
+                  "Description": "The AWS region",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "REGION",
+                          "Description": "REGION",
+                          "Type": "String"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "-t",
+                  "Description": "The MFA token to use",
+                  "Aliases": [
+                    "--mfa-token"
+                  ],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "MFA-TOKEN",
+                          "Description": "MFA-TOKEN",
+                          "Type": "String"
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ],
+              "Optional": true
+            },
+            {
+              "Arguments": [
+                {
+                  "Name": "profile",
+                  "Description": "profile",
+                  "Type": "CustomArgument",
+                  "Extensions": [],
+                  "CustomCommand": "aws-vault list --profiles"
+                }
+              ]
+            },
+            {
+              "Arguments": [
+                {
+                  "Name": "command",
+                  "Description": "command",
+                  "Type": "String"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "Name": "export",
+          "Description": "Export AWS credentials",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "profile",
+                  "Description": "profile",
+                  "Type": "CustomArgument",
+                  "Extensions": [],
+                  "CustomCommand": "aws-vault list --profiles"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "Name": "clear",
+          "Description": "Clear temporary credentials from the secure keystore",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "profile",
+                  "Description": "profile",
+                  "Type": "CustomArgument",
+                  "Extensions": [],
+                  "CustomCommand": "aws-vault list --profiles"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "Name": "login",
+          "Description": "Generate a login link for the AWS Console",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "profile",
+                  "Description": "profile",
+                  "Type": "CustomArgument",
+                  "Extensions": [],
+                  "CustomCommand": "aws-vault list --profiles"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "Name": "help",
+          "Description": "Show help about the command",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "command",
+                  "Description": "command",
+                  "Type": "String"
+                }
+              ]
+            }
+          ]
+        }
+      ],
+      "DontAllowMultiple": true
+    }
+  ]
+}

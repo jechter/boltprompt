@@ -1,0 +1,771 @@
+{
+  "Comment": "This command info is generated from fig",
+  "Name": "limactl",
+  "Description": "Control the Lima(Linux virtual machines)",
+  "Arguments": [
+    {
+      "Arguments": [
+        {
+          "Name": "-h",
+          "Description": "Help for limactl",
+          "Aliases": [
+            "--help"
+          ],
+          "Arguments": []
+        },
+        {
+          "Name": "--debug",
+          "Description": "Debug mode",
+          "Aliases": [],
+          "Arguments": []
+        },
+        {
+          "Name": "-v",
+          "Description": "Version for limactl",
+          "Aliases": [
+            "--version"
+          ],
+          "Arguments": []
+        }
+      ],
+      "Optional": true
+    },
+    {
+      "Arguments": [
+        {
+          "Name": "completion",
+          "Description": "Generate the autocompletion script for the specified shell",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "-h",
+                  "Description": "Help for completion",
+                  "Aliases": [
+                    "--help"
+                  ],
+                  "Arguments": []
+                },
+                {
+                  "Name": "--debug",
+                  "Description": "Debug mode",
+                  "Aliases": [],
+                  "Arguments": []
+                }
+              ],
+              "Optional": true
+            },
+            {
+              "Arguments": [
+                {
+                  "Name": "bash",
+                  "Description": "Generate the autocompletion script for bash",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "-h",
+                          "Description": "Help for bash",
+                          "Aliases": [
+                            "--help"
+                          ],
+                          "Arguments": []
+                        },
+                        {
+                          "Name": "--debug",
+                          "Description": "Debug mode",
+                          "Aliases": [],
+                          "Arguments": []
+                        },
+                        {
+                          "Name": "--no-descriptions",
+                          "Description": "Disable completion descriptions",
+                          "Aliases": [],
+                          "Arguments": []
+                        }
+                      ],
+                      "Optional": true
+                    }
+                  ]
+                },
+                {
+                  "Name": "fish",
+                  "Description": "Generate the autocompletion script for fish",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "-h",
+                          "Description": "Help for fish",
+                          "Aliases": [
+                            "--help"
+                          ],
+                          "Arguments": []
+                        },
+                        {
+                          "Name": "--debug",
+                          "Description": "Debug mode",
+                          "Aliases": [],
+                          "Arguments": []
+                        },
+                        {
+                          "Name": "--no-descriptions",
+                          "Description": "Disable completion descriptions",
+                          "Aliases": [],
+                          "Arguments": []
+                        }
+                      ],
+                      "Optional": true
+                    }
+                  ]
+                },
+                {
+                  "Name": "powershell",
+                  "Description": "Generate the autocompletion script for powershell",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "-h",
+                          "Description": "Help for powershell",
+                          "Aliases": [
+                            "--help"
+                          ],
+                          "Arguments": []
+                        },
+                        {
+                          "Name": "--debug",
+                          "Description": "Debug mode",
+                          "Aliases": [],
+                          "Arguments": []
+                        },
+                        {
+                          "Name": "--no-descriptions",
+                          "Description": "Disable completion descriptions",
+                          "Aliases": [],
+                          "Arguments": []
+                        }
+                      ],
+                      "Optional": true
+                    }
+                  ]
+                },
+                {
+                  "Name": "zsh",
+                  "Description": "Generate the autocompletion script for zsh",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "-h",
+                          "Description": "Help for zsh",
+                          "Aliases": [
+                            "--help"
+                          ],
+                          "Arguments": []
+                        },
+                        {
+                          "Name": "--debug",
+                          "Description": "Debug mode",
+                          "Aliases": [],
+                          "Arguments": []
+                        },
+                        {
+                          "Name": "--no-descriptions",
+                          "Description": "Disable completion descriptions",
+                          "Aliases": [],
+                          "Arguments": []
+                        }
+                      ],
+                      "Optional": true
+                    }
+                  ]
+                }
+              ],
+              "DontAllowMultiple": true
+            }
+          ]
+        },
+        {
+          "Name": "copy",
+          "Description": "Copy files between host and guest",
+          "Aliases": [
+            "cp"
+          ],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "-h",
+                  "Description": "Help for copy",
+                  "Aliases": [
+                    "--help"
+                  ],
+                  "Arguments": []
+                },
+                {
+                  "Name": "--debug",
+                  "Description": "Debug mode",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "-r",
+                  "Description": "Copy directories recursively",
+                  "Aliases": [
+                    "--recursive"
+                  ],
+                  "Arguments": []
+                }
+              ],
+              "Optional": true
+            },
+            {
+              "Arguments": [
+                {
+                  "Name": "SOURCE",
+                  "Description": "SOURCE",
+                  "Type": "CustomArgument",
+                  "Extensions": [],
+                  "CustomCommand": "limactl list --quiet"
+                }
+              ]
+            },
+            {
+              "Arguments": [
+                {
+                  "Name": "TARGET",
+                  "Description": "TARGET",
+                  "Type": "CustomArgument",
+                  "Extensions": [],
+                  "CustomCommand": "limactl list --quiet"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "Name": "delete",
+          "Description": "Delete an instance of Lima",
+          "Aliases": [
+            "remove",
+            "rm"
+          ],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "-h",
+                  "Description": "Help for delete",
+                  "Aliases": [
+                    "--help"
+                  ],
+                  "Arguments": []
+                },
+                {
+                  "Name": "--debug",
+                  "Description": "Debug mode",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "-f",
+                  "Description": "Forcibly kill the processes",
+                  "Aliases": [
+                    "--force"
+                  ],
+                  "Arguments": []
+                }
+              ],
+              "Optional": true
+            },
+            {
+              "Arguments": [
+                {
+                  "Name": "INSTANCE",
+                  "Description": "INSTANCE",
+                  "Type": "CustomArgument",
+                  "Extensions": [],
+                  "CustomCommand": "limactl list --quiet"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "Name": "info",
+          "Description": "Show diagnostic information",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "-h",
+                  "Description": "Help for info",
+                  "Aliases": [
+                    "--help"
+                  ],
+                  "Arguments": []
+                },
+                {
+                  "Name": "--debug",
+                  "Description": "Debug mode",
+                  "Aliases": [],
+                  "Arguments": []
+                }
+              ],
+              "Optional": true
+            }
+          ]
+        },
+        {
+          "Name": "list",
+          "Description": "List instances of Lima",
+          "Aliases": [
+            "ls"
+          ],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "-h",
+                  "Description": "Help for list",
+                  "Aliases": [
+                    "--help"
+                  ],
+                  "Arguments": []
+                },
+                {
+                  "Name": "--debug",
+                  "Description": "Debug mode",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "--json",
+                  "Description": "JSONify output",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "-q",
+                  "Description": "Only show names",
+                  "Aliases": [
+                    "--quiet"
+                  ],
+                  "Arguments": []
+                }
+              ],
+              "Optional": true
+            }
+          ]
+        },
+        {
+          "Name": "prune",
+          "Description": "Prune garbage objects",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "-h",
+                  "Description": "Help for prune",
+                  "Aliases": [
+                    "--help"
+                  ],
+                  "Arguments": []
+                },
+                {
+                  "Name": "--debug",
+                  "Description": "Debug mode",
+                  "Aliases": [],
+                  "Arguments": []
+                }
+              ],
+              "Optional": true
+            }
+          ]
+        },
+        {
+          "Name": "shell",
+          "Description": "Lima command is provided as an alias for limactl shell $LIMA_INSTANCE. $LIMA_INSTANCE defaults to \u0022default\u0022",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "-h",
+                  "Description": "Help for shell",
+                  "Aliases": [
+                    "--help"
+                  ],
+                  "Arguments": []
+                },
+                {
+                  "Name": "--debug",
+                  "Description": "Debug mode",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "--workdir",
+                  "Description": "Working directory",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "string",
+                          "Description": "string",
+                          "Type": "String"
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ],
+              "Optional": true
+            },
+            {
+              "Arguments": [
+                {
+                  "Name": "INSTANCE",
+                  "Description": "INSTANCE",
+                  "Type": "CustomArgument",
+                  "Extensions": [],
+                  "CustomCommand": "limactl list --quiet"
+                }
+              ]
+            },
+            {
+              "Arguments": [
+                {
+                  "Name": "COMMAND",
+                  "Description": "COMMAND",
+                  "Type": "String"
+                }
+              ],
+              "Optional": true
+            }
+          ]
+        },
+        {
+          "Name": "show-ssh",
+          "Description": "Show the ssh command line",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "-h",
+                  "Description": "Help for show-ssh",
+                  "Aliases": [
+                    "--help"
+                  ],
+                  "Arguments": []
+                },
+                {
+                  "Name": "--debug",
+                  "Description": "Debug mode",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "-f",
+                  "Description": "Format: cmd, args, options, config (default \u0022cmd\u0022)",
+                  "Aliases": [
+                    "--format"
+                  ],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "string",
+                          "Description": "string",
+                          "Type": "String"
+                        },
+                        {
+                          "Name": "cmd",
+                          "Description": "Full ssh command line"
+                        },
+                        {
+                          "Name": "args",
+                          "Description": "Similar to the cmd format but omits \u0022ssh\u0022 and the destination address"
+                        },
+                        {
+                          "Name": "options",
+                          "Description": "Ssh option key value pairs"
+                        },
+                        {
+                          "Name": "config",
+                          "Description": "~/.ssh/config format"
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ],
+              "Optional": true
+            },
+            {
+              "Arguments": [
+                {
+                  "Name": "INSTANCE",
+                  "Description": "INSTANCE",
+                  "Type": "CustomArgument",
+                  "Extensions": [],
+                  "CustomCommand": "limactl list --quiet"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "Name": "start",
+          "Description": "Start an instance of Lima. If the instance does not exist, open an editor for creating new one, with name \u0022default\u0022",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "-h",
+                  "Description": "Help for start",
+                  "Aliases": [
+                    "--help"
+                  ],
+                  "Arguments": []
+                },
+                {
+                  "Name": "--debug",
+                  "Description": "Debug mode",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "--tty",
+                  "Description": "Enable TUI interactions such as opening an editor, defaults to true when stdout is a terminal (default true)",
+                  "Aliases": [],
+                  "Arguments": []
+                }
+              ],
+              "Optional": true
+            },
+            {
+              "Arguments": [
+                {
+                  "Name": "NAME|FILE.yaml|URL",
+                  "Description": "NAME|FILE.yaml|URL",
+                  "Type": "CustomArgument",
+                  "Extensions": [],
+                  "CustomCommand": "limactl list --quiet"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "Name": "stop",
+          "Description": "Stop an instance",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "-h",
+                  "Description": "Help for stop",
+                  "Aliases": [
+                    "--help"
+                  ],
+                  "Arguments": []
+                },
+                {
+                  "Name": "--debug",
+                  "Description": "Debug mode",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "-f",
+                  "Description": "Force stop the instance",
+                  "Aliases": [
+                    "--force"
+                  ],
+                  "Arguments": []
+                }
+              ],
+              "Optional": true
+            },
+            {
+              "Arguments": [
+                {
+                  "Name": "INSTANCE",
+                  "Description": "INSTANCE",
+                  "Type": "CustomArgument",
+                  "Extensions": [],
+                  "CustomCommand": "limactl list --quiet"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "Name": "sudoers",
+          "Description": "Generate /etc/sudoers.d/lima file for enabling vmnet.framework support. See /usr/local/share/doc/lima/docs/network.md for the usage",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "-h",
+                  "Description": "Help for sudoers",
+                  "Aliases": [
+                    "--help"
+                  ],
+                  "Arguments": []
+                },
+                {
+                  "Name": "--debug",
+                  "Description": "Debug mode",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "--check",
+                  "Description": "Check that the sudoers file is up-to-date with \u0022~/.lima/_config/networks.yaml\u0022",
+                  "Aliases": [],
+                  "Arguments": []
+                }
+              ],
+              "Optional": true
+            },
+            {
+              "Arguments": [
+                {
+                  "Name": "SUDORSFILE",
+                  "Description": "SUDORSFILE",
+                  "Type": "FileSystemEntry"
+                }
+              ],
+              "Optional": true
+            }
+          ]
+        },
+        {
+          "Name": "validate",
+          "Description": "Validate YAML files",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "-h",
+                  "Description": "Help for validate",
+                  "Aliases": [
+                    "--help"
+                  ],
+                  "Arguments": []
+                },
+                {
+                  "Name": "--debug",
+                  "Description": "Debug mode",
+                  "Aliases": [],
+                  "Arguments": []
+                }
+              ],
+              "Optional": true
+            },
+            {
+              "Arguments": [
+                {
+                  "Name": "FILE.yaml",
+                  "Description": "FILE.yaml",
+                  "Type": "File",
+                  "Extensions": [
+                    "yaml",
+                    "yml"
+                  ],
+                  "CustomCommand": ""
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "Name": "help",
+          "Description": "Help provides help for any command in the application",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "command",
+                  "Description": "command",
+                  "Type": "String"
+                },
+                {
+                  "Name": "completion",
+                  "Description": "Generate the autocompletion script for the specified shell"
+                },
+                {
+                  "Name": "copy",
+                  "Description": "Copy files between host and guest"
+                },
+                {
+                  "Name": "delete",
+                  "Description": "Delete an instance of Lima"
+                },
+                {
+                  "Name": "info",
+                  "Description": "Show diagnostic information"
+                },
+                {
+                  "Name": "list",
+                  "Description": "List instances of Lima"
+                },
+                {
+                  "Name": "prune",
+                  "Description": "Prune garbage objects"
+                },
+                {
+                  "Name": "shell",
+                  "Description": "Lima command is provided as an alias for limactl shell $LIMA_INSTANCE. $LIMA_INSTANCE defaults to \u0022default\u0022"
+                },
+                {
+                  "Name": "show-ssh",
+                  "Description": "Show the ssh command line"
+                },
+                {
+                  "Name": "start",
+                  "Description": "Start an instance of Lima. If the instance does not exist, open an editor for creating new one, with name \u0022default\u0022"
+                },
+                {
+                  "Name": "stop",
+                  "Description": "Stop an instance"
+                },
+                {
+                  "Name": "sudoers",
+                  "Description": "Generate /etc/sudoers.d/lima file for enabling vmnet.framework support. See /usr/local/share/doc/lima/docs/network.md for the usage"
+                },
+                {
+                  "Name": "validate",
+                  "Description": "Validate YAML files"
+                },
+                {
+                  "Name": "help",
+                  "Description": "Help provides help for any command in the application"
+                }
+              ],
+              "Optional": true
+            }
+          ]
+        }
+      ],
+      "DontAllowMultiple": true
+    }
+  ]
+}

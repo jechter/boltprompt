@@ -1,0 +1,1722 @@
+{
+  "Comment": "This command info is generated from fig",
+  "Name": "systemctl",
+  "Description": "",
+  "Arguments": [
+    {
+      "Arguments": [
+        {
+          "Name": "-h",
+          "Description": "Show this help",
+          "Aliases": [
+            "--help"
+          ],
+          "Arguments": []
+        },
+        {
+          "Name": "--version",
+          "Description": "Show package version",
+          "Aliases": [],
+          "Arguments": []
+        },
+        {
+          "Name": "--system",
+          "Description": "Connect to system manager",
+          "Aliases": [],
+          "Arguments": []
+        },
+        {
+          "Name": "--user",
+          "Description": "Connect to user service manager",
+          "Aliases": [],
+          "Arguments": []
+        },
+        {
+          "Name": "-H",
+          "Description": "Operate on remote host",
+          "Aliases": [
+            "--host"
+          ],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "[USER@]HOST",
+                  "Description": "[USER@]HOST",
+                  "Type": "String"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "Name": "-M",
+          "Description": "Operate on a local container",
+          "Aliases": [
+            "--machine"
+          ],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "CONTAINER",
+                  "Description": "CONTAINER",
+                  "Type": "String"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "Name": "-t",
+          "Description": "List units of a particular type",
+          "Aliases": [
+            "--type"
+          ],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "TYPE",
+                  "Description": "TYPE",
+                  "Type": "String"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "Name": "--state",
+          "Description": "List units with particular LOAD or SUB or ACTIVE state",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "STATE",
+                  "Description": "STATE",
+                  "Type": "String"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "Name": "--failed",
+          "Description": "Shortcut for --state=failed",
+          "Aliases": [],
+          "Arguments": []
+        },
+        {
+          "Name": "-p",
+          "Description": "Show only properties by this name",
+          "Aliases": [
+            "--property"
+          ],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "NAME",
+                  "Description": "NAME",
+                  "Type": "String"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "Name": "P",
+          "Description": "Equivalent to --value --property=NAME",
+          "Type": "Flag",
+          "Aliases": [],
+          "Arguments": []
+        },
+        {
+          "Name": "-a",
+          "Description": "Show all properties/all units currently in memory, including dead/empty ones. To list all units installed on the system, use \u0027list-unit-files\u0027 instead",
+          "Aliases": [
+            "--all"
+          ],
+          "Arguments": []
+        },
+        {
+          "Name": "-l",
+          "Description": "Don\u0027t ellipsize unit names on output",
+          "Aliases": [
+            "--full"
+          ],
+          "Arguments": []
+        },
+        {
+          "Name": "-r",
+          "Description": "Show unit list of host and local containers",
+          "Aliases": [
+            "--recursive"
+          ],
+          "Arguments": []
+        },
+        {
+          "Name": "--reverse",
+          "Description": "Show reverse dependencies with \u0027list-dependencies\u0027",
+          "Aliases": [],
+          "Arguments": []
+        },
+        {
+          "Name": "--with-dependencies",
+          "Description": "Show unit dependencies with \u0027status\u0027, \u0027cat\u0027, \u0027list-units\u0027, and \u0027list-unit-files\u0027",
+          "Aliases": [],
+          "Arguments": []
+        },
+        {
+          "Name": "--job-mode",
+          "Description": "Specify how to deal with already queued jobs, when queueing a new job",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "MODE",
+                  "Description": "MODE",
+                  "Type": "String"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "Name": "-T",
+          "Description": "When enqueuing a unit job, show full transaction",
+          "Aliases": [
+            "--show-transaction"
+          ],
+          "Arguments": []
+        },
+        {
+          "Name": "--show-types",
+          "Description": "When showing sockets, explicitly show their type",
+          "Aliases": [],
+          "Arguments": []
+        },
+        {
+          "Name": "--value",
+          "Description": "When showing properties, only print the value",
+          "Aliases": [],
+          "Arguments": []
+        },
+        {
+          "Name": "--check-inhibitors",
+          "Description": "Specify if checking inhibitors before shutting down sleeping or hibernating",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "MODE",
+                  "Description": "MODE",
+                  "Type": "String"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "Name": "i",
+          "Description": "Shortcut for --check-inhibitors=no",
+          "Type": "Flag",
+          "Aliases": [],
+          "Arguments": []
+        },
+        {
+          "Name": "--kill-who",
+          "Description": "Whom to send signal to",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "WHO",
+                  "Description": "WHO",
+                  "Type": "String"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "Name": "-s",
+          "Description": "Which signal to send",
+          "Aliases": [
+            "--signal"
+          ],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "SIGNAL",
+                  "Description": "SIGNAL",
+                  "Type": "String"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "Name": "--what",
+          "Description": "Which types of resources to remove",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "RESOURCES",
+                  "Description": "RESOURCES",
+                  "Type": "String"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "Name": "--now",
+          "Description": "Start or stop unit after enabling or disabling it",
+          "Aliases": [],
+          "Arguments": []
+        },
+        {
+          "Name": "--dry-run",
+          "Description": "Only print what would be done",
+          "Aliases": [],
+          "Arguments": []
+        },
+        {
+          "Name": "-q",
+          "Description": "Supress output",
+          "Aliases": [
+            "--quiet"
+          ],
+          "Arguments": []
+        },
+        {
+          "Name": "--wait",
+          "Description": "For (re)start, wait until service stopped again. For is-system-running, wait until startup is completed",
+          "Aliases": [],
+          "Arguments": []
+        },
+        {
+          "Name": "--no-block",
+          "Description": "Do not wait until operation finished",
+          "Aliases": [],
+          "Arguments": []
+        },
+        {
+          "Name": "--no-wall",
+          "Description": "Don\u0027t send wall message before halt/power-off/reboot",
+          "Aliases": [],
+          "Arguments": []
+        },
+        {
+          "Name": "--no-reload",
+          "Description": "Don\u0027t reload daemon after en-/dis-abling unit files",
+          "Aliases": [],
+          "Arguments": []
+        },
+        {
+          "Name": "--legend",
+          "Description": "Enable/disable the legend (column headers and hints)",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "BOOL",
+                  "Description": "BOOL",
+                  "Type": "String"
+                },
+                {
+                  "Name": "true",
+                  "Description": "BOOL"
+                },
+                {
+                  "Name": "false",
+                  "Description": "BOOL"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "Name": "--no-pager",
+          "Description": "Do not pipe output into a pager",
+          "Aliases": [],
+          "Arguments": []
+        },
+        {
+          "Name": "--no-ask-password",
+          "Description": "Do not ask for system passwords",
+          "Aliases": [],
+          "Arguments": []
+        },
+        {
+          "Name": "--global",
+          "Description": "Edit/enable/disable/mask default user unit files globally",
+          "Aliases": [],
+          "Arguments": []
+        },
+        {
+          "Name": "--runtime",
+          "Description": "Edit/enable/disable/mask unit files temporarily until next reboot",
+          "Aliases": [],
+          "Arguments": []
+        },
+        {
+          "Name": "-f",
+          "Description": "When enabling unit files, override existing symlinks. When shutting down, execute action immediately",
+          "Aliases": [
+            "--force"
+          ],
+          "Arguments": []
+        },
+        {
+          "Name": "--preset-mode",
+          "Description": "Apply only enable, only disable, or all presets",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "MODE",
+                  "Description": "MODE",
+                  "Type": "String"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "Name": "--root",
+          "Description": "Edit/enable/disable/mask unit files in the specified root directory",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "PATH",
+                  "Description": "PATH",
+                  "Type": "String"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "Name": "-n",
+          "Description": "Number of journal entries to show",
+          "Aliases": [
+            "--lines"
+          ],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "N",
+                  "Description": "N",
+                  "Type": "String"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "Name": "-o",
+          "Description": "Change journal output mode",
+          "Aliases": [
+            "--output"
+          ],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "MODE",
+                  "Description": "MODE",
+                  "Type": "String"
+                },
+                {
+                  "Name": "short",
+                  "Description": "MODE"
+                },
+                {
+                  "Name": "short-precise",
+                  "Description": "MODE"
+                },
+                {
+                  "Name": "short-iso",
+                  "Description": "MODE"
+                },
+                {
+                  "Name": "short-iso-precise",
+                  "Description": "MODE"
+                },
+                {
+                  "Name": "short-full",
+                  "Description": "MODE"
+                },
+                {
+                  "Name": "short-monotonic",
+                  "Description": "MODE"
+                },
+                {
+                  "Name": "short-unix",
+                  "Description": "MODE"
+                },
+                {
+                  "Name": "verbose",
+                  "Description": "MODE"
+                },
+                {
+                  "Name": "export",
+                  "Description": "MODE"
+                },
+                {
+                  "Name": "json",
+                  "Description": "MODE"
+                },
+                {
+                  "Name": "json-pretty",
+                  "Description": "MODE"
+                },
+                {
+                  "Name": "json-sse",
+                  "Description": "MODE"
+                },
+                {
+                  "Name": "cat",
+                  "Description": "MODE"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "Name": "--firmware-setup",
+          "Description": "Tell the firmware to show the setup menu on next boot",
+          "Aliases": [],
+          "Arguments": []
+        },
+        {
+          "Name": "--boot-loader-menu",
+          "Description": "Boot into boot loader menu on next boot",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "TIME",
+                  "Description": "TIME",
+                  "Type": "String"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "Name": "--boot-loader-entry",
+          "Description": "Boot into a specific boot loader entry on next boot",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "NAME",
+                  "Description": "NAME",
+                  "Type": "String"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "Name": "--plain",
+          "Description": "Print unit dependencies as a list instead of a tree",
+          "Aliases": [],
+          "Arguments": []
+        },
+        {
+          "Name": "--timestamp",
+          "Description": "Change format of printed timestamps",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "FORMAT",
+                  "Description": "FORMAT",
+                  "Type": "String"
+                },
+                {
+                  "Name": "pretty",
+                  "Description": "FORMAT"
+                },
+                {
+                  "Name": "unix",
+                  "Description": "FORMAT"
+                },
+                {
+                  "Name": "us",
+                  "Description": "FORMAT"
+                },
+                {
+                  "Name": "utc",
+                  "Description": "FORMAT"
+                },
+                {
+                  "Name": "us\u002Butc",
+                  "Description": "FORMAT"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "Name": "--read-only",
+          "Description": "Create read-only bind mount",
+          "Aliases": [],
+          "Arguments": []
+        },
+        {
+          "Name": "--mkdir",
+          "Description": "Create directory before mounting, if missing",
+          "Aliases": [],
+          "Arguments": []
+        },
+        {
+          "Name": "--marked",
+          "Description": "Restart/reload previously marked units",
+          "Aliases": [],
+          "Arguments": []
+        }
+      ],
+      "Optional": true
+    },
+    {
+      "Arguments": [
+        {
+          "Name": "list-units",
+          "Description": "List units currently in memory",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "PATTERN",
+                  "Description": "PATTERN",
+                  "Type": "String",
+                  "Extensions": [],
+                  "CustomCommand": ""
+                }
+              ],
+              "Optional": true
+            }
+          ]
+        },
+        {
+          "Name": "list-sockets",
+          "Description": "List socket units currently in memory ordered by address",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "PATTERN",
+                  "Description": "PATTERN",
+                  "Type": "String"
+                }
+              ],
+              "Optional": true
+            }
+          ]
+        },
+        {
+          "Name": "list-timers",
+          "Description": "List timer units currently in memory ordered by next elapse",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "PATTERN",
+                  "Description": "PATTERN",
+                  "Type": "String"
+                }
+              ],
+              "Optional": true
+            }
+          ]
+        },
+        {
+          "Name": "is-active",
+          "Description": "Check whether units are active",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "PATTERN",
+                  "Description": "PATTERN",
+                  "Type": "String",
+                  "Extensions": [],
+                  "CustomCommand": ""
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "Name": "is-failed",
+          "Description": "Check whether units are failed",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "PATTERN",
+                  "Description": "PATTERN",
+                  "Type": "String",
+                  "Extensions": [],
+                  "CustomCommand": ""
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "Name": "status",
+          "Description": "Show runtime status of one or more units",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "PATTERN or PID",
+                  "Description": "PATTERN or PID",
+                  "Type": "String",
+                  "Extensions": [],
+                  "CustomCommand": ""
+                }
+              ],
+              "Optional": true
+            }
+          ]
+        },
+        {
+          "Name": "show",
+          "Description": "Show properties of one or more",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "PATTERN or JOB",
+                  "Description": "PATTERN or JOB",
+                  "Type": "String",
+                  "Extensions": [],
+                  "CustomCommand": ""
+                }
+              ],
+              "Optional": true
+            }
+          ]
+        },
+        {
+          "Name": "cat",
+          "Description": "Show files and drop-ins of specified units",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "PATTERN",
+                  "Description": "PATTERN",
+                  "Type": "String",
+                  "Extensions": [],
+                  "CustomCommand": ""
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "Name": "help",
+          "Description": "Show manual for one or more units",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "PATTERN or PID",
+                  "Description": "PATTERN or PID",
+                  "Type": "String",
+                  "Extensions": [],
+                  "CustomCommand": ""
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "Name": "list-dependencies",
+          "Description": "Recursively show units which are required or wanted by the units or by which those",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "PATTERN",
+                  "Description": "PATTERN",
+                  "Type": "String",
+                  "Extensions": [],
+                  "CustomCommand": ""
+                }
+              ],
+              "Optional": true
+            }
+          ]
+        },
+        {
+          "Name": "start",
+          "Description": "Start (activate) one or more units",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "UNIT",
+                  "Description": "UNIT",
+                  "Type": "String",
+                  "Extensions": [],
+                  "CustomCommand": ""
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "Name": "stop",
+          "Description": "Stop (deactivate) one or more units",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "UNIT",
+                  "Description": "UNIT",
+                  "Type": "String",
+                  "Extensions": [],
+                  "CustomCommand": ""
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "Name": "reload",
+          "Description": "Reload one or more units",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "UNIT",
+                  "Description": "UNIT",
+                  "Type": "String",
+                  "Extensions": [],
+                  "CustomCommand": ""
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "Name": "restart",
+          "Description": "Start or restart one or more units",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "UNIT",
+                  "Description": "UNIT",
+                  "Type": "String",
+                  "Extensions": [],
+                  "CustomCommand": ""
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "Name": "try-restart",
+          "Description": "Restart one or more units if active",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "UNIT",
+                  "Description": "UNIT",
+                  "Type": "String",
+                  "Extensions": [],
+                  "CustomCommand": ""
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "Name": "reload-or-restart",
+          "Description": "Reload one or more units if possible, otherwise start or restart",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "UNIT",
+                  "Description": "UNIT",
+                  "Type": "String"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "Name": "try-reload-or-restart",
+          "Description": "If active, reload one or more units, if supported, otherwise restart",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "UNIT",
+                  "Description": "UNIT",
+                  "Type": "String",
+                  "Extensions": [],
+                  "CustomCommand": ""
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "Name": "isolate",
+          "Description": "Start one unit and stop all others",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "UNIT",
+                  "Description": "UNIT",
+                  "Type": "String",
+                  "Extensions": [],
+                  "CustomCommand": ""
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "Name": "kill",
+          "Description": "Send signal to processes of a unit",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "UNIT",
+                  "Description": "UNIT",
+                  "Type": "String",
+                  "Extensions": [],
+                  "CustomCommand": ""
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "Name": "clean",
+          "Description": "Clean runtime, cache, state, logs or configuration of unit",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "UNIT",
+                  "Description": "UNIT",
+                  "Type": "String",
+                  "Extensions": [],
+                  "CustomCommand": ""
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "Name": "freeze",
+          "Description": "Freeze execution of unit processes",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "PATTERN",
+                  "Description": "PATTERN",
+                  "Type": "String"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "Name": "thaw",
+          "Description": "Resume execution of a frozen unit",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "PATTERN",
+                  "Description": "PATTERN",
+                  "Type": "String"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "Name": "set-property",
+          "Description": "Sets one or more properties of a unit",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "UNIT",
+                  "Description": "UNIT",
+                  "Type": "String",
+                  "Extensions": [],
+                  "CustomCommand": ""
+                }
+              ]
+            },
+            {
+              "Arguments": [
+                {
+                  "Name": "PROPERTY=VALUE",
+                  "Description": "PROPERTY=VALUE",
+                  "Type": "String"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "Name": "bind",
+          "Description": "Bind-mount a path from the host into a unit\u0027s namespace",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "UNIT",
+                  "Description": "UNIT",
+                  "Type": "String",
+                  "Extensions": [],
+                  "CustomCommand": ""
+                }
+              ]
+            },
+            {
+              "Arguments": [
+                {
+                  "Name": "PATH",
+                  "Description": "PATH",
+                  "Type": "FileSystemEntry"
+                }
+              ]
+            },
+            {
+              "Arguments": [
+                {
+                  "Name": "PATH",
+                  "Description": "PATH",
+                  "Type": "FileSystemEntry"
+                }
+              ],
+              "Optional": true
+            }
+          ]
+        },
+        {
+          "Name": "mount-image",
+          "Description": "Mount an image from the host into a unit\u0027s namespace",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "UNIT",
+                  "Description": "UNIT",
+                  "Type": "String",
+                  "Extensions": [],
+                  "CustomCommand": ""
+                }
+              ]
+            },
+            {
+              "Arguments": [
+                {
+                  "Name": "PATH",
+                  "Description": "PATH",
+                  "Type": "FileSystemEntry"
+                }
+              ]
+            },
+            {
+              "Arguments": [
+                {
+                  "Name": "PATH",
+                  "Description": "PATH",
+                  "Type": "FileSystemEntry"
+                }
+              ],
+              "Optional": true
+            },
+            {
+              "Arguments": [
+                {
+                  "Name": "OPTS",
+                  "Description": "OPTS",
+                  "Type": "String"
+                }
+              ],
+              "Optional": true
+            }
+          ]
+        },
+        {
+          "Name": "service-log-level",
+          "Description": "Get/set logging threshold for service",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "SERVICE",
+                  "Description": "SERVICE",
+                  "Type": "String"
+                }
+              ]
+            },
+            {
+              "Arguments": [
+                {
+                  "Name": "LEVEL",
+                  "Description": "LEVEL",
+                  "Type": "String"
+                }
+              ],
+              "Optional": true
+            }
+          ]
+        },
+        {
+          "Name": "service-log-target",
+          "Description": "Get/set logging target for service",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "SERVICE",
+                  "Description": "SERVICE",
+                  "Type": "String"
+                }
+              ]
+            },
+            {
+              "Arguments": [
+                {
+                  "Name": "TARGET",
+                  "Description": "TARGET",
+                  "Type": "String"
+                }
+              ],
+              "Optional": true
+            }
+          ]
+        },
+        {
+          "Name": "reset-failed",
+          "Description": "Reset failed state for all, one, or more units",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "PATTERN",
+                  "Description": "PATTERN",
+                  "Type": "String"
+                }
+              ],
+              "Optional": true
+            }
+          ]
+        },
+        {
+          "Name": "list-unit-files",
+          "Description": "List installed unit files",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "PATTERN",
+                  "Description": "PATTERN",
+                  "Type": "String",
+                  "Extensions": [],
+                  "CustomCommand": ""
+                }
+              ],
+              "Optional": true
+            }
+          ]
+        },
+        {
+          "Name": "enable",
+          "Description": "Enable one or more unit files",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "UNIT|PATH",
+                  "Description": "UNIT|PATH",
+                  "Type": "String",
+                  "Extensions": [],
+                  "CustomCommand": ""
+                }
+              ],
+              "Optional": true
+            }
+          ]
+        },
+        {
+          "Name": "disable",
+          "Description": "Disable one or more unit files",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "UNIT|PATH",
+                  "Description": "UNIT|PATH",
+                  "Type": "String",
+                  "Extensions": [],
+                  "CustomCommand": ""
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "Name": "reenable",
+          "Description": "Reenable one or more unit files",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "UNIT",
+                  "Description": "UNIT",
+                  "Type": "String",
+                  "Extensions": [],
+                  "CustomCommand": ""
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "Name": "preset",
+          "Description": "Enable/disable one or more unit files based on preset configuration",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "UNIT",
+                  "Description": "UNIT",
+                  "Type": "String",
+                  "Extensions": [],
+                  "CustomCommand": ""
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "Name": "preset-all",
+          "Description": "Enable/disable all unit files based on preset configuration",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "UNIT",
+                  "Description": "UNIT",
+                  "Type": "String",
+                  "Extensions": [],
+                  "CustomCommand": ""
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "Name": "mask",
+          "Description": "Mask one or more unit files",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "UNIT",
+                  "Description": "UNIT",
+                  "Type": "String",
+                  "Extensions": [],
+                  "CustomCommand": ""
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "Name": "unmask",
+          "Description": "Unmask one or more unit files",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "UNIT",
+                  "Description": "UNIT",
+                  "Type": "String",
+                  "Extensions": [],
+                  "CustomCommand": ""
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "Name": "link",
+          "Description": "Link one or more units files into the search path",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "PATH",
+                  "Description": "PATH",
+                  "Type": "FileSystemEntry"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "Name": "revert",
+          "Description": "Revert one or more unit files to vendor version",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "UNIT",
+                  "Description": "UNIT",
+                  "Type": "String",
+                  "Extensions": [],
+                  "CustomCommand": ""
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "Name": "add-wants",
+          "Description": "Add \u0027Wants\u0027 dependency for the target on specified one or more units",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "TARGET",
+                  "Description": "TARGET",
+                  "Type": "String"
+                }
+              ]
+            },
+            {
+              "Arguments": [
+                {
+                  "Name": "UNIT",
+                  "Description": "UNIT",
+                  "Type": "String"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "Name": "add-requires",
+          "Description": "Add \u0027Requires\u0027 dependency for the target on specified one or more units",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "TARGET",
+                  "Description": "TARGET",
+                  "Type": "String"
+                }
+              ]
+            },
+            {
+              "Arguments": [
+                {
+                  "Name": "UNIT",
+                  "Description": "UNIT",
+                  "Type": "String"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "Name": "edit",
+          "Description": "Edit one or more unit files",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "UNIT",
+                  "Description": "UNIT",
+                  "Type": "String",
+                  "Extensions": [],
+                  "CustomCommand": ""
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "Name": "get-default",
+          "Description": "Get the name of the default target",
+          "Aliases": [],
+          "Arguments": []
+        },
+        {
+          "Name": "set-default",
+          "Description": "Set the default target",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "TARGET",
+                  "Description": "TARGET",
+                  "Type": "String"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "Name": "list-jobs",
+          "Description": "List jobs",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "PATTERN",
+                  "Description": "PATTERN",
+                  "Type": "String"
+                }
+              ],
+              "Optional": true
+            }
+          ]
+        },
+        {
+          "Name": "cancel",
+          "Description": "Cancel all, one, or more jobs",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "JOB",
+                  "Description": "JOB",
+                  "Type": "String"
+                }
+              ],
+              "Optional": true
+            }
+          ]
+        },
+        {
+          "Name": "show-environment",
+          "Description": "Dump environment",
+          "Aliases": [],
+          "Arguments": []
+        },
+        {
+          "Name": "set-environment",
+          "Description": "Set one or more environment variables",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "VARIABLE=VALUE",
+                  "Description": "VARIABLE=VALUE",
+                  "Type": "String"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "Name": "unset-environment",
+          "Description": "Unset one or more environment variables",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "VARIABLE",
+                  "Description": "VARIABLE",
+                  "Type": "String"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "Name": "import-environment",
+          "Description": "Import all or some environment variables",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "VARIABLE",
+                  "Description": "VARIABLE",
+                  "Type": "String"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "Name": "daemon-reload",
+          "Description": "Reload systemd manager configuration",
+          "Aliases": [],
+          "Arguments": []
+        },
+        {
+          "Name": "daemon-reexec",
+          "Description": "Reexecute systemd manager",
+          "Aliases": [],
+          "Arguments": []
+        },
+        {
+          "Name": "log-level",
+          "Description": "Get/set logging threshold for manager",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "LEVEL",
+                  "Description": "LEVEL",
+                  "Type": "String"
+                }
+              ],
+              "Optional": true
+            }
+          ]
+        },
+        {
+          "Name": "log-target",
+          "Description": "Get/set logging target for manager",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "TARGET",
+                  "Description": "TARGET",
+                  "Type": "String"
+                }
+              ],
+              "Optional": true
+            }
+          ]
+        },
+        {
+          "Name": "service-watchdogs",
+          "Description": "Get/set service watchdog state",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "BOOL",
+                  "Description": "BOOL",
+                  "Type": "String"
+                },
+                {
+                  "Name": "true",
+                  "Description": "BOOL"
+                },
+                {
+                  "Name": "false",
+                  "Description": "BOOL"
+                }
+              ],
+              "Optional": true
+            }
+          ]
+        },
+        {
+          "Name": "is-system-running",
+          "Description": "Check whether system is fully running",
+          "Aliases": [],
+          "Arguments": []
+        },
+        {
+          "Name": "default",
+          "Description": "Enter system default mode",
+          "Aliases": [],
+          "Arguments": []
+        },
+        {
+          "Name": "rescue",
+          "Description": "Enter system rescue mode",
+          "Aliases": [],
+          "Arguments": []
+        },
+        {
+          "Name": "emergency",
+          "Description": "Enter system emergency mode",
+          "Aliases": [],
+          "Arguments": []
+        },
+        {
+          "Name": "halt",
+          "Description": "Shut down and halt the system",
+          "Aliases": [],
+          "Arguments": []
+        },
+        {
+          "Name": "poweroff",
+          "Description": "Shut down and power-off the system",
+          "Aliases": [],
+          "Arguments": []
+        },
+        {
+          "Name": "reboot",
+          "Description": "Shut down and reboot the system",
+          "Aliases": [],
+          "Arguments": []
+        },
+        {
+          "Name": "kexec",
+          "Description": "Shut down and reboot the system with kexec",
+          "Aliases": [],
+          "Arguments": []
+        },
+        {
+          "Name": "exit",
+          "Description": "Request user instance or container exit",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "EXIT_CODE",
+                  "Description": "EXIT_CODE",
+                  "Type": "String"
+                }
+              ],
+              "Optional": true
+            }
+          ]
+        },
+        {
+          "Name": "switch-root",
+          "Description": "Change to a different root file system",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "ROOT",
+                  "Description": "ROOT",
+                  "Type": "String"
+                }
+              ]
+            },
+            {
+              "Arguments": [
+                {
+                  "Name": "INIT",
+                  "Description": "INIT",
+                  "Type": "String"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "Name": "suspend",
+          "Description": "Suspend the system",
+          "Aliases": [],
+          "Arguments": []
+        },
+        {
+          "Name": "hibernate",
+          "Description": "Hibernate the system",
+          "Aliases": [],
+          "Arguments": []
+        },
+        {
+          "Name": "hybrid-sleep",
+          "Description": "Hibernate and suspend the system",
+          "Aliases": [],
+          "Arguments": []
+        },
+        {
+          "Name": "suspend-then-hibernate",
+          "Description": "Suspend the system, wake after a period of time, and hibernate",
+          "Aliases": [],
+          "Arguments": []
+        }
+      ],
+      "DontAllowMultiple": true
+    }
+  ]
+}

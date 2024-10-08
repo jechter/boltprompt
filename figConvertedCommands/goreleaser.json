@@ -1,0 +1,793 @@
+{
+  "Comment": "This command info is generated from fig",
+  "Name": "goreleaser",
+  "Description": "Deliver Go binaries as fast and easily as possible",
+  "Arguments": [
+    {
+      "Arguments": [
+        {
+          "Name": "--debug",
+          "Description": "Enable verbose mode",
+          "Aliases": [],
+          "Arguments": []
+        },
+        {
+          "Name": "--verbose",
+          "Description": "Enable verbose mode",
+          "Aliases": [],
+          "Arguments": []
+        },
+        {
+          "Name": "--help",
+          "Description": "Display help",
+          "Aliases": [
+            "-h"
+          ],
+          "Arguments": []
+        }
+      ],
+      "Optional": true
+    },
+    {
+      "Arguments": [
+        {
+          "Name": "b",
+          "Description": "Builds the current project",
+          "Aliases": [
+            "build"
+          ],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "--clean",
+                  "Description": "Remove the dist folder before building",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "--config",
+                  "Description": "Load configuration from file",
+                  "Aliases": [
+                    "-f"
+                  ],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "config",
+                          "Description": "config",
+                          "Type": "FileSystemEntry"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "--deprecated",
+                  "Description": "Force print the deprecation message - tests only",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "--id",
+                  "Description": "Builds only the specified build ids",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "id",
+                          "Description": "id",
+                          "Type": "String"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "--output",
+                  "Description": "Copy the binary to the path after the build. Only taken into account when using --single-target and a single id (either with --id or if configuration only has one build)",
+                  "Aliases": [
+                    "-o"
+                  ],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "output",
+                          "Description": "output",
+                          "Type": "FileSystemEntry"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "--parallelism",
+                  "Description": "Amount tasks to run concurrently (default: number of CPUs)",
+                  "Aliases": [
+                    "-p"
+                  ],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "parallelism",
+                          "Description": "parallelism",
+                          "Type": "String"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "--rm-dist",
+                  "Description": "Remove the dist folder before building",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "--single-target",
+                  "Description": "Builds only for current GOOS and GOARCH, regardless of what\u0027s set in the configuration file",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "--skip",
+                  "Description": "Skip the given options (valid options are: before, post-hooks, pre-hooks, validate)",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "skip",
+                          "Description": "skip",
+                          "Type": "String"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "--skip-before",
+                  "Description": "Skips global before hooks",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "--skip-post-hooks",
+                  "Description": "Skips all post-build hooks",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "--skip-validate",
+                  "Description": "Skips several sanity checks",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "--snapshot",
+                  "Description": "Generate an unversioned snapshot build, skipping all validations",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "--timeout",
+                  "Description": "Timeout to the entire build process",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "timeout",
+                          "Description": "timeout",
+                          "Type": "String"
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ],
+              "Optional": true
+            }
+          ]
+        },
+        {
+          "Name": "c",
+          "Description": "Checks if configuration is valid",
+          "Aliases": [
+            "check"
+          ],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "--config",
+                  "Description": "Configuration file(s) to check",
+                  "Aliases": [
+                    "-f"
+                  ],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "config",
+                          "Description": "config",
+                          "Type": "FileSystemEntry"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "--deprecated",
+                  "Description": "Force print the deprecation message - tests only",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "--quiet",
+                  "Description": "Quiet mode: no output",
+                  "Aliases": [
+                    "-q"
+                  ],
+                  "Arguments": []
+                }
+              ],
+              "Optional": true
+            }
+          ]
+        },
+        {
+          "Name": "completion",
+          "Description": "Generate the autocompletion script for the specified shell",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "bash",
+                  "Description": "Generate the autocompletion script for bash",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "--no-descriptions",
+                          "Description": "Disable completion descriptions",
+                          "Aliases": [],
+                          "Arguments": []
+                        }
+                      ],
+                      "Optional": true
+                    }
+                  ]
+                },
+                {
+                  "Name": "fish",
+                  "Description": "Generate the autocompletion script for fish",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "--no-descriptions",
+                          "Description": "Disable completion descriptions",
+                          "Aliases": [],
+                          "Arguments": []
+                        }
+                      ],
+                      "Optional": true
+                    }
+                  ]
+                },
+                {
+                  "Name": "powershell",
+                  "Description": "Generate the autocompletion script for powershell",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "--no-descriptions",
+                          "Description": "Disable completion descriptions",
+                          "Aliases": [],
+                          "Arguments": []
+                        }
+                      ],
+                      "Optional": true
+                    }
+                  ]
+                },
+                {
+                  "Name": "zsh",
+                  "Description": "Generate the autocompletion script for zsh",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "--no-descriptions",
+                          "Description": "Disable completion descriptions",
+                          "Aliases": [],
+                          "Arguments": []
+                        }
+                      ],
+                      "Optional": true
+                    }
+                  ]
+                }
+              ],
+              "DontAllowMultiple": true
+            }
+          ]
+        },
+        {
+          "Name": "hc",
+          "Description": "Checks if needed tools are installed",
+          "Aliases": [
+            "healthcheck"
+          ],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "--config",
+                  "Description": "Configuration file",
+                  "Aliases": [
+                    "-f"
+                  ],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "config",
+                          "Description": "config",
+                          "Type": "FileSystemEntry"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "--quiet",
+                  "Description": "Quiet mode: no output",
+                  "Aliases": [
+                    "-q"
+                  ],
+                  "Arguments": []
+                }
+              ],
+              "Optional": true
+            }
+          ]
+        },
+        {
+          "Name": "i",
+          "Description": "Generates a .goreleaser.yaml file",
+          "Aliases": [
+            "init"
+          ],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "--config",
+                  "Description": "Load configuration from file",
+                  "Aliases": [
+                    "-f"
+                  ],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "config",
+                          "Description": "config",
+                          "Type": "FileSystemEntry"
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ],
+              "Optional": true
+            }
+          ]
+        },
+        {
+          "Name": "schema",
+          "Description": "Outputs goreleaser\u0027s JSON schema",
+          "Aliases": [
+            "jsonschema"
+          ],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "--output",
+                  "Description": "Where to save the JSONSchema file",
+                  "Aliases": [
+                    "-o"
+                  ],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "output",
+                          "Description": "output",
+                          "Type": "FileSystemEntry"
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ],
+              "Optional": true
+            }
+          ]
+        },
+        {
+          "Name": "r",
+          "Description": "Releases the current project",
+          "Aliases": [
+            "release"
+          ],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "--auto-snapshot",
+                  "Description": "Automatically sets --snapshot if the repository is dirty",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "--clean",
+                  "Description": "Removes the dist folder",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "--config",
+                  "Description": "Load configuration from file",
+                  "Aliases": [
+                    "-f"
+                  ],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "config",
+                          "Description": "config",
+                          "Type": "FileSystemEntry"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "--deprecated",
+                  "Description": "Force print the deprecation message - tests only",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "--fail-fast",
+                  "Description": "Whether to abort the release publishing on the first error",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "--parallelism",
+                  "Description": "Amount tasks to run concurrently (default: number of CPUs)",
+                  "Aliases": [
+                    "-p"
+                  ],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "parallelism",
+                          "Description": "parallelism",
+                          "Type": "String"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "--release-footer",
+                  "Description": "Load custom release notes footer from a markdown file",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "release-footer",
+                          "Description": "release-footer",
+                          "Type": "FileSystemEntry"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "--release-footer-tmpl",
+                  "Description": "Load custom release notes footer from a templated markdown file (overrides --release-footer)",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "release-footer-tmpl",
+                          "Description": "release-footer-tmpl",
+                          "Type": "FileSystemEntry"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "--release-header",
+                  "Description": "Load custom release notes header from a markdown file",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "release-header",
+                          "Description": "release-header",
+                          "Type": "FileSystemEntry"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "--release-header-tmpl",
+                  "Description": "Load custom release notes header from a templated markdown file (overrides --release-header)",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "release-header-tmpl",
+                          "Description": "release-header-tmpl",
+                          "Type": "FileSystemEntry"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "--release-notes",
+                  "Description": "Load custom release notes from a markdown file (will skip GoReleaser changelog generation)",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "release-notes",
+                          "Description": "release-notes",
+                          "Type": "FileSystemEntry"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "--release-notes-tmpl",
+                  "Description": "Load custom release notes from a templated markdown file (overrides --release-notes)",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "release-notes-tmpl",
+                          "Description": "release-notes-tmpl",
+                          "Type": "FileSystemEntry"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "--rm-dist",
+                  "Description": "Removes the dist folder",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "--skip",
+                  "Description": "Skip the given options (valid options are announce, aur, before, chocolatey, docker, homebrew, ko, nfpm, nix, publish, sbom, scoop, sign, snapcraft, validate, winget)",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "skip",
+                          "Description": "skip",
+                          "Type": "String"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "--skip-announce",
+                  "Description": "Skips announcing releases (implies --skip=validate)",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "--skip-before",
+                  "Description": "Skips global before hooks",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "--skip-docker",
+                  "Description": "Skips Docker Images/Manifests builds",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "--skip-ko",
+                  "Description": "Skips Ko builds",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "--skip-publish",
+                  "Description": "Skips publishing artifacts (implies --skip=announce)",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "--skip-sbom",
+                  "Description": "Skips cataloging artifacts",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "--skip-sign",
+                  "Description": "Skips signing artifacts",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "--skip-validate",
+                  "Description": "Skips git checks",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "--snapshot",
+                  "Description": "Generate an unversioned snapshot release, skipping all validations and without publishing any artifacts (implies --skip=announce,publish,validate)",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "--timeout",
+                  "Description": "Timeout to the entire release process",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "timeout",
+                          "Description": "timeout",
+                          "Type": "String"
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ],
+              "Optional": true
+            }
+          ]
+        },
+        {
+          "Name": "help",
+          "Description": "Help about any command",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "b",
+                  "Description": "Builds the current project",
+                  "Aliases": [
+                    "build"
+                  ],
+                  "Arguments": []
+                },
+                {
+                  "Name": "c",
+                  "Description": "Checks if configuration is valid",
+                  "Aliases": [
+                    "check"
+                  ],
+                  "Arguments": []
+                },
+                {
+                  "Name": "completion",
+                  "Description": "Generate the autocompletion script for the specified shell",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "bash",
+                          "Description": "Generate the autocompletion script for bash",
+                          "Aliases": [],
+                          "Arguments": []
+                        },
+                        {
+                          "Name": "fish",
+                          "Description": "Generate the autocompletion script for fish",
+                          "Aliases": [],
+                          "Arguments": []
+                        },
+                        {
+                          "Name": "powershell",
+                          "Description": "Generate the autocompletion script for powershell",
+                          "Aliases": [],
+                          "Arguments": []
+                        },
+                        {
+                          "Name": "zsh",
+                          "Description": "Generate the autocompletion script for zsh",
+                          "Aliases": [],
+                          "Arguments": []
+                        }
+                      ],
+                      "DontAllowMultiple": true
+                    }
+                  ]
+                },
+                {
+                  "Name": "hc",
+                  "Description": "Checks if needed tools are installed",
+                  "Aliases": [
+                    "healthcheck"
+                  ],
+                  "Arguments": []
+                },
+                {
+                  "Name": "i",
+                  "Description": "Generates a .goreleaser.yaml file",
+                  "Aliases": [
+                    "init"
+                  ],
+                  "Arguments": []
+                },
+                {
+                  "Name": "schema",
+                  "Description": "Outputs goreleaser\u0027s JSON schema",
+                  "Aliases": [
+                    "jsonschema"
+                  ],
+                  "Arguments": []
+                },
+                {
+                  "Name": "r",
+                  "Description": "Releases the current project",
+                  "Aliases": [
+                    "release"
+                  ],
+                  "Arguments": []
+                }
+              ],
+              "DontAllowMultiple": true
+            }
+          ]
+        }
+      ],
+      "DontAllowMultiple": true
+    }
+  ]
+}

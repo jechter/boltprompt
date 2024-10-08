@@ -1,0 +1,67 @@
+{
+  "Comment": "This command info is generated from fig",
+  "Name": "kubectx",
+  "Description": "Switch between Kubernetes-contexts",
+  "Arguments": [
+    {
+      "Arguments": [
+        {
+          "Name": "--help",
+          "Description": "Show help for kubectx",
+          "Aliases": [
+            "-h"
+          ],
+          "Arguments": []
+        },
+        {
+          "Name": "--current",
+          "Description": "Show current context",
+          "Aliases": [
+            "-c"
+          ],
+          "Arguments": []
+        },
+        {
+          "Name": "--unset",
+          "Description": "Unset the current context",
+          "Aliases": [
+            "-u"
+          ],
+          "Arguments": []
+        },
+        {
+          "Name": "d",
+          "Description": "Delete context",
+          "Type": "Flag",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "context",
+                  "Description": "context",
+                  "Type": "CustomArgument",
+                  "Extensions": [],
+                  "CustomCommand": "kubectx"
+                }
+              ]
+            }
+          ]
+        }
+      ],
+      "Optional": true
+    },
+    {
+      "Arguments": [
+        {
+          "Name": "context",
+          "Description": "context",
+          "Type": "CustomArgument",
+          "Extensions": [],
+          "CustomCommand": "bash -c kubectx | grep -v $(kubectx -c)"
+        }
+      ],
+      "Optional": true
+    }
+  ]
+}

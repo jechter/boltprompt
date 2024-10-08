@@ -1,0 +1,3007 @@
+{
+  "Comment": "This command info is generated from fig",
+  "Name": "bw",
+  "Description": "",
+  "Arguments": [
+    {
+      "Arguments": [
+        {
+          "Name": "--pretty",
+          "Description": "Format output. JSON is tabbed with two spaces",
+          "Aliases": [],
+          "Arguments": []
+        },
+        {
+          "Name": "--raw",
+          "Description": "Return raw output instead of a descriptive message",
+          "Aliases": [],
+          "Arguments": []
+        },
+        {
+          "Name": "--response",
+          "Description": "Return a JSON formatted version of response output",
+          "Aliases": [],
+          "Arguments": []
+        },
+        {
+          "Name": "--cleanexit",
+          "Description": "Exit with a success exit code (0) unless an error is thrown",
+          "Aliases": [],
+          "Arguments": []
+        },
+        {
+          "Name": "--quiet",
+          "Description": "Don\u0027t return anything to stdout",
+          "Aliases": [],
+          "Arguments": []
+        },
+        {
+          "Name": "--nointeraction",
+          "Description": "Do not prompt for interactive user input",
+          "Aliases": [],
+          "Arguments": []
+        },
+        {
+          "Name": "--session",
+          "Description": "Pass session key instead of reading from env",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "session",
+                  "Description": "session",
+                  "Type": "String"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "Name": "-v",
+          "Description": "Output BW CLI tool version number",
+          "Aliases": [
+            "--version"
+          ],
+          "Arguments": []
+        },
+        {
+          "Name": "-h",
+          "Description": "Display help for command",
+          "Aliases": [
+            "--help"
+          ],
+          "Arguments": []
+        }
+      ],
+      "Optional": true
+    },
+    {
+      "Arguments": [
+        {
+          "Name": "login",
+          "Description": "Log into a user account",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "--method",
+                  "Description": "Two-step login method",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "method",
+                          "Description": "method",
+                          "Type": "String"
+                        },
+                        {
+                          "Name": "0",
+                          "Description": "Authenticator"
+                        },
+                        {
+                          "Name": "1",
+                          "Description": "Email"
+                        },
+                        {
+                          "Name": "3",
+                          "Description": "YubiKey"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "--code",
+                  "Description": "Two-step login code",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "code",
+                          "Description": "code",
+                          "Type": "String"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "--sso",
+                  "Description": "Log in with Single-Sign On",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "--apikey",
+                  "Description": "Log in with an Api Key",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "--passwordenv",
+                  "Description": "Environment variable storing your password",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "passwordenv",
+                          "Description": "passwordenv",
+                          "Type": "String"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "--passwordfile",
+                  "Description": "Path to a file containing your password as its first line",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "passwordfile",
+                          "Description": "passwordfile",
+                          "Type": "FileSystemEntry"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "--check",
+                  "Description": "Check login status",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "-h",
+                  "Description": "Display help for login command",
+                  "Aliases": [
+                    "--help"
+                  ],
+                  "Arguments": []
+                }
+              ],
+              "Optional": true
+            },
+            {
+              "Arguments": [
+                {
+                  "Name": "email",
+                  "Description": "email",
+                  "Type": "String"
+                }
+              ],
+              "Optional": true
+            },
+            {
+              "Arguments": [
+                {
+                  "Name": "password",
+                  "Description": "password",
+                  "Type": "String"
+                }
+              ],
+              "Optional": true
+            }
+          ]
+        },
+        {
+          "Name": "logout",
+          "Description": "Log out of the current user account",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "-h",
+                  "Description": "Display help for logout command",
+                  "Aliases": [
+                    "--help"
+                  ],
+                  "Arguments": []
+                }
+              ],
+              "Optional": true
+            }
+          ]
+        },
+        {
+          "Name": "lock",
+          "Description": "Lock the vault and destroy active session keys",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "-h",
+                  "Description": "Display help for lock command",
+                  "Aliases": [
+                    "--help"
+                  ],
+                  "Arguments": []
+                }
+              ],
+              "Optional": true
+            }
+          ]
+        },
+        {
+          "Name": "unlock",
+          "Description": "Unlock the vault and return a new session key",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "--check",
+                  "Description": "Check lock status",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "--passwordenv",
+                  "Description": "Supply an environment variable storing your password",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "passwordenv",
+                          "Description": "passwordenv",
+                          "Type": "String"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "--passwordfile",
+                  "Description": "Path to a file containing your password as its first line",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "passwordfile",
+                          "Description": "passwordfile",
+                          "Type": "FileSystemEntry"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "-h",
+                  "Description": "Display help for unlock command",
+                  "Aliases": [
+                    "--help"
+                  ],
+                  "Arguments": []
+                }
+              ],
+              "Optional": true
+            },
+            {
+              "Arguments": [
+                {
+                  "Name": "password",
+                  "Description": "password",
+                  "Type": "String"
+                }
+              ],
+              "Optional": true
+            }
+          ]
+        },
+        {
+          "Name": "sync",
+          "Description": "Pull the latest vault data from server",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "-f",
+                  "Description": "Force a full sync",
+                  "Aliases": [
+                    "--force"
+                  ],
+                  "Arguments": []
+                },
+                {
+                  "Name": "--last",
+                  "Description": "Show details of the last sync",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "-h",
+                  "Description": "Display help for sync command",
+                  "Aliases": [
+                    "--help"
+                  ],
+                  "Arguments": []
+                }
+              ],
+              "Optional": true
+            }
+          ]
+        },
+        {
+          "Name": "generate",
+          "Description": "Generate a password/passphrase",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "-u",
+                  "Description": "Include uppercase characters",
+                  "Aliases": [
+                    "--uppercase"
+                  ],
+                  "Arguments": []
+                },
+                {
+                  "Name": "-l",
+                  "Description": "Include lowercase characters",
+                  "Aliases": [
+                    "--lowercase"
+                  ],
+                  "Arguments": []
+                },
+                {
+                  "Name": "-n",
+                  "Description": "Include numeric characters",
+                  "Aliases": [
+                    "--number"
+                  ],
+                  "Arguments": []
+                },
+                {
+                  "Name": "-s",
+                  "Description": "Include special characters",
+                  "Aliases": [
+                    "--special"
+                  ],
+                  "Arguments": []
+                },
+                {
+                  "Name": "--length",
+                  "Description": "Define password length",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "length",
+                          "Description": "length",
+                          "Type": "String"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "-h",
+                  "Description": "Display help for generate command",
+                  "Aliases": [
+                    "--help"
+                  ],
+                  "Arguments": []
+                }
+              ],
+              "Optional": true
+            },
+            {
+              "Arguments": [
+                {
+                  "Name": "-p",
+                  "Description": "Generate a passphrase",
+                  "Aliases": [
+                    "--passphrase"
+                  ],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "--words",
+                          "Description": "Number of words to include in passphrase",
+                          "Aliases": [],
+                          "Arguments": [
+                            {
+                              "Arguments": [
+                                {
+                                  "Name": "Number of words",
+                                  "Description": "Number of words",
+                                  "Type": "String"
+                                }
+                              ]
+                            }
+                          ]
+                        },
+                        {
+                          "Name": "-c",
+                          "Description": "Title case passphrase",
+                          "Aliases": [
+                            "--capitalize"
+                          ],
+                          "Arguments": []
+                        },
+                        {
+                          "Name": "--separator",
+                          "Description": "Define word separator",
+                          "Aliases": [],
+                          "Arguments": [
+                            {
+                              "Arguments": [
+                                {
+                                  "Name": "separator",
+                                  "Description": "separator",
+                                  "Type": "String"
+                                }
+                              ]
+                            }
+                          ]
+                        },
+                        {
+                          "Name": "--includeNumber",
+                          "Description": "Include a number in output",
+                          "Aliases": [],
+                          "Arguments": []
+                        }
+                      ],
+                      "Optional": true
+                    }
+                  ]
+                }
+              ],
+              "DontAllowMultiple": true
+            }
+          ]
+        },
+        {
+          "Name": "encode",
+          "Description": "Base 64 encode stdin",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "-h",
+                  "Description": "Display help for encode command",
+                  "Aliases": [
+                    "--help"
+                  ],
+                  "Arguments": []
+                }
+              ],
+              "Optional": true
+            }
+          ]
+        },
+        {
+          "Name": "config",
+          "Description": "Configure CLI settings",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "--web-vault",
+                  "Description": "Provides a custom web vault URL that differs from the base URL",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "url",
+                          "Description": "url",
+                          "Type": "String"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "--api",
+                  "Description": "Provides a custom API URL that differs from the base URL",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "url",
+                          "Description": "url",
+                          "Type": "String"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "--identity",
+                  "Description": "Provides a custom identity URL that differs from the base URL",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "url",
+                          "Description": "url",
+                          "Type": "String"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "--icons",
+                  "Description": "Provides a custom icon service URL that differs from the base URL",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "url",
+                          "Description": "url",
+                          "Type": "String"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "--notifications",
+                  "Description": "Provides a custom notifications URL that differs from the base URL",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "url",
+                          "Description": "url",
+                          "Type": "String"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "--events",
+                  "Description": "Provides a custom events URL that differs from the base URL",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "url",
+                          "Description": "url",
+                          "Type": "String"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "--key-connector",
+                  "Description": "Provides the URL for your Key Connector server",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "url",
+                          "Description": "url",
+                          "Type": "String"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "-h",
+                  "Description": "Display help for the config command",
+                  "Aliases": [
+                    "--help"
+                  ],
+                  "Arguments": []
+                }
+              ],
+              "Optional": true
+            },
+            {
+              "Arguments": [
+                {
+                  "Name": "setting",
+                  "Description": "setting",
+                  "Type": "String"
+                },
+                {
+                  "Name": "server",
+                  "Description": "setting"
+                }
+              ]
+            },
+            {
+              "Arguments": [
+                {
+                  "Name": "value",
+                  "Description": "value",
+                  "Type": "String"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "Name": "update",
+          "Description": "Check for updates",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "-h",
+                  "Description": "Display help for update command",
+                  "Aliases": [
+                    "--help"
+                  ],
+                  "Arguments": []
+                }
+              ],
+              "Optional": true
+            }
+          ]
+        },
+        {
+          "Name": "completion",
+          "Description": "Generate shell completions",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "--shell",
+                  "Description": "Shell to generate completions for",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "shell",
+                          "Description": "shell",
+                          "Type": "String"
+                        },
+                        {
+                          "Name": "zsh",
+                          "Description": "shell"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "-h",
+                  "Description": "Display help for completion command",
+                  "Aliases": [
+                    "--help"
+                  ],
+                  "Arguments": []
+                }
+              ],
+              "Optional": true
+            }
+          ]
+        },
+        {
+          "Name": "status",
+          "Description": "Show server details, last sync time \u0026 date, user information, and vault status",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "-h",
+                  "Description": "Display help for status command",
+                  "Aliases": [
+                    "--help"
+                  ],
+                  "Arguments": []
+                }
+              ],
+              "Optional": true
+            }
+          ]
+        },
+        {
+          "Name": "serve",
+          "Description": "Start a RESTful API webserver",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "--hostname",
+                  "Description": "The hostname to bind your API webserver to",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "hostname",
+                          "Description": "hostname",
+                          "Type": "String"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "--port",
+                  "Description": "The port to run your API webserver on",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "port",
+                          "Description": "port",
+                          "Type": "String"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "-h",
+                  "Description": "Display help for serve command",
+                  "Aliases": [
+                    "--help"
+                  ],
+                  "Arguments": []
+                }
+              ],
+              "Optional": true
+            }
+          ]
+        },
+        {
+          "Name": "list",
+          "Description": "Retrieves an array of objects (items, folders, collections, org-collections, org-members, organizations) from your Vault",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "--search",
+                  "Description": "Perform a search on the listed objects",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "search",
+                          "Description": "search",
+                          "Type": "String"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "--url",
+                  "Description": "Filter items of type login with a url-match search",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "url",
+                          "Description": "url",
+                          "Type": "String"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "--folderid",
+                  "Description": "Filter items by folder id",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "folderid",
+                          "Description": "folderid",
+                          "Type": "String"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "--collectionid",
+                  "Description": "Filter items by collection id",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "collectionid",
+                          "Description": "collectionid",
+                          "Type": "String"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "--organizationid",
+                  "Description": "Filter items or collections by organization id",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "organizationid",
+                          "Description": "organizationid",
+                          "Type": "String"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "--trash",
+                  "Description": "Filter items that are in the trash",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "-h",
+                  "Description": "Display help for the list command",
+                  "Aliases": [
+                    "--help"
+                  ],
+                  "Arguments": []
+                }
+              ],
+              "Optional": true
+            },
+            {
+              "Arguments": [
+                {
+                  "Name": "object",
+                  "Description": "object",
+                  "Type": "String"
+                },
+                {
+                  "Name": "items",
+                  "Description": "object"
+                },
+                {
+                  "Name": "folders",
+                  "Description": "object"
+                },
+                {
+                  "Name": "collections",
+                  "Description": "object"
+                },
+                {
+                  "Name": "org-collections",
+                  "Description": "object"
+                },
+                {
+                  "Name": "org-members",
+                  "Description": "object"
+                },
+                {
+                  "Name": "organizations",
+                  "Description": "object"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "Name": "get",
+          "Description": "Get an object from the vault",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "--id",
+                  "Description": "Exact id of the object",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "id",
+                          "Description": "id",
+                          "Type": "String"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "--organizationid",
+                  "Description": "Organization id for an organization object",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "organizationid",
+                          "Description": "organizationid",
+                          "Type": "String"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "-h",
+                  "Description": "Display help for the get command",
+                  "Aliases": [
+                    "--help"
+                  ],
+                  "Arguments": []
+                }
+              ],
+              "Optional": true
+            },
+            {
+              "Arguments": [
+                {
+                  "Name": "object",
+                  "Description": "object",
+                  "Type": "String"
+                },
+                {
+                  "Name": "item",
+                  "Description": "object"
+                },
+                {
+                  "Name": "username",
+                  "Description": "object"
+                },
+                {
+                  "Name": "password",
+                  "Description": "object"
+                },
+                {
+                  "Name": "uri",
+                  "Description": "object"
+                },
+                {
+                  "Name": "totp",
+                  "Description": "object"
+                },
+                {
+                  "Name": "exposed",
+                  "Description": "object"
+                },
+                {
+                  "Name": "folder",
+                  "Description": "object"
+                },
+                {
+                  "Name": "collection",
+                  "Description": "object"
+                }
+              ]
+            },
+            {
+              "Arguments": [
+                {
+                  "Name": "id",
+                  "Description": "id",
+                  "Type": "String"
+                }
+              ]
+            },
+            {
+              "Arguments": [
+                {
+                  "Name": "template",
+                  "Description": "Type of template to get",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "object",
+                          "Description": "object",
+                          "Type": "String"
+                        },
+                        {
+                          "Name": "item",
+                          "Description": "object"
+                        },
+                        {
+                          "Name": "item.field",
+                          "Description": "object"
+                        },
+                        {
+                          "Name": "item.login",
+                          "Description": "object"
+                        },
+                        {
+                          "Name": "item.login.uri",
+                          "Description": "object"
+                        },
+                        {
+                          "Name": "item.card",
+                          "Description": "object"
+                        },
+                        {
+                          "Name": "item.identity",
+                          "Description": "object"
+                        },
+                        {
+                          "Name": "item.securenote",
+                          "Description": "object"
+                        },
+                        {
+                          "Name": "folder",
+                          "Description": "object"
+                        },
+                        {
+                          "Name": "collection",
+                          "Description": "object"
+                        },
+                        {
+                          "Name": "item-collections",
+                          "Description": "object"
+                        },
+                        {
+                          "Name": "org-collection",
+                          "Description": "object"
+                        },
+                        {
+                          "Name": "send.text",
+                          "Description": "object"
+                        },
+                        {
+                          "Name": "send.file",
+                          "Description": "object"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "attachment",
+                  "Description": "",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "--itemid",
+                          "Description": "Vault Item ID containing attachment",
+                          "Aliases": [],
+                          "Arguments": [
+                            {
+                              "Arguments": [
+                                {
+                                  "Name": "itemid",
+                                  "Description": "itemid",
+                                  "Type": "String"
+                                }
+                              ]
+                            }
+                          ]
+                        },
+                        {
+                          "Name": "--output",
+                          "Description": "Output directory and/or filename",
+                          "Aliases": [],
+                          "Arguments": [
+                            {
+                              "Arguments": [
+                                {
+                                  "Name": "output",
+                                  "Description": "output",
+                                  "Type": "Directory"
+                                }
+                              ]
+                            }
+                          ]
+                        }
+                      ],
+                      "Optional": true
+                    }
+                  ]
+                }
+              ],
+              "DontAllowMultiple": true
+            }
+          ]
+        },
+        {
+          "Name": "create",
+          "Description": "Create an object in the vault",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "--file",
+                  "Description": "Path to file for attachment",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "file",
+                          "Description": "file",
+                          "Type": "FileSystemEntry"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "--itemid",
+                  "Description": "Attachment\u0027s item id",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "itemid",
+                          "Description": "itemid",
+                          "Type": "String"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "--organizationid",
+                  "Description": "Organization id for an organization object",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "organizationid",
+                          "Description": "organizationid",
+                          "Type": "String"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "-h",
+                  "Description": "Display help for the create command",
+                  "Aliases": [
+                    "--help"
+                  ],
+                  "Arguments": []
+                }
+              ],
+              "Optional": true
+            },
+            {
+              "Arguments": [
+                {
+                  "Name": "object",
+                  "Description": "object",
+                  "Type": "String"
+                },
+                {
+                  "Name": "item",
+                  "Description": "object"
+                },
+                {
+                  "Name": "attachment",
+                  "Description": "object"
+                },
+                {
+                  "Name": "folder",
+                  "Description": "object"
+                },
+                {
+                  "Name": "org-collection",
+                  "Description": "object"
+                }
+              ]
+            },
+            {
+              "Arguments": [
+                {
+                  "Name": "encodedJson",
+                  "Description": "encodedJson",
+                  "Type": "String"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "Name": "edit",
+          "Description": "Edit an object from the vault",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "--organizationid",
+                  "Description": "Organization id for an organization object",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "organizationid",
+                          "Description": "organizationid",
+                          "Type": "String"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "-h",
+                  "Description": "Display help for the edit command",
+                  "Aliases": [
+                    "--help"
+                  ],
+                  "Arguments": []
+                }
+              ],
+              "Optional": true
+            },
+            {
+              "Arguments": [
+                {
+                  "Name": "object",
+                  "Description": "object",
+                  "Type": "String"
+                },
+                {
+                  "Name": "item",
+                  "Description": "object"
+                },
+                {
+                  "Name": "item-collections",
+                  "Description": "object"
+                },
+                {
+                  "Name": "folder",
+                  "Description": "object"
+                },
+                {
+                  "Name": "org-collection",
+                  "Description": "object"
+                }
+              ]
+            },
+            {
+              "Arguments": [
+                {
+                  "Name": "id",
+                  "Description": "id",
+                  "Type": "String"
+                }
+              ]
+            },
+            {
+              "Arguments": [
+                {
+                  "Name": "encodedJson",
+                  "Description": "encodedJson",
+                  "Type": "String"
+                }
+              ],
+              "Optional": true
+            }
+          ]
+        },
+        {
+          "Name": "delete",
+          "Description": "Delete an object from the vault",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "--itemid",
+                  "Description": "Attachment\u0027s item id",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "itemid",
+                          "Description": "itemid",
+                          "Type": "String"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "--organizationid",
+                  "Description": "Organization id for an organization object",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "organizationid",
+                          "Description": "organizationid",
+                          "Type": "String"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "-p",
+                  "Description": "Permanently deletes the item instead of soft-deleting it (item only)",
+                  "Aliases": [
+                    "--permanent"
+                  ],
+                  "Arguments": []
+                },
+                {
+                  "Name": "-h",
+                  "Description": "Display help for the delete command",
+                  "Aliases": [
+                    "--help"
+                  ],
+                  "Arguments": []
+                }
+              ],
+              "Optional": true
+            },
+            {
+              "Arguments": [
+                {
+                  "Name": "object",
+                  "Description": "object",
+                  "Type": "String"
+                },
+                {
+                  "Name": "item",
+                  "Description": "object"
+                },
+                {
+                  "Name": "attachment",
+                  "Description": "object"
+                },
+                {
+                  "Name": "folder",
+                  "Description": "object"
+                },
+                {
+                  "Name": "org-collection",
+                  "Description": "object"
+                }
+              ]
+            },
+            {
+              "Arguments": [
+                {
+                  "Name": "id",
+                  "Description": "id",
+                  "Type": "String"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "Name": "restore",
+          "Description": "Restores an object from the trash",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "-h",
+                  "Description": "Display help for the restore command",
+                  "Aliases": [
+                    "--help"
+                  ],
+                  "Arguments": []
+                }
+              ],
+              "Optional": true
+            },
+            {
+              "Arguments": [
+                {
+                  "Name": "object",
+                  "Description": "object",
+                  "Type": "String"
+                }
+              ]
+            },
+            {
+              "Arguments": [
+                {
+                  "Name": "id",
+                  "Description": "id",
+                  "Type": "String"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "Name": "move",
+          "Description": "Transfers a Vault item to an Organization",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "-h",
+                  "Description": "Display help for the move command",
+                  "Aliases": [
+                    "--help"
+                  ],
+                  "Arguments": []
+                }
+              ],
+              "Optional": true
+            },
+            {
+              "Arguments": [
+                {
+                  "Name": "id",
+                  "Description": "id",
+                  "Type": "String"
+                }
+              ]
+            },
+            {
+              "Arguments": [
+                {
+                  "Name": "organizationId",
+                  "Description": "organizationId",
+                  "Type": "String"
+                }
+              ]
+            },
+            {
+              "Arguments": [
+                {
+                  "Name": "encodedJson",
+                  "Description": "encodedJson",
+                  "Type": "String"
+                }
+              ],
+              "Optional": true
+            }
+          ]
+        },
+        {
+          "Name": "confirm",
+          "Description": "Confirm an object to the organization",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "--organizationid",
+                  "Description": "Organization id for an organization object",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "organizationid",
+                          "Description": "organizationid",
+                          "Type": "String"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "-h",
+                  "Description": "Display help for the confirm command",
+                  "Aliases": [
+                    "--help"
+                  ],
+                  "Arguments": []
+                }
+              ],
+              "Optional": true
+            },
+            {
+              "Arguments": [
+                {
+                  "Name": "object",
+                  "Description": "object",
+                  "Type": "String"
+                }
+              ]
+            },
+            {
+              "Arguments": [
+                {
+                  "Name": "id",
+                  "Description": "id",
+                  "Type": "String"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "Name": "import",
+          "Description": "Import vault data from a file",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "--formats",
+                  "Description": "List supported file formats",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "--organizationid",
+                  "Description": "ID of the organization to import to",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "organizationid",
+                          "Description": "organizationid",
+                          "Type": "String"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "-h",
+                  "Description": "Display help for the import command",
+                  "Aliases": [
+                    "--help"
+                  ],
+                  "Arguments": []
+                }
+              ],
+              "Optional": true
+            },
+            {
+              "Arguments": [
+                {
+                  "Name": "format",
+                  "Description": "format",
+                  "Type": "String"
+                },
+                {
+                  "Name": "1password1pif",
+                  "Description": "format"
+                },
+                {
+                  "Name": "1password1pux",
+                  "Description": "format"
+                },
+                {
+                  "Name": "1passwordmaccsv",
+                  "Description": "format"
+                },
+                {
+                  "Name": "1passwordwincsv",
+                  "Description": "format"
+                },
+                {
+                  "Name": "ascendocsv",
+                  "Description": "format"
+                },
+                {
+                  "Name": "avastcsv",
+                  "Description": "format"
+                },
+                {
+                  "Name": "avastjson",
+                  "Description": "format"
+                },
+                {
+                  "Name": "aviracsv",
+                  "Description": "format"
+                },
+                {
+                  "Name": "bitwardencsv",
+                  "Description": "format"
+                },
+                {
+                  "Name": "bitwardenjson",
+                  "Description": "format"
+                },
+                {
+                  "Name": "blackberrycsv",
+                  "Description": "format"
+                },
+                {
+                  "Name": "blurcsv",
+                  "Description": "format"
+                },
+                {
+                  "Name": "buttercupcsv",
+                  "Description": "format"
+                },
+                {
+                  "Name": "chromecsv",
+                  "Description": "format"
+                },
+                {
+                  "Name": "clipperzhtml",
+                  "Description": "format"
+                },
+                {
+                  "Name": "codebookcsv",
+                  "Description": "format"
+                },
+                {
+                  "Name": "dashlanecsv",
+                  "Description": "format"
+                },
+                {
+                  "Name": "dashlanejson",
+                  "Description": "format"
+                },
+                {
+                  "Name": "encryptrcsv",
+                  "Description": "format"
+                },
+                {
+                  "Name": "enpasscsv",
+                  "Description": "format"
+                },
+                {
+                  "Name": "enpassjson",
+                  "Description": "format"
+                },
+                {
+                  "Name": "firefoxcsv",
+                  "Description": "format"
+                },
+                {
+                  "Name": "fsecurefsk",
+                  "Description": "format"
+                },
+                {
+                  "Name": "gnomejson",
+                  "Description": "format"
+                },
+                {
+                  "Name": "kasperskytxt",
+                  "Description": "format"
+                },
+                {
+                  "Name": "keepass2xml",
+                  "Description": "format"
+                },
+                {
+                  "Name": "keepassxcsv",
+                  "Description": "format"
+                },
+                {
+                  "Name": "keepercsv",
+                  "Description": "format"
+                },
+                {
+                  "Name": "lastpasscsv",
+                  "Description": "format"
+                },
+                {
+                  "Name": "logmeoncecsv",
+                  "Description": "format"
+                },
+                {
+                  "Name": "meldiumcsv",
+                  "Description": "format"
+                },
+                {
+                  "Name": "msecurecsv",
+                  "Description": "format"
+                },
+                {
+                  "Name": "mykicsv",
+                  "Description": "format"
+                },
+                {
+                  "Name": "nordpasscsv",
+                  "Description": "format"
+                },
+                {
+                  "Name": "operacsv",
+                  "Description": "format"
+                },
+                {
+                  "Name": "padlockcsv",
+                  "Description": "format"
+                },
+                {
+                  "Name": "passboltcsv",
+                  "Description": "format"
+                },
+                {
+                  "Name": "passkeepcsv",
+                  "Description": "format"
+                },
+                {
+                  "Name": "passmanjson",
+                  "Description": "format"
+                },
+                {
+                  "Name": "passpackcsv",
+                  "Description": "format"
+                },
+                {
+                  "Name": "passwordagentcsv",
+                  "Description": "format"
+                },
+                {
+                  "Name": "passwordbossjson",
+                  "Description": "format"
+                },
+                {
+                  "Name": "passworddragonxml",
+                  "Description": "format"
+                },
+                {
+                  "Name": "passwordwallettxt",
+                  "Description": "format"
+                },
+                {
+                  "Name": "pwsafexml",
+                  "Description": "format"
+                },
+                {
+                  "Name": "remembearcsv",
+                  "Description": "format"
+                },
+                {
+                  "Name": "roboformcsv",
+                  "Description": "format"
+                },
+                {
+                  "Name": "safaricsv",
+                  "Description": "format"
+                },
+                {
+                  "Name": "safeincloudxml",
+                  "Description": "format"
+                },
+                {
+                  "Name": "saferpasscsv",
+                  "Description": "format"
+                },
+                {
+                  "Name": "securesafecsv",
+                  "Description": "format"
+                },
+                {
+                  "Name": "splashidcsv",
+                  "Description": "format"
+                },
+                {
+                  "Name": "stickypasswordxml",
+                  "Description": "format"
+                },
+                {
+                  "Name": "truekeycsv",
+                  "Description": "format"
+                },
+                {
+                  "Name": "upmcsv",
+                  "Description": "format"
+                },
+                {
+                  "Name": "vivaldicsv",
+                  "Description": "format"
+                },
+                {
+                  "Name": "yoticsv",
+                  "Description": "format"
+                },
+                {
+                  "Name": "zohovaultcsv",
+                  "Description": "format"
+                }
+              ]
+            },
+            {
+              "Arguments": [
+                {
+                  "Name": "input",
+                  "Description": "input",
+                  "Type": "FileSystemEntry"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "Name": "export",
+          "Description": "Export vault data to a CSV or JSON file",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "--output",
+                  "Description": "Set output directory or filename",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "output",
+                          "Description": "output",
+                          "Type": "Directory"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "--format",
+                  "Description": "Export file format",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "format",
+                          "Description": "format",
+                          "Type": "String"
+                        },
+                        {
+                          "Name": "csv",
+                          "Description": "format"
+                        },
+                        {
+                          "Name": "json",
+                          "Description": "format"
+                        },
+                        {
+                          "Name": "encrypted_json",
+                          "Description": "format"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "--password",
+                  "Description": "Use a password to encrypt instead of your Bitwarden account encryption key. Only applies to the encrypted_json format",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "password",
+                          "Description": "password",
+                          "Type": "String"
+                        }
+                      ],
+                      "Optional": true
+                    }
+                  ]
+                },
+                {
+                  "Name": "--organizationid",
+                  "Description": "Enter organization id for an organization",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "organizationid",
+                          "Description": "organizationid",
+                          "Type": "String"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "-h",
+                  "Description": "Display help for the export command",
+                  "Aliases": [
+                    "--help"
+                  ],
+                  "Arguments": []
+                }
+              ],
+              "Optional": true
+            }
+          ]
+        },
+        {
+          "Name": "share",
+          "Description": "--DEPRECATED-- Move an item to an organization",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "-h",
+                  "Description": "Display help for the share command",
+                  "Aliases": [
+                    "--help"
+                  ],
+                  "Arguments": []
+                }
+              ],
+              "Optional": true
+            },
+            {
+              "Arguments": [
+                {
+                  "Name": "id",
+                  "Description": "id",
+                  "Type": "String"
+                }
+              ]
+            },
+            {
+              "Arguments": [
+                {
+                  "Name": "organizationId",
+                  "Description": "organizationId",
+                  "Type": "String"
+                }
+              ]
+            },
+            {
+              "Arguments": [
+                {
+                  "Name": "encodedJson",
+                  "Description": "encodedJson",
+                  "Type": "String"
+                }
+              ],
+              "Optional": true
+            }
+          ]
+        },
+        {
+          "Name": "send",
+          "Description": "Work with Bitwarden Sends. A Send can be quickly created using this command or subcommands can be used to fine-tune the Send",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "-f",
+                  "Description": "Specifies that \u003Cdata\u003E is a filepath",
+                  "Aliases": [
+                    "--file"
+                  ],
+                  "Arguments": []
+                },
+                {
+                  "Name": "-d",
+                  "Description": "The number of days in the future to set deletion date (defaults to 7 if not specified)",
+                  "Aliases": [
+                    "--deleteInDays"
+                  ],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "days",
+                          "Description": "days",
+                          "Type": "String"
+                        }
+                      ],
+                      "Optional": true
+                    }
+                  ]
+                },
+                {
+                  "Name": "-a",
+                  "Description": "The max number of accesses allowed for this Send",
+                  "Aliases": [
+                    "--maxAccessCount"
+                  ],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "amount",
+                          "Description": "amount",
+                          "Type": "String"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "--hidden",
+                  "Description": "Hide \u003Cdata\u003E in web by default. Valid only if --file is not set",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "-n",
+                  "Description": "The name of the Send. Defaults to a guid for text Sends and the filename for files",
+                  "Aliases": [
+                    "--name"
+                  ],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "name",
+                          "Description": "name",
+                          "Type": "String"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "--notes",
+                  "Description": "Notes to add to the Send",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "notes",
+                          "Description": "notes",
+                          "Type": "String"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "--fullObject",
+                  "Description": "Specifies that the full Send object should be returned rather than just the access url",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "-h",
+                  "Description": "Display help for the Send command",
+                  "Aliases": [
+                    "--help"
+                  ],
+                  "Arguments": []
+                }
+              ],
+              "Optional": true
+            },
+            {
+              "Arguments": [
+                {
+                  "Name": "data",
+                  "Description": "data",
+                  "Type": "String"
+                }
+              ]
+            },
+            {
+              "Arguments": [
+                {
+                  "Name": "list",
+                  "Description": "List all the Sends owned by you",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "-h",
+                          "Description": "Display help for the Send command",
+                          "Aliases": [
+                            "--help"
+                          ],
+                          "Arguments": []
+                        }
+                      ],
+                      "Optional": true
+                    }
+                  ]
+                },
+                {
+                  "Name": "template",
+                  "Description": "Get json templates for Send objects",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "-h",
+                          "Description": "Display help for the template sub-command",
+                          "Aliases": [
+                            "--help"
+                          ],
+                          "Arguments": []
+                        }
+                      ],
+                      "Optional": true
+                    },
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "object",
+                          "Description": "object",
+                          "Type": "String"
+                        },
+                        {
+                          "Name": "send.text",
+                          "Description": "object"
+                        },
+                        {
+                          "Name": "send.file",
+                          "Description": "object"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "get",
+                  "Description": "Get Sends owned by you",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "--output",
+                          "Description": "Output directory or filename for attachment",
+                          "Aliases": [],
+                          "Arguments": [
+                            {
+                              "Arguments": [
+                                {
+                                  "Name": "output",
+                                  "Description": "output",
+                                  "Type": "Directory"
+                                }
+                              ]
+                            }
+                          ]
+                        },
+                        {
+                          "Name": "--text",
+                          "Description": "Specifies to return the text content of a Send",
+                          "Aliases": [],
+                          "Arguments": []
+                        },
+                        {
+                          "Name": "-h",
+                          "Description": "Display help for the Send get sub-command",
+                          "Aliases": [
+                            "--help"
+                          ],
+                          "Arguments": []
+                        }
+                      ],
+                      "Optional": true
+                    },
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "Send ID",
+                          "Description": "Send ID",
+                          "Type": "String"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "receive",
+                  "Description": "Access a Bitwarden Send from a url",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "--password",
+                          "Description": "Password needed to access the Send",
+                          "Aliases": [],
+                          "Arguments": [
+                            {
+                              "Arguments": [
+                                {
+                                  "Name": "password",
+                                  "Description": "password",
+                                  "Type": "String"
+                                }
+                              ]
+                            }
+                          ]
+                        },
+                        {
+                          "Name": "--passwordenv",
+                          "Description": "Environment variable storing the Send\u0027s password",
+                          "Aliases": [],
+                          "Arguments": [
+                            {
+                              "Arguments": [
+                                {
+                                  "Name": "passwordenv",
+                                  "Description": "passwordenv",
+                                  "Type": "String"
+                                }
+                              ]
+                            }
+                          ]
+                        },
+                        {
+                          "Name": "--passwordfile",
+                          "Description": "Path to a file containing the Send\u0027s password as its first line",
+                          "Aliases": [],
+                          "Arguments": [
+                            {
+                              "Arguments": [
+                                {
+                                  "Name": "passwordfile",
+                                  "Description": "passwordfile",
+                                  "Type": "FileSystemEntry"
+                                }
+                              ]
+                            }
+                          ]
+                        },
+                        {
+                          "Name": "--obj",
+                          "Description": "Return the Send\u0027s json object rather than the Send\u0027s content",
+                          "Aliases": [],
+                          "Arguments": []
+                        },
+                        {
+                          "Name": "--output",
+                          "Description": "Specify a file path to save a File-type Send to",
+                          "Aliases": [],
+                          "Arguments": [
+                            {
+                              "Arguments": [
+                                {
+                                  "Name": "location",
+                                  "Description": "location",
+                                  "Type": "Directory"
+                                }
+                              ]
+                            }
+                          ]
+                        },
+                        {
+                          "Name": "-h",
+                          "Description": "Display help for the receive sub-command",
+                          "Aliases": [
+                            "--help"
+                          ],
+                          "Arguments": []
+                        }
+                      ],
+                      "Optional": true
+                    },
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "Send URL",
+                          "Description": "Send URL",
+                          "Type": "String"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "create",
+                  "Description": "Create a Send",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "--file",
+                          "Description": "File to Send. Can also be specified in parent\u0027s JSON",
+                          "Aliases": [],
+                          "Arguments": [
+                            {
+                              "Arguments": [
+                                {
+                                  "Name": "path",
+                                  "Description": "path",
+                                  "Type": "FileSystemEntry"
+                                }
+                              ]
+                            }
+                          ]
+                        },
+                        {
+                          "Name": "--text",
+                          "Description": "Text to Send. Can also be specified in parent\u0027s JSON",
+                          "Aliases": [],
+                          "Arguments": [
+                            {
+                              "Arguments": [
+                                {
+                                  "Name": "text",
+                                  "Description": "text",
+                                  "Type": "String"
+                                }
+                              ]
+                            }
+                          ]
+                        },
+                        {
+                          "Name": "--hidden",
+                          "Description": "Text hidden flag. Valid only with the --text option",
+                          "Aliases": [],
+                          "Arguments": []
+                        },
+                        {
+                          "Name": "--password",
+                          "Description": "Optional password to access this Send. Can also be specified in JSON",
+                          "Aliases": [],
+                          "Arguments": [
+                            {
+                              "Arguments": [
+                                {
+                                  "Name": "password",
+                                  "Description": "password",
+                                  "Type": "String"
+                                }
+                              ]
+                            }
+                          ]
+                        },
+                        {
+                          "Name": "-h",
+                          "Description": "Display help for the create sub-command",
+                          "Aliases": [
+                            "--help"
+                          ],
+                          "Arguments": []
+                        }
+                      ],
+                      "Optional": true
+                    },
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "encodedJson",
+                          "Description": "encodedJson",
+                          "Type": "String"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "edit",
+                  "Description": "Edit a Send",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "--itemid",
+                          "Description": "Overrides the itemId provided in [encodedJson]",
+                          "Aliases": [],
+                          "Arguments": [
+                            {
+                              "Arguments": [
+                                {
+                                  "Name": "itemid",
+                                  "Description": "itemid",
+                                  "Type": "String"
+                                }
+                              ]
+                            }
+                          ]
+                        },
+                        {
+                          "Name": "-h",
+                          "Description": "Display help for the edit sub-command",
+                          "Aliases": [
+                            "--help"
+                          ],
+                          "Arguments": []
+                        }
+                      ],
+                      "Optional": true
+                    },
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "encodedJson",
+                          "Description": "encodedJson",
+                          "Type": "String"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "remove-password",
+                  "Description": "Removes the saved password from a Send",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "-h",
+                          "Description": "Display help for the remove-password sub-command",
+                          "Aliases": [
+                            "--help"
+                          ],
+                          "Arguments": []
+                        }
+                      ],
+                      "Optional": true
+                    },
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "Send ID",
+                          "Description": "Send ID",
+                          "Type": "String"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "delete",
+                  "Description": "Delete a Send",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "-h",
+                          "Description": "Display help for the delete sub-command",
+                          "Aliases": [
+                            "--help"
+                          ],
+                          "Arguments": []
+                        }
+                      ],
+                      "Optional": true
+                    },
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "Send ID",
+                          "Description": "Send ID",
+                          "Type": "String"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "help",
+                  "Description": "Display help for the Send command",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "command",
+                          "Description": "command",
+                          "Type": "String"
+                        }
+                      ],
+                      "Optional": true
+                    }
+                  ]
+                }
+              ],
+              "DontAllowMultiple": true
+            }
+          ]
+        },
+        {
+          "Name": "device-approval",
+          "Description": "Manage device approval requests sent to organizations that use SSO with trusted devices",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "list",
+                  "Description": "List all pending requests for an organisation",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "-h",
+                          "Description": "Display help for the list sub-command",
+                          "Aliases": [
+                            "--help"
+                          ],
+                          "Arguments": []
+                        },
+                        {
+                          "Name": "--organizationid",
+                          "Description": "The organisation id (required)",
+                          "Aliases": [],
+                          "Arguments": [
+                            {
+                              "Arguments": [
+                                {
+                                  "Name": "organizationid",
+                                  "Description": "organizationid",
+                                  "Type": "String"
+                                }
+                              ]
+                            }
+                          ]
+                        }
+                      ],
+                      "Optional": true
+                    }
+                  ]
+                },
+                {
+                  "Name": "approve",
+                  "Description": "Approve a pending request",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "-h",
+                          "Description": "Display help for the approve sub-command",
+                          "Aliases": [
+                            "--help"
+                          ],
+                          "Arguments": []
+                        },
+                        {
+                          "Name": "requestId",
+                          "Description": "The id of the request to approve",
+                          "Aliases": [],
+                          "Arguments": [
+                            {
+                              "Arguments": [
+                                {
+                                  "Name": "requestId",
+                                  "Description": "requestId",
+                                  "Type": "String"
+                                }
+                              ]
+                            }
+                          ]
+                        },
+                        {
+                          "Name": "--organizationid",
+                          "Description": "The organisation id (required)",
+                          "Aliases": [],
+                          "Arguments": [
+                            {
+                              "Arguments": [
+                                {
+                                  "Name": "organizationid",
+                                  "Description": "organizationid",
+                                  "Type": "String"
+                                }
+                              ]
+                            }
+                          ]
+                        }
+                      ],
+                      "Optional": true
+                    }
+                  ]
+                },
+                {
+                  "Name": "approve-all",
+                  "Description": "Approve all pending requests for an organisation",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "-h",
+                          "Description": "Display help for the approve-all sub-command",
+                          "Aliases": [
+                            "--help"
+                          ],
+                          "Arguments": []
+                        },
+                        {
+                          "Name": "--organizationid",
+                          "Description": "The organisation id (required)",
+                          "Aliases": [],
+                          "Arguments": [
+                            {
+                              "Arguments": [
+                                {
+                                  "Name": "organizationid",
+                                  "Description": "organizationid",
+                                  "Type": "String"
+                                }
+                              ]
+                            }
+                          ]
+                        }
+                      ],
+                      "Optional": true
+                    }
+                  ]
+                },
+                {
+                  "Name": "deny",
+                  "Description": "Deny a pending request",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "-h",
+                          "Description": "Display help for the deny sub-command",
+                          "Aliases": [
+                            "--help"
+                          ],
+                          "Arguments": []
+                        },
+                        {
+                          "Name": "requestId",
+                          "Description": "The id of the request to deny",
+                          "Aliases": [],
+                          "Arguments": [
+                            {
+                              "Arguments": [
+                                {
+                                  "Name": "requestId",
+                                  "Description": "requestId",
+                                  "Type": "String"
+                                }
+                              ]
+                            }
+                          ]
+                        },
+                        {
+                          "Name": "--organizationid",
+                          "Description": "The organisation id (required)",
+                          "Aliases": [],
+                          "Arguments": [
+                            {
+                              "Arguments": [
+                                {
+                                  "Name": "organizationid",
+                                  "Description": "organizationid",
+                                  "Type": "String"
+                                }
+                              ]
+                            }
+                          ]
+                        }
+                      ],
+                      "Optional": true
+                    }
+                  ]
+                },
+                {
+                  "Name": "deny-all",
+                  "Description": "Deny all pending requests for an organisation",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "-h",
+                          "Description": "Display help for the deny-all sub-command",
+                          "Aliases": [
+                            "--help"
+                          ],
+                          "Arguments": []
+                        },
+                        {
+                          "Name": "--organizationid",
+                          "Description": "The organisation id (required)",
+                          "Aliases": [],
+                          "Arguments": [
+                            {
+                              "Arguments": [
+                                {
+                                  "Name": "organizationid",
+                                  "Description": "organizationid",
+                                  "Type": "String"
+                                }
+                              ]
+                            }
+                          ]
+                        }
+                      ],
+                      "Optional": true
+                    }
+                  ]
+                },
+                {
+                  "Name": "help",
+                  "Description": "Display help for command",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "command",
+                          "Description": "command",
+                          "Type": "String"
+                        }
+                      ],
+                      "Optional": true
+                    }
+                  ]
+                }
+              ],
+              "DontAllowMultiple": true
+            }
+          ]
+        },
+        {
+          "Name": "receive",
+          "Description": "Access a Bitwarden Send from a url",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "--password",
+                  "Description": "Password needed to access the Send",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "password",
+                          "Description": "password",
+                          "Type": "String"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "--passwordenv",
+                  "Description": "Environment variable storing the Send\u0027s password",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "passwordenv",
+                          "Description": "passwordenv",
+                          "Type": "String"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "--passwordfile",
+                  "Description": "Path to a file containing the Send\u0027s password as its first line",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "passwordfile",
+                          "Description": "passwordfile",
+                          "Type": "FileSystemEntry"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "--obj",
+                  "Description": "Return the Send\u0027s json object rather than the Send\u0027s content",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "--output",
+                  "Description": "Specify a file path to save a File-type Send to",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "location",
+                          "Description": "location",
+                          "Type": "Directory"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "-h",
+                  "Description": "Display help for the receive sub-command",
+                  "Aliases": [
+                    "--help"
+                  ],
+                  "Arguments": []
+                }
+              ],
+              "Optional": true
+            },
+            {
+              "Arguments": [
+                {
+                  "Name": "Send URL",
+                  "Description": "Send URL",
+                  "Type": "String"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "Name": "help",
+          "Description": "Display help for the Bitwarden CLI tool",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "command",
+                  "Description": "command",
+                  "Type": "String"
+                },
+                {
+                  "Name": "login",
+                  "Description": "command"
+                },
+                {
+                  "Name": "logout",
+                  "Description": "command"
+                },
+                {
+                  "Name": "lock",
+                  "Description": "command"
+                },
+                {
+                  "Name": "unlock",
+                  "Description": "command"
+                },
+                {
+                  "Name": "sync",
+                  "Description": "command"
+                },
+                {
+                  "Name": "generate",
+                  "Description": "command"
+                },
+                {
+                  "Name": "encode",
+                  "Description": "command"
+                },
+                {
+                  "Name": "config",
+                  "Description": "command"
+                },
+                {
+                  "Name": "update",
+                  "Description": "command"
+                },
+                {
+                  "Name": "completion",
+                  "Description": "command"
+                },
+                {
+                  "Name": "status",
+                  "Description": "command"
+                },
+                {
+                  "Name": "serve",
+                  "Description": "command"
+                },
+                {
+                  "Name": "list",
+                  "Description": "command"
+                },
+                {
+                  "Name": "get",
+                  "Description": "command"
+                },
+                {
+                  "Name": "create",
+                  "Description": "command"
+                },
+                {
+                  "Name": "edit",
+                  "Description": "command"
+                },
+                {
+                  "Name": "delete",
+                  "Description": "command"
+                },
+                {
+                  "Name": "restore",
+                  "Description": "command"
+                },
+                {
+                  "Name": "move",
+                  "Description": "command"
+                },
+                {
+                  "Name": "confirm",
+                  "Description": "command"
+                },
+                {
+                  "Name": "import",
+                  "Description": "command"
+                },
+                {
+                  "Name": "export",
+                  "Description": "command"
+                },
+                {
+                  "Name": "share",
+                  "Description": "command"
+                },
+                {
+                  "Name": "send",
+                  "Description": "command"
+                },
+                {
+                  "Name": "receive",
+                  "Description": "command"
+                },
+                {
+                  "Name": "device-approval",
+                  "Description": "command"
+                }
+              ],
+              "Optional": true
+            }
+          ]
+        }
+      ],
+      "DontAllowMultiple": true
+    }
+  ]
+}

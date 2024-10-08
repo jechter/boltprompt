@@ -1,0 +1,393 @@
+{
+  "Comment": "This command info is generated from fig",
+  "Name": "npx",
+  "Description": "Execute binaries from npm packages",
+  "Arguments": [
+    {
+      "Arguments": [
+        {
+          "Name": "--package",
+          "Description": "Package to be installed",
+          "Aliases": [
+            "-p"
+          ],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "package",
+                  "Description": "package",
+                  "Type": "String"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "Name": "--cache",
+          "Description": "Location of the npm cache",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "path",
+                  "Description": "path",
+                  "Type": "FileSystemEntry"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "Name": "--always-spawn",
+          "Description": "Always spawn a child process to execute the command",
+          "Aliases": [],
+          "Arguments": []
+        },
+        {
+          "Name": "y",
+          "Description": "Execute npx command without prompting for confirmation",
+          "Type": "Flag",
+          "Aliases": [],
+          "Arguments": []
+        },
+        {
+          "Name": "--no-install",
+          "Description": "Skip installation if a package is missing",
+          "Aliases": [],
+          "Arguments": []
+        },
+        {
+          "Name": "--userconfig",
+          "Description": "Path to user npmrc",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "path",
+                  "Description": "path",
+                  "Type": "FileSystemEntry"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "Name": "--call",
+          "Description": "Execute string as if inside \u0060npm run-script\u0060",
+          "Aliases": [
+            "-c"
+          ],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "script",
+                  "Description": "script",
+                  "Type": "String"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "Name": "--shell",
+          "Description": "Shell to execute the command with, if any",
+          "Aliases": [
+            "-s"
+          ],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "shell",
+                  "Description": "shell",
+                  "Type": "String"
+                },
+                {
+                  "Name": "bash",
+                  "Description": "shell"
+                },
+                {
+                  "Name": "fish",
+                  "Description": "shell"
+                },
+                {
+                  "Name": "zsh",
+                  "Description": "shell"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "Name": "--shell-auto-fallback",
+          "Description": "Generate shell code to use npx as the \u0022command not found\u0022 fallback",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "shell-fallback",
+                  "Description": "shell-fallback",
+                  "Type": "String"
+                },
+                {
+                  "Name": "bash",
+                  "Description": "shell-fallback"
+                },
+                {
+                  "Name": "fish",
+                  "Description": "shell-fallback"
+                },
+                {
+                  "Name": "zsh",
+                  "Description": "shell-fallback"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "Name": "--ignore-existing",
+          "Description": "Ignores existing binaries in $PATH, or in the localproject. This forces npx to do a temporary install and use the latest version",
+          "Aliases": [],
+          "Arguments": []
+        },
+        {
+          "Name": "--quiet",
+          "Description": "Suppress output from npx itself. Subcommands will not be affected",
+          "Aliases": [
+            "-q"
+          ],
+          "Arguments": []
+        },
+        {
+          "Name": "--npm",
+          "Description": "Npm binary to use for internal operations",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "path to binary",
+                  "Description": "path to binary",
+                  "Type": "FileSystemEntry"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "Name": "--node-arg",
+          "Description": "Extra node argument when calling a node binary",
+          "Aliases": [
+            "-n"
+          ],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "String",
+                  "Description": "",
+                  "Type": "String"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "Name": "--version",
+          "Description": "Show version number",
+          "Aliases": [
+            "-v"
+          ],
+          "Arguments": []
+        },
+        {
+          "Name": "--help",
+          "Description": "Show help",
+          "Aliases": [
+            "-h"
+          ],
+          "Arguments": []
+        }
+      ],
+      "Optional": true
+    },
+    {
+      "Arguments": [
+        {
+          "Name": "command",
+          "Description": "command",
+          "Type": "CustomArgument",
+          "Extensions": [],
+          "CustomCommand": "bash -c until [[ -d node_modules/ ]] || [[ $PWD = \u0027/\u0027 ]]; do cd ..; done; ls -1 node_modules/.bin/"
+        },
+        {
+          "Name": "autocannon",
+          "Description": "command"
+        },
+        {
+          "Name": "vite",
+          "Description": "command"
+        },
+        {
+          "Name": "babel",
+          "Description": "command"
+        },
+        {
+          "Name": "create-react-native-app",
+          "Description": "command"
+        },
+        {
+          "Name": "react-native",
+          "Description": "command"
+        },
+        {
+          "Name": "tailwindcss",
+          "Description": "command"
+        },
+        {
+          "Name": "next",
+          "Description": "command"
+        },
+        {
+          "Name": "nuxi",
+          "Description": "command"
+        },
+        {
+          "Name": "gltfjsx",
+          "Description": "command"
+        },
+        {
+          "Name": "prisma",
+          "Description": "command"
+        },
+        {
+          "Name": "eslint",
+          "Description": "command"
+        },
+        {
+          "Name": "prettier",
+          "Description": "command"
+        },
+        {
+          "Name": "tsc",
+          "Description": "command"
+        },
+        {
+          "Name": "typeorm",
+          "Description": "command"
+        },
+        {
+          "Name": "@withfig/autocomplete-tools",
+          "Description": "command"
+        },
+        {
+          "Name": "create-completion-spec",
+          "Description": "command"
+        },
+        {
+          "Name": "@fig/publish-spec-to-team",
+          "Description": "command"
+        },
+        {
+          "Name": "fig-teams@latest",
+          "Description": "command"
+        },
+        {
+          "Name": "create-next-app",
+          "Description": "command"
+        },
+        {
+          "Name": "create-t3-app",
+          "Description": "command"
+        },
+        {
+          "Name": "create-discord-bot",
+          "Description": "command"
+        },
+        {
+          "Name": "create-video",
+          "Description": "command"
+        },
+        {
+          "Name": "remotion",
+          "Description": "command"
+        },
+        {
+          "Name": "create-remix",
+          "Description": "command"
+        },
+        {
+          "Name": "remix",
+          "Description": "command"
+        },
+        {
+          "Name": "playwright",
+          "Description": "command"
+        },
+        {
+          "Name": "ignite-cli",
+          "Description": "command"
+        },
+        {
+          "Name": "vsce",
+          "Description": "command"
+        },
+        {
+          "Name": "degit",
+          "Description": "command"
+        },
+        {
+          "Name": "@preset/cli",
+          "Description": "command"
+        },
+        {
+          "Name": "mikro-orm",
+          "Description": "command"
+        },
+        {
+          "Name": "pod-install",
+          "Description": "command"
+        },
+        {
+          "Name": "capacitor",
+          "Description": "command"
+        },
+        {
+          "Name": "cap",
+          "Description": "command"
+        },
+        {
+          "Name": "@magnolia/cli",
+          "Description": "command"
+        },
+        {
+          "Name": "stencil",
+          "Description": "command"
+        },
+        {
+          "Name": "swagger-typescript-api",
+          "Description": "command"
+        },
+        {
+          "Name": "sta",
+          "Description": "command"
+        },
+        {
+          "Name": "@wordpress/create-block",
+          "Description": "command"
+        },
+        {
+          "Name": "astro",
+          "Description": "command"
+        }
+      ],
+      "Optional": true
+    }
+  ]
+}

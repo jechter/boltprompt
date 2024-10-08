@@ -1,0 +1,1032 @@
+{
+  "Comment": "This command info is generated from fig",
+  "Name": "checkov",
+  "Description": "Checkov scans cloud infrastructure configurations to find misconfigurations before they\u0027re deployed",
+  "Arguments": [
+    {
+      "Arguments": [
+        {
+          "Name": "--help",
+          "Description": "Show help for checkov",
+          "Aliases": [
+            "-h"
+          ],
+          "Arguments": []
+        },
+        {
+          "Name": "--version",
+          "Description": "Show the version of checkov",
+          "Aliases": [
+            "-v"
+          ],
+          "Arguments": []
+        },
+        {
+          "Name": "--quiet",
+          "Description": "CLI output, display only failed checks",
+          "Aliases": [],
+          "Arguments": []
+        },
+        {
+          "Name": "--compact",
+          "Description": "CLI output, do not display code blocks",
+          "Aliases": [],
+          "Arguments": []
+        },
+        {
+          "Name": "--list",
+          "Description": "List checks",
+          "Aliases": [
+            "-l"
+          ],
+          "Arguments": []
+        },
+        {
+          "Name": "--no-guide",
+          "Description": "Do not fetch Bridgecrew platform IDs and guidelines for the checkov output report. Note: this prevents Bridgecrew platform check IDs from being used anywhere in the CLI",
+          "Aliases": [],
+          "Arguments": []
+        },
+        {
+          "Name": "--output-bc-ids",
+          "Description": "Print Bridgecrew platform IDs (BC...) instead of Checkov IDs (CKV...), if the check exists in the platform",
+          "Aliases": [],
+          "Arguments": []
+        },
+        {
+          "Name": "--directory",
+          "Description": "IaC root directory (can not be used together with --file)",
+          "Aliases": [
+            "-d"
+          ],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "Directory",
+                  "Description": "Directory",
+                  "Type": "Directory"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "Name": "--output",
+          "Description": "Report output format. Add multiple outputs by using the flag multiple times (-o sarif -o cli)",
+          "Aliases": [
+            "-o"
+          ],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "FORMAT",
+                  "Description": "FORMAT",
+                  "Type": "String"
+                },
+                {
+                  "Name": "cli",
+                  "Description": "FORMAT"
+                },
+                {
+                  "Name": "cyclonedx",
+                  "Description": "FORMAT"
+                },
+                {
+                  "Name": "json",
+                  "Description": "FORMAT"
+                },
+                {
+                  "Name": "junitxml",
+                  "Description": "FORMAT"
+                },
+                {
+                  "Name": "github_failed_only",
+                  "Description": "FORMAT"
+                },
+                {
+                  "Name": "sarif",
+                  "Description": "FORMAT"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "Name": "--framework",
+          "Description": "IaC frameworks to include checks for",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "FRAMEWORKS",
+                  "Description": "FRAMEWORKS",
+                  "Type": "String"
+                },
+                {
+                  "Name": "arm",
+                  "Description": "FRAMEWORKS"
+                },
+                {
+                  "Name": "cloudformation",
+                  "Description": "FRAMEWORKS"
+                },
+                {
+                  "Name": "dockerfile",
+                  "Description": "FRAMEWORKS"
+                },
+                {
+                  "Name": "github_configuration",
+                  "Description": "FRAMEWORKS"
+                },
+                {
+                  "Name": "gitlab_configuration",
+                  "Description": "FRAMEWORKS"
+                },
+                {
+                  "Name": "helm",
+                  "Description": "FRAMEWORKS"
+                },
+                {
+                  "Name": "json",
+                  "Description": "FRAMEWORKS"
+                },
+                {
+                  "Name": "kubernetes",
+                  "Description": "FRAMEWORKS"
+                },
+                {
+                  "Name": "kustomize",
+                  "Description": "FRAMEWORKS"
+                },
+                {
+                  "Name": "sca_package",
+                  "Description": "FRAMEWORKS"
+                },
+                {
+                  "Name": "secrets",
+                  "Description": "FRAMEWORKS"
+                },
+                {
+                  "Name": "serverless",
+                  "Description": "FRAMEWORKS"
+                },
+                {
+                  "Name": "terraform",
+                  "Description": "FRAMEWORKS"
+                },
+                {
+                  "Name": "terraform_plan",
+                  "Description": "FRAMEWORKS"
+                },
+                {
+                  "Name": "all",
+                  "Description": "FRAMEWORKS"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "Name": "--skip-framework",
+          "Description": "IaC frameworks to exclude checks for",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "FRAMEWORKS",
+                  "Description": "FRAMEWORKS",
+                  "Type": "String"
+                },
+                {
+                  "Name": "arm",
+                  "Description": "FRAMEWORKS"
+                },
+                {
+                  "Name": "cloudformation",
+                  "Description": "FRAMEWORKS"
+                },
+                {
+                  "Name": "dockerfile",
+                  "Description": "FRAMEWORKS"
+                },
+                {
+                  "Name": "github_configuration",
+                  "Description": "FRAMEWORKS"
+                },
+                {
+                  "Name": "gitlab_configuration",
+                  "Description": "FRAMEWORKS"
+                },
+                {
+                  "Name": "helm",
+                  "Description": "FRAMEWORKS"
+                },
+                {
+                  "Name": "json",
+                  "Description": "FRAMEWORKS"
+                },
+                {
+                  "Name": "kubernetes",
+                  "Description": "FRAMEWORKS"
+                },
+                {
+                  "Name": "kustomize",
+                  "Description": "FRAMEWORKS"
+                },
+                {
+                  "Name": "sca_package",
+                  "Description": "FRAMEWORKS"
+                },
+                {
+                  "Name": "secrets",
+                  "Description": "FRAMEWORKS"
+                },
+                {
+                  "Name": "serverless",
+                  "Description": "FRAMEWORKS"
+                },
+                {
+                  "Name": "terraform",
+                  "Description": "FRAMEWORKS"
+                },
+                {
+                  "Name": "terraform_plan",
+                  "Description": "FRAMEWORKS"
+                },
+                {
+                  "Name": "all",
+                  "Description": "FRAMEWORKS"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "Name": "--add-check",
+          "Description": "Generate a new check via CLI prompt",
+          "Aliases": [],
+          "Arguments": []
+        },
+        {
+          "Name": "--file",
+          "Description": "IaC file(can not be used together with --directory)",
+          "Aliases": [
+            "-f"
+          ],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "FILE",
+                  "Description": "FILE",
+                  "Type": "FileSystemEntry"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "Name": "--skip-path",
+          "Description": "Path (file or directory) to skip, using regular expression logic, relative to current working directory. Word boundaries are not implicit; i.e., specifying \u0027dir1\u0027 will skip any directory or subdirectory named \u0027dir1\u0027. Ignored with -f. Can be specified multiple times",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "SKIP_PATH",
+                  "Description": "SKIP_PATH",
+                  "Type": "FileSystemEntry"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "Name": "--check",
+          "Description": "Filter scan to run only on a specific check identifier (allowlist). You can specify multiple checks separated by comma delimiter. You may also use the environment variable: CKV_CHECK",
+          "Aliases": [
+            "-c"
+          ],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "CHECKS",
+                  "Description": "CHECKS",
+                  "Type": "String"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "Name": "--skip-check",
+          "Description": "Filter scan to run all check except a specific check identifier (denylist). You can specify multiple checks separated by comma delimiter. You may also use the environment variable: CKV_SKIP_CHECK",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "CHECKS",
+                  "Description": "CHECKS",
+                  "Type": "String"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "Name": "--run-all-external-checks",
+          "Description": "Run all external checks (loaded via --external-checks options) even if the checks are not present in the --check list. This allows you to always ensure that new checks present in the external source are used. If an external check is included in --skip-check, it will still be skipped",
+          "Aliases": [],
+          "Arguments": []
+        },
+        {
+          "Name": "--external-checks-dir",
+          "Description": "Directory for custom checks to be loaded. Can be repeated",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "EXTERNAL_CHECKS_DIR",
+                  "Description": "EXTERNAL_CHECKS_DIR",
+                  "Type": "String"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "Name": "--bc-api-key",
+          "Description": "Bridgecrew API key. You may also use the environment variable: BC_API_KEY",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "BC_API_KEY",
+                  "Description": "BC_API_KEY",
+                  "Type": "String"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "Name": "--docker-image",
+          "Description": "Scan docker images by name or ID. Only works with --bc-api-key flag",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "DOCKER_IMAGE",
+                  "Description": "DOCKER_IMAGE",
+                  "Type": "String"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "Name": "--dockerfile-path",
+          "Description": "Path to the Dockerfile of the scanned docker image",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "DOCKERFILE_PATH",
+                  "Description": "DOCKERFILE_PATH",
+                  "Type": "String"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "Name": "--repo-id",
+          "Description": "Identity string of the repository, with form \u003Crepo_owner\u003E/\u003Crepo_name\u003E",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "REPO_ID",
+                  "Description": "REPO_ID",
+                  "Type": "String"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "Name": "--branch",
+          "Description": "Selected branch of the persisted repository. Only has effect when using the --bc-api-key flag",
+          "Aliases": [
+            "-b"
+          ],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "BRANCH",
+                  "Description": "BRANCH",
+                  "Type": "CustomArgument",
+                  "Extensions": [],
+                  "CustomCommand": "git branch --no-color"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "Name": "--skip-fixes",
+          "Description": "Do not download fixed resource templates from Bridgecrew. Only has an effect when using the --bc-api-key flag",
+          "Aliases": [],
+          "Arguments": []
+        },
+        {
+          "Name": "--skip-suppressions",
+          "Description": "Do not download preconfigured suppressions from the Bridgecrew platform. Code comment suppressions will still be honored. Only has an effect when using the --bc-api-key flag",
+          "Aliases": [],
+          "Arguments": []
+        },
+        {
+          "Name": "--skip-policy-download",
+          "Description": "Do not download custom policies configured in the Bridgecrew platform. Only has an effect when using the --bc-api-key flag",
+          "Aliases": [],
+          "Arguments": []
+        },
+        {
+          "Name": "--download-external-modules",
+          "Description": "Download external terraform modules from public git repositories and terraform registry. You may also use the environment variable: DOWNLOAD_EXTERNAL_MODULES]",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "DOWNLOAD_EXTERNAL_MODULES",
+                  "Description": "DOWNLOAD_EXTERNAL_MODULES",
+                  "Type": "String"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "Name": "--var-file",
+          "Description": "Variable files to load in addition to the default files (see https://www.terraform.io/docs/language/values/variables.html#variable-definitions-tfvars-files). Currently only supported for source Terraform (.tf file), and Helm chart scans. Requires using --directory, NOT --file",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "VAR_FILE",
+                  "Description": "VAR_FILE",
+                  "Type": "String"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "Name": "--external-modules-download-path",
+          "Description": "Set the path for the download external terraform modules. You may also use the environment variable: EXTERNAL_MODULES_DIR",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "EXTERNAL_MODULES_DIR",
+                  "Description": "EXTERNAL_MODULES_DIR",
+                  "Type": "String"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "Name": "--evaluate-variables",
+          "Description": "Evaluate the values of variables and locals",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "EVALUATE_VARIABLES",
+                  "Description": "EVALUATE_VARIABLES",
+                  "Type": "String"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "Name": "--ca-certificate",
+          "Description": "Custom CA (bundle) fila. You may also use the environment variablee: CA_CERTIFICATE",
+          "Aliases": [
+            "-ca"
+          ],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "CA_CERTIFICATE",
+                  "Description": "CA_CERTIFICATE",
+                  "Type": "String"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "Name": "--repo-root-for-plan-enrichment",
+          "Description": "Directory containing the hcl code used to generate a given plan file. Use with -f FILE",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "REPO_ROOT_FOR_PLAN_ENRICHMENT",
+                  "Description": "REPO_ROOT_FOR_PLAN_ENRICHMENT",
+                  "Type": "String"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "Name": "--config-file",
+          "Description": "Path to the Checkov configuration YAML file",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "CONFIG_FILE",
+                  "Description": "CONFIG_FILE",
+                  "Type": "FileSystemEntry"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "Name": "--create-config",
+          "Description": "Takes the current command line args and writes them out to a config file at the given path",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "CONFIG_FILE",
+                  "Description": "CONFIG_FILE",
+                  "Type": "String"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "Name": "--show-config",
+          "Description": "Prints all arguments and config settings and where they came from (eg. commandline, config file, environment variable or default)",
+          "Aliases": [],
+          "Arguments": []
+        },
+        {
+          "Name": "--create-baseline",
+          "Description": "Save all current results to a \u0027.checkov.baseline\u0027 file so future runs will only flag new findings. Works only with \u0060--directory\u0060 flag",
+          "Aliases": [],
+          "Arguments": []
+        },
+        {
+          "Name": "--baseline",
+          "Description": "Use a \u0027.checkov.baseline\u0027 file to compare current results with a known baseline. Report will include only failed checks that are newwith respect to the provided baseline. See --create-baseline",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "BASELINE",
+                  "Description": "BASELINE",
+                  "Type": "String"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "Name": "--soft-fail",
+          "Description": "Runs checks but suppresses the error code",
+          "Aliases": [
+            "-s"
+          ],
+          "Arguments": []
+        },
+        {
+          "Name": "--soft-fail-on",
+          "Description": "Exits with a 0 exit code for specified checks. You can specify multiple checks separated by comma delimiter",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "CHECKS",
+                  "Description": "CHECKS",
+                  "Type": "String"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "Name": "--hard-fail-on",
+          "Description": "Exits with a non-zero exit code for specified checks. You can specify multiple checks separated by comma delimiter",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "CHECKS",
+                  "Description": "CHECKS",
+                  "Type": "String"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "Name": "--min-cve-severity",
+          "Description": "Set minimum severity to return a non-zero exit code",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "MIN_SEVERITY",
+                  "Description": "MIN_SEVERITY",
+                  "Type": "String"
+                },
+                {
+                  "Name": "critical",
+                  "Description": "MIN_SEVERITY"
+                },
+                {
+                  "Name": "high",
+                  "Description": "MIN_SEVERITY"
+                },
+                {
+                  "Name": "medium",
+                  "Description": "MIN_SEVERITY"
+                },
+                {
+                  "Name": "low",
+                  "Description": "MIN_SEVERITY"
+                },
+                {
+                  "Name": "none",
+                  "Description": "MIN_SEVERITY"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "Name": "--skip-cve-package",
+          "Description": "Ignore specific open source package when SCA scanning for CVEs in package dependencies. Can be used multiple times to skip multiple packages",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "SKIP_CVE_PACKAGE",
+                  "Description": "SKIP_CVE_PACKAGE",
+                  "Type": "String"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "Name": "--use-enforcement-rules",
+          "Description": "Use the Enforcement rules configured in the platform for hard / soft fail logic",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "USE_ENFORCEMENT_RULES",
+                  "Description": "USE_ENFORCEMENT_RULES",
+                  "Type": "String"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "Name": "--support",
+          "Description": "Enable debug logs and upload the logs to the server",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "SUPPORT",
+                  "Description": "SUPPORT",
+                  "Type": "String"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "Name": "--summary-position",
+          "Description": "Chose whether the summary will be appended on top or on bottom",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "SUMMARY_POSITION",
+                  "Description": "SUMMARY_POSITION",
+                  "Type": "String"
+                },
+                {
+                  "Name": "top",
+                  "Description": "SUMMARY_POSITION"
+                },
+                {
+                  "Name": "bottom",
+                  "Description": "SUMMARY_POSITION"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "Name": "--skip-resources-without-violations",
+          "Description": "Exclude extra resources (resources without violations)",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "SKIP_RESOURCES_WITHOUT_VIOLATIONS",
+                  "Description": "SKIP_RESOURCES_WITHOUT_VIOLATIONS",
+                  "Type": "String"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "Name": "--skip-download",
+          "Description": "Do not download any data from Prisma Cloud",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "SKIP_DOWNLOAD",
+                  "Description": "SKIP_DOWNLOAD",
+                  "Type": "String"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "Name": "--secrets-history-timeout",
+          "Description": "Maximum time to run the history scan",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "SECRETS_HISTORY_TIMEOUT",
+                  "Description": "SECRETS_HISTORY_TIMEOUT",
+                  "Type": "String"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "Name": "--scan-secrets-history",
+          "Description": "Will scan the history of commits for secrets",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "SCAN_SECRETS_HISTORY",
+                  "Description": "SCAN_SECRETS_HISTORY",
+                  "Type": "String"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "Name": "--prisma-api-url",
+          "Description": "The Prisma Cloud API URL",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "PRISMA_API_URL",
+                  "Description": "PRISMA_API_URL",
+                  "Type": "String"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "Name": "--policy-metadata-filter",
+          "Description": "Comma separated key:value string to filter policies based on Prisma Cloud policy metadata",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "POLICY_METADATA_FILTER",
+                  "Description": "POLICY_METADATA_FILTER",
+                  "Type": "String"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "Name": "--output-file-path",
+          "Description": "Name of the output folder to save the chosen output formats",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "OUTPUT_FILE_PATH",
+                  "Description": "OUTPUT_FILE_PATH",
+                  "Type": "String"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "Name": "--output-baseline-as-skipped",
+          "Description": "Output checks that are skipped due to baseline file presence",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "OUTPUT_BASELINE_AS_SKIPPED",
+                  "Description": "OUTPUT_BASELINE_AS_SKIPPED",
+                  "Type": "String"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "Name": "--openai-api-key",
+          "Description": "Add an OpenAI API key to enhance finding guidelines. This will send Code to OpenAI",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "OPENAI_API_KEY",
+                  "Description": "OPENAI_API_KEY",
+                  "Type": "String"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "Name": "--no-fail-on-crash",
+          "Description": "Return exit code 0 instead of 2",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "NO_FAIL_ON_CRASH",
+                  "Description": "NO_FAIL_ON_CRASH",
+                  "Type": "String"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "Name": "--mask",
+          "Description": "Each entry in the list will be used for masking the desired attribute",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "MASK",
+                  "Description": "MASK",
+                  "Type": "String"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "Name": "--include-all-checkov-policies",
+          "Description": "When running with an API key, Checkov will omit any policies that do not exist in the Bridgecrew or Prisma Cloud platform",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "INCLUDE_ALL_CHECKOV_POLICIES",
+                  "Description": "INCLUDE_ALL_CHECKOV_POLICIES",
+                  "Type": "String"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "Name": "--external-checks-git",
+          "Description": "GitHub URL of external checks to be added",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "EXTERNAL_CHECKS_GIT",
+                  "Description": "EXTERNAL_CHECKS_GIT",
+                  "Type": "String"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "Name": "--enable-secret-scan-all-files",
+          "Description": "Enable secret scan for all files",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "ENABLE_SECRET_SCAN_ALL_FILES",
+                  "Description": "ENABLE_SECRET_SCAN_ALL_FILES",
+                  "Type": "String"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "Name": "--deep-analysis",
+          "Description": "Enable combine TF graph and TF Plan graph",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "DEEP_ANALYSIS",
+                  "Description": "DEEP_ANALYSIS",
+                  "Type": "String"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "Name": "--block-list-secret-scan",
+          "Description": "List of files to filter out from the secret scanner",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "BLOCK_LIST_SECRET_SCAN",
+                  "Description": "BLOCK_LIST_SECRET_SCAN",
+                  "Type": "String"
+                }
+              ]
+            }
+          ]
+        }
+      ],
+      "Optional": true
+    }
+  ]
+}

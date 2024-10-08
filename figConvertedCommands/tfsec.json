@@ -1,0 +1,383 @@
+{
+  "Comment": "This command info is generated from fig",
+  "Name": "tfsec",
+  "Description": "Tfsec is a simple tool to detect potential security vulnerabilities in your terraformed infrastructure",
+  "Arguments": [
+    {
+      "Arguments": [
+        {
+          "Name": "--concise-output",
+          "Description": "Reduce the amount of output and no statistics",
+          "Aliases": [],
+          "Arguments": []
+        },
+        {
+          "Name": "--config-file",
+          "Description": "Config file to use during run",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "config-file",
+                  "Description": "config-file",
+                  "Type": "FileSystemEntry"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "Name": "--custom-check-dir",
+          "Description": "Explicitly the custom checks dir location",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "custom-check-dir",
+                  "Description": "custom-check-dir",
+                  "Type": "String"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "Name": "--debug",
+          "Description": "Enable debug logging (same as verbose)",
+          "Aliases": [],
+          "Arguments": []
+        },
+        {
+          "Name": "-G",
+          "Description": "Disable grouping of similar results",
+          "Aliases": [
+            "--disable-grouping"
+          ],
+          "Arguments": []
+        },
+        {
+          "Name": "-e",
+          "Description": "Provide comma-separated list of rule IDs to exclude from run",
+          "Aliases": [
+            "--exclude"
+          ],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "excludeList",
+                  "Description": "excludeList",
+                  "Type": "String"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "Name": "--exclude-downloaded-modules",
+          "Description": "Remove results for downloaded modules in .terraform folder",
+          "Aliases": [],
+          "Arguments": []
+        },
+        {
+          "Name": "--exclude-path",
+          "Description": "Folder path to exclude, can be used multiple times and evaluated in order of specification",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "excludePath",
+                  "Description": "excludePath",
+                  "Type": "FileSystemEntry"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "Name": "--filter-results",
+          "Description": "Filter results to return specific checks only (supports comma-delimited input)",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "filterResults",
+                  "Description": "filterResults",
+                  "Type": "String"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "Name": "--force-all-dirs",
+          "Description": "Don\u0027t search for tf files, include everything below provided directory",
+          "Aliases": [],
+          "Arguments": []
+        },
+        {
+          "Name": "-f",
+          "Description": "Select output format: default, json, csv, checkstyle, junit, sarif. To use multiple formats, separate with a comma and specify a base output filename with --out. A file will be written for each type. The first format will additionally be written stdout",
+          "Aliases": [
+            "--format"
+          ],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "format",
+                  "Description": "format",
+                  "Type": "String"
+                },
+                {
+                  "Name": "default",
+                  "Description": "format"
+                },
+                {
+                  "Name": "json",
+                  "Description": "format"
+                },
+                {
+                  "Name": "csv",
+                  "Description": "format"
+                },
+                {
+                  "Name": "checkstyle",
+                  "Description": "format"
+                },
+                {
+                  "Name": "junit",
+                  "Description": "format"
+                },
+                {
+                  "Name": "sarif",
+                  "Description": "format"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "Name": "-h",
+          "Description": "Help for tfsec",
+          "Aliases": [
+            "--help"
+          ],
+          "Arguments": []
+        },
+        {
+          "Name": "--ignore-hcl-errors",
+          "Description": "Stop and report an error if an HCL parse error is encountered",
+          "Aliases": [],
+          "Arguments": []
+        },
+        {
+          "Name": "--include-ignored",
+          "Description": "Include ignored checks in the result output",
+          "Aliases": [],
+          "Arguments": []
+        },
+        {
+          "Name": "--include-passed",
+          "Description": "Include passed checks in the result output",
+          "Aliases": [],
+          "Arguments": []
+        },
+        {
+          "Name": "--migrate-ignores",
+          "Description": "Migrate ignore codes to the new ID structure",
+          "Aliases": [],
+          "Arguments": []
+        },
+        {
+          "Name": "-m",
+          "Description": "The minimum severity to report. One of CRITICAL, HIGH, MEDIUM, LOW",
+          "Aliases": [
+            "--minimum-severity"
+          ],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "minimumSeverity",
+                  "Description": "minimumSeverity",
+                  "Type": "String"
+                },
+                {
+                  "Name": "CRITICAL",
+                  "Description": "minimumSeverity"
+                },
+                {
+                  "Name": "HIGH",
+                  "Description": "minimumSeverity"
+                },
+                {
+                  "Name": "MEDIUM",
+                  "Description": "minimumSeverity"
+                },
+                {
+                  "Name": "LOW",
+                  "Description": "minimumSeverity"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "Name": "--no-color",
+          "Description": "Disable colored output (American style!)",
+          "Aliases": [],
+          "Arguments": []
+        },
+        {
+          "Name": "--no-colour",
+          "Description": "Disable coloured output",
+          "Aliases": [],
+          "Arguments": []
+        },
+        {
+          "Name": "--no-ignores",
+          "Description": "Do not apply any ignore rules - normally ignored checks will fail",
+          "Aliases": [],
+          "Arguments": []
+        },
+        {
+          "Name": "--no-module-downloads",
+          "Description": "Do not download remote modules",
+          "Aliases": [],
+          "Arguments": []
+        },
+        {
+          "Name": "-O",
+          "Description": "Set output file. This filename will have a format descriptor appended if multiple formats are specified with --format",
+          "Aliases": [
+            "--out"
+          ],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "outputFile",
+                  "Description": "outputFile",
+                  "Type": "FileSystemEntry"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "Name": "--print-rego-input",
+          "Description": "Print a JSON representation of the input supplied to rego policies",
+          "Aliases": [],
+          "Arguments": []
+        },
+        {
+          "Name": "--rego-policy-dir",
+          "Description": "Directory to load rego policies from (recursively)",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "regoPolicyDir",
+                  "Description": "regoPolicyDir",
+                  "Type": "String"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "Name": "--run-statistics",
+          "Description": "View statistics table of current findings",
+          "Aliases": [],
+          "Arguments": []
+        },
+        {
+          "Name": "--single-thread",
+          "Description": "Run checks using a single thread",
+          "Aliases": [],
+          "Arguments": []
+        },
+        {
+          "Name": "-s",
+          "Description": "Runs checks but suppresses error code",
+          "Aliases": [
+            "--soft-fail"
+          ],
+          "Arguments": []
+        },
+        {
+          "Name": "--tfvars-file",
+          "Description": "Path to .tfvars file, can be used multiple times and evaluated in order of specification",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "tfvarsFilePath",
+                  "Description": "tfvarsFilePath",
+                  "Type": "FileSystemEntry"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "Name": "--update",
+          "Description": "Update to latest version",
+          "Aliases": [],
+          "Arguments": []
+        },
+        {
+          "Name": "--verbose",
+          "Description": "Enable verbose logging (same as debug)",
+          "Aliases": [],
+          "Arguments": []
+        },
+        {
+          "Name": "-v",
+          "Description": "Show version information and exit",
+          "Aliases": [
+            "--version"
+          ],
+          "Arguments": []
+        },
+        {
+          "Name": "-W",
+          "Description": "Specify a workspace for ignore limits (default \u0022default\u0022)",
+          "Aliases": [
+            "--workspace"
+          ],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "workspace",
+                  "Description": "workspace",
+                  "Type": "CustomArgument",
+                  "Extensions": [],
+                  "CustomCommand": "terraform workspace list"
+                }
+              ]
+            }
+          ]
+        }
+      ],
+      "Optional": true
+    },
+    {
+      "Arguments": [
+        {
+          "Name": "directory",
+          "Description": "directory",
+          "Type": "Directory"
+        }
+      ]
+    }
+  ]
+}

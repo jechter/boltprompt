@@ -1,0 +1,316 @@
+{
+  "Comment": "This command info is generated from fig",
+  "Name": "mix",
+  "Description": "Build tool for Elixir",
+  "Arguments": [
+    {
+      "Arguments": [
+        {
+          "Name": "-h",
+          "Description": "Shows usage information",
+          "Aliases": [
+            "--help"
+          ],
+          "Arguments": []
+        },
+        {
+          "Name": "-v",
+          "Description": "Shows versioning information",
+          "Aliases": [
+            "--version"
+          ],
+          "Arguments": []
+        }
+      ],
+      "Optional": true
+    },
+    {
+      "Arguments": [
+        {
+          "Name": "task",
+          "Description": "task",
+          "Type": "CustomArgument",
+          "Extensions": [],
+          "CustomCommand": "mix help"
+        }
+      ],
+      "Optional": true
+    },
+    {
+      "Arguments": [
+        {
+          "Name": "new",
+          "Description": "Creates a new Elixir project at the given path",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "-h",
+                  "Description": "Output usage information",
+                  "Aliases": [
+                    "--help"
+                  ],
+                  "Arguments": []
+                },
+                {
+                  "Name": "--app",
+                  "Description": "Name the OTP application for the project",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "app",
+                          "Description": "app",
+                          "Type": "String"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "--modules",
+                  "Description": "Name the modules in the generated code skeleton",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "module",
+                          "Description": "module",
+                          "Type": "String"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "--sup",
+                  "Description": "Generate an OTP application skeleton including a supervision tree. Normally an app is generated without a supervisor and without the app callback",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "--umbrella",
+                  "Description": "Generate an umbrella project",
+                  "Aliases": [],
+                  "Arguments": []
+                }
+              ],
+              "Optional": true
+            },
+            {
+              "Arguments": [
+                {
+                  "Name": "path",
+                  "Description": "path",
+                  "Type": "String"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "Name": "run",
+          "Description": "Starts the current application and runs code",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "--config",
+                  "Description": "Loads the given configuration files",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "file",
+                          "Description": "file",
+                          "Type": "FileSystemEntry"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "-e",
+                  "Description": "Evaluates the given code",
+                  "Aliases": [
+                    "--eval"
+                  ],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "code",
+                          "Description": "code",
+                          "Type": "String"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "-r",
+                  "Description": "Executes the given pattern/file",
+                  "Aliases": [
+                    "--require"
+                  ],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "file|pattern",
+                          "Description": "file|pattern",
+                          "Type": "File",
+                          "Extensions": [
+                            "exs"
+                          ],
+                          "CustomCommand": ""
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "-p",
+                  "Description": "Executes the given pattern/file",
+                  "Aliases": [
+                    "--parallel"
+                  ],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "file|pattern",
+                          "Description": "file|pattern",
+                          "Type": "File",
+                          "Extensions": [
+                            "exs"
+                          ],
+                          "CustomCommand": ""
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "--preload-modules",
+                  "Description": "Preloads all modules defined in applications",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "--no-compile",
+                  "Description": "Does not compile even if files require compilation",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "--no-deps-check",
+                  "Description": "Does not check dependencies",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "--no-archives-check",
+                  "Description": "Does not check archives",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "--no-halt",
+                  "Description": "Does not halt the system after running the command",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "--no-mix-exs",
+                  "Description": "Allows the command to run even if there is no mix.exs",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "--no-start",
+                  "Description": "Does not start applications after compilation",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "--no-elixir-version-check",
+                  "Description": "Does not check the Elixir version from mix.exs",
+                  "Aliases": [],
+                  "Arguments": []
+                }
+              ],
+              "Optional": true
+            },
+            {
+              "Arguments": [
+                {
+                  "Name": "file",
+                  "Description": "file",
+                  "Type": "File",
+                  "Extensions": [
+                    "exs"
+                  ],
+                  "CustomCommand": ""
+                }
+              ],
+              "Optional": true
+            }
+          ]
+        },
+        {
+          "Name": "help",
+          "Description": "Prints documentation for a given task (Lists all the tasks if no task is specified)",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "--search",
+                  "Description": "Prints all tasks and aliases that contain \u0027pattern\u0027 in the name",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "pattern",
+                          "Description": "pattern",
+                          "Type": "String"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "--names",
+                  "Description": "Prints all task names and aliases",
+                  "Aliases": [],
+                  "Arguments": []
+                }
+              ],
+              "Optional": true
+            },
+            {
+              "Arguments": [
+                {
+                  "Name": "task",
+                  "Description": "task",
+                  "Type": "CustomArgument",
+                  "Extensions": [],
+                  "CustomCommand": "mix help"
+                }
+              ],
+              "Optional": true
+            }
+          ]
+        }
+      ],
+      "DontAllowMultiple": true
+    }
+  ]
+}

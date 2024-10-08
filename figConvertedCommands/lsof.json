@@ -1,0 +1,662 @@
+{
+  "Comment": "This command info is generated from fig",
+  "Name": "lsof",
+  "Description": "List open files",
+  "Arguments": [
+    {
+      "Arguments": [
+        {
+          "Name": "-?",
+          "Description": "Help",
+          "Aliases": [
+            "-h",
+            "--help"
+          ],
+          "Arguments": []
+        },
+        {
+          "Name": "a",
+          "Description": "Apply AND to the selections (defaults to OR)",
+          "Type": "Flag",
+          "Aliases": [],
+          "Arguments": []
+        },
+        {
+          "Name": "b",
+          "Description": "Avoid kernel blocks",
+          "Type": "Flag",
+          "Aliases": [],
+          "Arguments": []
+        },
+        {
+          "Name": "c",
+          "Description": "Select the listing of files for processes executing a command",
+          "Type": "Flag",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "string or regexp (optional ending with /i /b /x)",
+                  "Description": "string or regexp (optional ending with /i /b /x)",
+                  "Type": "String"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "Name": "\u002Bc",
+          "Description": "COMMAND width (9)",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "number",
+                  "Description": "number",
+                  "Type": "String"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "Name": "\u002Bd",
+          "Description": "Search for all open instances/files/directories of directory",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "file",
+                  "Description": "file",
+                  "Type": "Directory"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "Name": "d",
+          "Description": "Specify a list of file descriptors (FDs) to exclude from or include in the output listing",
+          "Type": "Flag",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "File descriptor number",
+                  "Description": "File descriptor number",
+                  "Type": "String"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "Name": "\u002BD",
+          "Description": "Search tree for all open instances/files/directories of directory. *SLOW?*",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "file",
+                  "Description": "file",
+                  "Type": "Directory"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "Name": "\u002Bf",
+          "Description": "Enable path name arguments to be interpreted",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "flags",
+                  "Description": "flags",
+                  "Type": "String"
+                },
+                {
+                  "Name": "c",
+                  "Description": "File structure use count"
+                },
+                {
+                  "Name": "g",
+                  "Description": "File flag abbreviations"
+                },
+                {
+                  "Name": "G",
+                  "Description": "File flags in hexadecimal"
+                }
+              ],
+              "Optional": true
+            }
+          ]
+        },
+        {
+          "Name": "f",
+          "Description": "Inhibit path name arguments to be interpreted",
+          "Type": "Flag",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "flags",
+                  "Description": "flags",
+                  "Type": "String"
+                },
+                {
+                  "Name": "c",
+                  "Description": "File structure use count"
+                },
+                {
+                  "Name": "g",
+                  "Description": "File flag abbreviations"
+                },
+                {
+                  "Name": "G",
+                  "Description": "File flags in hexadecimal"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "Name": "F",
+          "Description": "Select fields to output",
+          "Type": "Flag",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "options",
+                  "Description": "options",
+                  "Type": "String"
+                },
+                {
+                  "Name": "a",
+                  "Description": "Access: r = read; w = write; u = read/write"
+                },
+                {
+                  "Name": "c",
+                  "Description": "Command name"
+                },
+                {
+                  "Name": "C",
+                  "Description": "File struct share count"
+                },
+                {
+                  "Name": "d",
+                  "Description": "Device character code"
+                },
+                {
+                  "Name": "D",
+                  "Description": "Major/minor device number as 0x\u003Chex\u003E"
+                },
+                {
+                  "Name": "f",
+                  "Description": "File descriptor (always selected)"
+                },
+                {
+                  "Name": "G",
+                  "Description": "File flaGs"
+                },
+                {
+                  "Name": "i",
+                  "Description": "Inode number"
+                },
+                {
+                  "Name": "k",
+                  "Description": "Link count"
+                },
+                {
+                  "Name": "K",
+                  "Description": "Task ID (TID)"
+                },
+                {
+                  "Name": "l",
+                  "Description": "Lock: r/R = read; w/W = write; u = read/write"
+                },
+                {
+                  "Name": "L",
+                  "Description": "Login name"
+                },
+                {
+                  "Name": "m",
+                  "Description": "Marker between repeated output"
+                },
+                {
+                  "Name": "M",
+                  "Description": "Task comMand name"
+                },
+                {
+                  "Name": "n",
+                  "Description": "Comment, name, Internet addresses"
+                },
+                {
+                  "Name": "o",
+                  "Description": "File offset as 0t\u003Cdec\u003E or 0x\u003Chex\u003E"
+                },
+                {
+                  "Name": "p",
+                  "Description": "Process ID (PID)"
+                },
+                {
+                  "Name": "g",
+                  "Description": "Process group ID (PGID)"
+                },
+                {
+                  "Name": "P",
+                  "Description": "Protocol name"
+                },
+                {
+                  "Name": "r",
+                  "Description": "Raw device number as 0x\u003Chex\u003E"
+                },
+                {
+                  "Name": "R",
+                  "Description": "PaRent PID"
+                },
+                {
+                  "Name": "s",
+                  "Description": "File size"
+                },
+                {
+                  "Name": "S",
+                  "Description": "Stream module and device names"
+                },
+                {
+                  "Name": "t",
+                  "Description": "File type"
+                },
+                {
+                  "Name": "T",
+                  "Description": "TCP/TPI info"
+                },
+                {
+                  "Name": "u",
+                  "Description": "User ID (UID)"
+                },
+                {
+                  "Name": "0",
+                  "Description": "(zero) use NUL field terminator instead of N"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "Name": "-F?",
+          "Description": "Show fields for -F",
+          "Aliases": [],
+          "Arguments": []
+        },
+        {
+          "Name": "g",
+          "Description": "Exclude or select by process group IDs (PGID)",
+          "Type": "Flag",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "PGID",
+                  "Description": "PGID",
+                  "Type": "String"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "Name": "i",
+          "Description": "Selects files by [46][protocol][@hostname|hostaddr][:service|port]",
+          "Type": "Flag",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "options",
+                  "Description": "options",
+                  "Type": "CustomArgument",
+                  "Extensions": [],
+                  "CustomCommand": "echo"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "Name": "l",
+          "Description": "Inhibit conversion of user IDs to login names",
+          "Type": "Flag",
+          "Aliases": [],
+          "Arguments": []
+        },
+        {
+          "Name": "\u002BL",
+          "Description": "Enable listing of file link counts",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "number",
+                  "Description": "number",
+                  "Type": "String"
+                }
+              ],
+              "Optional": true
+            }
+          ]
+        },
+        {
+          "Name": "L",
+          "Description": "Disable listing of file link counts",
+          "Type": "Flag",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "number",
+                  "Description": "number",
+                  "Type": "String"
+                }
+              ],
+              "Optional": true
+            }
+          ]
+        },
+        {
+          "Name": "\u002BM",
+          "Description": "Enable portMap registration",
+          "Aliases": [],
+          "Arguments": []
+        },
+        {
+          "Name": "M",
+          "Description": "Disable portMap registration",
+          "Type": "Flag",
+          "Aliases": [],
+          "Arguments": []
+        },
+        {
+          "Name": "n",
+          "Description": "No host names",
+          "Type": "Flag",
+          "Aliases": [],
+          "Arguments": []
+        },
+        {
+          "Name": "N",
+          "Description": "Select NFS files",
+          "Type": "Flag",
+          "Aliases": [],
+          "Arguments": []
+        },
+        {
+          "Name": "o",
+          "Description": "List file offset",
+          "Type": "Flag",
+          "Aliases": [],
+          "Arguments": []
+        },
+        {
+          "Name": "O",
+          "Description": "No overhead *RISKY*",
+          "Type": "Flag",
+          "Aliases": [],
+          "Arguments": []
+        },
+        {
+          "Name": "p",
+          "Description": "Exclude or select process identification numbers (PIDs)",
+          "Type": "Flag",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "PIDs",
+                  "Description": "PIDs",
+                  "Type": "String"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "Name": "P",
+          "Description": "No port names",
+          "Type": "Flag",
+          "Aliases": [],
+          "Arguments": []
+        },
+        {
+          "Name": "\u002Br",
+          "Description": "Repeat every t seconds (15) until no files",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "time (seconds)",
+                  "Description": "time (seconds)",
+                  "Type": "String"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "Name": "r",
+          "Description": "Repeat every t seconds (15) forever",
+          "Type": "Flag",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "time (seconds)",
+                  "Description": "time (seconds)",
+                  "Type": "String"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "Name": "R",
+          "Description": "List parent PID",
+          "Type": "Flag",
+          "Aliases": [],
+          "Arguments": []
+        },
+        {
+          "Name": "s",
+          "Description": "List file size or exclude/select protocol",
+          "Type": "Flag",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "protocol:state",
+                  "Description": "protocol:state",
+                  "Type": "String"
+                }
+              ],
+              "Optional": true
+            }
+          ]
+        },
+        {
+          "Name": "S",
+          "Description": "Stat timeout in seconds (lstat/readlink/stat)",
+          "Type": "Flag",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "timeout (seconds)",
+                  "Description": "timeout (seconds)",
+                  "Type": "String"
+                }
+              ],
+              "Optional": true
+            }
+          ]
+        },
+        {
+          "Name": "T",
+          "Description": "Disable TCP/TPI info",
+          "Type": "Flag",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "info",
+                  "Description": "info",
+                  "Type": "String"
+                },
+                {
+                  "Name": "f",
+                  "Description": "Selects reporting of socket options/states/values and tcp flag values"
+                },
+                {
+                  "Name": "q",
+                  "Description": "Selects queue length reporting"
+                },
+                {
+                  "Name": "s",
+                  "Description": "Selects connection state reporting"
+                },
+                {
+                  "Name": "w",
+                  "Description": "Selects window size reporting"
+                },
+                {
+                  "Name": "",
+                  "Description": "Disables info"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "Name": "t",
+          "Description": "Specify terse listing",
+          "Type": "Flag",
+          "Aliases": [],
+          "Arguments": []
+        },
+        {
+          "Name": "u",
+          "Description": "Exclude/select login|UID set",
+          "Type": "Flag",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "UIDs",
+                  "Description": "UIDs",
+                  "Type": "String"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "Name": "U",
+          "Description": "Select Unix socket",
+          "Type": "Flag",
+          "Aliases": [],
+          "Arguments": []
+        },
+        {
+          "Name": "v",
+          "Description": "List version info",
+          "Type": "Flag",
+          "Aliases": [],
+          "Arguments": []
+        },
+        {
+          "Name": "V",
+          "Description": "Verbose search",
+          "Type": "Flag",
+          "Aliases": [],
+          "Arguments": []
+        },
+        {
+          "Name": "\u002Bw",
+          "Description": "Enable warnings",
+          "Aliases": [],
+          "Arguments": []
+        },
+        {
+          "Name": "w",
+          "Description": "Disable warnings",
+          "Type": "Flag",
+          "Aliases": [],
+          "Arguments": []
+        },
+        {
+          "Name": "x",
+          "Description": "Cross over \u002Bd|\u002BD File systems or symbolic links",
+          "Type": "Flag",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "cross-over option",
+                  "Description": "cross-over option",
+                  "Type": "String"
+                },
+                {
+                  "Name": "f",
+                  "Description": "File system mount point cross-over processing"
+                },
+                {
+                  "Name": "l",
+                  "Description": "Symbolic link cross-over processing"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "Name": "X",
+          "Description": "File descriptor table only",
+          "Type": "Flag",
+          "Aliases": [],
+          "Arguments": []
+        }
+      ],
+      "Optional": true
+    },
+    {
+      "Arguments": [
+        {
+          "Name": "names",
+          "Description": "names",
+          "Type": "Directory"
+        }
+      ],
+      "Optional": true
+    }
+  ]
+}

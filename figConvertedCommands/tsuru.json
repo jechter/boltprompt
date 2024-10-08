@@ -1,0 +1,2045 @@
+{
+  "Comment": "This command info is generated from fig",
+  "Name": "tsuru",
+  "Description": "Tsuru is the command line utility used by application developers, that will allow users to create, list, bind and manage apps",
+  "Arguments": [
+    {
+      "Arguments": [
+        {
+          "Name": "--help",
+          "Description": "Show help for tsuru",
+          "Aliases": [
+            "-h"
+          ],
+          "Arguments": []
+        }
+      ],
+      "Optional": true
+    },
+    {
+      "Arguments": [
+        {
+          "Name": "app",
+          "Description": "App commands",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "build",
+                  "Description": "Builds a tsuru app image respecting",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "-a",
+                          "Description": "App name",
+                          "Aliases": [
+                            "--app"
+                          ],
+                          "Arguments": [
+                            {
+                              "Arguments": [
+                                {
+                                  "Name": "app",
+                                  "Description": "app",
+                                  "Type": "CustomArgument",
+                                  "Extensions": [],
+                                  "CustomCommand": "tsuru app list"
+                                }
+                              ]
+                            }
+                          ]
+                        },
+                        {
+                          "Name": "-f",
+                          "Description": "Enables single file build into the root of the app\u0027s tree",
+                          "Aliases": [
+                            "--files-only"
+                          ],
+                          "Arguments": [
+                            {
+                              "Arguments": [
+                                {
+                                  "Name": "file-or-dir-n",
+                                  "Description": "file-or-dir-n",
+                                  "Type": "FileSystemEntry"
+                                }
+                              ]
+                            }
+                          ]
+                        },
+                        {
+                          "Name": "-h",
+                          "Description": "Help for build",
+                          "Aliases": [
+                            "--help"
+                          ],
+                          "Arguments": []
+                        },
+                        {
+                          "Name": "-t",
+                          "Description": "The image tag",
+                          "Aliases": [
+                            "--tag"
+                          ],
+                          "Arguments": []
+                        }
+                      ],
+                      "Optional": true
+                    }
+                  ]
+                },
+                {
+                  "Name": "create",
+                  "Description": "Creates a new app using the given name and platform",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "-o",
+                          "Description": "Filter applications by pool",
+                          "Aliases": [
+                            "--pool"
+                          ],
+                          "Arguments": [
+                            {
+                              "Arguments": [
+                                {
+                                  "Name": "pool",
+                                  "Description": "pool",
+                                  "Type": "CustomArgument",
+                                  "Extensions": [],
+                                  "CustomCommand": "tsuru pool list"
+                                }
+                              ]
+                            }
+                          ]
+                        },
+                        {
+                          "Name": "-t",
+                          "Description": "Team that will own the app",
+                          "Aliases": [
+                            "--team"
+                          ],
+                          "Arguments": [
+                            {
+                              "Arguments": [
+                                {
+                                  "Name": "team",
+                                  "Description": "team",
+                                  "Type": "CustomArgument",
+                                  "Extensions": [],
+                                  "CustomCommand": "tsuru team list"
+                                }
+                              ]
+                            }
+                          ]
+                        },
+                        {
+                          "Name": "-p",
+                          "Description": "Plan to be used by the app",
+                          "Aliases": [
+                            "--plan"
+                          ],
+                          "Arguments": [
+                            {
+                              "Arguments": [
+                                {
+                                  "Name": "plan",
+                                  "Description": "plan",
+                                  "Type": "CustomArgument",
+                                  "Extensions": [],
+                                  "CustomCommand": "tsuru plan list"
+                                }
+                              ]
+                            }
+                          ]
+                        },
+                        {
+                          "Name": "-d",
+                          "Description": "Description of the app",
+                          "Aliases": [
+                            "--description"
+                          ],
+                          "Arguments": []
+                        },
+                        {
+                          "Name": "-g",
+                          "Description": "Tag to be used by the app",
+                          "Aliases": [
+                            "--tag"
+                          ],
+                          "Arguments": []
+                        },
+                        {
+                          "Name": "--router-opts",
+                          "Description": "Router options",
+                          "Aliases": [],
+                          "Arguments": []
+                        }
+                      ],
+                      "Optional": true
+                    },
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "app",
+                          "Description": "app",
+                          "Type": "CustomArgument",
+                          "Extensions": [],
+                          "CustomCommand": "tsuru app list"
+                        }
+                      ]
+                    },
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "platform",
+                          "Description": "platform",
+                          "Type": "CustomArgument",
+                          "Extensions": [],
+                          "CustomCommand": "tsuru platform list"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "deploy",
+                  "Description": "Deploys set of files and/or directories to tsuru server",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "-a",
+                          "Description": "App name",
+                          "Aliases": [
+                            "--app"
+                          ],
+                          "Arguments": [
+                            {
+                              "Arguments": [
+                                {
+                                  "Name": "app",
+                                  "Description": "app",
+                                  "Type": "CustomArgument",
+                                  "Extensions": [],
+                                  "CustomCommand": "tsuru app list"
+                                }
+                              ]
+                            }
+                          ]
+                        },
+                        {
+                          "Name": "-f",
+                          "Description": "Enables single file deployment into the root of the app\u0027s tree",
+                          "Aliases": [
+                            "--files-only"
+                          ],
+                          "Arguments": []
+                        },
+                        {
+                          "Name": "-i",
+                          "Description": "The image to deploy in app",
+                          "Aliases": [
+                            "--image"
+                          ],
+                          "Arguments": []
+                        },
+                        {
+                          "Name": "-m",
+                          "Description": "A message describing this deploy",
+                          "Aliases": [
+                            "--message"
+                          ],
+                          "Arguments": []
+                        },
+                        {
+                          "Name": "--new-version",
+                          "Description": "Creates a new version for the current deployment while preserving existing versions",
+                          "Aliases": [],
+                          "Arguments": []
+                        },
+                        {
+                          "Name": "--override-old-versions",
+                          "Description": "Force replace all deployed versions by this new deploy",
+                          "Aliases": [],
+                          "Arguments": []
+                        }
+                      ],
+                      "Optional": true
+                    },
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "file-or-dir-n",
+                          "Description": "file-or-dir-n",
+                          "Type": "FileSystemEntry"
+                        }
+                      ]
+                    },
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "list",
+                          "Description": "List information about deploys for an application",
+                          "Aliases": [],
+                          "Arguments": [
+                            {
+                              "Arguments": [
+                                {
+                                  "Name": "-a",
+                                  "Description": "App name",
+                                  "Aliases": [
+                                    "--app"
+                                  ],
+                                  "Arguments": [
+                                    {
+                                      "Arguments": [
+                                        {
+                                          "Name": "app",
+                                          "Description": "app",
+                                          "Type": "CustomArgument",
+                                          "Extensions": [],
+                                          "CustomCommand": "tsuru app list"
+                                        }
+                                      ]
+                                    }
+                                  ]
+                                }
+                              ],
+                              "Optional": true
+                            }
+                          ]
+                        },
+                        {
+                          "Name": "rebuild",
+                          "Description": "Rebuild and deploy the last app image",
+                          "Aliases": [],
+                          "Arguments": [
+                            {
+                              "Arguments": [
+                                {
+                                  "Name": "-a",
+                                  "Description": "App name",
+                                  "Aliases": [
+                                    "--app"
+                                  ],
+                                  "Arguments": [
+                                    {
+                                      "Arguments": [
+                                        {
+                                          "Name": "app",
+                                          "Description": "app",
+                                          "Type": "CustomArgument",
+                                          "Extensions": [],
+                                          "CustomCommand": "tsuru app list"
+                                        }
+                                      ]
+                                    }
+                                  ]
+                                },
+                                {
+                                  "Name": "--new-version",
+                                  "Description": "Creates a new version for the current deployment while preserving existing versions",
+                                  "Aliases": [],
+                                  "Arguments": []
+                                },
+                                {
+                                  "Name": "--override-old-versions",
+                                  "Description": "Force replace all deployed versions by this new deploy",
+                                  "Aliases": [],
+                                  "Arguments": []
+                                }
+                              ],
+                              "Optional": true
+                            }
+                          ]
+                        },
+                        {
+                          "Name": "rollback",
+                          "Description": "Deploys an existing image for an app",
+                          "Aliases": [],
+                          "Arguments": [
+                            {
+                              "Arguments": [
+                                {
+                                  "Name": "-a",
+                                  "Description": "App name",
+                                  "Aliases": [
+                                    "--app"
+                                  ],
+                                  "Arguments": [
+                                    {
+                                      "Arguments": [
+                                        {
+                                          "Name": "app",
+                                          "Description": "app",
+                                          "Type": "CustomArgument",
+                                          "Extensions": [],
+                                          "CustomCommand": "tsuru app list"
+                                        }
+                                      ]
+                                    }
+                                  ]
+                                },
+                                {
+                                  "Name": "--new-version",
+                                  "Description": "Creates a new version for the current deployment while preserving existing versions",
+                                  "Aliases": [],
+                                  "Arguments": []
+                                },
+                                {
+                                  "Name": "--override-old-versions",
+                                  "Description": "Force replace all deployed versions by this new deploy",
+                                  "Aliases": [],
+                                  "Arguments": []
+                                },
+                                {
+                                  "Name": "y",
+                                  "Description": "Answer yes to all questions",
+                                  "Aliases": [
+                                    "--yes"
+                                  ],
+                                  "Arguments": []
+                                }
+                              ],
+                              "Optional": true
+                            },
+                            {
+                              "Arguments": [
+                                {
+                                  "Name": "update",
+                                  "Description": "Locks an existing image of an app",
+                                  "Aliases": [],
+                                  "Arguments": [
+                                    {
+                                      "Arguments": [
+                                        {
+                                          "Name": "-a",
+                                          "Description": "App name",
+                                          "Aliases": [
+                                            "--app"
+                                          ],
+                                          "Arguments": [
+                                            {
+                                              "Arguments": [
+                                                {
+                                                  "Name": "app",
+                                                  "Description": "app",
+                                                  "Type": "CustomArgument",
+                                                  "Extensions": [],
+                                                  "CustomCommand": "tsuru app list"
+                                                }
+                                              ]
+                                            }
+                                          ]
+                                        },
+                                        {
+                                          "Name": "-d",
+                                          "Description": "Enables or disables the rollback on a specific image version",
+                                          "Aliases": [
+                                            "--disable"
+                                          ],
+                                          "Arguments": []
+                                        },
+                                        {
+                                          "Name": "-i",
+                                          "Description": "The image name for an app version",
+                                          "Aliases": [
+                                            "--image"
+                                          ],
+                                          "Arguments": []
+                                        },
+                                        {
+                                          "Name": "-r",
+                                          "Description": "The reason why the rollback has to be disabled",
+                                          "Aliases": [
+                                            "--reason"
+                                          ],
+                                          "Arguments": []
+                                        }
+                                      ],
+                                      "Optional": true
+                                    }
+                                  ]
+                                }
+                              ],
+                              "DontAllowMultiple": true
+                            }
+                          ]
+                        }
+                      ],
+                      "DontAllowMultiple": true
+                    }
+                  ]
+                },
+                {
+                  "Name": "grant",
+                  "Description": "Allows a team to access an application",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "-a",
+                          "Description": "App name",
+                          "Aliases": [
+                            "--app"
+                          ],
+                          "Arguments": [
+                            {
+                              "Arguments": [
+                                {
+                                  "Name": "app",
+                                  "Description": "app",
+                                  "Type": "CustomArgument",
+                                  "Extensions": [],
+                                  "CustomCommand": "tsuru app list"
+                                }
+                              ]
+                            }
+                          ]
+                        }
+                      ],
+                      "Optional": true
+                    },
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "team",
+                          "Description": "team",
+                          "Type": "CustomArgument",
+                          "Extensions": [],
+                          "CustomCommand": "tsuru team list"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "info",
+                  "Description": "Shows information about an app",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "-a",
+                          "Description": "App name",
+                          "Aliases": [
+                            "--app"
+                          ],
+                          "Arguments": [
+                            {
+                              "Arguments": [
+                                {
+                                  "Name": "app",
+                                  "Description": "app",
+                                  "Type": "CustomArgument",
+                                  "Extensions": [],
+                                  "CustomCommand": "tsuru app list"
+                                }
+                              ]
+                            }
+                          ]
+                        }
+                      ],
+                      "Optional": true
+                    }
+                  ]
+                },
+                {
+                  "Name": "list",
+                  "Description": "List all apps",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "-n",
+                          "Description": "Filter applications by name",
+                          "Aliases": [
+                            "--name"
+                          ],
+                          "Arguments": []
+                        },
+                        {
+                          "Name": "-o",
+                          "Description": "Filter applications by pool",
+                          "Aliases": [
+                            "--pool"
+                          ],
+                          "Arguments": [
+                            {
+                              "Arguments": [
+                                {
+                                  "Name": "pool",
+                                  "Description": "pool",
+                                  "Type": "CustomArgument",
+                                  "Extensions": [],
+                                  "CustomCommand": "tsuru pool list"
+                                }
+                              ]
+                            }
+                          ]
+                        },
+                        {
+                          "Name": "-p",
+                          "Description": "Filter applications by platform",
+                          "Aliases": [
+                            "--platform"
+                          ],
+                          "Arguments": [
+                            {
+                              "Arguments": [
+                                {
+                                  "Name": "platform",
+                                  "Description": "platform",
+                                  "Type": "CustomArgument",
+                                  "Extensions": [],
+                                  "CustomCommand": "tsuru platform list"
+                                }
+                              ]
+                            }
+                          ]
+                        },
+                        {
+                          "Name": "q",
+                          "Description": "Display only applications name",
+                          "Type": "Flag",
+                          "Aliases": [],
+                          "Arguments": []
+                        },
+                        {
+                          "Name": "-s",
+                          "Description": "Filter applications by unit status. Accepts multiple values separated by commas. Possible values can be: building, created, starting, error, started, stopped, asleep",
+                          "Aliases": [
+                            "--status"
+                          ],
+                          "Arguments": []
+                        },
+                        {
+                          "Name": "-t",
+                          "Description": "Team that will own the app",
+                          "Aliases": [
+                            "--team"
+                          ],
+                          "Arguments": [
+                            {
+                              "Arguments": [
+                                {
+                                  "Name": "team",
+                                  "Description": "team",
+                                  "Type": "CustomArgument",
+                                  "Extensions": [],
+                                  "CustomCommand": "tsuru team list"
+                                }
+                              ]
+                            }
+                          ]
+                        },
+                        {
+                          "Name": "-u",
+                          "Description": "Filter applications by owner",
+                          "Aliases": [
+                            "--user"
+                          ],
+                          "Arguments": []
+                        }
+                      ],
+                      "Optional": true
+                    }
+                  ]
+                },
+                {
+                  "Name": "log",
+                  "Description": "Shows the logs of an app",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "-a",
+                          "Description": "App name",
+                          "Aliases": [
+                            "--app"
+                          ],
+                          "Arguments": [
+                            {
+                              "Arguments": [
+                                {
+                                  "Name": "app",
+                                  "Description": "app",
+                                  "Type": "CustomArgument",
+                                  "Extensions": [],
+                                  "CustomCommand": "tsuru app list"
+                                }
+                              ]
+                            }
+                          ]
+                        },
+                        {
+                          "Name": "-f",
+                          "Description": "Follow log output",
+                          "Aliases": [
+                            "--follow"
+                          ],
+                          "Arguments": []
+                        },
+                        {
+                          "Name": "-l",
+                          "Description": "Number of lines to show",
+                          "Aliases": [
+                            "--lines"
+                          ],
+                          "Arguments": []
+                        },
+                        {
+                          "Name": "no-data",
+                          "Description": "No date information",
+                          "Aliases": [],
+                          "Arguments": []
+                        },
+                        {
+                          "Name": "-s",
+                          "Description": "The log from the given source",
+                          "Aliases": [
+                            "--source"
+                          ],
+                          "Arguments": []
+                        },
+                        {
+                          "Name": "-u",
+                          "Description": "The log from the given unit",
+                          "Aliases": [
+                            "--unit"
+                          ],
+                          "Arguments": []
+                        }
+                      ],
+                      "Optional": true
+                    }
+                  ]
+                },
+                {
+                  "Name": "metadata",
+                  "Description": "Manage metadata for an app",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "get",
+                          "Description": "Retrieves metadata for an application",
+                          "Aliases": [],
+                          "Arguments": [
+                            {
+                              "Arguments": [
+                                {
+                                  "Name": "-a",
+                                  "Description": "App name",
+                                  "Aliases": [
+                                    "--app"
+                                  ],
+                                  "Arguments": [
+                                    {
+                                      "Arguments": [
+                                        {
+                                          "Name": "app",
+                                          "Description": "app",
+                                          "Type": "CustomArgument",
+                                          "Extensions": [],
+                                          "CustomCommand": "tsuru app list"
+                                        }
+                                      ]
+                                    }
+                                  ]
+                                }
+                              ],
+                              "Optional": true
+                            }
+                          ]
+                        },
+                        {
+                          "Name": "set",
+                          "Description": "Sets metadata for an application",
+                          "Aliases": [],
+                          "Arguments": [
+                            {
+                              "Arguments": [
+                                {
+                                  "Name": "-a",
+                                  "Description": "App name",
+                                  "Aliases": [
+                                    "--app"
+                                  ],
+                                  "Arguments": [
+                                    {
+                                      "Arguments": [
+                                        {
+                                          "Name": "app",
+                                          "Description": "app",
+                                          "Type": "CustomArgument",
+                                          "Extensions": [],
+                                          "CustomCommand": "tsuru app list"
+                                        }
+                                      ]
+                                    }
+                                  ]
+                                },
+                                {
+                                  "Name": "--no-restart",
+                                  "Description": "Do not restart the app after the metadata is set",
+                                  "Aliases": [],
+                                  "Arguments": []
+                                },
+                                {
+                                  "Name": "-t",
+                                  "Description": "Metadata type: annotation or label",
+                                  "Aliases": [
+                                    "--type"
+                                  ],
+                                  "Arguments": []
+                                }
+                              ],
+                              "Optional": true
+                            },
+                            {
+                              "Arguments": [
+                                {
+                                  "Name": "\u003CNAME=value\u003E",
+                                  "Description": "\u003CNAME=value\u003E",
+                                  "Type": "String"
+                                }
+                              ]
+                            }
+                          ]
+                        },
+                        {
+                          "Name": "unset",
+                          "Description": "Unsets metadata for an application",
+                          "Aliases": [],
+                          "Arguments": [
+                            {
+                              "Arguments": [
+                                {
+                                  "Name": "-a",
+                                  "Description": "App name",
+                                  "Aliases": [
+                                    "--app"
+                                  ],
+                                  "Arguments": [
+                                    {
+                                      "Arguments": [
+                                        {
+                                          "Name": "app",
+                                          "Description": "app",
+                                          "Type": "CustomArgument",
+                                          "Extensions": [],
+                                          "CustomCommand": "tsuru app list"
+                                        }
+                                      ]
+                                    }
+                                  ]
+                                },
+                                {
+                                  "Name": "--no-restart",
+                                  "Description": "Do not restart the app after the metadata is set",
+                                  "Aliases": [],
+                                  "Arguments": []
+                                },
+                                {
+                                  "Name": "-t",
+                                  "Description": "Metadata type: annotation or label",
+                                  "Aliases": [
+                                    "--type"
+                                  ],
+                                  "Arguments": []
+                                }
+                              ],
+                              "Optional": true
+                            },
+                            {
+                              "Arguments": [
+                                {
+                                  "Name": "NAME",
+                                  "Description": "NAME",
+                                  "Type": "String"
+                                }
+                              ]
+                            }
+                          ]
+                        }
+                      ],
+                      "DontAllowMultiple": true
+                    }
+                  ]
+                },
+                {
+                  "Name": "quota",
+                  "Description": "Shows the quota of an app",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "change",
+                          "Description": "Changes the limit of units that an app can have",
+                          "Aliases": [],
+                          "Arguments": [
+                            {
+                              "Arguments": [
+                                {
+                                  "Name": "-a",
+                                  "Description": "App name",
+                                  "Aliases": [
+                                    "--app"
+                                  ],
+                                  "Arguments": [
+                                    {
+                                      "Arguments": [
+                                        {
+                                          "Name": "app",
+                                          "Description": "app",
+                                          "Type": "CustomArgument",
+                                          "Extensions": [],
+                                          "CustomCommand": "tsuru app list"
+                                        }
+                                      ]
+                                    }
+                                  ]
+                                }
+                              ],
+                              "Optional": true
+                            },
+                            {
+                              "Arguments": [
+                                {
+                                  "Name": "limit",
+                                  "Description": "limit",
+                                  "Type": "String"
+                                }
+                              ]
+                            }
+                          ]
+                        },
+                        {
+                          "Name": "view",
+                          "Description": "Displays the current usage and limit of the given app",
+                          "Aliases": [],
+                          "Arguments": [
+                            {
+                              "Arguments": [
+                                {
+                                  "Name": "-a",
+                                  "Description": "App name",
+                                  "Aliases": [
+                                    "--app"
+                                  ],
+                                  "Arguments": [
+                                    {
+                                      "Arguments": [
+                                        {
+                                          "Name": "app",
+                                          "Description": "app",
+                                          "Type": "CustomArgument",
+                                          "Extensions": [],
+                                          "CustomCommand": "tsuru app list"
+                                        }
+                                      ]
+                                    }
+                                  ]
+                                }
+                              ],
+                              "Optional": true
+                            }
+                          ]
+                        }
+                      ],
+                      "DontAllowMultiple": true
+                    }
+                  ]
+                },
+                {
+                  "Name": "remove",
+                  "Description": "Removes an app",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "-a",
+                          "Description": "App name",
+                          "Aliases": [
+                            "--app"
+                          ],
+                          "Arguments": [
+                            {
+                              "Arguments": [
+                                {
+                                  "Name": "app",
+                                  "Description": "app",
+                                  "Type": "CustomArgument",
+                                  "Extensions": [],
+                                  "CustomCommand": "tsuru app list"
+                                }
+                              ]
+                            }
+                          ]
+                        }
+                      ],
+                      "Optional": true
+                    }
+                  ]
+                },
+                {
+                  "Name": "restart",
+                  "Description": "Restarts an application, or one of the processes of the application",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "-a",
+                          "Description": "App name",
+                          "Aliases": [
+                            "--app"
+                          ],
+                          "Arguments": [
+                            {
+                              "Arguments": [
+                                {
+                                  "Name": "app",
+                                  "Description": "app",
+                                  "Type": "CustomArgument",
+                                  "Extensions": [],
+                                  "CustomCommand": "tsuru app list"
+                                }
+                              ]
+                            }
+                          ]
+                        },
+                        {
+                          "Name": "-p",
+                          "Description": "Process name",
+                          "Aliases": [
+                            "--process"
+                          ],
+                          "Arguments": []
+                        },
+                        {
+                          "Name": "--version",
+                          "Description": "",
+                          "Aliases": [],
+                          "Arguments": []
+                        }
+                      ],
+                      "Optional": true
+                    }
+                  ]
+                },
+                {
+                  "Name": "revoke",
+                  "Description": "Removes a team access to an application",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "-a",
+                          "Description": "App name",
+                          "Aliases": [
+                            "--app"
+                          ],
+                          "Arguments": [
+                            {
+                              "Arguments": [
+                                {
+                                  "Name": "app",
+                                  "Description": "app",
+                                  "Type": "CustomArgument",
+                                  "Extensions": [],
+                                  "CustomCommand": "tsuru app list"
+                                }
+                              ]
+                            }
+                          ]
+                        }
+                      ],
+                      "Optional": true
+                    },
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "team",
+                          "Description": "team",
+                          "Type": "CustomArgument",
+                          "Extensions": [],
+                          "CustomCommand": "tsuru team list"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "router",
+                  "Description": "Manage routers for an app",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "add",
+                          "Description": "Adds a router to an app",
+                          "Aliases": [],
+                          "Arguments": [
+                            {
+                              "Arguments": [
+                                {
+                                  "Name": "-a",
+                                  "Description": "App name",
+                                  "Aliases": [
+                                    "--app"
+                                  ],
+                                  "Arguments": [
+                                    {
+                                      "Arguments": [
+                                        {
+                                          "Name": "app",
+                                          "Description": "app",
+                                          "Type": "CustomArgument",
+                                          "Extensions": [],
+                                          "CustomCommand": "tsuru app list"
+                                        }
+                                      ]
+                                    }
+                                  ]
+                                },
+                                {
+                                  "Name": "-o",
+                                  "Description": "Custom options sent directly to router implementation",
+                                  "Aliases": [
+                                    "--opts"
+                                  ],
+                                  "Arguments": []
+                                }
+                              ],
+                              "Optional": true
+                            },
+                            {
+                              "Arguments": [
+                                {
+                                  "Name": "router",
+                                  "Description": "router",
+                                  "Type": "String"
+                                }
+                              ]
+                            }
+                          ]
+                        },
+                        {
+                          "Name": "list",
+                          "Description": "List routers for an app",
+                          "Aliases": [],
+                          "Arguments": [
+                            {
+                              "Arguments": [
+                                {
+                                  "Name": "-a",
+                                  "Description": "App name",
+                                  "Aliases": [
+                                    "--app"
+                                  ],
+                                  "Arguments": [
+                                    {
+                                      "Arguments": [
+                                        {
+                                          "Name": "app",
+                                          "Description": "app",
+                                          "Type": "CustomArgument",
+                                          "Extensions": [],
+                                          "CustomCommand": "tsuru app list"
+                                        }
+                                      ]
+                                    }
+                                  ]
+                                }
+                              ],
+                              "Optional": true
+                            }
+                          ]
+                        },
+                        {
+                          "Name": "remove",
+                          "Description": "Removes a router from an app",
+                          "Aliases": [],
+                          "Arguments": [
+                            {
+                              "Arguments": [
+                                {
+                                  "Name": "-a",
+                                  "Description": "App name",
+                                  "Aliases": [
+                                    "--app"
+                                  ],
+                                  "Arguments": [
+                                    {
+                                      "Arguments": [
+                                        {
+                                          "Name": "app",
+                                          "Description": "app",
+                                          "Type": "CustomArgument",
+                                          "Extensions": [],
+                                          "CustomCommand": "tsuru app list"
+                                        }
+                                      ]
+                                    }
+                                  ]
+                                }
+                              ],
+                              "Optional": true
+                            },
+                            {
+                              "Arguments": [
+                                {
+                                  "Name": "router",
+                                  "Description": "router",
+                                  "Type": "String"
+                                }
+                              ]
+                            }
+                          ]
+                        },
+                        {
+                          "Name": "update",
+                          "Description": "Updates a router for an app",
+                          "Aliases": [],
+                          "Arguments": [
+                            {
+                              "Arguments": [
+                                {
+                                  "Name": "-a",
+                                  "Description": "App name",
+                                  "Aliases": [
+                                    "--app"
+                                  ],
+                                  "Arguments": [
+                                    {
+                                      "Arguments": [
+                                        {
+                                          "Name": "app",
+                                          "Description": "app",
+                                          "Type": "CustomArgument",
+                                          "Extensions": [],
+                                          "CustomCommand": "tsuru app list"
+                                        }
+                                      ]
+                                    }
+                                  ]
+                                },
+                                {
+                                  "Name": "-o",
+                                  "Description": "Custom options sent directly to router implementation",
+                                  "Aliases": [
+                                    "--opts"
+                                  ],
+                                  "Arguments": []
+                                }
+                              ],
+                              "Optional": true
+                            }
+                          ]
+                        },
+                        {
+                          "Name": "version",
+                          "Description": "Manage router versions for an app",
+                          "Aliases": [],
+                          "Arguments": [
+                            {
+                              "Arguments": [
+                                {
+                                  "Name": "add",
+                                  "Description": "Adds a router version to an app",
+                                  "Aliases": [],
+                                  "Arguments": [
+                                    {
+                                      "Arguments": [
+                                        {
+                                          "Name": "-a",
+                                          "Description": "App name",
+                                          "Aliases": [
+                                            "--app"
+                                          ],
+                                          "Arguments": [
+                                            {
+                                              "Arguments": [
+                                                {
+                                                  "Name": "app",
+                                                  "Description": "app",
+                                                  "Type": "CustomArgument",
+                                                  "Extensions": [],
+                                                  "CustomCommand": "tsuru app list"
+                                                }
+                                              ]
+                                            }
+                                          ]
+                                        }
+                                      ],
+                                      "Optional": true
+                                    },
+                                    {
+                                      "Arguments": [
+                                        {
+                                          "Name": "version",
+                                          "Description": "version",
+                                          "Type": "String"
+                                        }
+                                      ]
+                                    }
+                                  ]
+                                },
+                                {
+                                  "Name": "remove",
+                                  "Description": "Removes a router version from an app",
+                                  "Aliases": [],
+                                  "Arguments": [
+                                    {
+                                      "Arguments": [
+                                        {
+                                          "Name": "-a",
+                                          "Description": "App name",
+                                          "Aliases": [
+                                            "--app"
+                                          ],
+                                          "Arguments": [
+                                            {
+                                              "Arguments": [
+                                                {
+                                                  "Name": "app",
+                                                  "Description": "app",
+                                                  "Type": "CustomArgument",
+                                                  "Extensions": [],
+                                                  "CustomCommand": "tsuru app list"
+                                                }
+                                              ]
+                                            }
+                                          ]
+                                        }
+                                      ],
+                                      "Optional": true
+                                    },
+                                    {
+                                      "Arguments": [
+                                        {
+                                          "Name": "version",
+                                          "Description": "version",
+                                          "Type": "String"
+                                        }
+                                      ]
+                                    }
+                                  ]
+                                }
+                              ],
+                              "DontAllowMultiple": true
+                            }
+                          ]
+                        }
+                      ],
+                      "DontAllowMultiple": true
+                    }
+                  ]
+                },
+                {
+                  "Name": "routes",
+                  "Description": "List all routers",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "rebuild",
+                          "Description": "Rebuild routes for an application",
+                          "Aliases": [],
+                          "Arguments": [
+                            {
+                              "Arguments": [
+                                {
+                                  "Name": "-a",
+                                  "Description": "App name",
+                                  "Aliases": [
+                                    "--app"
+                                  ],
+                                  "Arguments": [
+                                    {
+                                      "Arguments": [
+                                        {
+                                          "Name": "app",
+                                          "Description": "app",
+                                          "Type": "CustomArgument",
+                                          "Extensions": [],
+                                          "CustomCommand": "tsuru app list"
+                                        }
+                                      ]
+                                    }
+                                  ]
+                                }
+                              ],
+                              "Optional": true
+                            }
+                          ]
+                        }
+                      ],
+                      "DontAllowMultiple": true
+                    }
+                  ]
+                },
+                {
+                  "Name": "run",
+                  "Description": "Runs a command inside an app",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "-a",
+                          "Description": "App name",
+                          "Aliases": [
+                            "--app"
+                          ],
+                          "Arguments": [
+                            {
+                              "Arguments": [
+                                {
+                                  "Name": "app",
+                                  "Description": "app",
+                                  "Type": "CustomArgument",
+                                  "Extensions": [],
+                                  "CustomCommand": "tsuru app list"
+                                }
+                              ]
+                            }
+                          ]
+                        },
+                        {
+                          "Name": "-i",
+                          "Description": "Running in ephemeral container",
+                          "Aliases": [
+                            "--isolated"
+                          ],
+                          "Arguments": []
+                        },
+                        {
+                          "Name": "-o",
+                          "Description": "Running only one unit",
+                          "Aliases": [
+                            "--once"
+                          ],
+                          "Arguments": []
+                        }
+                      ],
+                      "Optional": true
+                    }
+                  ]
+                },
+                {
+                  "Name": "shell",
+                  "Description": "Opens a remote shell inside unit, using the API server as a proxy",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "app",
+                          "Description": "app",
+                          "Type": "CustomArgument",
+                          "Extensions": [],
+                          "CustomCommand": "tsuru app list"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "start",
+                  "Description": "Starts an app",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "-a",
+                          "Description": "App name",
+                          "Aliases": [
+                            "--app"
+                          ],
+                          "Arguments": [
+                            {
+                              "Arguments": [
+                                {
+                                  "Name": "app",
+                                  "Description": "app",
+                                  "Type": "CustomArgument",
+                                  "Extensions": [],
+                                  "CustomCommand": "tsuru app list"
+                                }
+                              ]
+                            }
+                          ]
+                        },
+                        {
+                          "Name": "-p",
+                          "Description": "Process name",
+                          "Aliases": [
+                            "--process"
+                          ],
+                          "Arguments": []
+                        },
+                        {
+                          "Name": "--version",
+                          "Description": "Version number",
+                          "Aliases": [],
+                          "Arguments": []
+                        }
+                      ],
+                      "Optional": true
+                    }
+                  ]
+                },
+                {
+                  "Name": "stop",
+                  "Description": "Stops an application",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "-a",
+                          "Description": "App name",
+                          "Aliases": [
+                            "--app"
+                          ],
+                          "Arguments": [
+                            {
+                              "Arguments": [
+                                {
+                                  "Name": "app",
+                                  "Description": "app",
+                                  "Type": "CustomArgument",
+                                  "Extensions": [],
+                                  "CustomCommand": "tsuru app list"
+                                }
+                              ]
+                            }
+                          ]
+                        },
+                        {
+                          "Name": "-p",
+                          "Description": "Process name",
+                          "Aliases": [
+                            "--process"
+                          ],
+                          "Arguments": []
+                        },
+                        {
+                          "Name": "--version",
+                          "Description": "Version number",
+                          "Aliases": [],
+                          "Arguments": []
+                        }
+                      ],
+                      "Optional": true
+                    }
+                  ]
+                },
+                {
+                  "Name": "swap",
+                  "Description": "Swaps routing between two apps",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "-c",
+                          "Description": "Swap only the cname",
+                          "Aliases": [
+                            "--cname-only"
+                          ],
+                          "Arguments": []
+                        },
+                        {
+                          "Name": "-f",
+                          "Description": "Force Swap among apps with different number of units or different platform",
+                          "Aliases": [
+                            "--force"
+                          ],
+                          "Arguments": []
+                        }
+                      ],
+                      "Optional": true
+                    }
+                  ]
+                },
+                {
+                  "Name": "unlock",
+                  "Description": "Forces the removal of an application lock",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "-a",
+                          "Description": "App name",
+                          "Aliases": [
+                            "--app"
+                          ],
+                          "Arguments": [
+                            {
+                              "Arguments": [
+                                {
+                                  "Name": "app",
+                                  "Description": "app",
+                                  "Type": "CustomArgument",
+                                  "Extensions": [],
+                                  "CustomCommand": "tsuru app list"
+                                }
+                              ]
+                            }
+                          ]
+                        },
+                        {
+                          "Name": "-y",
+                          "Description": "Don\u0027t ask for confirmation",
+                          "Aliases": [
+                            "--assume-yes"
+                          ],
+                          "Arguments": []
+                        }
+                      ],
+                      "Optional": true
+                    }
+                  ]
+                },
+                {
+                  "Name": "update",
+                  "Description": "Updates an app",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "-a",
+                          "Description": "App name",
+                          "Aliases": [
+                            "--app"
+                          ],
+                          "Arguments": [
+                            {
+                              "Arguments": [
+                                {
+                                  "Name": "app",
+                                  "Description": "app",
+                                  "Type": "CustomArgument",
+                                  "Extensions": [],
+                                  "CustomCommand": "tsuru app list"
+                                }
+                              ]
+                            }
+                          ]
+                        },
+                        {
+                          "Name": "--cpu",
+                          "Description": "CPU limit for app, this will override the plan cpu value. One cpu is equivalent to 1 vCPU/Core, fractional requests are allowed and the expression 0.1 is equivalent to the expression 100m",
+                          "Aliases": [],
+                          "Arguments": []
+                        },
+                        {
+                          "Name": "-d",
+                          "Description": "Changes description for the app",
+                          "Aliases": [
+                            "--description"
+                          ],
+                          "Arguments": []
+                        },
+                        {
+                          "Name": "-g",
+                          "Description": "Add tags for the app",
+                          "Aliases": [
+                            "--tag"
+                          ],
+                          "Arguments": []
+                        },
+                        {
+                          "Name": "-i",
+                          "Description": "Forces next deploy to build app image from scratch",
+                          "Aliases": [
+                            "--image-reset"
+                          ],
+                          "Arguments": []
+                        },
+                        {
+                          "Name": "-p",
+                          "Description": "Filter applications by platform",
+                          "Aliases": [
+                            "--platform"
+                          ],
+                          "Arguments": [
+                            {
+                              "Arguments": [
+                                {
+                                  "Name": "platform",
+                                  "Description": "platform",
+                                  "Type": "CustomArgument",
+                                  "Extensions": [],
+                                  "CustomCommand": "tsuru platform list"
+                                }
+                              ]
+                            }
+                          ]
+                        },
+                        {
+                          "Name": "--memory",
+                          "Description": "Memory limit for app, this will override the plan memory value. You can express memory as a bytes integer or using one of these suffixes: E, P, T, G, M, K, Ei, Pi, Ti, Gi, Mi, Ki",
+                          "Aliases": [],
+                          "Arguments": []
+                        },
+                        {
+                          "Name": "--no-restart",
+                          "Description": "Prevent tsuru from restarting the application",
+                          "Aliases": [],
+                          "Arguments": []
+                        },
+                        {
+                          "Name": "-o",
+                          "Description": "Filter applications by pool",
+                          "Aliases": [
+                            "--pool"
+                          ],
+                          "Arguments": [
+                            {
+                              "Arguments": [
+                                {
+                                  "Name": "pool",
+                                  "Description": "pool",
+                                  "Type": "CustomArgument",
+                                  "Extensions": [],
+                                  "CustomCommand": "tsuru pool list"
+                                }
+                              ]
+                            }
+                          ]
+                        },
+                        {
+                          "Name": "-p",
+                          "Description": "Plan to be used by the app",
+                          "Aliases": [
+                            "--plan"
+                          ],
+                          "Arguments": [
+                            {
+                              "Arguments": [
+                                {
+                                  "Name": "plan",
+                                  "Description": "plan",
+                                  "Type": "CustomArgument",
+                                  "Extensions": [],
+                                  "CustomCommand": "tsuru plan list"
+                                }
+                              ]
+                            }
+                          ]
+                        },
+                        {
+                          "Name": "-t",
+                          "Description": "Team that will own the app",
+                          "Aliases": [
+                            "--team"
+                          ],
+                          "Arguments": [
+                            {
+                              "Arguments": [
+                                {
+                                  "Name": "team",
+                                  "Description": "team",
+                                  "Type": "CustomArgument",
+                                  "Extensions": [],
+                                  "CustomCommand": "tsuru team list"
+                                }
+                              ]
+                            }
+                          ]
+                        }
+                      ],
+                      "Optional": true
+                    }
+                  ]
+                }
+              ],
+              "DontAllowMultiple": true
+            }
+          ]
+        },
+        {
+          "Name": "env",
+          "Description": "App environment variables",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "-a",
+                  "Description": "App name",
+                  "Aliases": [
+                    "--app"
+                  ],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "app",
+                          "Description": "app",
+                          "Type": "CustomArgument",
+                          "Extensions": [],
+                          "CustomCommand": "tsuru app list"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "-p",
+                  "Description": "Private environment variables",
+                  "Aliases": [
+                    "--private"
+                  ],
+                  "Arguments": []
+                },
+                {
+                  "Name": "--no-restart",
+                  "Description": "Don\u0027t restart the app after setting the env vars",
+                  "Aliases": [],
+                  "Arguments": []
+                }
+              ],
+              "Optional": true
+            },
+            {
+              "Arguments": [
+                {
+                  "Name": "get",
+                  "Description": "Get environment variables from an app",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "-a",
+                          "Description": "App name",
+                          "Aliases": [
+                            "--app"
+                          ],
+                          "Arguments": [
+                            {
+                              "Arguments": [
+                                {
+                                  "Name": "app",
+                                  "Description": "app",
+                                  "Type": "CustomArgument",
+                                  "Extensions": [],
+                                  "CustomCommand": "tsuru app list"
+                                }
+                              ]
+                            }
+                          ]
+                        }
+                      ],
+                      "Optional": true
+                    }
+                  ]
+                },
+                {
+                  "Name": "set",
+                  "Description": "Set environment variables to an app",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "-a",
+                          "Description": "App name",
+                          "Aliases": [
+                            "--app"
+                          ],
+                          "Arguments": [
+                            {
+                              "Arguments": [
+                                {
+                                  "Name": "app",
+                                  "Description": "app",
+                                  "Type": "CustomArgument",
+                                  "Extensions": [],
+                                  "CustomCommand": "tsuru app list"
+                                }
+                              ]
+                            }
+                          ]
+                        },
+                        {
+                          "Name": "-p",
+                          "Description": "Private environment variables",
+                          "Aliases": [
+                            "--private"
+                          ],
+                          "Arguments": []
+                        },
+                        {
+                          "Name": "--no-restart",
+                          "Description": "Don\u0027t restart the app after setting the env vars",
+                          "Aliases": [],
+                          "Arguments": []
+                        }
+                      ],
+                      "Optional": true
+                    }
+                  ]
+                },
+                {
+                  "Name": "unset",
+                  "Description": "Unset environment variables from an app",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "-a",
+                          "Description": "App name",
+                          "Aliases": [
+                            "--app"
+                          ],
+                          "Arguments": [
+                            {
+                              "Arguments": [
+                                {
+                                  "Name": "app",
+                                  "Description": "app",
+                                  "Type": "CustomArgument",
+                                  "Extensions": [],
+                                  "CustomCommand": "tsuru app list"
+                                }
+                              ]
+                            }
+                          ]
+                        },
+                        {
+                          "Name": "--no-restart",
+                          "Description": "Don\u0027t restart the app after setting the env vars",
+                          "Aliases": [],
+                          "Arguments": []
+                        }
+                      ],
+                      "Optional": true
+                    }
+                  ]
+                }
+              ],
+              "DontAllowMultiple": true
+            }
+          ]
+        },
+        {
+          "Name": "cluster",
+          "Description": "Cluster commands",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "add",
+                  "Description": "Add a new cluster",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "list",
+                  "Description": "List all clusters",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "remove",
+                  "Description": "Remove a cluster",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "update",
+                  "Description": "Update a cluster",
+                  "Aliases": [],
+                  "Arguments": []
+                }
+              ],
+              "DontAllowMultiple": true
+            }
+          ]
+        },
+        {
+          "Name": "certificate",
+          "Description": "Certificate commands",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "list",
+                  "Description": "List App TLS certificates",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "set",
+                  "Description": "Creates or update a TLS certificate into the specific app",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "unset",
+                  "Description": "Unset a TLS certificate from a specific app",
+                  "Aliases": [],
+                  "Arguments": []
+                }
+              ],
+              "DontAllowMultiple": true
+            }
+          ]
+        },
+        {
+          "Name": "login",
+          "Description": "Login to tsuru server",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "email",
+                  "Description": "email",
+                  "Type": "String"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "Name": "logout",
+          "Description": "Logout from tsuru server",
+          "Aliases": [],
+          "Arguments": []
+        }
+      ],
+      "DontAllowMultiple": true
+    }
+  ]
+}
