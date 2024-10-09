@@ -528,29 +528,6 @@ public class SuggestorTests
     }
     
     [Test]
-    public void CanGetSuggestionsForProcessId()
-    {
-        var ci = new CommandInfo
-        {
-            Arguments = [new([ new("") { Type = CommandInfo.ArgumentType.ProcessId }])]
-        };
-        var pid = Environment.ProcessId;
-        var suggestions = GetSuggestionsForTestExecutable(ci, " ");
-        Assert.That(suggestions.Select(s => s.Text.Trim()), Does.Contain($"{pid}"));
-    }
-    
-    [Test]
-    public void CanGetSuggestionsForProcessName()
-    {
-        var ci = new CommandInfo
-        {
-            Arguments = [new([ new("") { Type = CommandInfo.ArgumentType.ProcessName }])]
-        };
-        var suggestions = GetSuggestionsForTestExecutable(ci, " ");
-        Assert.That(suggestions.Select(s => s.Text.Trim()), Does.Contain("dotnet"));
-    }
-    
-    [Test]
     public void CanGetSuggestionsForCustomArgument()
     {
         var testDir = new NPath("testDir").MakeAbsolute().CreateDirectory();   

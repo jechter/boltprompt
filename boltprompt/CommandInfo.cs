@@ -54,8 +54,6 @@ public record CommandInfo
         File,
         Command,
         CommandName,
-        ProcessId,
-        ProcessName,
         CustomArgument,
         String,
     }
@@ -89,8 +87,6 @@ public record CommandInfo
              'Directory': The user can pass any file system path pointing to a directory as this argument.
              'Command': The argument is a command line command itself (like the argument to 'sudo').
              'CommandName': The argument is the name of another command line executable.
-             'ProcessId': The argument is the pid of a running process.
-             'ProcessName': The argument is the name of a running process.
              'CustomArgument': Possible argument values are determined by running a command. 'customargumenttemplate' is must match the name of a custom argument template defining the command to run.
              'String': The argument can be any arbitrary string. This matches anything.
             """)]

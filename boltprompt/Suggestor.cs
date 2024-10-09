@@ -151,8 +151,6 @@ public static partial class Suggestor
             case CommandInfo.ArgumentType.Directory:
             case CommandInfo.ArgumentType.Command:
             case CommandInfo.ArgumentType.CommandName:
-            case CommandInfo.ArgumentType.ProcessId:
-            case CommandInfo.ArgumentType.ProcessName:
             case CommandInfo.ArgumentType.String:
                 return true;
             case CommandInfo.ArgumentType.CustomArgument:
@@ -525,20 +523,6 @@ public static partial class Suggestor
                     foreach (var s in _executablesInPathEnvironment.Where(sug => sug.Text.StartsWith(lastParam)))
                         yield return s;
                     break;
-                case CommandInfo.ArgumentType.ProcessId:
-                    foreach (var p in GetProcesses())
-                    {
-                        var pidString = p.pid.ToString();
-                        if (pidString.StartsWith(lastParam))
-                            yield return new (pidString) { Description = p.name };
-                    }
-
-                    break;
-                case CommandInfo.ArgumentType.ProcessName:
-                    foreach (var p in GetProcesses().Select(p => p.name.ToNPath().FileName).Where(p => p.StartsWith(lastParam)).Distinct())
-                        yield return new(p);
-
-                    break;
                 case CommandInfo.ArgumentType.FileSystemEntry:
                 case CommandInfo.ArgumentType.Directory:
                 case CommandInfo.ArgumentType.File:
@@ -567,22 +551,6 @@ public static partial class Suggestor
                 default:
                     throw new ArgumentOutOfRangeException();
             }
-        }
-    }
-
-    private static IEnumerable<(int pid, string name)> GetProcesses()
-    {
-        var commandResult = Cli.Wrap("ps")
-            .WithArguments("-Ao pid,comm")
-            .ExecuteBufferedAsync()
-            .GetAwaiter()
-            .GetResult();
-        var lines = commandResult.StandardOutput.Split('\n');
-        foreach (var line in lines.Skip(1).Select(l => l.Trim()))
-        {
-            var split = line.Split(' ');
-            if (split.Length == 2)
-                yield return (int.Parse(split[0]), split[1]);
         }
     }
     
