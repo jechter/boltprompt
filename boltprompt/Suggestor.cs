@@ -321,6 +321,10 @@ public static partial class Suggestor
 
             if (x is FileSystemSuggestion) return 1;
             if (y is FileSystemSuggestion) return -1;
+
+            // We want "real arguments" before options
+            if (x.Text.StartsWith('-') != y.Text.StartsWith('-'))
+                return x.Text.StartsWith('-') ? -1 : 1;
             
             return string.Compare(y.Text, x.Text, StringComparison.Ordinal);
         }
