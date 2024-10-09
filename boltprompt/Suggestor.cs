@@ -488,8 +488,8 @@ public static partial class Suggestor
             _ = ParseCommandLine(commandLineToParse, parsingState).Count(); // We do Count here to force running the iterator to the end
         }
         
-        var arguments = GetEligibleArgumentsForState(parsingState).Select(a => a.argument);
-
+        var arguments = GetEligibleArgumentsForState(parsingState).Select(a => a.argument).ToArray();
+        var allFlags = arguments.Where(a => a.Type == CommandInfo.ArgumentType.Flag).SelectMany(a => a.AllNames).SelectMany(a => a).ToArray();
         foreach (var arg in arguments)
         {
             switch (arg.Type)
@@ -502,6 +502,9 @@ public static partial class Suggestor
                     }
                     else if (lastParam.StartsWith('-'))
                     {
+                        if (lastParam[1..].Any(c => !allFlags.Contains(c)))
+                            break;
+                        
                         foreach (var v in arg.AllNames)
                             if (lastParam[^1] == v[0])
                                 yield return new(lastParam) { Description = arg.Description };
