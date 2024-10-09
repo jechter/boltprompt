@@ -362,7 +362,7 @@
           "Description": "Disk/loopfile",
           "Type": "FileSystemEntry",
           "Extensions": [],
-          "CustomCommand": "cat /proc/partitions"
+          "CustomArgumentTemplate": "Disk/loopfile"
         }
       ]
     },
@@ -382,6 +382,12 @@
           "Description": "mountpoint"
         }
       ]
+    }
+  ],
+  "CustomArgumentTemplates": [
+    {
+      "Name": "Disk/loopfile",
+      "Command": "cat /proc/partitions"
     }
   ]
 }

@@ -10,7 +10,7 @@
           "Description": "command",
           "Type": "CustomArgument",
           "Extensions": [],
-          "CustomCommand": "bash -c until [[ -d node_modules/ ]] || [[ $PWD = \u0027/\u0027 ]]; do cd ..; done; ls -1 node_modules/.bin/\u0060"
+          "CustomArgumentTemplate": "command"
         },
         {
           "Name": "autocannon",
@@ -173,6 +173,12 @@
           "Description": "command"
         }
       ]
+    }
+  ],
+  "CustomArgumentTemplates": [
+    {
+      "Name": "command",
+      "Command": "bash -c until [[ -d node_modules/ ]] || [[ $PWD = \u0027/\u0027 ]]; do cd ..; done; ls -1 node_modules/.bin/\u0060"
     }
   ]
 }

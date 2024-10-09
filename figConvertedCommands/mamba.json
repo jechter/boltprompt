@@ -55,7 +55,7 @@
                   "Description": "environment",
                   "Type": "CustomArgument",
                   "Extensions": [],
-                  "CustomCommand": "conda env list"
+                  "CustomArgumentTemplate": "environment"
                 }
               ]
             }
@@ -295,7 +295,7 @@
                           "Description": "env",
                           "Type": "CustomArgument",
                           "Extensions": [],
-                          "CustomCommand": "conda env list"
+                          "CustomArgumentTemplate": "environment"
                         }
                       ]
                     }
@@ -910,8 +910,7 @@
                   "Name": "package spec",
                   "Description": "package spec",
                   "Type": "String",
-                  "Extensions": [],
-                  "CustomCommand": ""
+                  "Extensions": []
                 }
               ]
             }
@@ -1374,7 +1373,7 @@
                   "Description": "package",
                   "Type": "CustomArgument",
                   "Extensions": [],
-                  "CustomCommand": "conda list --json"
+                  "CustomArgumentTemplate": "package"
                 }
               ]
             }
@@ -1571,7 +1570,7 @@
                   "Description": "package",
                   "Type": "CustomArgument",
                   "Extensions": [],
-                  "CustomCommand": "conda list --json"
+                  "CustomArgumentTemplate": "package"
                 }
               ]
             }
@@ -2096,7 +2095,7 @@
                   "Description": "package",
                   "Type": "CustomArgument",
                   "Extensions": [],
-                  "CustomCommand": "conda list --json"
+                  "CustomArgumentTemplate": "package"
                 },
                 {
                   "Name": "mamba",
@@ -2377,7 +2376,7 @@
                   "Description": "package",
                   "Type": "CustomArgument",
                   "Extensions": [],
-                  "CustomCommand": "conda list --json"
+                  "CustomArgumentTemplate": "package"
                 },
                 {
                   "Name": "mamba",
@@ -2523,7 +2522,7 @@
                           "Description": "package",
                           "Type": "CustomArgument",
                           "Extensions": [],
-                          "CustomCommand": "conda list --json"
+                          "CustomArgumentTemplate": "package"
                         },
                         {
                           "Name": "xtensor\u003E=0.18",
@@ -2662,7 +2661,7 @@
                           "Description": "package",
                           "Type": "CustomArgument",
                           "Extensions": [],
-                          "CustomCommand": "conda list --json"
+                          "CustomArgumentTemplate": "package"
                         },
                         {
                           "Name": "xtensor",
@@ -2833,7 +2832,7 @@
                           "Description": "environment",
                           "Type": "CustomArgument",
                           "Extensions": [],
-                          "CustomCommand": "conda env list"
+                          "CustomArgumentTemplate": "environment"
                         }
                       ]
                     }
@@ -2846,6 +2845,16 @@
         }
       ],
       "DontAllowMultiple": true
+    }
+  ],
+  "CustomArgumentTemplates": [
+    {
+      "Name": "environment",
+      "Command": "conda env list"
+    },
+    {
+      "Name": "package",
+      "Command": "conda list --json"
     }
   ]
 }

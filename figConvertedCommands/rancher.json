@@ -151,8 +151,7 @@
                                   "Extensions": [
                                     "json",
                                     "yaml"
-                                  ],
-                                  "CustomCommand": ""
+                                  ]
                                 }
                               ]
                             }
@@ -637,7 +636,7 @@
                           "Description": "SERVER_NAME",
                           "Type": "CustomArgument",
                           "Extensions": [],
-                          "CustomCommand": "rancher server ls"
+                          "CustomArgumentTemplate": "SERVER_NAME"
                         }
                       ]
                     }
@@ -661,7 +660,7 @@
                           "Description": "SERVER_NAME",
                           "Type": "CustomArgument",
                           "Extensions": [],
-                          "CustomCommand": "rancher server ls"
+                          "CustomArgumentTemplate": "SERVER_NAME"
                         }
                       ]
                     }
@@ -820,6 +819,12 @@
         }
       ],
       "DontAllowMultiple": true
+    }
+  ],
+  "CustomArgumentTemplates": [
+    {
+      "Name": "SERVER_NAME",
+      "Command": "rancher server ls"
     }
   ]
 }

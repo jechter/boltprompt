@@ -36,7 +36,7 @@
                   "Description": "version",
                   "Type": "CustomArgument",
                   "Extensions": [],
-                  "CustomCommand": "tfenv list-remote"
+                  "CustomArgumentTemplate": "version"
                 },
                 {
                   "Name": "latest",
@@ -62,7 +62,7 @@
                   "Description": "version",
                   "Type": "CustomArgument",
                   "Extensions": [],
-                  "CustomCommand": "tfenv list"
+                  "CustomArgumentTemplate": "version0"
                 }
               ]
             }
@@ -80,7 +80,7 @@
                   "Description": "version",
                   "Type": "CustomArgument",
                   "Extensions": [],
-                  "CustomCommand": "tfenv list"
+                  "CustomArgumentTemplate": "version0"
                 }
               ]
             }
@@ -112,6 +112,16 @@
         }
       ],
       "DontAllowMultiple": true
+    }
+  ],
+  "CustomArgumentTemplates": [
+    {
+      "Name": "version",
+      "Command": "tfenv list-remote"
+    },
+    {
+      "Name": "version0",
+      "Command": "tfenv list"
     }
   ]
 }

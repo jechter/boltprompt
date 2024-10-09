@@ -2192,7 +2192,7 @@
                           "Description": "Number of workers",
                           "Type": "CustomArgument",
                           "Extensions": [],
-                          "CustomCommand": "sysctl -n hw.ncpu"
+                          "CustomArgumentTemplate": "Number of workers"
                         }
                       ]
                     }
@@ -2955,8 +2955,7 @@
                   "Name": "packages",
                   "Description": "packages",
                   "Type": "String",
-                  "Extensions": [],
-                  "CustomCommand": ""
+                  "Extensions": []
                 }
               ],
               "Optional": true
@@ -3089,7 +3088,7 @@
                           "Description": "Number of workers",
                           "Type": "CustomArgument",
                           "Extensions": [],
-                          "CustomCommand": "sysctl -n hw.ncpu"
+                          "CustomArgumentTemplate": "Number of workers"
                         }
                       ]
                     }
@@ -4022,7 +4021,7 @@
                           "Description": "device",
                           "Type": "CustomArgument",
                           "Extensions": [],
-                          "CustomCommand": "xcrun xctrace list devices"
+                          "CustomArgumentTemplate": "device"
                         }
                       ]
                     }
@@ -4058,7 +4057,7 @@
                           "Description": "scheme",
                           "Type": "CustomArgument",
                           "Extensions": [],
-                          "CustomCommand": "bash -c xcodebuild -project ios/*.xcodeproj -list -json"
+                          "CustomArgumentTemplate": "scheme"
                         }
                       ],
                       "Optional": true
@@ -4077,7 +4076,7 @@
                           "Description": "configuration",
                           "Type": "CustomArgument",
                           "Extensions": [],
-                          "CustomCommand": "bash -c xcodebuild -project ios/*.xcodeproj -list -json"
+                          "CustomArgumentTemplate": "scheme"
                         }
                       ]
                     }
@@ -4464,7 +4463,7 @@
                           "Description": "Number of workers",
                           "Type": "CustomArgument",
                           "Extensions": [],
-                          "CustomCommand": "sysctl -n hw.ncpu"
+                          "CustomArgumentTemplate": "Number of workers"
                         }
                       ]
                     }
@@ -6658,6 +6657,20 @@
         }
       ],
       "DontAllowMultiple": true
+    }
+  ],
+  "CustomArgumentTemplates": [
+    {
+      "Name": "Number of workers",
+      "Command": "sysctl -n hw.ncpu"
+    },
+    {
+      "Name": "device",
+      "Command": "xcrun xctrace list devices"
+    },
+    {
+      "Name": "scheme",
+      "Command": "bash -c xcodebuild -project ios/*.xcodeproj -list -json"
     }
   ]
 }

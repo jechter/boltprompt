@@ -211,7 +211,7 @@
                           "Description": "branch",
                           "Type": "CustomArgument",
                           "Extensions": [],
-                          "CustomCommand": "git --no-optional-locks branch -a --no-color --sort=-committerdate"
+                          "CustomArgumentTemplate": "branch"
                         }
                       ]
                     }
@@ -370,7 +370,7 @@
                   "Description": "tasks",
                   "Type": "CustomArgument",
                   "Extensions": [],
-                  "CustomCommand": "bash -c until [[ ( -f turbo.json || $PWD = \u0027/\u0027 ) ]]; do cd ..; done; cat turbo.json"
+                  "CustomArgumentTemplate": "tasks"
                 }
               ]
             }
@@ -378,6 +378,16 @@
         }
       ],
       "DontAllowMultiple": true
+    }
+  ],
+  "CustomArgumentTemplates": [
+    {
+      "Name": "branch",
+      "Command": "git --no-optional-locks branch -a --no-color --sort=-committerdate"
+    },
+    {
+      "Name": "tasks",
+      "Command": "bash -c until [[ ( -f turbo.json || $PWD = \u0027/\u0027 ) ]]; do cd ..; done; cat turbo.json"
     }
   ]
 }

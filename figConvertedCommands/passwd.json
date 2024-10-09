@@ -68,7 +68,7 @@
                   "Description": "authname",
                   "Type": "CustomArgument",
                   "Extensions": [],
-                  "CustomCommand": "bash -c dscl . -list /Users | grep -E -v \u0027^_\u0027"
+                  "CustomArgumentTemplate": "authname"
                 }
               ]
             }
@@ -76,6 +76,12 @@
         }
       ],
       "Optional": true
+    }
+  ],
+  "CustomArgumentTemplates": [
+    {
+      "Name": "authname",
+      "Command": "bash -c dscl . -list /Users | grep -E -v \u0027^_\u0027"
     }
   ]
 }

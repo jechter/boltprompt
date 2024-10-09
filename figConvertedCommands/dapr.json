@@ -85,7 +85,7 @@
                           "Description": "app-id",
                           "Type": "CustomArgument",
                           "Extensions": [],
-                          "CustomCommand": "dapr list -A -o json"
+                          "CustomArgumentTemplate": "app-id"
                         }
                       ]
                     }
@@ -199,8 +199,7 @@
                           "Extensions": [
                             "yaml",
                             "yml"
-                          ],
-                          "CustomCommand": ""
+                          ]
                         }
                       ]
                     }
@@ -688,8 +687,7 @@
                   "Extensions": [
                     "yaml",
                     "yml"
-                  ],
-                  "CustomCommand": ""
+                  ]
                 }
               ]
             }
@@ -1332,8 +1330,7 @@
                           "Name": "runtime-version",
                           "Description": "runtime-version",
                           "Type": "String",
-                          "Extensions": [],
-                          "CustomCommand": ""
+                          "Extensions": []
                         }
                       ]
                     }
@@ -1411,7 +1408,7 @@
                           "Description": "app-id",
                           "Type": "CustomArgument",
                           "Extensions": [],
-                          "CustomCommand": "dapr list -A -o json"
+                          "CustomArgumentTemplate": "app-id"
                         }
                       ]
                     }
@@ -1623,7 +1620,7 @@
                           "Description": "app-id",
                           "Type": "CustomArgument",
                           "Extensions": [],
-                          "CustomCommand": "dapr list -A -o json"
+                          "CustomArgumentTemplate": "app-id"
                         }
                       ]
                     }
@@ -2267,8 +2264,7 @@
                           "Extensions": [
                             "yaml",
                             "yml"
-                          ],
-                          "CustomCommand": ""
+                          ]
                         }
                       ]
                     }
@@ -2508,8 +2504,7 @@
                           "Extensions": [
                             "yaml",
                             "yml"
-                          ],
-                          "CustomCommand": ""
+                          ]
                         }
                       ]
                     }
@@ -2587,7 +2582,7 @@
                           "Description": "app-id",
                           "Type": "CustomArgument",
                           "Extensions": [],
-                          "CustomCommand": "dapr list -A -o json"
+                          "CustomArgumentTemplate": "app-id"
                         }
                       ]
                     }
@@ -2625,8 +2620,7 @@
                           "Extensions": [
                             "yaml",
                             "yml"
-                          ],
-                          "CustomCommand": ""
+                          ]
                         }
                       ]
                     }
@@ -3088,6 +3082,12 @@
         }
       ],
       "DontAllowMultiple": true
+    }
+  ],
+  "CustomArgumentTemplates": [
+    {
+      "Name": "app-id",
+      "Command": "dapr list -A -o json"
     }
   ]
 }

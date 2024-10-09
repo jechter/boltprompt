@@ -67,13 +67,15 @@ public static partial class Suggestor
 
     public class ArgumentParsingState
     {
-        public ArgumentParsingState(CommandInfo.ArgumentGroup[] groups)
+        public ArgumentParsingState(CommandInfo ci, CommandInfo.ArgumentGroup[] groups)
         {
+            CommandInfo = ci;
             Groups = groups;
             LoadEligibleArguments();
         }
-        
-        public CommandInfo.ArgumentGroup[] Groups = [];
+
+        public CommandInfo CommandInfo;
+        public CommandInfo.ArgumentGroup[] Groups;
         public List<(CommandInfo.Argument argument, int groupIndex)> EligibleArguments = new();
         public int MinGroupIndex = 0;
         public int MaxGroupIndex = 0;
@@ -114,7 +116,7 @@ public static partial class Suggestor
     {
         foreach (var (argument, groupIndex, depth) in GetEligibleArgumentsForState(parsingState))
         {
-            if (!CanMatchArgument(arg, argument)) continue;
+            if (!CanMatchArgument(arg, argument, parsingState.Last().CommandInfo)) continue;
             
             parsingState.RemoveRange(parsingState.Count + 1 - depth, depth - 1);
             var currentState = parsingState.Last();
@@ -126,7 +128,7 @@ public static partial class Suggestor
             currentState.EligibleArguments = currentState.EligibleArguments.Where(a => a.groupIndex >= currentState.MinGroupIndex && (a.argument != argument || a.argument.Repeat)).ToList();
                 
             if (argument.Arguments != null)
-                parsingState.Add(new (argument.Arguments));
+                parsingState.Add(new (currentState.CommandInfo, argument.Arguments));
                 
             return argument;
         }
@@ -134,7 +136,7 @@ public static partial class Suggestor
         return null;
     }
 
-    private static bool CanMatchArgument(string arg, CommandInfo.Argument argToMatch)
+    private static bool CanMatchArgument(string arg, CommandInfo.Argument argToMatch, CommandInfo ci)
     {
         switch (argToMatch.Type)
         {
@@ -154,7 +156,7 @@ public static partial class Suggestor
             case CommandInfo.ArgumentType.String:
                 return true;
             case CommandInfo.ArgumentType.CustomArgument:
-                return argToMatch.CustomCommand != null && CustomArguments.Get(argToMatch).Any(a => a.Text == arg);
+                return argToMatch.CustomArgumentTemplate != null && CustomArguments.Get(argToMatch, ci).Any(a => a.Text == arg);
             default:
                 throw new ArgumentOutOfRangeException();
         }
@@ -259,7 +261,7 @@ public static partial class Suggestor
             parsingState.Clear();
 
             if (commandInfo?.Arguments != null)
-                parsingState.Add(new (commandInfo.Arguments));
+                parsingState.Add(new (commandInfo, commandInfo.Arguments));
         }
     }
     
@@ -554,7 +556,7 @@ public static partial class Suggestor
                         yield return new (lastParam) { Description = string.IsNullOrEmpty(arg.Description) ? arg.Name : arg.Description };
                     break;
                 case CommandInfo.ArgumentType.CustomArgument:
-                    foreach (var s in CustomArguments.Get(arg))
+                    foreach (var s in CustomArguments.Get(arg, parsingState.Last().CommandInfo))
                         if (s.Text.StartsWith(lastParam))
                             yield return s;
                     break;

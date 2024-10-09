@@ -538,7 +538,7 @@
                           "Description": "cluster",
                           "Type": "CustomArgument",
                           "Extensions": [],
-                          "CustomCommand": "k3d cluster list --no-headers"
+                          "CustomArgumentTemplate": "cluster"
                         }
                       ]
                     }
@@ -569,7 +569,7 @@
                           "Description": "cluster",
                           "Type": "CustomArgument",
                           "Extensions": [],
-                          "CustomCommand": "k3d cluster list --no-headers"
+                          "CustomArgumentTemplate": "cluster"
                         }
                       ]
                     }
@@ -633,7 +633,7 @@
                           "Description": "cluster",
                           "Type": "CustomArgument",
                           "Extensions": [],
-                          "CustomCommand": "k3d cluster list --no-headers"
+                          "CustomArgumentTemplate": "cluster"
                         }
                       ]
                     }
@@ -686,7 +686,7 @@
                           "Description": "cluster",
                           "Type": "CustomArgument",
                           "Extensions": [],
-                          "CustomCommand": "k3d cluster list --no-headers"
+                          "CustomArgumentTemplate": "cluster"
                         }
                       ]
                     }
@@ -717,7 +717,7 @@
                           "Description": "cluster",
                           "Type": "CustomArgument",
                           "Extensions": [],
-                          "CustomCommand": "k3d cluster list --no-headers"
+                          "CustomArgumentTemplate": "cluster"
                         }
                       ]
                     }
@@ -840,7 +840,7 @@
                                   "Description": "cluster",
                                   "Type": "CustomArgument",
                                   "Extensions": [],
-                                  "CustomCommand": "k3d cluster list --no-headers"
+                                  "CustomArgumentTemplate": "cluster"
                                 }
                               ]
                             }
@@ -902,7 +902,7 @@
                           "Description": "image",
                           "Type": "CustomArgument",
                           "Extensions": [],
-                          "CustomCommand": "docker image ls --format {{.Repository}}:{{.Tag}}"
+                          "CustomArgumentTemplate": "image"
                         }
                       ]
                     }
@@ -948,7 +948,7 @@
                           "Description": "cluster",
                           "Type": "CustomArgument",
                           "Extensions": [],
-                          "CustomCommand": "k3d cluster list --no-headers"
+                          "CustomArgumentTemplate": "cluster"
                         }
                       ]
                     }
@@ -1029,7 +1029,7 @@
                           "Description": "cluster",
                           "Type": "CustomArgument",
                           "Extensions": [],
-                          "CustomCommand": "k3d cluster list --no-headers"
+                          "CustomArgumentTemplate": "cluster"
                         }
                       ]
                     }
@@ -1068,7 +1068,7 @@
                                   "Description": "cluster",
                                   "Type": "CustomArgument",
                                   "Extensions": [],
-                                  "CustomCommand": "k3d cluster list --no-headers"
+                                  "CustomArgumentTemplate": "cluster"
                                 }
                               ]
                             }
@@ -1321,7 +1321,7 @@
                           "Description": "Node Name",
                           "Type": "CustomArgument",
                           "Extensions": [],
-                          "CustomCommand": "k3d node list --no-headers"
+                          "CustomArgumentTemplate": "Node Name"
                         }
                       ]
                     }
@@ -1362,7 +1362,7 @@
                           "Description": "Node Name",
                           "Type": "CustomArgument",
                           "Extensions": [],
-                          "CustomCommand": "k3d node list --no-headers"
+                          "CustomArgumentTemplate": "Node Name"
                         }
                       ]
                     }
@@ -1427,7 +1427,7 @@
                           "Description": "Node Name",
                           "Type": "CustomArgument",
                           "Extensions": [],
-                          "CustomCommand": "k3d node list --no-headers"
+                          "CustomArgumentTemplate": "Node Name"
                         }
                       ]
                     }
@@ -1445,7 +1445,7 @@
                           "Description": "Node Name",
                           "Type": "CustomArgument",
                           "Extensions": [],
-                          "CustomCommand": "k3d node list --no-headers"
+                          "CustomArgumentTemplate": "Node Name"
                         }
                       ]
                     }
@@ -1629,7 +1629,7 @@
                           "Description": "Registry Name",
                           "Type": "CustomArgument",
                           "Extensions": [],
-                          "CustomCommand": "k3d registry list --no-headers"
+                          "CustomArgumentTemplate": "Registry Name"
                         }
                       ]
                     }
@@ -1687,7 +1687,7 @@
                           "Description": "Registry Name",
                           "Type": "CustomArgument",
                           "Extensions": [],
-                          "CustomCommand": "k3d registry list --no-headers"
+                          "CustomArgumentTemplate": "Registry Name"
                         }
                       ],
                       "Optional": true
@@ -1707,6 +1707,24 @@
         }
       ],
       "DontAllowMultiple": true
+    }
+  ],
+  "CustomArgumentTemplates": [
+    {
+      "Name": "cluster",
+      "Command": "k3d cluster list --no-headers"
+    },
+    {
+      "Name": "image",
+      "Command": "docker image ls --format {{.Repository}}:{{.Tag}}"
+    },
+    {
+      "Name": "Node Name",
+      "Command": "k3d node list --no-headers"
+    },
+    {
+      "Name": "Registry Name",
+      "Command": "k3d registry list --no-headers"
     }
   ]
 }

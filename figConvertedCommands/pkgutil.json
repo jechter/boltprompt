@@ -57,7 +57,7 @@
                   "Description": "package-id",
                   "Type": "CustomArgument",
                   "Extensions": [],
-                  "CustomCommand": "pkgutil --pkgs"
+                  "CustomArgumentTemplate": "package-id"
                 }
               ]
             }
@@ -128,7 +128,7 @@
                   "Description": "package-id",
                   "Type": "CustomArgument",
                   "Extensions": [],
-                  "CustomCommand": "pkgutil --pkgs"
+                  "CustomArgumentTemplate": "package-id"
                 }
               ]
             }
@@ -146,7 +146,7 @@
                   "Description": "package-id",
                   "Type": "CustomArgument",
                   "Extensions": [],
-                  "CustomCommand": "pkgutil --pkgs"
+                  "CustomArgumentTemplate": "package-id"
                 }
               ]
             }
@@ -164,7 +164,7 @@
                   "Description": "package-id",
                   "Type": "CustomArgument",
                   "Extensions": [],
-                  "CustomCommand": "pkgutil --pkgs"
+                  "CustomArgumentTemplate": "package-id"
                 }
               ]
             }
@@ -182,7 +182,7 @@
                   "Description": "package-id",
                   "Type": "CustomArgument",
                   "Extensions": [],
-                  "CustomCommand": "pkgutil --pkgs"
+                  "CustomArgumentTemplate": "package-id"
                 }
               ]
             }
@@ -200,7 +200,7 @@
                   "Description": "package-id",
                   "Type": "CustomArgument",
                   "Extensions": [],
-                  "CustomCommand": "pkgutil --pkgs"
+                  "CustomArgumentTemplate": "package-id"
                 }
               ]
             }
@@ -218,7 +218,7 @@
                   "Description": "package-id",
                   "Type": "CustomArgument",
                   "Extensions": [],
-                  "CustomCommand": "pkgutil --pkgs"
+                  "CustomArgumentTemplate": "package-id"
                 }
               ]
             }
@@ -236,7 +236,7 @@
                   "Description": "package-id",
                   "Type": "CustomArgument",
                   "Extensions": [],
-                  "CustomCommand": "pkgutil --pkgs"
+                  "CustomArgumentTemplate": "package-id"
                 }
               ]
             }
@@ -253,8 +253,7 @@
                   "Name": "path",
                   "Description": "path",
                   "Type": "String",
-                  "Extensions": [],
-                  "CustomCommand": ""
+                  "Extensions": []
                 }
               ]
             }
@@ -272,7 +271,7 @@
                   "Description": "package-id",
                   "Type": "CustomArgument",
                   "Extensions": [],
-                  "CustomCommand": "pkgutil --pkgs"
+                  "CustomArgumentTemplate": "package-id"
                 }
               ]
             }
@@ -302,7 +301,7 @@
                   "Description": "group-id",
                   "Type": "CustomArgument",
                   "Extensions": [],
-                  "CustomCommand": "pkgutil --groups"
+                  "CustomArgumentTemplate": "group-id"
                 }
               ]
             }
@@ -402,7 +401,7 @@
                   "Description": "path",
                   "Type": "CustomArgument",
                   "Extensions": [],
-                  "CustomCommand": "find . -type f -name *.bom -maxdepth 1"
+                  "CustomArgumentTemplate": "path"
                 }
               ]
             }
@@ -420,7 +419,7 @@
                   "Description": "path",
                   "Type": "CustomArgument",
                   "Extensions": [],
-                  "CustomCommand": "find . -type f -name *.pkg -maxdepth 1"
+                  "CustomArgumentTemplate": "path0"
                 }
               ]
             }
@@ -438,7 +437,7 @@
                   "Description": "pkg-path",
                   "Type": "CustomArgument",
                   "Extensions": [],
-                  "CustomCommand": "find . -type f -name *.pkg -maxdepth 1"
+                  "CustomArgumentTemplate": "path0"
                 }
               ]
             }
@@ -446,6 +445,24 @@
         }
       ],
       "DontAllowMultiple": true
+    }
+  ],
+  "CustomArgumentTemplates": [
+    {
+      "Name": "package-id",
+      "Command": "pkgutil --pkgs"
+    },
+    {
+      "Name": "group-id",
+      "Command": "pkgutil --groups"
+    },
+    {
+      "Name": "path",
+      "Command": "find . -type f -name *.bom -maxdepth 1"
+    },
+    {
+      "Name": "path0",
+      "Command": "find . -type f -name *.pkg -maxdepth 1"
     }
   ]
 }

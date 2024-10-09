@@ -627,7 +627,7 @@
                   "Description": "service",
                   "Type": "CustomArgument",
                   "Extensions": [],
-                  "CustomCommand": "docker-compose config --services"
+                  "CustomArgumentTemplate": "service"
                 }
               ],
               "Optional": true
@@ -683,7 +683,7 @@
                   "Description": "script",
                   "Type": "CustomArgument",
                   "Extensions": [],
-                  "CustomCommand": "kool run --help"
+                  "CustomArgumentTemplate": "script"
                 }
               ]
             }
@@ -852,7 +852,7 @@
                   "Description": "service",
                   "Type": "CustomArgument",
                   "Extensions": [],
-                  "CustomCommand": "docker-compose config --services"
+                  "CustomArgumentTemplate": "service"
                 }
               ],
               "Optional": true
@@ -922,7 +922,7 @@
                   "Description": "service",
                   "Type": "CustomArgument",
                   "Extensions": [],
-                  "CustomCommand": "docker-compose config --services"
+                  "CustomArgumentTemplate": "service"
                 }
               ],
               "Optional": true
@@ -931,6 +931,16 @@
         }
       ],
       "DontAllowMultiple": true
+    }
+  ],
+  "CustomArgumentTemplates": [
+    {
+      "Name": "service",
+      "Command": "docker-compose config --services"
+    },
+    {
+      "Name": "script",
+      "Command": "kool run --help"
     }
   ]
 }

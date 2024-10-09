@@ -42,7 +42,7 @@
                   "Description": "context",
                   "Type": "CustomArgument",
                   "Extensions": [],
-                  "CustomCommand": "kubectx"
+                  "CustomArgumentTemplate": "context"
                 }
               ]
             }
@@ -58,10 +58,20 @@
           "Description": "context",
           "Type": "CustomArgument",
           "Extensions": [],
-          "CustomCommand": "bash -c kubectx | grep -v $(kubectx -c)"
+          "CustomArgumentTemplate": "context0"
         }
       ],
       "Optional": true
+    }
+  ],
+  "CustomArgumentTemplates": [
+    {
+      "Name": "context",
+      "Command": "kubectx"
+    },
+    {
+      "Name": "context0",
+      "Command": "bash -c kubectx | grep -v $(kubectx -c)"
     }
   ]
 }

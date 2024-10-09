@@ -21,7 +21,7 @@
                   "Description": "format",
                   "Type": "CustomArgument",
                   "Extensions": [],
-                  "CustomCommand": "pandoc --list-input-formats"
+                  "CustomArgumentTemplate": "format"
                 }
               ]
             }
@@ -43,7 +43,7 @@
                   "Description": "format",
                   "Type": "CustomArgument",
                   "Extensions": [],
-                  "CustomCommand": "pandoc --list-output-formats"
+                  "CustomArgumentTemplate": "format0"
                 }
               ]
             }
@@ -98,8 +98,7 @@
                   "Type": "File",
                   "Extensions": [
                     "yaml"
-                  ],
-                  "CustomCommand": ""
+                  ]
                 }
               ]
             }
@@ -169,7 +168,7 @@
                   "Description": "format",
                   "Type": "CustomArgument",
                   "Extensions": [],
-                  "CustomCommand": "pandoc --list-input-formats"
+                  "CustomArgumentTemplate": "format"
                 }
               ],
               "Optional": true
@@ -336,8 +335,7 @@
                   "Extensions": [
                     "yaml",
                     "json"
-                  ],
-                  "CustomCommand": ""
+                  ]
                 }
               ]
             }
@@ -493,7 +491,7 @@
                   "Description": "format",
                   "Type": "CustomArgument",
                   "Extensions": [],
-                  "CustomCommand": "pandoc --list-output-formats"
+                  "CustomArgumentTemplate": "format0"
                 }
               ]
             }
@@ -1384,6 +1382,16 @@
           "Type": "FileSystemEntry"
         }
       ]
+    }
+  ],
+  "CustomArgumentTemplates": [
+    {
+      "Name": "format",
+      "Command": "pandoc --list-input-formats"
+    },
+    {
+      "Name": "format0",
+      "Command": "pandoc --list-output-formats"
     }
   ]
 }

@@ -28,6 +28,22 @@ public record CommandInfo
     [JsonInclude]
     [DescriptionForLanguageModel("A list of Argument groups with command line arguments accepted by the command. All arguments in a single group can come in any random order. If an argument needs to come after another argument, it should come in a new group. If the command does not take any arguments, this should be empty.")]
     public ArgumentGroup[]? Arguments;
+    [JsonInclude]
+    [DescriptionForLanguageModel("A list of custom argument templates used to define the commands to run for custom arguments. If no arguments of type 'customargument' are used, this can be empty or null.")]
+    public CustomArgumentTemplate[]? CustomArgumentTemplates;
+
+    public record CustomArgumentTemplate
+    {
+        [JsonInclude]
+        [DescriptionForLanguageModel("The name of the template. This must match the 'customargument' field in arguments using this template.")]
+        public string Name = "";
+        [JsonInclude]
+        [DescriptionForLanguageModel("The command to run to get suggestions.")]
+        public string Command = "";
+        [JsonInclude]
+        [DescriptionForLanguageModel("A Regex to match the output of the custom command to suggestions and descriptions.")]
+        public string? Regex;
+    }
     
     public enum ArgumentType
     {
@@ -43,7 +59,7 @@ public record CommandInfo
         CustomArgument,
         String,
     }
-
+    
     public record ArgumentGroup([DescriptionForLanguageModel("Arguments belonging to this argument group")]Argument[] Arguments)
     {
         [JsonInclude]
@@ -75,7 +91,7 @@ public record CommandInfo
              'CommandName': The argument is the name of another command line executable.
              'ProcessId': The argument is the pid of a running process.
              'ProcessName': The argument is the name of a running process.
-             'CustomArgument': The argument can be any value returned in the standard out of running 'name' as a process.
+             'CustomArgument': Possible argument values are determined by running a command. 'customargumenttemplate' is must match the name of a custom argument template defining the command to run.
              'String': The argument can be any arbitrary string. This matches anything.
             """)]
         public ArgumentType Type = ArgumentType.Keyword;
@@ -83,11 +99,8 @@ public record CommandInfo
         [DescriptionForLanguageModel("Valid file extensions (only applicable if type is 'file').")]
         public string[]? Extensions;
         [JsonInclude]
-        [DescriptionForLanguageModel("The command to run to get suggestions (only applicable if type is 'customargument').")]
-        public string? CustomCommand;
-        [JsonInclude]
-        [DescriptionForLanguageModel("A Regex to match the output of the custom command to suggestions and descriptions (only applicable if type is 'customargument').")]
-        public string? CustomCommandRegex;
+        [DescriptionForLanguageModel("The name of a custom argument template defining the command to run (only applicable if type is 'customargument').")]
+        public string? CustomArgumentTemplate;
         [JsonInclude]
         [DescriptionForLanguageModel("Alternative names for the argument (if any).")]
         public string[]? Aliases;

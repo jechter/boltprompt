@@ -856,7 +856,7 @@
           "Description": "",
           "Type": "CustomArgument",
           "Extensions": [],
-          "CustomCommand": "bash -c until [[ -f package.json ]] || [[ $PWD = \u0027/\u0027 ]]; do cd ..; done; cat package.json"
+          "CustomArgumentTemplate": "CustomArgument"
         }
       ],
       "Optional": true
@@ -1351,8 +1351,7 @@
                   "Name": "package",
                   "Description": "package",
                   "Type": "String",
-                  "Extensions": [],
-                  "CustomCommand": ""
+                  "Extensions": []
                 }
               ]
             }
@@ -2017,7 +2016,7 @@
                           "Description": "",
                           "Type": "CustomArgument",
                           "Extensions": [],
-                          "CustomCommand": "yarn config list"
+                          "CustomArgumentTemplate": "CustomArgument0"
                         }
                       ]
                     }
@@ -2035,7 +2034,7 @@
                           "Description": "",
                           "Type": "CustomArgument",
                           "Extensions": [],
-                          "CustomCommand": "yarn config list"
+                          "CustomArgumentTemplate": "CustomArgument0"
                         }
                       ]
                     }
@@ -2484,8 +2483,7 @@
                   "Name": "cli",
                   "Description": "cli",
                   "Type": "String",
-                  "Extensions": [],
-                  "CustomCommand": ""
+                  "Extensions": []
                 }
               ]
             }
@@ -3024,8 +3022,7 @@
                           "Name": "package",
                           "Description": "package",
                           "Type": "String",
-                          "Extensions": [],
-                          "CustomCommand": ""
+                          "Extensions": []
                         }
                       ]
                     }
@@ -3495,8 +3492,7 @@
                           "Name": "package",
                           "Description": "package",
                           "Type": "String",
-                          "Extensions": [],
-                          "CustomCommand": ""
+                          "Extensions": []
                         }
                       ]
                     }
@@ -6997,7 +6993,7 @@
                   "Description": "",
                   "Type": "CustomArgument",
                   "Extensions": [],
-                  "CustomCommand": "bash -c until [[ -f package.json ]] || [[ $PWD = \u0027/\u0027 ]]; do cd ..; done; cat package.json"
+                  "CustomArgumentTemplate": "CustomArgument"
                 }
               ]
             }
@@ -7436,7 +7432,7 @@
                   "Description": "script",
                   "Type": "CustomArgument",
                   "Extensions": [],
-                  "CustomCommand": "bash -c until [[ -f package.json ]] || [[ $PWD = \u0027/\u0027 ]]; do cd ..; done; cat package.json"
+                  "CustomArgumentTemplate": "CustomArgument"
                 }
               ]
             },
@@ -8084,7 +8080,7 @@
                   "Description": "package",
                   "Type": "CustomArgument",
                   "Extensions": [],
-                  "CustomCommand": "bash -c until [[ -f package.json ]] || [[ $PWD = \u0027/\u0027 ]]; do cd ..; done; cat package.json"
+                  "CustomArgumentTemplate": "CustomArgument"
                 }
               ],
               "Optional": true
@@ -9124,7 +9120,7 @@
                   "Description": "package",
                   "Type": "CustomArgument",
                   "Extensions": [],
-                  "CustomCommand": "yarn list --depth=0 --json"
+                  "CustomArgumentTemplate": "package"
                 }
               ]
             }
@@ -9277,6 +9273,20 @@
         }
       ],
       "DontAllowMultiple": true
+    }
+  ],
+  "CustomArgumentTemplates": [
+    {
+      "Name": "CustomArgument",
+      "Command": "bash -c until [[ -f package.json ]] || [[ $PWD = \u0027/\u0027 ]]; do cd ..; done; cat package.json"
+    },
+    {
+      "Name": "CustomArgument0",
+      "Command": "yarn config list"
+    },
+    {
+      "Name": "package",
+      "Command": "yarn list --depth=0 --json"
     }
   ]
 }

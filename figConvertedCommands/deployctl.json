@@ -129,8 +129,7 @@
                     "mts",
                     "tsx",
                     "mtsx"
-                  ],
-                  "CustomCommand": ""
+                  ]
                 }
               ]
             }
@@ -148,7 +147,7 @@
                   "Description": "version",
                   "Type": "CustomArgument",
                   "Extensions": [],
-                  "CustomCommand": "curl -sL https://cdn.deno.land/deploy/meta/versions.json"
+                  "CustomArgumentTemplate": "version"
                 }
               ],
               "Optional": true
@@ -157,6 +156,12 @@
         }
       ],
       "DontAllowMultiple": true
+    }
+  ],
+  "CustomArgumentTemplates": [
+    {
+      "Name": "version",
+      "Command": "curl -sL https://cdn.deno.land/deploy/meta/versions.json"
     }
   ]
 }

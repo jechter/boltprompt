@@ -18,7 +18,7 @@
                   "Description": "Application",
                   "Type": "CustomArgument",
                   "Extensions": [],
-                  "CustomCommand": "mdfind kMDItemContentTypeTree=com.apple.application-bundle -onlyin /"
+                  "CustomArgumentTemplate": "Application"
                 }
               ]
             }
@@ -37,7 +37,7 @@
                   "Description": "Bundle Identifier",
                   "Type": "CustomArgument",
                   "Extensions": [],
-                  "CustomCommand": "bash -c mdfind kMDItemContentTypeTree=com.apple.application-bundle -onlyin / | while read line; do echo $(mdls -name kMDItemCFBundleIdentifier -r \u0022$line\u0022) $line; done"
+                  "CustomArgumentTemplate": "Bundle Identifier"
                 }
               ]
             }
@@ -257,6 +257,16 @@
           "Type": "FileSystemEntry"
         }
       ]
+    }
+  ],
+  "CustomArgumentTemplates": [
+    {
+      "Name": "Application",
+      "Command": "mdfind kMDItemContentTypeTree=com.apple.application-bundle -onlyin /"
+    },
+    {
+      "Name": "Bundle Identifier",
+      "Command": "bash -c mdfind kMDItemContentTypeTree=com.apple.application-bundle -onlyin / | while read line; do echo $(mdls -name kMDItemCFBundleIdentifier -r \u0022$line\u0022) $line; done"
     }
   ]
 }

@@ -178,7 +178,7 @@
                           "Description": "glob",
                           "Type": "CustomArgument",
                           "Extensions": [],
-                          "CustomCommand": "lerna ls"
+                          "CustomArgumentTemplate": "glob"
                         }
                       ]
                     }
@@ -196,7 +196,7 @@
                           "Description": "glob",
                           "Type": "CustomArgument",
                           "Extensions": [],
-                          "CustomCommand": "lerna ls"
+                          "CustomArgumentTemplate": "glob"
                         }
                       ]
                     }
@@ -654,7 +654,7 @@
                           "Description": "packages",
                           "Type": "CustomArgument",
                           "Extensions": [],
-                          "CustomCommand": "lerna ls"
+                          "CustomArgumentTemplate": "glob"
                         },
                         {
                           "Name": "*",
@@ -1026,7 +1026,7 @@
                   "Description": "package",
                   "Type": "CustomArgument",
                   "Extensions": [],
-                  "CustomCommand": "lerna ls"
+                  "CustomArgumentTemplate": "glob"
                 }
               ],
               "Optional": true
@@ -1152,7 +1152,7 @@
                           "Description": "glob",
                           "Type": "CustomArgument",
                           "Extensions": [],
-                          "CustomCommand": "lerna ls"
+                          "CustomArgumentTemplate": "glob"
                         }
                       ]
                     }
@@ -1170,7 +1170,7 @@
                           "Description": "glob",
                           "Type": "CustomArgument",
                           "Extensions": [],
-                          "CustomCommand": "lerna ls"
+                          "CustomArgumentTemplate": "glob"
                         }
                       ]
                     }
@@ -1279,7 +1279,7 @@
                   "Description": "script",
                   "Type": "CustomArgument",
                   "Extensions": [],
-                  "CustomCommand": "bash -c lerna list -p | while read p; do\n \\cat $p/package.json \u0026\u0026 echo END\ndone"
+                  "CustomArgumentTemplate": "script"
                 }
               ]
             }
@@ -1428,7 +1428,7 @@
                           "Description": "glob",
                           "Type": "CustomArgument",
                           "Extensions": [],
-                          "CustomCommand": "git branch --no-color"
+                          "CustomArgumentTemplate": "glob0"
                         }
                       ]
                     }
@@ -1512,7 +1512,7 @@
                           "Description": "remote",
                           "Type": "CustomArgument",
                           "Extensions": [],
-                          "CustomCommand": "git remote"
+                          "CustomArgumentTemplate": "remote"
                         }
                       ]
                     }
@@ -1706,7 +1706,7 @@
                   "Description": "package",
                   "Type": "CustomArgument",
                   "Extensions": [],
-                  "CustomCommand": "lerna ls"
+                  "CustomArgumentTemplate": "glob"
                 }
               ],
               "Optional": true
@@ -1832,7 +1832,7 @@
                           "Description": "glob",
                           "Type": "CustomArgument",
                           "Extensions": [],
-                          "CustomCommand": "lerna ls"
+                          "CustomArgumentTemplate": "glob"
                         }
                       ]
                     }
@@ -1850,7 +1850,7 @@
                           "Description": "glob",
                           "Type": "CustomArgument",
                           "Extensions": [],
-                          "CustomCommand": "lerna ls"
+                          "CustomArgumentTemplate": "glob"
                         }
                       ]
                     }
@@ -1959,7 +1959,7 @@
                   "Description": "command",
                   "Type": "CustomArgument",
                   "Extensions": [],
-                  "CustomCommand": "bash -c lerna list -p | while read p; do\n \\cat $p/package.json \u0026\u0026 echo END\ndone"
+                  "CustomArgumentTemplate": "script"
                 }
               ]
             }
@@ -2084,7 +2084,7 @@
                           "Description": "glob",
                           "Type": "CustomArgument",
                           "Extensions": [],
-                          "CustomCommand": "lerna ls"
+                          "CustomArgumentTemplate": "glob"
                         }
                       ]
                     }
@@ -2102,7 +2102,7 @@
                           "Description": "glob",
                           "Type": "CustomArgument",
                           "Extensions": [],
-                          "CustomCommand": "lerna ls"
+                          "CustomArgumentTemplate": "glob"
                         }
                       ]
                     }
@@ -2319,7 +2319,7 @@
                           "Description": "glob",
                           "Type": "CustomArgument",
                           "Extensions": [],
-                          "CustomCommand": "lerna ls"
+                          "CustomArgumentTemplate": "glob"
                         }
                       ]
                     }
@@ -2337,7 +2337,7 @@
                           "Description": "glob",
                           "Type": "CustomArgument",
                           "Extensions": [],
-                          "CustomCommand": "lerna ls"
+                          "CustomArgumentTemplate": "glob"
                         }
                       ]
                     }
@@ -2555,6 +2555,24 @@
         }
       ],
       "DontAllowMultiple": true
+    }
+  ],
+  "CustomArgumentTemplates": [
+    {
+      "Name": "glob",
+      "Command": "lerna ls"
+    },
+    {
+      "Name": "script",
+      "Command": "bash -c lerna list -p | while read p; do\n \\cat $p/package.json \u0026\u0026 echo END\ndone"
+    },
+    {
+      "Name": "glob0",
+      "Command": "git branch --no-color"
+    },
+    {
+      "Name": "remote",
+      "Command": "git remote"
     }
   ]
 }

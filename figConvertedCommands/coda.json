@@ -62,8 +62,7 @@
                   "Type": "File",
                   "Extensions": [
                     "ts"
-                  ],
-                  "CustomCommand": ""
+                  ]
                 }
               ]
             },
@@ -74,7 +73,7 @@
                   "Description": "formula",
                   "Type": "CustomArgument",
                   "Extensions": [],
-                  "CustomCommand": "bash -c grep -A5 --include=*.ts --exclude-dir=node_modules -r \u0027addFormula\\|addSyncTable\\|makeFormula\\|makeSyncTable\u0027 . | grep -A3 -i formula | grep name: | grep -oE \u0022[\u0027\\\u0022]\\w*[\u0027\\\u0022]\u0022"
+                  "CustomArgumentTemplate": "formula"
                 }
               ]
             },
@@ -103,8 +102,7 @@
                   "Type": "File",
                   "Extensions": [
                     "ts"
-                  ],
-                  "CustomCommand": ""
+                  ]
                 }
               ]
             }
@@ -177,8 +175,7 @@
                   "Type": "File",
                   "Extensions": [
                     "ts"
-                  ],
-                  "CustomCommand": ""
+                  ]
                 }
               ]
             }
@@ -197,8 +194,7 @@
                   "Type": "File",
                   "Extensions": [
                     "ts"
-                  ],
-                  "CustomCommand": ""
+                  ]
                 }
               ]
             }
@@ -217,8 +213,7 @@
                   "Type": "File",
                   "Extensions": [
                     "ts"
-                  ],
-                  "CustomCommand": ""
+                  ]
                 }
               ]
             },
@@ -263,8 +258,7 @@
                   "Type": "File",
                   "Extensions": [
                     "ts"
-                  ],
-                  "CustomCommand": ""
+                  ]
                 }
               ]
             },
@@ -309,8 +303,7 @@
                   "Type": "File",
                   "Extensions": [
                     "ts"
-                  ],
-                  "CustomCommand": ""
+                  ]
                 }
               ]
             }
@@ -329,8 +322,7 @@
                   "Type": "File",
                   "Extensions": [
                     "ts"
-                  ],
-                  "CustomCommand": ""
+                  ]
                 }
               ]
             }
@@ -349,8 +341,7 @@
                   "Type": "File",
                   "Extensions": [
                     "ts"
-                  ],
-                  "CustomCommand": ""
+                  ]
                 }
               ]
             },
@@ -392,6 +383,12 @@
         }
       ],
       "DontAllowMultiple": true
+    }
+  ],
+  "CustomArgumentTemplates": [
+    {
+      "Name": "formula",
+      "Command": "bash -c grep -A5 --include=*.ts --exclude-dir=node_modules -r \u0027addFormula\\|addSyncTable\\|makeFormula\\|makeSyncTable\u0027 . | grep -A3 -i formula | grep name: | grep -oE \u0022[\u0027\\\u0022]\\w*[\u0027\\\u0022]\u0022"
     }
   ]
 }

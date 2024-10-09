@@ -138,7 +138,7 @@
                   "Description": "version",
                   "Type": "CustomArgument",
                   "Extensions": [],
-                  "CustomCommand": "xcodes list"
+                  "CustomArgumentTemplate": "version"
                 }
               ],
               "Optional": true
@@ -270,7 +270,7 @@
                   "Description": "version",
                   "Type": "CustomArgument",
                   "Extensions": [],
-                  "CustomCommand": "xcodes list"
+                  "CustomArgumentTemplate": "version"
                 }
               ],
               "Optional": true
@@ -434,7 +434,7 @@
                   "Description": "version-or-path",
                   "Type": "CustomArgument",
                   "Extensions": [],
-                  "CustomCommand": "xcodes installed"
+                  "CustomArgumentTemplate": "version-or-path"
                 }
               ],
               "Optional": true
@@ -486,7 +486,7 @@
                   "Description": "version",
                   "Type": "CustomArgument",
                   "Extensions": [],
-                  "CustomCommand": "xcodes installed"
+                  "CustomArgumentTemplate": "version-or-path"
                 }
               ],
               "Optional": true
@@ -615,6 +615,16 @@
         }
       ],
       "DontAllowMultiple": true
+    }
+  ],
+  "CustomArgumentTemplates": [
+    {
+      "Name": "version",
+      "Command": "xcodes list"
+    },
+    {
+      "Name": "version-or-path",
+      "Command": "xcodes installed"
     }
   ]
 }

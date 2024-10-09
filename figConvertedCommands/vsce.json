@@ -110,8 +110,7 @@
                           "Type": "File",
                           "Extensions": [
                             "vsix"
-                          ],
-                          "CustomCommand": ""
+                          ]
                         }
                       ]
                     }
@@ -217,7 +216,7 @@
                           "Description": "branch",
                           "Type": "CustomArgument",
                           "Extensions": [],
-                          "CustomCommand": "git --no-optional-locks branch -a --no-color --sort=-committerdate"
+                          "CustomArgumentTemplate": "branch"
                         }
                       ]
                     }
@@ -235,7 +234,7 @@
                           "Description": "branch",
                           "Type": "CustomArgument",
                           "Extensions": [],
-                          "CustomCommand": "git --no-optional-locks branch -a --no-color --sort=-committerdate"
+                          "CustomArgumentTemplate": "branch"
                         }
                       ]
                     }
@@ -464,8 +463,7 @@
                           "Type": "File",
                           "Extensions": [
                             "vsix"
-                          ],
-                          "CustomCommand": ""
+                          ]
                         }
                       ]
                     }
@@ -483,7 +481,7 @@
                           "Description": "branch",
                           "Type": "CustomArgument",
                           "Extensions": [],
-                          "CustomCommand": "git --no-optional-locks branch -a --no-color --sort=-committerdate"
+                          "CustomArgumentTemplate": "branch"
                         }
                       ]
                     }
@@ -501,7 +499,7 @@
                           "Description": "branch",
                           "Type": "CustomArgument",
                           "Extensions": [],
-                          "CustomCommand": "git --no-optional-locks branch -a --no-color --sort=-committerdate"
+                          "CustomArgumentTemplate": "branch"
                         }
                       ]
                     }
@@ -837,6 +835,12 @@
         }
       ],
       "DontAllowMultiple": true
+    }
+  ],
+  "CustomArgumentTemplates": [
+    {
+      "Name": "branch",
+      "Command": "git --no-optional-locks branch -a --no-color --sort=-committerdate"
     }
   ]
 }

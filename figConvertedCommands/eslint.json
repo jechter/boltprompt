@@ -40,8 +40,7 @@
                   "Name": "String",
                   "Description": "",
                   "Type": "String",
-                  "Extensions": [],
-                  "CustomCommand": ""
+                  "Extensions": []
                 }
               ]
             }
@@ -155,7 +154,7 @@
                   "Description": "Plugin",
                   "Type": "CustomArgument",
                   "Extensions": [],
-                  "CustomCommand": "bash -c { ls node_modules ; ls $(npm root -g) ; ls $(yarn global dir)/node_modules/ ; } | cat"
+                  "CustomArgumentTemplate": "Plugin"
                 }
               ]
             }
@@ -520,6 +519,12 @@
           "Type": "FileSystemEntry"
         }
       ]
+    }
+  ],
+  "CustomArgumentTemplates": [
+    {
+      "Name": "Plugin",
+      "Command": "bash -c { ls node_modules ; ls $(npm root -g) ; ls $(yarn global dir)/node_modules/ ; } | cat"
     }
   ]
 }

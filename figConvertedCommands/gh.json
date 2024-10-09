@@ -21,7 +21,7 @@
           "Description": "alias",
           "Type": "CustomArgument",
           "Extensions": [],
-          "CustomCommand": "gh alias list"
+          "CustomArgumentTemplate": "alias"
         }
       ],
       "Optional": true
@@ -47,7 +47,7 @@
                           "Description": "alias",
                           "Type": "CustomArgument",
                           "Extensions": [],
-                          "CustomCommand": "gh alias list"
+                          "CustomArgumentTemplate": "alias"
                         }
                       ]
                     }
@@ -391,7 +391,7 @@
                           "Description": "branch",
                           "Type": "CustomArgument",
                           "Extensions": [],
-                          "CustomCommand": "git --no-optional-locks branch -r --no-color --sort=-committerdate"
+                          "CustomArgumentTemplate": "branch"
                         }
                       ]
                     }
@@ -465,7 +465,7 @@
                   "Description": "[pr | issue | path[:line]",
                   "Type": "CustomArgument",
                   "Extensions": [],
-                  "CustomCommand": "gh pr list --json=number,title,headRefName,state"
+                  "CustomArgumentTemplate": "[pr | issue | path[:line]"
                 }
               ]
             }
@@ -2187,7 +2187,7 @@
                           "Description": "number | url | branch",
                           "Type": "CustomArgument",
                           "Extensions": [],
-                          "CustomCommand": "gh pr list --json=number,title,headRefName,state"
+                          "CustomArgumentTemplate": "[pr | issue | path[:line]"
                         }
                       ]
                     }
@@ -2218,7 +2218,7 @@
                           "Description": "number | url | branch",
                           "Type": "CustomArgument",
                           "Extensions": [],
-                          "CustomCommand": "gh pr list --json=number,title,headRefName,state"
+                          "CustomArgumentTemplate": "[pr | issue | path[:line]"
                         }
                       ]
                     }
@@ -2249,7 +2249,7 @@
                           "Description": "number | url | branch",
                           "Type": "CustomArgument",
                           "Extensions": [],
-                          "CustomCommand": "gh pr list --json=number,title,headRefName,state"
+                          "CustomArgumentTemplate": "[pr | issue | path[:line]"
                         }
                       ]
                     }
@@ -2508,7 +2508,7 @@
                           "Description": "number | url | branch",
                           "Type": "CustomArgument",
                           "Extensions": [],
-                          "CustomCommand": "gh pr list --json=number,title,headRefName,state"
+                          "CustomArgumentTemplate": "[pr | issue | path[:line]"
                         }
                       ]
                     }
@@ -2565,7 +2565,7 @@
                           "Description": "number | url | branch",
                           "Type": "CustomArgument",
                           "Extensions": [],
-                          "CustomCommand": "gh pr list --json=number,title,headRefName,state"
+                          "CustomArgumentTemplate": "[pr | issue | path[:line]"
                         }
                       ]
                     }
@@ -2610,7 +2610,7 @@
                                   "Description": "branch",
                                   "Type": "CustomArgument",
                                   "Extensions": [],
-                                  "CustomCommand": "git --no-optional-locks branch -r --no-color --sort=-committerdate"
+                                  "CustomArgumentTemplate": "branch"
                                 }
                               ]
                             }
@@ -2826,7 +2826,7 @@
                           "Description": "number | url | branch",
                           "Type": "CustomArgument",
                           "Extensions": [],
-                          "CustomCommand": "gh pr list --json=number,title,headRefName,state"
+                          "CustomArgumentTemplate": "[pr | issue | path[:line]"
                         }
                       ]
                     }
@@ -3001,7 +3001,7 @@
                           "Description": "number | url | branch",
                           "Type": "CustomArgument",
                           "Extensions": [],
-                          "CustomCommand": "gh pr list --json=number,title,headRefName,state"
+                          "CustomArgumentTemplate": "[pr | issue | path[:line]"
                         }
                       ]
                     }
@@ -3019,7 +3019,7 @@
                           "Description": "number | url | branch",
                           "Type": "CustomArgument",
                           "Extensions": [],
-                          "CustomCommand": "gh pr list --json=number,title,headRefName,state"
+                          "CustomArgumentTemplate": "[pr | issue | path[:line]"
                         }
                       ]
                     }
@@ -3037,7 +3037,7 @@
                           "Description": "number | url | branch",
                           "Type": "CustomArgument",
                           "Extensions": [],
-                          "CustomCommand": "gh pr list --json=number,title,headRefName,state"
+                          "CustomArgumentTemplate": "[pr | issue | path[:line]"
                         }
                       ]
                     }
@@ -3102,7 +3102,7 @@
                           "Description": "number | url | branch",
                           "Type": "CustomArgument",
                           "Extensions": [],
-                          "CustomCommand": "gh pr list --json=number,title,headRefName,state"
+                          "CustomArgumentTemplate": "[pr | issue | path[:line]"
                         }
                       ]
                     }
@@ -3147,7 +3147,7 @@
                           "Description": "number | url | branch",
                           "Type": "CustomArgument",
                           "Extensions": [],
-                          "CustomCommand": "gh pr list --json=number,title,headRefName,state"
+                          "CustomArgumentTemplate": "[pr | issue | path[:line]"
                         }
                       ]
                     }
@@ -3196,7 +3196,7 @@
                           "Description": "repository",
                           "Type": "CustomArgument",
                           "Extensions": [],
-                          "CustomCommand": "gh api graphql --paginate -f query=\u0027query($endCursor: String) { viewer { repositories(first: 100, after: $endCursor) { nodes { isPrivate, nameWithOwner, description } pageInfo { hasNextPage endCursor }}}}\u0027 --jq .data.viewer.repositories.nodes[]"
+                          "CustomArgumentTemplate": "repository"
                         }
                       ],
                       "Optional": true
@@ -3255,7 +3255,7 @@
                           "Description": "repository",
                           "Type": "CustomArgument",
                           "Extensions": [],
-                          "CustomCommand": "gh api graphql --paginate -f query=\u0027query($endCursor: String) { viewer { repositories(first: 100, after: $endCursor) { nodes { isPrivate, nameWithOwner, description } pageInfo { hasNextPage endCursor }}}}\u0027 --jq .data.viewer.repositories.nodes[]"
+                          "CustomArgumentTemplate": "repository"
                         }
                       ]
                     },
@@ -3629,7 +3629,7 @@
                           "Description": "repository",
                           "Type": "CustomArgument",
                           "Extensions": [],
-                          "CustomCommand": "gh api graphql --paginate -f query=\u0027query($endCursor: String) { viewer { repositories(first: 100, after: $endCursor) { nodes { isPrivate, nameWithOwner, description } pageInfo { hasNextPage endCursor }}}}\u0027 --jq .data.viewer.repositories.nodes[]"
+                          "CustomArgumentTemplate": "repository"
                         }
                       ],
                       "Optional": true
@@ -3831,7 +3831,7 @@
                           "Description": "repository",
                           "Type": "CustomArgument",
                           "Extensions": [],
-                          "CustomCommand": "gh api graphql --paginate -f query=\u0027query($endCursor: String) { viewer { repositories(first: 100, after: $endCursor) { nodes { isPrivate, nameWithOwner, description } pageInfo { hasNextPage endCursor }}}}\u0027 --jq .data.viewer.repositories.nodes[]"
+                          "CustomArgumentTemplate": "repository"
                         }
                       ],
                       "Optional": true
@@ -3932,7 +3932,7 @@
                           "Description": "repository",
                           "Type": "CustomArgument",
                           "Extensions": [],
-                          "CustomCommand": "gh api graphql --paginate -f query=\u0027query($endCursor: String) { viewer { repositories(first: 100, after: $endCursor) { nodes { isPrivate, nameWithOwner, description } pageInfo { hasNextPage endCursor }}}}\u0027 --jq .data.viewer.repositories.nodes[]"
+                          "CustomArgumentTemplate": "repository"
                         }
                       ]
                     }
@@ -4187,7 +4187,7 @@
                           "Description": "repository",
                           "Type": "CustomArgument",
                           "Extensions": [],
-                          "CustomCommand": "gh api graphql --paginate -f query=\u0027query($endCursor: String) { viewer { repositories(first: 100, after: $endCursor) { nodes { isPrivate, nameWithOwner, description } pageInfo { hasNextPage endCursor }}}}\u0027 --jq .data.viewer.repositories.nodes[]"
+                          "CustomArgumentTemplate": "repository"
                         }
                       ],
                       "Optional": true
@@ -4353,7 +4353,7 @@
                           "Description": "repository",
                           "Type": "CustomArgument",
                           "Extensions": [],
-                          "CustomCommand": "gh api graphql --paginate -f query=\u0027query($endCursor: String) { viewer { repositories(first: 100, after: $endCursor) { nodes { isPrivate, nameWithOwner, description } pageInfo { hasNextPage endCursor }}}}\u0027 --jq .data.viewer.repositories.nodes[]"
+                          "CustomArgumentTemplate": "repository"
                         }
                       ],
                       "Optional": true
@@ -5573,8 +5573,7 @@
                                   "Type": "File",
                                   "Extensions": [
                                     "json"
-                                  ],
-                                  "CustomCommand": ""
+                                  ]
                                 }
                               ]
                             }
@@ -6213,8 +6212,7 @@
                                   "Name": "String",
                                   "Description": "",
                                   "Type": "String",
-                                  "Extensions": [],
-                                  "CustomCommand": ""
+                                  "Extensions": []
                                 }
                               ]
                             }
@@ -6254,8 +6252,7 @@
                                   "Name": "String",
                                   "Description": "",
                                   "Type": "String",
-                                  "Extensions": [],
-                                  "CustomCommand": ""
+                                  "Extensions": []
                                 }
                               ]
                             }
@@ -7663,6 +7660,24 @@
         }
       ],
       "DontAllowMultiple": true
+    }
+  ],
+  "CustomArgumentTemplates": [
+    {
+      "Name": "alias",
+      "Command": "gh alias list"
+    },
+    {
+      "Name": "branch",
+      "Command": "git --no-optional-locks branch -r --no-color --sort=-committerdate"
+    },
+    {
+      "Name": "[pr | issue | path[:line]",
+      "Command": "gh pr list --json=number,title,headRefName,state"
+    },
+    {
+      "Name": "repository",
+      "Command": "gh api graphql --paginate -f query=\u0027query($endCursor: String) { viewer { repositories(first: 100, after: $endCursor) { nodes { isPrivate, nameWithOwner, description } pageInfo { hasNextPage endCursor }}}}\u0027 --jq .data.viewer.repositories.nodes[]"
     }
   ]
 }

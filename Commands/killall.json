@@ -325,11 +325,13 @@
   "CustomArgumentTemplates": [
     {
       "Name": "user",
-      "Command": "bash -c dscl . -list /Users | grep -v \u0027^_\u0027"
+	  "Command": "dscl . -list /Users",
+	  "Regex": "\\b(?!_)(\\w+)"      
     },
     {
       "Name": "process_name",
-      "Command": "bash -c ps -A -o comm | sort -u"
+	  "Command": "bash -c \"ps -Ao comm | sort -u\"",
+	  "Regex": "([^\\\\/\\n]+)\\n"
     }
   ]
 }

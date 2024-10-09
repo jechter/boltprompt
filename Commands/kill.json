@@ -60,11 +60,13 @@
   "CustomArgumentTemplates": [
     {
       "Name": "signal_name",
-      "Command": "env kill -l"
+      "Command": "env kill -l",
+	  "Regex": "(\\w+)"      
     },
     {
       "Name": "pid",
-      "Command": "bash -c ps axo pid,comm | sed 1d"
+      "Command": "bash -c \"ps axo pid,comm | sed 1d\"",
+      "Regex": "(\\d+)\\s(.+?)\\n"
     }
   ]
 }

@@ -131,7 +131,7 @@
                   "Description": "package",
                   "Type": "CustomArgument",
                   "Extensions": [],
-                  "CustomCommand": "curl -sH accept-encoding: gzip --compressed https://package.elm-lang.org/search.json"
+                  "CustomArgumentTemplate": "package"
                 }
               ]
             }
@@ -284,6 +284,12 @@
         }
       ],
       "DontAllowMultiple": true
+    }
+  ],
+  "CustomArgumentTemplates": [
+    {
+      "Name": "package",
+      "Command": "curl -sH accept-encoding: gzip --compressed https://package.elm-lang.org/search.json"
     }
   ]
 }

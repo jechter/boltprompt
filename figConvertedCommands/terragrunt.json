@@ -7077,7 +7077,7 @@
                   "Description": "address",
                   "Type": "CustomArgument",
                   "Extensions": [],
-                  "CustomCommand": "terragrunt state list"
+                  "CustomArgumentTemplate": "address"
                 }
               ]
             }
@@ -9019,7 +9019,7 @@
                           "Description": "workspace name",
                           "Type": "CustomArgument",
                           "Extensions": [],
-                          "CustomCommand": "terragrunt workspace list"
+                          "CustomArgumentTemplate": "workspace name"
                         }
                       ]
                     }
@@ -9037,7 +9037,7 @@
                           "Description": "",
                           "Type": "CustomArgument",
                           "Extensions": [],
-                          "CustomCommand": "terragrunt workspace list"
+                          "CustomArgumentTemplate": "workspace name"
                         }
                       ]
                     }
@@ -9092,6 +9092,16 @@
         }
       ],
       "DontAllowMultiple": true
+    }
+  ],
+  "CustomArgumentTemplates": [
+    {
+      "Name": "address",
+      "Command": "terragrunt state list"
+    },
+    {
+      "Name": "workspace name",
+      "Command": "terragrunt workspace list"
     }
   ]
 }

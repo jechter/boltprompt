@@ -770,7 +770,7 @@
                   "Description": "session-name",
                   "Type": "CustomArgument",
                   "Extensions": [],
-                  "CustomCommand": "zellij list-sessions"
+                  "CustomArgumentTemplate": "session-name"
                 }
               ],
               "Optional": true
@@ -1274,7 +1274,7 @@
                   "Description": "target-session",
                   "Type": "CustomArgument",
                   "Extensions": [],
-                  "CustomCommand": "zellij list-sessions"
+                  "CustomArgumentTemplate": "session-name"
                 }
               ],
               "Optional": true
@@ -1330,6 +1330,12 @@
         }
       ],
       "DontAllowMultiple": true
+    }
+  ],
+  "CustomArgumentTemplates": [
+    {
+      "Name": "session-name",
+      "Command": "zellij list-sessions"
     }
   ]
 }

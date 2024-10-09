@@ -406,7 +406,7 @@
                   "Description": "BUILD file",
                   "Type": "CustomArgument",
                   "Extensions": [],
-                  "CustomCommand": "bash -c FILES=( $(find ./ -name BUILD) ); for f in $FILES; do echo \u0022----$f\u0022; \\cat \u0022$f\u0022; done"
+                  "CustomArgumentTemplate": "BUILD file"
                 }
               ]
             }
@@ -424,7 +424,7 @@
                   "Description": "BUILD file",
                   "Type": "CustomArgument",
                   "Extensions": [],
-                  "CustomCommand": "bash -c FILES=( $(find ./ -name BUILD) ); for f in $FILES; do echo \u0022----$f\u0022; \\cat \u0022$f\u0022; done"
+                  "CustomArgumentTemplate": "BUILD file"
                 }
               ]
             }
@@ -442,7 +442,7 @@
                   "Description": "BUILD file",
                   "Type": "CustomArgument",
                   "Extensions": [],
-                  "CustomCommand": "bash -c FILES=( $(find ./ -name BUILD) ); for f in $FILES; do echo \u0022----$f\u0022; \\cat \u0022$f\u0022; done"
+                  "CustomArgumentTemplate": "BUILD file"
                 }
               ]
             }
@@ -450,6 +450,12 @@
         }
       ],
       "DontAllowMultiple": true
+    }
+  ],
+  "CustomArgumentTemplates": [
+    {
+      "Name": "BUILD file",
+      "Command": "bash -c FILES=( $(find ./ -name BUILD) ); for f in $FILES; do echo \u0022----$f\u0022; \\cat \u0022$f\u0022; done"
     }
   ]
 }

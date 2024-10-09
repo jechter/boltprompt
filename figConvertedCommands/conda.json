@@ -55,7 +55,7 @@
                   "Description": "",
                   "Type": "CustomArgument",
                   "Extensions": [],
-                  "CustomCommand": "conda env list"
+                  "CustomArgumentTemplate": "CustomArgument"
                 }
               ]
             }
@@ -340,7 +340,7 @@
                           "Description": "Configuration values",
                           "Type": "CustomArgument",
                           "Extensions": [],
-                          "CustomCommand": "conda config --show"
+                          "CustomArgumentTemplate": "Configuration values"
                         }
                       ],
                       "Optional": true
@@ -371,7 +371,7 @@
                           "Description": "Configuration values",
                           "Type": "CustomArgument",
                           "Extensions": [],
-                          "CustomCommand": "conda config --show"
+                          "CustomArgumentTemplate": "Configuration values"
                         }
                       ],
                       "Optional": true
@@ -549,7 +549,7 @@
                           "Description": "",
                           "Type": "CustomArgument",
                           "Extensions": [],
-                          "CustomCommand": "conda env list"
+                          "CustomArgumentTemplate": "CustomArgument"
                         }
                       ]
                     }
@@ -1632,7 +1632,7 @@
                   "Description": "package name",
                   "Type": "CustomArgument",
                   "Extensions": [],
-                  "CustomCommand": "conda list"
+                  "CustomArgumentTemplate": "package name"
                 }
               ]
             }
@@ -1829,7 +1829,7 @@
                   "Description": "package name",
                   "Type": "CustomArgument",
                   "Extensions": [],
-                  "CustomCommand": "conda list"
+                  "CustomArgumentTemplate": "package name"
                 }
               ]
             }
@@ -2354,7 +2354,7 @@
                   "Description": "package",
                   "Type": "CustomArgument",
                   "Extensions": [],
-                  "CustomCommand": "conda list"
+                  "CustomArgumentTemplate": "package name"
                 },
                 {
                   "Name": "conda",
@@ -2635,7 +2635,7 @@
                   "Description": "package",
                   "Type": "CustomArgument",
                   "Extensions": [],
-                  "CustomCommand": "conda list"
+                  "CustomArgumentTemplate": "package name"
                 },
                 {
                   "Name": "conda",
@@ -3035,6 +3035,20 @@
         }
       ],
       "DontAllowMultiple": true
+    }
+  ],
+  "CustomArgumentTemplates": [
+    {
+      "Name": "CustomArgument",
+      "Command": "conda env list"
+    },
+    {
+      "Name": "Configuration values",
+      "Command": "conda config --show"
+    },
+    {
+      "Name": "package name",
+      "Command": "conda list"
     }
   ]
 }

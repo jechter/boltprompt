@@ -31,10 +31,16 @@
           "Description": "namespace",
           "Type": "CustomArgument",
           "Extensions": [],
-          "CustomCommand": "bash -c kubens | grep -v $(kubens -c)"
+          "CustomArgumentTemplate": "namespace"
         }
       ],
       "Optional": true
+    }
+  ],
+  "CustomArgumentTemplates": [
+    {
+      "Name": "namespace",
+      "Command": "bash -c kubens | grep -v $(kubens -c)"
     }
   ]
 }

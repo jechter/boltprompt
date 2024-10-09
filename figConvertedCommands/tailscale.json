@@ -341,7 +341,7 @@
                   "Description": "",
                   "Type": "CustomArgument",
                   "Extensions": [],
-                  "CustomCommand": "tailscale status --json"
+                  "CustomArgumentTemplate": "CustomArgument"
                 }
               ],
               "Optional": true
@@ -652,7 +652,7 @@
                           "Description": "file or host",
                           "Type": "CustomArgument",
                           "Extensions": [],
-                          "CustomCommand": "tailscale status --json"
+                          "CustomArgumentTemplate": "CustomArgument"
                         }
                       ]
                     }
@@ -779,6 +779,12 @@
         }
       ],
       "DontAllowMultiple": true
+    }
+  ],
+  "CustomArgumentTemplates": [
+    {
+      "Name": "CustomArgument",
+      "Command": "tailscale status --json"
     }
   ]
 }

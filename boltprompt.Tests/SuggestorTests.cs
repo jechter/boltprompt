@@ -560,7 +560,13 @@ public class SuggestorTests
         var ci = new CommandInfo
         {
             Arguments = [
-                new([ new("arg1") { Type = CommandInfo.ArgumentType.CustomArgument, CustomCommand = "cat testDir/customArgList", Description = "Custom argument"}]),
+                new([ new("arg1") { Type = CommandInfo.ArgumentType.CustomArgument, CustomArgumentTemplate = "customArg", Description = "Custom argument"}]),
+            ],
+            CustomArgumentTemplates = [
+                new () {
+                    Name = "customArg",
+                    Command = "cat testDir/customArgList"
+                }
             ]
         };
         
@@ -590,7 +596,14 @@ public class SuggestorTests
         var ci = new CommandInfo
         {
             Arguments = [
-                new([ new("arg") { Type = CommandInfo.ArgumentType.CustomArgument, CustomCommand = "cat testDir/customArgListWithRegex", CustomCommandRegex = "(.+);(.+)\n", Description = "Custom argument with regex"}])
+                new([ new("arg") { Type = CommandInfo.ArgumentType.CustomArgument, CustomArgumentTemplate = "regex", Description = "Custom argument with regex"}])
+            ],
+            CustomArgumentTemplates = [
+                new () {
+                    Name = "regex",
+                    Command = "cat testDir/customArgListWithRegex",
+                    Regex = "(.+);(.+)\n"
+                }
             ]
         };
         
@@ -620,7 +633,14 @@ public class SuggestorTests
         var ci = new CommandInfo
         {
             Arguments = [
-                new([ new("arg") { Type = CommandInfo.ArgumentType.CustomArgument, CustomCommand = "cat testDir/customArgListWithRegex2", CustomCommandRegex = "(?<description>.+);(?<suggestion>.+)\n", Description = "Custom argument with regex"}]),
+                new([ new("arg") { Type = CommandInfo.ArgumentType.CustomArgument, CustomArgumentTemplate = "regex", Description = "Custom argument with regex"}]),
+            ],
+            CustomArgumentTemplates = [
+                new () {
+                    Name = "regex",
+                    Command = "cat testDir/customArgListWithRegex2",
+                    Regex = "(?<description>.+);(?<suggestion>.+)\n" 
+                }
             ]
         };
         

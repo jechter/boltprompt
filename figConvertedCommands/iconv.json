@@ -31,7 +31,7 @@
                   "Description": "encoding",
                   "Type": "CustomArgument",
                   "Extensions": [],
-                  "CustomCommand": "bash -c iconv -l | command tr \u0027 \u0027 \u0027\\n\u0027 | sort"
+                  "CustomArgumentTemplate": "encoding"
                 }
               ]
             }
@@ -51,7 +51,7 @@
                   "Description": "encoding",
                   "Type": "CustomArgument",
                   "Extensions": [],
-                  "CustomCommand": "bash -c iconv -l | command tr \u0027 \u0027 \u0027\\n\u0027 | sort"
+                  "CustomArgumentTemplate": "encoding"
                 }
               ]
             }
@@ -131,6 +131,12 @@
           "Type": "FileSystemEntry"
         }
       ]
+    }
+  ],
+  "CustomArgumentTemplates": [
+    {
+      "Name": "encoding",
+      "Command": "bash -c iconv -l | command tr \u0027 \u0027 \u0027\\n\u0027 | sort"
     }
   ]
 }

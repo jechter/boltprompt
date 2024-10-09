@@ -150,7 +150,7 @@
                   "Description": "toolchain",
                   "Type": "CustomArgument",
                   "Extensions": [],
-                  "CustomCommand": "rustup toolchain list"
+                  "CustomArgumentTemplate": "toolchain"
                 }
               ],
               "Optional": true
@@ -212,7 +212,7 @@
                   "Description": "toolchain",
                   "Type": "CustomArgument",
                   "Extensions": [],
-                  "CustomCommand": "rustup toolchain list"
+                  "CustomArgumentTemplate": "toolchain"
                 }
               ],
               "Optional": true
@@ -302,7 +302,7 @@
                                   "Description": "toolchain",
                                   "Type": "CustomArgument",
                                   "Extensions": [],
-                                  "CustomCommand": "rustup toolchain list"
+                                  "CustomArgumentTemplate": "toolchain"
                                 }
                               ]
                             }
@@ -318,7 +318,7 @@
                           "Description": "target",
                           "Type": "CustomArgument",
                           "Extensions": [],
-                          "CustomCommand": "rustup target list"
+                          "CustomArgumentTemplate": "target"
                         }
                       ]
                     }
@@ -359,7 +359,7 @@
                                   "Description": "toolchain",
                                   "Type": "CustomArgument",
                                   "Extensions": [],
-                                  "CustomCommand": "rustup toolchain list"
+                                  "CustomArgumentTemplate": "toolchain"
                                 }
                               ]
                             }
@@ -375,7 +375,7 @@
                           "Description": "target",
                           "Type": "CustomArgument",
                           "Extensions": [],
-                          "CustomCommand": "rustup target list"
+                          "CustomArgumentTemplate": "target"
                         }
                       ]
                     }
@@ -501,7 +501,7 @@
                                   "Description": "targets",
                                   "Type": "CustomArgument",
                                   "Extensions": [],
-                                  "CustomCommand": "rustup target list"
+                                  "CustomArgumentTemplate": "target"
                                 }
                               ]
                             }
@@ -581,7 +581,7 @@
                           "Description": "toolchain",
                           "Type": "CustomArgument",
                           "Extensions": [],
-                          "CustomCommand": "bash -c if command -v gh \u003E /dev/null; then       gh api -H \u0022Accept: application/vnd.github\u002Bjson\u0022 /repos/rust-lang/rust/releases;     else       curl -sfL -H \u0022Accept: application/vnd.github\u002Bjson\u0022 https://api.github.com/repos/rust-lang/rust/releases;     fi"
+                          "CustomArgumentTemplate": "toolchain0"
                         }
                       ]
                     }
@@ -612,7 +612,7 @@
                           "Description": "toolchain",
                           "Type": "CustomArgument",
                           "Extensions": [],
-                          "CustomCommand": "rustup toolchain list"
+                          "CustomArgumentTemplate": "toolchain"
                         }
                       ]
                     }
@@ -906,7 +906,7 @@
                           "Description": "toolchain",
                           "Type": "CustomArgument",
                           "Extensions": [],
-                          "CustomCommand": "rustup toolchain list"
+                          "CustomArgumentTemplate": "toolchain"
                         }
                       ]
                     }
@@ -993,7 +993,7 @@
                   "Description": "toolchain",
                   "Type": "CustomArgument",
                   "Extensions": [],
-                  "CustomCommand": "rustup toolchain list"
+                  "CustomArgumentTemplate": "toolchain"
                 }
               ]
             },
@@ -1035,7 +1035,7 @@
                           "Description": "toolchain",
                           "Type": "CustomArgument",
                           "Extensions": [],
-                          "CustomCommand": "rustup toolchain list"
+                          "CustomArgumentTemplate": "toolchain"
                         }
                       ]
                     }
@@ -1169,7 +1169,7 @@
                           "Description": "toolchain",
                           "Type": "CustomArgument",
                           "Extensions": [],
-                          "CustomCommand": "rustup toolchain list"
+                          "CustomArgumentTemplate": "toolchain"
                         }
                       ]
                     }
@@ -1185,7 +1185,7 @@
                   "Description": "topic",
                   "Type": "CustomArgument",
                   "Extensions": [],
-                  "CustomCommand": "bash -c find $(rustup docs --path | sed -e \u0022s|index\\.html|std|\u0022) $(rustup docs --path | sed -e \u0022s|index\\.html|alloc|\u0022) $(rustup docs --path | sed -e \u0022s|index\\.html|core|\u0022) | grep \u0022\\.html\u0022 | sed -E -e \u0022s|^(.*)/html/||\u0022 -e \u0022s|\\.html||\u0022 -e \u0022s|/|::|g\u0022 -e \u0022s/constant\\.|trait\\.|struct\\.|macro\\.|fn\\.|keyword\\.|primitive\\.|type\\.|enum\\.|union\\.|traitalias\\.|::index$|^(.*)::all$//\u0022 -e \u0022/^$/d\u0022"
+                  "CustomArgumentTemplate": "topic"
                 }
               ]
             }
@@ -1218,7 +1218,7 @@
                           "Description": "toolchain",
                           "Type": "CustomArgument",
                           "Extensions": [],
-                          "CustomCommand": "rustup toolchain list"
+                          "CustomArgumentTemplate": "toolchain"
                         }
                       ]
                     }
@@ -1458,7 +1458,7 @@
                           "Description": "host-triple",
                           "Type": "CustomArgument",
                           "Extensions": [],
-                          "CustomCommand": "rustup target list"
+                          "CustomArgumentTemplate": "target"
                         }
                       ]
                     }
@@ -1554,6 +1554,24 @@
         }
       ],
       "DontAllowMultiple": true
+    }
+  ],
+  "CustomArgumentTemplates": [
+    {
+      "Name": "toolchain",
+      "Command": "rustup toolchain list"
+    },
+    {
+      "Name": "target",
+      "Command": "rustup target list"
+    },
+    {
+      "Name": "toolchain0",
+      "Command": "bash -c if command -v gh \u003E /dev/null; then       gh api -H \u0022Accept: application/vnd.github\u002Bjson\u0022 /repos/rust-lang/rust/releases;     else       curl -sfL -H \u0022Accept: application/vnd.github\u002Bjson\u0022 https://api.github.com/repos/rust-lang/rust/releases;     fi"
+    },
+    {
+      "Name": "topic",
+      "Command": "bash -c find $(rustup docs --path | sed -e \u0022s|index\\.html|std|\u0022) $(rustup docs --path | sed -e \u0022s|index\\.html|alloc|\u0022) $(rustup docs --path | sed -e \u0022s|index\\.html|core|\u0022) | grep \u0022\\.html\u0022 | sed -E -e \u0022s|^(.*)/html/||\u0022 -e \u0022s|\\.html||\u0022 -e \u0022s|/|::|g\u0022 -e \u0022s/constant\\.|trait\\.|struct\\.|macro\\.|fn\\.|keyword\\.|primitive\\.|type\\.|enum\\.|union\\.|traitalias\\.|::index$|^(.*)::all$//\u0022 -e \u0022/^$/d\u0022"
     }
   ]
 }

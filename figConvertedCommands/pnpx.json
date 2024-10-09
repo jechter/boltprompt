@@ -440,8 +440,7 @@
                                   "Type": "File",
                                   "Extensions": [
                                     "js"
-                                  ],
-                                  "CustomCommand": ""
+                                  ]
                                 }
                               ]
                             }
@@ -593,7 +592,7 @@
                                   "Description": "Number of workers",
                                   "Type": "CustomArgument",
                                   "Extensions": [],
-                                  "CustomCommand": "sysctl -n hw.ncpu"
+                                  "CustomArgumentTemplate": "Number of workers"
                                 }
                               ]
                             }
@@ -987,7 +986,7 @@
                                   "Description": "Number of workers",
                                   "Type": "CustomArgument",
                                   "Extensions": [],
-                                  "CustomCommand": "sysctl -n hw.ncpu"
+                                  "CustomArgumentTemplate": "Number of workers"
                                 }
                               ]
                             }
@@ -1032,8 +1031,7 @@
                                   "Type": "File",
                                   "Extensions": [
                                     "js"
-                                  ],
-                                  "CustomCommand": ""
+                                  ]
                                 }
                               ]
                             }
@@ -1138,8 +1136,7 @@
                                   "Type": "File",
                                   "Extensions": [
                                     "js"
-                                  ],
-                                  "CustomCommand": ""
+                                  ]
                                 }
                               ]
                             }
@@ -1291,7 +1288,7 @@
                                   "Description": "Number of workers",
                                   "Type": "CustomArgument",
                                   "Extensions": [],
-                                  "CustomCommand": "sysctl -n hw.ncpu"
+                                  "CustomArgumentTemplate": "Number of workers"
                                 }
                               ]
                             }
@@ -1877,7 +1874,7 @@
                                   "Description": "deviceId",
                                   "Type": "CustomArgument",
                                   "Extensions": [],
-                                  "CustomCommand": "adb devices"
+                                  "CustomArgumentTemplate": "deviceId"
                                 }
                               ]
                             }
@@ -1933,7 +1930,7 @@
                                   "Description": "task list",
                                   "Type": "CustomArgument",
                                   "Extensions": [],
-                                  "CustomCommand": "bash -c cd android/ \u0026\u0026 ./gradlew tasks"
+                                  "CustomArgumentTemplate": "task list"
                                 }
                               ]
                             }
@@ -1977,7 +1974,7 @@
                                   "Description": "simulator",
                                   "Type": "CustomArgument",
                                   "Extensions": [],
-                                  "CustomCommand": "xcrun simctl list --json devices available"
+                                  "CustomArgumentTemplate": "simulator"
                                 }
                               ]
                             }
@@ -1995,7 +1992,7 @@
                                   "Description": "config scheme",
                                   "Type": "CustomArgument",
                                   "Extensions": [],
-                                  "CustomCommand": "bash -c xcodebuild -project ios/*.xcodeproj  -list -json"
+                                  "CustomArgumentTemplate": "config scheme"
                                 }
                               ]
                             }
@@ -2013,7 +2010,7 @@
                                   "Description": "scheme",
                                   "Type": "CustomArgument",
                                   "Extensions": [],
-                                  "CustomCommand": "bash -c xcodebuild -project ios/*.xcodeproj  -list -json"
+                                  "CustomArgumentTemplate": "config scheme"
                                 }
                               ]
                             }
@@ -2047,7 +2044,7 @@
                                   "Description": "device name",
                                   "Type": "CustomArgument",
                                   "Extensions": [],
-                                  "CustomCommand": "xcrun xctrace list devices"
+                                  "CustomArgumentTemplate": "device name"
                                 }
                               ],
                               "Optional": true
@@ -2066,7 +2063,7 @@
                                   "Description": "udid",
                                   "Type": "CustomArgument",
                                   "Extensions": [],
-                                  "CustomCommand": "xcrun xctrace list devices"
+                                  "CustomArgumentTemplate": "device name"
                                 }
                               ]
                             }
@@ -3857,6 +3854,32 @@
         }
       ],
       "DontAllowMultiple": true
+    }
+  ],
+  "CustomArgumentTemplates": [
+    {
+      "Name": "Number of workers",
+      "Command": "sysctl -n hw.ncpu"
+    },
+    {
+      "Name": "deviceId",
+      "Command": "adb devices"
+    },
+    {
+      "Name": "task list",
+      "Command": "bash -c cd android/ \u0026\u0026 ./gradlew tasks"
+    },
+    {
+      "Name": "simulator",
+      "Command": "xcrun simctl list --json devices available"
+    },
+    {
+      "Name": "config scheme",
+      "Command": "bash -c xcodebuild -project ios/*.xcodeproj  -list -json"
+    },
+    {
+      "Name": "device name",
+      "Command": "xcrun xctrace list devices"
     }
   ]
 }

@@ -68,7 +68,7 @@
                           "Description": "endpoint",
                           "Type": "CustomArgument",
                           "Extensions": [],
-                          "CustomCommand": "stepzen list schemas"
+                          "CustomArgumentTemplate": "endpoint"
                         }
                       ]
                     }
@@ -128,7 +128,7 @@
                   "Description": "name",
                   "Type": "CustomArgument",
                   "Extensions": [],
-                  "CustomCommand": "curl https://api.github.com/repos/steprz/stepzen-schemas/contents"
+                  "CustomArgumentTemplate": "name"
                 }
               ]
             }
@@ -160,6 +160,16 @@
         }
       ],
       "DontAllowMultiple": true
+    }
+  ],
+  "CustomArgumentTemplates": [
+    {
+      "Name": "endpoint",
+      "Command": "stepzen list schemas"
+    },
+    {
+      "Name": "name",
+      "Command": "curl https://api.github.com/repos/steprz/stepzen-schemas/contents"
     }
   ]
 }

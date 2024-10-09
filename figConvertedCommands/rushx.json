@@ -31,9 +31,15 @@
           "Description": "Scripts",
           "Type": "CustomArgument",
           "Extensions": [],
-          "CustomCommand": "bash -c until [[ -f package.json ]] || [[ $PWD = \u0027/\u0027 ]]; do cd ..; done; cat package.json"
+          "CustomArgumentTemplate": "Scripts"
         }
       ]
+    }
+  ],
+  "CustomArgumentTemplates": [
+    {
+      "Name": "Scripts",
+      "Command": "bash -c until [[ -f package.json ]] || [[ $PWD = \u0027/\u0027 ]]; do cd ..; done; cat package.json"
     }
   ]
 }

@@ -163,6 +163,8 @@ internal class FigCommandInfoSupplier : ICommandInfoSupplier
     private static readonly NPath FigAutoCompleteSrcPath = FigAutoCompletePath.Combine("src");
     public int Order => 1;
 
+    private List<CommandInfo.CustomArgumentTemplate> _customArgumentTemplates = new();
+
     private NPath CommandPath(string command) => FigAutoCompleteSrcPath.Combine($"{command}.ts");
     public bool CanHandle(string command) => CommandPath(command).FileExists();
 
@@ -234,13 +236,36 @@ internal class FigCommandInfoSupplier : ICommandInfoSupplier
         string ConvertOptionName(string? name) => name != null ? type == CommandInfo.ArgumentType.Flag ? name[1..] : name : "";
     }
 
+    private string? GetCustomCommandTemplateForGenerator(FigArg figArg)
+    {
+        var script = figArg.generators?[0].script != null ? string.Join(" ", figArg.generators?[0].script!) : null;
+        if (string.IsNullOrEmpty(script))
+            return null;
+        var foundTemplate = _customArgumentTemplates.FirstOrDefault(t => t.Command == script);
+        if (foundTemplate != null)
+            return foundTemplate.Name;
+
+        var baseName = figArg.name.FirstOrDefault(GetArgumentType(figArg).ToString());
+        var name = baseName;
+        var num = 0;
+        while (_customArgumentTemplates.Any(t => t.Name == name))
+            name = $"{baseName}{num++}";
+
+        _customArgumentTemplates.Add(new ()
+        {
+            Name = name,
+            Command = script
+        });
+        return name;
+    }
+    
     private CommandInfo.ArgumentGroup ConvertFigArgument(FigArg figArg) => new (
         new []
             {new CommandInfo.Argument(figArg.name.FirstOrDefault(GetArgumentType(figArg).ToString())) {
                 Type = GetArgumentType(figArg),
                 Description = figArg.name.FirstOrDefault(""),
                 Extensions = figArg.generators?[0].extensions,
-                CustomCommand = figArg.generators?[0].script != null ? string.Join(" ", figArg.generators?[0].script!) : null,
+                CustomArgumentTemplate = GetCustomCommandTemplateForGenerator(figArg)
             }}
             .Concat(figArg.suggestions?.Select(s => new CommandInfo.Argument(s.name.FirstOrDefault("")) { Description = s.description ?? figArg.name.FirstOrDefault() ?? ""}) ?? [])
             .ToArray()
@@ -289,8 +314,10 @@ internal class FigCommandInfoSupplier : ICommandInfoSupplier
             Name = command,
             Description = figCommandInfo.description ?? "",
             Arguments = await ConvertFigArguments(figCommandInfo),
-            Comment = "This command info is generated from fig"
+            Comment = "This command info is generated from fig",
+            CustomArgumentTemplates = _customArgumentTemplates.Count > 0 ? _customArgumentTemplates.ToArray() : null
         };
+        _customArgumentTemplates.Clear();
         return ci;
     }
 

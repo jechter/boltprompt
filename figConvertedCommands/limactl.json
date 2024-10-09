@@ -232,7 +232,7 @@
                   "Description": "SOURCE",
                   "Type": "CustomArgument",
                   "Extensions": [],
-                  "CustomCommand": "limactl list --quiet"
+                  "CustomArgumentTemplate": "SOURCE"
                 }
               ]
             },
@@ -243,7 +243,7 @@
                   "Description": "TARGET",
                   "Type": "CustomArgument",
                   "Extensions": [],
-                  "CustomCommand": "limactl list --quiet"
+                  "CustomArgumentTemplate": "SOURCE"
                 }
               ]
             }
@@ -291,7 +291,7 @@
                   "Description": "INSTANCE",
                   "Type": "CustomArgument",
                   "Extensions": [],
-                  "CustomCommand": "limactl list --quiet"
+                  "CustomArgumentTemplate": "SOURCE"
                 }
               ]
             }
@@ -438,7 +438,7 @@
                   "Description": "INSTANCE",
                   "Type": "CustomArgument",
                   "Extensions": [],
-                  "CustomCommand": "limactl list --quiet"
+                  "CustomArgumentTemplate": "SOURCE"
                 }
               ]
             },
@@ -519,7 +519,7 @@
                   "Description": "INSTANCE",
                   "Type": "CustomArgument",
                   "Extensions": [],
-                  "CustomCommand": "limactl list --quiet"
+                  "CustomArgumentTemplate": "SOURCE"
                 }
               ]
             }
@@ -562,7 +562,7 @@
                   "Description": "NAME|FILE.yaml|URL",
                   "Type": "CustomArgument",
                   "Extensions": [],
-                  "CustomCommand": "limactl list --quiet"
+                  "CustomArgumentTemplate": "SOURCE"
                 }
               ]
             }
@@ -607,7 +607,7 @@
                   "Description": "INSTANCE",
                   "Type": "CustomArgument",
                   "Extensions": [],
-                  "CustomCommand": "limactl list --quiet"
+                  "CustomArgumentTemplate": "SOURCE"
                 }
               ]
             }
@@ -688,8 +688,7 @@
                   "Extensions": [
                     "yaml",
                     "yml"
-                  ],
-                  "CustomCommand": ""
+                  ]
                 }
               ]
             }
@@ -766,6 +765,12 @@
         }
       ],
       "DontAllowMultiple": true
+    }
+  ],
+  "CustomArgumentTemplates": [
+    {
+      "Name": "SOURCE",
+      "Command": "limactl list --quiet"
     }
   ]
 }

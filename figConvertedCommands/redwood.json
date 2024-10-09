@@ -897,7 +897,7 @@
                   "Description": "script",
                   "Type": "CustomArgument",
                   "Extensions": [],
-                  "CustomCommand": "bash -c until [[ -f redwood.toml ]] || [[ $PWD = \u0027/\u0027 ]]; do cd ..; done; ls -1p scripts/"
+                  "CustomArgumentTemplate": "script"
                 }
               ]
             }
@@ -2565,6 +2565,12 @@
         }
       ],
       "DontAllowMultiple": true
+    }
+  ],
+  "CustomArgumentTemplates": [
+    {
+      "Name": "script",
+      "Command": "bash -c until [[ -f redwood.toml ]] || [[ $PWD = \u0027/\u0027 ]]; do cd ..; done; ls -1p scripts/"
     }
   ]
 }

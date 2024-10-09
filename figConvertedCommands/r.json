@@ -281,8 +281,7 @@
                   "Type": "File",
                   "Extensions": [
                     "R"
-                  ],
-                  "CustomCommand": ""
+                  ]
                 }
               ]
             }
@@ -369,8 +368,7 @@
                           "Type": "File",
                           "Extensions": [
                             "R"
-                          ],
-                          "CustomCommand": ""
+                          ]
                         }
                       ]
                     },
@@ -427,8 +425,7 @@
                             "f",
                             "f90",
                             "f95"
-                          ],
-                          "CustomCommand": ""
+                          ]
                         }
                       ]
                     }
@@ -536,8 +533,7 @@
                             "f",
                             "f90",
                             "f95"
-                          ],
-                          "CustomCommand": ""
+                          ]
                         }
                       ]
                     }
@@ -602,7 +598,7 @@
                                   "Description": "LIB",
                                   "Type": "CustomArgument",
                                   "Extensions": [],
-                                  "CustomCommand": "Rscript -e .libPaths()"
+                                  "CustomArgumentTemplate": "LIB"
                                 }
                               ]
                             }
@@ -949,8 +945,7 @@
                           "Name": "packages",
                           "Description": "packages",
                           "Type": "String",
-                          "Extensions": [],
-                          "CustomCommand": ""
+                          "Extensions": []
                         }
                       ]
                     }
@@ -993,7 +988,7 @@
                                   "Description": "LIB",
                                   "Type": "CustomArgument",
                                   "Extensions": [],
-                                  "CustomCommand": "Rscript -e .libPaths()"
+                                  "CustomArgumentTemplate": "LIB"
                                 }
                               ]
                             }
@@ -1186,8 +1181,7 @@
                           "Name": "pakgdirs",
                           "Description": "pakgdirs",
                           "Type": "String",
-                          "Extensions": [],
-                          "CustomCommand": ""
+                          "Extensions": []
                         }
                       ]
                     }
@@ -1229,8 +1223,7 @@
                                   "Name": "LIB",
                                   "Description": "LIB",
                                   "Type": "String",
-                                  "Extensions": [],
-                                  "CustomCommand": ""
+                                  "Extensions": []
                                 }
                               ]
                             }
@@ -1249,8 +1242,7 @@
                                   "Name": "directory",
                                   "Description": "directory",
                                   "Type": "String",
-                                  "Extensions": [],
-                                  "CustomCommand": ""
+                                  "Extensions": []
                                 }
                               ]
                             }
@@ -1367,8 +1359,7 @@
                                   "Name": "directory",
                                   "Description": "directory",
                                   "Type": "String",
-                                  "Extensions": [],
-                                  "CustomCommand": ""
+                                  "Extensions": []
                                 }
                               ]
                             }
@@ -1453,8 +1444,7 @@
                             "tzr.bz2",
                             "tar.xz",
                             "tgz"
-                          ],
-                          "CustomCommand": ""
+                          ]
                         }
                       ]
                     }
@@ -1609,8 +1599,7 @@
                           "Name": "Rprof output file",
                           "Description": "Rprof output file",
                           "Type": "String",
-                          "Extensions": [],
-                          "CustomCommand": ""
+                          "Extensions": []
                         }
                       ],
                       "Optional": true
@@ -1785,8 +1774,7 @@
                           "Type": "File",
                           "Extensions": [
                             "Rd"
-                          ],
-                          "CustomCommand": ""
+                          ]
                         }
                       ]
                     }
@@ -1960,8 +1948,7 @@
                                   "Name": "working dir",
                                   "Description": "working dir",
                                   "Type": "String",
-                                  "Extensions": [],
-                                  "CustomCommand": ""
+                                  "Extensions": []
                                 }
                               ]
                             }
@@ -1992,8 +1979,7 @@
                           "Name": "files or pkgs",
                           "Description": "files or pkgs",
                           "Type": "String",
-                          "Extensions": [],
-                          "CustomCommand": ""
+                          "Extensions": []
                         }
                       ]
                     }
@@ -2167,8 +2153,7 @@
                           "Type": "File",
                           "Extensions": [
                             "Rd"
-                          ],
-                          "CustomCommand": ""
+                          ]
                         }
                       ]
                     }
@@ -2266,8 +2251,7 @@
                           "Name": "file",
                           "Description": "file",
                           "Type": "String",
-                          "Extensions": [],
-                          "CustomCommand": ""
+                          "Extensions": []
                         }
                       ]
                     }
@@ -2437,8 +2421,7 @@
                           "Name": "file",
                           "Description": "file",
                           "Type": "String",
-                          "Extensions": [],
-                          "CustomCommand": ""
+                          "Extensions": []
                         }
                       ]
                     }
@@ -2476,8 +2459,7 @@
                           "Name": "from",
                           "Description": "from",
                           "Type": "String",
-                          "Extensions": [],
-                          "CustomCommand": ""
+                          "Extensions": []
                         }
                       ]
                     },
@@ -2487,8 +2469,7 @@
                           "Name": "to",
                           "Description": "to",
                           "Type": "String",
-                          "Extensions": [],
-                          "CustomCommand": ""
+                          "Extensions": []
                         }
                       ]
                     }
@@ -2980,6 +2961,12 @@
         }
       ],
       "DontAllowMultiple": true
+    }
+  ],
+  "CustomArgumentTemplates": [
+    {
+      "Name": "LIB",
+      "Command": "Rscript -e .libPaths()"
     }
   ]
 }

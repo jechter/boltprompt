@@ -29,7 +29,7 @@
                   "Description": "source",
                   "Type": "CustomArgument",
                   "Extensions": [],
-                  "CustomCommand": "tmuxinator list -n"
+                  "CustomArgumentTemplate": "source"
                 }
               ]
             },
@@ -40,7 +40,7 @@
                   "Description": "target",
                   "Type": "CustomArgument",
                   "Extensions": [],
-                  "CustomCommand": "tmuxinator list -n"
+                  "CustomArgumentTemplate": "source"
                 }
               ]
             }
@@ -124,7 +124,7 @@
                   "Description": "project",
                   "Type": "CustomArgument",
                   "Extensions": [],
-                  "CustomCommand": "tmuxinator list -n"
+                  "CustomArgumentTemplate": "source"
                 }
               ]
             }
@@ -229,7 +229,7 @@
                   "Description": "tmux-session",
                   "Type": "CustomArgument",
                   "Extensions": [],
-                  "CustomCommand": "tmux ls"
+                  "CustomArgumentTemplate": "tmux-session"
                 }
               ],
               "Optional": true
@@ -260,7 +260,7 @@
                   "Description": "project",
                   "Type": "CustomArgument",
                   "Extensions": [],
-                  "CustomCommand": "tmuxinator list -n"
+                  "CustomArgumentTemplate": "source"
                 }
               ]
             }
@@ -290,7 +290,7 @@
                   "Description": "project",
                   "Type": "CustomArgument",
                   "Extensions": [],
-                  "CustomCommand": "tmuxinator list -n"
+                  "CustomArgumentTemplate": "source"
                 }
               ]
             }
@@ -308,7 +308,7 @@
                   "Description": "project",
                   "Type": "CustomArgument",
                   "Extensions": [],
-                  "CustomCommand": "tmuxinator list -n"
+                  "CustomArgumentTemplate": "source"
                 }
               ]
             }
@@ -326,7 +326,7 @@
                   "Description": "project",
                   "Type": "CustomArgument",
                   "Extensions": [],
-                  "CustomCommand": "tmuxinator list -n"
+                  "CustomArgumentTemplate": "source"
                 }
               ]
             }
@@ -340,6 +340,16 @@
         }
       ],
       "DontAllowMultiple": true
+    }
+  ],
+  "CustomArgumentTemplates": [
+    {
+      "Name": "source",
+      "Command": "tmuxinator list -n"
+    },
+    {
+      "Name": "tmux-session",
+      "Command": "tmux ls"
     }
   ]
 }

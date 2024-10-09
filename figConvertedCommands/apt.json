@@ -103,7 +103,7 @@
                   "Description": "package",
                   "Type": "CustomArgument",
                   "Extensions": [],
-                  "CustomCommand": "apt list --upgradable"
+                  "CustomArgumentTemplate": "package"
                 }
               ],
               "Optional": true
@@ -222,8 +222,7 @@
                   "Name": "package",
                   "Description": "package",
                   "Type": "String",
-                  "Extensions": [],
-                  "CustomCommand": ""
+                  "Extensions": []
                 }
               ]
             }
@@ -267,7 +266,7 @@
                   "Description": "package",
                   "Type": "CustomArgument",
                   "Extensions": [],
-                  "CustomCommand": "apt list --installed"
+                  "CustomArgumentTemplate": "package0"
                 }
               ]
             }
@@ -319,7 +318,7 @@
                   "Description": "package",
                   "Type": "CustomArgument",
                   "Extensions": [],
-                  "CustomCommand": "apt list --installed"
+                  "CustomArgumentTemplate": "package0"
                 }
               ]
             }
@@ -363,7 +362,7 @@
                   "Description": "package",
                   "Type": "CustomArgument",
                   "Extensions": [],
-                  "CustomCommand": "apt list --installed"
+                  "CustomArgumentTemplate": "package0"
                 }
               ]
             }
@@ -473,8 +472,7 @@
                   "Name": "package",
                   "Description": "package",
                   "Type": "String",
-                  "Extensions": [],
-                  "CustomCommand": ""
+                  "Extensions": []
                 }
               ]
             }
@@ -531,8 +529,7 @@
                   "Name": "package",
                   "Description": "package",
                   "Type": "String",
-                  "Extensions": [],
-                  "CustomCommand": ""
+                  "Extensions": []
                 }
               ]
             }
@@ -675,8 +672,7 @@
                   "Name": "package",
                   "Description": "package",
                   "Type": "String",
-                  "Extensions": [],
-                  "CustomCommand": ""
+                  "Extensions": []
                 }
               ]
             }
@@ -755,8 +751,7 @@
                   "Name": "package",
                   "Description": "package",
                   "Type": "String",
-                  "Extensions": [],
-                  "CustomCommand": ""
+                  "Extensions": []
                 }
               ]
             }
@@ -805,8 +800,7 @@
                   "Name": "package",
                   "Description": "package",
                   "Type": "String",
-                  "Extensions": [],
-                  "CustomCommand": ""
+                  "Extensions": []
                 }
               ]
             }
@@ -904,8 +898,7 @@
                   "Name": "package",
                   "Description": "package",
                   "Type": "String",
-                  "Extensions": [],
-                  "CustomCommand": ""
+                  "Extensions": []
                 }
               ]
             }
@@ -913,6 +906,16 @@
         }
       ],
       "DontAllowMultiple": true
+    }
+  ],
+  "CustomArgumentTemplates": [
+    {
+      "Name": "package",
+      "Command": "apt list --upgradable"
+    },
+    {
+      "Name": "package0",
+      "Command": "apt list --installed"
     }
   ]
 }

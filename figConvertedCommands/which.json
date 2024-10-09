@@ -29,9 +29,15 @@
           "Description": "names",
           "Type": "CustomArgument",
           "Extensions": [],
-          "CustomCommand": "bash -c for i in $(echo $PATH | tr \u0022:\u0022 \u0022\n\u0022); do find $i -maxdepth 1 -perm -111 -type f; done"
+          "CustomArgumentTemplate": "names"
         }
       ]
+    }
+  ],
+  "CustomArgumentTemplates": [
+    {
+      "Name": "names",
+      "Command": "bash -c for i in $(echo $PATH | tr \u0022:\u0022 \u0022\n\u0022); do find $i -maxdepth 1 -perm -111 -type f; done"
     }
   ]
 }

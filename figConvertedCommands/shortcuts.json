@@ -98,7 +98,7 @@
                   "Description": "shortcut-name",
                   "Type": "CustomArgument",
                   "Extensions": [],
-                  "CustomCommand": "shortcuts list"
+                  "CustomArgumentTemplate": "shortcut-name"
                 }
               ]
             }
@@ -125,7 +125,7 @@
                           "Description": "folder-name",
                           "Type": "CustomArgument",
                           "Extensions": [],
-                          "CustomCommand": "shortcuts list --folders"
+                          "CustomArgumentTemplate": "folder-name"
                         }
                       ]
                     }
@@ -154,7 +154,7 @@
                   "Description": "shortcut-name",
                   "Type": "CustomArgument",
                   "Extensions": [],
-                  "CustomCommand": "shortcuts list"
+                  "CustomArgumentTemplate": "shortcut-name"
                 }
               ]
             }
@@ -182,8 +182,7 @@
                           "Type": "File",
                           "Extensions": [
                             "shortcut"
-                          ],
-                          "CustomCommand": ""
+                          ]
                         }
                       ]
                     }
@@ -276,6 +275,16 @@
         }
       ],
       "DontAllowMultiple": true
+    }
+  ],
+  "CustomArgumentTemplates": [
+    {
+      "Name": "shortcut-name",
+      "Command": "shortcuts list"
+    },
+    {
+      "Name": "folder-name",
+      "Command": "shortcuts list --folders"
     }
   ]
 }

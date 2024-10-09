@@ -328,7 +328,7 @@
                   "Description": "filename",
                   "Type": "CustomArgument",
                   "Extensions": [],
-                  "CustomCommand": "bash -c hexo list post | grep -E ^Draft"
+                  "CustomArgumentTemplate": "filename"
                 }
               ]
             }
@@ -580,6 +580,12 @@
         }
       ],
       "DontAllowMultiple": true
+    }
+  ],
+  "CustomArgumentTemplates": [
+    {
+      "Name": "filename",
+      "Command": "bash -c hexo list post | grep -E ^Draft"
     }
   ]
 }

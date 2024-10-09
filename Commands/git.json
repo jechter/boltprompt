@@ -1,6 +1,6 @@
 {
   "Comment": "This command info is generated from fig",
-  "Name": "hub",
+  "Name": "git",
   "Description": "The stupid content tracker",
   "Arguments": [
     {
@@ -13089,11 +13089,13 @@
     },
     {
       "Name": "rev",
-      "Command": "git rev-list --all --oneline"
+      "Command": "git rev-list --all --oneline",
+      "Regex": "([a-f0-9]+)\\s+(.+)\n"
     },
     {
       "Name": "commit",
-      "Command": "git --no-optional-locks log --oneline"
+      "Command": "git --no-optional-locks log --oneline",
+      "Regex": "([a-f0-9]+)\\s+(.+)\n"      
     },
     {
       "Name": "setting",
@@ -13101,15 +13103,18 @@
     },
     {
       "Name": "base",
-      "Command": "git --no-optional-locks branch --no-color --sort=-committerdate"
+      "Command": "git --no-optional-locks branch --no-color --sort=-committerdate",
+      "Regex": "(\\w+)"
     },
     {
       "Name": "pathspec",
-      "Command": "git --no-optional-locks status --short"
+      "Command": "git --no-optional-locks status --short",
+      "Regex": "(?<description>.+) (?<suggestion>.+)\n"
     },
     {
       "Name": "remote",
-      "Command": "git --no-optional-locks remote -v"
+      "Command": "git --no-optional-locks remote -v",
+      "Regex": "^(\\S*)\\s+(\\S+)\\s+\\(.*\\)\n"
     },
     {
       "Name": "stash",
@@ -13117,7 +13122,8 @@
     },
     {
       "Name": "branch, file, tag or commit",
-      "Command": "git --no-optional-locks branch -a --no-color --sort=-committerdate"
+      "Command": "git --no-optional-locks branch -a --no-color --sort=-committerdate",
+      "Regex": "(\\w+)"      
     },
     {
       "Name": "tagname",

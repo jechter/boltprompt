@@ -1149,7 +1149,7 @@
                   "Description": "address",
                   "Type": "CustomArgument",
                   "Extensions": [],
-                  "CustomCommand": "terraform state list"
+                  "CustomArgumentTemplate": "address"
                 }
               ]
             }
@@ -1531,7 +1531,7 @@
                           "Description": "workspace name",
                           "Type": "CustomArgument",
                           "Extensions": [],
-                          "CustomCommand": "terraform workspace list"
+                          "CustomArgumentTemplate": "workspace name"
                         }
                       ]
                     }
@@ -1549,7 +1549,7 @@
                           "Description": "",
                           "Type": "CustomArgument",
                           "Extensions": [],
-                          "CustomCommand": "terraform workspace list"
+                          "CustomArgumentTemplate": "workspace name"
                         }
                       ]
                     }
@@ -1574,6 +1574,16 @@
         }
       ],
       "DontAllowMultiple": true
+    }
+  ],
+  "CustomArgumentTemplates": [
+    {
+      "Name": "address",
+      "Command": "terraform state list"
+    },
+    {
+      "Name": "workspace name",
+      "Command": "terraform workspace list"
     }
   ]
 }

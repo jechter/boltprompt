@@ -17,12 +17,12 @@ static class CustomArguments
         return result.StandardOutput; 
     }
 
-    static Suggestion[] ParseOutput(string output, CommandInfo.Argument argument)
+    static Suggestion[] ParseOutput(string output, CommandInfo.Argument argument, CommandInfo.CustomArgumentTemplate template)
     {
         var argDescription = string.IsNullOrEmpty(argument.Description) ? argument.Name : argument.Description;
-        if (!string.IsNullOrEmpty(argument.CustomCommandRegex)) 
+        if (!string.IsNullOrEmpty(template.Regex)) 
         {
-            var matches = Regex.Matches(output, argument.CustomCommandRegex);
+            var matches = Regex.Matches(output, template.Regex);
 
             return matches.Select(m => new Suggestion(m.Groups.TryGetValue("suggestion", out var suggestionGroup) ? suggestionGroup.Value : m.Groups[1].Value)
                 { Description = m.Groups.TryGetValue("description", out var descriptionGroup) ? descriptionGroup.Value : m.Groups.Count > 2 ? m.Groups[2].Value : argDescription }).ToArray();
@@ -31,17 +31,22 @@ static class CustomArguments
         var lines = output.Split("\n", StringSplitOptions.RemoveEmptyEntries);
         return lines.Select(line => new Suggestion(line) { Description = argDescription }).ToArray();
     }
+
+    static CommandInfo.CustomArgumentTemplate LookupTemplate(CommandInfo.Argument argument, CommandInfo ci)
+        => ci.CustomArgumentTemplates?.Single(t => t.Name == argument.CustomArgumentTemplate) 
+        ?? throw new InvalidDataException($"No custom argument template matching {argument.CustomArgumentTemplate} was found");
     
-    public static Suggestion[] Get(CommandInfo.Argument argument)
+    public static Suggestion[] Get(CommandInfo.Argument argument, CommandInfo ci)
     {
-        if (argument.CustomCommand == null)
+        var template = LookupTemplate(argument, ci);
+        if (template.Command == null)
             return [];
         
-        if (CustomArgumentCache.TryGetValue(argument.CustomCommand, out var argumentsTask))
-            return argumentsTask.IsCompleted ? ParseOutput(argumentsTask.Result, argument) : [];
+        if (CustomArgumentCache.TryGetValue(template.Command, out var argumentsTask))
+            return argumentsTask.IsCompleted ? ParseOutput(argumentsTask.Result, argument, template) : [];
 
-        CustomArgumentCache[argument.CustomCommand] = GetAsync(argument.CustomCommand);
-        CustomArgumentCache[argument.CustomCommand].ContinueWith(_ => CustomArgumentsLoaded.Invoke());
+        CustomArgumentCache[template.Command] = GetAsync(template.Command);
+        CustomArgumentCache[template.Command].ContinueWith(_ => CustomArgumentsLoaded.Invoke());
         return [];
     }
 }

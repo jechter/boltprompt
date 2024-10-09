@@ -347,7 +347,7 @@
                           "Description": "device ids",
                           "Type": "CustomArgument",
                           "Extensions": [],
-                          "CustomCommand": "dcli devices list --json"
+                          "CustomArgumentTemplate": "device ids"
                         }
                       ],
                       "Optional": true
@@ -469,7 +469,7 @@
                                   "Description": "accessKey",
                                   "Type": "CustomArgument",
                                   "Extensions": [],
-                                  "CustomCommand": "dcli team credentials list --json"
+                                  "CustomArgumentTemplate": "accessKey"
                                 }
                               ]
                             }
@@ -822,6 +822,16 @@
         }
       ],
       "DontAllowMultiple": true
+    }
+  ],
+  "CustomArgumentTemplates": [
+    {
+      "Name": "device ids",
+      "Command": "dcli devices list --json"
+    },
+    {
+      "Name": "accessKey",
+      "Command": "dcli team credentials list --json"
     }
   ]
 }

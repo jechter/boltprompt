@@ -301,10 +301,16 @@
           "Description": "target",
           "Type": "CustomArgument",
           "Extensions": [],
-          "CustomCommand": "bash -c command ant -p | grep -i \u0027^\\s\u0027 | tr -d \u0027 \u0027"
+          "CustomArgumentTemplate": "target"
         }
       ],
       "Optional": true
+    }
+  ],
+  "CustomArgumentTemplates": [
+    {
+      "Name": "target",
+      "Command": "bash -c command ant -p | grep -i \u0027^\\s\u0027 | tr -d \u0027 \u0027"
     }
   ]
 }
