@@ -89,6 +89,6 @@ public static class ShellInstaller
     public static void UninstallFromCurrentShell(InstallScope installScope)
     {
         DoUninstallFromCurrentShell(installScope);
-        Console.WriteLine("boltprompt has been uninstalled for this shell.");
+        Console.WriteLine("boltprompt has been uninstalled for this shell. Open a new terminal session to get back to your normal prompt.");
     }
 }

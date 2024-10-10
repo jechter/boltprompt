@@ -38,3 +38,9 @@ Optional, to get suggestions from human language requests using "@", and to try 
 export OPENAI_API_KEY=[your API key here]
 ```
 
+If you want to get back to "normal":
+
+```
+boltprompt uninstall
+```
+
