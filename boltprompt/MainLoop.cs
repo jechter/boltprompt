@@ -20,7 +20,13 @@ internal class MainLoop
         Console.CancelKeyPress += ConsoleCancelKeyPress;
         KnownCommands.CommandInfoLoaded += _ => RequestRedraw();
         FileDescriptions.FileDescriptionLoaded += RequestRedraw;
-        CustomArguments.CustomArgumentsLoaded += RequestRedraw;
+        CustomArguments.CustomArgumentsLoaded += () =>
+        {
+            // if suggestions aren't showing, show them again, as there may be new ones.
+            if (_selection == -1)
+                _selection = 0;
+            RequestRedraw();
+        };
         AISuggestor.AIDescriptionLoaded += RequestRedraw;
         Prompt.RenderPrompt();
     }
