@@ -1,3 +1,11 @@
+# boltprompt
+
+## tl;dr
+
+boltprompt is a tool to help you write shell commands in your terminal with auto-completion.
+
+## Installation
+
 Prerequisites:
 
 * a Mac.
