@@ -8,32 +8,57 @@ public static class ShellInstaller
 {
     private const string BoltpromptConfigComment =
         "# This line is needed for boltprompt, remove if boltprompt is uninstalled.";
-    static IEnumerable<NPath> ConfigPathsForCurrentShell()
+    
+    public enum InstallScope
+    {
+        session,
+        user,
+        system
+    };
+    
+    static IEnumerable<NPath> ConfigPathsForCurrentShell(InstallScope installScope)
     {
         var shellPath = Environment.GetEnvironmentVariable("SHELL")?.ToNPath();
         switch (shellPath?.FileName)
         {
             case "bash":
-                yield return NPath.HomeDirectory.Combine(".bashrc");
-                yield return NPath.HomeDirectory.Combine(".bash_profile");
+                if (installScope == InstallScope.system)
+                    yield return NPath.HomeDirectory.Combine("/etc/bashrc");
+                else
+                {
+                    yield return NPath.HomeDirectory.Combine(".bashrc");
+                    yield return NPath.HomeDirectory.Combine(".bash_profile");
+                }
                 break;
             case "zsh":
-                yield return NPath.HomeDirectory.Combine(".zshrc");
+                if (installScope == InstallScope.system)
+                    yield return NPath.HomeDirectory.Combine("/etc/zshrc");
+                else
+                    yield return NPath.HomeDirectory.Combine(".zshrc");
                 break;
             default:
                 throw new NotSupportedException($"Unknown shell {shellPath}");
         }        
     }
     
-    public static void InstallIntoCurrentShell()
+    public static void InstallIntoCurrentShell(InstallScope installScope)
     {
-        DoUninstallFromCurrentShell();
+        DoUninstallFromCurrentShell(installScope);
+
         var installLine = $"source {Paths.boltpromptSupportFilesDir.Combine("setup_boltprompt.sh")} {BoltpromptConfigComment}";
-        foreach (var p in ConfigPathsForCurrentShell())
-            p.WriteAllLines(p.FileExists() ? p.ReadAllLines().Append(installLine).ToArray() : [installLine]);
-        Console.WriteLine("boltprompt has been installed for this shell. Open a new terminal session to use it.");
-        if (Environment.GetEnvironmentVariable("TERM_PROGRAM") == "Apple_Terminal")
-            Console.WriteLine("Use `boltprompt --setup-terminal` to configure Terminal.app to use the right font and ignore boltprompt processes when closing the terminal session.");
+        
+        if (installScope > InstallScope.session)
+        {
+            foreach (var p in ConfigPathsForCurrentShell(installScope))
+                p.WriteAllLines(p.FileExists() ? p.ReadAllLines().Append(installLine).ToArray() : [installLine]);
+            Console.WriteLine("boltprompt has been installed for this shell. Open a new terminal session to use it.");
+            if (Environment.GetEnvironmentVariable("TERM_PROGRAM") == "Apple_Terminal")
+                Console.WriteLine(
+                    "Use `boltprompt setup-terminal` to configure Terminal.app to use the right font and ignore boltprompt processes when closing the terminal session.");
+        }
+
+        File.WriteAllText("/tmp/custom-command", installLine);
+        Environment.Exit(0);
     }
     
     public static void SetupTerminal()
@@ -50,16 +75,20 @@ public static class ShellInstaller
         Console.WriteLine("Terminal.app has been set up for boltprompt.");
     }
 
-    static void DoUninstallFromCurrentShell()
+    static void DoUninstallFromCurrentShell(InstallScope installScope)
     {
-        foreach (var p in ConfigPathsForCurrentShell())
-            if (p.FileExists())
-                p.WriteAllLines(p.ReadAllLines().Where(l => !l.TrimEnd().EndsWith(BoltpromptConfigComment)).ToArray());
+        if (installScope > InstallScope.session)
+        {
+            foreach (var p in ConfigPathsForCurrentShell(installScope))
+                if (p.FileExists())
+                    p.WriteAllLines(p.ReadAllLines().Where(l => !l.TrimEnd().EndsWith(BoltpromptConfigComment))
+                        .ToArray());
+        }
     }
 
-    public static void UninstallFromCurrentShell()
+    public static void UninstallFromCurrentShell(InstallScope installScope)
     {
-        DoUninstallFromCurrentShell();
+        DoUninstallFromCurrentShell(installScope);
         Console.WriteLine("boltprompt has been uninstalled for this shell.");
     }
 }
