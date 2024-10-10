@@ -490,6 +490,7 @@ public static partial class Suggestor
         
         var arguments = GetEligibleArgumentsForState(parsingState).Select(a => a.argument).ToArray();
         var allFlags = arguments.Where(a => a.Type == CommandInfo.ArgumentType.Flag).SelectMany(a => a.AllNames).SelectMany(a => a).ToArray();
+        bool hasMatch = false;
         foreach (var arg in arguments)
         {
             switch (arg.Type)
@@ -517,7 +518,10 @@ public static partial class Suggestor
                     foreach (var v in arg.AllNames)
                     {
                         if (v.StartsWith(lastParam))
+                        {
                             yield return new(v) { Description = arg.Description };
+                            hasMatch = true;
+                        }
                     }
 
                     break;
@@ -529,7 +533,6 @@ public static partial class Suggestor
                 case CommandInfo.ArgumentType.FileSystemEntry:
                 case CommandInfo.ArgumentType.Directory:
                 case CommandInfo.ArgumentType.File:
-                    bool hasMatch = false;
                     foreach (var s in SuggestFileSystemEntries(commandline, arg.Type, arg.Extensions))
                     {
                         if (s.Text.StartsWith(lastParam))
@@ -544,8 +547,13 @@ public static partial class Suggestor
                     break;
                 case CommandInfo.ArgumentType.CustomArgument:
                     foreach (var s in CustomArguments.Get(arg, parsingState.Last().CommandInfo))
+                    {
                         if (s.Text.StartsWith(lastParam))
+                        {
                             yield return s;
+                            hasMatch = true;
+                        }
+                    }
                     break;
                 case CommandInfo.ArgumentType.String:
                     yield return new (lastParam) { Description = string.IsNullOrEmpty(arg.Description) ? arg.Name : arg.Description };
