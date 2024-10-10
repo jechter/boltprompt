@@ -253,10 +253,13 @@ public static partial class Suggestor
 
         void LoadCommandPart(CommandLinePart part)
         {
+            parsingState.Clear();
             NPath commandPath = part.Text;
+            if (commandPath.IsRoot) // this throws trying to get a file name otherwise.
+                return;
+            
             var createCommandInfo = commandPath.FileExists() || _executablesInPathEnvironment.Any(s => commandPath.FileName == s.Text.Trim());
             var commandInfo = KnownCommands.GetCommand(commandPath.FileName, createCommandInfo);
-            parsingState.Clear();
 
             if (commandInfo?.Arguments != null)
                 parsingState.Add(new (commandInfo, commandInfo.Arguments));
