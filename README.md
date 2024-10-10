@@ -2,7 +2,13 @@
 
 ## tl;dr
 
-boltprompt is a tool to help you write shell commands in your terminal with auto-completion.
+boltprompt is a tool to help you write shell commands in your terminal with auto-completion:
+
+![boltprompt auto-completing git command lines.](media/completion.gif)
+
+It can also suggest commands from human language requests:
+
+![boltprompt suggesting command lines.](media/ai.gif)
 
 ## Installation
 
