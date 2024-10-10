@@ -2,15 +2,21 @@ Prerequisites:
 
 * a Mac.
 * dotnet is installed (`brew install dotnet`)
-* pnpm is installed (`brew install pnpm`)
 
 ```
 git clone --recurse-submodules https://github.com/jechter/boltprompt.git
 cd boltprompt
-./install.sh
+dotnet build
+boltprompt/bin/Release/net8.0/boltprompt --install
 ```
 
 Open a new Terminal window
+
+If you are using Apple's Terminal.app, you can set it up with a font which works well for boltprompt using:
+
+```
+boltprompt --setup-terminal
+```
 
 Optional, to try to generate auto complete info for unknown commands using AI:
 

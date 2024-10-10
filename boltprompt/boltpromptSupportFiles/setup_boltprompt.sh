@@ -6,7 +6,22 @@ signal_handler() {
     run
 }
 
-export PATH=$HOME/.dotnet/tools:$PATH
+case "$SHELL" in
+  */bash)
+    SETUP_SCRIPT_PATH=$(readlink -f "${BASH_SOURCE[0]}")
+    ;;
+  */zsh)
+    SETUP_SCRIPT_PATH=$(readlink -f "${(%):-%N}")
+    ;;
+  *)
+    echo "Unsupported shell: $SHELL"
+    exit 1
+    ;;
+esac
+
+BOLTPROMPT_PATH=$(dirname "$(dirname "$SETUP_SCRIPT_PATH")")
+
+export PATH=$BOLTPROMPT_PATH:$PATH
 
 add_to_history() {
   case "$SHELL" in
