@@ -32,7 +32,7 @@ If you are using Apple's Terminal.app, you can set it up with a font which works
 boltprompt setup-terminal
 ```
 
-Optional, to try to generate auto complete info for unknown commands using AI:
+Optional, to get suggestions from human language requests using "@", and to try to generate auto complete info for unknown commands using AI:
 
 ```
 export OPENAI_API_KEY=[your API key here]
