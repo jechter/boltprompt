@@ -1,4 +1,4 @@
-# boltprompt
+# ⚡️boltprompt
 
 ## tl;dr
 
