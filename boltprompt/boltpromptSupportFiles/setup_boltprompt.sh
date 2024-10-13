@@ -1,9 +1,9 @@
 #!/usr/bin/env $SHELL   
 
-trap signal_handler SIGINT SIGTERM
+trap signal_handler SIGINT
 
 signal_handler() {
-    run
+    trap - SIGINT    
 }
 
 case "$SHELL" in
@@ -45,6 +45,7 @@ generate_command() {
       return 1 
     else    
       CUSTOM_PROMPT=$(cat /tmp/custom-command)
+      trap signal_handler SIGINT
       eval $CUSTOM_PROMPT
       add_to_history $CUSTOM_PROMPT
       return 0
