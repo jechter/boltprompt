@@ -9,7 +9,14 @@ public static class Prompt
     private static int _scrollOffset;
     private static int _commandLength;
     private static int _commandLineCursorPosition;
-    public static void SetCursorPosition(int commandLineCursorPosition)
+
+    public static int CursorPosition
+    {
+        get => _commandLineCursorPosition;
+        set => SetCursorPosition(value);
+    }
+
+    private static void SetCursorPosition(int commandLineCursorPosition)
     {
         var pos = BufferedConsole.GetCursorPosition();
         _commandLineCursorPosition = commandLineCursorPosition;
@@ -18,7 +25,7 @@ public static class Prompt
         BufferedConsole.Flush();
     }
 
-    static string CurrentDirectoryNameForPrompt(NPath path) => path == NPath.HomeDirectory ? "~" : path.FileName;
+    private static string CurrentDirectoryNameForPrompt(NPath path) => path == NPath.HomeDirectory ? "~" : path.FileName;
     
     public static void RenderPrompt(string? commandline = null, string? selectedSuggestion = null)
     {
@@ -28,8 +35,8 @@ public static class Prompt
         BufferedConsole.ForegroundColor = BufferedConsole.ConsoleColor.White;
         BufferedConsole.SetCursorPosition(0, pos.Top);
         var debug = Assembly.GetEntryAssembly()?.Location.ToNPath().Parent.Parent.FileName == "Debug";
-        var promptchar = debug ? "🪲" : "⚡️";
-        var promptText = $"{CurrentDirectoryNameForPrompt(NPath.CurrentDirectory)}{promptchar}";
+        var promptChar = debug ? "🪲" : "⚡️";
+        var promptText = $"{CurrentDirectoryNameForPrompt(NPath.CurrentDirectory)}{promptChar}";
         BufferedConsole.Write(promptText);
         BufferedConsole.ResetColor();
         BufferedConsole.ForegroundColor = BufferedConsole.ConsoleColor.Black;
@@ -37,11 +44,21 @@ public static class Prompt
         BufferedConsole.ResetColor();
         _promptLength = promptText.Length + 2;
         if (commandline == null) return;
-        var commandLineLastWord = Suggestor.SplitCommandIntoWords(commandline).LastOrDefault("");
         var selectedSuggestionSuffix = "";
         
-        if (selectedSuggestion != null && commandLineLastWord.Length < selectedSuggestion.Length)
-            selectedSuggestionSuffix = selectedSuggestion[commandLineLastWord.Length..];
+        var parts = Suggestor.ParseCommandLine(commandline).ToArray();
+        var partsIndexUpToCursor = PartsIndexUpToCursor(parts);
+
+        var selectedWord = parts.Length > 0 ? parts[partsIndexUpToCursor - 1] : null;
+        if (selectedSuggestion != null)
+        {
+            if (selectedWord == null)
+                selectedSuggestionSuffix = selectedSuggestion;
+            else
+                selectedSuggestionSuffix = selectedWord.Type == Suggestor.CommandLinePart.PartType.Whitespace
+                    ? selectedSuggestion
+                    : selectedSuggestion[selectedWord.Text.Length..];
+        }
 
         _commandLength = commandline.Length + selectedSuggestionSuffix.Length;
         
@@ -53,8 +70,48 @@ public static class Prompt
             BufferedConsole.Write("⋯");
             charactersToSkip++;
         }
+  
+        charactersToSkip = PrintCommandLineParts(parts[..partsIndexUpToCursor], charactersToSkip);
 
-        var parts = Suggestor.ParseCommandLine(commandline);
+        BufferedConsole.ForegroundColor = BufferedConsole.ConsoleColor.Gray15;
+        if (charactersToSkip < selectedSuggestionSuffix.Length)
+            BufferedConsole.Write(selectedSuggestionSuffix[charactersToSkip..]);
+        BufferedConsole.ForegroundColor = BufferedConsole.ConsoleColor.Black;
+
+        charactersToSkip -= selectedSuggestionSuffix.Length;
+        if (charactersToSkip < 0)
+            charactersToSkip = 0;
+        
+        PrintCommandLineParts(parts[partsIndexUpToCursor..], charactersToSkip);
+
+        if (remainingSpace + _scrollOffset < 0)
+        {
+            BufferedConsole.SetCursorPosition(Console.WindowWidth - 1, pos.Top);
+            BufferedConsole.Write("⋯");
+        }
+        else
+            BufferedConsole.ClearEndOfLine();
+        BufferedConsole.ResetColor();
+        SetCursorPosition(_commandLineCursorPosition);
+    }
+
+    public static int PartsIndexUpToCursor(Suggestor.CommandLinePart[] parts)
+    {
+        var partsIndexUpToCursor = 0;
+        var commandLineLengthUpToCursorPart = 0;
+        foreach (var part in parts)
+        {
+            commandLineLengthUpToCursorPart += part.Text.Length;
+            partsIndexUpToCursor++;
+            if (commandLineLengthUpToCursorPart >= _commandLineCursorPosition)
+                break;
+        }
+
+        return partsIndexUpToCursor;
+    }
+
+    private static int PrintCommandLineParts(Suggestor.CommandLinePart[] parts, int charactersToSkip)
+    {
         foreach (var part in parts)
         {
             BufferedConsole.Bold = part.Type switch
@@ -74,25 +131,12 @@ public static class Prompt
             };
             if (charactersToSkip < part.Text.Length)
                 BufferedConsole.Write(part.Text[charactersToSkip..]);
+
             charactersToSkip -= part.Text.Length;
             if (charactersToSkip < 0)
                 charactersToSkip = 0;
         }
-        
-        BufferedConsole.ForegroundColor = BufferedConsole.ConsoleColor.Gray15;
-        BufferedConsole.Write(selectedSuggestionSuffix[charactersToSkip..]);
 
-        if (remainingSpace + _scrollOffset < 0)
-        {
-            BufferedConsole.SetCursorPosition(Console.WindowWidth - 1, pos.Top);
-            BufferedConsole.Write("⋯");
-        }
-
-
-        BufferedConsole.ResetColor();
-
-        //SuggestionConsoleViewer.ClearLineFromCursor();
-        BufferedConsole.ClearEndOfLine();
-        SetCursorPosition(_commandLineCursorPosition);
+        return charactersToSkip;
     }
 }
