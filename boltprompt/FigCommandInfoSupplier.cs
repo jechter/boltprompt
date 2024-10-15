@@ -264,7 +264,7 @@ internal class FigCommandInfoSupplier : ICommandInfoSupplier
             {new CommandInfo.Argument(figArg.name.FirstOrDefault(GetArgumentType(figArg).ToString())) {
                 Type = GetArgumentType(figArg),
                 Description = figArg.name.FirstOrDefault(""),
-                Extensions = figArg.generators?[0].extensions,
+                Extensions = figArg.generators?[0].extensions ?? null,
                 CustomArgumentTemplate = GetCustomCommandTemplateForGenerator(figArg)
             }}
             .Concat(figArg.suggestions?.Select(s => new CommandInfo.Argument(s.name.FirstOrDefault("")) { Description = s.description ?? figArg.name.FirstOrDefault() ?? ""}) ?? [])
