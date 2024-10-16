@@ -14,6 +14,8 @@ static class AISuggestor
 
     private static Task<string>? _directoryListing;
     
+    const string LogFile = "AISuggestor";
+    
     static async Task<string> GetDirectoryListing()
     {
         var result = await Cli.Wrap("ls").WithArguments("-al").ExecuteBufferedAsync();
@@ -40,13 +42,21 @@ static class AISuggestor
         [DescriptionForLanguageModel("function to invoke with proposed suggestions")]
         public bool ProvideSuggestions([DescriptionForLanguageModel("the proposed command line")]string suggestion, [DescriptionForLanguageModel("a one-line summary of how the command works")]string description)
         {
-            Logger.Log("AISuggestor",$"Received AI Suggestion: {suggestion}");
-            Cache.TryGetValue(_request, out var cacheEntry);
-            cacheEntry.suggestions = cacheEntry.suggestions.Append(new(suggestion) { Description = description, Icon = "🤖"}).ToArray();
-            Cache[_request] = cacheEntry;
-            AIDescriptionLoaded.Invoke();
+            Logger.Log(LogFile,$"Received AI Suggestion: {suggestion}");
+            if (string.IsNullOrWhiteSpace(suggestion)) return true;
+            
+            var suggestionEntry = new Suggestion(suggestion) { Description = description, Icon = "🤖" };
+            AddSuggestionToCache(_request, suggestionEntry);
             return true;
         }
+    }
+    
+    private static void AddSuggestionToCache(string request, Suggestion suggestionEntry)
+    {
+        Cache.TryGetValue(request, out var cacheEntry);
+        cacheEntry.suggestions = cacheEntry.suggestions.Append(suggestionEntry).ToArray();
+        Cache[request] = cacheEntry;
+        AIDescriptionLoaded.Invoke();
     }
     
     private static async Task GetSuggestionsFromAI(CancellationToken cancellationToken, string request)
@@ -93,26 +103,37 @@ static class AISuggestor
                  Messages = [new ChatMessage("user", fullRequest)],
                  Functions = CSharpBackedFunctions.Create([suggestions])
             };
-            Logger.Log("AISuggestor",$"Sent AI Request for {request}");
+            Logger.Log(LogFile,$"Sent AI Request for {request}");
 
             var r = AIService.LanguageModel.Execute(chatRequest, cancellationToken);
-            await r.ReadCompleteMessagesAsync().ReadAll();
+            var messages = await r.ReadCompleteMessagesAsync().ReadAll();
+
+            foreach (var m in messages)
+            {
+                Logger.Log(LogFile,$"received message {m}");
+            }
 
         }
         catch (Exception e)
         {
-            Logger.Log("AISuggestor", $"Caught: {e}");
+            Cache.TryGetValue(request, out var cacheEntry);
+            AddSuggestionToCache(request, FailureSuggestion);
+            Logger.Log(LogFile, $"Caught exception: {e}");
             throw;
         }
     }
 
     private static readonly Suggestion PendingSuggestion = new("") { Icon = "🤖", Description = "suggestions pending" };
 
+    private static readonly Suggestion UnavailableSuggestion = new("") { Icon = "❌", Description = "AI suggestions unavailable. Did you set up the 'OPENAI_API_KEY' environment variable?" };
+
+    private static readonly Suggestion FailureSuggestion = new("") { Icon = "❌", Description = $"AI suggestions failed. See '{Logger.GetLogPath(LogFile)}' for details." };
+
     private static CancellationTokenSource? _cancellationTokenSource;
     public static Suggestion[] Suggest(string request)
     {
         if (!AIService.Available) 
-            return [];
+            return [UnavailableSuggestion];
           
         if (request.Trim().Length == 0)
             return [];

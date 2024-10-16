@@ -3,7 +3,7 @@ using NiceIO;
 
 namespace boltprompt;
 
-public static class Logger
+internal static class Logger
 {
     public const string Gpt = "GPT";
 
@@ -17,13 +17,18 @@ public static class Logger
         LogFiles[path] = stream;
         return stream;
     }
-    
-    public static void Log(string file, string message)
+
+    public static NPath GetLogPath(string file)
     {
         var logDir = Paths.LogDir;
         logDir.CreateDirectory();
         var path = logDir.Combine(file);
-        var stream = GetFileStream(path);
+        return path;
+    }
+    
+    public static void Log(string file, string message)
+    {
+        var stream = GetFileStream(GetLogPath(file));
         stream.Write(Encoding.UTF8.GetBytes(message + "\n"));
         stream.Flush();
     }
