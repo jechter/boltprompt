@@ -63,10 +63,10 @@ internal static class Prompt
         return result;
     }
     
-    public static string GetPromptPrefix(string scheme)
+    public static string GetPromptPrefix(string scheme, string? commandLine = null)
     {
         var debug = Assembly.GetEntryAssembly()?.Location.ToNPath().Parent.Parent.FileName == "Debug";
-        var promptChar = Environment.UserName == "root"? "\u2622\ufe0f" : debug ? "🪲" : "⚡️";
+        var promptChar = commandLine?.StartsWith('@') ?? false ? "🤖" : Environment.UserName == "root"? "\u2622\ufe0f " : debug ? "🪲" : "⚡️";
         return scheme
             .Replace("{timestamp}", DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss"))
             .Replace("{host_name}", Environment.MachineName)
@@ -118,7 +118,7 @@ internal static class Prompt
         BufferedConsole.Update();
         var pos = BufferedConsole.GetCursorPosition();
         BufferedConsole.SetCursorPosition(0, pos.Top);
-        var promptText = GetPromptPrefix(Configuration.Instance.PromptPrefix);
+        var promptText = GetPromptPrefix(Configuration.Instance.PromptPrefix, commandline);
         _promptLength = MeasureConsoleStringWidth(promptText);
         BufferedConsole.Write(promptText);
         

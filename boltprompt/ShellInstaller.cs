@@ -64,15 +64,23 @@ public static class ShellInstaller
     public static void SetupTerminal()
     {
         var terminal = Environment.GetEnvironmentVariable("TERM_PROGRAM");
-        if (terminal != "Apple_Terminal")
-            throw new NotSupportedException($"boltprompt only knows how to configure fonts for Apple's Terminal.app. You are using {terminal}, which we don't know how to set up.");
+        if (terminal != "Apple_Terminal" && terminal != "iTerm.app")
+            throw new NotSupportedException($"boltprompt only knows how to configure fonts for Terminal.app or iTerm.app. You are using {terminal}, which we don't know how to set up.");
         Cli.Wrap("bash")
             .WithArguments(Paths.boltpromptSupportFilesDir.Combine("setup-terminal.sh").ToString())
             .WithWorkingDirectory(Paths.boltpromptSupportFilesDir.ToString())
             .ExecuteBufferedAsync()
             .GetAwaiter()
             .GetResult();
-        Console.WriteLine("Terminal.app has been set up for boltprompt.");
+        switch (terminal)
+        {
+            case "Apple_Terminal":
+                Console.WriteLine("Terminal.app has been set up for boltprompt.");
+                break;
+            case "iTerm.app":
+                Console.WriteLine("iTerm2 has been set up for boltprompt. Please restart iTerm2 for the changes to take effect.");
+                break;
+        }
     }
 
     static void DoUninstallFromCurrentShell(InstallScope installScope)
