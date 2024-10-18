@@ -43,9 +43,10 @@ public static partial class Suggestor
     }
     
     private static Suggestion[] _executablesInPathEnvironment = [];
-    private static readonly char[] _shellOperators = ['>', '<', '|', '&', ';']; 
-    
+    private static readonly char[] ShellOperators = ['>', '<', '|', '&', ';']; 
     public static Suggestion[] ExecutablesInPathEnvironment => _executablesInPathEnvironment;
+    private static readonly Dictionary<string, string> UserDirCache = new();
+
     static Suggestion? GetExecutableCommandInfo(string command) =>
         _executablesInPathEnvironment.FirstOrDefault(exe => exe.Text.Trim() == Path.GetFileName(command));
 
@@ -74,11 +75,11 @@ public static partial class Suggestor
             LoadEligibleArguments();
         }
 
-        public CommandInfo CommandInfo;
-        public CommandInfo.ArgumentGroup[] Groups;
-        public List<(CommandInfo.Argument argument, int groupIndex)> EligibleArguments = new();
-        public int MinGroupIndex = 0;
-        public int MaxGroupIndex = 0;
+        public readonly CommandInfo CommandInfo;
+        public readonly CommandInfo.ArgumentGroup[] Groups;
+        public List<(CommandInfo.Argument argument, int groupIndex)> EligibleArguments = [];
+        public int MinGroupIndex;
+        public int MaxGroupIndex;
 
         public void LoadEligibleArguments(int startIndex = 0)
         {
@@ -111,8 +112,8 @@ public static partial class Suggestor
         foreach (var deepArg in GetEligibleArgumentsForState(parsingState, depth + 1))
             yield return deepArg;
     }
-    
-    static CommandInfo.Argument? ParseArgument(string arg, List<ArgumentParsingState> parsingState)
+
+    private static CommandInfo.Argument? ParseArgument(string arg, List<ArgumentParsingState> parsingState)
     {
         foreach (var (argument, groupIndex, depth) in GetEligibleArgumentsForState(parsingState))
         {
@@ -166,7 +167,7 @@ public static partial class Suggestor
             
             if (pos == commandline.Length) break;
             
-            if (_shellOperators.Contains(commandline[pos]))
+            if (ShellOperators.Contains(commandline[pos]))
             {
                 yield return new (commandline[pos].ToString()) { Type = CommandLinePart.PartType.Operator };
                 lastPartType = CommandLinePart.PartType.Operator;
@@ -185,7 +186,7 @@ public static partial class Suggestor
                     nextPos++;
             }
             else
-                while (nextPos < commandline.Length && !IsWhiteSpace(nextPos) && !_shellOperators.Contains(commandline[nextPos])) nextPos++;
+                while (nextPos < commandline.Length && !IsWhiteSpace(nextPos) && !ShellOperators.Contains(commandline[nextPos])) nextPos++;
 
             if (nextPos != pos)
             {
@@ -373,7 +374,7 @@ public static partial class Suggestor
                 .ToArray();
         }
 
-        var commandLineCommands = commandline.Split(_shellOperators);
+        var commandLineCommands = commandline.Split(ShellOperators);
         var currentCommand = commandLineCommands.Last().TrimStart();
         var commandLineArguments = SplitCommandIntoWords(currentCommand);
         var command = commandLineArguments.FirstOrDefault("");
@@ -400,9 +401,7 @@ public static partial class Suggestor
         }
     }
 
-    static string EscapeFileName(string fileName) => fileName.Replace(@"\", @"\\").Replace(" ", @"\ ");
-
-    private static Dictionary<string, string> userDirCache = new();
+    private static string EscapeFileName(string fileName) => fileName.Replace(@"\", @"\\").Replace(" ", @"\ ");
     
     public static string UnescapeFileName(string fileName)
     {
@@ -416,11 +415,11 @@ public static partial class Suggestor
        else
        {
            var userNameEscape = unescaped[..slashIndex];
-           if (!userDirCache.TryGetValue(userNameEscape, out var userDir))
+           if (!UserDirCache.TryGetValue(userNameEscape, out var userDir))
            {
                var result = Cli.Wrap("sh").WithArguments($"-c \"echo {userNameEscape}\"").ExecuteBufferedAsync().GetAwaiter().GetResult();
                userDir = result.StandardOutput.Trim('\n', ' ');
-               userDirCache[userNameEscape] = userDir;
+               UserDirCache[userNameEscape] = userDir;
            }
            unescaped = unescaped.Replace(userNameEscape, userDir);
        }

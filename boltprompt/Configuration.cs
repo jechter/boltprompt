@@ -10,7 +10,10 @@ internal class Configuration
     public string SelectedSuggestionBackgroundColor { get; set; } = "30c0ff";
     public string SuggestionTextColor { get; set; } = "303030";
     public string AutocompleteTextColor { get; set; } = "a0a0a0";
-    public string PromptPrefix { get; set; } = "\u001b[48;5;0m\u001b[38;5;7m{working_directory_name}{prompt_symbol}\u001b[0m\u001b[38;5;0m\uE0B0\u001b[0m ";
+    public string PromptPrefix { get; set; } = Prompt.ComposePromptPrefixString([
+        (BufferedConsole.ConsoleColor.Black, BufferedConsole.ConsoleColor.Gray20, "{user_name}"),
+        (BufferedConsole.ConsoleColor.Gray6, BufferedConsole.ConsoleColor.Gray20, "{working_directory_short_path}{prompt_symbol}")
+    ]);
     public string? OpenAiApiKey { get; set; } = null;
     
     private static Configuration Load()
@@ -63,19 +66,62 @@ internal class Configuration
             throw new InvalidDataException($"Invalid config property name: {propertyName}");
         if (prop.Name == nameof(PromptPrefix))
         {
-            Console.WriteLine("\"\u001b[48;5;0m\u001b[38;5;7m{working_directory_name}{prompt_symbol}\u001b[0m\u001b[38;5;0m\uE0B0\u001b[0m \": ");
-            Console.WriteLine("\"\u001b[48;5;0m\u001b[38;5;7m{working_directory_short_path}{prompt_symbol}\u001b[0m\u001b[38;5;0m\uE0B0\u001b[0m \": ");
-            Console.WriteLine("\"\u001b[48;5;0m\u001b[38;5;7m{working_directory_path}{prompt_symbol}\u001b[0m\u001b[38;5;0m\uE0B0\u001b[0m \": ");
-            Console.WriteLine("\"\u001b[48;5;0m\u001b[38;5;7m{user_name}\u001b[38;5;0m\u001b[48;5;240m\uE0B0\u001b[38;5;7m {working_directory_name}{prompt_symbol}\u001b[0m\u001b[38;5;240m\uE0B0\u001b[0m \": ");
-            Console.WriteLine("\"\u001b[48;5;0m\u001b[38;5;7m{user_name}\u001b[38;5;0m\u001b[48;5;240m\uE0B0\u001b[38;5;7m {working_directory_short_path}{prompt_symbol}\u001b[0m\u001b[38;5;240m\uE0B0\u001b[0m \": ");
-            Console.WriteLine("\"\u001b[48;5;0m\u001b[38;5;7m{user_name}\u001b[38;5;0m\u001b[48;5;240m\uE0B0\u001b[38;5;7m {working_directory_path}{prompt_symbol}\u001b[0m\u001b[38;5;240m\uE0B0\u001b[0m \": ");
-            Console.WriteLine("\"\u001b[48;5;0m\u001b[38;5;7m{host_name}\u001b[38;5;0m\u001b[48;5;240m\uE0B0\u001b[38;5;7m {user_name}\u001b[48;5;245m\u001b[38;5;240m\uE0B0\u001b[38;5;7m {working_directory_name}{prompt_symbol}\u001b[0m\u001b[38;5;245m\uE0B0\u001b[0m \": ");
-            Console.WriteLine("\"\u001b[48;5;0m\u001b[38;5;7m{host_name}\u001b[38;5;0m\u001b[48;5;240m\uE0B0\u001b[38;5;7m {user_name}\u001b[48;5;245m\u001b[38;5;240m\uE0B0\u001b[38;5;7m {working_directory_short_path}{prompt_symbol}\u001b[0m\u001b[38;5;245m\uE0B0\u001b[0m \": ");
-            Console.WriteLine("\"\u001b[48;5;0m\u001b[38;5;7m{host_name}\u001b[38;5;0m\u001b[48;5;240m\uE0B0\u001b[38;5;7m {user_name}\u001b[48;5;245m\u001b[38;5;240m\uE0B0\u001b[38;5;7m {working_directory_path}{prompt_symbol}\u001b[0m\u001b[38;5;245m\uE0B0\u001b[0m \": ");
+            void PrintPromptPrefix(
+                (BufferedConsole.ConsoleColor bg, BufferedConsole.ConsoleColor fg, string label)[] parts)
+            {
+                var prefix = Prompt.ComposePromptPrefixString(parts);
+                Console.WriteLine($"\"{prefix}\"::{Prompt.GetPromptPrefix(prefix)}");
+            }
+
+            PrintPromptPrefix([
+                (BufferedConsole.ConsoleColor.Black, BufferedConsole.ConsoleColor.Gray20, "{working_directory_name}{prompt_symbol}")
+            ]);
+            PrintPromptPrefix([
+                (BufferedConsole.ConsoleColor.Black, BufferedConsole.ConsoleColor.Gray20, "{working_directory_short_path}{prompt_symbol}")
+            ]);
+            PrintPromptPrefix([
+                (BufferedConsole.ConsoleColor.Black, BufferedConsole.ConsoleColor.Gray20, "{working_directory_path}{prompt_symbol}")
+            ]);
+
+            
+            PrintPromptPrefix([
+                (BufferedConsole.ConsoleColor.Black, BufferedConsole.ConsoleColor.Gray20, "{user_name}"),
+                (BufferedConsole.ConsoleColor.Gray6, BufferedConsole.ConsoleColor.Gray20, "{working_directory_name}{prompt_symbol}")
+            ]);
+            PrintPromptPrefix([
+                (BufferedConsole.ConsoleColor.Black, BufferedConsole.ConsoleColor.Gray20, "{user_name}"),
+                (BufferedConsole.ConsoleColor.Gray6, BufferedConsole.ConsoleColor.Gray20, "{working_directory_short_path}{prompt_symbol}")
+            ]);
+            PrintPromptPrefix([
+                (BufferedConsole.ConsoleColor.Black, BufferedConsole.ConsoleColor.Gray20, "{user_name}"),
+                (BufferedConsole.ConsoleColor.Gray6, BufferedConsole.ConsoleColor.Gray20, "{working_directory_path}{prompt_symbol}")
+            ]);
+            
+            PrintPromptPrefix([
+                (BufferedConsole.ConsoleColor.Black, BufferedConsole.ConsoleColor.Gray20, "{host_name}"),
+                (BufferedConsole.ConsoleColor.Gray6, BufferedConsole.ConsoleColor.Gray20, "{user_name}"),
+                (BufferedConsole.ConsoleColor.Gray10, BufferedConsole.ConsoleColor.Gray20, "{working_directory_name}{prompt_symbol}")
+            ]);
+            PrintPromptPrefix([
+                (BufferedConsole.ConsoleColor.Black, BufferedConsole.ConsoleColor.Gray20, "{host_name}"),
+                (BufferedConsole.ConsoleColor.Gray6, BufferedConsole.ConsoleColor.Gray20, "{user_name}"),
+                (BufferedConsole.ConsoleColor.Gray10, BufferedConsole.ConsoleColor.Gray20, "{working_directory_short_path}{prompt_symbol}")
+            ]);
+            PrintPromptPrefix([
+                (BufferedConsole.ConsoleColor.Black, BufferedConsole.ConsoleColor.Gray20, "{host_name}"),
+                (BufferedConsole.ConsoleColor.Gray6, BufferedConsole.ConsoleColor.Gray20, "{user_name}"),
+                (BufferedConsole.ConsoleColor.Gray10, BufferedConsole.ConsoleColor.Gray20, "{working_directory_path}{prompt_symbol}")
+            ]);
+            
+            PrintPromptPrefix([
+                (BufferedConsole.ConsoleColor.Red, BufferedConsole.ConsoleColor.Gray20, "{timestamp}{prompt_symbol}")
+            ]);
+
         } 
         else if (prop.PropertyType == typeof(string) && prop.Name.EndsWith("Color"))
         {
-            void PrintColor(string html, string name) => Console.WriteLine($"{html}:\u001b[38;5;{(int)BufferedConsole.ColorForHtml(html)}m{name}");    
+            void PrintColor(string html, string name) 
+                => Console.WriteLine($"{html}::\u001b[38;5;{(int)BufferedConsole.ColorForHtml(html)}m{name}");    
 
             PrintColor("000000", "Black");	
             PrintColor("FFFFFF", "White");	

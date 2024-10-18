@@ -4,7 +4,7 @@ using Wcwidth;
 
 namespace boltprompt;
 
-public static class Prompt
+internal static class Prompt
 {
     private static int _promptLength;
     private static int _scrollOffset;
@@ -33,23 +33,41 @@ public static class Prompt
         Full
     }
 
-    static string CompactPath(NPath path) => $"{string.Join("", path.RecursiveParents.Reverse().Where(p => p.IsRoot || p.FileName.Length > 0).Select(p => p.IsRoot ? "/" : $"{p.FileName[0]}/"))}{path.FileName}";
+    static string NPathFileNameOrRoot(NPath path) => path.IsRoot ? "/" : path.FileName;
+    static string CompactPath(NPath path) => $"{string.Join("", path.RecursiveParents.Reverse().Where(p => p is { IsRoot: false, FileName.Length: > 0 }).Select(p => $"{p.FileName[0]}/"))}{NPathFileNameOrRoot(path)}";
 
     private static string CurrentDirectoryNameForPrompt(NPath path, PathStyle style) => path == NPath.HomeDirectory
         ? "~"
         : style switch
         {
-            PathStyle.DirectoryNameOnly => path.ToString(),
+            PathStyle.DirectoryNameOnly => NPathFileNameOrRoot(path),
             PathStyle.Compact => CompactPath(path.IsSameAsOrChildOf(NPath.HomeDirectory) ? $"~/{path.RelativeTo(NPath.HomeDirectory)}" : path),
             PathStyle.Full => path.ToString(),
             _ => throw new ArgumentOutOfRangeException(nameof(style), style, null)
         };
 
-    private static string GetPromptPrefix()
+    public static string ComposePromptPrefixString((BufferedConsole.ConsoleColor bg, BufferedConsole.ConsoleColor fg, string label)[] parts)
+    {
+        var result = "";
+        for (var i = 0; i < parts.Length; i++)
+        {
+            var part = parts[i];
+            result += $"\u001b[48;5;{(int)part.bg}m\u001b[38;5;{(int)part.fg}m{part.label}";
+            if (i < parts.Length - 1)
+                result += $"\u001b[48;5;{(int)parts[i + 1].bg}m";
+            else
+                result += "\u001b[0m";
+            result += $"\u001b[38;5;{(int)part.bg}m\uE0B0";
+        }
+        result += "\u001b[0m ";
+        return result;
+    }
+    
+    public static string GetPromptPrefix(string scheme)
     {
         var debug = Assembly.GetEntryAssembly()?.Location.ToNPath().Parent.Parent.FileName == "Debug";
         var promptChar = Environment.UserName == "root"? "\u2622\ufe0f" : debug ? "🪲" : "⚡️";
-        return Configuration.Instance.PromptPrefix
+        return scheme
             .Replace("{timestamp}", DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss"))
             .Replace("{host_name}", Environment.MachineName)
             .Replace("{user_name}", Environment.UserName)
@@ -100,7 +118,7 @@ public static class Prompt
         BufferedConsole.Update();
         var pos = BufferedConsole.GetCursorPosition();
         BufferedConsole.SetCursorPosition(0, pos.Top);
-        var promptText = GetPromptPrefix();
+        var promptText = GetPromptPrefix(Configuration.Instance.PromptPrefix);
         _promptLength = MeasureConsoleStringWidth(promptText);
         BufferedConsole.Write(promptText);
         
