@@ -11,4 +11,5 @@ internal static class Paths
     public static NPath GeneratedCommandsDir { get; } = boltpromptUserDir.Combine("Commands");
     public static NPath BuiltInCommandsDir { get; } = boltpromptSupportFilesDir.Combine("Commands");
     public static NPath History { get; } = boltpromptUserDir.Combine("history");
+    public static NPath Configuration { get; } = boltpromptUserDir.Combine("configuration");
 }

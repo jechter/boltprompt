@@ -125,7 +125,7 @@ static class AISuggestor
 
     private static readonly Suggestion PendingSuggestion = new("") { Icon = "🤖", Description = "suggestions pending" };
 
-    private static readonly Suggestion UnavailableSuggestion = new("") { Icon = "❌", Description = "AI suggestions unavailable. Did you set up the 'OPENAI_API_KEY' environment variable?" };
+    private static readonly Suggestion UnavailableSuggestion = new("") { Icon = "❌", Description = "AI suggestions unavailable. Set up your OpenAI key using 'boltprompt config set OpenAiApiKey'" };
 
     private static readonly Suggestion FailureSuggestion = new("") { Icon = "❌", Description = $"AI suggestions failed. See '{Logger.GetLogPath(LogFile)}' for details." };
 

@@ -10,7 +10,18 @@ class AIService
     public static bool Available => Instance.IsAvailable();
     public static ILanguageModel LanguageModel => Instance._serviceProvider.GetRequiredService<ILanguageModel>();
 
-    private IConfiguration Configuration { get; } = new ConfigurationBuilder().AddUserSecrets<AIService>().AddEnvironmentVariables().Build();
+    private static IEnumerable<KeyValuePair<string, string?>> GetBoltpromptConfiguration()
+    {
+        var apiKey = boltprompt.Configuration.Instance.OpenAiApiKey;
+        if (apiKey != null)
+            yield return new ("OPENAI_API_KEY", apiKey);
+    }
+    
+    private IConfiguration Configuration { get; } = new ConfigurationBuilder()
+        .AddUserSecrets<AIService>()
+        .AddEnvironmentVariables()
+        .AddInMemoryCollection(GetBoltpromptConfiguration())
+        .Build();
 
     private AIService()
     {

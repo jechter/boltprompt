@@ -113,7 +113,7 @@ public record CommandInfo
     {
         Arguments = 
         [new ([
-            new ("") {Type = ArgumentType.FileSystemEntry}
+            new ("") {Type = ArgumentType.FileSystemEntry, Repeat = true }
         ])]
     };
 

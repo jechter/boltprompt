@@ -36,17 +36,27 @@ static class CustomArguments
         => ci.CustomArgumentTemplates?.Single(t => t.Name == argument.CustomArgumentTemplate) 
         ?? throw new InvalidDataException($"No custom argument template matching {argument.CustomArgumentTemplate} was found");
     
-    public static Suggestion[] Get(CommandInfo.Argument argument, CommandInfo ci)
+    public static Suggestion[] Get(CommandInfo.Argument argument, CommandInfo ci, Suggestor.CommandLinePart[] parts)
     {
         var template = LookupTemplate(argument, ci);
         if (template.Command == null)
             return [];
         
-        if (CustomArgumentCache.TryGetValue(template.Command, out var argumentsTask))
+        var command = template.Command;
+
+        const string argParam = "{ARG[^";
+        while (command.Contains(argParam))
+        {
+            var index = command.IndexOf(argParam, StringComparison.Ordinal);
+            var endIndex = command.IndexOf("]}", index, StringComparison.Ordinal);
+            var numStr = command[(index + argParam.Length)..endIndex];
+            command = command.Replace($"{{ARG[^{numStr}]}}", parts.Where(p => p.Type == Suggestor.CommandLinePart.PartType.Argument).ToArray()[^int.Parse(numStr)].Text);
+        }
+        if (CustomArgumentCache.TryGetValue(command, out var argumentsTask))
             return argumentsTask.IsCompleted ? ParseOutput(argumentsTask.Result, argument, template) : [];
 
-        CustomArgumentCache[template.Command] = GetAsync(template.Command);
-        CustomArgumentCache[template.Command].ContinueWith(_ => CustomArgumentsLoaded.Invoke());
+        CustomArgumentCache[command] = GetAsync(command);
+        CustomArgumentCache[command].ContinueWith(_ => CustomArgumentsLoaded.Invoke());
         return [];
     }
 }

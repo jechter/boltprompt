@@ -35,7 +35,7 @@ boltprompt setup-terminal
 Optional, to get suggestions from human language requests using "@", and to try to generate auto complete info for unknown commands using AI:
 
 ```
-export OPENAI_API_KEY=[your API key here]
+boltprompt config set OpenAiApiKey [your API key here]
 ```
 
 If you want to get back to "normal":

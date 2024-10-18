@@ -136,29 +136,17 @@ public static partial class Suggestor
         return null;
     }
 
-    private static bool CanMatchArgument(string arg, CommandInfo.Argument argToMatch, CommandInfo ci)
+    private static bool CanMatchArgument(string arg, CommandInfo.Argument argToMatch, CommandInfo ci) => argToMatch.Type switch
     {
-        switch (argToMatch.Type)
-        {
-            case CommandInfo.ArgumentType.Keyword:
-                return argToMatch.AllNames.Any(a => a == arg);
-            case CommandInfo.ArgumentType.Flag:
-                return argToMatch.AllNames.Any(a => arg.StartsWith($"-{a}"));
-            case CommandInfo.ArgumentType.File:
-                return !(argToMatch.Extensions?.Length > 0) 
-                       || arg.ToNPath().HasExtension(argToMatch.Extensions);
-            case CommandInfo.ArgumentType.FileSystemEntry:
-            case CommandInfo.ArgumentType.Directory:
-            case CommandInfo.ArgumentType.Command:
-            case CommandInfo.ArgumentType.CommandName:
-            case CommandInfo.ArgumentType.String:
-                return true;
-            case CommandInfo.ArgumentType.CustomArgument:
-                return argToMatch.CustomArgumentTemplate != null && CustomArguments.Get(argToMatch, ci).Any(a => a.Text == arg);
-            default:
-                throw new ArgumentOutOfRangeException();
-        }
-    }
+        CommandInfo.ArgumentType.Keyword => argToMatch.AllNames.Any(a => a == arg),
+        CommandInfo.ArgumentType.Flag => argToMatch.AllNames.Any(a => arg.StartsWith($"-{a}")),
+        CommandInfo.ArgumentType.File => !(argToMatch.Extensions?.Length > 0) ||
+                                         arg.ToNPath().HasExtension(argToMatch.Extensions),
+        CommandInfo.ArgumentType.FileSystemEntry or CommandInfo.ArgumentType.Directory
+            or CommandInfo.ArgumentType.Command or CommandInfo.ArgumentType.CommandName
+            or CommandInfo.ArgumentType.String or CommandInfo.ArgumentType.CustomArgument => true,
+        _ => throw new ArgumentOutOfRangeException()
+    };
 
     public static IEnumerable<CommandLinePart> ParseCommandLine(string commandline, List<ArgumentParsingState>? parsingStateOut = null)
     {
@@ -549,7 +537,7 @@ public static partial class Suggestor
                         yield return new (lastParam) { Description = string.IsNullOrEmpty(arg.Description) ? arg.Name : arg.Description };
                     break;
                 case CommandInfo.ArgumentType.CustomArgument:
-                    foreach (var s in CustomArguments.Get(arg, parsingState.Last().CommandInfo))
+                    foreach (var s in CustomArguments.Get(arg, parsingState.Last().CommandInfo, parts))
                     {
                         if (s.Text.StartsWith(lastParam))
                         {

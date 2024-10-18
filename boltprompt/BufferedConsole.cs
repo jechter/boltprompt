@@ -1,10 +1,22 @@
+using System.Globalization;
 using System.Text;
+using System.Text.RegularExpressions;
 
 namespace boltprompt;
 
 // Writing to the Console is slow in some Terminals (e.g. iTerm2). Buffer writes, and do them in bulk.
-internal static class BufferedConsole
+internal static partial class BufferedConsole
 {
+    public static ConsoleColor ColorForHtml(string html)
+    {
+        var match = HtmlColorRegex().Match(html);
+        if (!match.Success) return ConsoleColor.Black;
+        var r = int.Parse(match.Groups[1].Value, NumberStyles.HexNumber)*5/255;
+        var g = int.Parse(match.Groups[2].Value, NumberStyles.HexNumber)*5/255;
+        var b = int.Parse(match.Groups[3].Value, NumberStyles.HexNumber)*5/255;
+        return (ConsoleColor)(16 + 36 * r + 6 * g + b);
+    }
+    
     public enum ConsoleColor
     {
         Black,
@@ -145,4 +157,7 @@ internal static class BufferedConsole
             throw new Exception(
                 $"Invalid cursor top position: {realpos.Top}, expected {_top}. Window size: {{_windowWidth}}x{{_windowHeight}}");
     }
+
+    [GeneratedRegex("([A-Fa-f0-9]{2})([A-Fa-f0-9]{2})([A-Fa-f0-9]{2})")]
+    private static partial Regex HtmlColorRegex();
 }

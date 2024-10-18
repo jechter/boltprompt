@@ -1,5 +1,6 @@
 using System.Reflection;
 using NiceIO;
+using Wcwidth;
 
 namespace boltprompt;
 
@@ -25,24 +26,84 @@ public static class Prompt
         BufferedConsole.Flush();
     }
 
-    private static string CurrentDirectoryNameForPrompt(NPath path) => path == NPath.HomeDirectory ? "~" : path.FileName;
+    enum PathStyle
+    {
+        DirectoryNameOnly,
+        Compact,
+        Full
+    }
+
+    static string CompactPath(NPath path) => $"{string.Join("", path.RecursiveParents.Reverse().Where(p => p.IsRoot || p.FileName.Length > 0).Select(p => p.IsRoot ? "/" : $"{p.FileName[0]}/"))}{path.FileName}";
+
+    private static string CurrentDirectoryNameForPrompt(NPath path, PathStyle style) => path == NPath.HomeDirectory
+        ? "~"
+        : style switch
+        {
+            PathStyle.DirectoryNameOnly => path.ToString(),
+            PathStyle.Compact => CompactPath(path.IsSameAsOrChildOf(NPath.HomeDirectory) ? $"~/{path.RelativeTo(NPath.HomeDirectory)}" : path),
+            PathStyle.Full => path.ToString(),
+            _ => throw new ArgumentOutOfRangeException(nameof(style), style, null)
+        };
+
+    private static string GetPromptPrefix()
+    {
+        var debug = Assembly.GetEntryAssembly()?.Location.ToNPath().Parent.Parent.FileName == "Debug";
+        var promptChar = Environment.UserName == "root"? "\u2622\ufe0f" : debug ? "🪲" : "⚡️";
+        return Configuration.Instance.PromptPrefix
+            .Replace("{timestamp}", DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss"))
+            .Replace("{host_name}", Environment.MachineName)
+            .Replace("{user_name}", Environment.UserName)
+            .Replace("{working_directory_name}", CurrentDirectoryNameForPrompt(NPath.CurrentDirectory, PathStyle.DirectoryNameOnly))
+            .Replace("{working_directory_short_path}", CurrentDirectoryNameForPrompt(NPath.CurrentDirectory, PathStyle.Compact))
+            .Replace("{working_directory_path}", CurrentDirectoryNameForPrompt(NPath.CurrentDirectory, PathStyle.Full))
+            .Replace("{prompt_symbol}", promptChar);
+    }
+
+    public static int MeasureConsoleStringWidth(string text, Action<char, int>? callback = null)
+    {
+        var width = 0;
+        var index = 0;
+        var isControlSequence = false;
+        while (index < text.Length)
+        {
+            var ch = text[index++];
+            callback?.Invoke(ch, width);
+            if (isControlSequence)
+            {
+                if (ch == 'm')
+                    isControlSequence = false;
+            }
+            else
+            {
+                if (ch == '\u001b')
+                    isControlSequence = true;
+                else
+                    width += UnicodeCalculator.GetWidth(ch);
+            }
+        }
+        return width;
+    }
+    
+    public static string SubstringWithMaxConsoleWidth(string text, int maxWidth)
+    {
+        var result = "";
+        MeasureConsoleStringWidth(text, (ch, width) =>
+        {
+            if (width <= maxWidth)
+                result += ch;
+        });
+        return result;
+    }
     
     public static void RenderPrompt(string? commandline = null, string? selectedSuggestion = null)
     {
         BufferedConsole.Update();
         var pos = BufferedConsole.GetCursorPosition();
-        BufferedConsole.BackgroundColor = BufferedConsole.ConsoleColor.Black;
-        BufferedConsole.ForegroundColor = BufferedConsole.ConsoleColor.White;
         BufferedConsole.SetCursorPosition(0, pos.Top);
-        var debug = Assembly.GetEntryAssembly()?.Location.ToNPath().Parent.Parent.FileName == "Debug";
-        var promptChar = debug ? "🪲" : "⚡️";
-        var promptText = $"{CurrentDirectoryNameForPrompt(NPath.CurrentDirectory)}{promptChar}";
+        var promptText = GetPromptPrefix();
+        _promptLength = MeasureConsoleStringWidth(promptText);
         BufferedConsole.Write(promptText);
-        BufferedConsole.ResetColor();
-        BufferedConsole.ForegroundColor = BufferedConsole.ConsoleColor.Black;
-        BufferedConsole.Write("\uE0B0 ");
-        BufferedConsole.ResetColor();
-        _promptLength = promptText.Length + 2;
+        
         if (commandline == null) return;
         var selectedSuggestionSuffix = "";
         
@@ -73,10 +134,10 @@ public static class Prompt
   
         charactersToSkip = PrintCommandLineParts(parts[..partsIndexUpToCursor], charactersToSkip);
 
-        BufferedConsole.ForegroundColor = BufferedConsole.ConsoleColor.Gray15;
+        BufferedConsole.ForegroundColor = BufferedConsole.ColorForHtml(Configuration.Instance.AutocompleteTextColor); 
         if (charactersToSkip < selectedSuggestionSuffix.Length)
             BufferedConsole.Write(selectedSuggestionSuffix[charactersToSkip..]);
-        BufferedConsole.ForegroundColor = BufferedConsole.ConsoleColor.Black;
+        BufferedConsole.ResetColor();
 
         charactersToSkip -= selectedSuggestionSuffix.Length;
         if (charactersToSkip < 0)
