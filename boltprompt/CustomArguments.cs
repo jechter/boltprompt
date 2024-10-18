@@ -36,7 +36,7 @@ static class CustomArguments
         => ci.CustomArgumentTemplates?.Single(t => t.Name == argument.CustomArgumentTemplate) 
         ?? throw new InvalidDataException($"No custom argument template matching {argument.CustomArgumentTemplate} was found");
     
-    public static Suggestion[] Get(CommandInfo.Argument argument, CommandInfo ci, Suggestor.CommandLinePart[] parts)
+    public static Suggestion[] Get(CommandInfo.Argument argument, CommandInfo ci, Suggestor.CommandLinePart[] parts, string lastParam)
     {
         var template = LookupTemplate(argument, ci);
         if (template.Command == null)
@@ -50,7 +50,11 @@ static class CustomArguments
             var index = command.IndexOf(argParam, StringComparison.Ordinal);
             var endIndex = command.IndexOf("]}", index, StringComparison.Ordinal);
             var numStr = command[(index + argParam.Length)..endIndex];
-            command = command.Replace($"{{ARG[^{numStr}]}}", parts.Where(p => p.Type == Suggestor.CommandLinePart.PartType.Argument).ToArray()[^int.Parse(numStr)].Text);
+            var num = int.Parse(numStr);
+            var param = num == 0
+                ? lastParam
+                : parts.Where(p => p.Type == Suggestor.CommandLinePart.PartType.Argument).ToArray()[^(string.IsNullOrEmpty(lastParam) ? num : num+1)].Text;
+            command = command.Replace($"{{ARG[^{numStr}]}}", param);
         }
         if (CustomArgumentCache.TryGetValue(command, out var argumentsTask))
             return argumentsTask.IsCompleted ? ParseOutput(argumentsTask.Result, argument, template) : [];

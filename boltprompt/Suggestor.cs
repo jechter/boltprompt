@@ -536,7 +536,7 @@ public static partial class Suggestor
                         yield return new (lastParam) { Description = string.IsNullOrEmpty(arg.Description) ? arg.Name : arg.Description };
                     break;
                 case CommandInfo.ArgumentType.CustomArgument:
-                    foreach (var s in CustomArguments.Get(arg, parsingState.Last().CommandInfo, parts))
+                    foreach (var s in CustomArguments.Get(arg, parsingState.Last().CommandInfo, parts, lastParam))
                     {
                         if (s.Text.StartsWith(lastParam))
                         {

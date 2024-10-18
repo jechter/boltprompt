@@ -46,7 +46,7 @@ internal static class Prompt
             _ => throw new ArgumentOutOfRangeException(nameof(style), style, null)
         };
 
-    public static string ComposePromptPrefixString((BufferedConsole.ConsoleColor bg, BufferedConsole.ConsoleColor fg, string label)[] parts)
+    public static string ComposePromptPrefixScheme((BufferedConsole.ConsoleColor bg, BufferedConsole.ConsoleColor fg, string label)[] parts)
     {
         var result = "";
         for (var i = 0; i < parts.Length; i++)

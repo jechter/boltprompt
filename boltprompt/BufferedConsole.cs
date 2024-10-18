@@ -7,14 +7,20 @@ namespace boltprompt;
 // Writing to the Console is slow in some Terminals (e.g. iTerm2). Buffer writes, and do them in bulk.
 internal static partial class BufferedConsole
 {
-    public static ConsoleColor ColorForHtml(string html)
+    public static (byte r, byte g, byte b) ParseHtmlColor(string html)
     {
         var match = HtmlColorRegex().Match(html);
-        if (!match.Success) return ConsoleColor.Black;
-        var r = int.Parse(match.Groups[1].Value, NumberStyles.HexNumber)*5/255;
-        var g = int.Parse(match.Groups[2].Value, NumberStyles.HexNumber)*5/255;
-        var b = int.Parse(match.Groups[3].Value, NumberStyles.HexNumber)*5/255;
-        return (ConsoleColor)(16 + 36 * r + 6 * g + b);
+        if (!match.Success) return (0,0,0);
+        return (
+            byte.Parse(match.Groups[1].Value, NumberStyles.HexNumber),
+            byte.Parse(match.Groups[2].Value, NumberStyles.HexNumber),
+            byte.Parse(match.Groups[3].Value, NumberStyles.HexNumber)
+            );
+    }
+    public static ConsoleColor ColorForHtml(string html)
+    {
+        var rgb = ParseHtmlColor(html);
+        return (ConsoleColor)(16 + 36*(rgb.r*5/255) + 6*(rgb.g*5/255) + rgb.b*5/255);
     }
     
     public enum ConsoleColor

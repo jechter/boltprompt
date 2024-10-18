@@ -43,16 +43,16 @@ setupTerminalCommand.SetHandler(scope =>
 }, scopeOption);
 
 var propertyOption = new Option<string?>(name: "--property");
-
-var configListCommand = new Command("list", "list all configuration properties") { propertyOption };
-configListCommand.SetHandler(property =>
+var prefixOption = new Option<string?>(name: "--prefix");
+var configListCommand = new Command("list", "list all configuration properties") { propertyOption, prefixOption };
+configListCommand.SetHandler((property, prefix) =>
 {
     if (property != null)
-        Configuration.ListPropertyValues(property);
+        Configuration.ListPropertyValues(property, prefix);
     else
         Configuration.ListProperties();
     Environment.Exit(0);
-}, propertyOption);
+}, propertyOption, prefixOption);
 
 var valueArgument = new Argument<string>("value");
 var propertyArgument = new Argument<string>("property");

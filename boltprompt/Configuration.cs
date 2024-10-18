@@ -1,3 +1,4 @@
+using System.Drawing;
 using System.Reflection;
 using System.Text.Json;
 
@@ -10,7 +11,7 @@ internal class Configuration
     public string SelectedSuggestionBackgroundColor { get; set; } = "30c0ff";
     public string SuggestionTextColor { get; set; } = "303030";
     public string AutocompleteTextColor { get; set; } = "a0a0a0";
-    public string PromptPrefix { get; set; } = Prompt.ComposePromptPrefixString([
+    public string PromptPrefix { get; set; } = Prompt.ComposePromptPrefixScheme([
         (BufferedConsole.ConsoleColor.Black, BufferedConsole.ConsoleColor.Gray20, "{user_name}"),
         (BufferedConsole.ConsoleColor.Gray6, BufferedConsole.ConsoleColor.Gray20, "{working_directory_short_path}{prompt_symbol}")
     ]);
@@ -59,7 +60,7 @@ internal class Configuration
 
     public static Configuration Instance { get; } = Load();
 
-    public static void ListPropertyValues(string propertyName)
+    public static void ListPropertyValues(string propertyName, string? prefix)
     {
         var prop = typeof(Configuration).GetProperty(propertyName);
         if (prop == null)
@@ -69,8 +70,8 @@ internal class Configuration
             void PrintPromptPrefix(
                 (BufferedConsole.ConsoleColor bg, BufferedConsole.ConsoleColor fg, string label)[] parts)
             {
-                var prefix = Prompt.ComposePromptPrefixString(parts);
-                Console.WriteLine($"\"{prefix}\"::{Prompt.GetPromptPrefix(prefix)}");
+                var promptPrefixScheme = Prompt.ComposePromptPrefixScheme(parts);
+                Console.WriteLine($"\"{prefix}\"::{Prompt.GetPromptPrefix(promptPrefixScheme)}");
             }
 
             PrintPromptPrefix([
@@ -120,29 +121,69 @@ internal class Configuration
         } 
         else if (prop.PropertyType == typeof(string) && prop.Name.EndsWith("Color"))
         {
-            void PrintColor(string html, string name) 
-                => Console.WriteLine($"{html}::\u001b[38;5;{(int)BufferedConsole.ColorForHtml(html)}m{name}");    
+            if (prefix != null)
+                Console.WriteLine(prefix);
+            void PrintColor(string html)
+            {
+                var prefixColor = html;
+                if (prefix != null)
+                    prefixColor = $"{prefix}{html[prefix.Length..]}";
+                Console.WriteLine($"{prefixColor}::\u001b[38;5;{(int)BufferedConsole.ColorForHtml(prefixColor)}m{GetClosestColorName(prefixColor)}");
+            }
 
-            PrintColor("000000", "Black");	
-            PrintColor("FFFFFF", "White");	
-            PrintColor("FF0000", "Red");	    
-            PrintColor("008000", "Green");	
-            PrintColor("0000FF", "Blue");	
-            PrintColor("FFFF00", "Yellow");	
-            PrintColor("00FFFF", "Cyan");	
-            PrintColor("FF00FF", "Magenta");	
-            PrintColor("808080", "Gray");	
-            PrintColor("C0C0C0", "Silver");	
-            PrintColor("800000", "Maroon");	
-            PrintColor("808000", "Olive");	
-            PrintColor("000080", "Navy");	
-            PrintColor("800080", "Purple");	
-            PrintColor("008080", "Teal");	
-            PrintColor("00FF00", "Lime");	
-            PrintColor("FFA500", "Orange");	
-            PrintColor("FFC0CB", "Pink");	
-            PrintColor("A52A2A", "Brown");	
-            PrintColor("FFD700", "Gold");
+            string GetClosestColorName(string htmlColor)
+            {
+                double GetColorDifference(Color c1, Color c2) => Math.Sqrt(
+                    Math.Pow(c1.R - c2.R, 2) +
+                    Math.Pow(c1.G - c2.G, 2) +
+                    Math.Pow(c1.B - c2.B, 2));
+        
+                var closestColorName = "";
+                var smallestDifference = double.MaxValue;
+
+                var rgb = BufferedConsole.ParseHtmlColor(htmlColor);
+                var color = Color.FromArgb(255, rgb.r, rgb.g, rgb.b);
+                foreach (KnownColor knownColor in Enum.GetValues(typeof(KnownColor)))
+                {
+                    var known = Color.FromKnownColor(knownColor);
+                    if (known.IsSystemColor) 
+                        continue;
+                    var difference = GetColorDifference(color, known);
+                    if (!(difference < smallestDifference)) continue;
+                    smallestDifference = difference;
+                    closestColorName = known.Name;
+                }
+
+                return closestColorName;
+            }
+
+            string[] colors =  
+            [
+                "000000",
+                "FFFFFF",
+                "FF0000",
+                "008000",
+                "0000FF",
+                "FFFF00",
+                "00FFFF",
+                "FF00FF",
+                "808080",
+                "C0C0C0",
+                "800000",
+                "808000",
+                "000080",
+                "800080",
+                "008080",
+                "00FF00",
+                "FFA500",
+                "FFC0CB",
+                "A52A2A",
+                "FFD700"
+            ];
+            if (prefix != null)
+                colors = colors.Select(c => $"{prefix}{c[prefix.Length..]}").Distinct().ToArray();
+            foreach (var c in colors) 
+                PrintColor(c);
         }
     }
 }
