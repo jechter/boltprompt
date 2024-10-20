@@ -40,7 +40,7 @@ internal class MainLoop
                 {
                     if (Console.WindowWidth < _screenWidth)
                     {
-                        BufferedConsole.ClearEndOfScreem();
+                        BufferedConsole.ClearEndOfScreen();
                         BufferedConsole.Flush();
                     }
                 }
@@ -194,14 +194,14 @@ internal class MainLoop
             _selection = _suggestions.Length > 0 ? 0 : -1;
         else if (_selection < -1)
             _selection = _suggestions.Length - 1;
-        Prompt.RenderPrompt(_commandLine, _selection > -1 && !_commandLine.StartsWith('@') ? _suggestions[_selection].Text : null);
+        var top = Prompt.RenderPrompt(_commandLine, _selection > -1 && !_commandLine.StartsWith('@') ? _suggestions[_selection].Text : null);
         if (_suggestions.Length > 0 && _selection != -1)
         {
             _didShowSuggestions = true;
-            SuggestionConsoleViewer.ShowSuggestions(_suggestions, _selection);
+            SuggestionConsoleViewer.ShowSuggestions(top, _suggestions, _selection);
         }
         else if (_didShowSuggestions)
-            SuggestionConsoleViewer.Clear();
+            SuggestionConsoleViewer.Clear(top);
         _needsRedraw = false;
     }
 
@@ -214,8 +214,8 @@ internal class MainLoop
 
     private void SetupRunCommand(string command = "")
     {
-        Prompt.RenderPrompt(_commandLine);
-        SuggestionConsoleViewer.Clear();
+        var top = Prompt.RenderPrompt(_commandLine);
+        SuggestionConsoleViewer.Clear(top);
         Console.WriteLine();
         File.WriteAllText("/tmp/custom-command", command);
         History.AddCommandToHistory(command, _aiPrompt);

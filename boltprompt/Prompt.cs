@@ -10,6 +10,7 @@ internal static class Prompt
     private static int _scrollOffset;
     private static int _commandLength;
     private static int _commandLineCursorPosition;
+    private static int _commandLineCursorRow = 0;
 
     public static int CursorPosition
     {
@@ -21,20 +22,24 @@ internal static class Prompt
     {
         var pos = BufferedConsole.GetCursorPosition();
         _commandLineCursorPosition = commandLineCursorPosition;
-        _scrollOffset = Math.Clamp(_scrollOffset, commandLineCursorPosition - Console.WindowWidth + _promptLength + 1, commandLineCursorPosition);
-        BufferedConsole.SetCursorPosition(_commandLineCursorPosition + _promptLength - _scrollOffset, pos.Top);
+        if (Configuration.Instance.ScrollLongCommandLine)
+            _scrollOffset = Math.Clamp(_scrollOffset, commandLineCursorPosition - Console.WindowWidth + _promptLength + 1, commandLineCursorPosition);
+        var cursorPosTotal = _commandLineCursorPosition + _promptLength - _scrollOffset;
+        var targetRow = cursorPosTotal / Console.WindowWidth;
+        BufferedConsole.SetCursorPosition(cursorPosTotal % Console.WindowWidth, pos.Top + (targetRow - _commandLineCursorRow));
+        _commandLineCursorRow = targetRow;
         BufferedConsole.Flush();
     }
 
-    enum PathStyle
+    private enum PathStyle
     {
         DirectoryNameOnly,
         Compact,
         Full
     }
 
-    static string NPathFileNameOrRoot(NPath path) => path.IsRoot ? "/" : path.FileName;
-    static string CompactPath(NPath path) => $"{string.Join("", path.RecursiveParents.Reverse().Where(p => p is { IsRoot: false, FileName.Length: > 0 }).Select(p => $"{p.FileName[0]}/"))}{NPathFileNameOrRoot(path)}";
+    private static string NPathFileNameOrRoot(NPath path) => path.IsRoot ? "/" : path.FileName;
+    private static string CompactPath(NPath path) => $"{string.Join("", path.RecursiveParents.Reverse().Where(p => p is { IsRoot: false, FileName.Length: > 0 }).Select(p => $"{p.FileName[0]}/"))}{NPathFileNameOrRoot(path)}";
 
     private static string CurrentDirectoryNameForPrompt(NPath path, PathStyle style) => path == NPath.HomeDirectory
         ? "~"
@@ -113,16 +118,18 @@ internal static class Prompt
         return result;
     }
     
-    public static void RenderPrompt(string? commandline = null, string? selectedSuggestion = null)
+    public static int RenderPrompt(string? commandline = null, string? selectedSuggestion = null)
     {
         BufferedConsole.Update();
         var pos = BufferedConsole.GetCursorPosition();
-        BufferedConsole.SetCursorPosition(0, pos.Top);
+        BufferedConsole.SetCursorPosition(0, pos.Top - _commandLineCursorRow);
+        BufferedConsole.ClearEndOfScreen();
         var promptText = GetPromptPrefix(Configuration.Instance.PromptPrefix, commandline);
         _promptLength = MeasureConsoleStringWidth(promptText);
         BufferedConsole.Write(promptText);
         
-        if (commandline == null) return;
+        if (commandline == null) 
+            return pos.Top + 1;
         var selectedSuggestionSuffix = "";
         
         var parts = Suggestor.ParseCommandLine(commandline).ToArray();
@@ -163,7 +170,7 @@ internal static class Prompt
         
         PrintCommandLineParts(parts[partsIndexUpToCursor..], charactersToSkip);
 
-        if (remainingSpace + _scrollOffset < 0)
+        if (Configuration.Instance.ScrollLongCommandLine && remainingSpace + _scrollOffset < 0)
         {
             BufferedConsole.SetCursorPosition(Console.WindowWidth - 1, pos.Top);
             BufferedConsole.Write("⋯");
@@ -171,7 +178,13 @@ internal static class Prompt
         else
             BufferedConsole.ClearEndOfLine();
         BufferedConsole.ResetColor();
+        BufferedConsole.SetCursorPosition(pos.Left, pos.Top);
         SetCursorPosition(_commandLineCursorPosition);
+        if (Configuration.Instance.ScrollLongCommandLine)
+            return pos.Top + 1;
+        var totalCommandLineAndPromptLength =
+            _promptLength + MeasureConsoleStringWidth(commandline) + selectedSuggestionSuffix.Length;
+        return pos.Top - _commandLineCursorRow + totalCommandLineAndPromptLength / Console.WindowWidth + 1;
     }
 
     public static int PartsIndexUpToCursor(Suggestor.CommandLinePart[] parts)

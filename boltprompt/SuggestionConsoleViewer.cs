@@ -2,11 +2,12 @@ namespace boltprompt;
 
 public static class SuggestionConsoleViewer
 {
-    public static void ShowSuggestions(Suggestion[] suggestions, int selection, bool useColor = true)
+    public static void ShowSuggestions(int top, Suggestion[] suggestions, int selection, bool useColor = true)
     {
         BufferedConsole.Update();
         var pos = BufferedConsole.GetCursorPosition();
-        var topLine = BufferedConsole.GetCursorPosition().Top + 1;
+        var topLine = top;
+        BufferedConsole.SetCursorPosition(0, topLine);
         var maxNumSuggestions = Configuration.Instance.NumSuggestions;
         if  (topLine + maxNumSuggestions > BufferedConsole.WindowHeight)
             for (var i=0; i<maxNumSuggestions; i++)
@@ -34,7 +35,7 @@ public static class SuggestionConsoleViewer
             {
                 if (suggestions[i].Icon != null)
                     BufferedConsole.Write($"{suggestions[i].Icon} ");
-                var labelSize = BufferedConsole.WindowWidth - (suggestions[i].Icon != null ? 5 : 3);
+                var labelSize = BufferedConsole.WindowWidth - (suggestions[i].Icon != null ? 5 : 3) - 2;
                 if (Prompt.MeasureConsoleStringWidth(suggestions[i].Text) > labelSize)
                 {
                     BufferedConsole.Write("⋯");
@@ -61,6 +62,13 @@ public static class SuggestionConsoleViewer
                 BufferedConsole.ResetColor();
             line++;
         }
+
+        if (line < BufferedConsole.WindowHeight)
+        {
+            BufferedConsole.SetCursorPosition(0, line);
+            BufferedConsole.ClearEndOfScreen();
+        }
+
         BufferedConsole.SetCursorPosition(pos.Left, pos.Top);
         BufferedConsole.Flush();
     }
@@ -73,8 +81,8 @@ public static class SuggestionConsoleViewer
         BufferedConsole.ForegroundColor = BufferedConsole.ColorForHtml(Configuration.Instance.SuggestionTextColor);
     }
 
-    public static void Clear()
+    public static void Clear(int top)
     {
-        ShowSuggestions([], -1, false);
+        ShowSuggestions(top, [], -1, false);
     }
 }

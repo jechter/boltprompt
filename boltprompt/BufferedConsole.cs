@@ -145,7 +145,7 @@ internal static partial class BufferedConsole
         ConsoleControl("0K");
     }
 
-    public static void ClearEndOfScreem()
+    public static void ClearEndOfScreen()
     {
         ConsoleControl("0J");
     }

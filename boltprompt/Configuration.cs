@@ -25,6 +25,8 @@ internal class Configuration
     [DescriptionForLanguageModel("Your OpenAI API key to use for AI-based suggestions.")]
     public string? OpenAiApiKey { get; set; } = null;
     
+    public bool ScrollLongCommandLine { get; set; } = false;
+    
     private static Configuration Load()
     {
         if (Paths.Configuration.FileExists())
