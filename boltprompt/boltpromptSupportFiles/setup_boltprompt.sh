@@ -11,6 +11,8 @@ case "$SHELL" in
     SETUP_SCRIPT_PATH=$(readlink -f "${BASH_SOURCE[0]}")
     ;;
   */zsh)
+    # we don't want to print errors from "eval" if wildcards don't match files
+    setopt +o nomatch
     SETUP_SCRIPT_PATH=$(readlink -f "${(%):-%N}")
     ;;
   *)
