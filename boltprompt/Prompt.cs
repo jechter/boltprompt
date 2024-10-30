@@ -141,7 +141,7 @@ internal static class Prompt
             if (selectedWord == null)
                 selectedSuggestionSuffix = selectedSuggestion;
             else
-                selectedSuggestionSuffix = selectedWord.Type == Suggestor.CommandLinePart.PartType.Whitespace
+                selectedSuggestionSuffix = selectedWord.Type is Suggestor.CommandLinePart.PartType.Whitespace or Suggestor.CommandLinePart.PartType.Operator
                     ? selectedSuggestion
                     : selectedSuggestion[selectedWord.Text.Length..];
         }
@@ -212,6 +212,7 @@ internal static class Prompt
                 Suggestor.CommandLinePart.PartType.Argument => false,
                 Suggestor.CommandLinePart.PartType.Operator => true,
                 Suggestor.CommandLinePart.PartType.Whitespace => false,
+                Suggestor.CommandLinePart.PartType.Variable => false,
                 _ => throw new ArgumentOutOfRangeException()
             };
             BufferedConsole.Underline = part.Argument?.Type switch
@@ -219,6 +220,7 @@ internal static class Prompt
                 CommandInfo.ArgumentType.Directory => true,
                 CommandInfo.ArgumentType.File => true,
                 CommandInfo.ArgumentType.FileSystemEntry => true,
+                CommandInfo.ArgumentType.Unknown => new NPath(part.Text).Exists(),
                 _ => false
             };
             if (charactersToSkip < part.Text.Length)

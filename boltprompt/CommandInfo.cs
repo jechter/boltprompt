@@ -56,6 +56,7 @@ public record CommandInfo
         CommandName,
         CustomArgument,
         String,
+        Unknown // Potentially a file system entry
     }
     
     public record ArgumentGroup([DescriptionForLanguageModel("Arguments belonging to this argument group")]Argument[] Arguments)
@@ -113,7 +114,7 @@ public record CommandInfo
     {
         Arguments = 
         [new ([
-            new ("") {Type = ArgumentType.FileSystemEntry, Repeat = true }
+            new ("") {Type = ArgumentType.Unknown, Repeat = true }
         ])]
     };
 

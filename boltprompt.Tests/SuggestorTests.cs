@@ -900,6 +900,15 @@ public class SuggestorTests
     }
 
     [Test]
+    public void CanSuggestPathNameForVariableAssignment()
+    {
+        var testDir = new NPath("localTestDir").MakeAbsolute().CreateDirectory();   
+        _pathsToCleanup.Add(testDir);
+        var suggestions = Suggestor.SuggestionsForPrompt("FOO=");
+        Assert.That(suggestions.Select(s => s.Text), Does.Contain("localTestDir/"));
+    }
+    
+    [Test]
     public void SplitIntoCommandWordsHandlesEscapedSpace()
     {
         var split = Suggestor.SplitCommandIntoWords("This is a command\\ line with\\ escaped\\ spaces");

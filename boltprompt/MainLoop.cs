@@ -163,7 +163,7 @@ internal class MainLoop
                 var parts = Suggestor.ParseCommandLine(_commandLine).ToArray();
                 var partsIndexUpToCursor = Prompt.PartsIndexUpToCursor(parts);
                 var newPart = new Suggestor.CommandLinePart(_suggestions[_selection].Text);
-                if (parts.Length == 0 || parts[partsIndexUpToCursor - 1].Type == Suggestor.CommandLinePart.PartType.Whitespace)
+                if (parts.Length == 0 || parts[partsIndexUpToCursor - 1].Type is Suggestor.CommandLinePart.PartType.Whitespace or Suggestor.CommandLinePart.PartType.Operator)
                     parts = parts[..partsIndexUpToCursor]
                         .Append(newPart)
                         .Concat(parts[partsIndexUpToCursor..])

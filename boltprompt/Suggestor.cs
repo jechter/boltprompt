@@ -33,6 +33,7 @@ public static partial class Suggestor
         public enum PartType
         {
             Command,
+            Variable,
             Argument,
             Operator,
             Whitespace,
@@ -145,7 +146,8 @@ public static partial class Suggestor
                                          arg.ToNPath().HasExtension(argToMatch.Extensions),
         CommandInfo.ArgumentType.FileSystemEntry or CommandInfo.ArgumentType.Directory
             or CommandInfo.ArgumentType.Command or CommandInfo.ArgumentType.CommandName
-            or CommandInfo.ArgumentType.String or CommandInfo.ArgumentType.CustomArgument => true,
+            or CommandInfo.ArgumentType.String or CommandInfo.ArgumentType.CustomArgument 
+            or CommandInfo.ArgumentType.Unknown => true,
         _ => throw new ArgumentOutOfRangeException()
     };
 
@@ -198,30 +200,51 @@ public static partial class Suggestor
                         CommandLinePart.PartType.Argument => CommandLinePart.PartType.Argument,
                         CommandLinePart.PartType.Operator => CommandLinePart.PartType.Command,
                         CommandLinePart.PartType.Whitespace => CommandLinePart.PartType.Command,
+                        CommandLinePart.PartType.Variable => CommandLinePart.PartType.Command,
                         _ => throw new ArgumentOutOfRangeException()
                     }
                 };
 
                 // Variable assignment
                 if (part.Type == CommandLinePart.PartType.Command && part.Text.Contains('='))
-                    part.Type = CommandLinePart.PartType.Operator;
-                
-                lastPartType = part.Type;
-                switch (part.Type)
                 {
-                    case CommandLinePart.PartType.Command:
-                        LoadCommandPart(part);
-                        break;
-                    case CommandLinePart.PartType.Argument:
+                    var equalsPos = commandline.IndexOf('=');
+                    var variableName = part.Text[..equalsPos];
+                    yield return new (variableName) { Type = CommandLinePart.PartType.Variable };
+                    yield return new ("=") { Type = CommandLinePart.PartType.Operator };
+                    part = new (part.Text[(equalsPos + 1)..])
                     {
-                        var parsedArgument = ParseArgument(part.Text, parsingState);
-                        if (parsedArgument != null)
+                        Type = CommandLinePart.PartType.Argument, 
+                        Argument = new ("value")
                         {
-                            part.Argument = parsedArgument;
-                            if (parsedArgument.Type == CommandInfo.ArgumentType.Command)
-                                LoadCommandPart(part);
+                            Type = CommandInfo.ArgumentType.Unknown,
+                            Description = $"New value for {variableName}" 
                         }
-                        break;
+                    };
+                    parsingState.Clear();
+                    parsingState.Add(new (CommandInfo.DefaultCommand, [new([part.Argument])]));
+                    lastPartType = CommandLinePart.PartType.Variable;
+                }
+                else
+                {
+                    lastPartType = part.Type;
+                    switch (part.Type)
+                    {
+                        case CommandLinePart.PartType.Command:
+                            LoadCommandPart(part);
+                            break;
+                        case CommandLinePart.PartType.Argument:
+                        {
+                            var parsedArgument = ParseArgument(part.Text, parsingState);
+                            if (parsedArgument != null)
+                            {
+                                part.Argument = parsedArgument;
+                                if (parsedArgument.Type == CommandInfo.ArgumentType.Command)
+                                    LoadCommandPart(part);
+                            }
+
+                            break;
+                        }
                     }
                 }
 
@@ -374,16 +397,13 @@ public static partial class Suggestor
                 .ToArray();
         }
 
-        var commandLineCommands = commandline.Split(ShellOperators);
-        var currentCommand = commandLineCommands.Last().TrimStart();
-        var commandLineArguments = SplitCommandIntoWords(currentCommand);
-        var command = commandLineArguments.FirstOrDefault("");
-        var currentWord = commandLineArguments.LastOrDefault();
-        var suggestions = commandLineArguments.Length <= 1
-            ? SuggestCommand(command)
-            : SuggestParameters(currentCommand).ToArray();
-        if (currentWord?.StartsWith('$') ?? false)
-            suggestions = SuggestEnvironmentVariables(currentWord).Concat(suggestions).ToArray();
+        var parsed = ParseCommandLine(commandline).ToArray();
+        var currentPart = parsed.LastOrDefault(new CommandLinePart("") { Type = CommandLinePart.PartType.Command });
+        var suggestions = currentPart.Type == CommandLinePart.PartType.Command
+            ? SuggestCommand(currentPart.Text)
+            : SuggestParameters(commandline).ToArray();
+        if (currentPart.Text.StartsWith('$'))
+            suggestions = SuggestEnvironmentVariables(currentPart.Text).Concat(suggestions).ToArray();
         return SortSuggestionsByHistory(commandline, suggestions);
     }
 
@@ -429,10 +449,8 @@ public static partial class Suggestor
     private static string NPathToSuggestionText(string prefix, NPath parent, NPath path)
         => $"{prefix}{EscapeFileName(path.RelativeTo(parent).ToString())}{(path.DirectoryExists() ? '/' : ' ')}";
     
-    private static Suggestion[] SuggestFileSystemEntries(string commandline, CommandInfo.ArgumentType type, string[]? extensions = null)
+    private static Suggestion[] SuggestFileSystemEntries(string currentArg, CommandInfo.ArgumentType type, string[]? extensions = null)
     {
-        var split = SplitCommandIntoWords(commandline);
-        var currentArg = split.Last();
         var dir = NPath.CurrentDirectory;
         var prefix = "";
         if (currentArg.Contains('/'))
@@ -480,7 +498,7 @@ public static partial class Suggestor
         
         var arguments = GetEligibleArgumentsForState(parsingState).Select(a => a.argument).ToArray();
         var allFlags = arguments.Where(a => a.Type == CommandInfo.ArgumentType.Flag).SelectMany(a => a.AllNames).SelectMany(a => a).ToArray();
-        bool hasMatch = false;
+        var hasMatch = false;
         foreach (var arg in arguments)
         {
             switch (arg.Type)
@@ -507,11 +525,9 @@ public static partial class Suggestor
                 case CommandInfo.ArgumentType.Keyword:
                     foreach (var v in arg.AllNames)
                     {
-                        if (v.StartsWith(lastParam))
-                        {
-                            yield return new(v) { Description = arg.Description };
-                            hasMatch = true;
-                        }
+                        if (!v.StartsWith(lastParam)) continue;
+                        yield return new(v) { Description = arg.Description };
+                        hasMatch = true;
                     }
 
                     break;
@@ -523,7 +539,8 @@ public static partial class Suggestor
                 case CommandInfo.ArgumentType.FileSystemEntry:
                 case CommandInfo.ArgumentType.Directory:
                 case CommandInfo.ArgumentType.File:
-                    foreach (var s in SuggestFileSystemEntries(commandline, arg.Type, arg.Extensions))
+                case CommandInfo.ArgumentType.Unknown:
+                    foreach (var s in SuggestFileSystemEntries(lastParam, arg.Type, arg.Extensions))
                     {
                         if (s.Text.StartsWith(lastParam))
                         {
@@ -531,8 +548,8 @@ public static partial class Suggestor
                             hasMatch = true;
                         }
                     }
-                    // if we have no matching files, return a match for whatever was typed to allow creating new paths.
-                    if (!hasMatch)
+                    // if we have no matching files, or if type is unknown (ie may not be a path at all), return a match for whatever was typed to allow creating new paths.
+                    if (!hasMatch || arg.Type == CommandInfo.ArgumentType.Unknown)
                         yield return new (lastParam) { Description = string.IsNullOrEmpty(arg.Description) ? arg.Name : arg.Description };
                     break;
                 case CommandInfo.ArgumentType.CustomArgument:
