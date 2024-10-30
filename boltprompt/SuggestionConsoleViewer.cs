@@ -10,7 +10,7 @@ public static class SuggestionConsoleViewer
         BufferedConsole.SetCursorPosition(0, topLine);
         var maxNumSuggestions = Configuration.Instance.NumSuggestions;
         if  (topLine + maxNumSuggestions > BufferedConsole.WindowHeight)
-            for (var i=0; i<maxNumSuggestions; i++)
+            for (var i=0; i<maxNumSuggestions - 1; i++)
                 BufferedConsole.WriteLine();
         while (topLine + maxNumSuggestions > BufferedConsole.WindowHeight)
         {
@@ -22,7 +22,7 @@ public static class SuggestionConsoleViewer
         var line = topLine;
         var maxSuggestionLength = suggestions.Any() ? suggestions.Skip(startLine).Take(maxNumSuggestions).Select(s => Prompt.MeasureConsoleStringWidth(s.Text) + (s.Icon?.Length ?? 0)).Max() : 0;
         var descriptionStart = maxSuggestionLength + 5;
-        var descriptionLength = BufferedConsole.WindowWidth - descriptionStart;
+        var descriptionLength = BufferedConsole.WindowWidth - descriptionStart - 1;
         for (var i=startLine; i < startLine + maxNumSuggestions; i++)
         {
             if (useColor)
