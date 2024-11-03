@@ -64,6 +64,24 @@ internal class Configuration
             propValue = (BufferedConsole.ConsoleColor)int.Parse(value);
         else
             propValue = Convert.ChangeType(value, prop.PropertyType);
+
+        if (propertyName == nameof(OpenAiApiKey))
+        {
+            Console.WriteLine("""
+                              You are about to set an OpenAI API key.
+                              This will enable AI command line suggestions for prompts (by typing queries prefixed by the '@' character on the command line).
+                              Never execute suggested command lines if you don't understand what the commands do, as doing so may compromise your date and system security.
+                              Type "ok" to continue and set the OpenAI API key.
+                              """);
+
+            var line = Console.ReadLine();
+            if (!(line?.Trim().Equals("ok", StringComparison.InvariantCultureIgnoreCase) ?? false))
+            {
+                Console.WriteLine("Aborting, did not get ok.");
+                return;
+            }
+            Console.WriteLine("Setting OpenAI API key.");
+        }
         prop.SetValue(this, propValue);
         Write();
     }
