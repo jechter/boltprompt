@@ -1,0 +1,377 @@
+{
+  "Name": "Unity",
+  "Description": "Unity is a cross-platform game engine developed by Unity Technologies, used for creating both two-dimensional and three-dimensional video games and simulations for computers, consoles, and mobile devices.",
+  "Arguments": [
+    {
+      "Arguments": [
+        {
+          "Name": "-batchmode",
+          "Description": "Run Unity in batch mode, which is useful for automated builds and testing.",
+          "Type": "Keyword"
+        },
+        {
+          "Name": "-nographics",
+          "Description": "When you run this in batch mode, Unity doesn’t initialize the graphics device.",
+          "Type": "Keyword"
+        },
+        {
+          "Name": "-ignorecompilererrors",
+          "Description": "When you use this argument, Unity continues to start your application even if there are compilation errors.",
+          "Type": "Keyword"
+        },
+        {
+          "Name": "-accept-apiupdate",
+          "Description": "Use this command line option to specify that APIUpdater should run when Unity is launched in batch mode.",
+          "Type": "Keyword"
+        },
+        {
+          "Name": "-quit",
+          "Description": "Quit Unity after the command has been executed.",
+          "Type": "Keyword"        
+        },
+		{
+          "Name": "-disable-gpu-skinning",
+          "Description": "Disable Graphics Processing Unit (GPU) skinning at startup.",
+          "Type": "Keyword"        
+        },
+		{
+          "Name": "-noUpm",
+          "Description": "Disables the Unity Package Manager.",
+          "Type": "Keyword"        
+        },
+		{
+          "Name": "-releaseCodeOptimization",
+          "Description": "Enables release code optimization mode, overriding the current default code optimization mode for the session.",
+          "Type": "Keyword"        
+        },
+		{
+          "Name": "-silent-crashes",
+          "Description": "Prevent Unity from displaying the dialog that appears when a Standalone Player crashes.",
+          "Type": "Keyword"        
+        },
+		{
+          "Name": "-version",
+          "Description": "Print the version number of the Unity Editor in the command line, without launching the Editor.",
+          "Type": "Keyword"        
+        },        
+		{
+          "Name": "-timestamps",
+          "Description": "Prefixes every Editor.log message with the current timestamp and thread ID.",
+          "Type": "Keyword"        
+        }, 
+        {
+          "Name": "-createProject",
+          "Description": "Create an empty project at the given path.",
+          "Type": "Keyword",
+		  "Arguments": [
+			{
+			  "Arguments": [
+				{
+				  "Name": "projectPath",
+				  "Description": "The project to create",
+				  "Type": "Directory"
+				}
+			  ]
+		    }
+		  ]
+        },
+        {
+          "Name": "-disable-assembly-updater",
+          "Description": "Specify a space-separated list of assembly names as parameters for Unity to ignore on automatic updates.",
+          "Type": "Keyword",
+		  "Arguments": [
+			{
+			  "Arguments": [
+				{
+				  "Name": "assembly",
+				  "Description": "The assembly name to ignore",
+				  "Type": "Unknown",
+				  "Repeat": true
+				}
+			  ]
+		    }
+		  ]
+        },
+        {
+          "Name": "-exportPackage",
+          "Description": "Export a package, given a path (or set of given paths).",
+          "Type": "Keyword",
+		  "Arguments": [
+			{
+			  "Arguments": [
+				{
+				  "Name": "asset",
+				  "Description": "An asset name to export",
+				  "Type": "FileSystemEntry",
+				  "Repeat": true
+				}
+			  ]
+		    },
+			{
+			  "Arguments": [
+				{
+				  "Name": "exportFileName",
+				  "Description": "The package to write.",
+				  "Type": "File"
+				}
+			  ]
+		    }		    
+		  ]
+        },
+        {
+          "Name": "-importPackage",
+          "Description": "Import the given asset package. Unity doesn’t display any import dialog.",
+          "Type": "Keyword",
+		  "Arguments": [
+			{
+			  "Arguments": [
+				{
+				  "Name": "packagepath",
+				  "Description": "The package to import",
+				  "Type": "File",
+				  "Extensions": ["unitypackage"]
+				}
+			  ]
+		    }
+		  ]
+        },
+        {
+          "Name": "-job-worker-count",
+          "Description": "Specify the maximum thread count for the Unity JobQueue Job Worker Count.",
+          "Type": "Keyword",
+		  "Arguments": [
+			{
+			  "Arguments": [
+				{
+				  "Name": "jobs",
+				  "Description": "The number of jobs",
+				  "Type": "String"
+				}
+			  ]
+		    }
+		  ]
+        },
+        {
+          "Name": "-projectPath",
+          "Description": "Specify the path to the Unity project.",
+          "Type": "Keyword",
+		  "Arguments": [
+			{
+			  "Arguments": [
+				{
+				  "Name": "projectPath",
+				  "Description": "The project to open",
+				  "Type": "Directory"
+				}
+			  ]
+		    }
+		  ]
+        },
+        {
+          "Name": "-executeMethod",
+          "Description": "Execute a static method in a script after loading the project.",
+          "Type": "Keyword",
+		  "Arguments": [
+			{
+			  "Arguments": [
+				{
+				  "Name": "method",
+				  "Description": "The method to run. 'ClassName.MethodName' or 'NamespaceName.ClassName.MethodName'",
+				  "Type": "String"
+				}
+			  ]
+		    }
+		  ]
+        },
+        {
+          "Name": "-password",
+          "Description": "Enter a password into the log-in form during the activation of the Unity Editor.",
+          "Type": "Keyword",
+		  "Arguments": [
+			{
+			  "Arguments": [
+				{
+				  "Name": "password",
+				  "Description": "The password to set",
+				  "Type": "String"
+				}
+			  ]
+		    }
+		  ]
+        },
+        {
+          "Name": "-username",
+          "Description": "Enter a username into the log-in form during the activation of the Unity Editor.",
+          "Type": "Keyword",
+		  "Arguments": [
+			{
+			  "Arguments": [
+				{
+				  "Name": "username",
+				  "Description": "The username to set",
+				  "Type": "String"
+				}
+			  ]
+		    }
+		  ]
+        },
+        {
+          "Name": "-logFile",
+          "Description": "Specify the log file path.",
+          "Type": "Keyword",
+		  "Arguments": [
+			{
+			  "Arguments": [
+				{
+				  "Name": "logPath",
+				  "Description": "The path to write the log file to.",
+				  "Type": "File"
+				},
+				{
+				  "Name": "-",
+				  "Description": "log to console.",
+				  "Type": "Keyword"
+				}			
+			  ],
+			  "DontAllowMultiple": true
+		    }
+		  ]
+        },
+        {
+          "Name": "-upmLogFile",
+          "Description": "Specify the path and file name where Unity writes the log file for the UPM background application, which runs independently of the Editor.",
+          "Type": "Keyword",
+		  "Arguments": [
+			{
+			  "Arguments": [
+				{
+				  "Name": "logPath",
+				  "Description": "The path to write the log file to.",
+				  "Type": "File"
+				}			
+			  ]
+		    }
+		  ]
+        },
+        {
+          "Name": "-openfile",
+          "Description": "Open the project from a path to a scene or package file.",
+          "Type": "Keyword",
+		  "Arguments": [
+			{
+			  "Arguments": [
+				{
+				  "Name": "pathname",
+				  "Description": "The path of the file to open.",
+				  "Type": "File"
+				}		
+			  ]
+		    }
+		  ]
+        },
+		{
+          "Name": "-vcsMode",
+          "Description": "Set the version control mode.",
+          "Type": "Keyword",
+		  "Arguments": [
+			{
+			  "Arguments": [
+				{
+				  "Name": "\"Visible Meta Files\"",
+				  "Type": "Keyword"
+				},
+				{
+				  "Name": "\"Hidden Meta Files\"",
+				  "Type": "Keyword"
+				},						
+				{
+				  "Name": "Perforce",
+				  "Type": "Keyword"
+				},				
+				{
+				  "Name": "PlasticSCM",
+				  "Type": "Keyword"
+				}		
+			  ],
+			  "DontAllowMultiple": true
+		    }
+		  ]
+        },        
+        {
+          "Name": "-buildTarget",
+          "Description": "Specify the target platform for the build.",
+          "Type": "Keyword",
+		  "Arguments": [
+			{
+			  "Arguments": [
+				{
+				  "Name": "win64",
+				  "Description": "Windows 64-bit",
+				  "Type": "Keyword"
+				},
+				{
+				  "Name": "win",
+				  "Description": "Windows",
+				  "Type": "Keyword"
+				},						
+				{
+				  "Name": "osxuniversal",
+				  "Description": "macOS",
+				  "Type": "Keyword"
+				},				
+				{
+				  "Name": "linux64",
+				  "Description": "Linux 64-bit",
+				  "Type": "Keyword"
+				},				
+				{
+				  "Name": "android",
+				  "Description": "Android",
+				  "Type": "Keyword"
+				},	
+				{
+				  "Name": "ios",
+				  "Description": "iOS",
+				  "Type": "Keyword"
+				},	
+				{
+				  "Name": "webgl",
+				  "Description": "WebGL",
+				  "Type": "Keyword"
+				},	
+				{
+				  "Name": "tvos",
+				  "Description": "tvOS",
+				  "Type": "Keyword"
+				},
+				{
+				  "Name": "platform",
+				  "Description": "platform to build for",
+				  "Type": "String"
+				}				
+			  ],
+			  "DontAllowMultiple": true
+		    }
+		  ]
+        },
+        {
+          "Name": "-buildPath",
+          "Description": "Specify the output path for the build.",
+          "Type": "Keyword",
+		  "Arguments": [
+			{
+			  "Arguments": [
+				{
+				  "Name": "outputPath",
+				  "Description": "The path to write the build to.",
+				  "Type": "FileSystemEntry"
+				}
+			  ]
+		    }
+		  ]
+        }
+      ]
+    }
+  ],
+  "CustomArgumentTemplates": []
+}
