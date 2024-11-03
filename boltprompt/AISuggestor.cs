@@ -1,7 +1,6 @@
 using CliWrap;
 using CliWrap.Buffered;
 using LanguageModels;
-using Microsoft.Extensions.DependencyInjection;
 using NiceIO;
 
 namespace boltprompt;
@@ -64,10 +63,11 @@ static class AISuggestor
         _directoryListing ??= GetDirectoryListing();
         _osInfo ??= GetOSInfo();
         await Task.WhenAll(_directoryListing, _osInfo);
-        
-        var fullRequest =
-            $"""
-             We want to help a user writing shell commands in the Terminal. The current shell is {Environment.GetEnvironmentVariable("SHELL")}.
+
+        var personalEnvironmentContext = Configuration.Instance.RemovePersonalInformationFromAIQueries
+            ? ""
+            : $"""
+             The current shell is {Environment.GetEnvironmentVariable("SHELL")}.
              
              This is our runtime environment:
              
@@ -85,6 +85,13 @@ static class AISuggestor
              
              { string.Join(" ", Suggestor.ExecutablesInPathEnvironment.Select(s => s.Text)) }
              
+             """;
+        
+        var fullRequest =
+            $"""
+             We want to help a user writing shell commands in the Terminal. 
+             
+             {personalEnvironmentContext}
              Propose a shell command line which performs the following request:
              
              `{request}` 

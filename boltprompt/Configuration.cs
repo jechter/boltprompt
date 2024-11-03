@@ -26,7 +26,10 @@ internal class Configuration
     public string? OpenAiApiKey { get; set; } = null;
     
     public bool ScrollLongCommandLine { get; set; } = false;
-    
+
+    [DescriptionForLanguageModel("Remove any personal information about your environment from AI service queries.")]
+    public bool RemovePersonalInformationFromAIQueries { get; set; } = false;
+
     private static Configuration Load()
     {
         if (Paths.Configuration.FileExists())
@@ -60,6 +63,13 @@ internal class Configuration
             propValue = value;
         else if (prop.PropertyType == typeof(int))
             propValue = int.Parse(value);
+        else if (prop.PropertyType == typeof(bool))
+            propValue = value.ToLower() switch
+            {
+                "on" or "1" or "true" => true,
+                "off" or "0" or "false" => false,
+                _ => throw new InvalidDataException($"Invalid value for {propertyName}. Must be 'on' or 'off'")
+            };
         else if (prop.PropertyType == typeof(BufferedConsole.ConsoleColor))
             propValue = (BufferedConsole.ConsoleColor)int.Parse(value);
         else
@@ -67,11 +77,15 @@ internal class Configuration
 
         if (propertyName == nameof(OpenAiApiKey))
         {
-            Console.WriteLine("""
+            Console.WriteLine($"""
                               You are about to set an OpenAI API key.
+                              
                               This will enable AI command line suggestions for prompts (by typing queries prefixed by the '@' character on the command line).
                               Never execute suggested command lines if you don't understand what the commands do, as doing so may compromise your date and system security.
-                              Type "ok" to continue and set the OpenAI API key.
+                              
+                              By default, boltprompt will include personal information (including your OS, shell, installed commands, current directory listing, last run commands) in requests for command line suggestions. This improves the quality of suggestions. You can disable sharing of personal information by running the command "boltprompt config set {nameof(RemovePersonalInformationFromAIQueries)} off".  
+                              
+                              Type "ok" to continue and set the OpenAI API key. By typing ok, you confirm that you understand the risks, and agree to share personal information with OpenAI.
                               """);
 
             var line = Console.ReadLine();
@@ -212,6 +226,11 @@ internal class Configuration
                 colors = colors.Select(c => $"{prefix}{c[prefix.Length..]}").Distinct().ToArray();
             foreach (var c in colors) 
                 PrintColor(c);
+        }
+        else if (prop.PropertyType == typeof(bool))
+        {
+            Console.WriteLine("on::");
+            Console.WriteLine("off::");
         }
     }
 }
