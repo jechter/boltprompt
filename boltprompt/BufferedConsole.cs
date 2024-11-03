@@ -73,6 +73,7 @@ internal static partial class BufferedConsole
 
     public static void Update()
     {
+        Flush();
         _left = Console.CursorLeft;
         _top = Console.CursorTop;
         _windowWidth = Console.WindowWidth;

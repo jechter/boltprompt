@@ -35,6 +35,9 @@ public record CommandInfo
     public record CustomArgumentTemplate
     {
         [JsonInclude]
+        [DescriptionForLanguageModel("If this is enabled, arguments will only be accepted if they match the output of the custom command. If not, the custom command will only be used to obtain suggestions, but any argument will be matched.")]
+        public bool StrictMatching = false;
+        [JsonInclude]
         [DescriptionForLanguageModel("The name of the template. This must match the 'customargument' field in arguments using this template.")]
         public string Name = "";
         [JsonInclude]

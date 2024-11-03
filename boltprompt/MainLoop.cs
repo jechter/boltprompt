@@ -26,6 +26,7 @@ internal class MainLoop
         };
         AISuggestor.AIDescriptionLoaded += RequestRedraw;
         Prompt.RenderPrompt();
+        BufferedConsole.Flush();
     }
 
     private void RequestRedraw() => _needsRedraw = true;
@@ -101,8 +102,6 @@ internal class MainLoop
                     case ConsoleKey.RightArrow:
                         if (Prompt.CursorPosition < _commandLine.Length)
                             Prompt.CursorPosition++;
-                        //else
-                          //  CommitSelection();
                         break;
                     case ConsoleKey.Tab:
                         CommitSelection();
@@ -143,6 +142,7 @@ internal class MainLoop
             }
 
             RenderPromptAndSuggestionsIfNeeded();
+            BufferedConsole.Flush();
             Thread.Sleep(100);
         }
     }
@@ -216,6 +216,7 @@ internal class MainLoop
     {
         var top = Prompt.RenderPrompt(_commandLine);
         SuggestionConsoleViewer.Clear(top);
+        BufferedConsole.Flush();
         Console.WriteLine();
         File.WriteAllText("/tmp/custom-command", command);
         History.AddCommandToHistory(command, _aiPrompt);

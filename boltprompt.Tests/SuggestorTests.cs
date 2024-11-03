@@ -17,6 +17,27 @@ public class SuggestorTests
     private readonly HashSet<NPath> _pathsToCleanup = [];
     private string? _oldPath;
     
+    private static ManualResetEvent? _eventToWaitFor;
+
+    private static Action<T> SetupWaitEvent<T>(Func<T, bool> validator)
+    {
+        _eventToWaitFor = new ManualResetEvent(false);
+        return t =>
+        {
+            if (validator(t))
+                _eventToWaitFor.Set();
+        };
+    }
+
+    private static Action SetupWaitEvent()
+    {
+        _eventToWaitFor = new ManualResetEvent(false);
+        return () =>
+        {
+            _eventToWaitFor.Set();
+        };
+    }
+    
     [SetUp]
     public void Setup()
     {
@@ -546,21 +567,14 @@ public class SuggestorTests
                 }
             ]
         };
-        
-        var customArgumentsLoadedEvent = new ManualResetEvent(false);
-        CustomArguments.CustomArgumentsLoaded += () =>
-        {
-            var suggestions = GetSuggestionsForTestExecutable(ci, " ");
-            Assert.That(suggestions, Does.Contain(new Suggestion("foo") {Description = "Custom argument"}));
-            Assert.That(suggestions, Does.Contain(new Suggestion("bar") {Description = "Custom argument"}));
-            Assert.That(suggestions, Does.Contain(new Suggestion("baz") {Description = "Custom argument"}));
-            
-            customArgumentsLoadedEvent.Set();
-        };
         GetSuggestionsForTestExecutable(ci, " ");
+        CustomArguments.CustomArgumentsLoaded += SetupWaitEvent().Invoke;
+        WaitForEvent();
 
-        if (!customArgumentsLoadedEvent.WaitOne(TimeSpan.FromSeconds(5)))
-            Assert.Fail("Timeout: CustomArgumentsLoaded event was not raised within the expected time.");
+        var suggestions = GetSuggestionsForTestExecutable(ci, " ");
+        Assert.That(suggestions, Does.Contain(new Suggestion("foo") {Description = "Custom argument"}));
+        Assert.That(suggestions, Does.Contain(new Suggestion("bar") {Description = "Custom argument"}));
+        Assert.That(suggestions, Does.Contain(new Suggestion("baz") {Description = "Custom argument"}));
     }
     
     [Test]
@@ -584,20 +598,14 @@ public class SuggestorTests
             ]
         };
         
-        var customArgumentsLoadedEvent = new ManualResetEvent(false);
-        CustomArguments.CustomArgumentsLoaded += () =>
-        {
-            var suggestions = GetSuggestionsForTestExecutable(ci, " ");
-            Assert.That(suggestions, Does.Contain(new Suggestion("foo2") {Description = "the foo argument"}));
-            Assert.That(suggestions, Does.Contain(new Suggestion("bar bar") {Description = "the bar argument"}));
-            Assert.That(suggestions, Does.Contain(new Suggestion("bazz") {Description = "the baz argument"}));
-            
-            customArgumentsLoadedEvent.Set();
-        };
         GetSuggestionsForTestExecutable(ci, " ");
-
-        if (!customArgumentsLoadedEvent.WaitOne(TimeSpan.FromSeconds(5)))
-            Assert.Fail("Timeout: CustomArgumentsLoaded event was not raised within the expected time.");
+        CustomArguments.CustomArgumentsLoaded += SetupWaitEvent().Invoke;
+        WaitForEvent();
+        
+        var suggestions = GetSuggestionsForTestExecutable(ci, " ");
+        Assert.That(suggestions, Does.Contain(new Suggestion("foo2") {Description = "the foo argument"}));
+        Assert.That(suggestions, Does.Contain(new Suggestion("bar bar") {Description = "the bar argument"}));
+        Assert.That(suggestions, Does.Contain(new Suggestion("bazz") {Description = "the baz argument"}));
     }
     
     [Test]
@@ -621,20 +629,14 @@ public class SuggestorTests
             ]
         };
         
-        var customArgumentsLoadedEvent = new ManualResetEvent(false);
-        CustomArguments.CustomArgumentsLoaded += () =>
-        {
-            var suggestions = GetSuggestionsForTestExecutable(ci, " ");
-            Assert.That(suggestions, Does.Contain(new Suggestion("the foo argument") {Description = "foo2"}));
-            Assert.That(suggestions, Does.Contain(new Suggestion("the bar argument") {Description = "bar bar"}));
-            Assert.That(suggestions, Does.Contain(new Suggestion("the baz argument") {Description = "bazz"}));
-            
-            customArgumentsLoadedEvent.Set();
-        };
         GetSuggestionsForTestExecutable(ci, " ");
-
-        if (!customArgumentsLoadedEvent.WaitOne(TimeSpan.FromSeconds(5)))
-            Assert.Fail("Timeout: CustomArgumentsLoaded event was not raised within the expected time.");
+        CustomArguments.CustomArgumentsLoaded += SetupWaitEvent().Invoke;
+        WaitForEvent();
+        
+        var suggestions = GetSuggestionsForTestExecutable(ci, " ");
+        Assert.That(suggestions, Does.Contain(new Suggestion("the foo argument") {Description = "foo2"}));
+        Assert.That(suggestions, Does.Contain(new Suggestion("the bar argument") {Description = "bar bar"}));
+        Assert.That(suggestions, Does.Contain(new Suggestion("the baz argument") {Description = "bazz"}));
     }
     
     [Test]
@@ -941,5 +943,41 @@ public class SuggestorTests
         Assert.That(Suggestor.UnescapeFileName("~/dir/relative/to/current/user"), Is.EqualTo($"{NPath.HomeDirectory}/dir/relative/to/current/user"));
         Assert.That(Suggestor.UnescapeFileName("~root/dir/relative/to/root"), Is.EqualTo("/var/root/dir/relative/to/root"));
         Assert.That(Suggestor.UnescapeFileName($"~{Environment.GetEnvironmentVariable("USER")}/dir/relative/to/user/name"), Is.EqualTo($"{NPath.HomeDirectory}/dir/relative/to/user/name"));
+    }
+    
+    private static void WaitForEvent()
+    {
+        if (!_eventToWaitFor.WaitOne(TimeSpan.FromSeconds(5)))
+            Assert.Fail("Timeout: CustomArgumentsLoaded event was not raised within the expected time.");
+    }
+    
+    [Test]
+    public async Task GitIntegrationTest()
+    {
+        var testDir = NPath.CreateTempDirectory("testdir");
+        var testFile = testDir.Combine("testFile").WriteAllText("Just a file");
+        NPath.SetCurrentDirectory(testDir);
+
+        Suggestor.SuggestionsForPrompt("git ");
+        KnownCommands.CommandInfoLoaded += SetupWaitEvent<CommandInfo>(ci => ci.Name == "git").Invoke;
+        WaitForEvent();
+
+        var suggestions = Suggestor.SuggestionsForPrompt("git ");
+        Assert.That(suggestions.Select(s => s.Text), Does.Contain("init"));
+
+        await Cli.Wrap("git").WithArguments("init").ExecuteBufferedAsync();
+
+        suggestions = Suggestor.SuggestionsForPrompt("git ");
+        Assert.That(suggestions.Select(s => s.Text), Does.Contain("add"));
+
+        Suggestor.SuggestionsForPrompt("git add ");
+
+        CustomArguments.CustomArgumentsLoaded += SetupWaitEvent().Invoke;
+        WaitForEvent();
+        
+        suggestions = Suggestor.SuggestionsForPrompt("git add ");
+        Assert.That(suggestions.Select(s => s.Text), Does.Contain(testFile.FileName));
+
+        NPath.SetCurrentDirectory(testDir.Parent);
     }
 }

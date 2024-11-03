@@ -144,10 +144,10 @@ public static partial class Suggestor
         CommandInfo.ArgumentType.Flag => argToMatch.AllNames.Any(a => arg.StartsWith($"-{a}")),
         CommandInfo.ArgumentType.File => !(argToMatch.Extensions?.Length > 0) ||
                                          arg.ToNPath().HasExtension(argToMatch.Extensions),
+        CommandInfo.ArgumentType.CustomArgument => argToMatch.CustomArgumentTemplate != null && CustomArguments.Match(arg, argToMatch, ci),
         CommandInfo.ArgumentType.FileSystemEntry or CommandInfo.ArgumentType.Directory
             or CommandInfo.ArgumentType.Command or CommandInfo.ArgumentType.CommandName
-            or CommandInfo.ArgumentType.String or CommandInfo.ArgumentType.CustomArgument 
-            or CommandInfo.ArgumentType.Unknown => true,
+            or CommandInfo.ArgumentType.String or CommandInfo.ArgumentType.Unknown => true,
         _ => throw new ArgumentOutOfRangeException()
     };
 

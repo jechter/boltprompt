@@ -4,7 +4,6 @@ public static class SuggestionConsoleViewer
 {
     public static void ShowSuggestions(int top, Suggestion[] suggestions, int selection, bool useColor = true)
     {
-        BufferedConsole.Update();
         var pos = BufferedConsole.GetCursorPosition();
         var topLine = top;
         BufferedConsole.SetCursorPosition(0, topLine);
@@ -70,7 +69,6 @@ public static class SuggestionConsoleViewer
         }
 
         BufferedConsole.SetCursorPosition(pos.Left, pos.Top);
-        BufferedConsole.Flush();
     }
 
     private static void SetSuggestionColors(bool isSelected)

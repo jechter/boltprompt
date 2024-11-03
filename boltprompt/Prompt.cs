@@ -28,7 +28,6 @@ internal static class Prompt
         var targetRow = cursorPosTotal / Console.WindowWidth;
         BufferedConsole.SetCursorPosition(cursorPosTotal % Console.WindowWidth, pos.Top + (targetRow - _commandLineCursorRow));
         _commandLineCursorRow = targetRow;
-        BufferedConsole.Flush();
     }
 
     private enum PathStyle
