@@ -60,9 +60,12 @@ static class AISuggestor
     
     private static async Task GetSuggestionsFromAI(CancellationToken cancellationToken, string request)
     {
+        var delayTask = Task.Delay(Configuration.Instance.DelayBeforeAskingAI, cancellationToken);
         _directoryListing ??= GetDirectoryListing();
         _osInfo ??= GetOSInfo();
-        await Task.WhenAll(_directoryListing, _osInfo);
+        await Task.WhenAll(_directoryListing, _osInfo, delayTask);
+        
+        cancellationToken.ThrowIfCancellationRequested();
 
         var personalEnvironmentContext = Configuration.Instance.RemovePersonalInformationFromAIQueries
             ? ""
