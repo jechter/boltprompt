@@ -113,7 +113,7 @@ internal class Configuration
                 (BufferedConsole.ConsoleColor bg, BufferedConsole.ConsoleColor fg, string label)[] parts)
             {
                 var promptPrefixScheme = Prompt.ComposePromptPrefixScheme(parts);
-                Console.WriteLine($"\"{prefix}\"::{Prompt.GetPromptPrefix(promptPrefixScheme)}");
+                Console.WriteLine($"\"{promptPrefixScheme}\"::{Prompt.GetPromptPrefix(promptPrefixScheme)}");
             }
 
             PrintPromptPrefix([
