@@ -914,7 +914,11 @@ public class SuggestorTests
         
         suggestions = GetSuggestionsForTestExecutable(ci, " f");
         Assert.That(suggestions.Select(s => s.Text.Trim()).ToArray(), Is.EqualTo(new [] {"foo", "f"}));
-        
+
+        // Make sure we only get one suggestion for 'foo'
+        suggestions = GetSuggestionsForTestExecutable(ci, " foo");
+        Assert.That(suggestions.Select(s => s.Text.Trim()).ToArray(), Is.EqualTo(new [] {"foo"}));
+
         suggestions = GetSuggestionsForTestExecutable(ci, " b");
         Assert.That(suggestions.Select(s => s.Text.Trim()).ToArray(), Is.EqualTo(new [] {"b"}));
 

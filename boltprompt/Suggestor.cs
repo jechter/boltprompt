@@ -347,7 +347,15 @@ public static partial class Suggestor
     
     static Suggestion[] SortSuggestionsByHistory(string commandline, IEnumerable<Suggestion> suggestions)
     {
-        return string.IsNullOrWhiteSpace(commandline) ? suggestions.ToArray() : suggestions.OrderDescending(new SuggestionSorter(commandline)).ToArray();
+        var result = string.IsNullOrWhiteSpace(commandline) ? suggestions.ToList() : suggestions.OrderDescending(new SuggestionSorter(commandline)).ToList();
+        for (var i = 1; i < result.Count; i++)
+        {
+            // TODO: maybe we have to check which one we remove
+            // (to avoid fake matches for keywords as string arguments suggested from history) 
+            if (result[i-1].Text == result[i].Text)
+                result.RemoveAt(i--);
+        }
+        return result.ToArray();
     }
 
     public static string[] SplitCommandIntoWords(string currentCommand)
