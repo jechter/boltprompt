@@ -492,6 +492,7 @@ public static partial class Suggestor
         {
             var commandLineToParse = string.Concat(parts[..^1].Select(p => p.Text));
             lastParam = parts[^1].Text;
+            parts = parts[..^1];
             parsingState = [];
             _ = ParseCommandLine(commandLineToParse, parsingState).Count(); // We do Count here to force running the iterator to the end
         }
@@ -564,6 +565,13 @@ public static partial class Suggestor
                     break;
                 case CommandInfo.ArgumentType.String:
                     yield return new (lastParam) { Description = string.IsNullOrEmpty(arg.Description) ? arg.Name : arg.Description };
+                    foreach (var c in History.Commands
+                                 .Where(cmd => cmd.Commandline.StartsWith(commandline))
+                                 .Select(cmd => cmd.Commandline)
+                                 .Select(cmd => ParseCommandLine(cmd).ToArray()[parts.Length].Text)
+                             )
+                        yield return new (c) { Description = string.IsNullOrEmpty(arg.Description) ? arg.Name : arg.Description };
+                    
                     // We have no suggestions for generic strings
                     break;
                 default:

@@ -893,6 +893,32 @@ public class SuggestorTests
         suggestions = GetSuggestionsForTestExecutable(ci, " -");
         Assert.That(suggestions.Select(s => s.Text.Trim()).ToArray(), Is.EqualTo(new [] {"-c", "-b", "-a"}));
     }
+
+    [Test] public void StringArgumentWillBeSuggestedFromHistory()
+    {
+        var ci = new CommandInfo
+        {
+            Arguments =
+            [
+                new([
+                    new("string") { Type = CommandInfo.ArgumentType.String }
+                ])
+            ]
+        };
+        var suggestions = GetSuggestionsForTestExecutable(ci, " ");
+        Assert.That(suggestions.Select(s => s.Text.Trim()).ToArray(), Is.EqualTo(new [] {""}));
+        
+        History.LoadTestHistory(["./testExecutable foo"]);
+        suggestions = GetSuggestionsForTestExecutable(ci, " ");
+        Assert.That(suggestions.Select(s => s.Text.Trim()).ToArray(), Is.EqualTo(new [] {"foo", ""}));
+        
+        suggestions = GetSuggestionsForTestExecutable(ci, " f");
+        Assert.That(suggestions.Select(s => s.Text.Trim()).ToArray(), Is.EqualTo(new [] {"foo", "f"}));
+        
+        suggestions = GetSuggestionsForTestExecutable(ci, " b");
+        Assert.That(suggestions.Select(s => s.Text.Trim()).ToArray(), Is.EqualTo(new [] {"b"}));
+
+    }
     
     [Test]
     public void CanSuggestEnvironmentVariables()

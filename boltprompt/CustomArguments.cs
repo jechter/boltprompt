@@ -61,8 +61,7 @@ static class CustomArguments
                 var num = int.Parse(numStr);
                 var param = num == 0
                     ? lastParam
-                    : parts.Where(p => p.Type == Suggestor.CommandLinePart.PartType.Argument).ToArray()[
-                        ^(string.IsNullOrEmpty(lastParam) ? num : num + 1)].Text;
+                    : parts.Where(p => p.Type == Suggestor.CommandLinePart.PartType.Argument).ToArray()[^num].Text;
                 command = command.Replace($"{{ARG[^{numStr}]}}", param);
             }
         }
