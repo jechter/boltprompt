@@ -43,12 +43,20 @@ public static class KnownCommands
     
     private static async Task<CommandInfo> LoadCachedCommandInfo(NPath path)
     {
-        var json = await File.ReadAllTextAsync(path.ToString());
-        var ci = CommandInfo.Deserialize(json);
-        if (ci == null)
-            throw new InvalidDataException($"Could not load command info json for {path}");
-        CommandInfoLoaded?.Invoke(ci);
-        return ci;
+        try
+        {
+            var json = await File.ReadAllTextAsync(path.ToString());
+            var ci = CommandInfo.Deserialize(json);
+            if (ci == null)
+                throw new InvalidDataException($"Could not load command info json for {path}");
+            CommandInfoLoaded?.Invoke(ci);
+            return ci;
+        }
+        catch (Exception)
+        {
+            Console.Error.WriteLine($"Failed loading {path}");
+            throw;
+        }
     }
     
     public static CommandInfo? GetCommand(string command, bool createInfoIfNotAvailable)

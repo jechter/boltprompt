@@ -1,0 +1,425 @@
+{
+  "Comment": "This command info is generated from fig",
+  "Name": "bat",
+  "Description": "A cat(1) clone with syntax highlighting and Git integration",
+  "Arguments": [
+    {
+      "Arguments": [
+        {
+          "Name": "-A",
+          "Description": "Show non-printable characters",
+          "Aliases": [
+            "--show-all"
+          ],
+          "Arguments": []
+        },
+        {
+          "Name": "-p",
+          "Description": "Show plain style, no decorations",
+          "Aliases": [
+            "--plain"
+          ],
+          "Arguments": []
+        },
+        {
+          "Name": "-l",
+          "Description": "Explicitly set the language for syntax highlighting",
+          "Aliases": [
+            "--language"
+          ],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "\u003Clanguage\u003E",
+                  "Description": "\u003Clanguage\u003E",
+                  "Type": "CustomArgument",
+                  "Extensions": [],
+                  "CustomArgumentTemplate": "\u003Clanguage\u003E"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "Name": "-H",
+          "Description": "Highlight the specified line ranges",
+          "Aliases": [
+            "--highlight-line"
+          ],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "\u003CN:M\u003E ",
+                  "Description": "\u003CN:M\u003E ",
+                  "Type": "String"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "Name": "--file-name",
+          "Description": "Specify the name to display for a file. Useful when piping data to bat from STDIN when bat does not otherwise know the filename",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "FileSystemEntry",
+                  "Description": "",
+                  "Type": "FileSystemEntry"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "Name": "-d",
+          "Description": "Show lines that have been added/removed/modified with respect to the Git index",
+          "Aliases": [
+            "--diff"
+          ],
+          "Arguments": []
+        },
+        {
+          "Name": "--diff-context",
+          "Description": "Include N lines of context around added/removed/modified lines when using \u0027--diff\u0027",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "\u003CN\u003E ",
+                  "Description": "\u003CN\u003E ",
+                  "Type": "String"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "Name": "--tabs",
+          "Description": "Set the tab width to T spaces. Use a width of 0 to pass tabs through directly",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "\u003CT\u003E ",
+                  "Description": "\u003CT\u003E ",
+                  "Type": "String"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "Name": "--wrap",
+          "Description": "Specify when to use colored output",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "\u003Cmode\u003E",
+                  "Description": "\u003Cmode\u003E",
+                  "Type": "CustomArgument",
+                  "Extensions": [],
+                  "CustomArgumentTemplate": "\u003Cmode\u003E"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "Name": "--terminal-width",
+          "Description": "Explicitly set the width of the terminal instead of determining it automatically",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "\u003Cwidth\u003E ",
+                  "Description": "\u003Cwidth\u003E ",
+                  "Type": "String"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "Name": "-n",
+          "Description": "Show line numbers, no other decorations",
+          "Aliases": [
+            "--number"
+          ],
+          "Arguments": []
+        },
+        {
+          "Name": "--color",
+          "Description": "Specify when to use colored output",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "\u003Cwhen\u003E",
+                  "Description": "\u003Cwhen\u003E",
+                  "Type": "CustomArgument",
+                  "Extensions": [],
+                  "CustomArgumentTemplate": "\u003Cwhen\u003E"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "Name": "--italic-text",
+          "Description": "Specify when to use ANSI sequences for italic text in the output",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "\u003Cwhen\u003E",
+                  "Description": "\u003Cwhen\u003E",
+                  "Type": "CustomArgument",
+                  "Extensions": [],
+                  "CustomArgumentTemplate": "\u003Cwhen\u003E0"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "Name": "--decorations",
+          "Description": "Specify when to use the decorations that have been specified via \u0027--style\u0027",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "\u003Cwhen\u003E",
+                  "Description": "\u003Cwhen\u003E",
+                  "Type": "CustomArgument",
+                  "Extensions": [],
+                  "CustomArgumentTemplate": "\u003Cwhen\u003E1"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "Name": "-f",
+          "Description": "Alias for \u0027--decorations=always --color=always\u0027",
+          "Aliases": [
+            "--force-colorization"
+          ],
+          "Arguments": []
+        },
+        {
+          "Name": "--paging",
+          "Description": "Specify when to use the pager",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "\u003Cwhen\u003E",
+                  "Description": "\u003Cwhen\u003E",
+                  "Type": "CustomArgument",
+                  "Extensions": [],
+                  "CustomArgumentTemplate": "\u003Cwhen\u003E2"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "Name": "--pager",
+          "Description": "Determine which pager is used",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "\u003Ccommand\u003E",
+                  "Description": "\u003Ccommand\u003E",
+                  "Type": "String"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "Name": "-m",
+          "Description": "Map a glob pattern to an existing syntax name",
+          "Aliases": [
+            "--map-syntax"
+          ],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "\u003Cglob:syntax\u003E",
+                  "Description": "\u003Cglob:syntax\u003E",
+                  "Type": "String"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "Name": "--ignored-suffix",
+          "Description": "Ignore extension",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "\u003Cignored-suffix\u003E",
+                  "Description": "\u003Cignored-suffix\u003E",
+                  "Type": "String"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "Name": "--theme",
+          "Description": "Set the theme for syntax highlighting",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "\u003Ctheme\u003E",
+                  "Description": "\u003Ctheme\u003E",
+                  "Type": "CustomArgument",
+                  "Extensions": [],
+                  "CustomArgumentTemplate": "\u003Ctheme\u003E"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "Name": "--list-themes",
+          "Description": "Display a list of supported themes for syntax highlighting",
+          "Aliases": [],
+          "Arguments": []
+        },
+        {
+          "Name": "--style",
+          "Description": "Display a list of supported themes for syntax highlighting",
+          "Aliases": [],
+          "Arguments": []
+        },
+        {
+          "Name": "-r",
+          "Description": "Only print the specified range of lines for each file",
+          "Aliases": [
+            "--line-range"
+          ],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "\u003CN:M\u003E ",
+                  "Description": "\u003CN:M\u003E ",
+                  "Type": "String"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "Name": "-L",
+          "Description": "Display a list of supported languages for syntax highlighting",
+          "Aliases": [
+            "--list-languages"
+          ],
+          "Arguments": []
+        },
+        {
+          "Name": "-u",
+          "Description": "Make output unbuffered (exists for POSIX-compliance reasons and is simply ignored)",
+          "Aliases": [
+            "--unbuffered"
+          ],
+          "Arguments": []
+        },
+        {
+          "Name": "--diagnostic",
+          "Description": "Show diagnostic information for bug reports",
+          "Aliases": [],
+          "Arguments": []
+        },
+        {
+          "Name": "--acknowledgements",
+          "Description": "Show acknowledgements",
+          "Aliases": [],
+          "Arguments": []
+        },
+        {
+          "Name": "-h",
+          "Description": "Print help message",
+          "Aliases": [
+            "--help"
+          ],
+          "Arguments": []
+        },
+        {
+          "Name": "-V",
+          "Description": "Show version information",
+          "Aliases": [
+            "--version"
+          ],
+          "Arguments": []
+        }
+      ],
+      "Optional": true
+    },
+    {
+      "Arguments": [
+        {
+          "Name": "FileSystemEntry",
+          "Description": "",
+          "Type": "FileSystemEntry"
+        }
+      ]
+    }
+  ],
+  "CustomArgumentTemplates": [
+    {
+      "Name": "\u003Clanguage\u003E",
+      "Command": "bat --list-languages"
+    },
+    {
+      "Name": "\u003Cmode\u003E",
+      "Command": "bash -c bat --wrap unknow 2\u003E\u00261 \u003E/dev/null | grep possible"
+    },
+    {
+      "Name": "\u003Cwhen\u003E",
+      "Command": "bash -c bat --color unknow  2\u003E\u00261 \u003E/dev/null | grep possible"
+    },
+    {
+      "Name": "\u003Cwhen\u003E0",
+      "Command": "bash -c bat --italic-text unknow 2\u003E\u00261 \u003E/dev/null | grep possible"
+    },
+    {
+      "Name": "\u003Cwhen\u003E1",
+      "Command": "bash -c bat --decorations unknow 2\u003E\u00261 \u003E/dev/null | grep possible"
+    },
+    {
+      "Name": "\u003Cwhen\u003E2",
+      "Command": "bash -c bat --paging unknow  2\u003E\u00261 \u003E/dev/null | grep possible"
+    },
+    {
+      "Name": "\u003Ctheme\u003E",
+      "Command": "bat --list-themes"
+    }
+  ]
+}

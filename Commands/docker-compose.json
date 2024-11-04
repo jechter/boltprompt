@@ -1,0 +1,1991 @@
+{
+  "Comment": "This command info is generated from fig",
+  "Name": "docker-compose",
+  "Description": "Define and run multi-container applications with Docker",
+  "Arguments": [
+    {
+      "Arguments": [
+        {
+          "Name": "--ansi",
+          "Description": "Control when to print ANSI control characters (\u0022never\u0022|\u0022always\u0022|\u0022auto\u0022)",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "ansi",
+                  "Description": "ansi",
+                  "Type": "String"
+                },
+                {
+                  "Name": "never",
+                  "Description": "ansi"
+                },
+                {
+                  "Name": "always",
+                  "Description": "ansi"
+                },
+                {
+                  "Name": "auto",
+                  "Description": "ansi"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "Name": "--compatibility",
+          "Description": "Run compose in backward compatibility mode",
+          "Aliases": [],
+          "Arguments": []
+        },
+        {
+          "Name": "--env-file",
+          "Description": "Specify an alternate environment file",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "env-file",
+                  "Description": "env-file",
+                  "Type": "FileSystemEntry"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "Name": "--file",
+          "Description": "Compose configuration files",
+          "Aliases": [
+            "-f"
+          ],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "file",
+                  "Description": "file",
+                  "Type": "FileSystemEntry"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "Name": "--no-ansi",
+          "Description": "Do not print ANSI control characters (DEPRECATED)",
+          "Aliases": [],
+          "Arguments": []
+        },
+        {
+          "Name": "--profile",
+          "Description": "Specify a profile to enable",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "profile",
+                  "Description": "profile",
+                  "Type": "String",
+                  "Extensions": []
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "Name": "--project-directory",
+          "Description": "Specify an alternate working directory (default: the path of the, first specified, Compose file)",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "project-directory",
+                  "Description": "project-directory",
+                  "Type": "Directory"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "Name": "--project-name",
+          "Description": "Project name",
+          "Aliases": [
+            "-p"
+          ],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "project-name",
+                  "Description": "project-name",
+                  "Type": "String"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "Name": "--verbose",
+          "Description": "Show more output",
+          "Aliases": [],
+          "Arguments": []
+        },
+        {
+          "Name": "--workdir",
+          "Description": "DEPRECATED! USE --project-directory INSTEAD. Specify an alternate working directory (default: the path of the, first specified, Compose file)",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "workdir",
+                  "Description": "workdir",
+                  "Type": "String"
+                }
+              ]
+            }
+          ]
+        }
+      ],
+      "Optional": true
+    },
+    {
+      "Arguments": [
+        {
+          "Name": "build",
+          "Description": "Build or rebuild services",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "--build-arg",
+                  "Description": "Set build-time variables for services",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "key=value",
+                          "Description": "key=value",
+                          "Type": "String",
+                          "Extensions": []
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "--compress",
+                  "Description": "Compress the build context using gzip. DEPRECATED",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "--force-rm",
+                  "Description": "Always remove intermediate containers. DEPRECATED",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "--memory",
+                  "Description": "Set memory limit for the build container. Not supported on buildkit yet",
+                  "Aliases": [
+                    "-m"
+                  ],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "memory",
+                          "Description": "memory",
+                          "Type": "String"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "--no-cache",
+                  "Description": "Do not use cache when building the image",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "--no-rm",
+                  "Description": "Do not remove intermediate containers after a successful build. DEPRECATED",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "--parallel",
+                  "Description": "Build images in parallel. DEPRECATED",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "--progress",
+                  "Description": "Set type of progress output (auto, tty, plain, quiet)",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "progress",
+                          "Description": "progress",
+                          "Type": "String"
+                        },
+                        {
+                          "Name": "auto",
+                          "Description": "progress"
+                        },
+                        {
+                          "Name": "tty",
+                          "Description": "progress"
+                        },
+                        {
+                          "Name": "plain",
+                          "Description": "progress"
+                        },
+                        {
+                          "Name": "quiet",
+                          "Description": "progress"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "--pull",
+                  "Description": "Always attempt to pull a newer version of the image",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "--quiet",
+                  "Description": "Don\u0027t print anything to STDOUT",
+                  "Aliases": [
+                    "-q"
+                  ],
+                  "Arguments": []
+                },
+                {
+                  "Name": "--ssh",
+                  "Description": "Set SSH authentications used when building service images. (use \u0027default\u0027 for using your default SSH Agent)",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "ssh",
+                          "Description": "ssh",
+                          "Type": "String"
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ],
+              "Optional": true
+            },
+            {
+              "Arguments": [
+                {
+                  "Name": "services",
+                  "Description": "services",
+                  "Type": "String",
+                  "Extensions": []
+                }
+              ],
+              "Optional": true
+            }
+          ]
+        },
+        {
+          "Name": "config",
+          "Description": "Converts the compose file to platform\u0027s canonical format",
+          "Aliases": [
+            "convert"
+          ],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "--format",
+                  "Description": "Format the output. Values: [yaml | json]",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "format",
+                          "Description": "format",
+                          "Type": "String"
+                        },
+                        {
+                          "Name": "yaml",
+                          "Description": "format"
+                        },
+                        {
+                          "Name": "json",
+                          "Description": "format"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "--hash",
+                  "Description": "Print the service config hash, one per line",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "hash",
+                          "Description": "hash",
+                          "Type": "String"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "--images",
+                  "Description": "Print the image names, one per line",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "--no-interpolate",
+                  "Description": "Don\u0027t interpolate environment variables",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "--no-normalize",
+                  "Description": "Don\u0027t normalize compose model",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "--output",
+                  "Description": "Save to file (default to stdout)",
+                  "Aliases": [
+                    "-o"
+                  ],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "output",
+                          "Description": "output",
+                          "Type": "FileSystemEntry"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "--profiles",
+                  "Description": "Print the profile names, one per line",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "--quiet",
+                  "Description": "Only validate the configuration, don\u0027t print anything",
+                  "Aliases": [
+                    "-q"
+                  ],
+                  "Arguments": []
+                },
+                {
+                  "Name": "--resolve-image-digests",
+                  "Description": "Pin image tags to digests",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "--services",
+                  "Description": "Print the service names, one per line",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "--volumes",
+                  "Description": "Print the volume names, one per line",
+                  "Aliases": [],
+                  "Arguments": []
+                }
+              ],
+              "Optional": true
+            },
+            {
+              "Arguments": [
+                {
+                  "Name": "services",
+                  "Description": "services",
+                  "Type": "String",
+                  "Extensions": []
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "Name": "cp",
+          "Description": "Copy files/folders between a service container and the local filesystem",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "--all",
+                  "Description": "Copy to all the containers of the service",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "--archive",
+                  "Description": "Archive mode (copy all uid/gid information)",
+                  "Aliases": [
+                    "-a"
+                  ],
+                  "Arguments": []
+                },
+                {
+                  "Name": "--follow-link",
+                  "Description": "Always follow symbol link in SRC_PATH",
+                  "Aliases": [
+                    "-L"
+                  ],
+                  "Arguments": []
+                },
+                {
+                  "Name": "--index",
+                  "Description": "Index of the container if there are multiple instances of a service",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "index",
+                          "Description": "index",
+                          "Type": "String"
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ],
+              "Optional": true
+            },
+            {
+              "Arguments": [
+                {
+                  "Name": "source path",
+                  "Description": "source path",
+                  "Type": "String"
+                }
+              ]
+            },
+            {
+              "Arguments": [
+                {
+                  "Name": "dest path",
+                  "Description": "dest path",
+                  "Type": "String"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "Name": "create",
+          "Description": "Creates containers for a service",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "--build",
+                  "Description": "Build images before starting containers",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "--force-recreate",
+                  "Description": "Recreate containers even if their configuration and image haven\u0027t changed",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "--no-build",
+                  "Description": "Don\u0027t build an image, even if it\u0027s missing",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "--no-recreate",
+                  "Description": "If containers already exist, don\u0027t recreate them. Incompatible with --force-recreate",
+                  "Aliases": [],
+                  "Arguments": []
+                }
+              ],
+              "Optional": true
+            },
+            {
+              "Arguments": [
+                {
+                  "Name": "service",
+                  "Description": "service",
+                  "Type": "String",
+                  "Extensions": []
+                }
+              ],
+              "Optional": true
+            }
+          ]
+        },
+        {
+          "Name": "down",
+          "Description": "Stop and remove containers, networks",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "--remove-orphans",
+                  "Description": "Remove containers for services not defined in the Compose file",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "--rmi",
+                  "Description": "Remove images used by services. \u0022local\u0022 remove only images that don\u0027t have a custom tag (\u0022local\u0022|\u0022all\u0022)",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "rmi",
+                          "Description": "rmi",
+                          "Type": "String"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "--timeout",
+                  "Description": "Specify a shutdown timeout in seconds",
+                  "Aliases": [
+                    "-t"
+                  ],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "timeout",
+                          "Description": "timeout",
+                          "Type": "String"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "--volumes",
+                  "Description": "Remove named volumes declared in the \u0060volumes\u0060 section of the Compose file and anonymous volumes attached to containers",
+                  "Aliases": [
+                    "-v"
+                  ],
+                  "Arguments": []
+                }
+              ],
+              "Optional": true
+            }
+          ]
+        },
+        {
+          "Name": "events",
+          "Description": "Receive real time events from containers",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "--json",
+                  "Description": "Output events as a stream of json objects",
+                  "Aliases": [],
+                  "Arguments": []
+                }
+              ],
+              "Optional": true
+            },
+            {
+              "Arguments": [
+                {
+                  "Name": "service",
+                  "Description": "service",
+                  "Type": "String",
+                  "Extensions": []
+                }
+              ],
+              "Optional": true
+            }
+          ]
+        },
+        {
+          "Name": "exec",
+          "Description": "Execute a command in a running container",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "--detach",
+                  "Description": "Detached mode: Run command in the background",
+                  "Aliases": [
+                    "-d"
+                  ],
+                  "Arguments": []
+                },
+                {
+                  "Name": "--env",
+                  "Description": "Set environment variables",
+                  "Aliases": [
+                    "-e"
+                  ],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "key=value",
+                          "Description": "key=value",
+                          "Type": "String"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "--index",
+                  "Description": "Index of the container if there are multiple instances of a service [default: 1]",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "index",
+                          "Description": "index",
+                          "Type": "String"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "--interactive",
+                  "Description": "Keep STDIN open even if not attached",
+                  "Aliases": [
+                    "-i"
+                  ],
+                  "Arguments": []
+                },
+                {
+                  "Name": "--no-TTY",
+                  "Description": "Disable pseudo-TTY allocation. By default \u0060docker compose exec\u0060 allocates a TTY",
+                  "Aliases": [
+                    "-T"
+                  ],
+                  "Arguments": []
+                },
+                {
+                  "Name": "--privileged",
+                  "Description": "Give extended privileges to the process",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "--tty",
+                  "Description": "Allocate a pseudo-TTY",
+                  "Aliases": [
+                    "-t"
+                  ],
+                  "Arguments": []
+                },
+                {
+                  "Name": "--user",
+                  "Description": "Run the command as this user",
+                  "Aliases": [
+                    "-u"
+                  ],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "user",
+                          "Description": "user",
+                          "Type": "String"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "--workdir",
+                  "Description": "Path to workdir directory for this command",
+                  "Aliases": [
+                    "-w"
+                  ],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "workdir",
+                          "Description": "workdir",
+                          "Type": "Directory"
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ],
+              "Optional": true
+            },
+            {
+              "Arguments": [
+                {
+                  "Name": "service",
+                  "Description": "service",
+                  "Type": "String",
+                  "Extensions": []
+                }
+              ]
+            },
+            {
+              "Arguments": [
+                {
+                  "Name": "command",
+                  "Description": "command",
+                  "Type": "String"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "Name": "images",
+          "Description": "List images used by the created containers",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "--quiet",
+                  "Description": "Only display IDs",
+                  "Aliases": [
+                    "-q"
+                  ],
+                  "Arguments": []
+                }
+              ],
+              "Optional": true
+            },
+            {
+              "Arguments": [
+                {
+                  "Name": "service",
+                  "Description": "service",
+                  "Type": "String",
+                  "Extensions": []
+                }
+              ],
+              "Optional": true
+            }
+          ]
+        },
+        {
+          "Name": "kill",
+          "Description": "Force stop service containers",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "--signal",
+                  "Description": "SIGNAL to send to the container",
+                  "Aliases": [
+                    "-s"
+                  ],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "signal",
+                          "Description": "signal",
+                          "Type": "String"
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ],
+              "Optional": true
+            },
+            {
+              "Arguments": [
+                {
+                  "Name": "service",
+                  "Description": "service",
+                  "Type": "String",
+                  "Extensions": []
+                }
+              ],
+              "Optional": true
+            }
+          ]
+        },
+        {
+          "Name": "logs",
+          "Description": "View output from containers",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "--follow",
+                  "Description": "Follow log output",
+                  "Aliases": [
+                    "-f"
+                  ],
+                  "Arguments": []
+                },
+                {
+                  "Name": "--no-color",
+                  "Description": "Produce monochrome output",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "--no-log-prefix",
+                  "Description": "Don\u0027t print prefix in logs",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "--since",
+                  "Description": "Show logs since timestamp (e.g. 2013-01-02T13:23:37Z) or relative (e.g. 42m for 42 minutes)",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "since",
+                          "Description": "since",
+                          "Type": "String"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "--tail",
+                  "Description": "Number of lines to show from the end of the logs for each container",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "lines",
+                          "Description": "lines",
+                          "Type": "String"
+                        },
+                        {
+                          "Name": "all",
+                          "Description": "lines"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "--timestamps",
+                  "Description": "Show timestamps",
+                  "Aliases": [
+                    "-t"
+                  ],
+                  "Arguments": []
+                },
+                {
+                  "Name": "--until",
+                  "Description": "Show logs before a timestamp (e.g. 2013-01-02T13:23:37Z) or relative (e.g. 42m for 42 minutes)",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "timestamp",
+                          "Description": "timestamp",
+                          "Type": "String"
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ],
+              "Optional": true
+            },
+            {
+              "Arguments": [
+                {
+                  "Name": "service",
+                  "Description": "service",
+                  "Type": "String",
+                  "Extensions": []
+                }
+              ],
+              "Optional": true
+            }
+          ]
+        },
+        {
+          "Name": "ls",
+          "Description": "List running compose projects",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "--all",
+                  "Description": "Show all stopped Compose projects",
+                  "Aliases": [
+                    "-a"
+                  ],
+                  "Arguments": []
+                },
+                {
+                  "Name": "--filter",
+                  "Description": "Filter output based on conditions provided",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "filter",
+                          "Description": "filter",
+                          "Type": "String"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "--format",
+                  "Description": "Format the output. Values: [pretty | json]",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "format",
+                          "Description": "format",
+                          "Type": "String"
+                        },
+                        {
+                          "Name": "pretty",
+                          "Description": "format"
+                        },
+                        {
+                          "Name": "json",
+                          "Description": "format"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "--quiet",
+                  "Description": "Only display IDs",
+                  "Aliases": [
+                    "-q"
+                  ],
+                  "Arguments": []
+                }
+              ],
+              "Optional": true
+            }
+          ]
+        },
+        {
+          "Name": "pause",
+          "Description": "Pause services",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "service",
+                  "Description": "service",
+                  "Type": "String",
+                  "Extensions": []
+                }
+              ],
+              "Optional": true
+            }
+          ]
+        },
+        {
+          "Name": "port",
+          "Description": "Print the public port for a port binding",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "--index",
+                  "Description": "Index of the container if service has multiple replicas",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "index",
+                          "Description": "index",
+                          "Type": "String"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "--protocol",
+                  "Description": "Tcp or udp",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "protocol",
+                          "Description": "protocol",
+                          "Type": "String"
+                        },
+                        {
+                          "Name": "tcp",
+                          "Description": "protocol"
+                        },
+                        {
+                          "Name": "udp",
+                          "Description": "protocol"
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ],
+              "Optional": true
+            },
+            {
+              "Arguments": [
+                {
+                  "Name": "service",
+                  "Description": "service",
+                  "Type": "String",
+                  "Extensions": []
+                }
+              ]
+            },
+            {
+              "Arguments": [
+                {
+                  "Name": "private_port",
+                  "Description": "private_port",
+                  "Type": "String"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "Name": "ps",
+          "Description": "List containers",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "--all",
+                  "Description": "Show all stopped containers (including those created by the run command)",
+                  "Aliases": [
+                    "-a"
+                  ],
+                  "Arguments": []
+                },
+                {
+                  "Name": "--filter",
+                  "Description": "Filter services by a property (supported filters: status)",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "filter",
+                          "Description": "filter",
+                          "Type": "String"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "--format",
+                  "Description": "Format the output. Values: [pretty | json]",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "format",
+                          "Description": "format",
+                          "Type": "String"
+                        },
+                        {
+                          "Name": "pretty",
+                          "Description": "format"
+                        },
+                        {
+                          "Name": "json",
+                          "Description": "format"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "--quiet",
+                  "Description": "Only display IDs",
+                  "Aliases": [
+                    "-q"
+                  ],
+                  "Arguments": []
+                },
+                {
+                  "Name": "--services",
+                  "Description": "Display services",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "--status",
+                  "Description": "Filter services by status. Values: [paused | restarting | removing | running | dead | created | exited]",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "status",
+                          "Description": "status",
+                          "Type": "String"
+                        },
+                        {
+                          "Name": "paused",
+                          "Description": "status"
+                        },
+                        {
+                          "Name": "restarting",
+                          "Description": "status"
+                        },
+                        {
+                          "Name": "removing",
+                          "Description": "status"
+                        },
+                        {
+                          "Name": "running",
+                          "Description": "status"
+                        },
+                        {
+                          "Name": "dead",
+                          "Description": "status"
+                        },
+                        {
+                          "Name": "created",
+                          "Description": "status"
+                        },
+                        {
+                          "Name": "exited",
+                          "Description": "status"
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ],
+              "Optional": true
+            },
+            {
+              "Arguments": [
+                {
+                  "Name": "service",
+                  "Description": "service",
+                  "Type": "String",
+                  "Extensions": []
+                }
+              ],
+              "Optional": true
+            }
+          ]
+        },
+        {
+          "Name": "pull",
+          "Description": "Pull service images",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "--ignore-pull-failures",
+                  "Description": "Pull what it can and ignores images with pull failures",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "--include-deps",
+                  "Description": "Also pull services declared as dependencies",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "--no-parallel",
+                  "Description": "DEPRECATED disable parallel pulling",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "--parallel",
+                  "Description": "DEPRECATED pull multiple images in parallel",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "--quiet",
+                  "Description": "Pull without printing progress information",
+                  "Aliases": [
+                    "-q"
+                  ],
+                  "Arguments": []
+                }
+              ],
+              "Optional": true
+            },
+            {
+              "Arguments": [
+                {
+                  "Name": "service",
+                  "Description": "service",
+                  "Type": "String",
+                  "Extensions": []
+                }
+              ],
+              "Optional": true
+            }
+          ]
+        },
+        {
+          "Name": "push",
+          "Description": "Push service images",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "--ignore-push-failures",
+                  "Description": "Push what it can and ignores images with push failures",
+                  "Aliases": [],
+                  "Arguments": []
+                }
+              ],
+              "Optional": true
+            },
+            {
+              "Arguments": [
+                {
+                  "Name": "service",
+                  "Description": "service",
+                  "Type": "String",
+                  "Extensions": []
+                }
+              ],
+              "Optional": true
+            }
+          ]
+        },
+        {
+          "Name": "restart",
+          "Description": "Restart containers",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "--timeout",
+                  "Description": "Specify a shutdown timeout in seconds",
+                  "Aliases": [
+                    "-t"
+                  ],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "timeout",
+                          "Description": "timeout",
+                          "Type": "String"
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ],
+              "Optional": true
+            },
+            {
+              "Arguments": [
+                {
+                  "Name": "service",
+                  "Description": "service",
+                  "Type": "String",
+                  "Extensions": []
+                }
+              ],
+              "Optional": true
+            }
+          ]
+        },
+        {
+          "Name": "rm",
+          "Description": "Removes stopped service containers",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "--all",
+                  "Description": "Deprecated - no effect",
+                  "Aliases": [
+                    "-a"
+                  ],
+                  "Arguments": []
+                },
+                {
+                  "Name": "--force",
+                  "Description": "Don\u0027t ask to confirm removal",
+                  "Aliases": [
+                    "-f"
+                  ],
+                  "Arguments": []
+                },
+                {
+                  "Name": "--stop",
+                  "Description": "Stop the containers, if required, before removing",
+                  "Aliases": [
+                    "-s"
+                  ],
+                  "Arguments": []
+                },
+                {
+                  "Name": "--volumes",
+                  "Description": "Remove any anonymous volumes attached to containers",
+                  "Aliases": [
+                    "-v"
+                  ],
+                  "Arguments": []
+                }
+              ],
+              "Optional": true
+            },
+            {
+              "Arguments": [
+                {
+                  "Name": "service",
+                  "Description": "service",
+                  "Type": "String",
+                  "Extensions": []
+                }
+              ],
+              "Optional": true
+            }
+          ]
+        },
+        {
+          "Name": "run",
+          "Description": "Run a one-off command on a service",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "--detach",
+                  "Description": "Run container in background and print container ID",
+                  "Aliases": [
+                    "-d"
+                  ],
+                  "Arguments": []
+                },
+                {
+                  "Name": "--entrypoint",
+                  "Description": "Override the entrypoint of the image",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "entrypoint",
+                          "Description": "entrypoint",
+                          "Type": "String"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "--env",
+                  "Description": "Set environment variables",
+                  "Aliases": [
+                    "-e"
+                  ],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "env",
+                          "Description": "env",
+                          "Type": "String"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "--interactive",
+                  "Description": "Keep STDIN open even if not attached",
+                  "Aliases": [
+                    "-i"
+                  ],
+                  "Arguments": []
+                },
+                {
+                  "Name": "--label",
+                  "Description": "Add or override a label",
+                  "Aliases": [
+                    "-l"
+                  ],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "label",
+                          "Description": "label",
+                          "Type": "String"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "--name",
+                  "Description": "Assign a name to the container",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "name",
+                          "Description": "name",
+                          "Type": "String"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "--no-TTY",
+                  "Description": "Disable pseudo-TTY allocation (default: auto-detected)",
+                  "Aliases": [
+                    "-T"
+                  ],
+                  "Arguments": []
+                },
+                {
+                  "Name": "--no-deps",
+                  "Description": "Don\u0027t start linked services",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "--publish",
+                  "Description": "Publish a container\u0027s port(s) to the host",
+                  "Aliases": [
+                    "-p"
+                  ],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "publish",
+                          "Description": "publish",
+                          "Type": "String"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "--quiet-pull",
+                  "Description": "Pull without printing progress information",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "--rm",
+                  "Description": "Automatically remove the container when it exits",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "--service-ports",
+                  "Description": "Run command with the service\u0027s ports enabled and mapped to the host",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "--tty",
+                  "Description": "Allocate a pseudo-TTY",
+                  "Aliases": [
+                    "-t"
+                  ],
+                  "Arguments": []
+                },
+                {
+                  "Name": "--use-aliases",
+                  "Description": "Use the service\u0027s network useAliases in the network(s) the container connects to",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "--user",
+                  "Description": "Run as specified username or uid",
+                  "Aliases": [
+                    "-u"
+                  ],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "user",
+                          "Description": "user",
+                          "Type": "String"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "--volume",
+                  "Description": "Bind mount a volume",
+                  "Aliases": [
+                    "-v"
+                  ],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "volume",
+                          "Description": "volume",
+                          "Type": "String"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "--workdir",
+                  "Description": "Working directory inside the container",
+                  "Aliases": [
+                    "-w"
+                  ],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "workdir",
+                          "Description": "workdir",
+                          "Type": "Directory"
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ],
+              "Optional": true
+            },
+            {
+              "Arguments": [
+                {
+                  "Name": "service",
+                  "Description": "service",
+                  "Type": "String",
+                  "Extensions": []
+                }
+              ]
+            },
+            {
+              "Arguments": [
+                {
+                  "Name": "command",
+                  "Description": "command",
+                  "Type": "String"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "Name": "start",
+          "Description": "Start services",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "service",
+                  "Description": "service",
+                  "Type": "String",
+                  "Extensions": []
+                }
+              ],
+              "Optional": true
+            }
+          ]
+        },
+        {
+          "Name": "stop",
+          "Description": "Stop services",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "--timeout",
+                  "Description": "Specify a shutdown timeout in seconds",
+                  "Aliases": [
+                    "-t"
+                  ],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "timeout",
+                          "Description": "timeout",
+                          "Type": "String"
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ],
+              "Optional": true
+            },
+            {
+              "Arguments": [
+                {
+                  "Name": "service",
+                  "Description": "service",
+                  "Type": "String",
+                  "Extensions": []
+                }
+              ],
+              "Optional": true
+            }
+          ]
+        },
+        {
+          "Name": "top",
+          "Description": "Display the running processes",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "service",
+                  "Description": "service",
+                  "Type": "String",
+                  "Extensions": []
+                }
+              ],
+              "Optional": true
+            }
+          ]
+        },
+        {
+          "Name": "unpause",
+          "Description": "Unpause services",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "service",
+                  "Description": "service",
+                  "Type": "String",
+                  "Extensions": []
+                }
+              ],
+              "Optional": true
+            }
+          ]
+        },
+        {
+          "Name": "up",
+          "Description": "Create and start containers",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "--abort-on-container-exit",
+                  "Description": "Stops all containers if any container was stopped. Incompatible with -d",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "--always-recreate-deps",
+                  "Description": "Recreate dependent containers. Incompatible with --no-recreate",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "--attach",
+                  "Description": "Attach to service output",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "attach",
+                          "Description": "attach",
+                          "Type": "String"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "--attach-dependencies",
+                  "Description": "Attach to dependent containers",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "--build",
+                  "Description": "Build images before starting containers",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "--detach",
+                  "Description": "Detached mode: Run containers in the background",
+                  "Aliases": [
+                    "-d"
+                  ],
+                  "Arguments": []
+                },
+                {
+                  "Name": "--exit-code-from",
+                  "Description": "Return the exit code of the selected service container. Implies --abort-on-container-exit",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "exit-code-from",
+                          "Description": "exit-code-from",
+                          "Type": "String"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "--force-recreate",
+                  "Description": "Recreate containers even if their configuration and image haven\u0027t changed",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "--no-build",
+                  "Description": "Don\u0027t build an image, even if it\u0027s missing",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "--no-color",
+                  "Description": "Produce monochrome output",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "--no-deps",
+                  "Description": "Don\u0027t start linked services",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "--no-log-prefix",
+                  "Description": "Don\u0027t print prefix in logs",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "--no-recreate",
+                  "Description": "If containers already exist, don\u0027t recreate them. Incompatible with --force-recreate",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "--no-start",
+                  "Description": "Don\u0027t start the services after creating them",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "--quiet-pull",
+                  "Description": "Pull without printing progress information",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "--remove-orphans",
+                  "Description": "Remove containers for services not defined in the Compose file",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "--renew-anon-volumes",
+                  "Description": "Recreate anonymous volumes instead of retrieving data from the previous containers",
+                  "Aliases": [
+                    "-V"
+                  ],
+                  "Arguments": []
+                },
+                {
+                  "Name": "--scale",
+                  "Description": "Scale SERVICE to NUM instances. Overrides the \u0060scale\u0060 setting in the Compose file if present",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "scale",
+                          "Description": "scale",
+                          "Type": "String"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "--timeout",
+                  "Description": "Use this timeout in seconds for container shutdown when attached or when containers are already running",
+                  "Aliases": [
+                    "-t"
+                  ],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "timeout",
+                          "Description": "timeout",
+                          "Type": "String"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "--wait",
+                  "Description": "Wait for services to be running|healthy. Implies detached mode",
+                  "Aliases": [],
+                  "Arguments": []
+                }
+              ],
+              "Optional": true
+            },
+            {
+              "Arguments": [
+                {
+                  "Name": "service",
+                  "Description": "service",
+                  "Type": "String",
+                  "Extensions": []
+                }
+              ],
+              "Optional": true
+            }
+          ]
+        },
+        {
+          "Name": "version",
+          "Description": "Show the Docker Compose version information",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "--format",
+                  "Description": "Format the output. Values: [pretty | json]. (Default: pretty)",
+                  "Aliases": [
+                    "-f"
+                  ],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "format",
+                          "Description": "format",
+                          "Type": "String"
+                        },
+                        {
+                          "Name": "pretty",
+                          "Description": "format"
+                        },
+                        {
+                          "Name": "json",
+                          "Description": "format"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "--short",
+                  "Description": "Shows only Compose\u0027s version number",
+                  "Aliases": [],
+                  "Arguments": []
+                }
+              ],
+              "Optional": true
+            }
+          ]
+        }
+      ],
+      "DontAllowMultiple": true
+    }
+  ]
+}

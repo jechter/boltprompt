@@ -330,10 +330,10 @@ internal class FigCommandInfoSupplier : ICommandInfoSupplier
               {
                 "compilerOptions": {
                   "moduleResolution": "node",
-                  "target": "ES2018",
+                  "target": "ES2019",
                   "module": "ESNext",
                   "lib": [
-                    "ES2018",
+                    "ES2019",
                     "DOM"
                   ],
                   "noImplicitAny": false,

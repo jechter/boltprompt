@@ -1,0 +1,564 @@
+{
+  "Comment": "This command info is generated from fig",
+  "Name": "n",
+  "Description": "Node version management",
+  "Arguments": [
+    {
+      "Arguments": [
+        {
+          "Name": "-V",
+          "Description": "Output version of n",
+          "Aliases": [
+            "--version"
+          ],
+          "Arguments": []
+        },
+        {
+          "Name": "-h",
+          "Description": "Display help information",
+          "Aliases": [
+            "--help"
+          ],
+          "Arguments": []
+        },
+        {
+          "Name": "-p",
+          "Description": "Preserve npm and npx during install of Node.js",
+          "Aliases": [
+            "--preserve"
+          ],
+          "Arguments": []
+        },
+        {
+          "Name": "--no-preserve",
+          "Description": "Do not preserve npm and npx during install of Node.js",
+          "Aliases": [],
+          "Arguments": []
+        },
+        {
+          "Name": "-q",
+          "Description": "Disable curl output. Disable log messages processing \u0022auto\u0022 and \u0022engine\u0022 labels",
+          "Aliases": [
+            "--quiet"
+          ],
+          "Arguments": []
+        },
+        {
+          "Name": "-d",
+          "Description": "Download only",
+          "Aliases": [
+            "--download"
+          ],
+          "Arguments": []
+        },
+        {
+          "Name": "-a",
+          "Description": "Override system architecture",
+          "Aliases": [
+            "--arch"
+          ],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "Architecture",
+                  "Description": "Architecture",
+                  "Type": "String"
+                },
+                {
+                  "Name": "x64",
+                  "Description": "Architecture"
+                },
+                {
+                  "Name": "arm64",
+                  "Description": "Architecture"
+                },
+                {
+                  "Name": "x86",
+                  "Description": "Architecture"
+                },
+                {
+                  "Name": "armv6l",
+                  "Description": "Architecture"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "Name": "--insecure",
+          "Description": "Turn off certificate checking for https requests (may be needed from behind a proxy server)",
+          "Aliases": [],
+          "Arguments": []
+        },
+        {
+          "Name": "--use-xz",
+          "Description": "Override automatic detection of xz support and enable use of xz compressed node downloads",
+          "Aliases": [],
+          "Arguments": []
+        },
+        {
+          "Name": "--no-use-xz",
+          "Description": "Override automatic detection of xz support and disable use of xz compressed node downloads",
+          "Aliases": [],
+          "Arguments": []
+        }
+      ],
+      "Optional": true
+    },
+    {
+      "Arguments": [
+        {
+          "Name": "version",
+          "Description": "version",
+          "Type": "CustomArgument",
+          "Extensions": [],
+          "CustomArgumentTemplate": "version"
+        },
+        {
+          "Name": "latest",
+          "Description": "Newest official release"
+        },
+        {
+          "Name": "lts",
+          "Description": "Newest Long Term Support official release"
+        },
+        {
+          "Name": "auto",
+          "Description": "Read version from file: .n-node-version, .node-version, .nvmrc, or package.json"
+        },
+        {
+          "Name": "engine",
+          "Description": "Read version from package.json"
+        }
+      ],
+      "Optional": true
+    },
+    {
+      "Arguments": [
+        {
+          "Name": "i",
+          "Description": "Install a Node.js version",
+          "Aliases": [
+            "install"
+          ],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "version",
+                  "Description": "version",
+                  "Type": "CustomArgument",
+                  "Extensions": [],
+                  "CustomArgumentTemplate": "version"
+                },
+                {
+                  "Name": "latest",
+                  "Description": "Newest official release"
+                },
+                {
+                  "Name": "lts",
+                  "Description": "Newest Long Term Support official release"
+                },
+                {
+                  "Name": "auto",
+                  "Description": "Read version from file: .n-node-version, .node-version, .nvmrc, or package.json"
+                },
+                {
+                  "Name": "engine",
+                  "Description": "Read version from package.json"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "Name": "rm",
+          "Description": "Remove a Node.js version",
+          "Aliases": [
+            "\u2013"
+          ],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "version",
+                  "Description": "version",
+                  "Type": "CustomArgument",
+                  "Extensions": [],
+                  "CustomArgumentTemplate": "version"
+                },
+                {
+                  "Name": "latest",
+                  "Description": "Newest official release"
+                },
+                {
+                  "Name": "lts",
+                  "Description": "Newest Long Term Support official release"
+                },
+                {
+                  "Name": "auto",
+                  "Description": "Read version from file: .n-node-version, .node-version, .nvmrc, or package.json"
+                },
+                {
+                  "Name": "engine",
+                  "Description": "Read version from package.json"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "Name": "prune",
+          "Description": "Remove all cached Node.js versions except the installed version",
+          "Aliases": [],
+          "Arguments": []
+        },
+        {
+          "Name": "doctor",
+          "Description": "Display diagnostics to help resolve problems",
+          "Aliases": [],
+          "Arguments": []
+        },
+        {
+          "Name": "uninstall",
+          "Description": "Remove the installed Node.js",
+          "Aliases": [],
+          "Arguments": []
+        },
+        {
+          "Name": "ls",
+          "Description": "Output downloaded versions",
+          "Aliases": [
+            "list"
+          ],
+          "Arguments": []
+        },
+        {
+          "Name": "lsr",
+          "Description": "Output matching versions available for download",
+          "Aliases": [
+            "ls-remote",
+            "list-remote"
+          ],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "--all",
+                  "Description": "Ls-remote displays all matches instead of last 20",
+                  "Aliases": [],
+                  "Arguments": []
+                }
+              ],
+              "Optional": true
+            },
+            {
+              "Arguments": [
+                {
+                  "Name": "version",
+                  "Description": "version",
+                  "Type": "CustomArgument",
+                  "Extensions": [],
+                  "CustomArgumentTemplate": "version"
+                },
+                {
+                  "Name": "latest",
+                  "Description": "Newest official release"
+                },
+                {
+                  "Name": "lts",
+                  "Description": "Newest Long Term Support official release"
+                },
+                {
+                  "Name": "auto",
+                  "Description": "Read version from file: .n-node-version, .node-version, .nvmrc, or package.json"
+                },
+                {
+                  "Name": "engine",
+                  "Description": "Read version from package.json"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "Name": "which",
+          "Description": "Output path for downloaded node version",
+          "Aliases": [
+            "bin"
+          ],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "version",
+                  "Description": "version",
+                  "Type": "CustomArgument",
+                  "Extensions": [],
+                  "CustomArgumentTemplate": "version"
+                },
+                {
+                  "Name": "latest",
+                  "Description": "Newest official release"
+                },
+                {
+                  "Name": "lts",
+                  "Description": "Newest Long Term Support official release"
+                },
+                {
+                  "Name": "auto",
+                  "Description": "Read version from file: .n-node-version, .node-version, .nvmrc, or package.json"
+                },
+                {
+                  "Name": "engine",
+                  "Description": "Read version from package.json"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "Name": "run",
+          "Description": "Execute downloaded Node.js version with args",
+          "Aliases": [
+            "use",
+            "as"
+          ],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "-e",
+                  "Description": "Evaluate script",
+                  "Aliases": [
+                    "--eval=..."
+                  ],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "String",
+                          "Description": "",
+                          "Type": "String"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "--watch",
+                  "Description": "Watch input files",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "--watch-path",
+                  "Description": "Specify a watch directory or file",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "path",
+                          "Description": "path",
+                          "Type": "FileSystemEntry"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "--watch-preserve-output",
+                  "Description": "Disable the clearing of the console when watch mode restarts the process",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "--env-file",
+                  "Description": "Specify a file containing environment variables",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "path",
+                          "Description": "path",
+                          "Type": "FileSystemEntry"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "-p",
+                  "Description": "Evaluate script and print result",
+                  "Aliases": [
+                    "--print"
+                  ],
+                  "Arguments": []
+                },
+                {
+                  "Name": "-c",
+                  "Description": "Syntax check script without executing",
+                  "Aliases": [
+                    "--check"
+                  ],
+                  "Arguments": []
+                },
+                {
+                  "Name": "-v",
+                  "Description": "Print Node.js version",
+                  "Aliases": [
+                    "--version"
+                  ],
+                  "Arguments": []
+                },
+                {
+                  "Name": "-i",
+                  "Description": "Always enter the REPL even if stdin does not appear to be a terminal",
+                  "Aliases": [
+                    "--interactive"
+                  ],
+                  "Arguments": []
+                },
+                {
+                  "Name": "-h",
+                  "Description": "Print node command line options (currently set)",
+                  "Aliases": [
+                    "--help"
+                  ],
+                  "Arguments": []
+                },
+                {
+                  "Name": "--inspect",
+                  "Description": "Activate inspector on host:port (default: 127.0.0.1:9229)",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "[host:]port",
+                          "Description": "[host:]port",
+                          "Type": "String"
+                        }
+                      ],
+                      "Optional": true
+                    }
+                  ]
+                },
+                {
+                  "Name": "--preserve-symlinks",
+                  "Description": "Follows symlinks to directories when examining source code and templates for translation strings",
+                  "Aliases": [],
+                  "Arguments": []
+                }
+              ],
+              "Optional": true
+            },
+            {
+              "Arguments": [
+                {
+                  "Name": "version",
+                  "Description": "version",
+                  "Type": "CustomArgument",
+                  "Extensions": [],
+                  "CustomArgumentTemplate": "version"
+                },
+                {
+                  "Name": "latest",
+                  "Description": "Newest official release"
+                },
+                {
+                  "Name": "lts",
+                  "Description": "Newest Long Term Support official release"
+                },
+                {
+                  "Name": "auto",
+                  "Description": "Read version from file: .n-node-version, .node-version, .nvmrc, or package.json"
+                },
+                {
+                  "Name": "engine",
+                  "Description": "Read version from package.json"
+                }
+              ]
+            },
+            {
+              "Arguments": [
+                {
+                  "Name": "node script",
+                  "Description": "node script",
+                  "Type": "File",
+                  "Extensions": [
+                    "mjs",
+                    "js",
+                    "cjs"
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "Name": "exec",
+          "Description": "Execute command with modified PATH, so downloaded node version and npm first",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "version",
+                  "Description": "version",
+                  "Type": "CustomArgument",
+                  "Extensions": [],
+                  "CustomArgumentTemplate": "version"
+                },
+                {
+                  "Name": "latest",
+                  "Description": "Newest official release"
+                },
+                {
+                  "Name": "lts",
+                  "Description": "Newest Long Term Support official release"
+                },
+                {
+                  "Name": "auto",
+                  "Description": "Read version from file: .n-node-version, .node-version, .nvmrc, or package.json"
+                },
+                {
+                  "Name": "engine",
+                  "Description": "Read version from package.json"
+                }
+              ]
+            },
+            {
+              "Arguments": [
+                {
+                  "Name": "cmd",
+                  "Description": "cmd",
+                  "Type": "String"
+                }
+              ]
+            },
+            {
+              "Arguments": [
+                {
+                  "Name": "args",
+                  "Description": "args",
+                  "Type": "String"
+                }
+              ]
+            }
+          ]
+        }
+      ],
+      "DontAllowMultiple": true
+    }
+  ],
+  "CustomArgumentTemplates": [
+    {
+      "Name": "version",
+      "Command": "n lsr --all"
+    }
+  ]
+}
