@@ -185,6 +185,7 @@ internal class MainLoop
     private void RenderPromptAndSuggestionsIfNeeded()
     {
         if (!_needsRedraw) return;
+        _needsRedraw = false;
         if (Prompt.CursorPosition == _commandLine.Length || _commandLine[Prompt.CursorPosition] == ' ')
             _suggestions = Suggestor.SuggestionsForPrompt(_commandLine[..Prompt.CursorPosition]);
         else
@@ -202,7 +203,6 @@ internal class MainLoop
         }
         else if (_didShowSuggestions)
             SuggestionConsoleViewer.Clear(top);
-        _needsRedraw = false;
     }
 
     private void ConsoleCancelKeyPress(object? sender, ConsoleCancelEventArgs e)
