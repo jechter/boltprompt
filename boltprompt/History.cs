@@ -31,6 +31,7 @@ public static class History
                 part is { Type: CommandLineParser.CommandLinePart.PartType.Argument, Argument.Type: CommandInfo.ArgumentType.File or CommandInfo.ArgumentType.Directory or CommandInfo.ArgumentType.FileSystemEntry }
                 && Suggestor.UnescapeFileName(part.Text).ToNPath().IsRelative);
         var command = new Command(commandLine) { AIPrompt = aiPrompt, WorkingDirectory = NPath.CurrentDirectory.ToString(), CommandHasRelativePaths = commandHasRelativePaths };
+        _commands = null; // Force reload from disk, so we don't overwrite changes from other parallel boltprompt processes.
         _commands = Commands.Where(c => c != command).Append(command).ToArray();
         Paths.History.WriteAllText(JsonSerializer.Serialize(_commands));
     }

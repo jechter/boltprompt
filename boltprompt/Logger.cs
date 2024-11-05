@@ -9,11 +9,20 @@ internal static class Logger
 
     private static readonly Dictionary<NPath, FileStream> LogFiles = new();
 
-    private static FileStream GetFileStream(NPath path)
+    private static FileStream? GetFileStream(NPath path)
     {
         if (LogFiles.TryGetValue(path, out var stream))
             return stream;
-        stream = File.Open(path.ToString(), FileMode.Create);
+        try
+        {
+            stream = File.Open(path.ToString(), FileMode.Create);
+        }
+        catch
+        {
+            // Rather don't write to a log then fail because of file permission issues.
+            return null;
+        }
+
         LogFiles[path] = stream;
         return stream;
     }
@@ -29,6 +38,9 @@ internal static class Logger
     public static void Log(string file, string message)
     {
         var stream = GetFileStream(GetLogPath(file));
+        if (stream == null)
+            return;
+        
         stream.Write(Encoding.UTF8.GetBytes(message + "\n"));
         stream.Flush();
     }
