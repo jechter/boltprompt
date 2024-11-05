@@ -141,6 +141,11 @@ public static partial class Suggestor
             if (result[i-1].Text == result[i].Text)
                 result.RemoveAt(i--);
         }
+
+        // empty suggestions don't make sense, unless it's the only one (to have a description of what the next parameter is for)
+        if (result.Count > 1)
+            result = result.Where(r => r.Text != "").ToList();
+        
         return result.ToArray();
     }
 

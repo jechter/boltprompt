@@ -916,7 +916,7 @@ public class SuggestorTests
         
         History.LoadTestHistory(["./testExecutable foo"]);
         suggestions = GetSuggestionsForTestExecutable(ci, " ");
-        Assert.That(suggestions.Select(s => s.Text.Trim()).ToArray(), Is.EqualTo(new [] {"", "foo"}));
+        Assert.That(suggestions.Select(s => s.Text.Trim()).ToArray(), Is.EqualTo(new [] {"foo"}));
         
         suggestions = GetSuggestionsForTestExecutable(ci, " f");
         Assert.That(suggestions.Select(s => s.Text.Trim()).ToArray(), Is.EqualTo(new [] {"foo", "f"}));
