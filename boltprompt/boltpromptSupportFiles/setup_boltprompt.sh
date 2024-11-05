@@ -40,6 +40,10 @@ add_to_history() {
   esac
 }
 
+TEMP_RESULT=0
+
+restore_status() { return $TEMP_RESULT; }
+
 generate_command() {
     boltprompt
     if [ $? -ne 0 ]; then
@@ -48,7 +52,9 @@ generate_command() {
     else    
       CUSTOM_PROMPT=$(cat /tmp/custom-command)
       trap signal_handler SIGINT
+      restore_status
       eval $CUSTOM_PROMPT
+      TEMP_RESULT=$?
       add_to_history $CUSTOM_PROMPT
       return 0
     fi
