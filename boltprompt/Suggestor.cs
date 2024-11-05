@@ -72,7 +72,7 @@ public static partial class Suggestor
 
                 string? FilterHistoryEntryByCommandLine(History.Command historyEntry)
                 {
-                    var parsedHistoryCommandLine= CommandLineParser.ParseCommandLine(historyEntry.Commandline).ToArray();
+                    var parsedHistoryCommandLine = historyEntry.ParsedCommandLine;
                     var index = parsedCommandLine.Last().Type == CommandLineParser.CommandLinePart.PartType.Whitespace
                         ? parsedCommandLine.Length
                         : parsedCommandLine.Length - 1;
@@ -361,8 +361,7 @@ public static partial class Suggestor
                     yield return new (lastParam) { Description = string.IsNullOrEmpty(arg.Description) ? arg.Name : arg.Description };
                     foreach (var c in History.Commands
                                  .Where(cmd => cmd.Commandline.StartsWith(commandline))
-                                 .Select(cmd => cmd.Commandline)
-                                 .Select(cmd => CommandLineParser.ParseCommandLine(cmd).ToArray()[parts.Length].Text)
+                                 .Select(cmd => cmd.ParsedCommandLine[parts.Length].Text)
                              )
                         yield return new (c) { Description = string.IsNullOrEmpty(arg.Description) ? arg.Name : arg.Description };
                     

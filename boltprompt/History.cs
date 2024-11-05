@@ -14,6 +14,11 @@ public static class History
         public string? WorkingDirectory;
         [JsonInclude] 
         public bool CommandHasRelativePaths;
+
+        private CommandLineParser.CommandLinePart[]? _commandLineParts;
+
+        public CommandLineParser.CommandLinePart[] ParsedCommandLine =>
+            _commandLineParts ??= CommandLineParser.ParseCommandLine(Commandline).ToArray();
     }
     
     private static Command[]? _commands; 
