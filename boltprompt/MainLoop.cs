@@ -160,10 +160,10 @@ internal class MainLoop
             }
             else
             {
-                var parts = Suggestor.ParseCommandLine(_commandLine).ToArray();
+                var parts = CommandLineParser.ParseCommandLine(_commandLine).ToArray();
                 var partsIndexUpToCursor = Prompt.PartsIndexUpToCursor(parts);
-                var newPart = new Suggestor.CommandLinePart(_suggestions[_selection].Text);
-                if (parts.Length == 0 || parts[partsIndexUpToCursor - 1].Type is Suggestor.CommandLinePart.PartType.Whitespace or Suggestor.CommandLinePart.PartType.Operator)
+                var newPart = new CommandLineParser.CommandLinePart(_suggestions[_selection].Text);
+                if (parts.Length == 0 || parts[partsIndexUpToCursor - 1].Type is CommandLineParser.CommandLinePart.PartType.Whitespace or CommandLineParser.CommandLinePart.PartType.Operator)
                     parts = parts[..partsIndexUpToCursor]
                         .Append(newPart)
                         .Concat(parts[partsIndexUpToCursor..])

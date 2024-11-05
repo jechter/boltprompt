@@ -131,7 +131,7 @@ internal static class Prompt
             return pos.Top + 1;
         var selectedSuggestionSuffix = "";
         
-        var parts = Suggestor.ParseCommandLine(commandline).ToArray();
+        var parts = CommandLineParser.ParseCommandLine(commandline).ToArray();
         var partsIndexUpToCursor = PartsIndexUpToCursor(parts);
 
         var selectedWord = parts.Length > 0 ? parts[partsIndexUpToCursor - 1] : null;
@@ -140,7 +140,7 @@ internal static class Prompt
             if (selectedWord == null)
                 selectedSuggestionSuffix = selectedSuggestion;
             else
-                selectedSuggestionSuffix = selectedWord.Type is Suggestor.CommandLinePart.PartType.Whitespace or Suggestor.CommandLinePart.PartType.Operator
+                selectedSuggestionSuffix = selectedWord.Type is CommandLineParser.CommandLinePart.PartType.Whitespace or CommandLineParser.CommandLinePart.PartType.Operator
                     ? selectedSuggestion
                     : selectedSuggestion[selectedWord.Text.Length..];
         }
@@ -186,7 +186,7 @@ internal static class Prompt
         return pos.Top - _commandLineCursorRow + totalCommandLineAndPromptLength / Console.WindowWidth + 1;
     }
 
-    public static int PartsIndexUpToCursor(Suggestor.CommandLinePart[] parts)
+    public static int PartsIndexUpToCursor(CommandLineParser.CommandLinePart[] parts)
     {
         var partsIndexUpToCursor = 0;
         var commandLineLengthUpToCursorPart = 0;
@@ -201,17 +201,17 @@ internal static class Prompt
         return partsIndexUpToCursor;
     }
 
-    private static int PrintCommandLineParts(Suggestor.CommandLinePart[] parts, int charactersToSkip)
+    private static int PrintCommandLineParts(CommandLineParser.CommandLinePart[] parts, int charactersToSkip)
     {
         foreach (var part in parts)
         {
             BufferedConsole.Bold = part.Type switch
             {
-                Suggestor.CommandLinePart.PartType.Command => true,
-                Suggestor.CommandLinePart.PartType.Argument => false,
-                Suggestor.CommandLinePart.PartType.Operator => true,
-                Suggestor.CommandLinePart.PartType.Whitespace => false,
-                Suggestor.CommandLinePart.PartType.Variable => false,
+                CommandLineParser.CommandLinePart.PartType.Command => true,
+                CommandLineParser.CommandLinePart.PartType.Argument => false,
+                CommandLineParser.CommandLinePart.PartType.Operator => true,
+                CommandLineParser.CommandLinePart.PartType.Whitespace => false,
+                CommandLineParser.CommandLinePart.PartType.Variable => false,
                 _ => throw new ArgumentOutOfRangeException()
             };
             BufferedConsole.Underline = part.Argument?.Type switch

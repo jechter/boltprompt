@@ -28,23 +28,7 @@ public record FileSystemSuggestion(string Text) : Suggestion(Text)
 
 public static partial class Suggestor
 {
-    public record CommandLinePart(string Text)
-    {
-        public enum PartType
-        {
-            Command,
-            Variable,
-            Argument,
-            Operator,
-            Whitespace,
-        }
-
-        public PartType Type;
-        public CommandInfo.Argument? Argument;
-    }
-    
     private static Suggestion[] _executablesInPathEnvironment = [];
-    private static readonly char[] ShellOperators = ['>', '<', '|', '&', ';']; 
     public static Suggestion[] ExecutablesInPathEnvironment => _executablesInPathEnvironment;
     private static readonly Dictionary<string, string> UserDirCache = new();
 
@@ -67,217 +51,6 @@ public static partial class Suggestor
         };
     }
 
-    public class ArgumentParsingState
-    {
-        public ArgumentParsingState(CommandInfo ci, CommandInfo.ArgumentGroup[] groups)
-        {
-            CommandInfo = ci;
-            Groups = groups;
-            LoadEligibleArguments();
-        }
-
-        public readonly CommandInfo CommandInfo;
-        public readonly CommandInfo.ArgumentGroup[] Groups;
-        public List<(CommandInfo.Argument argument, int groupIndex)> EligibleArguments = [];
-        public int MinGroupIndex;
-        public int MaxGroupIndex;
-
-        public void LoadEligibleArguments(int startIndex = 0)
-        {
-            var groupIndex = startIndex;
-            while (Groups.Length > groupIndex)
-            {
-                var group = Groups[groupIndex];
-                EligibleArguments.AddRange(group.Arguments.Select(a => (a, groupIndex)));
-                if (!group.Optional)
-                    break;
-                groupIndex++;
-            }
-
-            if (groupIndex > MaxGroupIndex)
-                MaxGroupIndex = groupIndex;
-        }
-    }
-
-    static IEnumerable<(CommandInfo.Argument argument, int groupIndex, int depth)> GetEligibleArgumentsForState(List<ArgumentParsingState> parsingState, int depth = 1)
-    {
-        if (depth > parsingState.Count)
-            yield break;
-        
-        var currentState = parsingState[^depth];
-        foreach (var argToMatch in currentState.EligibleArguments)
-            yield return (argToMatch.argument, argToMatch.groupIndex, depth);
-
-        if (currentState.MaxGroupIndex != currentState.Groups.Length) yield break;
-        
-        foreach (var deepArg in GetEligibleArgumentsForState(parsingState, depth + 1))
-            yield return deepArg;
-    }
-
-    private static CommandInfo.Argument? ParseArgument(string arg, List<ArgumentParsingState> parsingState)
-    {
-        foreach (var (argument, groupIndex, depth) in GetEligibleArgumentsForState(parsingState))
-        {
-            if (!CanMatchArgument(arg, argument, parsingState.Last().CommandInfo)) continue;
-            
-            parsingState.RemoveRange(parsingState.Count + 1 - depth, depth - 1);
-            var currentState = parsingState.Last();
-            currentState.MinGroupIndex = groupIndex;
-            if (!currentState.Groups[groupIndex].Optional)
-                currentState.LoadEligibleArguments(groupIndex + 1);
-            if (currentState.Groups[groupIndex].DontAllowMultiple)
-                currentState.MinGroupIndex = groupIndex + 1;
-            currentState.EligibleArguments = currentState.EligibleArguments.Where(a => a.groupIndex >= currentState.MinGroupIndex && (a.argument != argument || a.argument.Repeat)).ToList();
-                
-            if (argument.Arguments != null)
-                parsingState.Add(new (currentState.CommandInfo, argument.Arguments));
-                
-            return argument;
-        }
-       
-        return null;
-    }
-
-    private static bool CanMatchArgument(string arg, CommandInfo.Argument argToMatch, CommandInfo ci) => argToMatch.Type switch
-    {
-        CommandInfo.ArgumentType.Keyword => argToMatch.AllNames.Any(a => a == arg),
-        CommandInfo.ArgumentType.Flag => argToMatch.AllNames.Any(a => arg.StartsWith($"-{a}")),
-        CommandInfo.ArgumentType.File => !(argToMatch.Extensions?.Length > 0) ||
-                                         arg.ToNPath().HasExtension(argToMatch.Extensions),
-        CommandInfo.ArgumentType.CustomArgument => argToMatch.CustomArgumentTemplate != null && CustomArguments.Match(arg, argToMatch, ci),
-        CommandInfo.ArgumentType.FileSystemEntry or CommandInfo.ArgumentType.Directory
-            or CommandInfo.ArgumentType.Command or CommandInfo.ArgumentType.CommandName
-            or CommandInfo.ArgumentType.String or CommandInfo.ArgumentType.Unknown => true,
-        _ => throw new ArgumentOutOfRangeException()
-    };
-
-    public static IEnumerable<CommandLinePart> ParseCommandLine(string commandline, List<ArgumentParsingState>? parsingStateOut = null)
-    {
-        var pos = 0;
-        var lastPartType = CommandLinePart.PartType.Whitespace;
-        var parsingState = parsingStateOut ?? new List<ArgumentParsingState>();
-        while (pos < commandline.Length)
-        {
-            var nextPos = pos;
-            while (nextPos < commandline.Length && IsWhiteSpace(nextPos)) nextPos++;
-            
-            if (nextPos != pos)
-            {
-                yield return new (commandline[pos..nextPos]) { Type = CommandLinePart.PartType.Whitespace };
-                pos = nextPos;
-            }
-            
-            if (pos == commandline.Length) break;
-            
-            if (ShellOperators.Contains(commandline[pos]))
-            {
-                yield return new (commandline[pos].ToString()) { Type = CommandLinePart.PartType.Operator };
-                lastPartType = CommandLinePart.PartType.Operator;
-                pos++;
-            }
-                
-            nextPos = pos;
-            
-            if (pos == commandline.Length) break;
-
-            if (commandline[nextPos] == '"')
-            {
-                nextPos++;
-                while (nextPos < commandline.Length && commandline[nextPos] != '"') nextPos++;
-                if (nextPos < commandline.Length)
-                    nextPos++;
-            }
-            else
-                while (nextPos < commandline.Length && !IsWhiteSpace(nextPos) && !ShellOperators.Contains(commandline[nextPos])) nextPos++;
-
-            if (nextPos != pos)
-            {
-                var part = new CommandLinePart(commandline[pos..nextPos])
-                {
-                    Type = lastPartType switch
-                    {
-                        CommandLinePart.PartType.Command => CommandLinePart.PartType.Argument,
-                        CommandLinePart.PartType.Argument => CommandLinePart.PartType.Argument,
-                        CommandLinePart.PartType.Operator => CommandLinePart.PartType.Command,
-                        CommandLinePart.PartType.Whitespace => CommandLinePart.PartType.Command,
-                        CommandLinePart.PartType.Variable => CommandLinePart.PartType.Command,
-                        _ => throw new ArgumentOutOfRangeException()
-                    }
-                };
-
-                // Variable assignment
-                if (part.Type == CommandLinePart.PartType.Command && part.Text.Contains('='))
-                {
-                    var equalsPos = commandline.IndexOf('=');
-                    var variableName = part.Text[..equalsPos];
-                    yield return new (variableName) { Type = CommandLinePart.PartType.Variable };
-                    yield return new ("=") { Type = CommandLinePart.PartType.Operator };
-                    part = new (part.Text[(equalsPos + 1)..])
-                    {
-                        Type = CommandLinePart.PartType.Argument, 
-                        Argument = new ("value")
-                        {
-                            Type = CommandInfo.ArgumentType.Unknown,
-                            Description = $"New value for {variableName}" 
-                        }
-                    };
-                    parsingState.Clear();
-                    parsingState.Add(new (CommandInfo.DefaultCommand, [new([part.Argument])]));
-                    lastPartType = CommandLinePart.PartType.Variable;
-                }
-                else
-                {
-                    lastPartType = part.Type;
-                    switch (part.Type)
-                    {
-                        case CommandLinePart.PartType.Command:
-                            LoadCommandPart(part);
-                            break;
-                        case CommandLinePart.PartType.Argument:
-                        {
-                            var parsedArgument = ParseArgument(part.Text, parsingState);
-                            if (parsedArgument != null)
-                            {
-                                part.Argument = parsedArgument;
-                                if (parsedArgument.Type == CommandInfo.ArgumentType.Command)
-                                    LoadCommandPart(part);
-                            }
-
-                            break;
-                        }
-                    }
-                }
-
-                yield return part;
-                pos = nextPos;
-            }
-        }
-
-        yield break;
-
-        bool IsWhiteSpace(int index)
-        {
-            if (!char.IsWhiteSpace(commandline[index]))
-                return false;
-            return index == 0 || commandline[index - 1] != '\\';
-        }
-
-
-        void LoadCommandPart(CommandLinePart part)
-        {
-            parsingState.Clear();
-            NPath commandPath = part.Text;
-            if (commandPath.IsRoot) // this throws trying to get a file name otherwise.
-                return;
-            
-            var createCommandInfo = commandPath.FileExists() || _executablesInPathEnvironment.Any(s => commandPath.FileName == s.Text.Trim());
-            var commandInfo = KnownCommands.GetCommand(commandPath.FileName, createCommandInfo);
-
-            if (commandInfo?.Arguments != null)
-                parsingState.Add(new (commandInfo, commandInfo.Arguments));
-        }
-    }
-    
     class SuggestionSorter : IComparer<Suggestion>
     {
         private readonly string[] _historyFilteredByCommandline;
@@ -288,7 +61,7 @@ public static partial class Suggestor
                 _historyFilteredByCommandline = History.Commands.Select(s => s.Commandline.Trim()).ToArray();
             else
             {
-                var parsedCommandLine = ParseCommandLine(commandline).ToArray();
+                var parsedCommandLine = CommandLineParser.ParseCommandLine(commandline).ToArray();
                 var commandLineWordPathComponents = parsedCommandLine.Last().Text.Split('/');
                 _historyFilteredByCommandline =
                     History.Commands.Where(s => s.Commandline.StartsWith(commandline))
@@ -299,8 +72,8 @@ public static partial class Suggestor
 
                 string? FilterHistoryEntryByCommandLine(History.Command historyEntry)
                 {
-                    var parsedHistoryCommandLine= ParseCommandLine(historyEntry.Commandline).ToArray();
-                    var index = parsedCommandLine.Last().Type == CommandLinePart.PartType.Whitespace
+                    var parsedHistoryCommandLine= CommandLineParser.ParseCommandLine(historyEntry.Commandline).ToArray();
+                    var index = parsedCommandLine.Last().Type == CommandLineParser.CommandLinePart.PartType.Whitespace
                         ? parsedCommandLine.Length
                         : parsedCommandLine.Length - 1;
                     if (index >= parsedCommandLine.Length)
@@ -309,7 +82,7 @@ public static partial class Suggestor
                     if (part is
                         not
                         {
-                            Type: CommandLinePart.PartType.Argument,
+                            Type: CommandLineParser.CommandLinePart.PartType.Argument,
                             Argument.Type: CommandInfo.ArgumentType.FileSystemEntry or CommandInfo.ArgumentType.File
                             or CommandInfo.ArgumentType.Directory
                         }) return part.Text;
@@ -418,9 +191,9 @@ public static partial class Suggestor
                 .ToArray();
         }
 
-        var parsed = ParseCommandLine(commandline).ToArray();
-        var currentPart = parsed.LastOrDefault(new CommandLinePart("") { Type = CommandLinePart.PartType.Command });
-        var suggestions = currentPart.Type == CommandLinePart.PartType.Command
+        var parsed = CommandLineParser.ParseCommandLine(commandline).ToArray();
+        var currentPart = parsed.LastOrDefault(new CommandLineParser.CommandLinePart("") { Type = CommandLineParser.CommandLinePart.PartType.Command });
+        var suggestions = currentPart.Type == CommandLineParser.CommandLinePart.PartType.Command
             ? SuggestCommand(currentPart.Text)
             : SuggestParameters(commandline).ToArray();
         if (currentPart.Text.StartsWith('$'))
@@ -505,20 +278,20 @@ public static partial class Suggestor
     
     private static IEnumerable<Suggestion> SuggestParameters(string commandline)
     {
-        var parsingState = new List<ArgumentParsingState>();
-        var parts = ParseCommandLine(commandline, parsingState).ToArray();
+        var parsingState = new List<CommandLineParser.ArgumentParsingState>();
+        var parts = CommandLineParser.ParseCommandLine(commandline, parsingState).ToArray();
         var lastParam = "";
         
-        if (parts[^1].Type != CommandLinePart.PartType.Whitespace)
+        if (parts[^1].Type != CommandLineParser.CommandLinePart.PartType.Whitespace)
         {
             var commandLineToParse = string.Concat(parts[..^1].Select(p => p.Text));
             lastParam = parts[^1].Text;
             parts = parts[..^1];
             parsingState = [];
-            _ = ParseCommandLine(commandLineToParse, parsingState).Count(); // We do Count here to force running the iterator to the end
+            _ = CommandLineParser.ParseCommandLine(commandLineToParse, parsingState).Count(); // We do Count here to force running the iterator to the end
         }
         
-        var arguments = GetEligibleArgumentsForState(parsingState).Select(a => a.argument).ToArray();
+        var arguments = CommandLineParser.GetEligibleArgumentsForState(parsingState).Select(a => a.argument).ToArray();
         var allFlags = arguments.Where(a => a.Type == CommandInfo.ArgumentType.Flag).SelectMany(a => a.AllNames).SelectMany(a => a).ToArray();
         var hasMatch = false;
         foreach (var arg in arguments)
@@ -589,7 +362,7 @@ public static partial class Suggestor
                     foreach (var c in History.Commands
                                  .Where(cmd => cmd.Commandline.StartsWith(commandline))
                                  .Select(cmd => cmd.Commandline)
-                                 .Select(cmd => ParseCommandLine(cmd).ToArray()[parts.Length].Text)
+                                 .Select(cmd => CommandLineParser.ParseCommandLine(cmd).ToArray()[parts.Length].Text)
                              )
                         yield return new (c) { Description = string.IsNullOrEmpty(arg.Description) ? arg.Name : arg.Description };
                     

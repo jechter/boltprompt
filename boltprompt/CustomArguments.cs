@@ -42,7 +42,7 @@ static class CustomArguments
         return template.StrictMatching == false || Get(argToMatch, ci, null, null).Any(a => a.Text == argument);
     }
 
-    public static Suggestion[] Get(CommandInfo.Argument argument, CommandInfo ci, Suggestor.CommandLinePart[]? parts, string? lastParam)
+    public static Suggestion[] Get(CommandInfo.Argument argument, CommandInfo ci, CommandLineParser.CommandLinePart[]? parts, string? lastParam)
     {
         var template = LookupTemplate(argument, ci);
         if (template.Command == null)
@@ -61,7 +61,7 @@ static class CustomArguments
                 var num = int.Parse(numStr);
                 var param = num == 0
                     ? lastParam
-                    : parts.Where(p => p.Type == Suggestor.CommandLinePart.PartType.Argument).ToArray()[^num].Text;
+                    : parts.Where(p => p.Type == CommandLineParser.CommandLinePart.PartType.Argument).ToArray()[^num].Text;
                 command = command.Replace($"{{ARG[^{numStr}]}}", param);
             }
         }
