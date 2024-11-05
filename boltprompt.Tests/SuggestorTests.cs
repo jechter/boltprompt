@@ -852,6 +852,7 @@ public class SuggestorTests
     {
         var testDir = new NPath("testDir").MakeAbsolute().CreateDirectory();   
         var testSubDir = testDir.Combine("testSubDir").CreateDirectory();   
+        testDir.Combine("testSubDir with spaces").CreateDirectory();   
         testDir.Combine("otherTestSubDir").CreateDirectory();   
         testSubDir.Combine("file").WriteAllText("bla");
         _pathsToCleanup.Add(testDir);
@@ -861,11 +862,16 @@ public class SuggestorTests
             Arguments = [new([ new("") { Type = CommandInfo.ArgumentType.FileSystemEntry }])]
         };
         var suggestions = GetSuggestionsForTestExecutable(ci, " testDir/");
-        Assert.That(suggestions.Select(s => s.Text.Trim()).ToArray(), Is.EqualTo(new [] {"testDir/otherTestSubDir/", "testDir/testSubDir/"}));
+        Assert.That(suggestions.Select(s => s.Text.Trim()).ToArray(), Is.EqualTo(new [] {"testDir/otherTestSubDir/", "testDir/testSubDir/", @"testDir/testSubDir\ with\ spaces/"}));
         
         History.LoadTestHistory(["./testExecutable testDir/testSubDir/file"]);
         suggestions = GetSuggestionsForTestExecutable(ci, " testDir/");
-        Assert.That(suggestions.Select(s => s.Text.Trim()).ToArray(), Is.EqualTo(new [] {"testDir/testSubDir/", "testDir/otherTestSubDir/"}));
+        Assert.That(suggestions.Select(s => s.Text.Trim()).ToArray(), Is.EqualTo(new [] {"testDir/testSubDir/", "testDir/otherTestSubDir/", @"testDir/testSubDir\ with\ spaces/"}));
+        
+        History.LoadTestHistory(["./testExecutable testDir/testSubDir/file", @"./testExecutable testDir/testSubDir\ with\ spaces/file"]);
+        suggestions = GetSuggestionsForTestExecutable(ci, " testDir/");
+        Assert.That(suggestions.Select(s => s.Text.Trim()).ToArray(), Is.EqualTo(new [] {@"testDir/testSubDir\ with\ spaces/", "testDir/testSubDir/", "testDir/otherTestSubDir/"}));
+
     }
     
     [Test]

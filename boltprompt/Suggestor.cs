@@ -288,24 +288,37 @@ public static partial class Suggestor
                 _historyFilteredByCommandline = History.Commands.Select(s => s.Commandline.Trim()).ToArray();
             else
             {
-                var commandLineWords = commandline.Split(' ');
-                var lastCommandLineWord = commandLineWords.Last();
-                var commandLineWordPathComponents = lastCommandLineWord.Split('/');
-
+                var parsedCommandLine = ParseCommandLine(commandline).ToArray();
+                var commandLineWordPathComponents = parsedCommandLine.Last().Text.Split('/');
                 _historyFilteredByCommandline =
-                    History.Commands.Where(s => s.Commandline.StartsWith(commandline)).Select(FilterHistoryEntryByCommandLine)
+                    History.Commands.Where(s => s.Commandline.StartsWith(commandline))
+                        .Select(FilterHistoryEntryByCommandLine)
+                        .Where(s => s != null)
+                        .Cast<string>()
                         .ToArray();
 
-                string FilterHistoryEntryByCommandLine(History.Command historyEntry)
+                string? FilterHistoryEntryByCommandLine(History.Command historyEntry)
                 {
-                    var historyEntryWords = historyEntry.Commandline.Split(' ');
-                    var historyEntryCommandLineWord = historyEntryWords[commandLineWords.Length - 1];
-                    var historyEntryPathComponents = historyEntryCommandLineWord.Split('/');
+                    var parsedHistoryCommandLine= ParseCommandLine(historyEntry.Commandline).ToArray();
+                    var index = parsedCommandLine.Last().Type == CommandLinePart.PartType.Whitespace
+                        ? parsedCommandLine.Length
+                        : parsedCommandLine.Length - 1;
+                    if (index >= parsedCommandLine.Length)
+                        return null;
+                    var part = parsedHistoryCommandLine[index];
+                    if (part is
+                        not
+                        {
+                            Type: CommandLinePart.PartType.Argument,
+                            Argument.Type: CommandInfo.ArgumentType.FileSystemEntry or CommandInfo.ArgumentType.File
+                            or CommandInfo.ArgumentType.Directory
+                        }) return part.Text;
+                    var historyEntryPathComponents = part.Text.Split('/');
                     var filteredHistoryEntryPathComponents =
                         historyEntryPathComponents.Take(commandLineWordPathComponents.Length);
                     if (commandLineWordPathComponents.Length < historyEntryPathComponents.Length)
                         return string.Join('/', filteredHistoryEntryPathComponents) + "/";
-                    return historyEntryCommandLineWord;
+                    return part.Text;
                 }
             }
         }
