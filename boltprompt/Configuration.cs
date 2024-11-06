@@ -33,6 +33,9 @@ internal class Configuration
     [DescriptionForLanguageModel("Delay in ms before sending requests for suggestions to AI, to avoid flooding the service while typing, wasting tokens.")]
     public int DelayBeforeAskingAI { get; set; } = 300;
 
+    [DescriptionForLanguageModel("Character to type to request AI command line suggestions.")]
+    public string AIPromptPrefix { get; set; } = "@";
+
     private static Configuration Load()
     {
         if (Paths.Configuration.FileExists())
@@ -64,6 +67,8 @@ internal class Configuration
         object propValue;
         if (prop.PropertyType == typeof(string))
             propValue = value;
+        else if (prop.PropertyType == typeof(char))
+            propValue = value[0];
         else if (prop.PropertyType == typeof(int))
             propValue = int.Parse(value);
         else if (prop.PropertyType == typeof(bool))

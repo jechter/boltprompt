@@ -182,13 +182,13 @@ public static partial class Suggestor
 
     public static Suggestion[] SuggestionsForPrompt(string commandline)
     {
-        if (commandline.StartsWith('@'))
+        if (commandline.StartsWith(Configuration.Instance.AIPromptPrefix))
         {
-            var aiPrompt = commandline[1..];
+            var aiPrompt = commandline[Configuration.Instance.AIPromptPrefix.Length..];
             return AISuggestor.Suggest(aiPrompt)
                 .Concat(
                     History.Commands.Where(h => (h.AIPrompt?.StartsWith(aiPrompt) ?? false) && h.AIPrompt.Length > aiPrompt.Length)
-                        .Select(h => $"@{h.AIPrompt!}")
+                        .Select(h => $"{Configuration.Instance.AIPromptPrefix}{h.AIPrompt!}")
                         .Reverse()
                         .Distinct()
                         .Select(h => new Suggestion(h))

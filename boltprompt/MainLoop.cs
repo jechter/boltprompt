@@ -115,7 +115,7 @@ internal class MainLoop
                             break;
                         }
 
-                        if (_commandLine.StartsWith('@'))
+                        if (_commandLine.StartsWith(Configuration.Instance.AIPromptPrefix))
                         {
                             _commandLine = "";
                             Prompt.CursorPosition = 0;
@@ -125,7 +125,7 @@ internal class MainLoop
                         break;
                     case ConsoleKey.Enter:
                         CommitSelection();
-                        if (!_commandLine.StartsWith('@'))
+                        if (!_commandLine.StartsWith(Configuration.Instance.AIPromptPrefix))
                         {
                             SetupRunCommand(_commandLine);
                             return;
@@ -152,7 +152,7 @@ internal class MainLoop
         if (_selection == -1) return;
         if (_suggestions.Length != 0 && _suggestions.Length >= _selection)
         {
-            if (_commandLine.StartsWith('@'))
+            if (_commandLine.StartsWith(Configuration.Instance.AIPromptPrefix))
             {
                 _aiPrompt = _commandLine[1..];
                 _commandLine = _suggestions[_selection].Text;
@@ -179,7 +179,7 @@ internal class MainLoop
         // In most cases we don't want to show new suggestions after committing before typing.
         // But if we selected an AI prompt from history, we want to get AI suggestions right away.
         // And if we selected a path, we want to be able to continue said path
-        _selection = _commandLine.StartsWith('@') || _commandLine.EndsWith('/') ? 0 : -1;
+        _selection = _commandLine.StartsWith(Configuration.Instance.AIPromptPrefix) || _commandLine.EndsWith('/') ? 0 : -1;
     }
 
     private void RenderPromptAndSuggestionsIfNeeded()
@@ -195,7 +195,7 @@ internal class MainLoop
             _selection = _suggestions.Length > 0 ? 0 : -1;
         else if (_selection < -1)
             _selection = _suggestions.Length - 1;
-        var top = Prompt.RenderPrompt(_commandLine, _selection > -1 && !_commandLine.StartsWith('@') ? _suggestions[_selection].Text : null);
+        var top = Prompt.RenderPrompt(_commandLine, _selection > -1 && !_commandLine.StartsWith(Configuration.Instance.AIPromptPrefix) ? _suggestions[_selection].Text : null);
         if (_suggestions.Length > 0 && _selection != -1)
         {
             _didShowSuggestions = true;
