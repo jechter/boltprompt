@@ -115,6 +115,7 @@ internal class Configuration
         var prop = typeof(Configuration).GetProperty(propertyName);
         if (prop == null)
             throw new InvalidDataException($"Invalid config property name: {propertyName}");
+        Console.WriteLine($"{Instance.Get(propertyName)}::Current value");
         if (prop.Name == nameof(PromptPrefix))
         {
             void PrintPromptPrefix(
