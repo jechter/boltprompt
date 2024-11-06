@@ -17,6 +17,7 @@ public static class History
 
         private CommandLineParser.CommandLinePart[]? _commandLineParts;
 
+        [JsonIgnore]
         public CommandLineParser.CommandLinePart[] ParsedCommandLine =>
             _commandLineParts ??= CommandLineParser.ParseCommandLine(Commandline).ToArray();
     }
