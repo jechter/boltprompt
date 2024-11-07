@@ -365,7 +365,7 @@ public static partial class Suggestor
                 case CommandInfo.ArgumentType.String:
                     yield return new (lastParam) { Description = string.IsNullOrEmpty(arg.Description) ? arg.Name : arg.Description };
                     foreach (var c in History.Commands
-                                 .Where(cmd => cmd.Commandline.StartsWith(commandline))
+                                 .Where(cmd => cmd.Commandline.StartsWith(commandline) && cmd.ParsedCommandLine.Length > parts.Length)
                                  .Select(cmd => cmd.ParsedCommandLine[parts.Length].Text)
                              )
                         yield return new (c) { Description = string.IsNullOrEmpty(arg.Description) ? arg.Name : arg.Description };
