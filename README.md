@@ -1,4 +1,4 @@
-# ⚡️boltprompt
+# `boltprompt⚡️`
 
 ## tl;dr
 
@@ -18,10 +18,7 @@ Prerequisites:
 * dotnet is installed (`brew install dotnet`)
 
 ```
-git clone --recurse-submodules https://github.com/jechter/boltprompt.git
-cd boltprompt
-dotnet build
-boltprompt/bin/Release/net8.0/boltprompt install
+curl https://raw.githubusercontent.com/jechter/boltprompt/refs/heads/main/install.sh | sh
 ```
 
 Open a new Terminal window
