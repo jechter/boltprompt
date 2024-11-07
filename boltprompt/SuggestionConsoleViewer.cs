@@ -8,7 +8,14 @@ public static class SuggestionConsoleViewer
         var topLine = top;
         BufferedConsole.SetCursorPosition(0, topLine);
         var maxNumSuggestions = Configuration.Instance.NumSuggestions;
-        if  (topLine + maxNumSuggestions > BufferedConsole.WindowHeight)
+
+        // topline is the start of suggestions
+        // if topline is beyond the last line, add maxNumSuggestion new lines to have space for suggestions 
+        if (topLine >= BufferedConsole.WindowHeight)
+            for (var i=0; i<maxNumSuggestions; i++)
+                BufferedConsole.WriteLine();
+        // otherwise, if we don't have space all the way, add maxNumSuggestion-1 new lines, as we already are on the first line
+        else if  (topLine + maxNumSuggestions > BufferedConsole.WindowHeight)
             for (var i=0; i<maxNumSuggestions - 1; i++)
                 BufferedConsole.WriteLine();
         while (topLine + maxNumSuggestions > BufferedConsole.WindowHeight)
