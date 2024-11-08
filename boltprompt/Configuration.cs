@@ -91,7 +91,7 @@ internal class Configuration
                               This will enable AI command line suggestions for prompts (by typing queries prefixed by the '@' character on the command line).
                               Never execute suggested command lines if you don't understand what the commands do, as doing so may compromise your date and system security.
                               
-                              By default, boltprompt will include personal information (including your OS, shell, installed commands, current directory listing, last run commands) in requests for command line suggestions. This improves the quality of suggestions. You can disable sharing of personal information by running the command "boltprompt config set {nameof(RemovePersonalInformationFromAIQueries)} off".  
+                              By default, boltprompt will include personal information (including your OS, shell, installed commands, current directory listing, last run commands) in requests for command line suggestions sent to OpenAI. This improves the quality of suggestions. You can disable sharing of personal information by running the command "boltprompt config set {nameof(RemovePersonalInformationFromAIQueries)} on".  
                               
                               Type "ok" to continue and set the OpenAI API key. By typing ok, you confirm that you understand the risks, and agree to share personal information with OpenAI.
                               """);
