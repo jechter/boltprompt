@@ -40,7 +40,10 @@ public static class ShellInstaller
                 throw new NotSupportedException($"Unknown shell {shellPath}");
         }        
     }
-    
+
+    private static string? Terminal => Environment.GetEnvironmentVariable("TERM_PROGRAM");
+    static bool IsSupportedTerminal => Terminal is "Apple_Terminal" or "iTerm.app";
+
     public static void InstallIntoCurrentShell(InstallScope installScope)
     {
         DoUninstallFromCurrentShell(installScope);
@@ -51,10 +54,24 @@ public static class ShellInstaller
         {
             foreach (var p in ConfigPathsForCurrentShell(installScope))
                 p.WriteAllLines(p.FileExists() ? p.ReadAllLines().Append(installLine).ToArray() : [installLine]);
-            Console.WriteLine("boltprompt has been installed for this shell. Open a new terminal session to use it.");
-            if (Environment.GetEnvironmentVariable("TERM_PROGRAM") == "Apple_Terminal")
-                Console.WriteLine(
-                    "Use `boltprompt setup-terminal` to configure Terminal.app to use the right font and ignore boltprompt processes when closing the terminal session.");
+            BufferedConsole.ForegroundColor = BufferedConsole.ConsoleColor.LightGreen;
+            BufferedConsole.WriteLine();
+            BufferedConsole.Write("boltprompt has been installed for this shell.\n");
+            BufferedConsole.Bold = true;
+            BufferedConsole.Write("Open a new terminal session to use boltprompt!\n");
+            BufferedConsole.Bold = false;
+            BufferedConsole.WriteLine();
+            BufferedConsole.ResetColor();
+            if (IsSupportedTerminal)
+            {
+                BufferedConsole.Write("Use ");
+                BufferedConsole.Bold = true;
+                BufferedConsole.Write("`boltprompt setup-terminal`");
+                BufferedConsole.Bold = false;
+                BufferedConsole.Write(" to configure your terminal to use the right font and ignore boltprompt processes when closing the terminal session.\n");
+            }
+
+            BufferedConsole.Flush();
         }
 
         File.WriteAllText("/tmp/custom-command", installLine);
@@ -63,16 +80,15 @@ public static class ShellInstaller
     
     public static void SetupTerminal()
     {
-        var terminal = Environment.GetEnvironmentVariable("TERM_PROGRAM");
-        if (terminal != "Apple_Terminal" && terminal != "iTerm.app")
-            throw new NotSupportedException($"boltprompt only knows how to configure fonts for Terminal.app or iTerm.app. You are using {terminal}, which we don't know how to set up.");
+        if (!IsSupportedTerminal)
+            throw new NotSupportedException($"boltprompt only knows how to configure fonts for Terminal.app or iTerm.app. You are using {Terminal}, which we don't know how to set up.");
         Cli.Wrap("bash")
             .WithArguments(Paths.boltpromptSupportFilesDir.Combine("setup-terminal.sh").ToString())
             .WithWorkingDirectory(Paths.boltpromptSupportFilesDir.ToString())
             .ExecuteBufferedAsync()
             .GetAwaiter()
             .GetResult();
-        switch (terminal)
+        switch (Terminal)
         {
             case "Apple_Terminal":
                 Console.WriteLine("Terminal.app has been set up for boltprompt.");
