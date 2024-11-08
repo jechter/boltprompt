@@ -149,12 +149,13 @@ internal class MainLoop
 
     private void CommitSelection()
     {
+        UpdateSuggestionsAndSelection();
         if (_selection == -1) return;
         if (_suggestions.Length != 0 && _suggestions.Length >= _selection)
         {
             if (_commandLine.StartsWith(Configuration.Instance.AIPromptPrefix))
             {
-                _aiPrompt = _commandLine[1..];
+                _aiPrompt = _commandLine[Configuration.Instance.AIPromptPrefix.Length..];
                 _commandLine = _suggestions[_selection].Text;
                 Prompt.CursorPosition = _commandLine.Length;
             }
@@ -182,19 +183,24 @@ internal class MainLoop
         _selection = _commandLine.StartsWith(Configuration.Instance.AIPromptPrefix) || _commandLine.EndsWith('/') ? 0 : -1;
     }
 
-    private void RenderPromptAndSuggestionsIfNeeded()
+    private void UpdateSuggestionsAndSelection()
     {
-        if (!_needsRedraw) return;
-        _needsRedraw = false;
         if (Prompt.CursorPosition == _commandLine.Length || _commandLine[Prompt.CursorPosition] == ' ')
             _suggestions = Suggestor.SuggestionsForPrompt(_commandLine[..Prompt.CursorPosition]);
         else
             _suggestions = [];
-        
         if (_selection >= _suggestions.Length)
             _selection = _suggestions.Length > 0 ? 0 : -1;
         else if (_selection < -1)
             _selection = _suggestions.Length - 1;
+    }
+    
+    private void RenderPromptAndSuggestionsIfNeeded()
+    {
+        if (!_needsRedraw) return;
+        _needsRedraw = false;
+        UpdateSuggestionsAndSelection();
+
         var top = Prompt.RenderPrompt(_commandLine, _selection > -1 && !_commandLine.StartsWith(Configuration.Instance.AIPromptPrefix) ? _suggestions[_selection].Text : null);
         if (_suggestions.Length > 0 && _selection != -1)
         {
