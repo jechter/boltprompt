@@ -61,4 +61,9 @@ public static class History
     {
         _commands = commands.Select(c => new Command(c)).ToArray();
     }
+    
+    internal static void LoadTestHistoryCommands(Command[] commands)
+    {
+        _commands = commands;
+    }
 }

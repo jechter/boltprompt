@@ -948,6 +948,19 @@ public class SuggestorTests
     }
     
     [Test]
+    public void CanSuggestAIPrompts()
+    {
+        var suggestions = Suggestor.SuggestionsForPrompt($"{Configuration.Instance.AIPromptPrefix}");
+        Assert.That(suggestions.Select(s => s.Text), Does.Contain($"{Configuration.Instance.AIPromptPrefix}{AISuggestor.DefaultPromptSuggestions[0]}"));
+
+        var testPrompt = "suggest a test prompt";
+        History.LoadTestHistoryCommands([ new ("bla") { AIPrompt = testPrompt }]);
+
+        suggestions = Suggestor.SuggestionsForPrompt($"{Configuration.Instance.AIPromptPrefix}");
+        Assert.That(suggestions.Select(s => s.Text), Does.Contain($"{Configuration.Instance.AIPromptPrefix}{testPrompt}"));
+    }
+    
+    [Test]
     public void SplitIntoCommandWordsHandlesEscapedSpace()
     {
         var split = Suggestor.SplitCommandIntoWords("This is a command\\ line with\\ escaped\\ spaces");

@@ -14,6 +14,15 @@ static class AISuggestor
     private static Task<string>? _directoryListing;
     
     const string LogFile = "AISuggestor";
+
+    public static string[] DefaultPromptSuggestions =>
+    [
+        " what is my IP address?",
+        " count all lines in my source files",
+        " find all files containing the word 'foo'",
+        " which ports are open on localhost?",
+        " open the github project web page for the current folder",
+    ];
     
     static async Task<string> GetDirectoryListing()
     {

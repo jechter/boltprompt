@@ -187,8 +187,11 @@ public static partial class Suggestor
             var aiPrompt = commandline[Configuration.Instance.AIPromptPrefix.Length..];
             return AISuggestor.Suggest(aiPrompt)
                 .Concat(
-                    History.Commands.Where(h => (h.AIPrompt?.StartsWith(aiPrompt) ?? false) && h.AIPrompt.Length > aiPrompt.Length)
-                        .Select(h => $"{Configuration.Instance.AIPromptPrefix}{h.AIPrompt!}")
+                    History.Commands.Where(h => h.AIPrompt != null)
+                        .Select(h => h.AIPrompt!)
+                        .Concat(AISuggestor.DefaultPromptSuggestions)
+                        .Where(prompt => prompt.StartsWith(aiPrompt) && prompt.Length > aiPrompt.Length)
+                        .Select(h => $"{Configuration.Instance.AIPromptPrefix}{h}")
                         .Reverse()
                         .Distinct()
                         .Select(h => new Suggestion(h))
