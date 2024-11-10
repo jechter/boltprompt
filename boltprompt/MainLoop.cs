@@ -14,6 +14,11 @@ internal class MainLoop
     {
         _selection = -1;
         _screenWidth = Console.WindowWidth;
+        // Most commands will end output with a new line. But if they don't, we don't want to
+        // overwrite the last line of output with our prompt (which is always at the beginning
+        // of the line). Instead, add a newline.
+        if (Console.CursorLeft > 0)
+            Console.WriteLine();
         Console.CancelKeyPress += ConsoleCancelKeyPress;
         KnownCommands.CommandInfoLoaded += _ => RequestRedraw();
         FileDescriptions.FileDescriptionLoaded += RequestRedraw;
