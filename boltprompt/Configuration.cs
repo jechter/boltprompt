@@ -25,7 +25,7 @@ internal class Configuration
     [DescriptionForLanguageModel("Your OpenAI API key to use for AI-based suggestions.")]
     public string? OpenAiApiKey { get; set; } = null;
     
-    public bool ScrollLongCommandLine { get; set; } = false;
+    internal bool ScrollLongCommandLine { get; set; } = false;
 
     [DescriptionForLanguageModel("Remove any personal information about your environment from AI service queries.")]
     public bool RemovePersonalInformationFromAIQueries { get; set; } = false;
@@ -118,6 +118,9 @@ internal class Configuration
         Console.WriteLine($"{Instance.Get(propertyName)}::Current value");
         if (prop.Name == nameof(PromptPrefix))
         {
+            var simplePromptPrefixScheme = "{prompt_symbol}";
+            Console.WriteLine($"\"{simplePromptPrefixScheme}\"::{Prompt.GetPromptPrefix(simplePromptPrefixScheme)}");
+
             void PrintPromptPrefix(
                 (BufferedConsole.ConsoleColor bg, BufferedConsole.ConsoleColor fg, string label)[] parts)
             {
