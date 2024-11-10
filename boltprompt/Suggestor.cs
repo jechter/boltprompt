@@ -310,7 +310,7 @@ public static partial class Suggestor
                     if (lastParam.Length == 0)
                     {
                         foreach (var v in arg.AllNames)
-                            yield return new("-" + v) { Description = arg.Description };
+                            yield return FlagSuggestion("-" + v);
                     }
                     else if (lastParam.StartsWith('-'))
                     {
@@ -319,12 +319,18 @@ public static partial class Suggestor
                         
                         foreach (var v in arg.AllNames)
                             if (lastParam[^1] == v[0])
-                                yield return new(lastParam) { Description = arg.Description };
+                                yield return FlagSuggestion(lastParam);
                         foreach (var v in arg.AllNames)
                             if (!lastParam.Contains(v[0]) || arg.Repeat)
-                                yield return new(lastParam + v) { Description = arg.Description };
+                                yield return FlagSuggestion(lastParam + v);
                     }
                     break;
+
+                    Suggestion FlagSuggestion(string text) => new(text)
+                    {
+                        Description = arg.Description,
+                        Icon = "⚐"
+                    };
                 case CommandInfo.ArgumentType.Keyword:
                     foreach (var v in arg.AllNames)
                     {
