@@ -1,10 +1,10 @@
 #!/bin/sh
 
 exit_if_tool_does_not_exist() {
-	if ! command -v "$1" &> /dev/null; then
+	if ! (command -v "$1" &> /dev/null); then
 		echo "$1 could not be found."
 
-		if command -v brew &> /dev/null; then
+		if (command -v brew &> /dev/null); then
 			read -p "Would you like to install $1 using brew? (y/n): " choice
 			if [[ "$choice" == "y" || "$choice" == "Y" ]]; then
 				brew install "$1"
@@ -30,7 +30,7 @@ exit_if_tool_does_not_exist "dotnet"
 
 
 oldpwd=$(pwd)
-boltprompt_src=$(mktemp -d $TMPDIR/boltprompt_src.XXXXXX)
+boltprompt_src=$(mktemp -d ${TMPDIR:-/tmp}/boltprompt_src.XXXXXX)
 cd $boltprompt_src
 git clone --recurse-submodules https://github.com/jechter/boltprompt.git
 cd boltprompt
