@@ -54,15 +54,23 @@ public static partial class Suggestor
     class SuggestionSorter : IComparer<Suggestion>
     {
         private readonly string[] _historyFilteredByCommandline;
+        private string lastCommandLineWord;
         
         public SuggestionSorter(string commandline)
         {
             if (string.IsNullOrWhiteSpace(commandline))
+            {
                 _historyFilteredByCommandline = History.Commands.Select(s => s.Commandline.Trim()).ToArray();
+                lastCommandLineWord = "";
+            }
             else
             {
                 var parsedCommandLine = CommandLineParser.ParseCommandLine(commandline).ToArray();
-                var commandLineWordPathComponents = parsedCommandLine.Last().Text.Split('/');
+                var lastCommandLinePart = parsedCommandLine.Last();
+                lastCommandLineWord = lastCommandLinePart.Type == CommandLineParser.CommandLinePart.PartType.Argument
+                    ? lastCommandLinePart.Text
+                    : "";
+                var commandLineWordPathComponents = lastCommandLinePart.Text.Split('/');
                 _historyFilteredByCommandline =
                     History.Commands.Where(s => s.Commandline.StartsWith(commandline))
                         .Select(FilterHistoryEntryByCommandLine)
@@ -73,7 +81,7 @@ public static partial class Suggestor
                 string? FilterHistoryEntryByCommandLine(History.Command historyEntry)
                 {
                     var parsedHistoryCommandLine = historyEntry.ParsedCommandLine;
-                    var index = parsedCommandLine.Last().Type == CommandLineParser.CommandLinePart.PartType.Whitespace
+                    var index = lastCommandLinePart.Type == CommandLineParser.CommandLinePart.PartType.Whitespace
                         ? parsedCommandLine.Length
                         : parsedCommandLine.Length - 1;
                     if (index >= parsedCommandLine.Length)
@@ -101,6 +109,12 @@ public static partial class Suggestor
             if (ReferenceEquals(x, y)) return 0;
             if (y is null) return 1;
             if (x is null) return -1;
+
+            var yIsPrefixed = y.Text.StartsWith(lastCommandLineWord);
+            var xIsPrefixed = x.Text.StartsWith(lastCommandLineWord);
+            if (xIsPrefixed != yIsPrefixed)
+                return xIsPrefixed ? 1 : -1;
+            
             var xHistIndex = Array.LastIndexOf(_historyFilteredByCommandline, x.Text.Trim());
             var yHistIndex = Array.LastIndexOf(_historyFilteredByCommandline, y.Text.Trim());
             if (xHistIndex != yHistIndex) return xHistIndex - yHistIndex;
@@ -130,8 +144,8 @@ public static partial class Suggestor
             return string.Compare(y.Text, x.Text, StringComparison.Ordinal);
         }
     }
-    
-    static Suggestion[] SortSuggestionsByHistory(string commandline, IEnumerable<Suggestion> suggestions)
+
+    private static Suggestion[] SortSuggestions(string commandline, IEnumerable<Suggestion> suggestions)
     {
         var result = string.IsNullOrWhiteSpace(commandline) ? suggestions.ToList() : suggestions.OrderDescending(new SuggestionSorter(commandline)).ToList();
         for (var i = 1; i < result.Count; i++)
@@ -206,7 +220,7 @@ public static partial class Suggestor
             : SuggestParameters(commandline).ToArray();
         if (currentPart.Text.StartsWith('$'))
             suggestions = SuggestEnvironmentVariables(currentPart.Text).Concat(suggestions).ToArray();
-        return SortSuggestionsByHistory(commandline, suggestions);
+        return SortSuggestions(commandline, suggestions);
     }
 
     private static IEnumerable<Suggestion> SuggestEnvironmentVariables(string currentWord)
@@ -364,7 +378,7 @@ public static partial class Suggestor
                 case CommandInfo.ArgumentType.CustomArgument:
                     foreach (var s in CustomArguments.Get(arg, parsingState.Last().CommandInfo, parts, lastParam))
                     {
-                        if (s.Text.StartsWith(lastParam))
+                        if (s.Text.Contains(lastParam) || (s.Description?.Contains(lastParam) ?? false))
                         {
                             yield return s;
                             hasMatch = true;

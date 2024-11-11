@@ -135,14 +135,32 @@ internal static class Prompt
         var partsIndexUpToCursor = PartsIndexUpToCursor(parts);
 
         var selectedWord = parts.Length > 0 ? parts[partsIndexUpToCursor - 1] : null;
+        var selectedWordWillBeDeletedBySuggestion = false;
         if (selectedSuggestion != null)
         {
             if (selectedWord == null)
                 selectedSuggestionSuffix = selectedSuggestion;
             else
-                selectedSuggestionSuffix = selectedWord.Type is CommandLineParser.CommandLinePart.PartType.Whitespace or CommandLineParser.CommandLinePart.PartType.Operator
+            {
+                if (selectedWord.Type is CommandLineParser.CommandLinePart.PartType.Whitespace
+                    or CommandLineParser.CommandLinePart.PartType.Operator)
+                    selectedSuggestionSuffix = selectedSuggestion;
+                else
+                {
+                    if (selectedSuggestion.StartsWith(selectedWord.Text))
+                        selectedSuggestionSuffix = selectedSuggestion[selectedWord.Text.Length..];
+                    else
+                    {
+                        selectedWordWillBeDeletedBySuggestion = true;
+                        selectedSuggestionSuffix = selectedSuggestion;
+                    }
+                }
+                
+/*                selectedSuggestionSuffix = selectedWord.Type is CommandLineParser.CommandLinePart.PartType.Whitespace
+                    or CommandLineParser.CommandLinePart.PartType.Operator
                     ? selectedSuggestion
-                    : selectedSuggestion[selectedWord.Text.Length..];
+                    : selectedSuggestion[selectedWord.Text.Length..];*/
+            }
         }
 
         _commandLength = commandline.Length + selectedSuggestionSuffix.Length;
@@ -156,7 +174,20 @@ internal static class Prompt
             charactersToSkip++;
         }
   
-        charactersToSkip = PrintCommandLineParts(parts[..partsIndexUpToCursor], charactersToSkip);
+        if (partsIndexUpToCursor > 0)
+            charactersToSkip = PrintCommandLineParts(parts[..(partsIndexUpToCursor - 1)], charactersToSkip);
+        if (selectedWord != null)
+        {
+            if (selectedWordWillBeDeletedBySuggestion)
+            {
+                BufferedConsole.ForegroundColor = BufferedConsole.ColorForHtml("ff6060");
+                BufferedConsole.CrossedOut = true;
+            }
+            charactersToSkip = PrintCommandLineParts([selectedWord], charactersToSkip);
+            BufferedConsole.ResetColor();
+            BufferedConsole.CrossedOut = false;
+        }
+
 
         BufferedConsole.ForegroundColor = BufferedConsole.ColorForHtml(Configuration.Instance.AutocompleteTextColor); 
         if (charactersToSkip < selectedSuggestionSuffix.Length)

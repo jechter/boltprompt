@@ -554,7 +554,7 @@ public class SuggestorTests
     {
         var testDir = new NPath("testDir").MakeAbsolute().CreateDirectory();   
         _pathsToCleanup.Add(testDir);
-        testDir.Combine("customArgList").WriteAllText("foo\nbar\nbaz\n");
+        testDir.Combine("customArgList").WriteAllText("foo\nbar\nbaz\nstringcontainingfoo");
 
         var ci = new CommandInfo
         {
@@ -576,6 +576,12 @@ public class SuggestorTests
         Assert.That(suggestions, Does.Contain(new Suggestion("foo") {Description = "Custom argument"}));
         Assert.That(suggestions, Does.Contain(new Suggestion("bar") {Description = "Custom argument"}));
         Assert.That(suggestions, Does.Contain(new Suggestion("baz") {Description = "Custom argument"}));
+        Assert.That(suggestions, Does.Contain(new Suggestion("stringcontainingfoo") {Description = "Custom argument"}));
+        
+        suggestions = GetSuggestionsForTestExecutable(ci, " foo");
+        Assert.That(suggestions, Does.Contain(new Suggestion("foo") {Description = "Custom argument"}));
+        Assert.That(suggestions, Does.Contain(new Suggestion("stringcontainingfoo") {Description = "Custom argument"}));
+        
     }
     
     [Test]

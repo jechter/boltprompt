@@ -131,7 +131,12 @@ internal static partial class BufferedConsole
     {
         set => ConsoleControl(value ? "1m" : "22m");
     }
-    
+
+    public static bool CrossedOut
+    {
+        set => ConsoleControl(value ? "9m" : "29m");
+    }
+
     public static bool Underline
     {
         set => ConsoleControl(value ? "4m" : "24m");
