@@ -2,7 +2,42 @@ namespace boltprompt;
 
 public static class SuggestionConsoleViewer
 {
-    public static void ShowSuggestions(int top, Suggestion[] suggestions, int selection, bool useColor = true)
+    private static bool PrintStringMarkingPrefix(string text, string prefix, int maxSize, bool cullAtBeginning)
+    {
+        var startIndex = 0;
+        var endIndex = text.Length;
+        if (Prompt.MeasureConsoleStringWidth(text) > maxSize)
+        {
+            if (cullAtBeginning)
+            {
+                BufferedConsole.Write("⋯");
+                startIndex = text.Length - maxSize - 1;
+            }
+            else
+                endIndex = Prompt.SubstringWithMaxConsoleWidth(text, maxSize).Length;
+        }
+        
+        var prefixStartIndex = text.IndexOf(prefix, StringComparison.Ordinal);
+        var prefixEndIndex = prefixStartIndex == -1 ? prefixStartIndex : prefixStartIndex + prefix.Length;
+
+        if (prefixStartIndex < startIndex)
+            prefixStartIndex = startIndex;
+        if (prefixEndIndex < startIndex)
+            prefixEndIndex = startIndex;
+        if (prefixStartIndex >= endIndex)
+            prefixStartIndex = endIndex;
+        if (prefixEndIndex >= endIndex)
+            prefixEndIndex = endIndex;
+        
+        BufferedConsole.Write(text[startIndex..prefixStartIndex]);
+        BufferedConsole.Underline = true;
+        BufferedConsole.Write(text[prefixStartIndex..prefixEndIndex]);
+        BufferedConsole.Underline = false;
+        BufferedConsole.Write(text[prefixEndIndex..endIndex]);
+        return prefixStartIndex != prefixEndIndex;
+    }
+    
+    public static void ShowSuggestions(int top, Suggestion[] suggestions, string commandLine, int selection, bool useColor = true)
     {
         var pos = BufferedConsole.GetCursorPosition();
         var topLine = top;
@@ -29,26 +64,30 @@ public static class SuggestionConsoleViewer
         var maxSuggestionLength = suggestions.Any() ? suggestions.Skip(startLine).Take(maxNumSuggestions).Select(s => Prompt.MeasureConsoleStringWidth(s.Text) + (s.Icon?.Length ?? 0)).Max() : 0;
         var descriptionStart = maxSuggestionLength + 5;
         var descriptionLength = BufferedConsole.WindowWidth - descriptionStart - 1;
+
+        var parts = CommandLineParser.ParseCommandLine(commandLine).ToArray();
+        var partsIndexUpToCursor = Prompt.PartsIndexUpToCursor(parts);
+        var suggestionPrefix = partsIndexUpToCursor > 0
+            ? (parts[partsIndexUpToCursor-1].Type != CommandLineParser.CommandLinePart.PartType.Whitespace
+                ? parts[partsIndexUpToCursor-1].Text
+                : "")
+            : "";
+
         for (var i=startLine; i < startLine + maxNumSuggestions; i++)
         {
             if (useColor)
                 SetSuggestionColors(selection == i);
-
+            
             BufferedConsole.SetCursorPosition(0, line);
             BufferedConsole.Bold = true;
             BufferedConsole.Write(selection == i ? "\u27a4  " : "   ");
+            var didMarkPrefix = false;
             if (suggestions.Length > i)
             {
                 if (suggestions[i].Icon != null)
                     BufferedConsole.Write($"{suggestions[i].Icon} ");
                 var labelSize = BufferedConsole.WindowWidth - (suggestions[i].Icon != null ? 5 : 3) - 2;
-                if (Prompt.MeasureConsoleStringWidth(suggestions[i].Text) > labelSize)
-                {
-                    BufferedConsole.Write("⋯");
-                    BufferedConsole.Write($"{suggestions[i].Text[^labelSize..]} ");
-                }
-                else
-                    BufferedConsole.Write(suggestions[i].Text);
+                didMarkPrefix = PrintStringMarkingPrefix(suggestions[i].Text, suggestionPrefix, labelSize, true);
             }
 
             BufferedConsole.Bold = false;
@@ -61,7 +100,11 @@ public static class SuggestionConsoleViewer
             {
                 var description = selection == i ? suggestions[i].Description : suggestions[i].SecondaryDescription ?? suggestions[i].Description;
                 if (description != null)
-                    BufferedConsole.Write(Prompt.SubstringWithMaxConsoleWidth(new (description.Replace('\n', ' ')), descriptionLength));
+                {
+                    
+                    //description = Prompt.SubstringWithMaxConsoleWidth(new(description.Replace('\n', ' ')), descriptionLength);
+                    PrintStringMarkingPrefix(description, didMarkPrefix ? "" : suggestionPrefix, descriptionLength, false);
+                }
             }
 
             if (useColor)
@@ -88,6 +131,6 @@ public static class SuggestionConsoleViewer
 
     public static void Clear(int top)
     {
-        ShowSuggestions(top, [], -1, false);
+        ShowSuggestions(top, [], "", -1, false);
     }
 }

@@ -210,7 +210,7 @@ internal class MainLoop
         if (_suggestions.Length > 0 && _selection != -1)
         {
             _didShowSuggestions = true;
-            SuggestionConsoleViewer.ShowSuggestions(top, _suggestions, _selection);
+            SuggestionConsoleViewer.ShowSuggestions(top, _suggestions, _commandLine, _selection);
         }
         else if (_didShowSuggestions)
             SuggestionConsoleViewer.Clear(top);

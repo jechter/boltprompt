@@ -376,14 +376,19 @@ public static partial class Suggestor
                         yield return new (lastParam) { Description = string.IsNullOrEmpty(arg.Description) ? arg.Name : arg.Description };
                     break;
                 case CommandInfo.ArgumentType.CustomArgument:
+                    var hasPrefixMatch = false;
                     foreach (var s in CustomArguments.Get(arg, parsingState.Last().CommandInfo, parts, lastParam))
                     {
                         if (s.Text.Contains(lastParam) || (s.Description?.Contains(lastParam) ?? false))
                         {
                             yield return s;
                             hasMatch = true;
+                            if (s.Text.StartsWith(lastParam))
+                                hasPrefixMatch = true;
                         }
                     }
+                    if (!hasPrefixMatch)
+                        yield return new (lastParam) { Description = string.IsNullOrEmpty(arg.Description) ? arg.Name : arg.Description };
                     break;
                 case CommandInfo.ArgumentType.String:
                     yield return new (lastParam) { Description = string.IsNullOrEmpty(arg.Description) ? arg.Name : arg.Description };
