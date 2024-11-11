@@ -1,5 +1,3 @@
-using CliWrap;
-using CliWrap.Buffered;
 using NiceIO;
 
 namespace boltprompt;
@@ -41,8 +39,6 @@ public static class ShellInstaller
         }        
     }
 
-    private static string? Terminal => Environment.GetEnvironmentVariable("TERM_PROGRAM");
-    static bool IsSupportedTerminal => Terminal is "Apple_Terminal" or "iTerm.app";
 
     public static void InstallIntoCurrentShell(InstallScope installScope)
     {
@@ -62,7 +58,7 @@ public static class ShellInstaller
             BufferedConsole.Bold = false;
             BufferedConsole.WriteLine();
             BufferedConsole.ResetColor();
-            if (IsSupportedTerminal)
+            if (TerminalUtility.IsSupportedTerminal)
             {
                 BufferedConsole.Write("Use ");
                 BufferedConsole.Bold = true;
@@ -78,26 +74,6 @@ public static class ShellInstaller
         Environment.Exit(0);
     }
     
-    public static void SetupTerminal()
-    {
-        if (!IsSupportedTerminal)
-            throw new NotSupportedException($"boltprompt only knows how to configure fonts for Terminal.app or iTerm.app. You are using {Terminal}, which we don't know how to set up.");
-        Cli.Wrap("bash")
-            .WithArguments(Paths.boltpromptSupportFilesDir.Combine("setup-terminal.sh").ToString())
-            .WithWorkingDirectory(Paths.boltpromptSupportFilesDir.ToString())
-            .ExecuteBufferedAsync()
-            .GetAwaiter()
-            .GetResult();
-        switch (Terminal)
-        {
-            case "Apple_Terminal":
-                Console.WriteLine("Terminal.app has been set up for boltprompt.");
-                break;
-            case "iTerm.app":
-                Console.WriteLine("iTerm2 has been set up for boltprompt. Please restart iTerm2 for the changes to take effect.");
-                break;
-        }
-    }
 
     static void DoUninstallFromCurrentShell(InstallScope installScope)
     {

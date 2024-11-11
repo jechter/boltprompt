@@ -39,7 +39,7 @@ Command UninstallCommand()
 Command SetupTerminalCommand()
 {
     var setupTerminalCommand = new Command("setup-terminal", "Set up Terminal.app for boltprompt");
-    setupTerminalCommand.SetHandler(ShellInstaller.SetupTerminal);
+    setupTerminalCommand.SetHandler(TerminalUtility.SetupTerminal);
     return setupTerminalCommand;
 }
 

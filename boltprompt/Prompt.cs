@@ -71,6 +71,8 @@ internal static class Prompt
     {
         var debug = Assembly.GetEntryAssembly()?.Location.ToNPath().Parent.Parent.FileName == "Debug";
         var promptChar = commandLine?.StartsWith(Configuration.Instance.AIPromptPrefix) ?? false ? "🤖" : Environment.UserName == "root"? "\u2622\ufe0f " : debug ? "🪲" : "⚡️";
+        if (!TerminalUtility.CurrentTerminalHasPowerlineSymbol())
+            scheme = scheme.Replace("\uE0B0", "");
         return scheme
             .Replace("{timestamp}", DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss"))
             .Replace("{host_name}", Environment.MachineName)
@@ -155,11 +157,6 @@ internal static class Prompt
                         selectedSuggestionSuffix = selectedSuggestion;
                     }
                 }
-                
-/*                selectedSuggestionSuffix = selectedWord.Type is CommandLineParser.CommandLinePart.PartType.Whitespace
-                    or CommandLineParser.CommandLinePart.PartType.Operator
-                    ? selectedSuggestion
-                    : selectedSuggestion[selectedWord.Text.Length..];*/
             }
         }
 

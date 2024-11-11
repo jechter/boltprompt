@@ -1,0 +1,1 @@
+tell application "Terminal"	get font name of default settingsend tell
