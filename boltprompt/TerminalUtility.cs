@@ -73,6 +73,7 @@ public static class TerminalUtility
                 Console.WriteLine("iTerm2 has been set up for boltprompt. Please restart iTerm2 for the changes to take effect.");
                 break;
         }
+        Paths.TerminalConfig.Delete();
     }
 
     private static string? _currentTerminalFont;
