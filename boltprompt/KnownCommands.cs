@@ -93,7 +93,7 @@ public static class KnownCommands
         {
             if (!path.DirectoryExists()) return;
             foreach (var file in path.Files("*.json", true))
-                AllKnownCommands[file.FileNameWithoutExtension] = LoadCachedCommandInfo(file);
+                AllKnownCommands[file.FileNameWithoutExtension] = Task.Run(async () => await LoadCachedCommandInfo(file));
         }
     }
 }
