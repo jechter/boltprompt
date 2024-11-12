@@ -95,6 +95,9 @@ public record CommandInfo
              'String': The argument can be any arbitrary string. This matches anything.
             """)]
         public ArgumentType Type = ArgumentType.Keyword;
+
+        [JsonIgnore]
+        public bool MayBeFileSystemEntry => Type is ArgumentType.File or ArgumentType.Directory or ArgumentType.FileSystemEntry or ArgumentType.Unknown; 
         [JsonInclude]
         [DescriptionForLanguageModel("Valid file extensions (only applicable if type is 'file').")]
         public string[]? Extensions;

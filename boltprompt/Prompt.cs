@@ -138,6 +138,10 @@ internal static class Prompt
 
         var selectedWord = parts.Length > 0 ? parts[partsIndexUpToCursor - 1] : null;
         var selectedWordWillBeDeletedBySuggestion = false;
+        var selectedWordIsPath = selectedWord is { Type: CommandLineParser.CommandLinePart.PartType.Argument, Argument.MayBeFileSystemEntry: true }
+                                 && selectedWord.Text.Contains('/');
+        var selectedWordPathSlashIndex = selectedWordIsPath ? selectedWord!.Text.LastIndexOf('/') : 0;
+
         if (selectedSuggestion != null)
         {
             if (selectedWord == null)
@@ -154,7 +158,7 @@ internal static class Prompt
                     else
                     {
                         selectedWordWillBeDeletedBySuggestion = true;
-                        selectedSuggestionSuffix = selectedSuggestion;
+                        selectedSuggestionSuffix = selectedSuggestion[selectedWordPathSlashIndex..];
                     }
                 }
             }
@@ -175,12 +179,18 @@ internal static class Prompt
             charactersToSkip = PrintCommandLineParts(parts[..(partsIndexUpToCursor - 1)], charactersToSkip);
         if (selectedWord != null)
         {
+            if (selectedWordIsPath)
+                charactersToSkip = PrintCommandLineParts([selectedWord with {Text = selectedWord.Text[..selectedWordPathSlashIndex]} ], charactersToSkip);        
             if (selectedWordWillBeDeletedBySuggestion)
             {
                 BufferedConsole.ForegroundColor = BufferedConsole.ColorForHtml("ff6060");
                 BufferedConsole.CrossedOut = true;
             }
-            charactersToSkip = PrintCommandLineParts([selectedWord], charactersToSkip);
+            charactersToSkip = PrintCommandLineParts([ 
+                selectedWordIsPath 
+                    ? selectedWord with{ Text = selectedWord.Text[selectedWordPathSlashIndex..]} 
+                    : selectedWord], 
+                charactersToSkip);
             BufferedConsole.ResetColor();
             BufferedConsole.CrossedOut = false;
         }

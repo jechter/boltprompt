@@ -1,3 +1,5 @@
+using NiceIO;
+
 namespace boltprompt;
 
 public static class SuggestionConsoleViewer
@@ -67,11 +69,18 @@ public static class SuggestionConsoleViewer
 
         var parts = CommandLineParser.ParseCommandLine(commandLine).ToArray();
         var partsIndexUpToCursor = Prompt.PartsIndexUpToCursor(parts);
-        var suggestionPrefix = partsIndexUpToCursor > 0
-            ? (parts[partsIndexUpToCursor-1].Type != CommandLineParser.CommandLinePart.PartType.Whitespace
-                ? parts[partsIndexUpToCursor-1].Text
-                : "")
-            : "";
+        var suggestionPrefix = "";
+
+        if (partsIndexUpToCursor > 0)
+        {
+            var suggestionPart = parts[partsIndexUpToCursor - 1];
+            if (suggestionPart.Type != CommandLineParser.CommandLinePart.PartType.Whitespace)
+            {
+                suggestionPrefix = suggestionPart.Text;
+                if (suggestionPart is { Type: CommandLineParser.CommandLinePart.PartType.Argument, Argument.MayBeFileSystemEntry: true })
+                    suggestionPrefix = suggestionPart.Text.ToNPath().FileName;
+            }
+        }
 
         for (var i=startLine; i < startLine + maxNumSuggestions; i++)
         {

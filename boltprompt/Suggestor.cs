@@ -54,20 +54,20 @@ public static partial class Suggestor
     class SuggestionSorter : IComparer<Suggestion>
     {
         private readonly string[] _historyFilteredByCommandline;
-        private string lastCommandLineWord;
+        private readonly string _lastCommandLineWord;
         
         public SuggestionSorter(string commandline)
         {
             if (string.IsNullOrWhiteSpace(commandline))
             {
                 _historyFilteredByCommandline = History.Commands.Select(s => s.Commandline.Trim()).ToArray();
-                lastCommandLineWord = "";
+                _lastCommandLineWord = "";
             }
             else
             {
                 var parsedCommandLine = CommandLineParser.ParseCommandLine(commandline).ToArray();
                 var lastCommandLinePart = parsedCommandLine.Last();
-                lastCommandLineWord = lastCommandLinePart.Type == CommandLineParser.CommandLinePart.PartType.Argument
+                _lastCommandLineWord = lastCommandLinePart.Type == CommandLineParser.CommandLinePart.PartType.Argument
                     ? lastCommandLinePart.Text
                     : "";
                 var commandLineWordPathComponents = lastCommandLinePart.Text.Split('/');
@@ -110,8 +110,8 @@ public static partial class Suggestor
             if (y is null) return 1;
             if (x is null) return -1;
 
-            var yIsPrefixed = y.Text.StartsWith(lastCommandLineWord);
-            var xIsPrefixed = x.Text.StartsWith(lastCommandLineWord);
+            var yIsPrefixed = y.Text.StartsWith(_lastCommandLineWord);
+            var xIsPrefixed = x.Text.StartsWith(_lastCommandLineWord);
             if (xIsPrefixed != yIsPrefixed)
                 return xIsPrefixed ? 1 : -1;
             
@@ -317,24 +317,32 @@ public static partial class Suggestor
         var allFlags = arguments.Where(a => a.Type == CommandInfo.ArgumentType.Flag).SelectMany(a => a.AllNames).SelectMany(a => a).ToArray();
         var hasMatch = false;
 
-        bool MatchSuggestion(Suggestion s)
+        bool MatchSuggestionPartial(Suggestion s, bool partialPathMatch = false)
         {
-            if (!s.Text.Contains(lastParam, StringComparison.InvariantCulture) && !(s.Description?.Contains(lastParam, StringComparison.InvariantCultureIgnoreCase) ?? false)) return false;
+            if (partialPathMatch)
+            {
+                if (!s.Text.ToNPath().FileName.Contains(lastParam.ToNPath().FileName, StringComparison.InvariantCultureIgnoreCase))
+                    return false;
+            }
+            else
+            {
+                if (!s.Text.Contains(lastParam, StringComparison.InvariantCulture) &&
+                    !(s.Description?.Contains(lastParam, StringComparison.InvariantCultureIgnoreCase) ?? false))
+                    return false;
+            }
+
             if (s.Text.StartsWith(lastParam)) hasMatch = true;
             return true;
         }
+        
+        bool MatchSuggestion(Suggestion s) => MatchSuggestionPartial(s);
         
         foreach (var arg in arguments)
         {
             switch (arg.Type)
             {
                 case CommandInfo.ArgumentType.Flag:
-                    if (lastParam.Length == 0)
-                    {
-                        foreach (var v in arg.AllNames)
-                            yield return FlagSuggestion("-" + v);
-                    }
-                    else if (lastParam.StartsWith('-'))
+                    if (lastParam.StartsWith('-'))
                     {
                         if (lastParam[1..].Any(c => !allFlags.Contains(c)))
                             break;
@@ -346,7 +354,7 @@ public static partial class Suggestor
                             if (!lastParam.Contains(v[0]) || arg.Repeat)
                                 yield return FlagSuggestion(lastParam + v);
                     }
-                    else if (arg.Description.Contains(lastParam))
+                    else if (lastParam.Length == 0 || arg.Description.Contains(lastParam, StringComparison.InvariantCultureIgnoreCase))
                     {
                         foreach (var v in arg.AllNames)
                             yield return FlagSuggestion("-" + v);
@@ -375,7 +383,7 @@ public static partial class Suggestor
                 case CommandInfo.ArgumentType.Unknown:
                     foreach (var s in SuggestFileSystemEntries(lastParam, arg.Type, arg.Extensions)
                                  .Select(n => n with {Description = arg.Description})
-                                 .Where(MatchSuggestion))
+                                 .Where(s => MatchSuggestion(s) || MatchSuggestionPartial(s, true)))
                         yield return s;
                     // if we have no matching files, or if type is unknown (ie may not be a path at all), return a match for whatever was typed to allow creating new paths.
                     if (!hasMatch || arg.Type == CommandInfo.ArgumentType.Unknown)
