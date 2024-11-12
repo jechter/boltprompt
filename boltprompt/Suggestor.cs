@@ -67,7 +67,7 @@ public static partial class Suggestor
             {
                 var parsedCommandLine = CommandLineParser.ParseCommandLine(commandline).ToArray();
                 var lastCommandLinePart = parsedCommandLine.Last();
-                _lastCommandLineWord = lastCommandLinePart.Type == CommandLineParser.CommandLinePart.PartType.Argument
+                _lastCommandLineWord = lastCommandLinePart.Type != CommandLineParser.CommandLinePart.PartType.Whitespace
                     ? lastCommandLinePart.Text
                     : "";
                 var commandLineWordPathComponents = lastCommandLinePart.Text.Split('/');
@@ -150,10 +150,12 @@ public static partial class Suggestor
         var result = string.IsNullOrWhiteSpace(commandline) ? suggestions.ToList() : suggestions.OrderDescending(new SuggestionSorter(commandline)).ToList();
         for (var i = 1; i < result.Count; i++)
         {
-            // TODO: maybe we have to check which one we remove
             // (to avoid fake matches for keywords as string arguments suggested from history) 
-            if (result[i-1].Text == result[i].Text)
+            if (result[i - 1].Text.Trim() != result[i].Text.Trim()) continue;
+            if (string.IsNullOrEmpty(result[i].Description))
                 result.RemoveAt(i--);
+            else
+                result.RemoveAt(--i);
         }
 
         // empty suggestions don't make sense, unless it's the only one (to have a description of what the next parameter is for)
@@ -422,7 +424,8 @@ public static partial class Suggestor
                 )
             .Concat(History.Commands.Select(h => new Suggestion(h.Commandline)))
             .DistinctBy(s => s.Text)
-            .Where(sug => sug.Text.StartsWith(commandline))
+            .Where(sug => sug.Text.Contains(commandline, StringComparison.InvariantCultureIgnoreCase) || (sug.Description?.Contains(commandline, StringComparison.InvariantCultureIgnoreCase) ?? false))
+            .Append(new (commandline))
             .ToArray();
     }
 

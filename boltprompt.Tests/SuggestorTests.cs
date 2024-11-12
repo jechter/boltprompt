@@ -113,10 +113,12 @@ public class SuggestorTests
         var suggestions = Suggestor.SuggestionsForPrompt("p");
 
         Assert.That(suggestions.Select(s => s.Text.Trim()), Does.Contain("pathTestExecutable"));
+        // match in the middle
+        Assert.That(suggestions.Select(s => s.Text.Trim()), Does.Contain("anotherPathTestExecutable"));
         Assert.That(suggestions.Select(s => s.Text.Trim()), Does.Not.Contain("pathTestFile"));
         Assert.That(suggestions.Select(s => s.Text.Trim()), Does.Not.Contain("anotherPathTestFile"));
         
-        suggestions = Suggestor.SuggestionsForPrompt("a");
+        suggestions = Suggestor.SuggestionsForPrompt("another");
 
         Assert.That(suggestions.Select(s => s.Text.Trim()), Does.Contain("anotherPathTestExecutable"));
         Assert.That(suggestions.Select(s => s.Text.Trim()), Does.Not.Contain("anotherPathTestFile"));
