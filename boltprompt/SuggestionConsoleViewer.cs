@@ -17,7 +17,7 @@ public static class SuggestionConsoleViewer
                 endIndex = Prompt.SubstringWithMaxConsoleWidth(text, maxSize).Length;
         }
         
-        var prefixStartIndex = text.IndexOf(prefix, StringComparison.Ordinal);
+        var prefixStartIndex = text.IndexOf(prefix, StringComparison.InvariantCultureIgnoreCase);
         var prefixEndIndex = prefixStartIndex == -1 ? prefixStartIndex : prefixStartIndex + prefix.Length;
 
         if (prefixStartIndex < startIndex)

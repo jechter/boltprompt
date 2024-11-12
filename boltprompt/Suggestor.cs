@@ -316,6 +316,14 @@ public static partial class Suggestor
         var arguments = CommandLineParser.GetEligibleArgumentsForState(parsingState).Select(a => a.argument).ToArray();
         var allFlags = arguments.Where(a => a.Type == CommandInfo.ArgumentType.Flag).SelectMany(a => a.AllNames).SelectMany(a => a).ToArray();
         var hasMatch = false;
+
+        bool MatchSuggestion(Suggestion s)
+        {
+            if (!s.Text.Contains(lastParam, StringComparison.InvariantCulture) && !(s.Description?.Contains(lastParam, StringComparison.InvariantCultureIgnoreCase) ?? false)) return false;
+            if (s.Text.StartsWith(lastParam)) hasMatch = true;
+            return true;
+        }
+        
         foreach (var arg in arguments)
         {
             switch (arg.Type)
@@ -338,6 +346,11 @@ public static partial class Suggestor
                             if (!lastParam.Contains(v[0]) || arg.Repeat)
                                 yield return FlagSuggestion(lastParam + v);
                     }
+                    else if (arg.Description.Contains(lastParam))
+                    {
+                        foreach (var v in arg.AllNames)
+                            yield return FlagSuggestion("-" + v);
+                    }
                     break;
 
                     Suggestion FlagSuggestion(string text) => new(text)
@@ -346,48 +359,32 @@ public static partial class Suggestor
                         Icon = "⚐"
                     };
                 case CommandInfo.ArgumentType.Keyword:
-                    foreach (var v in arg.AllNames)
-                    {
-                        if (!v.StartsWith(lastParam)) continue;
-                        yield return new(v) { Description = arg.Description };
-                        hasMatch = true;
-                    }
-
+                    foreach (var s in arg.AllNames
+                         .Select(n => new Suggestion(n) {Description = arg.Description})
+                         .Where(MatchSuggestion))
+                        yield return s;
                     break;
                 case CommandInfo.ArgumentType.CommandName:
                 case CommandInfo.ArgumentType.Command:
-                    foreach (var s in _executablesInPathEnvironment.Where(sug => sug.Text.StartsWith(lastParam)))
+                    foreach (var s in _executablesInPathEnvironment.Where(MatchSuggestion))
                         yield return s;
                     break;
                 case CommandInfo.ArgumentType.FileSystemEntry:
                 case CommandInfo.ArgumentType.Directory:
                 case CommandInfo.ArgumentType.File:
                 case CommandInfo.ArgumentType.Unknown:
-                    foreach (var s in SuggestFileSystemEntries(lastParam, arg.Type, arg.Extensions))
-                    {
-                        if (s.Text.StartsWith(lastParam))
-                        {
-                            yield return s with { Description = arg.Description };
-                            hasMatch = true;
-                        }
-                    }
+                    foreach (var s in SuggestFileSystemEntries(lastParam, arg.Type, arg.Extensions)
+                                 .Select(n => n with {Description = arg.Description})
+                                 .Where(MatchSuggestion))
+                        yield return s;
                     // if we have no matching files, or if type is unknown (ie may not be a path at all), return a match for whatever was typed to allow creating new paths.
                     if (!hasMatch || arg.Type == CommandInfo.ArgumentType.Unknown)
                         yield return new (lastParam) { Description = string.IsNullOrEmpty(arg.Description) ? arg.Name : arg.Description };
                     break;
                 case CommandInfo.ArgumentType.CustomArgument:
-                    var hasPrefixMatch = false;
-                    foreach (var s in CustomArguments.Get(arg, parsingState.Last().CommandInfo, parts, lastParam))
-                    {
-                        if (s.Text.Contains(lastParam) || (s.Description?.Contains(lastParam) ?? false))
-                        {
-                            yield return s;
-                            hasMatch = true;
-                            if (s.Text.StartsWith(lastParam))
-                                hasPrefixMatch = true;
-                        }
-                    }
-                    if (!hasPrefixMatch)
+                    foreach (var s in CustomArguments.Get(arg, parsingState.Last().CommandInfo, parts, lastParam).Where(MatchSuggestion))
+                        yield return s;
+                    if (!hasMatch)
                         yield return new (lastParam) { Description = string.IsNullOrEmpty(arg.Description) ? arg.Name : arg.Description };
                     break;
                 case CommandInfo.ArgumentType.String:
