@@ -1,3 +1,5 @@
+using NiceIO;
+
 namespace boltprompt;
 
 internal class MainLoop
@@ -35,7 +37,8 @@ internal class MainLoop
     }
 
     private void RequestRedraw() => _needsRedraw = true;
-    
+    string stringToType = "";
+
     public void Run()
     {
         while (true)
@@ -54,9 +57,15 @@ internal class MainLoop
                 _screenWidth = Console.WindowWidth;
             }
 
-            while (Console.KeyAvailable)
+            while (Console.KeyAvailable || stringToType.Length > 0)
             {
-                var key = Console.ReadKey();
+                var key = stringToType.Length > 0
+                    ? new ConsoleKeyInfo(stringToType[0], ConsoleKey.A, false, false, false)
+                    : Console.ReadKey();
+
+                if (stringToType.Length > 0)
+                    stringToType = stringToType[1..];
+
                 BufferedConsole.Update();
                 RequestRedraw();
                 if (key.Modifiers == ConsoleModifiers.Control)
@@ -73,6 +82,14 @@ internal class MainLoop
                 }
                 else switch (key.Key)
                 {
+                    case ConsoleKey.D1:
+                    case ConsoleKey.D2:
+                    case ConsoleKey.D3:
+                    case ConsoleKey.D4:
+                        stringToType =
+                            new NPath("/Users/jechter/Shelper/boltprompt/moviescript.txt").ReadAllLines()[
+                                key.Key - ConsoleKey.D1];
+                        break;
                     case ConsoleKey.Delete:
                     {
                         if (_commandLine.Length > 0 && Prompt.CursorPosition < _commandLine.Length)
@@ -144,11 +161,17 @@ internal class MainLoop
                             _selection = 0;
                         break;
                 }
+                if (stringToType.Length > 0)
+                {
+                    //Thread.Sleep(1);
+                    break;
+                }
             }
 
             RenderPromptAndSuggestionsIfNeeded();
             BufferedConsole.Flush();
-            Thread.Sleep(100);
+            Thread.Sleep(20);
+            //Thread.Sleep(100);
         }
     }
 
@@ -190,7 +213,7 @@ internal class MainLoop
 
     private void UpdateSuggestionsAndSelection()
     {
-        if (Prompt.CursorPosition == _commandLine.Length || _commandLine[Prompt.CursorPosition] == ' ')
+        if (stringToType.Length == 0 && (Prompt.CursorPosition == _commandLine.Length || _commandLine[Prompt.CursorPosition] == ' '))
             _suggestions = Suggestor.SuggestionsForPrompt(_commandLine[..Prompt.CursorPosition]);
         else
             _suggestions = [];
