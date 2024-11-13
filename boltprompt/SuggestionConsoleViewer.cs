@@ -8,7 +8,7 @@ public static class SuggestionConsoleViewer
     {
         var startIndex = 0;
         var endIndex = text.Length;
-        if (Prompt.MeasureConsoleStringWidth(text) > maxSize)
+        if (BufferedConsole.MeasureConsoleStringWidth(text) > maxSize)
         {
             if (cullAtBeginning)
             {
@@ -16,7 +16,7 @@ public static class SuggestionConsoleViewer
                 startIndex = text.Length - maxSize - 1;
             }
             else
-                endIndex = Prompt.SubstringWithMaxConsoleWidth(text, maxSize).Length;
+                endIndex = BufferedConsole.SubstringWithMaxConsoleWidth(text, maxSize).Length;
         }
         
         var prefixStartIndex = text.IndexOf(prefix, StringComparison.InvariantCultureIgnoreCase);
@@ -63,7 +63,7 @@ public static class SuggestionConsoleViewer
         BufferedConsole.SetCursorPosition(pos.Left, pos.Top);
         var startLine = Math.Min(Math.Max(0, selection - maxNumSuggestions / 2), Math.Max(0, suggestions.Length - maxNumSuggestions));
         var line = topLine;
-        var maxSuggestionLength = suggestions.Any() ? suggestions.Skip(startLine).Take(maxNumSuggestions).Select(s => Prompt.MeasureConsoleStringWidth(s.Text) + (s.Icon?.Length ?? 0)).Max() : 0;
+        var maxSuggestionLength = suggestions.Any() ? suggestions.Skip(startLine).Take(maxNumSuggestions).Select(s => BufferedConsole.MeasureConsoleStringWidth(s.Text) + (s.Icon?.Length ?? 0)).Max() : 0;
         var descriptionStart = maxSuggestionLength + 5;
         var descriptionLength = BufferedConsole.WindowWidth - descriptionStart - 1;
 

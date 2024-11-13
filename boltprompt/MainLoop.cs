@@ -56,7 +56,7 @@ internal class MainLoop
 
             while (Console.KeyAvailable)
             {
-                var key = Console.ReadKey();
+                var key = Console.ReadKey(true);
                 BufferedConsole.Update();
                 RequestRedraw();
                 if (key.Modifiers == ConsoleModifiers.Control)

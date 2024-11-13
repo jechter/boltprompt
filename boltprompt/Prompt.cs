@@ -1,6 +1,5 @@
 using System.Reflection;
 using NiceIO;
-using Wcwidth;
 
 namespace boltprompt;
 
@@ -67,58 +66,26 @@ internal static class Prompt
         
         return UnicodeEscaper.Encode(result);
     }
-    
+
     public static string GetPromptPrefix(string scheme, string? commandLine = null)
     {
         var debug = Assembly.GetEntryAssembly()?.Location.ToNPath().Parent.Parent.FileName == "Debug";
-        var promptChar = commandLine?.StartsWith(Configuration.Instance.AIPromptPrefix) ?? false ? "🤖" : Environment.UserName == "root"? "\u2622\ufe0f " : debug ? "🪲" : "⚡️";
-        scheme = UnicodeEscaper.Decode(scheme); 
+        var promptChar = commandLine?.StartsWith(Configuration.Instance.AIPromptPrefix) ?? false ? "🤖" :
+            Environment.UserName == "root" ? "\u2622\ufe0f " :
+            debug ? "🪲" : "⚡️";
+        scheme = UnicodeEscaper.Decode(scheme);
         if (!TerminalUtility.CurrentTerminalHasPowerlineSymbol())
             scheme = scheme.Replace("\uE0B0", "");
         return scheme
             .Replace("{timestamp}", DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss"))
             .Replace("{host_name}", Environment.MachineName)
             .Replace("{user_name}", Environment.UserName)
-            .Replace("{working_directory_name}", CurrentDirectoryNameForPrompt(NPath.CurrentDirectory, PathStyle.DirectoryNameOnly))
-            .Replace("{working_directory_short_path}", CurrentDirectoryNameForPrompt(NPath.CurrentDirectory, PathStyle.Compact))
+            .Replace("{working_directory_name}",
+                CurrentDirectoryNameForPrompt(NPath.CurrentDirectory, PathStyle.DirectoryNameOnly))
+            .Replace("{working_directory_short_path}",
+                CurrentDirectoryNameForPrompt(NPath.CurrentDirectory, PathStyle.Compact))
             .Replace("{working_directory_path}", CurrentDirectoryNameForPrompt(NPath.CurrentDirectory, PathStyle.Full))
             .Replace("{prompt_symbol}", promptChar);
-    }
-
-    public static int MeasureConsoleStringWidth(string text, Action<char, int>? callback = null)
-    {
-        var width = 0;
-        var index = 0;
-        var isControlSequence = false;
-        while (index < text.Length)
-        {
-            var ch = text[index++];
-            callback?.Invoke(ch, width);
-            if (isControlSequence)
-            {
-                if (ch == 'm')
-                    isControlSequence = false;
-            }
-            else
-            {
-                if (ch == '\u001b')
-                    isControlSequence = true;
-                else
-                    width += UnicodeCalculator.GetWidth(ch);
-            }
-        }
-        return width;
-    }
-    
-    public static string SubstringWithMaxConsoleWidth(string text, int maxWidth)
-    {
-        var result = "";
-        MeasureConsoleStringWidth(text, (ch, width) =>
-        {
-            if (width <= maxWidth)
-                result += ch;
-        });
-        return result;
     }
     
     public static int RenderPrompt(string? commandline = null, string? selectedSuggestion = null)
@@ -128,7 +95,7 @@ internal static class Prompt
         BufferedConsole.SetCursorPosition(0, pos.Top - _commandLineCursorRow);
         BufferedConsole.ClearEndOfScreen();
         var promptText = GetPromptPrefix(Configuration.Instance.Prompt, commandline);
-        _promptLength = MeasureConsoleStringWidth(promptText);
+        _promptLength = BufferedConsole.MeasureConsoleStringWidth(promptText);
         BufferedConsole.Write(promptText);
         
         if (commandline == null) 
@@ -222,7 +189,7 @@ internal static class Prompt
         if (Configuration.Instance.ScrollLongCommandLine)
             return pos.Top + 1;
         var totalCommandLineAndPromptLength =
-            _promptLength + MeasureConsoleStringWidth(commandline) + selectedSuggestionSuffix.Length;
+            _promptLength + BufferedConsole.MeasureConsoleStringWidth(commandline) + selectedSuggestionSuffix.Length;
         return pos.Top - _commandLineCursorRow + totalCommandLineAndPromptLength / Console.WindowWidth + 1;
     }
 

@@ -1,6 +1,7 @@
 using System.Globalization;
 using System.Text;
 using System.Text.RegularExpressions;
+using Wcwidth;
 
 namespace boltprompt;
 
@@ -79,7 +80,7 @@ internal static partial class BufferedConsole
         _windowWidth = Console.WindowWidth;
         _windowHeight = Console.WindowHeight;
     }
-
+    
     public static (int Left, int Top) GetCursorPosition() => (_left, _top);
     public static int CursorLeft => _left;
     public static int CursorTop => _top;
@@ -102,9 +103,9 @@ internal static partial class BufferedConsole
     public static void Write(string chars)
     {
         _buffer.Append(chars);
-        _left += chars.Length;
+        _left += MeasureConsoleStringWidth(chars);
         if (_left >= _windowWidth) 
-            _left = _windowWidth - 1;
+            _left -= _windowWidth;
         if (Debug)
             Flush();
     }
@@ -167,9 +168,45 @@ internal static partial class BufferedConsole
                 $"Invalid cursor left position: {realpos.Left}, expected {_left}. Window size: {_windowWidth}x{_windowHeight}");
         if (realpos.Top != _top)
             throw new Exception(
-                $"Invalid cursor top position: {realpos.Top}, expected {_top}. Window size: {{_windowWidth}}x{{_windowHeight}}");
+                $"Invalid cursor top position: {realpos.Top}, expected {_top}. Window size: {_windowWidth}x{_windowHeight}");
     }
 
     [GeneratedRegex("([A-Fa-f0-9]{2})([A-Fa-f0-9]{2})([A-Fa-f0-9]{2})")]
     private static partial Regex HtmlColorRegex();
+    
+    public static int MeasureConsoleStringWidth(string text, Action<char, int>? callback = null)
+    {
+        var width = 0;
+        var index = 0;
+        var isControlSequence = false;
+        while (index < text.Length)
+        {
+            var ch = text[index++];
+            callback?.Invoke(ch, width);
+            if (isControlSequence)
+            {
+                if (ch == 'm')
+                    isControlSequence = false;
+            }
+            else
+            {
+                if (ch == '\u001b')
+                    isControlSequence = true;
+                else
+                    width += UnicodeCalculator.GetWidth(ch);
+            }
+        }
+        return width;
+    }
+    
+    public static string SubstringWithMaxConsoleWidth(string text, int maxWidth)
+    {
+        var result = "";
+        MeasureConsoleStringWidth(text, (ch, width) =>
+        {
+            if (width <= maxWidth)
+                result += ch;
+        });
+        return result;
+    }
 }
