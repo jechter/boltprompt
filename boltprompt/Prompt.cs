@@ -64,13 +64,15 @@ internal static class Prompt
             result += $"\u001b[38;5;{(int)part.bg}m\uE0B0";
         }
         result += "\u001b[0m ";
-        return result;
+        
+        return UnicodeEscaper.Encode(result);
     }
     
     public static string GetPromptPrefix(string scheme, string? commandLine = null)
     {
         var debug = Assembly.GetEntryAssembly()?.Location.ToNPath().Parent.Parent.FileName == "Debug";
         var promptChar = commandLine?.StartsWith(Configuration.Instance.AIPromptPrefix) ?? false ? "🤖" : Environment.UserName == "root"? "\u2622\ufe0f " : debug ? "🪲" : "⚡️";
+        scheme = UnicodeEscaper.Decode(scheme); 
         if (!TerminalUtility.CurrentTerminalHasPowerlineSymbol())
             scheme = scheme.Replace("\uE0B0", "");
         return scheme
@@ -125,7 +127,7 @@ internal static class Prompt
         var pos = BufferedConsole.GetCursorPosition();
         BufferedConsole.SetCursorPosition(0, pos.Top - _commandLineCursorRow);
         BufferedConsole.ClearEndOfScreen();
-        var promptText = GetPromptPrefix(Configuration.Instance.PromptPrefix, commandline);
+        var promptText = GetPromptPrefix(Configuration.Instance.Prompt, commandline);
         _promptLength = MeasureConsoleStringWidth(promptText);
         BufferedConsole.Write(promptText);
         

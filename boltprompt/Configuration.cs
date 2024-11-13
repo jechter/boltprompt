@@ -18,7 +18,7 @@ internal class Configuration
     [DescriptionForLanguageModel("The text color for the current proposed auto-complete selection in the command line (In rrggbb hex format).")]
     public string AutocompleteTextColor { get; set; } = "a0a0a0";
     [DescriptionForLanguageModel("The prefix text to show before the command line prompt.")]
-    public string PromptPrefix { get; set; } = Prompt.ComposePromptPrefixScheme([
+    public string Prompt { get; set; } = boltprompt.Prompt.ComposePromptPrefixScheme([
         (BufferedConsole.ConsoleColor.Black, BufferedConsole.ConsoleColor.Gray20, "{user_name}"),
         (BufferedConsole.ConsoleColor.Gray6, BufferedConsole.ConsoleColor.Gray20, "{working_directory_short_path}{prompt_symbol}")
     ]);
@@ -116,16 +116,16 @@ internal class Configuration
         if (prop == null)
             throw new InvalidDataException($"Invalid config property name: {propertyName}");
         Console.WriteLine($"{Instance.Get(propertyName)}::Current value");
-        if (prop.Name == nameof(PromptPrefix))
+        if (prop.Name == nameof(Prompt))
         {
             var simplePromptPrefixScheme = "{prompt_symbol}";
-            Console.WriteLine($"\"{simplePromptPrefixScheme}\"::{Prompt.GetPromptPrefix(simplePromptPrefixScheme)}");
+            Console.WriteLine($"\"{simplePromptPrefixScheme}\"::{boltprompt.Prompt.GetPromptPrefix(simplePromptPrefixScheme)}");
 
             void PrintPromptPrefix(
                 (BufferedConsole.ConsoleColor bg, BufferedConsole.ConsoleColor fg, string label)[] parts)
             {
-                var promptPrefixScheme = Prompt.ComposePromptPrefixScheme(parts);
-                Console.WriteLine($"\"{promptPrefixScheme}\"::{Prompt.GetPromptPrefix(promptPrefixScheme)}");
+                var promptPrefixScheme = boltprompt.Prompt.ComposePromptPrefixScheme(parts);
+                Console.WriteLine($"\"{promptPrefixScheme}\"::{boltprompt.Prompt.GetPromptPrefix(promptPrefixScheme)}");
             }
 
             PrintPromptPrefix([
