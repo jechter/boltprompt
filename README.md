@@ -4,7 +4,7 @@
 
 boltprompt is a free tool to help you write shell commands in your terminal with auto-completion:
 
-![boltprompt auto-completing git command lines.](http://jonasechterhoff.com/boltprompt.gif)
+![boltprompt auto-completing git command lines.](https://jonasechterhoff.com/boltprompt.gif)
 
 ## Installation
 
