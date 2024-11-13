@@ -575,14 +575,16 @@ public class SuggestorTests
         WaitForEvent();
 
         var suggestions = GetSuggestionsForTestExecutable(ci, " ");
-        Assert.That(suggestions, Does.Contain(new Suggestion("foo") {Description = "Custom argument"}));
-        Assert.That(suggestions, Does.Contain(new Suggestion("bar") {Description = "Custom argument"}));
-        Assert.That(suggestions, Does.Contain(new Suggestion("baz") {Description = "Custom argument"}));
-        Assert.That(suggestions, Does.Contain(new Suggestion("stringcontainingfoo") {Description = "Custom argument"}));
+        Assert.That(suggestions, Does.Contain(new Suggestion("foo") {Description = "Custom argument", ArgumentType = CommandInfo.ArgumentType.CustomArgument}));
+        Assert.That(suggestions, Does.Contain(new Suggestion("bar") {Description = "Custom argument", ArgumentType = CommandInfo.ArgumentType.CustomArgument}));
+        Assert.That(suggestions, Does.Contain(new Suggestion("baz") {Description = "Custom argument", ArgumentType = CommandInfo.ArgumentType.CustomArgument}));
+        Assert.That(suggestions, Does.Contain(new Suggestion("stringcontainingfoo") {Description = "Custom argument", ArgumentType = CommandInfo.ArgumentType.CustomArgument}));
         
         suggestions = GetSuggestionsForTestExecutable(ci, " foo");
-        Assert.That(suggestions, Does.Contain(new Suggestion("foo") {Description = "Custom argument"}));
-        Assert.That(suggestions, Does.Contain(new Suggestion("stringcontainingfoo") {Description = "Custom argument"}));
+        Assert.That(suggestions, Does.Contain(new Suggestion("foo") {Description = "Custom argument", ArgumentType = CommandInfo.ArgumentType.CustomArgument}));
+        Assert.That(suggestions, Does.Not.Contain(new Suggestion("bar") {Description = "Custom argument", ArgumentType = CommandInfo.ArgumentType.CustomArgument}));
+        Assert.That(suggestions, Does.Not.Contain(new Suggestion("baz") {Description = "Custom argument", ArgumentType = CommandInfo.ArgumentType.CustomArgument}));
+        Assert.That(suggestions, Does.Contain(new Suggestion("stringcontainingfoo") {Description = "Custom argument", ArgumentType = CommandInfo.ArgumentType.CustomArgument}));
         
     }
     
