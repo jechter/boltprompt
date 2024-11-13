@@ -29,7 +29,7 @@ static class CustomArguments
         }
 
         var lines = output.Split("\n", StringSplitOptions.RemoveEmptyEntries);
-        return lines.Select(line => new Suggestion(line) { Description = argDescription }).ToArray();
+        return lines.Select(line => new Suggestion(line) { Description = argDescription, ArgumentType = CommandInfo.ArgumentType.CustomArgument }).ToArray();
     }
 
     static CommandInfo.CustomArgumentTemplate LookupTemplate(CommandInfo.Argument argument, CommandInfo ci)

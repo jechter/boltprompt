@@ -19,6 +19,7 @@ public record Suggestion(string Text)
     }
 
     public virtual string? SecondaryDescription { get; set; }
+    public CommandInfo.ArgumentType ArgumentType { get; set; }
 }
 
 public record FileSystemSuggestion(string Text) : Suggestion(Text)
@@ -366,11 +367,12 @@ public static partial class Suggestor
                     Suggestion FlagSuggestion(string text) => new(text)
                     {
                         Description = arg.Description,
-                        Icon = "⚐"
+                        Icon = "⚐",
+                        ArgumentType = CommandInfo.ArgumentType.Flag
                     };
                 case CommandInfo.ArgumentType.Keyword:
                     foreach (var s in arg.AllNames
-                         .Select(n => new Suggestion(n) {Description = arg.Description})
+                         .Select(n => new Suggestion(n) {Description = arg.Description, ArgumentType = CommandInfo.ArgumentType.Keyword})
                          .Where(MatchSuggestion))
                         yield return s;
                     break;
@@ -384,26 +386,26 @@ public static partial class Suggestor
                 case CommandInfo.ArgumentType.File:
                 case CommandInfo.ArgumentType.Unknown:
                     foreach (var s in SuggestFileSystemEntries(lastParam, arg.Type, arg.Extensions)
-                                 .Select(n => n with {Description = arg.Description})
+                                 .Select(n => n with {Description = arg.Description, ArgumentType = arg.Type})
                                  .Where(s => MatchSuggestion(s) || MatchSuggestionPartial(s, true)))
                         yield return s;
                     // if we have no matching files, or if type is unknown (ie may not be a path at all), return a match for whatever was typed to allow creating new paths.
                     if (!hasMatch || arg.Type == CommandInfo.ArgumentType.Unknown)
-                        yield return new (lastParam) { Description = string.IsNullOrEmpty(arg.Description) ? arg.Name : arg.Description };
+                        yield return new (lastParam) { Description = string.IsNullOrEmpty(arg.Description) ? arg.Name : arg.Description, ArgumentType = arg.Type };
                     break;
                 case CommandInfo.ArgumentType.CustomArgument:
                     foreach (var s in CustomArguments.Get(arg, parsingState.Last().CommandInfo, parts, lastParam).Where(MatchSuggestion))
                         yield return s;
                     if (!hasMatch)
-                        yield return new (lastParam) { Description = string.IsNullOrEmpty(arg.Description) ? arg.Name : arg.Description };
+                        yield return new (lastParam) { Description = string.IsNullOrEmpty(arg.Description) ? arg.Name : arg.Description, ArgumentType = arg.Type };
                     break;
                 case CommandInfo.ArgumentType.String:
-                    yield return new (lastParam) { Description = string.IsNullOrEmpty(arg.Description) ? arg.Name : arg.Description };
+                    yield return new (lastParam) { Description = string.IsNullOrEmpty(arg.Description) ? arg.Name : arg.Description, ArgumentType = arg.Type };
                     foreach (var c in History.Commands
                                  .Where(cmd => cmd.Commandline.StartsWith(commandline) && cmd.ParsedCommandLine.Length > parts.Length)
                                  .Select(cmd => cmd.ParsedCommandLine[parts.Length].Text)
                              )
-                        yield return new (c) { Description = string.IsNullOrEmpty(arg.Description) ? arg.Name : arg.Description };
+                        yield return new (c) { Description = string.IsNullOrEmpty(arg.Description) ? arg.Name : arg.Description, ArgumentType = arg.Type };
                     
                     // We have no suggestions for generic strings
                     break;
@@ -435,7 +437,8 @@ public static partial class Suggestor
             .Where(IsExecutable);
         return executables.Select(ex => new Suggestion($"{ex.FileName} ")
             {
-                Description = KnownCommands.GetCommand(ex.FileName, false)?.Description ?? ex.ToString()
+                Description = KnownCommands.GetCommand(ex.FileName, false)?.Description ?? ex.ToString(),
+                ArgumentType = CommandInfo.ArgumentType.CommandName
             })
             .OrderBy(s => s.Text)
             .ToArray();
