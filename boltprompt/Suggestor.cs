@@ -319,12 +319,15 @@ public static partial class Suggestor
         var arguments = CommandLineParser.GetEligibleArgumentsForState(parsingState).Select(a => a.argument).ToArray();
         var allFlags = arguments.Where(a => a.Type == CommandInfo.ArgumentType.Flag).SelectMany(a => a.AllNames).SelectMany(a => a).ToArray();
         var hasMatch = false;
-
+        NPath lastParamPath = lastParam;
         bool MatchSuggestionPartial(Suggestion s, bool partialPathMatch = false)
         {
             if (partialPathMatch)
             {
-                if (!s.Text.ToNPath().FileName.Contains(lastParam.ToNPath().FileName, StringComparison.InvariantCultureIgnoreCase))
+                NPath suggestionPath = s.Text;
+                if (suggestionPath.IsRoot || lastParamPath.IsRoot)
+                    return false;
+                if (!suggestionPath.FileName.Contains(lastParamPath.FileName, StringComparison.InvariantCultureIgnoreCase))
                     return false;
             }
             else
