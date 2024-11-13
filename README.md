@@ -53,6 +53,18 @@ By default, boltprompt will include personal information (including your OS, she
 
 You can configure boltprompt options by typing `boltprompt config set ` into the boltprompt command prompt. boltprompt will then list all the available configuration options as autocomplete suggestions.
 
+### Prompt Configuration
+
+You can configure the prompt boltprompt prints before every command you type using `boltprompt config set Prompt newprompt`, where `newprompt` is a string to be used for the new prompt. Unicode characters can be escaped using `\uXXXX`. The prompt string may contain ANSI escape sequences to set color and style properties. For instance, `boltprompt config set Prompt "\u001b[38;5;1mredprompt\u2764\u001B[0m "` will give you a red prompt string with a heart character. The following sequences can be used to represent context sensitive strings, and will be replaced in the prompt string:
+
+* `{timestamp}`: The current time
+* `{host_name}`: Name of the current host
+* `{user_name}`: Name of the current user
+* `{working_directory_name}`: Name of the current working directory
+* `{working_directory_short_path}`: Path of the current working directory, with all parent directories abbreviated by their first character
+* `{working_directory_path}`: Full path of the current working directory
+* `{prompt_symbol}`: The boltprompt symbol (⚡️) in most cases, but may be changed to identify an AI prompt (🤖), or a root prompt (☢️).
+
 ## Command description files
 
 In order to be able to suggest arguments for commands, boltprompt needs command description files which describe the argument structure accepted by a command. boltprompt comes with description files for many common commands. Most of these are converted from [fig](https://github.com/withfig/autocomplete)'s (aka Amazon Q - a different command line autocomplete tool) "completion specs". However, the feature set of fig is not completely identical to the boltprompt feature set, so those converted specs often need manual adjustments. boltprompt still requires a lot of work in writing an improving description files.
