@@ -77,8 +77,12 @@ public static class SuggestionConsoleViewer
             if (suggestionPart.Type != CommandLineParser.CommandLinePart.PartType.Whitespace)
             {
                 suggestionPrefix = suggestionPart.Text;
-                if (suggestionPart is { Type: CommandLineParser.CommandLinePart.PartType.Argument, Argument.MayBeFileSystemEntry: true })
-                    suggestionPrefix = suggestionPart.Text.ToNPath().FileName;
+                if (suggestionPart is
+                    { Type: CommandLineParser.CommandLinePart.PartType.Argument, Argument.MayBeFileSystemEntry: true })
+                {
+                    NPath suggestionPath = suggestionPart.Text;
+                    suggestionPrefix = suggestionPath.IsRoot ? "" : suggestionPath.FileName;
+                }
             }
         }
 
