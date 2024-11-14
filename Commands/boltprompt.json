@@ -6,7 +6,7 @@
       "Arguments": [
         {
           "Name": "install",
-	      "Description": "Install boltprompt for the current shell.",
+          "Description": "Install boltprompt for the current shell.",
           "Arguments": [
             {
               "Arguments": [
@@ -67,8 +67,12 @@
           "Description": "Set up Terminal.app for boltprompt."
         },
         {
+          "Name": "--version",
+          "Description": "Print version info."
+        },        
+        {
           "Name": "config",
-	      "Description": "Configure boltprompt settings.",
+          "Description": "Configure boltprompt settings.",
           "Arguments": [
             {
               "Arguments": [
@@ -84,26 +88,26 @@
                     }
                   ]}]
                 },
-				{
+                {
                   "Name": "set",
                   "Description": "set a configuration property",
                   "Arguments": [
-					  {"Arguments": [
-						{
-						  "Name": "property",
-						  "Description": "The property to set",
-						  "Type": "CustomArgument",
-						  "CustomArgumentTemplate": "config_properties"
-						}
-					  ]},
-					  {"Arguments": [
-						{
-						  "Name": "value",
-						  "Description": "The value to set",
-						  "Type": "CustomArgument",
-						  "CustomArgumentTemplate": "config_values"
-						}
-					  ]}
+                      {"Arguments": [
+                        {
+                          "Name": "property",
+                          "Description": "The property to set",
+                          "Type": "CustomArgument",
+                          "CustomArgumentTemplate": "config_properties"
+                        }
+                      ]},
+                      {"Arguments": [
+                        {
+                          "Name": "value",
+                          "Description": "The value to set",
+                          "Type": "CustomArgument",
+                          "CustomArgumentTemplate": "config_values"
+                        }
+                      ]}
                   ]
                 }                
               ],
@@ -120,13 +124,12 @@
     {
       "Name": "config_properties",
       "Command": "boltprompt config list",
-	  "Regex": "(\\w+)::(.*)"      
+      "Regex": "(\\w+)::(.*)"      
     },
     {
       "Name": "config_values",
       "Command": "boltprompt config list --property {ARG[^1]} --prefix {ARG[^0]}",
-	  "Regex": "(.*)::(.*)"      
+      "Regex": "(.*)::(.*)"      
     }
-    
   ]
 }
