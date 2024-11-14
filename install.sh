@@ -32,7 +32,7 @@ exit_if_tool_does_not_exist "dotnet"
 oldpwd=$(pwd)
 boltprompt_src=$(mktemp -d ${TMPDIR:-/tmp}/boltprompt_src.XXXXXX)
 cd $boltprompt_src
-git clone --recurse-submodules https://github.com/jechter/boltprompt.git
+git clone --branch release --recurse-submodules https://github.com/jechter/boltprompt.git
 cd boltprompt
 dotnet publish --output ~/.boltprompt
 ~/.boltprompt/boltprompt install
