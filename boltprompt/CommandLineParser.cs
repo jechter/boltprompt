@@ -2,7 +2,7 @@ using NiceIO;
 
 namespace boltprompt;
 
-public class CommandLineParser
+public static class CommandLineParser
 {
     private static readonly char[] ShellOperators = ['>', '<', '|', '&', ';']; 
 
@@ -59,7 +59,19 @@ public class CommandLineParser
         
         var currentState = parsingState[^depth];
         foreach (var argToMatch in currentState.EligibleArguments)
+        {
+            if (argToMatch.argument is { Type: CommandInfo.ArgumentType.CustomArgument, CustomArgumentTemplate: not null })
+            {
+                var template = CustomArguments.LookupTemplate(argToMatch.argument, currentState.CommandInfo);
+                if (template.Arguments is { Length: > 0 })
+                {
+                    foreach (var templateArg in template.Arguments)
+                        yield return (templateArg, argToMatch.groupIndex, depth);
+                    continue;
+                }
+            }
             yield return (argToMatch.argument, argToMatch.groupIndex, depth);
+        }
 
         if (currentState.MaxGroupIndex != currentState.Groups.Length) yield break;
         

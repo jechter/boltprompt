@@ -585,7 +585,41 @@ public class SuggestorTests
         Assert.That(suggestions, Does.Not.Contain(new Suggestion("bar") {Description = "Custom argument", ArgumentType = CommandInfo.ArgumentType.CustomArgument}));
         Assert.That(suggestions, Does.Not.Contain(new Suggestion("baz") {Description = "Custom argument", ArgumentType = CommandInfo.ArgumentType.CustomArgument}));
         Assert.That(suggestions, Does.Contain(new Suggestion("stringcontainingfoo") {Description = "Custom argument", ArgumentType = CommandInfo.ArgumentType.CustomArgument}));
+    }
+    
+    [Test]
+    public void CanGetSuggestionsForCustomArgumentWithArgumentsInTemplate()
+    {
+        // Custom Arguments can also be used to provide a list of arguments to be reused, so the same arguments can
+        // come in different places.
+        var ci = new CommandInfo
+        {
+            Arguments = [
+                new([ new("arg1") { Type = CommandInfo.ArgumentType.CustomArgument, CustomArgumentTemplate = "customArg", Description = "Custom argument"}]),
+                new([ new("arg2") ]),
+                new([ new("arg3") { Type = CommandInfo.ArgumentType.CustomArgument, CustomArgumentTemplate = "customArg", Description = "Custom argument"}]),
+            ],
+            CustomArgumentTemplates = [
+                new () {
+                    Name = "customArg",
+                    Arguments = [
+                        new ("foo") {Description = "foo description"},
+                        new ("bar") {Description = "bar description"},
+                        new ("baz") {Description = "baz description"}
+                    ]
+                }
+            ]
+        };
+        var suggestions = GetSuggestionsForTestExecutable(ci, " ");
+        Assert.That(suggestions, Does.Contain(new Suggestion("foo") {Description = "foo description", ArgumentType = CommandInfo.ArgumentType.Keyword}));
+        Assert.That(suggestions, Does.Contain(new Suggestion("bar") {Description = "bar description", ArgumentType = CommandInfo.ArgumentType.Keyword}));
+        Assert.That(suggestions, Does.Contain(new Suggestion("baz") {Description = "baz description", ArgumentType = CommandInfo.ArgumentType.Keyword}));
         
+        suggestions = GetSuggestionsForTestExecutable(ci, " foo arg2 ");
+        Assert.That(suggestions, Does.Contain(new Suggestion("foo") {Description = "foo description", ArgumentType = CommandInfo.ArgumentType.Keyword}));
+        Assert.That(suggestions, Does.Contain(new Suggestion("bar") {Description = "bar description", ArgumentType = CommandInfo.ArgumentType.Keyword}));
+        Assert.That(suggestions, Does.Contain(new Suggestion("baz") {Description = "baz description", ArgumentType = CommandInfo.ArgumentType.Keyword}));
+
     }
     
     [Test]

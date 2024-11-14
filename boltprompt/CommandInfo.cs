@@ -46,6 +46,9 @@ public record CommandInfo
         [JsonInclude]
         [DescriptionForLanguageModel("A Regex to match the output of the custom command to suggestions and descriptions.")]
         public string? Regex;
+        [JsonInclude]
+        [DescriptionForLanguageModel("If this is not empty, then these arguments will be used in place of the custom argument. The Command and Regex fields will be ignored in this case.")]
+        public Argument[]? Arguments;
     }
     
     public enum ArgumentType

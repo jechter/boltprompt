@@ -32,7 +32,7 @@ static class CustomArguments
         return lines.Select(line => new Suggestion(line) { Description = argDescription, ArgumentType = CommandInfo.ArgumentType.CustomArgument }).ToArray();
     }
 
-    static CommandInfo.CustomArgumentTemplate LookupTemplate(CommandInfo.Argument argument, CommandInfo ci)
+    public static CommandInfo.CustomArgumentTemplate LookupTemplate(CommandInfo.Argument argument, CommandInfo ci)
         => ci.CustomArgumentTemplates?.Single(t => t.Name == argument.CustomArgumentTemplate) 
         ?? throw new InvalidDataException($"No custom argument template matching {argument.CustomArgumentTemplate} was found");
 

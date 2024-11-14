@@ -93,10 +93,10 @@
             {
               "Arguments": [
                 {
-                  "Name": "sections",
-                  "Description": "sections",
-                  "Type": "String",
-                  "Extensions": []
+                  "Name": "mansect",
+                  "Description": "manual section to search",
+                  "Type": "CustomArgument",
+                  "CustomArgumentTemplate": "mansection"
                 }
               ]
             }
@@ -204,12 +204,75 @@
     {
       "Arguments": [
         {
+          "Name": "mansect",
+          "Description": "manual section to search",
+          "Type": "CustomArgument",
+          "CustomArgumentTemplate": "mansection"
+        }
+      ],
+      "Optional": true,
+      "DontAllowMultiple": true
+    },    
+    {
+      "Arguments": [
+        {
           "Name": "String",
           "Description": "manual page to show",
           "Type": "CommandName"
         }
-      ],
-      "Optional": true
+      ]
+    }
+  ],
+  "CustomArgumentTemplates": [
+    {
+      "Name": "mansection",
+      "Arguments": [
+        {
+          "Name": "1",
+          "Description": "General Commands Manual",
+          "Type": "Keyword"
+        },
+        {
+          "Name": "2",
+          "Description": "System Calls Manual",
+          "Type": "Keyword"
+        },
+        {
+          "Name": "3",
+          "Description": "Library Functions Manual",
+          "Type": "Keyword"
+        },
+        {
+          "Name": "4",
+          "Description": "Kernel Interfaces Manual",
+          "Type": "Keyword"
+        },
+        {
+          "Name": "5",
+          "Description": "File Formats Manual",
+          "Type": "Keyword"
+        },
+        {
+          "Name": "6",
+          "Description": "Games Manual",
+          "Type": "Keyword"
+        },
+        {
+          "Name": "7",
+          "Description": "Miscellaneous Information Manual",
+          "Type": "Keyword"
+        },
+        {
+          "Name": "8",
+          "Description": "System Manager's Manual",
+          "Type": "Keyword"
+        },
+        {
+          "Name": "9",
+          "Description": "Kernel Developer's Manual",
+          "Type": "Keyword"
+        }        
+      ]      
     }
   ]
 }
