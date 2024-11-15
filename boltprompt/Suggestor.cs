@@ -19,7 +19,7 @@ public record Suggestion(string Text)
     }
 
     public virtual string? SecondaryDescription { get; set; }
-    public CommandInfo.ArgumentType ArgumentType { get; set; }
+    public CommandInfo.Argument? Argument { get; set; }
 }
 
 internal record FileSystemSuggestion : Suggestion
@@ -63,51 +63,42 @@ public static partial class Suggestor
         private readonly string[] _historyFilteredByCommandline;
         private readonly string _lastCommandLineWord;
         
-        public SuggestionSorter(string commandline)
+        public SuggestionSorter(CommandLineParser.CommandLinePart[] parsedCommandLine, string commandline)
         {
-            if (string.IsNullOrWhiteSpace(commandline))
-            {
-                _historyFilteredByCommandline = History.Commands.Select(s => s.Commandline.Trim()).ToArray();
-                _lastCommandLineWord = "";
-            }
-            else
-            {
-                var parsedCommandLine = CommandLineParser.ParseCommandLine(commandline).ToArray();
-                var lastCommandLinePart = parsedCommandLine.Last();
-                _lastCommandLineWord = lastCommandLinePart.Type != CommandLineParser.CommandLinePart.PartType.Whitespace
-                    ? lastCommandLinePart.Text
-                    : "";
-                var commandLineWordPathComponents = lastCommandLinePart.Text.Split('/');
-                _historyFilteredByCommandline =
-                    History.Commands.Where(s => s.Commandline.StartsWith(commandline))
-                        .Select(FilterHistoryEntryByCommandLine)
-                        .Where(s => s != null)
-                        .Cast<string>()
-                        .ToArray();
+            var lastCommandLinePart = parsedCommandLine.Last();
+            _lastCommandLineWord = lastCommandLinePart.Type != CommandLineParser.CommandLinePart.PartType.Whitespace
+                ? lastCommandLinePart.Text
+                : "";
+            var commandLineWordPathComponents = lastCommandLinePart.Text.Split('/');
+            _historyFilteredByCommandline =
+                History.Commands.Where(s => s.Commandline.StartsWith(commandline))
+                    .Select(FilterHistoryEntryByCommandLine)
+                    .Where(s => s != null)
+                    .Cast<string>()
+                    .ToArray();
 
-                string? FilterHistoryEntryByCommandLine(History.Command historyEntry)
-                {
-                    var parsedHistoryCommandLine = historyEntry.ParsedCommandLine;
-                    var index = lastCommandLinePart.Type == CommandLineParser.CommandLinePart.PartType.Whitespace
-                        ? parsedCommandLine.Length
-                        : parsedCommandLine.Length - 1;
-                    if (index >= parsedCommandLine.Length)
-                        return null;
-                    var part = parsedHistoryCommandLine[index];
-                    if (part is
-                        not
-                        {
-                            Type: CommandLineParser.CommandLinePart.PartType.Argument,
-                            Argument.Type: CommandInfo.ArgumentType.FileSystemEntry or CommandInfo.ArgumentType.File
-                            or CommandInfo.ArgumentType.Directory
-                        }) return part.Text;
-                    var historyEntryPathComponents = part.Text.Split('/');
-                    var filteredHistoryEntryPathComponents =
-                        historyEntryPathComponents.Take(commandLineWordPathComponents.Length);
-                    if (commandLineWordPathComponents.Length < historyEntryPathComponents.Length)
-                        return string.Join('/', filteredHistoryEntryPathComponents) + "/";
-                    return part.Text;
-                }
+            string? FilterHistoryEntryByCommandLine(History.Command historyEntry)
+            {
+                var parsedHistoryCommandLine = historyEntry.ParsedCommandLine;
+                var index = lastCommandLinePart.Type == CommandLineParser.CommandLinePart.PartType.Whitespace
+                    ? parsedCommandLine.Length
+                    : parsedCommandLine.Length - 1;
+                if (index >= parsedCommandLine.Length)
+                    return null;
+                var part = parsedHistoryCommandLine[index];
+                if (part is
+                    not
+                    {
+                        Type: CommandLineParser.CommandLinePart.PartType.Argument,
+                        Argument.Type: CommandInfo.ArgumentType.FileSystemEntry or CommandInfo.ArgumentType.File
+                        or CommandInfo.ArgumentType.Directory
+                    }) return part.Text;
+                var historyEntryPathComponents = part.Text.Split('/');
+                var filteredHistoryEntryPathComponents =
+                    historyEntryPathComponents.Take(commandLineWordPathComponents.Length);
+                if (commandLineWordPathComponents.Length < historyEntryPathComponents.Length)
+                    return string.Join('/', filteredHistoryEntryPathComponents) + "/";
+                return part.Text;
             }
         }
         
@@ -160,17 +151,26 @@ public static partial class Suggestor
         }
     }
 
-    private static Suggestion[] SortSuggestions(string commandline, IEnumerable<Suggestion> suggestions)
+    private static Suggestion[] SortSuggestions(CommandLineParser.CommandLinePart[] parsedCommandLine, string commandline, IEnumerable<Suggestion> suggestions)
     {
-        var result = string.IsNullOrWhiteSpace(commandline) ? suggestions.ToList() : suggestions.OrderDescending(new SuggestionSorter(commandline)).ToList();
+        var previousArguments =
+            (parsedCommandLine.Length > 0 && parsedCommandLine.Last().Type == CommandLineParser.CommandLinePart.PartType.Argument
+                ? parsedCommandLine.SkipLast(1)
+                : parsedCommandLine).Reverse().TakeWhile(a => a.Type != CommandLineParser.CommandLinePart.PartType.Command).Where(a => a.Argument != null)
+            .ToArray();
+        var result = string.IsNullOrWhiteSpace(commandline) ? suggestions.ToList() : suggestions.OrderDescending(new SuggestionSorter(parsedCommandLine, commandline))
+            .Where(s => previousArguments.TakeWhile(a => a.Argument == s.Argument).All(a => a.Text != s.Text))
+            .ToList();
         for (var i = 1; i < result.Count; i++)
         {
             // (to avoid fake matches for keywords as string arguments suggested from history) 
-            if (result[i - 1].Text.Trim() != result[i].Text.Trim()) continue;
-            if (string.IsNullOrEmpty(result[i].Description))
-                result.RemoveAt(i--);
-            else
-                result.RemoveAt(--i);
+            if (result[i - 1].Text.Trim() == result[i].Text.Trim())
+            {
+                if (string.IsNullOrEmpty(result[i].Description))
+                    result.RemoveAt(i--);
+                else
+                    result.RemoveAt(--i);
+            }
         }
 
         // empty suggestions don't make sense, unless it's the only one (to have a description of what the next parameter is for)
@@ -237,7 +237,7 @@ public static partial class Suggestor
             : SuggestParameters(commandline).ToArray();
         if (currentPart.Text.StartsWith('$'))
             suggestions = SuggestEnvironmentVariables(currentPart.Text).Concat(suggestions).ToArray();
-        return SortSuggestions(commandline, suggestions);
+        return SortSuggestions(parsed, commandline, suggestions);
     }
 
     private static IEnumerable<Suggestion> SuggestEnvironmentVariables(string currentWord)
@@ -333,30 +333,8 @@ public static partial class Suggestor
         var arguments = CommandLineParser.GetEligibleArgumentsForState(parsingState).Select(a => a.argument).ToArray();
         var allFlags = arguments.Where(a => a.Type == CommandInfo.ArgumentType.Flag).SelectMany(a => a.AllNames).SelectMany(a => a).ToArray();
         var hasMatch = false;
-        NPath lastParamPath = UnescapeFileName(lastParam);
-        bool MatchSuggestionPartial(Suggestion s, bool partialPathMatch = false)
-        {
-            if (partialPathMatch)
-            {
-                NPath suggestionPath = s.Text;
-                if (suggestionPath.IsRoot || lastParamPath.IsRoot)
-                    return false;
-                if (!suggestionPath.FileName.Contains(lastParamPath.FileName, StringComparison.InvariantCultureIgnoreCase))
-                    return false;
-            }
-            else
-            {
-                if (!s.Text.Contains(lastParam, StringComparison.InvariantCulture) &&
-                    !(s.Description?.Contains(lastParam, StringComparison.InvariantCultureIgnoreCase) ?? false))
-                    return false;
-            }
+        var lastParamPath = UnescapeFileName(lastParam);
 
-            if (s.Text.StartsWith(lastParam)) hasMatch = true;
-            return true;
-        }
-        
-        bool MatchSuggestion(Suggestion s) => MatchSuggestionPartial(s);
-        
         foreach (var arg in arguments)
         {
             switch (arg.Type)
@@ -385,11 +363,11 @@ public static partial class Suggestor
                     {
                         Description = arg.Description,
                         Icon = "⚐",
-                        ArgumentType = CommandInfo.ArgumentType.Flag
+                        Argument = arg
                     };
                 case CommandInfo.ArgumentType.Keyword:
                     foreach (var s in arg.AllNames
-                         .Select(n => new Suggestion(n) {Description = arg.Description, ArgumentType = CommandInfo.ArgumentType.Keyword})
+                         .Select(n => new Suggestion(n) {Description = arg.Description, Argument = arg})
                          .Where(MatchSuggestion))
                         yield return s;
                     break;
@@ -403,34 +381,59 @@ public static partial class Suggestor
                 case CommandInfo.ArgumentType.File:
                 case CommandInfo.ArgumentType.Unknown:
                     foreach (var s in SuggestFileSystemEntries(lastParam, arg.Type, arg.Extensions)
-                                 .Select(n => n with {Description = arg.Description, ArgumentType = arg.Type})
+                                 .Select(n => n with {Description = arg.Description, Argument = arg})
                                  .Where(s => MatchSuggestion(s) || MatchSuggestionPartial(s, true)))
                         yield return s;
                     // if we have no matching files, or if type is unknown (ie may not be a path at all), return a match for whatever was typed to allow creating new paths.
                     // Also, if we have matching files, but whatever was typed matches a directory, return that, so we can get the directory with no further completions
                     if (!hasMatch || arg.Type == CommandInfo.ArgumentType.Unknown || (arg.Type != CommandInfo.ArgumentType.File && lastParamPath.DirectoryExists()))
-                        yield return new FileSystemSuggestion(lastParam) { Description = string.IsNullOrEmpty(arg.Description) ? arg.Name : arg.Description, ArgumentType = arg.Type };
+                        yield return new FileSystemSuggestion(lastParam) { Description = string.IsNullOrEmpty(arg.Description) ? arg.Name : arg.Description, Argument = arg };
 
                     break;
                 case CommandInfo.ArgumentType.CustomArgument:
                     foreach (var s in CustomArguments.Get(arg, parsingState.Last().CommandInfo, parts, lastParam).Where(MatchSuggestion))
                         yield return s;
                     if (!hasMatch)
-                        yield return new (lastParam) { Description = string.IsNullOrEmpty(arg.Description) ? arg.Name : arg.Description, ArgumentType = arg.Type };
+                        yield return new (lastParam) { Description = string.IsNullOrEmpty(arg.Description) ? arg.Name : arg.Description, Argument = arg };
                     break;
                 case CommandInfo.ArgumentType.String:
-                    yield return new (lastParam) { Description = string.IsNullOrEmpty(arg.Description) ? arg.Name : arg.Description, ArgumentType = arg.Type };
+                    yield return new (lastParam) { Description = string.IsNullOrEmpty(arg.Description) ? arg.Name : arg.Description, Argument = arg };
                     foreach (var c in History.Commands
                                  .Where(cmd => cmd.Commandline.StartsWith(commandline) && cmd.ParsedCommandLine.Length > parts.Length)
                                  .Select(cmd => cmd.ParsedCommandLine[parts.Length].Text)
                              )
-                        yield return new (c) { Description = string.IsNullOrEmpty(arg.Description) ? arg.Name : arg.Description, ArgumentType = arg.Type };
+                        yield return new (c) { Description = string.IsNullOrEmpty(arg.Description) ? arg.Name : arg.Description, Argument = arg };
                     
                     // We have no suggestions for generic strings
                     break;
                 default:
                     throw new ArgumentOutOfRangeException();
             }
+        }
+
+        yield break;
+
+        bool MatchSuggestion(Suggestion s) => MatchSuggestionPartial(s);
+
+        bool MatchSuggestionPartial(Suggestion s, bool partialPathMatch = false)
+        {
+            if (partialPathMatch)
+            {
+                NPath suggestionPath = s.Text;
+                if (suggestionPath.IsRoot || lastParamPath.IsRoot)
+                    return false;
+                if (!suggestionPath.FileName.Contains(lastParamPath.FileName, StringComparison.InvariantCultureIgnoreCase))
+                    return false;
+            }
+            else
+            {
+                if (!s.Text.Contains(lastParam, StringComparison.InvariantCulture) &&
+                    !(s.Description?.Contains(lastParam, StringComparison.InvariantCultureIgnoreCase) ?? false))
+                    return false;
+            }
+
+            if (s.Text.StartsWith(lastParam)) hasMatch = true;
+            return true;
         }
     }
     
@@ -456,8 +459,7 @@ public static partial class Suggestor
             .Where(IsExecutable);
         return executables.Select(ex => new Suggestion($"{ex.FileName} ")
             {
-                Description = KnownCommands.GetCommand(ex.FileName, false)?.Description ?? ex.ToString(),
-                ArgumentType = CommandInfo.ArgumentType.CommandName
+                Description = KnownCommands.GetCommand(ex.FileName, false)?.Description ?? ex.ToString()
             })
             .OrderBy(s => s.Text)
             .ToArray();

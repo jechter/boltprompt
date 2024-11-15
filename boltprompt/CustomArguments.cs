@@ -25,11 +25,14 @@ static class CustomArguments
             var matches = Regex.Matches(output, template.Regex);
 
             return matches.Select(m => new Suggestion(m.Groups.TryGetValue("suggestion", out var suggestionGroup) ? suggestionGroup.Value : m.Groups[1].Value)
-                { Description = m.Groups.TryGetValue("description", out var descriptionGroup) ? descriptionGroup.Value : m.Groups.Count > 2 ? m.Groups[2].Value : argDescription }).ToArray();
+            {
+                Description = m.Groups.TryGetValue("description", out var descriptionGroup) ? descriptionGroup.Value : m.Groups.Count > 2 ? m.Groups[2].Value : argDescription,
+                Argument = argument 
+            }).ToArray();
         }
 
         var lines = output.Split("\n", StringSplitOptions.RemoveEmptyEntries);
-        return lines.Select(line => new Suggestion(line) { Description = argDescription, ArgumentType = CommandInfo.ArgumentType.CustomArgument }).ToArray();
+        return lines.Select(line => new Suggestion(line) { Description = argDescription, Argument = argument }).ToArray();
     }
 
     public static CommandInfo.CustomArgumentTemplate LookupTemplate(CommandInfo.Argument argument, CommandInfo ci)

@@ -88,10 +88,10 @@ public class SuggestorTests
         MakeTestExecutable(testDir.Combine("testExecutable"));
         testDir.Combine("testFile").WriteAllText("Just a file");
 
-        var suggestions = Suggestor.SuggestionsForPrompt("localTestDir/");
+        var suggestions = Suggestor.SuggestionsForPrompt("localTestDir/").Select(s => s.Text.Trim()).ToArray();
         
-        Assert.That(suggestions.Select(s => s.Text.Trim()), Does.Contain("localTestDir/testExecutable"));
-        Assert.That(suggestions.Select(s => s.Text.Trim()), Does.Not.Contain("localTestDir/testFile"));
+        Assert.That(suggestions, Does.Contain("localTestDir/testExecutable"));
+        Assert.That(suggestions, Does.Not.Contain("localTestDir/testFile"));
     }
     
     [Test]
@@ -110,19 +110,19 @@ public class SuggestorTests
         Environment.SetEnvironmentVariable("PATH", $"{testExePath1}:{testExePath2}");
         Suggestor.Init();
         
-        var suggestions = Suggestor.SuggestionsForPrompt("p");
+        var suggestions = Suggestor.SuggestionsForPrompt("p").Select(s => s.Text.Trim()).ToArray();
 
-        Assert.That(suggestions.Select(s => s.Text.Trim()), Does.Contain("pathTestExecutable"));
+        Assert.That(suggestions, Does.Contain("pathTestExecutable"));
         // match in the middle
-        Assert.That(suggestions.Select(s => s.Text.Trim()), Does.Contain("anotherPathTestExecutable"));
-        Assert.That(suggestions.Select(s => s.Text.Trim()), Does.Not.Contain("pathTestFile"));
-        Assert.That(suggestions.Select(s => s.Text.Trim()), Does.Not.Contain("anotherPathTestFile"));
+        Assert.That(suggestions, Does.Contain("anotherPathTestExecutable"));
+        Assert.That(suggestions, Does.Not.Contain("pathTestFile"));
+        Assert.That(suggestions, Does.Not.Contain("anotherPathTestFile"));
         
-        suggestions = Suggestor.SuggestionsForPrompt("another");
+        suggestions = Suggestor.SuggestionsForPrompt("another").Select(s => s.Text.Trim()).ToArray();
 
-        Assert.That(suggestions.Select(s => s.Text.Trim()), Does.Contain("anotherPathTestExecutable"));
-        Assert.That(suggestions.Select(s => s.Text.Trim()), Does.Not.Contain("anotherPathTestFile"));
-        Assert.That(suggestions.Select(s => s.Text.Trim()), Does.Not.Contain("pathTestExecutable"));
+        Assert.That(suggestions, Does.Contain("anotherPathTestExecutable"));
+        Assert.That(suggestions, Does.Not.Contain("anotherPathTestFile"));
+        Assert.That(suggestions, Does.Not.Contain("pathTestExecutable"));
     }
 
     Suggestion[] GetSuggestionsForTestExecutable(CommandInfo ci, string extraPrompt = "")
@@ -130,6 +130,13 @@ public class SuggestorTests
         _pathsToCleanup.Add(MakeTestExecutable(new NPath("testExecutable").MakeAbsolute()));
         KnownCommands.AddCommandInfo("testExecutable", ci);
         return Suggestor.SuggestionsForPrompt($"./testExecutable{extraPrompt}");
+    }
+    
+    string[] GetSuggestionStringsForTestExecutable(CommandInfo ci, string extraPrompt = "")
+    {
+        _pathsToCleanup.Add(MakeTestExecutable(new NPath("testExecutable").MakeAbsolute()));
+        KnownCommands.AddCommandInfo("testExecutable", ci);
+        return Suggestor.SuggestionsForPrompt($"./testExecutable{extraPrompt}").Select(s => s.Text.Trim()).ToArray();
     }
     
     [Test]
@@ -158,10 +165,10 @@ public class SuggestorTests
                 ])
             ]
         };
-        var suggestions = GetSuggestionsForTestExecutable(ci, " -");
-        Assert.That(suggestions.Select(s => s.Text.Trim()), Does.Contain("-a"));
-        Assert.That(suggestions.Select(s => s.Text.Trim()), Does.Contain("-b"));
-        Assert.That(suggestions.Select(s => s.Text.Trim()), Does.Contain("-c"));
+        var suggestions = GetSuggestionStringsForTestExecutable(ci, " -");
+        Assert.That(suggestions, Does.Contain("-a"));
+        Assert.That(suggestions, Does.Contain("-b"));
+        Assert.That(suggestions, Does.Contain("-c"));
     }
     
     [Test]
@@ -178,20 +185,20 @@ public class SuggestorTests
                 ])
             ]
         };
-        var suggestions = GetSuggestionsForTestExecutable(ci, " -");
-        Assert.That(suggestions.Select(s => s.Text.Trim()), Does.Contain("-a"));
-        Assert.That(suggestions.Select(s => s.Text.Trim()), Does.Contain("-b"));
-        Assert.That(suggestions.Select(s => s.Text.Trim()), Does.Contain("-c"));
+        var suggestions = GetSuggestionStringsForTestExecutable(ci, " -");
+        Assert.That(suggestions, Does.Contain("-a"));
+        Assert.That(suggestions, Does.Contain("-b"));
+        Assert.That(suggestions, Does.Contain("-c"));
         
-        suggestions = GetSuggestionsForTestExecutable(ci, " -a");
-        Assert.That(suggestions.Select(s => s.Text.Trim()), Does.Contain("-ab"));
-        Assert.That(suggestions.Select(s => s.Text.Trim()), Does.Contain("-ac"));
-        Assert.That(suggestions.Select(s => s.Text.Trim()), Does.Not.Contain("-aa"));
+        suggestions = GetSuggestionStringsForTestExecutable(ci, " -a");
+        Assert.That(suggestions, Does.Contain("-ab"));
+        Assert.That(suggestions, Does.Contain("-ac"));
+        Assert.That(suggestions, Does.Not.Contain("-aa"));
 
-        suggestions = GetSuggestionsForTestExecutable(ci, " -ab");
-        Assert.That(suggestions.Select(s => s.Text.Trim()), Does.Contain("-abc"));
-        Assert.That(suggestions.Select(s => s.Text.Trim()), Does.Not.Contain("-aba"));
-        Assert.That(suggestions.Select(s => s.Text.Trim()), Does.Not.Contain("-abb"));
+        suggestions = GetSuggestionStringsForTestExecutable(ci, " -ab");
+        Assert.That(suggestions, Does.Contain("-abc"));
+        Assert.That(suggestions, Does.Not.Contain("-aba"));
+        Assert.That(suggestions, Does.Not.Contain("-abb"));
     }
     
     [Test]
@@ -208,20 +215,20 @@ public class SuggestorTests
                 ])
             ]
         };
-        var suggestions = GetSuggestionsForTestExecutable(ci, " -");
-        Assert.That(suggestions.Select(s => s.Text.Trim()), Does.Contain("-a"));
-        Assert.That(suggestions.Select(s => s.Text.Trim()), Does.Contain("-b"));
-        Assert.That(suggestions.Select(s => s.Text.Trim()), Does.Contain("-c"));
+        var suggestions = GetSuggestionStringsForTestExecutable(ci, " -");
+        Assert.That(suggestions, Does.Contain("-a"));
+        Assert.That(suggestions, Does.Contain("-b"));
+        Assert.That(suggestions, Does.Contain("-c"));
         
-        suggestions = GetSuggestionsForTestExecutable(ci, " -a");
-        Assert.That(suggestions.Select(s => s.Text.Trim()), Does.Contain("-aa"));
-        Assert.That(suggestions.Select(s => s.Text.Trim()), Does.Contain("-ab"));
-        Assert.That(suggestions.Select(s => s.Text.Trim()), Does.Contain("-ac"));
+        suggestions = GetSuggestionStringsForTestExecutable(ci, " -a");
+        Assert.That(suggestions, Does.Contain("-aa"));
+        Assert.That(suggestions, Does.Contain("-ab"));
+        Assert.That(suggestions, Does.Contain("-ac"));
 
-        suggestions = GetSuggestionsForTestExecutable(ci, " -ab");
-        Assert.That(suggestions.Select(s => s.Text.Trim()), Does.Contain("-aba"));
-        Assert.That(suggestions.Select(s => s.Text.Trim()), Does.Contain("-abc"));
-        Assert.That(suggestions.Select(s => s.Text.Trim()), Does.Not.Contain("-abb"));
+        suggestions = GetSuggestionStringsForTestExecutable(ci, " -ab");
+        Assert.That(suggestions, Does.Contain("-aba"));
+        Assert.That(suggestions, Does.Contain("-abc"));
+        Assert.That(suggestions, Does.Not.Contain("-abb"));
     }
     
     [Test]
@@ -264,29 +271,29 @@ public class SuggestorTests
                 ])
             ]
         };
-        var suggestions = GetSuggestionsForTestExecutable(ci, " -");
-        Assert.That(suggestions.Select(s => s.Text.Trim()), Does.Contain("-a"));
-        Assert.That(suggestions.Select(s => s.Text.Trim()), Does.Contain("-b"));
-        Assert.That(suggestions.Select(s => s.Text.Trim()), Does.Contain("-c"));
-        Assert.That(suggestions.Select(s => s.Text.Trim()), Does.Contain("-d"));
-        Assert.That(suggestions.Select(s => s.Text.Trim()), Does.Contain("-e"));
-        Assert.That(suggestions.Select(s => s.Text.Trim()), Does.Contain("-f"));
+        var suggestions = GetSuggestionStringsForTestExecutable(ci, " -");
+        Assert.That(suggestions, Does.Contain("-a"));
+        Assert.That(suggestions, Does.Contain("-b"));
+        Assert.That(suggestions, Does.Contain("-c"));
+        Assert.That(suggestions, Does.Contain("-d"));
+        Assert.That(suggestions, Does.Contain("-e"));
+        Assert.That(suggestions, Does.Contain("-f"));
         
-        suggestions = GetSuggestionsForTestExecutable(ci, " -a");
-        Assert.That(suggestions.Select(s => s.Text.Trim()), Does.Not.Contain("-aa"));
-        Assert.That(suggestions.Select(s => s.Text.Trim()), Does.Contain("-ab"));
-        Assert.That(suggestions.Select(s => s.Text.Trim()), Does.Contain("-ac"));
-        Assert.That(suggestions.Select(s => s.Text.Trim()), Does.Not.Contain("-ad"));
-        Assert.That(suggestions.Select(s => s.Text.Trim()), Does.Not.Contain("-ae"));
-        Assert.That(suggestions.Select(s => s.Text.Trim()), Does.Not.Contain("-af"));
+        suggestions = GetSuggestionStringsForTestExecutable(ci, " -a");
+        Assert.That(suggestions, Does.Not.Contain("-aa"));
+        Assert.That(suggestions, Does.Contain("-ab"));
+        Assert.That(suggestions, Does.Contain("-ac"));
+        Assert.That(suggestions, Does.Not.Contain("-ad"));
+        Assert.That(suggestions, Does.Not.Contain("-ae"));
+        Assert.That(suggestions, Does.Not.Contain("-af"));
          
-        suggestions = GetSuggestionsForTestExecutable(ci, " -d");
-        Assert.That(suggestions.Select(s => s.Text.Trim()), Does.Not.Contain("-da"));
-        Assert.That(suggestions.Select(s => s.Text.Trim()), Does.Not.Contain("-db"));
-        Assert.That(suggestions.Select(s => s.Text.Trim()), Does.Not.Contain("-dc"));
-        Assert.That(suggestions.Select(s => s.Text.Trim()), Does.Not.Contain("-dd"));
-        Assert.That(suggestions.Select(s => s.Text.Trim()), Does.Contain("-de"));
-        Assert.That(suggestions.Select(s => s.Text.Trim()), Does.Contain("-df"));
+        suggestions = GetSuggestionStringsForTestExecutable(ci, " -d");
+        Assert.That(suggestions, Does.Not.Contain("-da"));
+        Assert.That(suggestions, Does.Not.Contain("-db"));
+        Assert.That(suggestions, Does.Not.Contain("-dc"));
+        Assert.That(suggestions, Does.Not.Contain("-dd"));
+        Assert.That(suggestions, Does.Contain("-de"));
+        Assert.That(suggestions, Does.Contain("-df"));
     }
 
     [Test]
@@ -310,40 +317,40 @@ public class SuggestorTests
                 ])
             ]
         };
-        var suggestions = GetSuggestionsForTestExecutable(ci, " ");
-        Assert.That(suggestions.Select(s => s.Text.Trim()), Does.Contain("a"));
-        Assert.That(suggestions.Select(s => s.Text.Trim()), Does.Contain("b"));
-        Assert.That(suggestions.Select(s => s.Text.Trim()), Does.Contain("c"));
+        var suggestions = GetSuggestionStringsForTestExecutable(ci, " ");
+        Assert.That(suggestions, Does.Contain("a"));
+        Assert.That(suggestions, Does.Contain("b"));
+        Assert.That(suggestions, Does.Contain("c"));
         if (firstGroupOptional)
         {
-            Assert.That(suggestions.Select(s => s.Text.Trim()), Does.Contain("d"));
-            Assert.That(suggestions.Select(s => s.Text.Trim()), Does.Contain("e"));
-            Assert.That(suggestions.Select(s => s.Text.Trim()), Does.Contain("f"));
+            Assert.That(suggestions, Does.Contain("d"));
+            Assert.That(suggestions, Does.Contain("e"));
+            Assert.That(suggestions, Does.Contain("f"));
         }
         else
         {
-            Assert.That(suggestions.Select(s => s.Text.Trim()), Does.Not.Contain("d"));
-            Assert.That(suggestions.Select(s => s.Text.Trim()), Does.Not.Contain("e"));
-            Assert.That(suggestions.Select(s => s.Text.Trim()), Does.Not.Contain("f"));
+            Assert.That(suggestions, Does.Not.Contain("d"));
+            Assert.That(suggestions, Does.Not.Contain("e"));
+            Assert.That(suggestions, Does.Not.Contain("f"));
         }
 
-        suggestions = GetSuggestionsForTestExecutable(ci, " a ");
-        Assert.That(suggestions.Select(s => s.Text.Trim()), Does.Not.Contain("a"));
-        Assert.That(suggestions.Select(s => s.Text.Trim()), Does.Contain("b"));
-        Assert.That(suggestions.Select(s => s.Text.Trim()), Does.Contain("c"));
-        Assert.That(suggestions.Select(s => s.Text.Trim()), Does.Contain("d"));
-        Assert.That(suggestions.Select(s => s.Text.Trim()), Does.Contain("e"));
-        Assert.That(suggestions.Select(s => s.Text.Trim()), Does.Contain("f"));
+        suggestions = GetSuggestionStringsForTestExecutable(ci, " a ");
+        Assert.That(suggestions, Does.Not.Contain("a"));
+        Assert.That(suggestions, Does.Contain("b"));
+        Assert.That(suggestions, Does.Contain("c"));
+        Assert.That(suggestions, Does.Contain("d"));
+        Assert.That(suggestions, Does.Contain("e"));
+        Assert.That(suggestions, Does.Contain("f"));
 
         if (!firstGroupOptional) return;
 
-        suggestions = GetSuggestionsForTestExecutable(ci, " d ");
-        Assert.That(suggestions.Select(s => s.Text.Trim()), Does.Not.Contain("a"));
-        Assert.That(suggestions.Select(s => s.Text.Trim()), Does.Not.Contain("b"));
-        Assert.That(suggestions.Select(s => s.Text.Trim()), Does.Not.Contain("c"));
-        Assert.That(suggestions.Select(s => s.Text.Trim()), Does.Not.Contain("d"));
-        Assert.That(suggestions.Select(s => s.Text.Trim()), Does.Contain("e"));
-        Assert.That(suggestions.Select(s => s.Text.Trim()), Does.Contain("f"));
+        suggestions = GetSuggestionStringsForTestExecutable(ci, " d ");
+        Assert.That(suggestions, Does.Not.Contain("a"));
+        Assert.That(suggestions, Does.Not.Contain("b"));
+        Assert.That(suggestions, Does.Not.Contain("c"));
+        Assert.That(suggestions, Does.Not.Contain("d"));
+        Assert.That(suggestions, Does.Contain("e"));
+        Assert.That(suggestions, Does.Contain("f"));
     }
     
     [Test]
@@ -364,15 +371,15 @@ public class SuggestorTests
             ]
         };
         
-        var suggestions = GetSuggestionsForTestExecutable(ci, " ");
-        Assert.That(suggestions.Select(s => s.Text.Trim()), Does.Not.Contain("b"));
-        Assert.That(suggestions.Select(s => s.Text.Trim()), Does.Not.Contain("c"));
-        Assert.That(suggestions.Select(s => s.Text.Trim()), Does.Not.Contain("d"));
+        var suggestions = GetSuggestionStringsForTestExecutable(ci, " ");
+        Assert.That(suggestions, Does.Not.Contain("b"));
+        Assert.That(suggestions, Does.Not.Contain("c"));
+        Assert.That(suggestions, Does.Not.Contain("d"));
 
-        suggestions = GetSuggestionsForTestExecutable(ci, " hello ");
-        Assert.That(suggestions.Select(s => s.Text.Trim()), Does.Contain("b"));
-        Assert.That(suggestions.Select(s => s.Text.Trim()), Does.Contain("c"));
-        Assert.That(suggestions.Select(s => s.Text.Trim()), Does.Contain("d"));
+        suggestions = GetSuggestionStringsForTestExecutable(ci, " hello ");
+        Assert.That(suggestions, Does.Contain("b"));
+        Assert.That(suggestions, Does.Contain("c"));
+        Assert.That(suggestions, Does.Contain("d"));
     }
     
     [Test]
@@ -449,29 +456,29 @@ public class SuggestorTests
                 ]) { DontAllowMultiple = true }
             ]
         };
-        var suggestions = GetSuggestionsForTestExecutable(ci, " ");
-        Assert.That(suggestions.Select(s => s.Text.Trim()), Does.Contain("a"));
-        Assert.That(suggestions.Select(s => s.Text.Trim()), Does.Contain("b"));
-        Assert.That(suggestions.Select(s => s.Text.Trim()), Does.Contain("c"));
-        Assert.That(suggestions.Select(s => s.Text.Trim()), Does.Contain("d"));
-        Assert.That(suggestions.Select(s => s.Text.Trim()), Does.Contain("e"));
-        Assert.That(suggestions.Select(s => s.Text.Trim()), Does.Contain("f"));
+        var suggestions = GetSuggestionStringsForTestExecutable(ci, " ");
+        Assert.That(suggestions, Does.Contain("a"));
+        Assert.That(suggestions, Does.Contain("b"));
+        Assert.That(suggestions, Does.Contain("c"));
+        Assert.That(suggestions, Does.Contain("d"));
+        Assert.That(suggestions, Does.Contain("e"));
+        Assert.That(suggestions, Does.Contain("f"));
         
-        suggestions = GetSuggestionsForTestExecutable(ci, " a ");
-        Assert.That(suggestions.Select(s => s.Text.Trim()), Does.Not.Contain("a"));
-        Assert.That(suggestions.Select(s => s.Text.Trim()), Does.Not.Contain("b"));
-        Assert.That(suggestions.Select(s => s.Text.Trim()), Does.Not.Contain("c"));
-        Assert.That(suggestions.Select(s => s.Text.Trim()), Does.Contain("d"));
-        Assert.That(suggestions.Select(s => s.Text.Trim()), Does.Contain("e"));
-        Assert.That(suggestions.Select(s => s.Text.Trim()), Does.Contain("f"));
+        suggestions = GetSuggestionStringsForTestExecutable(ci, " a ");
+        Assert.That(suggestions, Does.Not.Contain("a"));
+        Assert.That(suggestions, Does.Not.Contain("b"));
+        Assert.That(suggestions, Does.Not.Contain("c"));
+        Assert.That(suggestions, Does.Contain("d"));
+        Assert.That(suggestions, Does.Contain("e"));
+        Assert.That(suggestions, Does.Contain("f"));
          
-        suggestions = GetSuggestionsForTestExecutable(ci, " d ");
-        Assert.That(suggestions.Select(s => s.Text.Trim()), Does.Not.Contain("a"));
-        Assert.That(suggestions.Select(s => s.Text.Trim()), Does.Not.Contain("b"));
-        Assert.That(suggestions.Select(s => s.Text.Trim()), Does.Not.Contain("c"));
-        Assert.That(suggestions.Select(s => s.Text.Trim()), Does.Not.Contain("d"));
-        Assert.That(suggestions.Select(s => s.Text.Trim()), Does.Not.Contain("e"));
-        Assert.That(suggestions.Select(s => s.Text.Trim()), Does.Not.Contain("f"));
+        suggestions = GetSuggestionStringsForTestExecutable(ci, " d ");
+        Assert.That(suggestions, Does.Not.Contain("a"));
+        Assert.That(suggestions, Does.Not.Contain("b"));
+        Assert.That(suggestions, Does.Not.Contain("c"));
+        Assert.That(suggestions, Does.Not.Contain("d"));
+        Assert.That(suggestions, Does.Not.Contain("e"));
+        Assert.That(suggestions, Does.Not.Contain("f"));
     }
     
     [Test]
@@ -492,19 +499,19 @@ public class SuggestorTests
                 new("faz")
             ])]
         };
-        var suggestions = GetSuggestionsForTestExecutable(ci, " f");
-        Assert.That(suggestions.Select(s => s.Text.Trim()), Does.Contain("foo"));
-        Assert.That(suggestions.Select(s => s.Text.Trim()), Does.Contain("faz"));
-        Assert.That(suggestions.Select(s => s.Text.Trim()), Does.Not.Contain("flip"));
-        Assert.That(suggestions.Select(s => s.Text.Trim()), Does.Not.Contain("flop"));
-        suggestions = GetSuggestionsForTestExecutable(ci, " foo ");
-        Assert.That(suggestions.Select(s => s.Text.Trim()), Does.Not.Contain("foo"));
+        var suggestions = GetSuggestionStringsForTestExecutable(ci, " f");
+        Assert.That(suggestions, Does.Contain("foo"));
+        Assert.That(suggestions, Does.Contain("faz"));
+        Assert.That(suggestions, Does.Not.Contain("flip"));
+        Assert.That(suggestions, Does.Not.Contain("flop"));
+        suggestions = GetSuggestionStringsForTestExecutable(ci, " foo ");
+        Assert.That(suggestions, Does.Not.Contain("foo"));
         if (subArgumentIsOptional)
-            Assert.That(suggestions.Select(s => s.Text.Trim()), Does.Contain("faz"));
+            Assert.That(suggestions, Does.Contain("faz"));
         else
-            Assert.That(suggestions.Select(s => s.Text.Trim()), Does.Not.Contain("faz"));
-        Assert.That(suggestions.Select(s => s.Text.Trim()), Does.Contain("flip"));
-        Assert.That(suggestions.Select(s => s.Text.Trim()), Does.Contain("flop"));
+            Assert.That(suggestions, Does.Not.Contain("faz"));
+        Assert.That(suggestions, Does.Contain("flip"));
+        Assert.That(suggestions, Does.Contain("flop"));
     }
     
     [Test]
@@ -527,11 +534,11 @@ public class SuggestorTests
                 new("faz")
             ])]
         };
-        var suggestions = GetSuggestionsForTestExecutable(ci, " foo faz ");
-        Assert.That(suggestions.Select(s => s.Text.Trim()), Does.Not.Contain("foo"));
-        //Assert.That(suggestions.Select(s => s.Text.Trim()), Does.Not.Contain("faz"));
-        Assert.That(suggestions.Select(s => s.Text.Trim()), Does.Contain("flip"));
-        Assert.That(suggestions.Select(s => s.Text.Trim()), Does.Contain("flop"));
+        var suggestions = GetSuggestionStringsForTestExecutable(ci, " foo faz ");
+        Assert.That(suggestions, Does.Not.Contain("foo"));
+        //Assert.That(suggestions, Does.Not.Contain("faz"));
+        Assert.That(suggestions, Does.Contain("flip"));
+        Assert.That(suggestions, Does.Contain("flop"));
     }
 
     [Test]
@@ -547,8 +554,8 @@ public class SuggestorTests
         {
             Arguments = [new([ new("") { Type = CommandInfo.ArgumentType.CommandName }])]
         };
-        var suggestions = GetSuggestionsForTestExecutable(ci, " ");
-        Assert.That(suggestions.Select(s => s.Text.Trim()), Does.Contain("testExecutable"));
+        var suggestions = GetSuggestionStringsForTestExecutable(ci, " ");
+        Assert.That(suggestions, Does.Contain("testExecutable"));
     }
     
     [Test]
@@ -574,17 +581,17 @@ public class SuggestorTests
         CustomArguments.CustomArgumentsLoaded += SetupWaitEvent().Invoke;
         WaitForEvent();
 
-        var suggestions = GetSuggestionsForTestExecutable(ci, " ");
-        Assert.That(suggestions, Does.Contain(new Suggestion("foo") {Description = "Custom argument", ArgumentType = CommandInfo.ArgumentType.CustomArgument}));
-        Assert.That(suggestions, Does.Contain(new Suggestion("bar") {Description = "Custom argument", ArgumentType = CommandInfo.ArgumentType.CustomArgument}));
-        Assert.That(suggestions, Does.Contain(new Suggestion("baz") {Description = "Custom argument", ArgumentType = CommandInfo.ArgumentType.CustomArgument}));
-        Assert.That(suggestions, Does.Contain(new Suggestion("stringcontainingfoo") {Description = "Custom argument", ArgumentType = CommandInfo.ArgumentType.CustomArgument}));
+        var suggestions = GetSuggestionStringsForTestExecutable(ci, " ");
+        Assert.That(suggestions, Does.Contain("foo"));
+        Assert.That(suggestions, Does.Contain("bar"));
+        Assert.That(suggestions, Does.Contain("baz"));
+        Assert.That(suggestions, Does.Contain("stringcontainingfoo"));
         
-        suggestions = GetSuggestionsForTestExecutable(ci, " foo");
-        Assert.That(suggestions, Does.Contain(new Suggestion("foo") {Description = "Custom argument", ArgumentType = CommandInfo.ArgumentType.CustomArgument}));
-        Assert.That(suggestions, Does.Not.Contain(new Suggestion("bar") {Description = "Custom argument", ArgumentType = CommandInfo.ArgumentType.CustomArgument}));
-        Assert.That(suggestions, Does.Not.Contain(new Suggestion("baz") {Description = "Custom argument", ArgumentType = CommandInfo.ArgumentType.CustomArgument}));
-        Assert.That(suggestions, Does.Contain(new Suggestion("stringcontainingfoo") {Description = "Custom argument", ArgumentType = CommandInfo.ArgumentType.CustomArgument}));
+        suggestions = GetSuggestionStringsForTestExecutable(ci, " foo");
+        Assert.That(suggestions, Does.Contain("foo"));
+        Assert.That(suggestions, Does.Not.Contain("bar"));
+        Assert.That(suggestions, Does.Not.Contain("baz"));
+        Assert.That(suggestions, Does.Contain("stringcontainingfoo"));
     }
     
     [Test]
@@ -610,15 +617,15 @@ public class SuggestorTests
                 }
             ]
         };
-        var suggestions = GetSuggestionsForTestExecutable(ci, " ");
-        Assert.That(suggestions, Does.Contain(new Suggestion("foo") {Description = "foo description", ArgumentType = CommandInfo.ArgumentType.Keyword}));
-        Assert.That(suggestions, Does.Contain(new Suggestion("bar") {Description = "bar description", ArgumentType = CommandInfo.ArgumentType.Keyword}));
-        Assert.That(suggestions, Does.Contain(new Suggestion("baz") {Description = "baz description", ArgumentType = CommandInfo.ArgumentType.Keyword}));
+        var suggestions = GetSuggestionStringsForTestExecutable(ci, " ");
+        Assert.That(suggestions, Does.Contain("foo"));
+        Assert.That(suggestions, Does.Contain("bar"));
+        Assert.That(suggestions, Does.Contain("baz"));
         
-        suggestions = GetSuggestionsForTestExecutable(ci, " foo arg2 ");
-        Assert.That(suggestions, Does.Contain(new Suggestion("foo") {Description = "foo description", ArgumentType = CommandInfo.ArgumentType.Keyword}));
-        Assert.That(suggestions, Does.Contain(new Suggestion("bar") {Description = "bar description", ArgumentType = CommandInfo.ArgumentType.Keyword}));
-        Assert.That(suggestions, Does.Contain(new Suggestion("baz") {Description = "baz description", ArgumentType = CommandInfo.ArgumentType.Keyword}));
+        suggestions = GetSuggestionStringsForTestExecutable(ci, " foo arg2 ");
+        Assert.That(suggestions, Does.Contain("foo"));
+        Assert.That(suggestions, Does.Contain("bar"));
+        Assert.That(suggestions, Does.Contain("baz"));
 
     }
     
@@ -643,14 +650,14 @@ public class SuggestorTests
             ]
         };
         
-        GetSuggestionsForTestExecutable(ci, " ");
+        GetSuggestionStringsForTestExecutable(ci, " ");
         CustomArguments.CustomArgumentsLoaded += SetupWaitEvent().Invoke;
         WaitForEvent();
         
-        var suggestions = GetSuggestionsForTestExecutable(ci, " ");
-        Assert.That(suggestions, Does.Contain(new Suggestion("foo2") {Description = "the foo argument"}));
-        Assert.That(suggestions, Does.Contain(new Suggestion("bar bar") {Description = "the bar argument"}));
-        Assert.That(suggestions, Does.Contain(new Suggestion("bazz") {Description = "the baz argument"}));
+        var suggestions = GetSuggestionStringsForTestExecutable(ci, " ");
+        Assert.That(suggestions, Does.Contain("foo2"));
+        Assert.That(suggestions, Does.Contain("bar bar"));
+        Assert.That(suggestions, Does.Contain("bazz"));
     }
     
     [Test]
@@ -678,10 +685,10 @@ public class SuggestorTests
         CustomArguments.CustomArgumentsLoaded += SetupWaitEvent().Invoke;
         WaitForEvent();
         
-        var suggestions = GetSuggestionsForTestExecutable(ci, " ");
-        Assert.That(suggestions, Does.Contain(new Suggestion("the foo argument") {Description = "foo2"}));
-        Assert.That(suggestions, Does.Contain(new Suggestion("the bar argument") {Description = "bar bar"}));
-        Assert.That(suggestions, Does.Contain(new Suggestion("the baz argument") {Description = "bazz"}));
+        var suggestions = GetSuggestionStringsForTestExecutable(ci, " ");
+        Assert.That(suggestions, Does.Contain("the foo argument"));
+        Assert.That(suggestions, Does.Contain("the bar argument"));
+        Assert.That(suggestions, Does.Contain("the baz argument"));
     }
     
     [Test]
@@ -699,9 +706,9 @@ public class SuggestorTests
         {
             Arguments = [new([ new("") { Type = type }])]
         };
-        var suggestions = GetSuggestionsForTestExecutable(ci, " testDir/");
-        Assert.That(suggestions.Select(s => s.Text.Trim()), Does.Contain("testDir/directory/"));
-        Assert.That(suggestions.Select(s => s.Text.Trim()).Contains("testDir/file"), Is.EqualTo(type != CommandInfo.ArgumentType.Directory));
+        var suggestions = GetSuggestionStringsForTestExecutable(ci, " testDir/");
+        Assert.That(suggestions, Does.Contain("testDir/directory/"));
+        Assert.That(suggestions.Contains("testDir/file"), Is.EqualTo(type != CommandInfo.ArgumentType.Directory));
     }
 
     [Test]
@@ -768,8 +775,8 @@ public class SuggestorTests
         {
             Arguments = [new([ new("") { Type = CommandInfo.ArgumentType.FileSystemEntry }])]
         };
-        var suggestions = GetSuggestionsForTestExecutable(ci, " testDir/");
-        Assert.That(suggestions.Select(s => s.Text.Trim()), Does.Contain("testDir/this\\ is\\ a\\ directory/"));
+        var suggestions = GetSuggestionStringsForTestExecutable(ci, " testDir/");
+        Assert.That(suggestions, Does.Contain("testDir/this\\ is\\ a\\ directory/"));
     }
     
     [Test]
@@ -784,8 +791,8 @@ public class SuggestorTests
         {
             Arguments = [new([ new("") { Type = CommandInfo.ArgumentType.FileSystemEntry }])]
         };
-        var suggestions = GetSuggestionsForTestExecutable(ci, " test\\ dir/");
-        Assert.That(suggestions.Select(s => s.Text.Trim()), Does.Contain("test\\ dir/test\\ sub\\ dir/"));
+        var suggestions = GetSuggestionStringsForTestExecutable(ci, " test\\ dir/");
+        Assert.That(suggestions, Does.Contain("test\\ dir/test\\ sub\\ dir/"));
     }
 
 
@@ -793,20 +800,20 @@ public class SuggestorTests
     public void CanGetSuggestionsFromHistory()
     {
         History.LoadTestHistory(["foo", "bar", "foo bar"]);
-        var suggestions = Suggestor.SuggestionsForPrompt("f");
-        Assert.That(suggestions.Select(s => s.Text.Trim()), Does.Contain("foo"));
-        Assert.That(suggestions.Select(s => s.Text.Trim()), Does.Contain("foo bar"));
-        Assert.That(suggestions.Select(s => s.Text.Trim()), Does.Not.Contain("bar"));
+        var suggestions = Suggestor.SuggestionsForPrompt("f").Select(s => s.Text.Trim()).ToArray();
+        Assert.That(suggestions, Does.Contain("foo"));
+        Assert.That(suggestions, Does.Contain("foo bar"));
+        Assert.That(suggestions, Does.Not.Contain("bar"));
     }
     
     [Test]
     public void CanGetSuggestionsFromHistoryWithEmptyCommandLine()
     {
         History.LoadTestHistory(["foo", "bar", "foo bar"]);
-        var suggestions = Suggestor.SuggestionsForPrompt("");
-        Assert.That(suggestions.Select(s => s.Text.Trim()), Does.Contain("foo"));
-        Assert.That(suggestions.Select(s => s.Text.Trim()), Does.Contain("foo bar"));
-        Assert.That(suggestions.Select(s => s.Text.Trim()), Does.Contain("bar"));
+        var suggestions = Suggestor.SuggestionsForPrompt("").Select(s => s.Text.Trim()).ToArray();
+        Assert.That(suggestions, Does.Contain("foo"));
+        Assert.That(suggestions, Does.Contain("foo bar"));
+        Assert.That(suggestions, Does.Contain("bar"));
     }
 
     [Test]
@@ -829,13 +836,14 @@ public class SuggestorTests
         };
         
         // Desired sort order:
-        // -Files from history come first, in the order used in history
-        // Visible files or directories come before invisible (starting with .) ones
-        // Directories before files
-        // Then sorted alphabetically
+        // -First the prompt string itself, if it is a valid directory
+        // -Suggestions from history, in the order used in history
+        // -Visible files or directories come before invisible (starting with .) ones
+        // -Directories before files
+        // -Then sorted alphabetically
         
-        var suggestions = GetSuggestionsForTestExecutable(ci, " testDir/");
-        Assert.That(suggestions.Select(s => s.Text.Trim()).ToArray(), Is.EqualTo(new []
+        var suggestions = GetSuggestionStringsForTestExecutable(ci, " testDir/");
+        Assert.That(suggestions.ToArray(), Is.EqualTo(new []
             {
                 "testDir/",
                 "testDir/a_directory/", 
@@ -848,8 +856,8 @@ public class SuggestorTests
         ));
         
         History.LoadTestHistory(["./testExecutable testDir/.invisibleDirectory/", "./testExecutable testDir/b_file"]);
-        suggestions = GetSuggestionsForTestExecutable(ci, " testDir/");
-        Assert.That(suggestions.Select(s => s.Text.Trim()).ToArray(), Is.EqualTo(new [] 
+        suggestions = GetSuggestionStringsForTestExecutable(ci, " testDir/");
+        Assert.That(suggestions.ToArray(), Is.EqualTo(new [] 
             {
                 "testDir/",
                 "testDir/b_file",
@@ -878,8 +886,8 @@ public class SuggestorTests
                 ])]
         };
         
-        var suggestions = GetSuggestionsForTestExecutable(ci, " testDir/");
-        Assert.That(suggestions.Select(s => s.Text.Trim()).ToArray(), Is.EqualTo(new []
+        var suggestions = GetSuggestionStringsForTestExecutable(ci, " testDir/");
+        Assert.That(suggestions.ToArray(), Is.EqualTo(new []
             {
                 "testDir/file.a", 
                 "testDir/file.c", 
@@ -901,16 +909,16 @@ public class SuggestorTests
         {
             Arguments = [new([ new("") { Type = CommandInfo.ArgumentType.FileSystemEntry }])]
         };
-        var suggestions = GetSuggestionsForTestExecutable(ci, " testDir/");
-        Assert.That(suggestions.Select(s => s.Text.Trim()).ToArray(), Is.EqualTo(new [] {"testDir/", "testDir/otherTestSubDir/", "testDir/testSubDir/", @"testDir/testSubDir\ with\ spaces/"}));
+        var suggestions = GetSuggestionStringsForTestExecutable(ci, " testDir/");
+        Assert.That(suggestions, Is.EqualTo(new [] {"testDir/", "testDir/otherTestSubDir/", "testDir/testSubDir/", @"testDir/testSubDir\ with\ spaces/"}));
         
         History.LoadTestHistory(["./testExecutable testDir/testSubDir/file"]);
-        suggestions = GetSuggestionsForTestExecutable(ci, " testDir/");
-        Assert.That(suggestions.Select(s => s.Text.Trim()).ToArray(), Is.EqualTo(new [] {"testDir/", "testDir/testSubDir/", "testDir/otherTestSubDir/", @"testDir/testSubDir\ with\ spaces/"}));
+        suggestions = GetSuggestionStringsForTestExecutable(ci, " testDir/");
+        Assert.That(suggestions, Is.EqualTo(new [] {"testDir/", "testDir/testSubDir/", "testDir/otherTestSubDir/", @"testDir/testSubDir\ with\ spaces/"}));
         
         History.LoadTestHistory(["./testExecutable testDir/testSubDir/file", @"./testExecutable testDir/testSubDir\ with\ spaces/file"]);
-        suggestions = GetSuggestionsForTestExecutable(ci, " testDir/");
-        Assert.That(suggestions.Select(s => s.Text.Trim()).ToArray(), Is.EqualTo(new [] {"testDir/", @"testDir/testSubDir\ with\ spaces/", "testDir/testSubDir/", "testDir/otherTestSubDir/"}));
+        suggestions = GetSuggestionStringsForTestExecutable(ci, " testDir/");
+        Assert.That(suggestions, Is.EqualTo(new [] {"testDir/", @"testDir/testSubDir\ with\ spaces/", "testDir/testSubDir/", "testDir/otherTestSubDir/"}));
 
     }
     
@@ -928,16 +936,16 @@ public class SuggestorTests
                 ])
             ]
         };
-        var suggestions = GetSuggestionsForTestExecutable(ci, " -");
-        Assert.That(suggestions.Select(s => s.Text.Trim()).ToArray(), Is.EqualTo(new [] {"-a", "-b", "-c"}));
+        var suggestions = GetSuggestionStringsForTestExecutable(ci, " -");
+        Assert.That(suggestions, Is.EqualTo(new [] {"-a", "-b", "-c"}));
         
         History.LoadTestHistory(["./testExecutable -c"]);
-        suggestions = GetSuggestionsForTestExecutable(ci, " -");
-        Assert.That(suggestions.Select(s => s.Text.Trim()).ToArray(), Is.EqualTo(new [] {"-c", "-a", "-b"}));
+        suggestions = GetSuggestionStringsForTestExecutable(ci, " -");
+        Assert.That(suggestions, Is.EqualTo(new [] {"-c", "-a", "-b"}));
 
         History.LoadTestHistory(["./testExecutable -b", "./testExecutable -c"]);
-        suggestions = GetSuggestionsForTestExecutable(ci, " -");
-        Assert.That(suggestions.Select(s => s.Text.Trim()).ToArray(), Is.EqualTo(new [] {"-c", "-b", "-a"}));
+        suggestions = GetSuggestionStringsForTestExecutable(ci, " -");
+        Assert.That(suggestions, Is.EqualTo(new [] {"-c", "-b", "-a"}));
     }
 
     [Test] public void StringArgumentWillBeSuggestedFromHistory()
@@ -951,22 +959,22 @@ public class SuggestorTests
                 ])
             ]
         };
-        var suggestions = GetSuggestionsForTestExecutable(ci, " ");
-        Assert.That(suggestions.Select(s => s.Text.Trim()).ToArray(), Is.EqualTo(new [] {""}));
+        var suggestions = GetSuggestionStringsForTestExecutable(ci, " ");
+        Assert.That(suggestions, Is.EqualTo(new [] {""}));
         
         History.LoadTestHistory(["./testExecutable foo"]);
-        suggestions = GetSuggestionsForTestExecutable(ci, " ");
-        Assert.That(suggestions.Select(s => s.Text.Trim()).ToArray(), Is.EqualTo(new [] {"foo"}));
+        suggestions = GetSuggestionStringsForTestExecutable(ci, " ");
+        Assert.That(suggestions, Is.EqualTo(new [] {"foo"}));
         
-        suggestions = GetSuggestionsForTestExecutable(ci, " f");
-        Assert.That(suggestions.Select(s => s.Text.Trim()).ToArray(), Is.EqualTo(new [] {"foo", "f"}));
+        suggestions = GetSuggestionStringsForTestExecutable(ci, " f");
+        Assert.That(suggestions, Is.EqualTo(new [] {"foo", "f"}));
 
         // Make sure we only get one suggestion for 'foo'
-        suggestions = GetSuggestionsForTestExecutable(ci, " foo");
-        Assert.That(suggestions.Select(s => s.Text.Trim()).ToArray(), Is.EqualTo(new [] {"foo"}));
+        suggestions = GetSuggestionStringsForTestExecutable(ci, " foo");
+        Assert.That(suggestions, Is.EqualTo(new [] {"foo"}));
 
-        suggestions = GetSuggestionsForTestExecutable(ci, " b");
-        Assert.That(suggestions.Select(s => s.Text.Trim()).ToArray(), Is.EqualTo(new [] {"b"}));
+        suggestions = GetSuggestionStringsForTestExecutable(ci, " b");
+        Assert.That(suggestions, Is.EqualTo(new [] {"b"}));
 
     }
     
@@ -1049,6 +1057,7 @@ public class SuggestorTests
     {
         var testDir = NPath.CreateTempDirectory("testdir");
         var testFile = testDir.Combine("testFile").WriteAllText("Just a file");
+        var testFile2 = testDir.Combine("testFile2").WriteAllText("Just a file");
         NPath.SetCurrentDirectory(testDir);
 
         Suggestor.SuggestionsForPrompt("git ");
@@ -1070,6 +1079,11 @@ public class SuggestorTests
         
         suggestions = Suggestor.SuggestionsForPrompt("git add ");
         Assert.That(suggestions.Select(s => s.Text), Does.Contain(testFile.FileName));
+        Assert.That(suggestions.Select(s => s.Text), Does.Contain(testFile2.FileName));
+
+        suggestions = Suggestor.SuggestionsForPrompt("git add testFile ");
+        Assert.That(suggestions.Select(s => s.Text), Does.Not.Contain(testFile.FileName));
+        Assert.That(suggestions.Select(s => s.Text), Does.Contain(testFile2.FileName));
 
         NPath.SetCurrentDirectory(testDir.Parent);
     }
