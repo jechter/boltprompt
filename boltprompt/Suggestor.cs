@@ -22,8 +22,14 @@ public record Suggestion(string Text)
     public CommandInfo.ArgumentType ArgumentType { get; set; }
 }
 
-public record FileSystemSuggestion(string Text) : Suggestion(Text)
+internal record FileSystemSuggestion : Suggestion
 {
+    public FileSystemSuggestion(string path) : base(path)
+    {
+        var npath = Suggestor.UnescapeFileName(path.Trim());
+        Icon = npath.DirectoryExists() ? "📁" : 
+            npath.Exists() ? "📄" : "";
+    }
     public override string? SecondaryDescription => FileDescriptions.GetFileDescription(Text);
 }
 
@@ -116,14 +122,22 @@ public static partial class Suggestor
             if (xIsPrefixed != yIsPrefixed)
                 return xIsPrefixed ? 1 : -1;
             
+            // If we have a suggestion for the exact prompt, and that is a file system entry, return that first
+            // (even if history prefers something else). Otherwise, you often get completions for subfolders by accident
+            // when hitting return, and you just want the currently selected folder.
+            var yIsCommandLineWordAndPath = y.Text == _lastCommandLineWord && y is FileSystemSuggestion;
+            var xIsCommandLineWordAndPath = x.Text == _lastCommandLineWord && x is FileSystemSuggestion;
+            if (yIsCommandLineWordAndPath != xIsCommandLineWordAndPath)
+                return xIsCommandLineWordAndPath ? 1 : -1;
+
             var xHistIndex = Array.LastIndexOf(_historyFilteredByCommandline, x.Text.Trim());
             var yHistIndex = Array.LastIndexOf(_historyFilteredByCommandline, y.Text.Trim());
             if (xHistIndex != yHistIndex) return xHistIndex - yHistIndex;
 
             if (x is FileSystemSuggestion && y is FileSystemSuggestion)
             {
-                NPath pathX = UnescapeFileName(x.Text);
-                NPath pathY = UnescapeFileName(y.Text);
+                var pathX = UnescapeFileName(x.Text);
+                var pathY = UnescapeFileName(y.Text);
                 if (pathX.Parent != pathY.Parent)
                     return pathY.CompareTo(pathX);
                 var xIsInvisible = pathX.FileName.StartsWith('.');
@@ -242,7 +256,7 @@ public static partial class Suggestor
 
     private static string EscapeFileName(string fileName) => fileName.Replace(@"\", @"\\").Replace(" ", @"\ ");
     
-    public static string UnescapeFileName(string fileName)
+    internal static NPath UnescapeFileName(string fileName)
     {
        var unescaped = fileName.Replace(@"\ ", " ").Replace(@"\\", @"\");
 
@@ -297,7 +311,7 @@ public static partial class Suggestor
                      CommandInfo.ArgumentType.File => extensions == null || fs.HasExtension(extensions),
                      _ => true
                  })
-            .Select(Suggestion (fs) => new FileSystemSuggestion(NPathToSuggestionText(prefix, dir, fs)) { Icon = fs.DirectoryExists()?"📁" : "📄"})
+            .Select(Suggestion (fs) => new FileSystemSuggestion(NPathToSuggestionText(prefix, dir, fs)))
             .ToArray();
     }
     
@@ -319,7 +333,7 @@ public static partial class Suggestor
         var arguments = CommandLineParser.GetEligibleArgumentsForState(parsingState).Select(a => a.argument).ToArray();
         var allFlags = arguments.Where(a => a.Type == CommandInfo.ArgumentType.Flag).SelectMany(a => a.AllNames).SelectMany(a => a).ToArray();
         var hasMatch = false;
-        NPath lastParamPath = lastParam;
+        NPath lastParamPath = UnescapeFileName(lastParam);
         bool MatchSuggestionPartial(Suggestion s, bool partialPathMatch = false)
         {
             if (partialPathMatch)
@@ -393,8 +407,10 @@ public static partial class Suggestor
                                  .Where(s => MatchSuggestion(s) || MatchSuggestionPartial(s, true)))
                         yield return s;
                     // if we have no matching files, or if type is unknown (ie may not be a path at all), return a match for whatever was typed to allow creating new paths.
-                    if (!hasMatch || arg.Type == CommandInfo.ArgumentType.Unknown)
-                        yield return new (lastParam) { Description = string.IsNullOrEmpty(arg.Description) ? arg.Name : arg.Description, ArgumentType = arg.Type };
+                    // Also, if we have matching files, but whatever was typed matches a directory, return that, so we can get the directory with no further completions
+                    if (!hasMatch || arg.Type == CommandInfo.ArgumentType.Unknown || (arg.Type != CommandInfo.ArgumentType.File && lastParamPath.DirectoryExists()))
+                        yield return new FileSystemSuggestion(lastParam) { Description = string.IsNullOrEmpty(arg.Description) ? arg.Name : arg.Description, ArgumentType = arg.Type };
+
                     break;
                 case CommandInfo.ArgumentType.CustomArgument:
                     foreach (var s in CustomArguments.Get(arg, parsingState.Last().CommandInfo, parts, lastParam).Where(MatchSuggestion))
@@ -461,7 +477,6 @@ public static partial class Suggestor
             ? [] 
             : pathEnv.Split(":")
                 .Select(UnescapeFileName)
-                .ToNPaths()
                 .Where(path => path.DirectoryExists())
                 .SelectMany(FindExecutablesInPath)
                 .ToArray();

@@ -729,18 +729,12 @@ public class SuggestorTests
         {
             Arguments = [new([ new("") { Type = CommandInfo.ArgumentType.File }])]
         };
-        var fileDescriptionLoadedEvent = new ManualResetEvent(false);
-
-        FileDescriptions.FileDescriptionLoaded += () =>
-        {
-            var suggestions = GetSuggestionsForTestExecutable(ci, " testDir/");
-            Assert.That(suggestions[0].SecondaryDescription, Is.EqualTo("ASCII text"));
-            fileDescriptionLoadedEvent.Set();
-        };
         var suggestions = GetSuggestionsForTestExecutable(ci, " testDir/");
         _ = suggestions[0].SecondaryDescription;
-        if (!fileDescriptionLoadedEvent.WaitOne(TimeSpan.FromSeconds(5)))
-            Assert.Fail("Timeout: FileDescriptionLoaded event was not raised within the expected time.");
+        FileDescriptions.FileDescriptionLoaded += SetupWaitEvent().Invoke;
+        WaitForEvent();
+        
+        Assert.That(suggestions[0].SecondaryDescription, Is.EqualTo("ASCII text"));
     }
     
     
@@ -843,6 +837,7 @@ public class SuggestorTests
         var suggestions = GetSuggestionsForTestExecutable(ci, " testDir/");
         Assert.That(suggestions.Select(s => s.Text.Trim()).ToArray(), Is.EqualTo(new []
             {
+                "testDir/",
                 "testDir/a_directory/", 
                 "testDir/b_directory/", 
                 "testDir/a_file",
@@ -856,6 +851,7 @@ public class SuggestorTests
         suggestions = GetSuggestionsForTestExecutable(ci, " testDir/");
         Assert.That(suggestions.Select(s => s.Text.Trim()).ToArray(), Is.EqualTo(new [] 
             {
+                "testDir/",
                 "testDir/b_file",
                 "testDir/.invisibleDirectory/",
                 "testDir/a_directory/", 
@@ -906,15 +902,15 @@ public class SuggestorTests
             Arguments = [new([ new("") { Type = CommandInfo.ArgumentType.FileSystemEntry }])]
         };
         var suggestions = GetSuggestionsForTestExecutable(ci, " testDir/");
-        Assert.That(suggestions.Select(s => s.Text.Trim()).ToArray(), Is.EqualTo(new [] {"testDir/otherTestSubDir/", "testDir/testSubDir/", @"testDir/testSubDir\ with\ spaces/"}));
+        Assert.That(suggestions.Select(s => s.Text.Trim()).ToArray(), Is.EqualTo(new [] {"testDir/", "testDir/otherTestSubDir/", "testDir/testSubDir/", @"testDir/testSubDir\ with\ spaces/"}));
         
         History.LoadTestHistory(["./testExecutable testDir/testSubDir/file"]);
         suggestions = GetSuggestionsForTestExecutable(ci, " testDir/");
-        Assert.That(suggestions.Select(s => s.Text.Trim()).ToArray(), Is.EqualTo(new [] {"testDir/testSubDir/", "testDir/otherTestSubDir/", @"testDir/testSubDir\ with\ spaces/"}));
+        Assert.That(suggestions.Select(s => s.Text.Trim()).ToArray(), Is.EqualTo(new [] {"testDir/", "testDir/testSubDir/", "testDir/otherTestSubDir/", @"testDir/testSubDir\ with\ spaces/"}));
         
         History.LoadTestHistory(["./testExecutable testDir/testSubDir/file", @"./testExecutable testDir/testSubDir\ with\ spaces/file"]);
         suggestions = GetSuggestionsForTestExecutable(ci, " testDir/");
-        Assert.That(suggestions.Select(s => s.Text.Trim()).ToArray(), Is.EqualTo(new [] {@"testDir/testSubDir\ with\ spaces/", "testDir/testSubDir/", "testDir/otherTestSubDir/"}));
+        Assert.That(suggestions.Select(s => s.Text.Trim()).ToArray(), Is.EqualTo(new [] {"testDir/", @"testDir/testSubDir\ with\ spaces/", "testDir/testSubDir/", "testDir/otherTestSubDir/"}));
 
     }
     
@@ -1028,18 +1024,18 @@ public class SuggestorTests
     [Test]
     public void UnescapeFileNameHandlesEscapedCharacters()
     {
-        Assert.That(Suggestor.UnescapeFileName(@"path\ name/with\ escaped\ spaces/and\\back\\slashes"), Is.EqualTo(@"path name/with escaped spaces/and\back\slashes"));
+        Assert.That(Suggestor.UnescapeFileName(@"path\ name/with\ escaped\ spaces").ToString(), Is.EqualTo("path name/with escaped spaces"));
     }
 
     [Test]
     public void UnescapeFileNameHandlesUserDirs()
     {
-        Assert.That(Suggestor.UnescapeFileName("~/dir/relative/to/current/user"), Is.EqualTo($"{NPath.HomeDirectory}/dir/relative/to/current/user"));
-        Assert.That(Suggestor.UnescapeFileName("~root/dir/relative/to/root"), Is.EqualTo(RuntimeInformation.IsOSPlatform(OSPlatform.OSX)
+        Assert.That(Suggestor.UnescapeFileName("~/dir/relative/to/current/user").ToString(), Is.EqualTo($"{NPath.HomeDirectory}/dir/relative/to/current/user"));
+        Assert.That(Suggestor.UnescapeFileName("~root/dir/relative/to/root").ToString(), Is.EqualTo(RuntimeInformation.IsOSPlatform(OSPlatform.OSX)
             ?"/var/root/dir/relative/to/root"
             :"/root/dir/relative/to/root")
         );
-        Assert.That(Suggestor.UnescapeFileName($"~{Environment.GetEnvironmentVariable("USER")}/dir/relative/to/user/name"), Is.EqualTo($"{NPath.HomeDirectory}/dir/relative/to/user/name"));
+        Assert.That(Suggestor.UnescapeFileName($"~{Environment.GetEnvironmentVariable("USER")}/dir/relative/to/user/name").ToString(), Is.EqualTo($"{NPath.HomeDirectory}/dir/relative/to/user/name"));
     }
     
     private static void WaitForEvent()

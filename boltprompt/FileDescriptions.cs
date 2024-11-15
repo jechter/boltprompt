@@ -11,7 +11,7 @@ public static class FileDescriptions
     static async Task<string> RequestFileDescription(string path)
     {
         var commandResult = await Cli.Wrap("file")
-            .WithArguments(new string[] { "-b", Suggestor.UnescapeFileName(path).Trim() })
+            .WithArguments(new string[] { "-b", Suggestor.UnescapeFileName(path).ToString().Trim() })
             .ExecuteBufferedAsync();
         return commandResult.StandardOutput.Split(Environment.NewLine)[0];
     }
