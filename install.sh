@@ -34,7 +34,7 @@ boltprompt_src=$(mktemp -d ${TMPDIR:-/tmp}/boltprompt_src.XXXXXX)
 cd $boltprompt_src
 git clone --branch release --recurse-submodules https://github.com/jechter/boltprompt.git
 cd boltprompt
-dotnet publish --output ~/.boltprompt
+dotnet publish --output ~/.boltprompt boltprompt/boltprompt.csproj
 ~/.boltprompt/boltprompt install
 
 cd $oldpwd
