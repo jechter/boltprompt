@@ -22,7 +22,7 @@ static class CustomArguments
         var argDescription = string.IsNullOrEmpty(argument.Description) ? argument.Name : argument.Description;
         if (!string.IsNullOrEmpty(template.Regex)) 
         {
-            var matches = Regex.Matches(output, template.Regex);
+            var matches = Regex.Matches(output, template.Regex, RegexOptions.Multiline);
 
             return matches.Select(m => new Suggestion(m.Groups.TryGetValue("suggestion", out var suggestionGroup) ? suggestionGroup.Value : m.Groups[1].Value)
             {
