@@ -16,17 +16,19 @@ exit_if_tool_does_not_exist() {
 				return
 			else
 				echo "Please install $1 manually."
+				echo $2
 				exit 1
 			fi
 		else
 			echo "Please install $1 manually."
+			echo $2
 			exit 1
 		fi
 	fi
 }
 
 exit_if_tool_does_not_exist "git"
-exit_if_tool_does_not_exist "dotnet"
+exit_if_tool_does_not_exist "dotnet" "Go to https://dotnet.microsoft.com/en-us/download/dotnet/8.0 to download dotnet"
 
 
 oldpwd=$(pwd)
