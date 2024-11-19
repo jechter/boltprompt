@@ -2781,9 +2781,758 @@
                 },
                 {
                   "Name": "ssh",
-                  "Description": "",
+                  "Description": "Log into a remote machine",
                   "Aliases": [],
-                  "Arguments": []
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "1",
+                          "Description": "Forces ssh to try protocol version 1 only",
+                          "Type": "Flag",
+                          "Aliases": [],
+                          "Arguments": []
+                        },
+                        {
+                          "Name": "2",
+                          "Description": "Forces ssh to try protocol version 2 only",
+                          "Type": "Flag",
+                          "Aliases": [],
+                          "Arguments": []
+                        },
+                        {
+                          "Name": "4",
+                          "Description": "Forces ssh to use IPv4 addresses only",
+                          "Type": "Flag",
+                          "Aliases": [],
+                          "Arguments": []
+                        },
+                        {
+                          "Name": "6",
+                          "Description": "Forces ssh to use IPv6 addresses only",
+                          "Type": "Flag",
+                          "Aliases": [],
+                          "Arguments": []
+                        },
+                        {
+                          "Name": "A",
+                          "Description": "Enables forwarding of the authentication agent connection",
+                          "Type": "Flag",
+                          "Aliases": [],
+                          "Arguments": []
+                        },
+                        {
+                          "Name": "a",
+                          "Description": "Disables forwarding of the authentication agent connection",
+                          "Type": "Flag",
+                          "Aliases": [],
+                          "Arguments": []
+                        },
+                        {
+                          "Name": "b",
+                          "Description": "Use bind_address on the local machine as the source address of the connection",
+                          "Type": "Flag",
+                          "Aliases": [],
+                          "Arguments": [
+                            {
+                              "Arguments": [
+                                {
+                                  "Name": "bind address",
+                                  "Description": "bind address",
+                                  "Type": "String"
+                                }
+                              ]
+                            }
+                          ]
+                        },
+                        {
+                          "Name": "C",
+                          "Description": "Requests compression of all data (including stdin, stdout, stderr, and data for forwarded X11 and TCP connections)",
+                          "Type": "Flag",
+                          "Aliases": [],
+                          "Arguments": []
+                        },
+                        {
+                          "Name": "c",
+                          "Description": "Selects the cipher specification for encrypting the session",
+                          "Type": "Flag",
+                          "Aliases": [],
+                          "Arguments": [
+                            {
+                              "Arguments": [
+                                {
+                                  "Name": "cipher spec",
+                                  "Description": "cipher spec",
+                                  "Type": "String"
+                                }
+                              ]
+                            }
+                          ]
+                        },
+                        {
+                          "Name": "D",
+                          "Description": "Specifies a local \u0027dynamic\u0027 application-level port forwarding",
+                          "Type": "Flag",
+                          "Aliases": [],
+                          "Arguments": [
+                            {
+                              "Arguments": [
+                                {
+                                  "Name": "port",
+                                  "Description": "port",
+                                  "Type": "String"
+                                }
+                              ]
+                            }
+                          ]
+                        },
+                        {
+                          "Name": "e",
+                          "Description": "Sets the escape character for sessions with a pty (default: \u0027~\u0027)",
+                          "Type": "Flag",
+                          "Aliases": [],
+                          "Arguments": [
+                            {
+                              "Arguments": [
+                                {
+                                  "Name": "escape char",
+                                  "Description": "escape char",
+                                  "Type": "String"
+                                }
+                              ]
+                            }
+                          ]
+                        },
+                        {
+                          "Name": "F",
+                          "Description": "Specifies an alternative per-user configuration file",
+                          "Type": "Flag",
+                          "Aliases": [],
+                          "Arguments": [
+                            {
+                              "Arguments": [
+                                {
+                                  "Name": "configfile",
+                                  "Description": "configfile",
+                                  "Type": "FileSystemEntry"
+                                }
+                              ]
+                            }
+                          ]
+                        },
+                        {
+                          "Name": "f",
+                          "Description": "Requests ssh to go to background just before command execution",
+                          "Type": "Flag",
+                          "Aliases": [],
+                          "Arguments": []
+                        },
+                        {
+                          "Name": "g",
+                          "Description": "Allows remote hosts to connect to local forwarded ports",
+                          "Type": "Flag",
+                          "Aliases": [],
+                          "Arguments": []
+                        },
+                        {
+                          "Name": "I",
+                          "Description": "Specify the PKCS#11 shared library ssh should use to communicate with a PKCS#11 token providing the user\u0027s private RSA key",
+                          "Type": "Flag",
+                          "Aliases": [],
+                          "Arguments": [
+                            {
+                              "Arguments": [
+                                {
+                                  "Name": "pkcs11",
+                                  "Description": "pkcs11",
+                                  "Type": "String"
+                                }
+                              ]
+                            }
+                          ]
+                        },
+                        {
+                          "Name": "i",
+                          "Description": "Selects a file from which the identity (private key) for public key authentication is read",
+                          "Type": "Flag",
+                          "Aliases": [],
+                          "Arguments": [
+                            {
+                              "Arguments": [
+                                {
+                                  "Name": "identity file",
+                                  "Description": "identity file",
+                                  "Type": "FileSystemEntry"
+                                }
+                              ]
+                            }
+                          ]
+                        },
+                        {
+                          "Name": "K",
+                          "Description": "Enables GSSAPI-based authentication and forwarding (delegation) of GSSAPI credentials to the server",
+                          "Type": "Flag",
+                          "Aliases": [],
+                          "Arguments": []
+                        },
+                        {
+                          "Name": "k",
+                          "Description": "Disables forwarding (delegation) of GSSAPI credentials to the server",
+                          "Type": "Flag",
+                          "Aliases": [],
+                          "Arguments": []
+                        },
+                        {
+                          "Name": "L",
+                          "Description": "Specifies that the given port on the local (client) host is to be forwarded to the given host and port on the remote side",
+                          "Type": "Flag",
+                          "Aliases": [],
+                          "Arguments": [
+                            {
+                              "Arguments": [
+                                {
+                                  "Name": "port:host:hostport",
+                                  "Description": "port:host:hostport",
+                                  "Type": "String"
+                                }
+                              ]
+                            }
+                          ]
+                        },
+                        {
+                          "Name": "l",
+                          "Description": "Specifies the user to log in as on the remote machine",
+                          "Type": "Flag",
+                          "Aliases": [],
+                          "Arguments": [
+                            {
+                              "Arguments": [
+                                {
+                                  "Name": "login name",
+                                  "Description": "login name",
+                                  "Type": "String"
+                                }
+                              ]
+                            }
+                          ]
+                        },
+                        {
+                          "Name": "M",
+                          "Description": "Places the ssh client into \u0060\u0060master\u0027\u0027 mode for connection sharing",
+                          "Type": "Flag",
+                          "Aliases": [],
+                          "Arguments": []
+                        },
+                        {
+                          "Name": "m",
+                          "Description": "Additionally, for protocol version 2 a comma-separated list of MAC (message authentication code) algorithms can be specified in order of preference",
+                          "Type": "Flag",
+                          "Aliases": [],
+                          "Arguments": [
+                            {
+                              "Arguments": [
+                                {
+                                  "Name": "mac spec",
+                                  "Description": "mac spec",
+                                  "Type": "String"
+                                }
+                              ]
+                            }
+                          ]
+                        },
+                        {
+                          "Name": "N",
+                          "Description": "Do not execute a remote command",
+                          "Type": "Flag",
+                          "Aliases": [],
+                          "Arguments": []
+                        },
+                        {
+                          "Name": "n",
+                          "Description": "Redirects stdin from /dev/null (actually, prevents reading from stdin)",
+                          "Type": "Flag",
+                          "Aliases": [],
+                          "Arguments": []
+                        },
+                        {
+                          "Name": "O",
+                          "Description": "Control an active connection multiplexing master process",
+                          "Type": "Flag",
+                          "Aliases": [],
+                          "Arguments": [
+                            {
+                              "Arguments": [
+                                {
+                                  "Name": "ctl cmd",
+                                  "Description": "ctl cmd",
+                                  "Type": "String"
+                                }
+                              ]
+                            }
+                          ]
+                        },
+                        {
+                          "Name": "o",
+                          "Description": "Can be used to give options in the format used in the configuration file",
+                          "Type": "Flag",
+                          "Aliases": [],
+                          "Arguments": [
+                            {
+                              "Arguments": [
+                                {
+                                  "Name": "option",
+                                  "Description": "option",
+                                  "Type": "String"
+                                },
+                                {
+                                  "Name": "AddressFamily",
+                                  "Description": "option"
+                                },
+                                {
+                                  "Name": "BatchMode",
+                                  "Description": "option"
+                                },
+                                {
+                                  "Name": "BindAddress",
+                                  "Description": "option"
+                                },
+                                {
+                                  "Name": "ChallengeResponseAuthentication",
+                                  "Description": "option"
+                                },
+                                {
+                                  "Name": "CheckHostIP",
+                                  "Description": "option"
+                                },
+                                {
+                                  "Name": "Cipher",
+                                  "Description": "option"
+                                },
+                                {
+                                  "Name": "Ciphers",
+                                  "Description": "option"
+                                },
+                                {
+                                  "Name": "ClearAllForwardings",
+                                  "Description": "option"
+                                },
+                                {
+                                  "Name": "Compression",
+                                  "Description": "option"
+                                },
+                                {
+                                  "Name": "CompressionLevel",
+                                  "Description": "option"
+                                },
+                                {
+                                  "Name": "ConnectionAttempts",
+                                  "Description": "option"
+                                },
+                                {
+                                  "Name": "ConnectTimeout",
+                                  "Description": "option"
+                                },
+                                {
+                                  "Name": "ControlMaster",
+                                  "Description": "option"
+                                },
+                                {
+                                  "Name": "ControlPath",
+                                  "Description": "option"
+                                },
+                                {
+                                  "Name": "ControlPersist",
+                                  "Description": "option"
+                                },
+                                {
+                                  "Name": "DynamicForward",
+                                  "Description": "option"
+                                },
+                                {
+                                  "Name": "EscapeChar",
+                                  "Description": "option"
+                                },
+                                {
+                                  "Name": "ExitOnForwardFailure",
+                                  "Description": "option"
+                                },
+                                {
+                                  "Name": "ForwardAgent",
+                                  "Description": "option"
+                                },
+                                {
+                                  "Name": "ForwardX11",
+                                  "Description": "option"
+                                },
+                                {
+                                  "Name": "ForwardX11Timeout",
+                                  "Description": "option"
+                                },
+                                {
+                                  "Name": "ForwardX11Trusted",
+                                  "Description": "option"
+                                },
+                                {
+                                  "Name": "GatewayPorts",
+                                  "Description": "option"
+                                },
+                                {
+                                  "Name": "GlobalKnownHostsFile",
+                                  "Description": "option"
+                                },
+                                {
+                                  "Name": "GSSAPIAuthentication",
+                                  "Description": "option"
+                                },
+                                {
+                                  "Name": "GSSAPIDelegateCredentials",
+                                  "Description": "option"
+                                },
+                                {
+                                  "Name": "HashKnownHosts",
+                                  "Description": "option"
+                                },
+                                {
+                                  "Name": "Host",
+                                  "Description": "option"
+                                },
+                                {
+                                  "Name": "HostbasedAuthentication",
+                                  "Description": "option"
+                                },
+                                {
+                                  "Name": "HostKeyAlgorithms",
+                                  "Description": "option"
+                                },
+                                {
+                                  "Name": "HostKeyAlias",
+                                  "Description": "option"
+                                },
+                                {
+                                  "Name": "HostName",
+                                  "Description": "option"
+                                },
+                                {
+                                  "Name": "IdentityFile",
+                                  "Description": "option"
+                                },
+                                {
+                                  "Name": "IdentitiesOnly",
+                                  "Description": "option"
+                                },
+                                {
+                                  "Name": "IPQoS",
+                                  "Description": "option"
+                                },
+                                {
+                                  "Name": "KbdInteractiveAuthentication",
+                                  "Description": "option"
+                                },
+                                {
+                                  "Name": "KbdInteractiveDevices",
+                                  "Description": "option"
+                                },
+                                {
+                                  "Name": "KexAlgorithms",
+                                  "Description": "option"
+                                },
+                                {
+                                  "Name": "LocalCommand",
+                                  "Description": "option"
+                                },
+                                {
+                                  "Name": "LocalForward",
+                                  "Description": "option"
+                                },
+                                {
+                                  "Name": "LogLevel",
+                                  "Description": "option"
+                                },
+                                {
+                                  "Name": "MACs",
+                                  "Description": "option"
+                                },
+                                {
+                                  "Name": "NoHostAuthenticationForLocalhost",
+                                  "Description": "option"
+                                },
+                                {
+                                  "Name": "NumberOfPasswordPrompts",
+                                  "Description": "option"
+                                },
+                                {
+                                  "Name": "PasswordAuthentication",
+                                  "Description": "option"
+                                },
+                                {
+                                  "Name": "PermitLocalCommand",
+                                  "Description": "option"
+                                },
+                                {
+                                  "Name": "PKCS11Provider",
+                                  "Description": "option"
+                                },
+                                {
+                                  "Name": "Port",
+                                  "Description": "option"
+                                },
+                                {
+                                  "Name": "PreferredAuthentications",
+                                  "Description": "option"
+                                },
+                                {
+                                  "Name": "Protocol",
+                                  "Description": "option"
+                                },
+                                {
+                                  "Name": "ProxyCommand",
+                                  "Description": "option"
+                                },
+                                {
+                                  "Name": "PubkeyAuthentication",
+                                  "Description": "option"
+                                },
+                                {
+                                  "Name": "RekeyLimit",
+                                  "Description": "option"
+                                },
+                                {
+                                  "Name": "RequestTTY",
+                                  "Description": "option"
+                                },
+                                {
+                                  "Name": "RhostsRSAAuthentication",
+                                  "Description": "option"
+                                },
+                                {
+                                  "Name": "RSAAuthentication",
+                                  "Description": "option"
+                                },
+                                {
+                                  "Name": "SendEnv",
+                                  "Description": "option"
+                                },
+                                {
+                                  "Name": "ServerAliveInterval",
+                                  "Description": "option"
+                                },
+                                {
+                                  "Name": "ServerAliveCountMax",
+                                  "Description": "option"
+                                },
+                                {
+                                  "Name": "StrictHostKeyChecking",
+                                  "Description": "option"
+                                },
+                                {
+                                  "Name": "TCPKeepAlive",
+                                  "Description": "option"
+                                },
+                                {
+                                  "Name": "Tunnel",
+                                  "Description": "option"
+                                },
+                                {
+                                  "Name": "TunnelDevice",
+                                  "Description": "option"
+                                },
+                                {
+                                  "Name": "UsePrivilegedPort",
+                                  "Description": "option"
+                                },
+                                {
+                                  "Name": "User",
+                                  "Description": "option"
+                                },
+                                {
+                                  "Name": "UserKnownHostsFile",
+                                  "Description": "option"
+                                },
+                                {
+                                  "Name": "VerifyHostKeyDNS",
+                                  "Description": "option"
+                                },
+                                {
+                                  "Name": "VisualHostKey",
+                                  "Description": "option"
+                                },
+                                {
+                                  "Name": "XAuthLocation",
+                                  "Description": "option"
+                                }
+                              ]
+                            }
+                          ]
+                        },
+                        {
+                          "Name": "p",
+                          "Description": "Port to connect to on the remote host",
+                          "Type": "Flag",
+                          "Aliases": [],
+                          "Arguments": [
+                            {
+                              "Arguments": [
+                                {
+                                  "Name": "port",
+                                  "Description": "port",
+                                  "Type": "String"
+                                }
+                              ]
+                            }
+                          ]
+                        },
+                        {
+                          "Name": "q",
+                          "Description": "Quiet mode.  Causes most warning and diagnostic messages to be suppressed",
+                          "Type": "Flag",
+                          "Aliases": [],
+                          "Arguments": []
+                        },
+                        {
+                          "Name": "R",
+                          "Description": "Specifies that the given port on the remote (server) host is to be forwarded to the given host and port on the local side",
+                          "Type": "Flag",
+                          "Aliases": [],
+                          "Arguments": [
+                            {
+                              "Arguments": [
+                                {
+                                  "Name": "port:host:hostport",
+                                  "Description": "port:host:hostport",
+                                  "Type": "String"
+                                }
+                              ]
+                            }
+                          ]
+                        },
+                        {
+                          "Name": "S",
+                          "Description": "Specifies the location of a control socket for connection sharing, or the string \u0027none\u0027 to disable connection sharing",
+                          "Type": "Flag",
+                          "Aliases": [],
+                          "Arguments": [
+                            {
+                              "Arguments": [
+                                {
+                                  "Name": "ctl_path",
+                                  "Description": "ctl_path",
+                                  "Type": "FileSystemEntry"
+                                }
+                              ]
+                            }
+                          ]
+                        },
+                        {
+                          "Name": "s",
+                          "Description": "May be used to request invocation of a subsystem on the remote system",
+                          "Type": "Flag",
+                          "Aliases": [],
+                          "Arguments": []
+                        },
+                        {
+                          "Name": "T",
+                          "Description": "Disable pseudo-tty allocation",
+                          "Type": "Flag",
+                          "Aliases": [],
+                          "Arguments": []
+                        },
+                        {
+                          "Name": "t",
+                          "Description": "Force pseudo-tty allocation",
+                          "Type": "Flag",
+                          "Aliases": [],
+                          "Arguments": []
+                        },
+                        {
+                          "Name": "V",
+                          "Description": "Display the version number and exit",
+                          "Type": "Flag",
+                          "Aliases": [],
+                          "Arguments": []
+                        },
+                        {
+                          "Name": "v",
+                          "Description": "Verbose mode.  Causes ssh to print debugging messages about its progress",
+                          "Type": "Flag",
+                          "Aliases": [],
+                          "Arguments": []
+                        },
+                        {
+                          "Name": "W",
+                          "Description": "Requests that standard input and output on the client be forwarded to host on port over the secure channel",
+                          "Type": "Flag",
+                          "Aliases": [],
+                          "Arguments": [
+                            {
+                              "Arguments": [
+                                {
+                                  "Name": "host:port",
+                                  "Description": "host:port",
+                                  "Type": "String"
+                                }
+                              ]
+                            }
+                          ]
+                        },
+                        {
+                          "Name": "w",
+                          "Description": "Requests tunnel device forwarding with the specified tun(4) devices between the client (local_tun) and the server (remote_tun)",
+                          "Type": "Flag",
+                          "Aliases": [],
+                          "Arguments": [
+                            {
+                              "Arguments": [
+                                {
+                                  "Name": "local tun",
+                                  "Description": "local tun",
+                                  "Type": "String"
+                                }
+                              ]
+                            }
+                          ]
+                        },
+                        {
+                          "Name": "X",
+                          "Description": "Enables X11 forwarding",
+                          "Type": "Flag",
+                          "Aliases": [],
+                          "Arguments": []
+                        },
+                        {
+                          "Name": "x",
+                          "Description": "Disables X11 forwarding",
+                          "Type": "Flag",
+                          "Aliases": [],
+                          "Arguments": []
+                        },
+                        {
+                          "Name": "Y",
+                          "Description": "Enables trusted X11 forwarding",
+                          "Type": "Flag",
+                          "Aliases": [],
+                          "Arguments": []
+                        },
+                        {
+                          "Name": "y",
+                          "Description": "Send log information using the syslog(3) system module",
+                          "Type": "Flag",
+                          "Aliases": [],
+                          "Arguments": []
+                        }
+                      ],
+                      "Optional": true
+                    },
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "user@hostname",
+                          "Description": "user@hostname",
+                          "Type": "String",
+                          "Extensions": []
+                        }
+                      ]
+                    }
+                  ]
                 },
                 {
                   "Name": "choose",

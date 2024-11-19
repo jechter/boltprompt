@@ -2,5 +2,1202 @@
   "Comment": "This command info is generated from fig",
   "Name": "kamal",
   "Description": "Deploy web apps anywhere",
-  "Arguments": []
+  "Arguments": [
+    {
+      "Arguments": [
+        {
+          "Name": "--verbose",
+          "Description": "Detailed logging",
+          "Aliases": [
+            "-v"
+          ],
+          "Arguments": []
+        },
+        {
+          "Name": "--quiet",
+          "Description": "Minimal logging",
+          "Aliases": [
+            "-q"
+          ],
+          "Arguments": []
+        },
+        {
+          "Name": "--version",
+          "Description": "Run commands against a specific app version",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "VERSION",
+                  "Description": "VERSION",
+                  "Type": "String"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "Name": "--primary",
+          "Description": "Run commands only on primary host instead of all",
+          "Aliases": [
+            "-p"
+          ],
+          "Arguments": []
+        },
+        {
+          "Name": "--hosts",
+          "Description": "Run commands on these hosts instead of all (separate by comma)",
+          "Aliases": [
+            "-h"
+          ],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "hosts",
+                  "Description": "hosts",
+                  "Type": "String"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "Name": "--roles",
+          "Description": "Run commands on these roles instead of all (separate by comma)",
+          "Aliases": [
+            "-r"
+          ],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "roles",
+                  "Description": "roles",
+                  "Type": "String"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "Name": "--config_file",
+          "Description": "Path to config file",
+          "Aliases": [
+            "-c"
+          ],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "config",
+                  "Description": "config",
+                  "Type": "String"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "Name": "-d",
+          "Description": "Specify destination to use",
+          "Aliases": [
+            "--destination"
+          ],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "destination",
+                  "Description": "destination",
+                  "Type": "CustomArgument",
+                  "Extensions": [],
+                  "CustomArgumentTemplate": "destination"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "Name": "--skip_hooks",
+          "Description": "Don\u0027t run hooks",
+          "Aliases": [
+            "-H"
+          ],
+          "Arguments": []
+        }
+      ],
+      "Optional": true
+    },
+    {
+      "Arguments": [
+        {
+          "Name": "setup",
+          "Description": "Setup all accessories and deploy app to servers",
+          "Aliases": [],
+          "Arguments": []
+        },
+        {
+          "Name": "destinations",
+          "Description": "List all destinations",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "--json",
+                  "Description": "Output as JSON",
+                  "Aliases": [
+                    "-j"
+                  ],
+                  "Arguments": []
+                }
+              ],
+              "Optional": true
+            }
+          ]
+        },
+        {
+          "Name": "deploy",
+          "Description": "Deploy your app to a destination",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "-P",
+                  "Description": "Skip image build and push",
+                  "Aliases": [
+                    "--skip_push"
+                  ],
+                  "Arguments": []
+                }
+              ],
+              "Optional": true
+            }
+          ]
+        },
+        {
+          "Name": "redeploy",
+          "Description": "Deploy app to servers without bootstrapping servers, starting Traefik, pruning, and registry login",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "-P",
+                  "Description": "Skip image build and push",
+                  "Aliases": [
+                    "--skip_push"
+                  ],
+                  "Arguments": []
+                }
+              ],
+              "Optional": true
+            }
+          ]
+        },
+        {
+          "Name": "rollback",
+          "Description": "Rollback app to VERSION",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "version",
+                  "Description": "version",
+                  "Type": "String"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "Name": "details",
+          "Description": "Show details about all containers",
+          "Aliases": [],
+          "Arguments": []
+        },
+        {
+          "Name": "audit",
+          "Description": "Show audit log from servers",
+          "Aliases": [],
+          "Arguments": []
+        },
+        {
+          "Name": "config",
+          "Description": "Show combined config (including secrets!)",
+          "Aliases": [],
+          "Arguments": []
+        },
+        {
+          "Name": "init",
+          "Description": "Create config stub in config/deploy.yml and env stub in .env",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "bundle",
+                  "Description": "Add Kamal to the Gemfile and create a bin/kamal binstub",
+                  "Aliases": [],
+                  "Arguments": []
+                }
+              ],
+              "Optional": true
+            }
+          ]
+        },
+        {
+          "Name": "envify",
+          "Description": "Create .env by evaluating .env.erb (or .env.staging.erb -\u003E .env.staging when using -d staging)",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "template",
+                  "Description": "Template to use",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "template",
+                          "Description": "template",
+                          "Type": "FileSystemEntry"
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ],
+              "Optional": true
+            }
+          ]
+        },
+        {
+          "Name": "remove",
+          "Description": "Remove Traefik, app, accessories, and registry session from servers",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "--confirmed",
+                  "Description": "Proceed without confirmation question",
+                  "Aliases": [
+                    "-y"
+                  ],
+                  "Arguments": []
+                }
+              ],
+              "Optional": true
+            }
+          ]
+        },
+        {
+          "Name": "version",
+          "Description": "Show Kamal version",
+          "Aliases": [],
+          "Arguments": []
+        },
+        {
+          "Name": "accessory",
+          "Description": "Manage accessories (db/redis/search)",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "boot",
+                  "Description": "Boot new accessory service on host (use NAME=all to boot all accessories)",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "name",
+                          "Description": "name",
+                          "Type": "String"
+                        },
+                        {
+                          "Name": "all",
+                          "Description": "name"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "upload",
+                  "Description": "Upload accessory files to host",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "name",
+                          "Description": "name",
+                          "Type": "String"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "directories",
+                  "Description": "Create accessory directories on host",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "name",
+                          "Description": "name",
+                          "Type": "String"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "reboot",
+                  "Description": "Reboot existing accessory on host (stop container, remove container, start new container)",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "name",
+                          "Description": "name",
+                          "Type": "String"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "start",
+                  "Description": "Start existing accessory container on host",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "name",
+                          "Description": "name",
+                          "Type": "String"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "stop",
+                  "Description": "Stop existing accessory container on host",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "name",
+                          "Description": "name",
+                          "Type": "String"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "restart",
+                  "Description": "Restart existing accessory container on host",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "name",
+                          "Description": "name",
+                          "Type": "String"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "details",
+                  "Description": "Show details about accessory on host (use NAME=all to show all accessories)",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "name",
+                          "Description": "name",
+                          "Type": "String"
+                        },
+                        {
+                          "Name": "all",
+                          "Description": "name"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "exec",
+                  "Description": "Execute a custom command on servers",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "-i",
+                          "Description": "Execute command over ssh for an interactive shell (use for console/bash)",
+                          "Aliases": [
+                            "--interactive"
+                          ],
+                          "Arguments": []
+                        },
+                        {
+                          "Name": "--reuse",
+                          "Description": "Reuse currently running container instead of starting a new one",
+                          "Aliases": [],
+                          "Arguments": []
+                        }
+                      ],
+                      "Optional": true
+                    },
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "name",
+                          "Description": "name",
+                          "Type": "String"
+                        }
+                      ]
+                    },
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "CMD",
+                          "Description": "CMD",
+                          "Type": "String"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "logs",
+                  "Description": "Show log lines from accessory on host",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "--since",
+                          "Description": "Show lines since timestamp\\\u0022 (e.g. 2013-01-02T13:23:37Z) or relative (e.g. 42m for 42 minutes)",
+                          "Aliases": [
+                            "-s"
+                          ],
+                          "Arguments": []
+                        },
+                        {
+                          "Name": "--lines",
+                          "Description": "Number of lines to show from each server",
+                          "Aliases": [
+                            "-n"
+                          ],
+                          "Arguments": []
+                        },
+                        {
+                          "Name": "--grep",
+                          "Description": "Show lines with grep match only (use this to fetch specific requests by id)",
+                          "Aliases": [
+                            "-g"
+                          ],
+                          "Arguments": []
+                        },
+                        {
+                          "Name": "--follow",
+                          "Description": "Follow log on primary server (or specific host set by --hosts)",
+                          "Aliases": [
+                            "-f"
+                          ],
+                          "Arguments": []
+                        }
+                      ],
+                      "Optional": true
+                    }
+                  ]
+                },
+                {
+                  "Name": "status",
+                  "Description": "Show status of accessory on host",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "name",
+                          "Description": "name",
+                          "Type": "String"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "remove",
+                  "Description": "Remove accessory container, image and data directory from host",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "-y",
+                          "Description": "Proceed without confirmation question",
+                          "Aliases": [
+                            "--confirmed"
+                          ],
+                          "Arguments": []
+                        }
+                      ],
+                      "Optional": true
+                    },
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "name",
+                          "Description": "name",
+                          "Type": "String"
+                        },
+                        {
+                          "Name": "all",
+                          "Description": "name"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "remove_container",
+                  "Description": "Remove accessory container from host",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "name",
+                          "Description": "name",
+                          "Type": "String"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "remove_image",
+                  "Description": "Remove accessory image from host",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "name",
+                          "Description": "name",
+                          "Type": "String"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "remove_service_directory",
+                  "Description": "Remove accessory directory used for uploaded files and data directories from host",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "name",
+                          "Description": "name",
+                          "Type": "String"
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ],
+              "DontAllowMultiple": true
+            }
+          ]
+        },
+        {
+          "Name": "app",
+          "Description": "Manage application",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "boot",
+                  "Description": "Boot app on servers (or reboot app if already running)",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "start",
+                  "Description": "Start existing app container on servers",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "stop",
+                  "Description": "Stop app container on servers",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "details",
+                  "Description": "Show details about app containers",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "exec",
+                  "Description": "Execute a custom command on servers",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "--interactive",
+                          "Description": "Execute command over ssh for an interactive shell (use for console/bash)",
+                          "Aliases": [
+                            "-i"
+                          ],
+                          "Arguments": []
+                        },
+                        {
+                          "Name": "--reuse",
+                          "Description": "Reuse currently running container instead of starting a new one",
+                          "Aliases": [],
+                          "Arguments": []
+                        }
+                      ],
+                      "Optional": true
+                    },
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "CMD",
+                          "Description": "CMD",
+                          "Type": "String"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "containers",
+                  "Description": "Show app containers on servers",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "stale_containers",
+                  "Description": "Detect app stale containers",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "--stop",
+                          "Description": "Stop the stale containers found",
+                          "Aliases": [
+                            "-s"
+                          ],
+                          "Arguments": []
+                        }
+                      ],
+                      "Optional": true
+                    }
+                  ]
+                },
+                {
+                  "Name": "images",
+                  "Description": "Show app images on servers",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "logs",
+                  "Description": "Show log lines from app on servers (use --help to show options)",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "--since",
+                          "Description": "Show lines since timestamp\\\u0022 (e.g. 2013-01-02T13:23:37Z) or relative (e.g. 42m for 42 minutes)",
+                          "Aliases": [
+                            "-s"
+                          ],
+                          "Arguments": []
+                        },
+                        {
+                          "Name": "--lines",
+                          "Description": "Number of lines to show from each server",
+                          "Aliases": [
+                            "-n"
+                          ],
+                          "Arguments": []
+                        },
+                        {
+                          "Name": "--grep",
+                          "Description": "Show lines with grep match only (use this to fetch specific requests by id)",
+                          "Aliases": [
+                            "-g"
+                          ],
+                          "Arguments": []
+                        },
+                        {
+                          "Name": "--follow",
+                          "Description": "Follow log on primary server (or specific host set by --hosts)",
+                          "Aliases": [
+                            "-f"
+                          ],
+                          "Arguments": []
+                        }
+                      ],
+                      "Optional": true
+                    }
+                  ]
+                },
+                {
+                  "Name": "remove",
+                  "Description": "Remove app containers and images from servers",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "remove_container",
+                  "Description": "Remove app container with given version from servers",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "VERSION",
+                          "Description": "VERSION",
+                          "Type": "String"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Name": "remove_containers",
+                  "Description": "Remove all app containers from servers",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "remove_images",
+                  "Description": "Remove all app images from servers",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "version",
+                  "Description": "Show app version currently running on servers",
+                  "Aliases": [],
+                  "Arguments": []
+                }
+              ],
+              "DontAllowMultiple": true
+            }
+          ]
+        },
+        {
+          "Name": "build",
+          "Description": "Build application image",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "deliver",
+                  "Description": "Build app and push app image to registry then pull image on servers",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "push",
+                  "Description": "Build and push app image to registry",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "pull",
+                  "Description": "Pull app image from registry onto servers",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "create",
+                  "Description": "Create a build setup",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "remove",
+                  "Description": "Remove build setup",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "details",
+                  "Description": "Show build setup",
+                  "Aliases": [],
+                  "Arguments": []
+                }
+              ],
+              "DontAllowMultiple": true
+            }
+          ]
+        },
+        {
+          "Name": "healthcheck",
+          "Description": "Healthcheck application",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "perform",
+                  "Description": "Health check current app version",
+                  "Aliases": [],
+                  "Arguments": []
+                }
+              ],
+              "DontAllowMultiple": true
+            }
+          ]
+        },
+        {
+          "Name": "lock",
+          "Description": "Manage the deploy lock",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "status",
+                  "Description": "Report lock status",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "acquire",
+                  "Description": "Acquire the deploy lock",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "message",
+                          "Description": "",
+                          "Aliases": [
+                            "m"
+                          ],
+                          "Arguments": [
+                            {
+                              "Arguments": [
+                                {
+                                  "Name": "message",
+                                  "Description": "message",
+                                  "Type": "String"
+                                }
+                              ]
+                            }
+                          ]
+                        }
+                      ],
+                      "Optional": true
+                    }
+                  ]
+                },
+                {
+                  "Name": "release",
+                  "Description": "Release the deploy lock",
+                  "Aliases": [],
+                  "Arguments": []
+                }
+              ],
+              "DontAllowMultiple": true
+            }
+          ]
+        },
+        {
+          "Name": "prune",
+          "Description": "Prune old application images and containers",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "all",
+                  "Description": "Prune unused images and stopped containers",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "images",
+                  "Description": "Prune unused images",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "containers",
+                  "Description": "Prune stopped containers, except last 5",
+                  "Aliases": [],
+                  "Arguments": []
+                }
+              ],
+              "DontAllowMultiple": true
+            }
+          ]
+        },
+        {
+          "Name": "registry",
+          "Description": "Login and -out of the image registry",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "login",
+                  "Description": "Login to registry locally and remotely",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "logout",
+                  "Description": "Log out of registry remotely",
+                  "Aliases": [],
+                  "Arguments": []
+                }
+              ],
+              "DontAllowMultiple": true
+            }
+          ]
+        },
+        {
+          "Name": "server",
+          "Description": "Bootstrap servers with curl and Docker",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "bootstrap",
+                  "Description": "Set up Docker to run Kamal apps",
+                  "Aliases": [],
+                  "Arguments": []
+                }
+              ],
+              "DontAllowMultiple": true
+            }
+          ]
+        },
+        {
+          "Name": "traefik",
+          "Description": "Manage Traefik load balancer",
+          "Aliases": [],
+          "Arguments": [
+            {
+              "Arguments": [
+                {
+                  "Name": "boot",
+                  "Description": "Boot Traefik on servers",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "reboot",
+                  "Description": "Reboot Traefik on servers (stop container, remove container, start new container)",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "--rolling",
+                          "Description": "Reboot traefik on hosts in sequence, rather than in parallel",
+                          "Aliases": [],
+                          "Arguments": []
+                        }
+                      ],
+                      "Optional": true
+                    }
+                  ]
+                },
+                {
+                  "Name": "start",
+                  "Description": "Start existing Traefik container on servers",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "stop",
+                  "Description": "Stop existing Traefik container on servers",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "restart",
+                  "Description": "Restart existing Traefik container on servers",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "details",
+                  "Description": "Show details about Traefik container from servers",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "logs",
+                  "Description": "Show log lines from Traefik on servers",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "--since",
+                          "Description": "Show lines since timestamp\\\u0022 (e.g. 2013-01-02T13:23:37Z) or relative (e.g. 42m for 42 minutes)",
+                          "Aliases": [
+                            "-s"
+                          ],
+                          "Arguments": []
+                        },
+                        {
+                          "Name": "--lines",
+                          "Description": "Number of lines to show from each server",
+                          "Aliases": [
+                            "-n"
+                          ],
+                          "Arguments": []
+                        },
+                        {
+                          "Name": "--grep",
+                          "Description": "Show lines with grep match only (use this to fetch specific requests by id)",
+                          "Aliases": [
+                            "-g"
+                          ],
+                          "Arguments": []
+                        },
+                        {
+                          "Name": "--follow",
+                          "Description": "Follow log on primary server (or specific host set by --hosts)",
+                          "Aliases": [
+                            "-f"
+                          ],
+                          "Arguments": []
+                        }
+                      ],
+                      "Optional": true
+                    }
+                  ]
+                },
+                {
+                  "Name": "remove",
+                  "Description": "Remove Traefik container and image from servers",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "remove_container",
+                  "Description": "Remove Traefik container from servers",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "remove_image",
+                  "Description": "Remove Traefik image from servers",
+                  "Aliases": [],
+                  "Arguments": []
+                },
+                {
+                  "Name": "help",
+                  "Description": "Describe subcommands or one specific subcommand",
+                  "Aliases": [],
+                  "Arguments": [
+                    {
+                      "Arguments": [
+                        {
+                          "Name": "subcommand",
+                          "Description": "subcommand",
+                          "Type": "String"
+                        },
+                        {
+                          "Name": "boot",
+                          "Description": "subcommand"
+                        },
+                        {
+                          "Name": "details",
+                          "Description": "subcommand"
+                        },
+                        {
+                          "Name": "help",
+                          "Description": "subcommand"
+                        },
+                        {
+                          "Name": "logs",
+                          "Description": "subcommand"
+                        },
+                        {
+                          "Name": "reboot",
+                          "Description": "subcommand"
+                        },
+                        {
+                          "Name": "remove",
+                          "Description": "subcommand"
+                        },
+                        {
+                          "Name": "restart",
+                          "Description": "subcommand"
+                        },
+                        {
+                          "Name": "start",
+                          "Description": "subcommand"
+                        },
+                        {
+                          "Name": "stop",
+                          "Description": "subcommand"
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ],
+              "DontAllowMultiple": true
+            }
+          ]
+        }
+      ],
+      "DontAllowMultiple": true
+    }
+  ],
+  "CustomArgumentTemplates": [
+    {
+      "Name": "destination",
+      "Command": "bin/kamal destinations --json"
+    }
+  ]
 }

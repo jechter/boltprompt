@@ -398,7 +398,7 @@ internal class FigCommandInfoSupplier : ICommandInfoSupplier
             targetPath.Delete();
         tempArtifacts.Combine($"{command}.js").Move(targetPath);
         commandResult = await Cli.Wrap("node")
-            .WithArguments(new string[] { FigListScript.ToString(), tempArtifacts.Combine($"{command}.mjs").ToString() })
+            .WithArguments(new string[] { FigListScript.ToString(), targetPath.ToString() })
             .WithEnvironmentVariables(new Dictionary<string, string?> {{ "NODE_PATH", FigListDir.Combine("node_modules").ToString() }})
             .WithWorkingDirectory(FigListDir.ToString())
             .ExecuteBufferedAsync();
