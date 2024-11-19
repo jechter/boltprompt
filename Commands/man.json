@@ -218,12 +218,18 @@
         {
           "Name": "String",
           "Description": "manual page to show",
-          "Type": "CommandName"
+          "Type": "CustomArgument",
+          "CustomArgumentTemplate": "manpages"
         }
       ]
     }
   ],
   "CustomArgumentTemplates": [
+    {
+      "Name": "manpages",
+      "Command": "man -k .",
+      "Regex": "([\\S]+\\b)\\(\\d\\).*\\s*-\\s*(.*)$"
+    },
     {
       "Name": "mansection",
       "Arguments": [

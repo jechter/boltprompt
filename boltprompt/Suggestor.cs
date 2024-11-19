@@ -427,7 +427,7 @@ public static partial class Suggestor
             }
             else
             {
-                if (!s.Text.Contains(lastParam, StringComparison.InvariantCulture) &&
+                if (!s.Text.Contains(lastParam, StringComparison.InvariantCultureIgnoreCase) &&
                     !(s.Description?.Contains(lastParam, StringComparison.InvariantCultureIgnoreCase) ?? false))
                     return false;
             }
