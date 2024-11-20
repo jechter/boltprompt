@@ -12,6 +12,8 @@ public static class History
         public string? AIPrompt;
         [JsonInclude]
         public string? WorkingDirectory;
+        [JsonInclude]
+        public string? TerminalSession;
         [JsonInclude] 
         public bool CommandHasRelativePaths;
 
@@ -31,7 +33,13 @@ public static class History
         var commandHasRelativePaths = parsedCommand.Any(part => 
                 part is { Type: CommandLineParser.CommandLinePart.PartType.Argument, Argument.Type: CommandInfo.ArgumentType.File or CommandInfo.ArgumentType.Directory or CommandInfo.ArgumentType.FileSystemEntry }
                 && Suggestor.UnescapeFileName(part.Text).IsRelative);
-        var command = new Command(commandLine) { AIPrompt = aiPrompt, WorkingDirectory = NPath.CurrentDirectory.ToString(), CommandHasRelativePaths = commandHasRelativePaths };
+        var command = new Command(commandLine)
+        {
+            AIPrompt = aiPrompt, 
+            WorkingDirectory = NPath.CurrentDirectory.ToString(), 
+            CommandHasRelativePaths = commandHasRelativePaths,
+            TerminalSession = TerminalUtility.TerminalSession
+        };
         _commands = null; // Force reload from disk, so we don't overwrite changes from other parallel boltprompt processes.
         _commands = Commands.Where(c => c != command).Append(command).ToArray();
         Paths.History.WriteAllText(JsonSerializer.Serialize(_commands));
@@ -46,7 +54,17 @@ public static class History
             if (!Paths.History.FileExists()) return _commands;
             try
             {
-                _commands = JsonSerializer.Deserialize<Command[]>(Paths.History.ReadAllText()) ?? [];
+                var commandsFromFile = JsonSerializer.Deserialize<Command[]>(Paths.History.ReadAllText());
+                if (commandsFromFile != null)
+                {
+                    var commandsFromOtherTerminals = commandsFromFile.Where(c => c.TerminalSession != TerminalUtility.TerminalSession).ToArray();
+                    var commandsFromThisTerminal = commandsFromFile.Where(c => c.TerminalSession == TerminalUtility.TerminalSession).ToArray();
+
+                    _commands = commandsFromOtherTerminals
+                        .Where(c => commandsFromThisTerminal.All(c2 => c2.Commandline != c.Commandline))
+                        .Concat(commandsFromThisTerminal)
+                        .ToArray();
+                }
             }
             catch (JsonException)
             {

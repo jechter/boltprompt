@@ -9,7 +9,7 @@ namespace boltprompt;
 public static class TerminalUtility
 {
     private static string? Terminal => Environment.GetEnvironmentVariable("TERM_PROGRAM");
-    private static string TerminalSession => Environment.GetEnvironmentVariable("TERM_SESSION_ID") ?? "Unknown";
+    public static string TerminalSession { get; } = Environment.GetEnvironmentVariable("TERM_SESSION_ID") ?? "Unknown";
 
     private const string AppleTerminal = "Apple_Terminal";
     private const string iTerm = "iTerm.app";
