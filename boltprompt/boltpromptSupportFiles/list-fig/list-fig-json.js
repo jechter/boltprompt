@@ -11,13 +11,43 @@ async function executeShellCommand({ command, args }) {
     });
 }
 
-// Dynamically import the file
+function mergeDeep(target, source) {
+    for (const key in source) {
+        if (source.hasOwnProperty(key)) {
+            const sourceValue = source[key];
+            const targetValue = target[key];
+
+            if (Array.isArray(sourceValue)) {
+                if (Array.isArray(targetValue)) {
+                    target[key] = targetValue.concat(sourceValue);
+                } else {
+                    target[key] = sourceValue.slice();
+                }
+            } else if (
+                typeof sourceValue === "object" && 
+                sourceValue !== null && 
+                !Array.isArray(sourceValue)
+            ) {
+                if (typeof targetValue === "object" && targetValue !== null) {
+                    mergeDeep(targetValue, sourceValue);
+                } else {
+                    target[key] = {};
+                    mergeDeep(target[key], sourceValue);
+                }
+            } else {
+                target[key] = sourceValue;
+            }
+        }
+    }
+    return target;
+}
+
 import(filePath)
     .then((module) => {
         if (module.default.generateSpec != null)
         {
             module.default.generateSpec(null, executeShellCommand).then((spec) => {
-                console.log(JSON.stringify({ ...module.default, ...spec}, null, 2));      
+                console.log(JSON.stringify(mergeDeep(module.default, spec), null, 2));      
             });
         }
         else
