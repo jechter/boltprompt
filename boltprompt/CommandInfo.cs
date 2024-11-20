@@ -113,6 +113,8 @@ public record CommandInfo
         [JsonInclude]
         [DescriptionForLanguageModel("A list of Argument groups with command line sub arguments following the argument. All arguments in a single group can come in any random order. If an argument needs to come after another argument, it should come in a new group. If the argument does not take any sub arguments, this should be empty.")]
         public ArgumentGroup[]? Arguments;
+        [JsonInclude]
+        public string? Icon;
 
         [JsonIgnore]
         public string[] AllNames => new[] { Name }.Concat(Aliases ?? []).ToArray(); 

@@ -362,12 +362,12 @@ public static partial class Suggestor
                     Suggestion FlagSuggestion(string text) => new(text)
                     {
                         Description = arg.Description,
-                        Icon = "⚐",
+                        Icon = arg.Icon ?? "⚐",
                         Argument = arg
                     };
                 case CommandInfo.ArgumentType.Keyword:
                     foreach (var s in arg.AllNames
-                         .Select(n => new Suggestion(n) {Description = arg.Description, Argument = arg})
+                         .Select(n => new Suggestion(n) {Description = arg.Description, Argument = arg, Icon = arg.Icon})
                          .Where(MatchSuggestion))
                         yield return s;
                     break;
@@ -397,12 +397,12 @@ public static partial class Suggestor
                         yield return new (lastParam) { Description = string.IsNullOrEmpty(arg.Description) ? arg.Name : arg.Description, Argument = arg };
                     break;
                 case CommandInfo.ArgumentType.String:
-                    yield return new (lastParam) { Description = string.IsNullOrEmpty(arg.Description) ? arg.Name : arg.Description, Argument = arg };
+                    yield return new (lastParam) { Description = string.IsNullOrEmpty(arg.Description) ? arg.Name : arg.Description, Argument = arg, Icon = arg.Icon };
                     foreach (var c in History.Commands
                                  .Where(cmd => cmd.Commandline.StartsWith(commandline) && cmd.ParsedCommandLine.Length > parts.Length)
                                  .Select(cmd => cmd.ParsedCommandLine[parts.Length].Text)
                              )
-                        yield return new (c) { Description = string.IsNullOrEmpty(arg.Description) ? arg.Name : arg.Description, Argument = arg };
+                        yield return new (c) { Description = string.IsNullOrEmpty(arg.Description) ? arg.Name : arg.Description, Argument = arg, Icon = arg.Icon };
                     
                     // We have no suggestions for generic strings
                     break;

@@ -21,6 +21,8 @@ internal record FigCommandInfo
     [JsonInclude]
     public string? loadSpec;
     [JsonInclude]
+    public string? icon;
+    [JsonInclude]
     [JsonConverter(typeof(ArrayOrSingleValueConverter<FigCommandInfo>))]
     public FigCommandInfo[]? subcommands;
 }
@@ -110,6 +112,8 @@ internal record FigOption
     [JsonInclude]
     public bool requiresSeparator = false;
     [JsonInclude]
+    public string? icon;
+    [JsonInclude]
     [JsonConverter(typeof(ArrayOrSingleValueConverter<FigArg>))]
     public FigArg[]? args;
 }
@@ -135,6 +139,8 @@ internal record FigSuggestion
     public string[] name = [];
     [JsonInclude]
     public string? description;
+    [JsonInclude]
+    public string? icon;
 }
 
 internal record FigArg
@@ -150,6 +156,8 @@ internal record FigArg
     [JsonInclude]
     [JsonConverter(typeof(SuggestionConverter))]
     public FigSuggestion[]? suggestions = null;
+    [JsonInclude]
+    public string? icon;
     [JsonInclude]
     [JsonConverter(typeof(ArrayOrSingleValueConverter<FigGenerator>))]
     public FigGenerator[]? generators = null;
@@ -231,7 +239,8 @@ internal class FigCommandInfoSupplier : ICommandInfoSupplier
             Description = figOption.description ?? "",
             Aliases = figOption.name.Skip(1).Where(n => n != null).Select(ConvertOptionName).ToArray(),
             Type = type,
-            Arguments = figOption.args?.Select(ConvertFigArgument).ToArray() ?? []
+            Arguments = figOption.args?.Select(ConvertFigArgument).ToArray() ?? [],
+            Icon = ConvertFigIcon(figOption.icon)
         };
         string ConvertOptionName(string? name) => name != null ? type == CommandInfo.ArgumentType.Flag ? name[1..] : name : "";
     }
@@ -265,7 +274,8 @@ internal class FigCommandInfoSupplier : ICommandInfoSupplier
                 Type = GetArgumentType(figArg),
                 Description = figArg.name.FirstOrDefault(""),
                 Extensions = figArg.generators?[0].extensions ?? null,
-                CustomArgumentTemplate = GetCustomCommandTemplateForGenerator(figArg)
+                CustomArgumentTemplate = GetCustomCommandTemplateForGenerator(figArg),
+                Icon = ConvertFigIcon(figArg.icon),
             }}
             .Concat(figArg.suggestions?.Select(s => new CommandInfo.Argument(s.name.FirstOrDefault("")) { Description = s.description ?? figArg.name.FirstOrDefault() ?? ""}) ?? [])
             .ToArray()
@@ -288,10 +298,19 @@ internal class FigCommandInfoSupplier : ICommandInfoSupplier
             Type = CommandInfo.ArgumentType.Keyword,
             Aliases = figCommand.name.Skip(1).ToArray(),
             Description = figCommand.description ?? "",
-            Arguments = await ConvertFigArguments(figCommand)
+            Arguments = await ConvertFigArguments(figCommand),
+            Icon = ConvertFigIcon(figCommand.icon)
         };
     }
 
+    private static string? ConvertFigIcon(string? icon)
+    {
+        if (icon == null)
+            return null;
+        // we only support emoji-style icons, not urls.
+        return icon.Contains(':') ? null : icon;
+    }
+    
     private async Task<CommandInfo.ArgumentGroup[]> ConvertFigArguments(FigCommandInfo figCommandInfo)
     {
         var arggroups = new List<CommandInfo.ArgumentGroup>();
