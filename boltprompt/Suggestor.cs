@@ -20,6 +20,8 @@ public record Suggestion(string Text)
 
     public virtual string? SecondaryDescription { get; set; }
     public CommandInfo.Argument? Argument { get; set; }
+
+    public int Priority = 0;
 }
 
 internal record FileSystemSuggestion : Suggestion
@@ -166,7 +168,14 @@ public static partial class Suggestor
             // (to avoid fake matches for keywords as string arguments suggested from history) 
             if (result[i - 1].Text.Trim() == result[i].Text.Trim())
             {
-                if (string.IsNullOrEmpty(result[i].Description))
+                if (result[i].Priority != result[i - 1].Priority)
+                {
+                    if (result[i].Priority < result[i - 1].Priority)
+                        result.RemoveAt(i--);
+                    else
+                        result.RemoveAt(--i);
+                }
+                else if (string.IsNullOrEmpty(result[i].Description))
                     result.RemoveAt(i--);
                 else
                     result.RemoveAt(--i);
@@ -387,22 +396,38 @@ public static partial class Suggestor
                     // if we have no matching files, or if type is unknown (ie may not be a path at all), return a match for whatever was typed to allow creating new paths.
                     // Also, if we have matching files, but whatever was typed matches a directory, return that, so we can get the directory with no further completions
                     if (!hasMatch || arg.Type == CommandInfo.ArgumentType.Unknown || (arg.Type != CommandInfo.ArgumentType.File && lastParamPath.DirectoryExists()))
-                        yield return new FileSystemSuggestion(lastParam) { Description = string.IsNullOrEmpty(arg.Description) ? arg.Name : arg.Description, Argument = arg };
+                        yield return new FileSystemSuggestion(lastParam)
+                        {
+                            Description = string.IsNullOrEmpty(arg.Description) ? arg.Name : arg.Description, 
+                            Argument = arg,
+                            Priority = -1
+                        };
 
                     break;
                 case CommandInfo.ArgumentType.CustomArgument:
                     foreach (var s in CustomArguments.Get(arg, parsingState.Last().CommandInfo, parts, lastParam).Where(MatchSuggestion))
                         yield return s;
                     if (!hasMatch)
-                        yield return new (lastParam) { Description = string.IsNullOrEmpty(arg.Description) ? arg.Name : arg.Description, Argument = arg };
+                        yield return new (lastParam)
+                        {
+                            Description = string.IsNullOrEmpty(arg.Description) ? arg.Name : arg.Description, 
+                            Argument = arg,
+                            Priority = -1
+                        };
                     break;
                 case CommandInfo.ArgumentType.String:
-                    yield return new (lastParam) { Description = string.IsNullOrEmpty(arg.Description) ? arg.Name : arg.Description, Argument = arg, Icon = arg.Icon };
+                    yield return new (lastParam) { Description = string.IsNullOrEmpty(arg.Description) ? arg.Name : arg.Description, Argument = arg, Icon = arg.Icon, Priority = -1 };
                     foreach (var c in History.Commands
                                  .Where(cmd => cmd.Commandline.StartsWith(commandline) && cmd.ParsedCommandLine.Length > parts.Length)
                                  .Select(cmd => cmd.ParsedCommandLine[parts.Length].Text)
                              )
-                        yield return new (c) { Description = string.IsNullOrEmpty(arg.Description) ? arg.Name : arg.Description, Argument = arg, Icon = arg.Icon };
+                        yield return new (c)
+                        {
+                            Description = string.IsNullOrEmpty(arg.Description) ? arg.Name : arg.Description, 
+                            Argument = arg, 
+                            Icon = arg.Icon,
+                            Priority = -1
+                        };
                     
                     // We have no suggestions for generic strings
                     break;

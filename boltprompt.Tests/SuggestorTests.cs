@@ -977,12 +977,32 @@ public class SuggestorTests
         Assert.That(suggestions, Is.EqualTo(new [] {"b"}));
 
     }
-    
+
     [Test]
     public void CanSuggestEnvironmentVariables()
     {
         Environment.SetEnvironmentVariable("FOO", "Test Value");
         var suggestions = Suggestor.SuggestionsForPrompt("$");
+        Assert.That(suggestions, Does.Contain(new Suggestion("$FOO") { Description = "Test Value" }));
+    }
+
+    [Test]
+    public void CanSuggestEnvironmentVariablesForStringArgument()
+    {
+        Environment.SetEnvironmentVariable("FOO", "Test Value");
+        var ci = new CommandInfo
+        {
+            Arguments =
+            [
+                new([
+                    new("a") { Type = CommandInfo.ArgumentType.String },
+                ])
+            ]
+        };
+        var suggestions = GetSuggestionsForTestExecutable(ci, " $FOO");
+        
+        // Make sure that the environment variable description takes priority over the
+        // generic string suggestion for the currently typed value
         Assert.That(suggestions, Does.Contain(new Suggestion("$FOO") {Description = "Test Value"}));
     }
 
