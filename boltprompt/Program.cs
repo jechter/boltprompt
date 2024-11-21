@@ -7,8 +7,13 @@ var scopeOption = new Option<ShellInstaller.InstallScope>(
     description: "scope for installation",
     getDefaultValue: () => ShellInstaller.InstallScope.user);
 
+var outputCommandOption = new Option<string?>(
+    name: "--output-command",
+    description: "Output command");
+
 var rootCommand = new RootCommand("boltprompt interactive shell command prompt editor")
 {
+    outputCommandOption,
     FigConvertCommand(), 
     InstallCommand(), 
     UninstallCommand(),
@@ -16,7 +21,7 @@ var rootCommand = new RootCommand("boltprompt interactive shell command prompt e
     ConfigCommand()
 };
 
-rootCommand.SetHandler(_ => { new MainLoop().Run(); });
+rootCommand.SetHandler((outputCommand) => { new MainLoop(outputCommand).Run(); }, outputCommandOption);
 
 await rootCommand.InvokeAsync(args);
 return;

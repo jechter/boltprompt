@@ -1,3 +1,5 @@
+using NiceIO;
+
 namespace boltprompt;
 
 internal class MainLoop
@@ -8,10 +10,12 @@ internal class MainLoop
     private int _screenWidth;
     private bool _needsRedraw;
     private bool _didShowSuggestions;
+    private readonly NPath _outputCommand;
     private Suggestion[] _suggestions = [];
     
-    public MainLoop()
+    public MainLoop(string? outputCommand)
     {
+        _outputCommand = outputCommand ?? "/tmp/custom-command";
         _selection = -1;
         _screenWidth = Console.WindowWidth;
         // Most commands will end output with a new line. But if they don't, we don't want to
@@ -229,7 +233,7 @@ internal class MainLoop
         SuggestionConsoleViewer.Clear(top);
         BufferedConsole.Flush();
         Console.WriteLine();
-        File.WriteAllText("/tmp/custom-command", command);
+        _outputCommand.WriteAllText(command);
         History.AddCommandToHistory(command, _aiPrompt);
     }
 }

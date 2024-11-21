@@ -42,21 +42,22 @@ if [ -n "$TERM" ]; then
   }
   
   TEMP_RESULT=0
-  
+  BOLTPROMPT_COMMAND_PATH=$(mktemp ${TMPDIR:-/tmp/}boltprompt-command.XXXXXX) 
   restore_status() { return $TEMP_RESULT; }
   
   generate_command() {
-    boltprompt
+    boltprompt --output-command "$BOLTPROMPT_COMMAND_PATH"
     if [ $? -ne 0 ]; then
       echo "failed"
       return 1 
     else    
-      CUSTOM_PROMPT=$(cat /tmp/custom-command)
+      CUSTOM_PROMPT=$(cat "$BOLTPROMPT_COMMAND_PATH")
       trap signal_handler SIGINT
       restore_status
       eval $CUSTOM_PROMPT
       TEMP_RESULT=$?
       add_to_history $CUSTOM_PROMPT
+      rm "$BOLTPROMPT_COMMAND_PATH"
       return 0
     fi
   }
