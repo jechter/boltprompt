@@ -16,6 +16,8 @@ public static class History
         public string? TerminalSession;
         [JsonInclude] 
         public bool CommandHasRelativePaths;
+        [JsonInclude] 
+        public DateTime TimeStamp;
 
         private CommandLineParser.CommandLinePart[]? _commandLineParts;
 
@@ -24,7 +26,26 @@ public static class History
             _commandLineParts ??= CommandLineParser.ParseCommandLine(Commandline).ToArray();
     }
     
-    private static Command[]? _commands; 
+    private static Command[]? _commands;
+
+    
+    internal static void PurgeHistoryIfNeeded(int maxHistoryLength, TimeSpan timeToMergeOldHistory)
+    {
+        if (_commands == null)
+            return;
+        if (_commands.Length < maxHistoryLength)
+            return;
+        
+        var now = DateTime.UtcNow;
+        var oldHistory = _commands.Where(c => now - c.TimeStamp > timeToMergeOldHistory).DistinctBy(c => c.Commandline).ToArray();
+        var newHistory = _commands.Where(c => now - c.TimeStamp <= timeToMergeOldHistory);
+        _commands = oldHistory.Concat(newHistory).ToArray();
+        Console.WriteLine($"Old History: {oldHistory.Length}");
+        if (_commands.Length < maxHistoryLength)
+            return;
+        
+        _commands = _commands.OrderBy(c => c.TimeStamp).TakeLast(maxHistoryLength).ToArray();
+    }
     
     public static void AddCommandToHistory(string commandLine, string? aiPrompt)
     {
@@ -38,10 +59,12 @@ public static class History
             AIPrompt = aiPrompt, 
             WorkingDirectory = NPath.CurrentDirectory.ToString(), 
             CommandHasRelativePaths = commandHasRelativePaths,
-            TerminalSession = TerminalUtility.TerminalSession
+            TerminalSession = TerminalUtility.TerminalSession,
+            TimeStamp = DateTime.UtcNow,
         };
         _commands = null; // Force reload from disk, so we don't overwrite changes from other parallel boltprompt processes.
         _commands = Commands.Where(c => c != command).Append(command).ToArray();
+        PurgeHistoryIfNeeded(4096, TimeSpan.FromDays(7));
         Paths.History.WriteAllText(JsonSerializer.Serialize(_commands));
     }
 

@@ -815,6 +815,30 @@ public class SuggestorTests
         Assert.That(suggestions, Does.Contain("foo bar"));
         Assert.That(suggestions, Does.Contain("bar"));
     }
+    
+    [Test]
+    public void CanPurgeHistory()
+    {
+        var now = DateTime.Now;
+        History.LoadTestHistoryCommands([
+            new ("qux") {TimeStamp = now - TimeSpan.FromDays(4)},
+            new ("baz") {TimeStamp = now - TimeSpan.FromDays(3)},
+            new ("baz") {TimeStamp = now - TimeSpan.FromDays(2)},
+            new ("bar") {TimeStamp = now - TimeSpan.FromDays(1)},
+            new ("foo") {TimeStamp = now}
+        ]);
+        
+        History.PurgeHistoryIfNeeded(4, TimeSpan.FromDays(1));
+        
+        // First, it will purge duplicates older than timeToMergeOldHistory
+        Assert.That(History.Commands.Select(c => c.Commandline).ToArray(), Is.EqualTo(new string[]{"qux", "baz", "bar", "foo"}));
+        
+        History.PurgeHistoryIfNeeded(3, TimeSpan.FromDays(1));
+
+        // Then it will purge old entries
+        Assert.That(History.Commands.Select(c => c.Commandline).ToArray(), Is.EqualTo(new string[]{"baz", "bar", "foo"}));
+
+    }
 
     [Test]
     public void FileSystemArgumentIsSorted()
