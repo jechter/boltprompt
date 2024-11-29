@@ -1,38 +1,34 @@
-using LanguageModels;
-using Microsoft.Extensions.Configuration;
-using Microsoft.Extensions.DependencyInjection;
+using Microsoft.Extensions.AI;
+using OpenAI;
 
 namespace boltprompt;
 
 class AIService
 {
-    readonly ServiceProvider _serviceProvider;
-    public static bool Available => Instance.IsAvailable();
-    public static ILanguageModel LanguageModel => Instance._serviceProvider.GetRequiredService<ILanguageModel>();
+    public static bool Available => Configuration.Instance.OpenAiApiKey != null;
 
-    private static IEnumerable<KeyValuePair<string, string?>> GetBoltpromptConfiguration()
-    {
-        var apiKey = boltprompt.Configuration.Instance.OpenAiApiKey;
-        if (apiKey != null)
-            yield return new ("OPENAI_API_KEY", apiKey);
-    }
-    
-    private IConfiguration Configuration { get; } = new ConfigurationBuilder()
-        .AddUserSecrets<AIService>()
-        .AddEnvironmentVariables()
-        .AddInMemoryCollection(GetBoltpromptConfiguration())
-        .Build();
-
+    private static IChatClient ChatClient => Instance._chatClient ?? throw new NullReferenceException();
+    private readonly IChatClient? _chatClient;
+        
     private AIService()
     {
-        var serviceCollection = new ServiceCollection();
-        serviceCollection.AddSingleton(Configuration);
-        serviceCollection.AddLanguageModels();
-        serviceCollection.AddScoped<ILanguageModel>(sp => ActivatorUtilities.CreateInstance<OpenAIModels>(sp).Gpt4oMini);
-        _serviceProvider = serviceCollection.BuildServiceProvider();
+        if (!Available) return;
+        var openAiClient = new OpenAIClient(Configuration.Instance.OpenAiApiKey)
+            .AsChatClient(modelId: "gpt-4o-mini");
+        _chatClient = new ChatClientBuilder(openAiClient)
+            .UseFunctionInvocation()
+            .Build();
     }
 
-    private bool IsAvailable() => Configuration["OPENAI_API_KEY"] != null;
-
     private static readonly AIService Instance = new ();
+
+    public static Task RequestWithFunctions(string request, CancellationToken cancellationToken, params Delegate[] functions) =>
+        ChatClient.CompleteAsync(
+                request,
+                new()
+                {
+                    Tools = functions.Select(f => AIFunctionFactory.Create(f)).Cast<AITool>().ToArray()
+                },
+                cancellationToken: cancellationToken
+            );
 }

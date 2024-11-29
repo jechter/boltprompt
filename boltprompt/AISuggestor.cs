@@ -1,6 +1,6 @@
+using System.ComponentModel;
 using CliWrap;
 using CliWrap.Buffered;
-using LanguageModels;
 using NiceIO;
 
 namespace boltprompt;
@@ -36,27 +36,6 @@ static class AISuggestor
     {
         var result = await Cli.Wrap("sw_vers").ExecuteBufferedAsync();
         return result.StandardOutput;
-    }
-
-    class AISuggestion
-    {
-        private readonly string _request;
-
-        public AISuggestion(string request)
-        {
-            _request = request;
-        }
-        
-        [DescriptionForLanguageModel("function to invoke with proposed suggestions")]
-        public bool ProvideSuggestions([DescriptionForLanguageModel("the proposed command line")]string suggestion, [DescriptionForLanguageModel("a one-line summary of how the command works")]string description)
-        {
-            Logger.Log(LogFile,$"Received AI Suggestion: {suggestion}");
-            if (string.IsNullOrWhiteSpace(suggestion)) return true;
-            
-            var suggestionEntry = new Suggestion(suggestion) { Description = description, Icon = "🤖" };
-            AddSuggestionToCache(_request, suggestionEntry);
-            return true;
-        }
     }
     
     private static void AddSuggestionToCache(string request, Suggestion suggestionEntry)
@@ -116,29 +95,28 @@ static class AISuggestor
 
         try
         {
-            var suggestions = new AISuggestion(request);
-            var chatRequest = new ChatRequest()
-            {
-                 Messages = [new ChatMessage("user", fullRequest)],
-                 Functions = CSharpBackedFunctions.Create([suggestions])
-            };
-            Logger.Log(LogFile,$"Sent AI Request for {request}");
-
-            var r = AIService.LanguageModel.Execute(chatRequest, cancellationToken);
-            var messages = await r.ReadCompleteMessagesAsync().ReadAll();
-
-            foreach (var m in messages)
-            {
-                Logger.Log(LogFile,$"received message {m}");
-            }
-
+            await AIService.RequestWithFunctions(fullRequest, cancellationToken, ProvideSuggestions);
         }
         catch (Exception e)
         {
-            Cache.TryGetValue(request, out var cacheEntry);
             AddSuggestionToCache(request, FailureSuggestion);
             Logger.Log(LogFile, $"Caught exception: {e}");
             throw;
+        }
+        
+        [Description("function to invoke with proposed suggestions")]
+        bool ProvideSuggestions(
+            [Description("the proposed command line")]
+            string suggestion, 
+            [Description("a one-line summary of how the command works")]
+            string description)
+        {
+            Logger.Log(LogFile,$"Received AI Suggestion: {suggestion}");
+            if (string.IsNullOrWhiteSpace(suggestion)) return true;
+            
+            var suggestionEntry = new Suggestion(suggestion) { Description = description, Icon = "🤖" };
+            AddSuggestionToCache(request, suggestionEntry);
+            return true;
         }
     }
 

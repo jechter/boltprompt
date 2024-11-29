@@ -1,6 +1,6 @@
+using System.ComponentModel;
 using System.Text.Json;
 using System.Text.Json.Serialization;
-using LanguageModels;
 
 namespace boltprompt;
 
@@ -20,34 +20,34 @@ public record CommandInfo
     [JsonInclude]
     public string? Comment;
     [JsonInclude]
-    [DescriptionForLanguageModel("The name of the command")]
+    [Description("The name of the command")]
     public string Name = "";
     [JsonInclude]
-    [DescriptionForLanguageModel("A short description what the command does")]
+    [Description("A short description what the command does")]
     public string Description = "";
     [JsonInclude]
-    [DescriptionForLanguageModel("A list of Argument groups with command line arguments accepted by the command. All arguments in a single group can come in any random order. If an argument needs to come after another argument, it should come in a new group. If the command does not take any arguments, this should be empty.")]
+    [Description("A list of Argument groups with command line arguments accepted by the command. All arguments in a single group can come in any random order. If an argument needs to come after another argument, it should come in a new group. If the command does not take any arguments, this should be empty.")]
     public ArgumentGroup[]? Arguments;
     [JsonInclude]
-    [DescriptionForLanguageModel("A list of custom argument templates used to define the commands to run for custom arguments. If no arguments of type 'customargument' are used, this can be empty or null.")]
+    [Description("A list of custom argument templates used to define the commands to run for custom arguments. If no arguments of type 'customargument' are used, this can be empty or null.")]
     public CustomArgumentTemplate[]? CustomArgumentTemplates;
 
     public record CustomArgumentTemplate
     {
         [JsonInclude]
-        [DescriptionForLanguageModel("If this is enabled, arguments will only be accepted if they match the output of the custom command. If not, the custom command will only be used to obtain suggestions, but any argument will be matched.")]
+        [Description("If this is enabled, arguments will only be accepted if they match the output of the custom command. If not, the custom command will only be used to obtain suggestions, but any argument will be matched.")]
         public bool StrictMatching = false;
         [JsonInclude]
-        [DescriptionForLanguageModel("The name of the template. This must match the 'customargument' field in arguments using this template.")]
+        [Description("The name of the template. This must match the 'customargument' field in arguments using this template.")]
         public string Name = "";
         [JsonInclude]
-        [DescriptionForLanguageModel("The command to run to get suggestions.")]
+        [Description("The command to run to get suggestions.")]
         public string Command = "";
         [JsonInclude]
-        [DescriptionForLanguageModel("A Regex to match the output of the custom command to suggestions and descriptions.")]
+        [Description("A Regex to match the output of the custom command to suggestions and descriptions.")]
         public string? Regex;
         [JsonInclude]
-        [DescriptionForLanguageModel("If this is not empty, then these arguments will be used in place of the custom argument. The Command and Regex fields will be ignored in this case.")]
+        [Description("If this is not empty, then these arguments will be used in place of the custom argument. The Command and Regex fields will be ignored in this case.")]
         public Argument[]? Arguments;
     }
     
@@ -65,26 +65,26 @@ public record CommandInfo
         Unknown // Potentially a file system entry
     }
     
-    public record ArgumentGroup([DescriptionForLanguageModel("Arguments belonging to this argument group")]Argument[] Arguments)
+    public record ArgumentGroup([Description("Arguments belonging to this argument group")]Argument[] Arguments)
     {
         [JsonInclude]
-        [DescriptionForLanguageModel("Does the command require an argument from this group to be on the command line?")]
+        [Description("Does the command require an argument from this group to be on the command line?")]
         public bool Optional;
         [JsonInclude]
-        [DescriptionForLanguageModel("If true, only one argument from this group is allowed. If false, there can be multiple.")]
+        [Description("If true, only one argument from this group is allowed. If false, there can be multiple.")]
         public bool DontAllowMultiple;
     }
     
-    public record Argument([DescriptionForLanguageModel("The name of the argument. If the argument is of type `flag`, this is the single-character flag to enable the argument. If the argument is of type `keyword`, this is the string passed to the command line for this argument.")]string Name)
+    public record Argument([Description("The name of the argument. If the argument is of type `flag`, this is the single-character flag to enable the argument. If the argument is of type `keyword`, this is the string passed to the command line for this argument.")]string Name)
     {
         [JsonInclude]
-        [DescriptionForLanguageModel("If true, this argument can be on the command line multiple times. If false, only once.")]
+        [Description("If true, this argument can be on the command line multiple times. If false, only once.")]
         public bool Repeat;
         [JsonInclude]
-        [DescriptionForLanguageModel("A short description what the argument does")]
+        [Description("A short description what the argument does")]
         public string Description = "";
         [JsonInclude]
-        [DescriptionForLanguageModel(
+        [Description(
             """
             Type of the argument. Must be one of:
              'Keyword': Use this when the argument is invoked by a specific word on the command line, like e.g. '--help' . In this case, 'name' should be the word used on the command line, e.g. '--help'.
@@ -102,16 +102,16 @@ public record CommandInfo
         [JsonIgnore]
         public bool MayBeFileSystemEntry => Type is ArgumentType.File or ArgumentType.Directory or ArgumentType.FileSystemEntry or ArgumentType.Unknown; 
         [JsonInclude]
-        [DescriptionForLanguageModel("Valid file extensions (only applicable if type is 'file').")]
+        [Description("Valid file extensions (only applicable if type is 'file').")]
         public string[]? Extensions;
         [JsonInclude]
-        [DescriptionForLanguageModel("The name of a custom argument template defining the command to run (only applicable if type is 'customargument').")]
+        [Description("The name of a custom argument template defining the command to run (only applicable if type is 'customargument').")]
         public string? CustomArgumentTemplate;
         [JsonInclude]
-        [DescriptionForLanguageModel("Alternative names for the argument (if any).")]
+        [Description("Alternative names for the argument (if any).")]
         public string[]? Aliases;
         [JsonInclude]
-        [DescriptionForLanguageModel("A list of Argument groups with command line sub arguments following the argument. All arguments in a single group can come in any random order. If an argument needs to come after another argument, it should come in a new group. If the argument does not take any sub arguments, this should be empty.")]
+        [Description("A list of Argument groups with command line sub arguments following the argument. All arguments in a single group can come in any random order. If an argument needs to come after another argument, it should come in a new group. If the argument does not take any sub arguments, this should be empty.")]
         public ArgumentGroup[]? Arguments;
         [JsonInclude]
         public string? Icon;

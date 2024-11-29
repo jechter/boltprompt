@@ -1,6 +1,6 @@
+using System.ComponentModel;
 using CliWrap;
 using CliWrap.Buffered;
-using LanguageModels;
 
 namespace boltprompt;
 
@@ -12,19 +12,6 @@ public class GptCommandInfoSupplier : ICommandInfoSupplier
     {
         Logger.Log(Logger.Gpt, $"CanHandle: {command}");
         return AIService.Available;
-    }
-
-    class AICommandInfo
-    {
-        public CommandInfo Info = CommandInfo.DefaultCommand;
-        
-        [DescriptionForLanguageModel("function to invoke with command info")]
-        public bool ProvideCommandInfo([DescriptionForLanguageModel("info about the command and its arguments")]CommandInfo suggestion)
-        {
-            Logger.Log(Logger.Gpt,$"Received AI CommandInfo: {suggestion}");
-            Info = Cleanup(suggestion);
-            return true;
-        }
     }
 
     private static CommandInfo.Argument CleanupArgument(CommandInfo.Argument argument) 
@@ -81,24 +68,18 @@ public class GptCommandInfoSupplier : ICommandInfoSupplier
 
         try
         {
-            var aiInfo = new AICommandInfo();
-            var chatRequest = new ChatRequest()
-            {
-                Messages = [new ChatMessage("user", gptPromptPrefix)],
-                Functions = CSharpBackedFunctions.Create([aiInfo])
-            };
-            Logger.Log(Logger.Gpt, $"Request input schema: {chatRequest.Functions.First().InputSchema.RootElement.ToString()}");
+            var info = CommandInfo.DefaultCommand;
+            await AIService.RequestWithFunctions(gptPromptPrefix, default, ProvideCommandInfo);
 
-            var r = AIService.LanguageModel.Execute(chatRequest, new());
-            var messages = await r.ReadCompleteMessagesAsync().ReadAll();
-            foreach (var m in messages)
+            return info;
+            
+            [Description("function to invoke with command info")]
+            bool ProvideCommandInfo([Description("info about the command and its arguments")]CommandInfo suggestion)
             {
-                Logger.Log(Logger.Gpt, $"Received message: {m}");
-                if (m is FunctionInvocation functionInvocation)
-                    Logger.Log(Logger.Gpt, $"Function invocation: {functionInvocation.Parameters.RootElement}");
+                Logger.Log(Logger.Gpt,$"Received AI CommandInfo: {suggestion}");
+                info = Cleanup(suggestion);
+                return true;
             }
-
-            return aiInfo.Info;
         }
         catch (Exception e)
         {
