@@ -45,7 +45,7 @@ When you start typing commands in your terminal, boltprompt will propose autocom
 
 boltprompt can also propose suggested commands to run for human language requests. To use this feature, you need an OpenAI API key (which requires paying small amounts of money to OpenAI), and you need to supply your API key to boltprompt using `boltprompt config set OpenAiApiKey [your API key here]`. Then, you can write human language requests on the command line, by prefixing them with the _AI prompt prefix_ - which defaults to '@'. boltprompt will then use OpenAI GPT-4o mini LLM to generate suggested commands to perform your request. After a short delay of a second or so, you should see AI-generated suggestions show in the suggestion viewer.
 
-Never execute suggested command lines if you don't understand what the commands do, as doing so may compromise your date and system security.
+Never execute suggested command lines if you don't understand what the commands do, as doing so may compromise your data and system security.
                               
 By default, boltprompt will include personal information (including your OS, shell, installed commands, current directory listing, last run commands) in requests for command line suggestions sent to OpenAI. This improves the quality of suggestions. You can disable sharing of personal information by running the command `boltprompt config set RemovePersonalInformationFromAIQueries on`.                                
 
