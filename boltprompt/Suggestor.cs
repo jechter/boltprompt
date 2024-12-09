@@ -394,8 +394,7 @@ public static partial class Suggestor
                                  .Where(s => MatchSuggestion(s) || MatchSuggestionPartial(s, true)))
                         yield return s;
                     // if we have no matching files, or if type is unknown (ie may not be a path at all), return a match for whatever was typed to allow creating new paths.
-                    // Also, if we have matching files, but whatever was typed matches a directory, return that, so we can get the directory with no further completions
-                    if (!hasMatch || arg.Type == CommandInfo.ArgumentType.Unknown || (arg.Type != CommandInfo.ArgumentType.File && lastParamPath.DirectoryExists()))
+                    if (!hasMatch || arg.Type == CommandInfo.ArgumentType.Unknown)
                         yield return new FileSystemSuggestion(lastParam)
                         {
                             Description = string.IsNullOrEmpty(arg.Description) ? arg.Name : arg.Description, 
@@ -482,7 +481,7 @@ public static partial class Suggestor
     {
         var executables = path.Files()
             .Where(IsExecutable);
-        return executables.Select(ex => new Suggestion($"{ex.FileName} ")
+        return executables.Select(ex => new Suggestion(ex.FileName)
             {
                 Description = KnownCommands.GetCommand(ex.FileName, false)?.Description ?? ex.ToString()
             })

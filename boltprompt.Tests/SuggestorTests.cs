@@ -869,7 +869,6 @@ public class SuggestorTests
         var suggestions = GetSuggestionStringsForTestExecutable(ci, " testDir/");
         Assert.That(suggestions.ToArray(), Is.EqualTo(new []
             {
-                "testDir/",
                 "testDir/a_directory/", 
                 "testDir/b_directory/", 
                 "testDir/a_file",
@@ -883,7 +882,6 @@ public class SuggestorTests
         suggestions = GetSuggestionStringsForTestExecutable(ci, " testDir/");
         Assert.That(suggestions.ToArray(), Is.EqualTo(new [] 
             {
-                "testDir/",
                 "testDir/b_file",
                 "testDir/.invisibleDirectory/",
                 "testDir/a_directory/", 
@@ -934,15 +932,15 @@ public class SuggestorTests
             Arguments = [new([ new("") { Type = CommandInfo.ArgumentType.FileSystemEntry }])]
         };
         var suggestions = GetSuggestionStringsForTestExecutable(ci, " testDir/");
-        Assert.That(suggestions, Is.EqualTo(new [] {"testDir/", "testDir/otherTestSubDir/", "testDir/testSubDir/", @"testDir/testSubDir\ with\ spaces/"}));
+        Assert.That(suggestions, Is.EqualTo(new [] {"testDir/otherTestSubDir/", "testDir/testSubDir/", @"testDir/testSubDir\ with\ spaces/"}));
         
         History.LoadTestHistory(["./testExecutable testDir/testSubDir/file"]);
         suggestions = GetSuggestionStringsForTestExecutable(ci, " testDir/");
-        Assert.That(suggestions, Is.EqualTo(new [] {"testDir/", "testDir/testSubDir/", "testDir/otherTestSubDir/", @"testDir/testSubDir\ with\ spaces/"}));
+        Assert.That(suggestions, Is.EqualTo(new [] {"testDir/testSubDir/", "testDir/otherTestSubDir/", @"testDir/testSubDir\ with\ spaces/"}));
         
         History.LoadTestHistory(["./testExecutable testDir/testSubDir/file", @"./testExecutable testDir/testSubDir\ with\ spaces/file"]);
         suggestions = GetSuggestionStringsForTestExecutable(ci, " testDir/");
-        Assert.That(suggestions, Is.EqualTo(new [] {"testDir/", @"testDir/testSubDir\ with\ spaces/", "testDir/testSubDir/", "testDir/otherTestSubDir/"}));
+        Assert.That(suggestions, Is.EqualTo(new [] {@"testDir/testSubDir\ with\ spaces/", "testDir/testSubDir/", "testDir/otherTestSubDir/"}));
 
     }
     

@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.1.2]
+
+## Changed
+
+- Use Microsoft.AI instead of LangueModels library
+- Always show suggestions when hitting tab, just don't select any by default.
+
 ## [0.1.1] - 2024-11-21
 
 ### Changed

@@ -4,6 +4,9 @@ namespace boltprompt;
 
 internal class MainLoop
 {
+    private const int MinSelectionValue = -2;
+    private const int NoneSelected = -1;
+    private const int SelectionNotShown = -2;
     private string _commandLine = "";
     private string? _aiPrompt;
     private int _selection;
@@ -16,7 +19,7 @@ internal class MainLoop
     public MainLoop(string? outputCommand)
     {
         _outputCommand = outputCommand ?? "/tmp/custom-command";
-        _selection = -1;
+        _selection = SelectionNotShown;
         _screenWidth = Console.WindowWidth;
         // Most commands will end output with a new line. But if they don't, we don't want to
         // overwrite the last line of output with our prompt (which is always at the beginning
@@ -29,8 +32,8 @@ internal class MainLoop
         CustomArguments.CustomArgumentsLoaded += () =>
         {
             // if suggestions aren't showing, show them again, as there may be new ones.
-            if (_selection == -1)
-                _selection = 0;
+            if (_selection == SelectionNotShown)
+                _selection = NoneSelected;
             RequestRedraw();
         };
         AISuggestor.AIDescriptionLoaded += RequestRedraw;
@@ -98,14 +101,14 @@ internal class MainLoop
                     case ConsoleKey.UpArrow:
                         _selection--;
                         if (_selection < 0)
-                            _selection = -2;
+                            _selection = -3;
                         break;
                     case ConsoleKey.LeftArrow:
                         if (Prompt.CursorPosition > 0)
                         {
                             Prompt.CursorPosition--;
                             if (_selection >= 0)
-                                _selection = -1;
+                                _selection = SelectionNotShown;
                         }
                         break;
                     case ConsoleKey.RightArrow:
@@ -130,7 +133,7 @@ internal class MainLoop
                             Prompt.CursorPosition = 0;
                         }
 
-                        _selection = -1;
+                        _selection = SelectionNotShown;
                         break;
                     case ConsoleKey.Enter:
                         CommitSelection();
@@ -144,7 +147,7 @@ internal class MainLoop
                         _commandLine = _commandLine[..Prompt.CursorPosition] + key.KeyChar +
                                        _commandLine[Prompt.CursorPosition..];
                         Prompt.CursorPosition++;
-                        if (_selection == -1)
+                        if (_selection == SelectionNotShown || _selection == NoneSelected)
                             _selection = 0;
                         break;
                 }
@@ -159,37 +162,41 @@ internal class MainLoop
     private void CommitSelection()
     {
         UpdateSuggestionsAndSelection();
-        if (_selection == -1) return;
+        if (_selection == SelectionNotShown || _selection == NoneSelected) return;
         if (_suggestions.Length != 0 && _suggestions.Length >= _selection)
         {
+            var selection = _suggestions[_selection];
             if (_commandLine.StartsWith(Configuration.Instance.AIPromptPrefix))
             {
                 _aiPrompt = _commandLine[Configuration.Instance.AIPromptPrefix.Length..];
-                _commandLine = _suggestions[_selection].Text;
+                _commandLine = selection.Text;
                 Prompt.CursorPosition = _commandLine.Length;
             }
             else
             {
                 var parts = CommandLineParser.ParseCommandLine(_commandLine).ToArray();
                 var partsIndexUpToCursor = Prompt.PartsIndexUpToCursor(parts);
-                var newPart = new CommandLineParser.CommandLinePart(_suggestions[_selection].Text);
+                var newPart = new CommandLineParser.CommandLinePart(selection.Text);
+                if (partsIndexUpToCursor == parts.Length &&
+                    selection.Argument?.Type is not CommandInfo.ArgumentType.Flag && 
+                    selection.Argument?.Type is not CommandInfo.ArgumentType.File && 
+                    selection.Argument?.Type is not CommandInfo.ArgumentType.Directory &&
+                    selection.Argument?.Type is not CommandInfo.ArgumentType.FileSystemEntry)
+                    newPart = newPart with { Text = newPart.Text + " " };
                 if (parts.Length == 0 || parts[partsIndexUpToCursor - 1].Type is CommandLineParser.CommandLinePart.PartType.Whitespace or CommandLineParser.CommandLinePart.PartType.Operator)
                     parts = parts[..partsIndexUpToCursor]
                         .Append(newPart)
                         .Concat(parts[partsIndexUpToCursor..])
                         .ToArray();
                 else
-                    parts[partsIndexUpToCursor-1] = new (_suggestions[_selection].Text);
+                    parts[partsIndexUpToCursor-1] = newPart;
                 var oldSize = _commandLine.Length;
                 _commandLine = string.Join("", parts.Select(p => p.Text));
                 Prompt.CursorPosition += _commandLine.Length - oldSize; 
             }
             RequestRedraw();
         }
-        // In most cases we don't want to show new suggestions after committing before typing.
-        // But if we selected an AI prompt from history, we want to get AI suggestions right away.
-        // And if we selected a path, we want to be able to continue said path
-        _selection = _commandLine.StartsWith(Configuration.Instance.AIPromptPrefix) || _commandLine.EndsWith('/') ? 0 : -1;
+        _selection = NoneSelected;
     }
 
     private void UpdateSuggestionsAndSelection()
@@ -199,8 +206,8 @@ internal class MainLoop
         else
             _suggestions = [];
         if (_selection >= _suggestions.Length)
-            _selection = _suggestions.Length > 0 ? 0 : -1;
-        else if (_selection < -1)
+            _selection = _suggestions.Length > 0 ? 0 : SelectionNotShown;
+        else if (_selection < MinSelectionValue)
             _selection = _suggestions.Length - 1;
     }
     
@@ -210,8 +217,8 @@ internal class MainLoop
         _needsRedraw = false;
         UpdateSuggestionsAndSelection();
 
-        var top = Prompt.RenderPrompt(_commandLine, _selection > -1 && !_commandLine.StartsWith(Configuration.Instance.AIPromptPrefix) ? _suggestions[_selection].Text : null);
-        if (_suggestions.Length > 0 && _selection != -1)
+        var top = Prompt.RenderPrompt(_commandLine, _selection >= 0 && !_commandLine.StartsWith(Configuration.Instance.AIPromptPrefix) ? _suggestions[_selection].Text : null);
+        if (_suggestions.Length > 0 && _selection != SelectionNotShown)
         {
             _didShowSuggestions = true;
             SuggestionConsoleViewer.ShowSuggestions(top, _suggestions, _commandLine, _selection);
