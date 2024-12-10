@@ -220,10 +220,10 @@ public static partial class Suggestor
         return result.ToArray();
     }
 
-    static IEnumerable<Suggestion> GetAISuggestionsFromHistory(string aiPrompt, History.AIRequestType type) => History
+    static IEnumerable<Suggestion> GetAISuggestionsFromHistoryAndDefaults(string aiPrompt, History.AIRequestType type) => History
         .Commands.Where(h => h.AIRequestType == type)
         .Select(h => h.AIPrompt!)
-        .Concat(AISuggestor.DefaultQuestionSuggestions)
+        .Concat(type == History.AIRequestType.Prompt ? AISuggestor.DefaultPromptSuggestions : AISuggestor.DefaultQuestionSuggestions)
         .Where(prompt => prompt.StartsWith(aiPrompt) && prompt.Length > aiPrompt.Length)
         .Select(h => $"{(type == History.AIRequestType.Prompt ? Configuration.Instance.AIPromptPrefix : Configuration.Instance.AIQuestionPrefix)}{h}")
         .Reverse()
@@ -236,13 +236,13 @@ public static partial class Suggestor
         {
             var aiPrompt = commandline[Configuration.Instance.AIPromptPrefix.Length..];
             return AISuggestor.Suggest(aiPrompt)
-                .Concat(GetAISuggestionsFromHistory(aiPrompt, History.AIRequestType.Prompt))
+                .Concat(GetAISuggestionsFromHistoryAndDefaults(aiPrompt, History.AIRequestType.Prompt))
                 .ToArray();
         } 
         if (commandline.StartsWith(Configuration.Instance.AIQuestionPrefix))
         {
             var aiPrompt = commandline[Configuration.Instance.AIQuestionPrefix.Length..];
-            return GetAISuggestionsFromHistory(aiPrompt, History.AIRequestType.Question).ToArray();
+            return GetAISuggestionsFromHistoryAndDefaults(aiPrompt, History.AIRequestType.Question).ToArray();
         }
         
         throw new ArgumentException($"Commandline '{commandline}' is not an AI prompt.");
