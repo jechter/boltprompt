@@ -36,6 +36,8 @@ internal class Configuration
     [Description("Character to type to request AI command line suggestions.")]
     public string AIPromptPrefix { get; set; } = "@";
 
+    [Description("Character to type to ask AI to answer a question about your current session.")]
+    public string AIQuestionPrefix { get; set; } = "?";
     private static Configuration Load()
     {
         if (Paths.Configuration.FileExists())

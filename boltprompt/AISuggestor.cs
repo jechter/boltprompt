@@ -21,7 +21,16 @@ static class AISuggestor
         " count all lines in my source files",
         " find all files containing the word 'foo'",
         " which ports are open on localhost?",
-        " open the github project web page for the current folder",
+        " open the github project web page for the current folder"
+    ];
+    
+    public static string[] DefaultQuestionSuggestions =>
+    [
+        " for what can I use the terminal",
+        " how do pipe operators work",
+        " how do I find out which process is using the most cpu time",
+        " how do I set up a git repository",
+        " should I use emacs or vi",
     ];
     
     static async Task<string> GetDirectoryListing()
@@ -46,43 +55,50 @@ static class AISuggestor
         AIDescriptionLoaded.Invoke();
     }
     
-    private static async Task GetSuggestionsFromAI(CancellationToken cancellationToken, string request)
+    private static async Task<string> GetPersonalEnvironmentContext(CancellationToken cancellationToken)
     {
-        var delayTask = Task.Delay(Configuration.Instance.DelayBeforeAskingAI, cancellationToken);
         _directoryListing ??= GetDirectoryListing();
         _osInfo ??= GetOSInfo();
-        await Task.WhenAll(_directoryListing, _osInfo, delayTask);
+        await Task.WhenAll(_directoryListing, _osInfo);
         
         cancellationToken.ThrowIfCancellationRequested();
 
-        var personalEnvironmentContext = Configuration.Instance.RemovePersonalInformationFromAIQueries
+        return Configuration.Instance.RemovePersonalInformationFromAIQueries
             ? ""
             : $"""
-             The current shell is {Environment.GetEnvironmentVariable("SHELL")}.
-             
-             This is our runtime environment:
-             
-             {_osInfo.Result}
-             
-             This is the listing of the current working directory {NPath.CurrentDirectory}:
-             
-             {_directoryListing.Result}
-             
-             These were the last commands executed:
-             
-             {string.Join("\n\n", History.Commands.TakeLast(5).Select(cmd => $"{cmd.Commandline}{(cmd.AIPrompt != null ? $"\n# suggested from AI prompt: `{cmd.AIPrompt}`" : "")}"))}
-             
-             This is a list of all the available commands:
-             
-             { string.Join(" ", Suggestor.ExecutablesInPathEnvironment.Select(s => s.Text)) }
-             
-             """;
+               The current shell is {Environment.GetEnvironmentVariable("SHELL")}.
+
+               This is our runtime environment:
+
+               {_osInfo.Result}
+
+               This is the listing of the current working directory {NPath.CurrentDirectory}:
+
+               {_directoryListing.Result}
+
+               These were the last commands executed:
+
+               {string.Join("\n\n", History.Commands.TakeLast(5).Select(cmd => $"{cmd.Commandline}{(cmd.AIPrompt != null ? $"\n# suggested from AI prompt: `{cmd.AIPrompt}`" : "")}"))}
+
+               This is a list of all the available commands:
+
+               {string.Join(" ", Suggestor.ExecutablesInPathEnvironment.Select(s => s.Text))}
+
+               """;
+    }
+
+    private static async Task GetSuggestionsFromAI(CancellationToken cancellationToken, string request)
+    {
+        var delayTask = Task.Delay(Configuration.Instance.DelayBeforeAskingAI, cancellationToken);
+        var personalEnvironmentContext = GetPersonalEnvironmentContext(cancellationToken);
+        await Task.WhenAll(personalEnvironmentContext, delayTask);
+        cancellationToken.ThrowIfCancellationRequested();
         
         var fullRequest =
             $"""
              We want to help a user writing shell commands in the Terminal. 
              
-             {personalEnvironmentContext}
+             {personalEnvironmentContext.Result}
              Propose a shell command line which performs the following request:
              
              `{request}` 
@@ -149,5 +165,112 @@ static class AISuggestor
         var task = GetSuggestionsFromAI(_cancellationTokenSource.Token, request);
         Cache[request] = (task, []);
         return [PendingSuggestion];
+    }
+
+
+    public static async Task RespondToAIQuestion(string request, CancellationToken cancellationToken)
+    {
+        var fullRequest =
+            $"""
+             We want to help a user using the Terminal. 
+
+             {await GetPersonalEnvironmentContext(cancellationToken)}
+             
+             The user would like an answer to the following question:
+
+             `{request}` 
+            """;
+        
+        var chatResult = AIService.RequestWithFunctionsStreaming(fullRequest, cancellationToken);
+        var bold = false;
+        var headline = false;
+        var monospace = false;
+        var codeBlock = false;
+        var textBuffer = "";
+        var resetBoldAndUnderline = BufferedConsole.BoldEsc(false) + BufferedConsole.UnderlineEsc(false);
+
+        await foreach (var message in chatResult)
+        {
+            if (message.Text != null)
+                PrintChatResponseFormatted(message.Text);
+        }
+
+        PrintChatResponseFormatted("\n");
+        Console.WriteLine();
+        return;
+
+        void PrintChatResponseFormatted(string text)
+        {
+            if (!text.Contains('\n'))
+            {
+                textBuffer += text;
+                return;
+            }
+
+            text = textBuffer + text;
+            textBuffer = "";
+
+            var pos = 0;
+            if (headline)
+            {
+                if (ReplaceKey("\n", resetBoldAndUnderline, ref pos))
+                    headline = false;
+            }
+
+            if (!headline)
+            {
+                while (ReplaceKey("###", $"{BufferedConsole.BoldEsc(true)}###", ref pos))
+                {
+                    if (!ReplaceKey("\n", resetBoldAndUnderline, ref pos))
+                        headline = true;
+                }
+                
+                while (ReplaceKey("##", $"{BufferedConsole.BoldEsc(true)}##", ref pos))
+                {
+                    if (!ReplaceKey("\n", resetBoldAndUnderline, ref pos))
+                        headline = true;
+                }
+                
+                while (ReplaceKey("#", $"{BufferedConsole.BoldEsc(true)}{BufferedConsole.UnderlineEsc(true)}#", ref pos))
+                {
+                    if (!ReplaceKey("\n", resetBoldAndUnderline, ref pos))
+                        headline = true;
+                }
+            }
+
+            pos = 0;
+            while (ReplaceKey("**", BufferedConsole.BoldEsc(!bold), ref pos))
+                bold = !bold;
+            pos = 0;
+            while (ReplaceKey("__", BufferedConsole.BoldEsc(!bold), ref pos))
+                bold = !bold;
+            pos = 0;
+            var bg = BufferedConsole.ParseHtmlColor(Configuration.Instance.SuggestionBackgroundColor);
+            var bgDark = (r: (byte)(bg.r * 0.8), g: (byte)(bg.g * 0.8), b: (byte)(bg.b * 0.8));
+            while (ReplaceKey("```", !codeBlock ? 
+                       $"{BufferedConsole.MoveToStartOfLineEsc()}{BufferedConsole.ForegroundColorEsc(Configuration.Instance.SuggestionTextColor)}{BufferedConsole.BackgroundColorEsc(bgDark)}📜 " 
+                       : $"{BufferedConsole.ClearEndOfLineEsc()}{BufferedConsole.ResetColorEsc()}", 
+                       ref pos))
+                codeBlock = !codeBlock;
+            pos = 0;
+            while (ReplaceKey("`", !monospace ? BufferedConsole.ForegroundColorEsc(BufferedConsole.ConsoleColor.Gray16) : BufferedConsole.ResetColorEsc(), ref pos))
+                monospace = !monospace;
+            pos = 0;
+            if (codeBlock)
+                ReplaceKey("\n", $"{BufferedConsole.ClearEndOfLineEsc()}\n{BufferedConsole.BackgroundColorEsc(bg)}", ref pos);
+                
+
+            Console.Write(text);
+            return;
+
+            bool ReplaceKey(string key, string value, ref int searchPos)
+            {
+                var i = text.IndexOf(key, searchPos, StringComparison.InvariantCulture);
+                if (i == -1) return false;
+                text = text[..i] + value + text[(i + key.Length)..];
+                searchPos = i + value.Length;
+                return true;
+            }
+        }
     }
 }

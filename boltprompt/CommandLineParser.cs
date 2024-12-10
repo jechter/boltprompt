@@ -118,6 +118,12 @@ public static class CommandLineParser
 
     public static IEnumerable<CommandLinePart> ParseCommandLine(string commandline, List<ArgumentParsingState>? parsingStateOut = null)
     {
+        if (Prompt.IsAIPrompt(commandline))
+        {
+            yield return new(commandline);
+            yield break;
+        }
+        
         var pos = 0;
         var lastPartType = CommandLinePart.PartType.Whitespace;
         var parsingState = parsingStateOut ?? new List<ArgumentParsingState>();

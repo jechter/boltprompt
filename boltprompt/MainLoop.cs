@@ -42,7 +42,8 @@ internal class MainLoop
     }
 
     private void RequestRedraw() => _needsRedraw = true;
-    
+
+    private bool IsAIPrompt => Prompt.IsAIPrompt(_commandLine);
     public void Run()
     {
         while (true)
@@ -127,7 +128,7 @@ internal class MainLoop
                             break;
                         }
 
-                        if (_commandLine.StartsWith(Configuration.Instance.AIPromptPrefix))
+                        if (IsAIPrompt)
                         {
                             _commandLine = "";
                             Prompt.CursorPosition = 0;
@@ -137,17 +138,24 @@ internal class MainLoop
                         break;
                     case ConsoleKey.Enter:
                         CommitSelection();
-                        if (!_commandLine.StartsWith(Configuration.Instance.AIPromptPrefix))
+                        if (!IsAIPrompt)
                         {
                             SetupRunCommand(_commandLine);
                             return;
                         }
+
+                        if (_commandLine.StartsWith(Configuration.Instance.AIQuestionPrefix))
+                        {
+                            RespondToAIQuestion();
+                            return;
+                        }
+
                         break;
                     default:
                         _commandLine = _commandLine[..Prompt.CursorPosition] + key.KeyChar +
                                        _commandLine[Prompt.CursorPosition..];
                         Prompt.CursorPosition++;
-                        if (_selection == SelectionNotShown || _selection == NoneSelected)
+                        if (_selection is SelectionNotShown or NoneSelected)
                             _selection = 0;
                         break;
                 }
@@ -157,6 +165,36 @@ internal class MainLoop
             BufferedConsole.Flush();
             Thread.Sleep(100);
         }
+    }
+
+    private void RespondToAIQuestion()
+    {
+        var top = Prompt.RenderPrompt(_commandLine);
+        SuggestionConsoleViewer.Clear(top);
+        BufferedConsole.Flush();
+        Console.WriteLine();
+        _aiPrompt = _commandLine[Configuration.Instance.AIQuestionPrefix.Length..];
+        History.AddCommandToHistory(_commandLine, _aiPrompt);
+        var cancellation = new CancellationTokenSource();
+        var task = AISuggestor.RespondToAIQuestion(_aiPrompt, cancellation.Token);
+        Console.CancelKeyPress -= ConsoleCancelKeyPress;
+        Console.CancelKeyPress += (_,e) =>
+        {
+            e.Cancel = true;
+            cancellation.Cancel();
+        };
+        while (!task.IsCompleted)
+        {
+            if (Console.KeyAvailable)
+            {
+                var key = Console.ReadKey(true);
+                if (key.Key == ConsoleKey.Escape)
+                    cancellation.Cancel();
+            }
+            Thread.Sleep(10);
+        }
+        Console.WriteLine();
+        _outputCommand.CreateFile();
     }
 
     private void CommitSelection()

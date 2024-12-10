@@ -6,8 +6,16 @@ namespace boltprompt;
 
 public static class History
 {
+    public enum AIRequestType
+    {
+        Prompt,    
+        Question
+    }
+    
     public record Command(string Commandline)
     {
+        [JsonInclude]
+        public AIRequestType? AIRequestType;
         [JsonInclude]
         public string? AIPrompt;
         [JsonInclude]
@@ -57,6 +65,7 @@ public static class History
         var command = new Command(commandLine)
         {
             AIPrompt = aiPrompt, 
+            AIRequestType = aiPrompt != null ? commandLine.StartsWith(Configuration.Instance.AIQuestionPrefix) ? AIRequestType.Question : AIRequestType.Prompt : null,
             WorkingDirectory = NPath.CurrentDirectory.ToString(), 
             CommandHasRelativePaths = commandHasRelativePaths,
             TerminalSession = TerminalUtility.TerminalSession,

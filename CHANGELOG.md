@@ -2,7 +2,11 @@
 
 ## [0.1.2]
 
-## Changed
+### Added
+
+- Can get questions in the context of the terminal answered by AI, by typing (by default) `? what is my question` and hitting return.
+
+### Changed
 
 - Use Microsoft.AI instead of LangueModels library
 - Always show suggestions when hitting tab, just don't select any by default.

@@ -1044,10 +1044,25 @@ public class SuggestorTests
         Assert.That(suggestions.Select(s => s.Text), Does.Contain($"{Configuration.Instance.AIPromptPrefix}{AISuggestor.DefaultPromptSuggestions[0]}"));
 
         var testPrompt = "suggest a test prompt";
-        History.LoadTestHistoryCommands([ new ("bla") { AIPrompt = testPrompt }]);
+        var testQuestion = "suggest a test question";
+        History.LoadTestHistoryCommands(
+            [ 
+                new ("bla") { AIPrompt = testPrompt, AIRequestType = History.AIRequestType.Prompt},
+                new ("bla") { AIPrompt = testQuestion, AIRequestType = History.AIRequestType.Question}
+            ]);
 
         suggestions = Suggestor.SuggestionsForPrompt($"{Configuration.Instance.AIPromptPrefix}");
         Assert.That(suggestions.Select(s => s.Text), Does.Contain($"{Configuration.Instance.AIPromptPrefix}{testPrompt}"));
+        Assert.That(suggestions.Select(s => s.Text), Does.Not.Contain($"{Configuration.Instance.AIPromptPrefix}{testQuestion}"));
+        Assert.That(suggestions.Select(s => s.Text), Does.Not.Contain($"{Configuration.Instance.AIQuestionPrefix}{testPrompt}"));
+        Assert.That(suggestions.Select(s => s.Text), Does.Not.Contain($"{Configuration.Instance.AIQuestionPrefix}{testQuestion}"));
+        
+        suggestions = Suggestor.SuggestionsForPrompt($"{Configuration.Instance.AIQuestionPrefix}");
+        Assert.That(suggestions.Select(s => s.Text), Does.Not.Contain($"{Configuration.Instance.AIPromptPrefix}{testPrompt}"));
+        Assert.That(suggestions.Select(s => s.Text), Does.Not.Contain($"{Configuration.Instance.AIPromptPrefix}{testQuestion}"));
+        Assert.That(suggestions.Select(s => s.Text), Does.Not.Contain($"{Configuration.Instance.AIQuestionPrefix}{testPrompt}"));
+        Assert.That(suggestions.Select(s => s.Text), Does.Contain($"{Configuration.Instance.AIQuestionPrefix}{testQuestion}"));
+
     }
     
     [Test]

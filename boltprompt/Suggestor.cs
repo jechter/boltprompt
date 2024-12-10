@@ -220,24 +220,38 @@ public static partial class Suggestor
         return result.ToArray();
     }
 
-    public static Suggestion[] SuggestionsForPrompt(string commandline)
+    static IEnumerable<Suggestion> GetAISuggestionsFromHistory(string aiPrompt, History.AIRequestType type) => History
+        .Commands.Where(h => h.AIRequestType == type)
+        .Select(h => h.AIPrompt!)
+        .Concat(AISuggestor.DefaultQuestionSuggestions)
+        .Where(prompt => prompt.StartsWith(aiPrompt) && prompt.Length > aiPrompt.Length)
+        .Select(h => $"{(type == History.AIRequestType.Prompt ? Configuration.Instance.AIPromptPrefix : Configuration.Instance.AIQuestionPrefix)}{h}")
+        .Reverse()
+        .Distinct()
+        .Select(h => new Suggestion(h));
+
+    private static Suggestion[] SuggestAISuggestions(string commandline)
     {
         if (commandline.StartsWith(Configuration.Instance.AIPromptPrefix))
         {
             var aiPrompt = commandline[Configuration.Instance.AIPromptPrefix.Length..];
             return AISuggestor.Suggest(aiPrompt)
-                .Concat(
-                    History.Commands.Where(h => h.AIPrompt != null)
-                        .Select(h => h.AIPrompt!)
-                        .Concat(AISuggestor.DefaultPromptSuggestions)
-                        .Where(prompt => prompt.StartsWith(aiPrompt) && prompt.Length > aiPrompt.Length)
-                        .Select(h => $"{Configuration.Instance.AIPromptPrefix}{h}")
-                        .Reverse()
-                        .Distinct()
-                        .Select(h => new Suggestion(h))
-                )
+                .Concat(GetAISuggestionsFromHistory(aiPrompt, History.AIRequestType.Prompt))
                 .ToArray();
+        } 
+        if (commandline.StartsWith(Configuration.Instance.AIQuestionPrefix))
+        {
+            var aiPrompt = commandline[Configuration.Instance.AIQuestionPrefix.Length..];
+            return GetAISuggestionsFromHistory(aiPrompt, History.AIRequestType.Question).ToArray();
         }
+        
+        throw new ArgumentException($"Commandline '{commandline}' is not an AI prompt.");
+    }
+
+    public static Suggestion[] SuggestionsForPrompt(string commandline)
+    {
+        if (Prompt.IsAIPrompt(commandline))
+            return SuggestAISuggestions(commandline);
 
         var parsed = CommandLineParser.ParseCommandLine(commandline).ToArray();
         var currentPart = parsed.LastOrDefault(new CommandLineParser.CommandLinePart("") { Type = CommandLineParser.CommandLinePart.PartType.Command });

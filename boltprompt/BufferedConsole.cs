@@ -18,10 +18,14 @@ internal static partial class BufferedConsole
             byte.Parse(match.Groups[3].Value, NumberStyles.HexNumber)
             );
     }
+    public static ConsoleColor ColorForHtml((byte r, byte g, byte b) rgb)
+    {
+        return (ConsoleColor)(16 + 36*(rgb.r*5/255) + 6*(rgb.g*5/255) + rgb.b*5/255);
+    }
     public static ConsoleColor ColorForHtml(string html)
     {
         var rgb = ParseHtmlColor(html);
-        return (ConsoleColor)(16 + 36*(rgb.r*5/255) + 6*(rgb.g*5/255) + rgb.b*5/255);
+        return ColorForHtml(rgb);
     }
     
     public enum ConsoleColor
@@ -87,19 +91,19 @@ internal static partial class BufferedConsole
     public static int WindowWidth => _windowWidth;
     public static int WindowHeight => _windowHeight;
 
-    static void ConsoleControl(string ctrl)
-    {
-        _buffer.Append($"\u001b[{ctrl}");
-    }
+    private static string ConsoleEscape(string ctrl) => $"\u001b[{ctrl}";
+    
     public static void SetCursorPosition(int left, int top)
     {
-        ConsoleControl($"{top + 1};{left + 1}H");
+        _buffer.Append(SetCursorPositionEsc(left, top));
         _left = left;
         _top = top;
         if (Debug)
             Flush();
     }
-
+    
+    public static string SetCursorPositionEsc(int left, int top) => ConsoleEscape($"{top + 1};{left + 1}H");
+    
     public static void Write(string chars)
     {
         _buffer.Append(chars);
@@ -121,41 +125,55 @@ internal static partial class BufferedConsole
     }
     
     public static ConsoleColor BackgroundColor {
-        set => ConsoleControl($"48;5;{(int)value}m");
+        set => _buffer.Append(BackgroundColorEsc(value));
     }
 
+    public static string BackgroundColorEsc(ConsoleColor color) => ConsoleEscape($"48;5;{(int)color}m");
+    public static string BackgroundColorEsc(string color) => BackgroundColorEsc(ColorForHtml(color));
+    public static string BackgroundColorEsc((byte r, byte g, byte b) color) => BackgroundColorEsc(ColorForHtml(color));
+
     public static ConsoleColor ForegroundColor {
-        set => ConsoleControl($"38;5;{(int)value}m");
+        set => _buffer.Append(ForegroundColorEsc(value));
     }
+
+    public static string ForegroundColorEsc(ConsoleColor color) => ConsoleEscape($"38;5;{(int)color}m");
+    public static string ForegroundColorEsc(string color) => ForegroundColorEsc(ColorForHtml(color));
+    public static string ForegroundColorEsc((byte r, byte g, byte b) color) => ForegroundColorEsc(ColorForHtml(color));
 
     public static bool Bold
     {
-        set => ConsoleControl(value ? "1m" : "22m");
+        set => _buffer.Append(BoldEsc(value));
     }
-
+    
+    public static string BoldEsc(bool enable) => ConsoleEscape(enable ? "1m" : "22m");
+    
     public static bool CrossedOut
     {
-        set => ConsoleControl(value ? "9m" : "29m");
+        set => _buffer.Append(CrossedOutEsc(value));
     }
+    
+    public static string CrossedOutEsc(bool enable) => ConsoleEscape(enable ? "9m" : "29m");
 
     public static bool Underline
     {
-        set => ConsoleControl(value ? "4m" : "24m");
+        set => _buffer.Append(UnderlineEsc(value));
     }
-    public static void ResetColor()
-    {
-        ConsoleControl("0m");
-    }
+    
+    public static string UnderlineEsc(bool enable) => ConsoleEscape(enable ? "4m" : "24m");
 
-    public static void ClearEndOfLine()
-    {
-        ConsoleControl("0K");
-    }
+    public static void ResetColor() => _buffer.Append(ResetColorEsc());
+    
+    public static string ResetColorEsc() => ConsoleEscape("0m");
 
-    public static void ClearEndOfScreen()
-    {
-        ConsoleControl("0J");
-    }
+    public static void ClearEndOfLine() => _buffer.Append(ClearEndOfLineEsc());
+    
+    public static string ClearEndOfLineEsc() => ConsoleEscape("0K");
+
+    public static string MoveToStartOfLineEsc() => ConsoleEscape("0G");
+
+    public static void ClearEndOfScreen() => _buffer.Append(ClearEndOfScreenEsc());
+    
+    public static string ClearEndOfScreenEsc() => ConsoleEscape("0J");
 
     public static void Flush()
     {

@@ -22,7 +22,7 @@ class AIService
 
     private static readonly AIService Instance = new ();
 
-    public static Task RequestWithFunctions(string request, CancellationToken cancellationToken, params Delegate[] functions) =>
+    public static Task<ChatCompletion> RequestWithFunctions(string request, CancellationToken cancellationToken, params Delegate[] functions) =>
         ChatClient.CompleteAsync(
                 request,
                 new()
@@ -31,4 +31,14 @@ class AIService
                 },
                 cancellationToken: cancellationToken
             );
+    
+    public static IAsyncEnumerable<StreamingChatCompletionUpdate> RequestWithFunctionsStreaming(string request, CancellationToken cancellationToken, params Delegate[] functions) =>
+        ChatClient.CompleteStreamingAsync(
+            request,
+            new()
+            {
+                Tools = functions.Select(f => AIFunctionFactory.Create(f)).Cast<AITool>().ToArray()
+            },
+            cancellationToken: cancellationToken
+        );
 }

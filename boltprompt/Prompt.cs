@@ -67,12 +67,19 @@ internal static class Prompt
         return UnicodeEscaper.Encode(result);
     }
 
+    
+    public static bool IsAIPrompt(string commandLine) => commandLine.StartsWith(Configuration.Instance.AIPromptPrefix) || commandLine.StartsWith(Configuration.Instance.AIQuestionPrefix);
+
     public static string GetPromptPrefix(string scheme, string? commandLine = null)
     {
         var debug = Assembly.GetEntryAssembly()?.Location.ToNPath().Parent.Parent.FileName == "Debug";
-        var promptChar = commandLine?.StartsWith(Configuration.Instance.AIPromptPrefix) ?? false ? "🤖" :
-            Environment.UserName == "root" ? "\u2622\ufe0f " :
-            debug ? "🪲" : "⚡️";
+        var promptChar = IsAIPrompt(commandLine ?? "") 
+            ? "🤖" 
+            : Environment.UserName == "root" 
+                ? "\u2622\ufe0f " 
+                : debug 
+                    ? "🪲" 
+                    : "⚡️";
         scheme = UnicodeEscaper.Decode(scheme);
         if (!TerminalUtility.CurrentTerminalHasPowerlineSymbol())
             scheme = scheme.Replace("\uE0B0", "");
