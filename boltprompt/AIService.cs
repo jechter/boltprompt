@@ -19,8 +19,8 @@ class AIService
             .UseFunctionInvocation()
             .Build();
     }
-
-    private static readonly AIService Instance = new ();
+ 
+    private static readonly AIService Instance = new (); 
 
     public static Task<ChatCompletion> RequestWithFunctions(string request, CancellationToken cancellationToken, params Delegate[] functions) =>
         ChatClient.CompleteAsync(

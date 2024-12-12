@@ -124,4 +124,30 @@ public static class TerminalUtility
         UpdateTerminalConfig().GetAwaiter();
         return config is { HasPowerlineSymbols: true };
     }
+    
+    public static async Task<string> GetCurrentTerminalBuffer()
+    {           
+        if (Environment.GetEnvironmentVariable("TMUX") != null)
+        {
+            var result = await Cli.Wrap("tmux")
+                .WithArguments(["capture-pane", "-S", "-1000", "-p"])
+                .ExecuteBufferedAsync();
+            return result.StandardOutput;
+        }
+
+        if (!IsSupportedTerminal)
+            return "";
+
+        var tmpLog = Path.GetTempFileName();
+        await Cli.Wrap("osascript")
+            .WithArguments([Terminal switch
+            {
+                AppleTerminal => "capture-terminal.scpt",
+                iTerm => "capture-iterm.scpt",
+                _ => throw new InvalidOperationException()
+            }, tmpLog])
+            .WithWorkingDirectory(Paths.boltpromptSupportFilesDir.ToString())
+            .ExecuteBufferedAsync();
+        return await File.ReadAllTextAsync(tmpLog);
+    }
 }

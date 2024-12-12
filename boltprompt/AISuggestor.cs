@@ -12,6 +12,8 @@ static class AISuggestor
     public static event Action AIDescriptionLoaded = () => {};
 
     private static Task<string>? _directoryListing;
+    private static Task<string>? _osInfo;
+    private static Task<string>? _terminalCapture;
     
     const string LogFile = "AISuggestor";
 
@@ -26,27 +28,26 @@ static class AISuggestor
     
     public static string[] DefaultQuestionSuggestions =>
     [
+        "",
         " for what can I use the terminal",
         " how do pipe operators work",
         " how do I find out which process is using the most cpu time",
         " how do I set up a git repository",
         " should I use emacs or vi",
     ];
-    
-    static async Task<string> GetDirectoryListing()
+
+    private static async Task<string> GetDirectoryListing()
     {
         var result = await Cli.Wrap("ls").WithArguments("-al").ExecuteBufferedAsync();
         return result.StandardOutput;
     }
-
-    private static Task<string>? _osInfo;
-
+    
     static async Task<string> GetOSInfo()
     {
         var result = await Cli.Wrap("sw_vers").ExecuteBufferedAsync();
         return result.StandardOutput;
     }
-    
+
     private static void AddSuggestionToCache(string request, Suggestion suggestionEntry)
     {
         Cache.TryGetValue(request, out var cacheEntry);
@@ -59,10 +60,12 @@ static class AISuggestor
     {
         _directoryListing ??= GetDirectoryListing();
         _osInfo ??= GetOSInfo();
-        await Task.WhenAll(_directoryListing, _osInfo);
+        _terminalCapture ??= TerminalUtility.GetCurrentTerminalBuffer();
+        await Task.WhenAll(_directoryListing, _osInfo, _terminalCapture);
         
         cancellationToken.ThrowIfCancellationRequested();
 
+        var terminalCapture = string.IsNullOrEmpty(_terminalCapture.Result) ? "" : $"These are the last lines from the current terminal session:\n\n```{_terminalCapture.Result}\n```";
         return Configuration.Instance.RemovePersonalInformationFromAIQueries
             ? ""
             : $"""
@@ -83,6 +86,7 @@ static class AISuggestor
                This is a list of all the available commands:
 
                {string.Join(" ", Suggestor.ExecutablesInPathEnvironment.Select(s => s.Text))}
+               {terminalCapture}
 
                """;
     }
@@ -119,7 +123,9 @@ static class AISuggestor
             Logger.Log(LogFile, $"Caught exception: {e}");
             throw;
         }
-        
+
+        return;
+
         [Description("function to invoke with proposed suggestions")]
         bool ProvideSuggestions(
             [Description("the proposed command line")]
@@ -175,12 +181,19 @@ static class AISuggestor
              We want to help a user using the Terminal. 
 
              {await GetPersonalEnvironmentContext(cancellationToken)}
-             
-             The user would like an answer to the following question:
-
-             `{request}` 
             """;
+        if (string.IsNullOrWhiteSpace(request))
+            fullRequest +=
+                "\nThe user needs help, but did not specify how. Please just explain what is going on in the last lines of the terminal session. If there were any error messages in the terminal output, explain how to fix them.";
+        else
+            fullRequest += 
+                $"""
+                 The user would like an answer to the following question:
+                 
+                 {request}
+                 """;
         
+        Logger.Log(LogFile,fullRequest);
         var chatResult = AIService.RequestWithFunctionsStreaming(fullRequest, cancellationToken);
         var bold = false;
         var headline = false;

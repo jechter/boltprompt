@@ -4,12 +4,13 @@
 
 ### Added
 
-- Can get questions in the context of the terminal answered by AI, by typing (by default) `? what is my question` and hitting return.
+- Can get questions in the context of the terminal answered by AI, by typing (by default) `? what is my question` and hitting return. Just typing `?` will try to explain what is going on in the last lines of the terminal.
 
 ### Changed
 
 - Use Microsoft.AI instead of LangueModels library
 - Always show suggestions when hitting tab, just don't select any by default.
+- AI requests will include the last lines of the Terminal for context (supported in Terminal.app, iTerm2, or when using tmux).
 
 ## [0.1.1] - 2024-11-21
 

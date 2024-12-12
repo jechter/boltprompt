@@ -128,7 +128,7 @@ internal class MainLoop
                             break;
                         }
 
-                        if (IsAIPrompt)
+                        if (_commandLine.StartsWith(Configuration.Instance.AIPromptPrefix))
                         {
                             _commandLine = "";
                             Prompt.CursorPosition = 0;
@@ -155,7 +155,7 @@ internal class MainLoop
                         _commandLine = _commandLine[..Prompt.CursorPosition] + key.KeyChar +
                                        _commandLine[Prompt.CursorPosition..];
                         Prompt.CursorPosition++;
-                        if (_selection is SelectionNotShown or NoneSelected)
+                        if (_selection is SelectionNotShown or NoneSelected && _commandLine != Configuration.Instance.AIQuestionPrefix)
                             _selection = 0;
                         break;
                 }
@@ -200,7 +200,7 @@ internal class MainLoop
     private void CommitSelection()
     {
         UpdateSuggestionsAndSelection();
-        if (_selection == SelectionNotShown || _selection == NoneSelected) return;
+        if (_selection is SelectionNotShown or NoneSelected) return;
         if (_suggestions.Length != 0 && _suggestions.Length >= _selection)
         {
             var selection = _suggestions[_selection];

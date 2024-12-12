@@ -46,11 +46,8 @@ if [ -n "$TERM" ]; then
   restore_status() { return $TEMP_RESULT; }
   
   generate_command() {
-    boltprompt --output-command "$BOLTPROMPT_COMMAND_PATH"
-    if [ $? -ne 0 ]; then
-      echo "failed"
-      return 1 
-    else    
+    if boltprompt --output-command "$BOLTPROMPT_COMMAND_PATH"
+    then
       CUSTOM_PROMPT=$(cat "$BOLTPROMPT_COMMAND_PATH")
       trap signal_handler SIGINT
       restore_status
@@ -59,6 +56,9 @@ if [ -n "$TERM" ]; then
       add_to_history $CUSTOM_PROMPT
       rm "$BOLTPROMPT_COMMAND_PATH"
       return 0
+    else
+      echo "failed running boltprompt"
+      return 1 
     fi
   }
   
