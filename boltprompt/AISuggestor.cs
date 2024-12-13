@@ -173,7 +173,6 @@ static class AISuggestor
         return [PendingSuggestion];
     }
 
-
     public static async Task RespondToAIQuestion(string request, CancellationToken cancellationToken)
     {
         var fullRequest =
@@ -195,95 +194,15 @@ static class AISuggestor
         
         Logger.Log(LogFile,fullRequest);
         var chatResult = AIService.RequestWithFunctionsStreaming(fullRequest, cancellationToken);
-        var bold = false;
-        var headline = false;
-        var monospace = false;
-        var codeBlock = false;
-        var textBuffer = "";
-        var resetBoldAndUnderline = BufferedConsole.BoldEsc(false) + BufferedConsole.UnderlineEsc(false);
+        var formatter = new AnsiConsoleChatReplyFormatter();
 
         await foreach (var message in chatResult)
         {
             if (message.Text != null)
-                PrintChatResponseFormatted(message.Text);
+                formatter.PrintChatResponseFormatted(message.Text);
         }
 
-        PrintChatResponseFormatted("\n");
+        formatter.PrintChatResponseFormatted("\n");
         Console.WriteLine();
-        return;
-
-        void PrintChatResponseFormatted(string text)
-        {
-            if (!text.Contains('\n'))
-            {
-                textBuffer += text;
-                return;
-            }
-
-            text = textBuffer + text;
-            textBuffer = "";
-
-            var pos = 0;
-            if (headline)
-            {
-                if (ReplaceKey("\n", resetBoldAndUnderline, ref pos))
-                    headline = false;
-            }
-
-            if (!headline)
-            {
-                while (ReplaceKey("###", $"{BufferedConsole.BoldEsc(true)}###", ref pos))
-                {
-                    if (!ReplaceKey("\n", resetBoldAndUnderline, ref pos))
-                        headline = true;
-                }
-                
-                while (ReplaceKey("##", $"{BufferedConsole.BoldEsc(true)}##", ref pos))
-                {
-                    if (!ReplaceKey("\n", resetBoldAndUnderline, ref pos))
-                        headline = true;
-                }
-                
-                while (ReplaceKey("#", $"{BufferedConsole.BoldEsc(true)}{BufferedConsole.UnderlineEsc(true)}#", ref pos))
-                {
-                    if (!ReplaceKey("\n", resetBoldAndUnderline, ref pos))
-                        headline = true;
-                }
-            }
-
-            pos = 0;
-            while (ReplaceKey("**", BufferedConsole.BoldEsc(!bold), ref pos))
-                bold = !bold;
-            pos = 0;
-            while (ReplaceKey("__", BufferedConsole.BoldEsc(!bold), ref pos))
-                bold = !bold;
-            pos = 0;
-            var bg = BufferedConsole.ParseHtmlColor(Configuration.Instance.SuggestionBackgroundColor);
-            var bgDark = (r: (byte)(bg.r * 0.8), g: (byte)(bg.g * 0.8), b: (byte)(bg.b * 0.8));
-            while (ReplaceKey("```", !codeBlock ? 
-                       $"{BufferedConsole.MoveToStartOfLineEsc()}{BufferedConsole.ForegroundColorEsc(Configuration.Instance.SuggestionTextColor)}{BufferedConsole.BackgroundColorEsc(bgDark)}📜 " 
-                       : $"{BufferedConsole.ClearEndOfLineEsc()}{BufferedConsole.ResetColorEsc()}", 
-                       ref pos))
-                codeBlock = !codeBlock;
-            pos = 0;
-            while (ReplaceKey("`", !monospace ? BufferedConsole.ForegroundColorEsc(BufferedConsole.ConsoleColor.Gray16) : BufferedConsole.ResetColorEsc(), ref pos))
-                monospace = !monospace;
-            pos = 0;
-            if (codeBlock)
-                ReplaceKey("\n", $"{BufferedConsole.ClearEndOfLineEsc()}\n{BufferedConsole.BackgroundColorEsc(bg)}", ref pos);
-                
-
-            Console.Write(text);
-            return;
-
-            bool ReplaceKey(string key, string value, ref int searchPos)
-            {
-                var i = text.IndexOf(key, searchPos, StringComparison.InvariantCulture);
-                if (i == -1) return false;
-                text = text[..i] + value + text[(i + key.Length)..];
-                searchPos = i + value.Length;
-                return true;
-            }
-        }
     }
 }
