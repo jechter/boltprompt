@@ -8,20 +8,24 @@ namespace boltprompt;
 // Writing to the Console is slow in some Terminals (e.g. iTerm2). Buffer writes, and do them in bulk.
 internal static partial class BufferedConsole
 {
-    public static (byte r, byte g, byte b) ParseHtmlColor(string html)
+    public record RgbColor(byte R, byte G, byte B);
+    
+    public static RgbColor ParseHtmlColor(string html)
     {
         var match = HtmlColorRegex().Match(html);
-        if (!match.Success) return (0,0,0);
-        return (
+        if (!match.Success) return new(0,0,0);
+        return new(
             byte.Parse(match.Groups[1].Value, NumberStyles.HexNumber),
             byte.Parse(match.Groups[2].Value, NumberStyles.HexNumber),
             byte.Parse(match.Groups[3].Value, NumberStyles.HexNumber)
             );
     }
-    public static ConsoleColor ColorForHtml((byte r, byte g, byte b) rgb)
+    
+    public static ConsoleColor ColorForHtml(RgbColor rgb)
     {
-        return (ConsoleColor)(16 + 36*(rgb.r*5/255) + 6*(rgb.g*5/255) + rgb.b*5/255);
+        return (ConsoleColor)(16 + 36*(rgb.R*5/255) + 6*(rgb.G*5/255) + rgb.B*5/255);
     }
+    
     public static ConsoleColor ColorForHtml(string html)
     {
         var rgb = ParseHtmlColor(html);
@@ -130,7 +134,7 @@ internal static partial class BufferedConsole
 
     public static string BackgroundColorEsc(ConsoleColor color) => ConsoleEscape($"48;5;{(int)color}m");
     public static string BackgroundColorEsc(string color) => BackgroundColorEsc(ColorForHtml(color));
-    public static string BackgroundColorEsc((byte r, byte g, byte b) color) => BackgroundColorEsc(ColorForHtml(color));
+    public static string BackgroundColorEsc(RgbColor color) => BackgroundColorEsc(ColorForHtml(color));
 
     public static ConsoleColor ForegroundColor {
         set => _buffer.Append(ForegroundColorEsc(value));
@@ -138,7 +142,7 @@ internal static partial class BufferedConsole
 
     public static string ForegroundColorEsc(ConsoleColor color) => ConsoleEscape($"38;5;{(int)color}m");
     public static string ForegroundColorEsc(string color) => ForegroundColorEsc(ColorForHtml(color));
-    public static string ForegroundColorEsc((byte r, byte g, byte b) color) => ForegroundColorEsc(ColorForHtml(color));
+    public static string ForegroundColorEsc(RgbColor color) => ForegroundColorEsc(ColorForHtml(color));
 
     public static bool Bold
     {

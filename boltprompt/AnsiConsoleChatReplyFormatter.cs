@@ -16,13 +16,15 @@ internal class AnsiConsoleChatReplyFormatter : CodeColorizerBase
     private string _textBuffer = "";
     private ILanguage? _formattingLanguage;
     private readonly string _resetBoldAndUnderline = BufferedConsole.BoldEsc(false) + BufferedConsole.UnderlineEsc(false);
-    private readonly (byte r, byte g, byte b) _bg, _bgDark;
+    private readonly BufferedConsole.RgbColor _bg, _bgDark, _text, _comment;
 
     public AnsiConsoleChatReplyFormatter(StyleDictionary? styles = null, ILanguageParser? languageParser = null) : base(styles, languageParser)
     {
         _writer = Console.Out;
         _bg = BufferedConsole.ParseHtmlColor(Configuration.Instance.SuggestionBackgroundColor);
-        _bgDark = (r: (byte)(_bg.r * 0.8), g: (byte)(_bg.g * 0.8), b: (byte)(_bg.b * 0.8));
+        _text = BufferedConsole.ParseHtmlColor(Configuration.Instance.SuggestionTextColor);
+        _bgDark = new((byte)(_bg.R * 0.8), (byte)(_bg.G * 0.8), (byte)(_bg.B * 0.8));
+        _comment = new((byte)((_text.R + _bg.R) * 0.5), (byte)((_text.G + _bg.G) * 0.5), (byte)((_text.B + _bg.B) * 0.5));
     }
 
     protected override void Write(string parsedSourceCode, IList<Scope> scopes)
@@ -32,7 +34,7 @@ internal class AnsiConsoleChatReplyFormatter : CodeColorizerBase
         {
             ScopeName.Keyword => BufferedConsole.BoldEsc(true),
             ScopeName.String => BufferedConsole.UnderlineEsc(true),
-            ScopeName.Comment => BufferedConsole.ForegroundColorEsc(BufferedConsole.ConsoleColor.Gray16),
+            ScopeName.Comment => BufferedConsole.ForegroundColorEsc(_comment),
             _ => ""
         });
         _writer.Write(parsedSourceCode);
@@ -72,7 +74,7 @@ internal class AnsiConsoleChatReplyFormatter : CodeColorizerBase
                 var language = text.Trim()[codeBlockMarkdown.Length..].Trim();
                 _formattingLanguage = Languages.FindById(language);
                 ReplaceKey(codeBlockMarkdown,
-                    $"{BufferedConsole.MoveToStartOfLineEsc()}{BufferedConsole.ForegroundColorEsc(Configuration.Instance.SuggestionTextColor)}{BufferedConsole.BackgroundColorEsc(_bgDark)}📜 ",
+                    $"{BufferedConsole.MoveToStartOfLineEsc()}{BufferedConsole.ForegroundColorEsc(_text)}{BufferedConsole.BackgroundColorEsc(_bgDark)}📜 ",
                     ref pos);
             }
             _codeBlock = !_codeBlock;
@@ -133,7 +135,7 @@ internal class AnsiConsoleChatReplyFormatter : CodeColorizerBase
             pos = 0;
             while (ReplaceKey("`",
                        !_monospace
-                           ? BufferedConsole.ForegroundColorEsc(BufferedConsole.ConsoleColor.Gray16)
+                           ? BufferedConsole.ForegroundColorEsc(_text)+BufferedConsole.BackgroundColorEsc(_bg)
                            : BufferedConsole.ResetColorEsc(), ref pos))
                 _monospace = !_monospace;
         }

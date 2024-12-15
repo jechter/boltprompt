@@ -198,7 +198,7 @@ internal class Configuration
                 var smallestDifference = double.MaxValue;
 
                 var rgb = BufferedConsole.ParseHtmlColor(htmlColor);
-                var color = Color.FromArgb(255, rgb.r, rgb.g, rgb.b);
+                var color = Color.FromArgb(255, rgb.R, rgb.G, rgb.B);
                 foreach (KnownColor knownColor in Enum.GetValues(typeof(KnownColor)))
                 {
                     var known = Color.FromKnownColor(knownColor);
