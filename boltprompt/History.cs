@@ -48,7 +48,6 @@ public static class History
         var oldHistory = _commands.Where(c => now - c.TimeStamp > timeToMergeOldHistory).DistinctBy(c => c.Commandline).ToArray();
         var newHistory = _commands.Where(c => now - c.TimeStamp <= timeToMergeOldHistory);
         _commands = oldHistory.Concat(newHistory).ToArray();
-        Console.WriteLine($"Old History: {oldHistory.Length}");
         if (_commands.Length < maxHistoryLength)
             return;
         
@@ -58,6 +57,7 @@ public static class History
     public static void AddCommandToHistory(string commandLine, string? aiPrompt)
     {
         if (string.IsNullOrEmpty(commandLine)) return;
+        commandLine = commandLine.Trim();
         var parsedCommand = CommandLineParser.ParseCommandLine(commandLine);
         var commandHasRelativePaths = parsedCommand.Any(part => 
                 part is { Type: CommandLineParser.CommandLinePart.PartType.Argument, Argument.Type: CommandInfo.ArgumentType.File or CommandInfo.ArgumentType.Directory or CommandInfo.ArgumentType.FileSystemEntry }
@@ -72,7 +72,7 @@ public static class History
             TimeStamp = DateTime.UtcNow,
         };
         _commands = null; // Force reload from disk, so we don't overwrite changes from other parallel boltprompt processes.
-        _commands = Commands.Where(c => c != command).Append(command).ToArray();
+        _commands = Commands.Where(c => c.Commandline.Trim() != commandLine || c.TerminalSession != command.TerminalSession).Append(command).ToArray();
         PurgeHistoryIfNeeded(4096, TimeSpan.FromDays(7));
         Paths.History.WriteAllText(JsonSerializer.Serialize(_commands));
     }
