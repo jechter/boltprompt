@@ -65,7 +65,7 @@ static class AISuggestor
         
         cancellationToken.ThrowIfCancellationRequested();
 
-        var terminalCapture = string.IsNullOrEmpty(_terminalCapture.Result) ? "" : $"These are the last lines from the current terminal session:\n\n```{_terminalCapture.Result}\n```";
+        var terminalCapture = string.IsNullOrEmpty(_terminalCapture.Result) ? "" : $"These are the last lines from the current terminal session:\n\n```\n{_terminalCapture.Result}\n```";
         return Configuration.Instance.RemovePersonalInformationFromAIQueries
             ? ""
             : $"""
@@ -202,7 +202,8 @@ static class AISuggestor
                 formatter.PrintChatResponseFormatted(message.Text);
         }
 
-        formatter.PrintChatResponseFormatted("\n");
+        formatter.Flush();
+        
         Console.WriteLine();
     }
 }

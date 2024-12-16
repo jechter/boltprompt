@@ -15,7 +15,7 @@ internal class AnsiConsoleChatReplyFormatter : CodeColorizerBase
     private bool _codeBlock;
     private string _textBuffer = "";
     private ILanguage? _formattingLanguage;
-    private readonly string _resetBoldAndUnderline = BufferedConsole.BoldEsc(false) + BufferedConsole.UnderlineEsc(false);
+    private readonly string _resetBoldAndUnderline = BufferedConsole.BoldEsc(false) + BufferedConsole.UnderlineEsc(false) + "\n";
     private readonly BufferedConsole.RgbColor _bg, _bgDark, _text, _comment;
 
     public AnsiConsoleChatReplyFormatter(StyleDictionary? styles = null, ILanguageParser? languageParser = null) : base(styles, languageParser)
@@ -48,6 +48,14 @@ internal class AnsiConsoleChatReplyFormatter : CodeColorizerBase
         });
     }
 
+    public void Flush()
+    {
+        if (!_textBuffer.EndsWith('\n'))
+            _textBuffer += "\n";
+        while (_textBuffer.Length > 0)
+            PrintChatResponseFormatted("");
+    }
+    
     public void PrintChatResponseFormatted(string text)
     {
         if (!text.Contains('\n') && !_textBuffer.Contains('\n'))
@@ -72,7 +80,7 @@ internal class AnsiConsoleChatReplyFormatter : CodeColorizerBase
             else
             {
                 var language = text.Trim()[codeBlockMarkdown.Length..].Trim();
-                _formattingLanguage = Languages.FindById(language);
+                _formattingLanguage = string.IsNullOrEmpty(language) ? null : Languages.FindById(language);
                 ReplaceKey(codeBlockMarkdown,
                     $"{BufferedConsole.MoveToStartOfLineEsc()}{BufferedConsole.ForegroundColorEsc(_text)}{BufferedConsole.BackgroundColorEsc(_bgDark)}📜 ",
                     ref pos);
