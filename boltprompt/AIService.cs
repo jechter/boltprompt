@@ -5,7 +5,7 @@ namespace boltprompt;
 
 class AIService
 {
-    public static bool Available => Configuration.Instance.OpenAiApiKey != null;
+    public static bool Available => !string.IsNullOrWhiteSpace(Configuration.Instance.OpenAiApiKey);
 
     private static IChatClient ChatClient => Instance._chatClient ?? throw new NullReferenceException();
     private readonly IChatClient? _chatClient;

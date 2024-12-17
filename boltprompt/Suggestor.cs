@@ -220,15 +220,18 @@ public static partial class Suggestor
         return result.ToArray();
     }
 
-    static IEnumerable<Suggestion> GetAISuggestionsFromHistoryAndDefaults(string aiPrompt, History.AIRequestType type) => History
-        .Commands.Where(h => h.AIRequestType == type)
-        .Select(h => h.AIPrompt!)
-        .Concat(type == History.AIRequestType.Prompt ? AISuggestor.DefaultPromptSuggestions : AISuggestor.DefaultQuestionSuggestions)
-        .Where(prompt => prompt.StartsWith(aiPrompt) && prompt.Length > aiPrompt.Length)
-        .Select(h => $"{(type == History.AIRequestType.Prompt ? Configuration.Instance.AIPromptPrefix : Configuration.Instance.AIQuestionPrefix)}{h}")
-        .Reverse()
-        .Distinct()
-        .Select(h => new Suggestion(h));
+    static IEnumerable<Suggestion> GetAISuggestionsFromHistoryAndDefaults(string aiPrompt, History.AIRequestType type) => 
+        AIService.Available 
+            ? History
+                .Commands.Where(h => h.AIRequestType == type)
+                .Select(h => h.AIPrompt!)
+                .Concat(type == History.AIRequestType.Prompt ? AISuggestor.DefaultPromptSuggestions : AISuggestor.DefaultQuestionSuggestions)
+                .Where(prompt => prompt.StartsWith(aiPrompt) && prompt.Length > aiPrompt.Length)
+                .Select(h => $"{(type == History.AIRequestType.Prompt ? Configuration.Instance.AIPromptPrefix : Configuration.Instance.AIQuestionPrefix)}{h}")
+                .Reverse()
+                .Distinct()
+                .Select(h => new Suggestion(h))
+            : [];
 
     private static Suggestion[] SuggestAISuggestions(string commandline)
     {
@@ -242,7 +245,9 @@ public static partial class Suggestor
         if (commandline.StartsWith(Configuration.Instance.AIQuestionPrefix))
         {
             var aiPrompt = commandline[Configuration.Instance.AIQuestionPrefix.Length..];
-            return GetAISuggestionsFromHistoryAndDefaults(aiPrompt, History.AIRequestType.Question).ToArray();
+            return !AIService.Available
+                ? [AISuggestor.UnavailableSuggestion] 
+                : GetAISuggestionsFromHistoryAndDefaults(aiPrompt, History.AIRequestType.Question).ToArray();
         }
         
         throw new ArgumentException($"Commandline '{commandline}' is not an AI prompt.");

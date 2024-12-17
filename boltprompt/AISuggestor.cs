@@ -144,7 +144,7 @@ static class AISuggestor
 
     private static readonly Suggestion PendingSuggestion = new("") { Icon = "🤖", Description = "suggestions pending" };
 
-    private static readonly Suggestion UnavailableSuggestion = new("") { Icon = "❌", Description = "AI suggestions unavailable. Set up your OpenAI key using 'boltprompt config set OpenAiApiKey'" };
+    public static readonly Suggestion UnavailableSuggestion = new("") { Icon = "❌", Description = "AI suggestions unavailable. Set up your OpenAI key using 'boltprompt config set OpenAiApiKey'" };
 
     private static readonly Suggestion FailureSuggestion = new("") { Icon = "❌", Description = $"AI suggestions failed. See '{Logger.GetLogPath(LogFile)}' for details." };
 
@@ -175,35 +175,50 @@ static class AISuggestor
 
     public static async Task RespondToAIQuestion(string request, CancellationToken cancellationToken)
     {
-        var fullRequest =
-            $"""
-             We want to help a user using the Terminal. 
+        Logger.Log(LogFile,$"Received AI Question: {request}");
 
-             {await GetPersonalEnvironmentContext(cancellationToken)}
-            """;
-        if (string.IsNullOrWhiteSpace(request))
-            fullRequest +=
-                "\nThe user needs help, but did not specify how. Please just explain what is going on in the last lines of the terminal session. If there were any error messages in the terminal output, explain how to fix them.";
-        else
-            fullRequest += 
-                $"""
-                 The user would like an answer to the following question:
-                 
-                 {request}
-                 """;
-        
-        Logger.Log(LogFile,fullRequest);
-        var chatResult = AIService.RequestWithFunctionsStreaming(fullRequest, cancellationToken);
-        var formatter = new AnsiConsoleChatReplyFormatter();
-
-        await foreach (var message in chatResult)
+        if (!AIService.Available)
         {
-            if (message.Text != null)
-                formatter.PrintChatResponseFormatted(message.Text);
+            Console.WriteLine(UnavailableSuggestion.Description);
+            return;
         }
-
-        formatter.Flush();
-        
+        try
+        {
+            var fullRequest =
+                $"""
+                 We want to help a user using the Terminal. 
+    
+                 {await GetPersonalEnvironmentContext(cancellationToken)}
+                """;
+            if (string.IsNullOrWhiteSpace(request))
+                fullRequest +=
+                    "\nThe user needs help, but did not specify how. Please just explain what is going on in the last lines of the terminal session. If there were any error messages in the terminal output, explain how to fix them.";
+            else
+                fullRequest += 
+                    $"""
+                     The user would like an answer to the following question:
+                     
+                     {request}
+                     """;
+            
+            Logger.Log(LogFile,fullRequest);
+            var chatResult = AIService.RequestWithFunctionsStreaming(fullRequest, cancellationToken);
+            var formatter = new AnsiConsoleChatReplyFormatter();
+    
+            await foreach (var message in chatResult)
+            {
+                if (message.Text != null)
+                    formatter.PrintChatResponseFormatted(message.Text);
+            }
+    
+            formatter.Flush();
+        }
+        catch (Exception e)
+        {
+            Console.WriteLine(FailureSuggestion.Description);
+            Logger.Log(LogFile,e.ToString());
+            throw;
+        }
         Console.WriteLine();
     }
 }
