@@ -1,10 +1,33 @@
 # `boltprompt⚡️`
 
-## tl;dr
+## What is this?
 
-boltprompt is a free tool to help you write shell commands in your terminal with auto-completion:
+boltprompt is a free tool to help you write shell commands in your terminal with auto-completion. Forgot what parameters a command takes? boltprompt will provide context-sensitive suggestions for arguments, file names, environment variables, etc:
 
-![boltprompt auto-completing git command lines.](https://jonasechterhoff.com/boltprompt.gif)
+![boltprompt auto-completing chmod arguments.](media/completion1.png)
+![boltprompt auto-completing path names.](media/completion2.png)
+![boltprompt auto-completing environment variables.](media/completion3.png)
+
+boltprompt can also propose suggestions based on the argument you are writing by searching argument descriptions, which will then substitute the argument if selected, so if you forgot the name of and argument you can just type a word to search for it:
+
+![boltprompt substituting argument names from description.](media/substitution1.png)
+![boltprompt substituting process pids from process name.](media/substitution2.png)
+![boltprompt substituting git commits from commit message.](media/substitution3.png)
+
+### AI features
+
+Optionally, you can supply boltprompt with an OpenAI API key to enable some AI suggestion functionality in your terminal. Type `@` to get suggestions for command lines to perform a task:
+
+![boltprompt suggesting commands to count lines of code.](media/aisuggestion1.png)
+
+AI suggestions will take your current environment as context:
+
+![boltprompt suggesting commands to convert a video.](media/aisuggestion2.png)
+
+You can also ask questions to the AI. Type `?` to get an explanation of what is going on, or `? [question]` to ask a question:
+
+![boltprompt suggesting commands to convert a video.](media/aiquestion1.png)
+![boltprompt suggesting commands to convert a video.](media/aiquestion2.png)
 
 ## Installation
 
