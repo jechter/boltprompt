@@ -58,7 +58,7 @@ public static class ShellInstaller
             BufferedConsole.Bold = false;
             BufferedConsole.WriteLine();
             BufferedConsole.ResetColor();
-            if (TerminalUtility.IsSupportedTerminal)
+            if (TerminalUtility.TerminalHasBoltpromptConfigurationAction)
             {
                 BufferedConsole.Write("Use ");
                 BufferedConsole.Bold = true;

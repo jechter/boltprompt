@@ -13,9 +13,12 @@ public static class TerminalUtility
 
     private const string AppleTerminal = "Apple_Terminal";
     private const string iTerm = "iTerm.app";
+    private const string Ghostty = "ghostty";
     
 
-    public static bool IsSupportedTerminal => Terminal is AppleTerminal or iTerm;
+    public static bool TerminalHasBoltpromptConfigurationAction => Terminal is AppleTerminal or iTerm;
+    private static bool CanGetTerminalScrollbackBuffer => Terminal is AppleTerminal or iTerm;
+    private static bool CanGetTerminalFonts => Terminal is AppleTerminal or iTerm;
 
 
     private record TerminalConfig
@@ -56,7 +59,7 @@ public static class TerminalUtility
     
     public static void SetupTerminal()
     {
-        if (!IsSupportedTerminal)
+        if (!TerminalHasBoltpromptConfigurationAction)
             throw new NotSupportedException($"boltprompt only knows how to configure fonts for Terminal.app or iTerm.app. You are using {Terminal}, which we don't know how to set up.");
         Cli.Wrap("bash")
             .WithArguments(Paths.boltpromptSupportFilesDir.Combine("setup-terminal.sh").ToString())
@@ -82,7 +85,7 @@ public static class TerminalUtility
     {
         if (_currentTerminalFont != null)
             return _currentTerminalFont;
-        if (!IsSupportedTerminal)
+        if (!CanGetTerminalFonts)
             return null;
         var command = Terminal switch
         {
@@ -110,12 +113,14 @@ public static class TerminalUtility
             Font = font,
             HasPowerlineSymbols = FontUtility.FontHasGlyph(font, '\uE0B0')
         };
-        WriteTerminalConfig(config, TerminalSession);    
-        WriteTerminalConfig(config, Terminal ?? "Unknown");    
+        WriteTerminalConfig(config, TerminalSession);
+        WriteTerminalConfig(config, Terminal ?? "Unknown");
     }
     
     public static bool CurrentTerminalHasPowerlineSymbol()
     {
+        if (Terminal == Ghostty)
+            return true;
         var config = GetTerminalConfig(TerminalSession); 
         if (config != null)
             return config.HasPowerlineSymbols;
@@ -135,7 +140,7 @@ public static class TerminalUtility
             return result.StandardOutput;
         }
 
-        if (!IsSupportedTerminal)
+        if (!CanGetTerminalScrollbackBuffer)
             return "";
 
         var tmpLog = Path.GetTempFileName();
