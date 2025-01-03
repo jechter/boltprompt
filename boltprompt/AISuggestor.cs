@@ -115,7 +115,9 @@ static class AISuggestor
 
         try
         {
+            Logger.Log(LogFile,fullRequest);
             await AIService.RequestWithFunctions(fullRequest, cancellationToken, ProvideSuggestions);
+            Logger.Log(LogFile,"Done with request");
         }
         catch (Exception e)
         {
