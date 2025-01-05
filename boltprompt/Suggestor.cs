@@ -7,34 +7,6 @@ using NiceIO;
 
 namespace boltprompt;
 
-public record Suggestion(string Text)
-{
-    public string? Icon;
-    private string? _description;
-
-    public string? Description
-    {
-        get => _description ?? SecondaryDescription;
-        set => _description = value;
-    }
-
-    public virtual string? SecondaryDescription { get; set; }
-    public CommandInfo.Argument? Argument { get; set; }
-
-    public int Priority = 0;
-}
-
-internal record FileSystemSuggestion : Suggestion
-{
-    public FileSystemSuggestion(string path) : base(path)
-    {
-        var npath = Suggestor.UnescapeFileName(path.Trim());
-        Icon = npath.DirectoryExists() ? "📁" : 
-            npath.Exists() ? "📄" : "";
-    }
-    public override string? SecondaryDescription => FileDescriptions.GetFileDescription(Text);
-}
-
 public static partial class Suggestor
 {
     private static Suggestion[] _executablesInPathEnvironment = [];
