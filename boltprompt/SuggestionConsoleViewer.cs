@@ -97,7 +97,7 @@ public static class SuggestionConsoleViewer
             var didMarkPrefix = false;
             if (suggestions.Length > i)
             {
-                if (suggestions[i].Icon != null && TerminalUtility.CurrentTerminalHasCharacter(suggestions[i].Icon!, 0))
+                if (!string.IsNullOrEmpty(suggestions[i].Icon) && TerminalUtility.CurrentTerminalHasCharacter(suggestions[i].Icon!, 0))
                     BufferedConsole.Write($"{suggestions[i].Icon} ");
                 var labelSize = BufferedConsole.WindowWidth - (suggestions[i].Icon != null ? 5 : 3) - 2;
                 didMarkPrefix = PrintStringMarkingPrefix(suggestions[i].Text, suggestionPrefix, labelSize, true);
