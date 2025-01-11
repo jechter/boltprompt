@@ -38,13 +38,18 @@ static class CustomArguments
                         : m.Groups.Count > 2
                             ? m.Groups[2].Value
                             : argDescription,
+                    Icon = template.Icon
                 }).ToArray();
         }
         else
         {
             var lines = output.Split("\n", StringSplitOptions.RemoveEmptyEntries);
             result = lines
-                .Select(line => new Suggestion(line) { Description = argDescription })
+                .Select(line => new Suggestion(line)
+                {
+                    Description = argDescription, 
+                    Icon = template.Icon
+                })
                 .ToArray();
         }
 

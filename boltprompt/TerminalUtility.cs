@@ -26,7 +26,7 @@ public static class TerminalUtility
         [JsonInclude]
         public string Font = "";
         [JsonInclude]
-        public bool HasPowerlineSymbols;
+        public bool HasNerdFont;
     }
 
     private static TerminalConfig? _terminalConfig;
@@ -111,23 +111,30 @@ public static class TerminalUtility
         var config = new TerminalConfig
         {
             Font = font,
-            HasPowerlineSymbols = FontUtility.FontHasGlyph(font, '\uE0B0')
+            HasNerdFont = FontUtility.FontHasGlyph(font, '\uE0B0')
         };
         WriteTerminalConfig(config, TerminalSession);
         WriteTerminalConfig(config, Terminal ?? "Unknown");
     }
     
-    public static bool CurrentTerminalHasPowerlineSymbol()
+    public static bool CurrentTerminalHasNerdFont()
     {
         if (Terminal == Ghostty)
             return true;
         var config = GetTerminalConfig(TerminalSession); 
         if (config != null)
-            return config.HasPowerlineSymbols;
+            return config.HasNerdFont;
         config = GetTerminalConfig(Terminal ?? "Unknown");
         _terminalConfig ??= new();
         UpdateTerminalConfig().GetAwaiter();
-        return config is { HasPowerlineSymbols: true };
+        return config is { HasNerdFont: true };
+    }
+    
+    public static bool CurrentTerminalHasCharacter(string str, int index)
+    {
+        var codePoint = char.ConvertToUtf32(str, index);
+        var isNerdFontExtra = codePoint is >= 0xE000 and <= 0xF8FF or >= 0xF0000 and <= 0xFFFFD or >= 0x100000 and <= 0x10FFFD;
+        return !isNerdFontExtra || CurrentTerminalHasNerdFont();
     }
     
     public static async Task<string> GetCurrentTerminalBuffer()

@@ -1,9 +1,17 @@
+using Mono.Unix.Native;
 using NiceIO;
 
 namespace boltprompt;
 
 internal record FileSystemSuggestion : Suggestion
 {
+    public static bool IsExecutable(NPath filePath)
+    {
+        if (Syscall.stat(filePath.ToString(), out var fileStat) == 0)
+            return (fileStat.st_mode & FilePermissions.S_IXUSR) != 0;
+        return false;
+    }
+    
     private static bool IsSymbolicLink(NPath path)
     {
         var fileInfo = new FileInfo(path.ToString());
@@ -12,13 +20,13 @@ internal record FileSystemSuggestion : Suggestion
 
     private static string GetFileIcon(NPath path)
     {
-        if (!TerminalUtility.CurrentTerminalHasPowerlineSymbol())
+        if (!TerminalUtility.CurrentTerminalHasNerdFont())
             return path.DirectoryExists() ? "📁" : path.Exists() ? "📄" : "";
         if (path.DirectoryExists())
         {
             if (IsSymbolicLink(path))
                 return "\uf482"; //nf-oct-file_symlink_directory
-            return path.FileName.StartsWith('.') 
+            return path.FileName.StartsWith('.') || string.IsNullOrEmpty(path.FileName)
                 ? "\uf413" //nf-oct-file_directory
                 : "\uf4d3"; //nf-oct-file_directory_fill
 //                    ? "\udb85\udf9e" //nf-md-folder_hidden
@@ -32,6 +40,9 @@ internal record FileSystemSuggestion : Suggestion
 
         if (IsSymbolicLink(path))
             return "\udb84\udd77";//nf-md-file_link
+
+        if (IsExecutable(path))
+            return "\udb82\udcc6";//nf-md-application
         
         return path.Extension.ToLowerInvariant() switch
         {

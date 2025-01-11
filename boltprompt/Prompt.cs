@@ -81,7 +81,7 @@ internal static class Prompt
                     ? "🪲" 
                     : "⚡️";
         scheme = UnicodeEscaper.Decode(scheme);
-        if (!TerminalUtility.CurrentTerminalHasPowerlineSymbol())
+        if (!TerminalUtility.CurrentTerminalHasNerdFont())
             scheme = scheme.Replace("\uE0B0", "");
         return scheme
             .Replace("{timestamp}", DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss"))

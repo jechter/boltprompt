@@ -2,7 +2,6 @@ using System.Collections;
 using System.Text.RegularExpressions;
 using CliWrap;
 using CliWrap.Buffered;
-using Mono.Unix.Native;
 using NiceIO;
 
 namespace boltprompt;
@@ -250,7 +249,11 @@ public static partial class Suggestor
         foreach (DictionaryEntry kvp in vars)
         {
             if (kvp.Key.ToString()?.StartsWith(currentWordNoPrefix) ?? false)
-                yield return new($"${kvp.Key}") { Description = kvp.Value?.ToString() };
+                yield return new($"${kvp.Key}")
+                {
+                    Description = kvp.Value?.ToString(), 
+                    Icon = "\udb82\udee7" //nf-md-variable
+                };
         }
     }
 
@@ -307,7 +310,7 @@ public static partial class Suggestor
             .Where(fs => fs.DirectoryExists() ||
                  type switch
                  { 
-                     CommandInfo.ArgumentType.CommandName => IsExecutable(fs) && !string.IsNullOrEmpty(prefix),
+                     CommandInfo.ArgumentType.CommandName => FileSystemSuggestion.IsExecutable(fs) && !string.IsNullOrEmpty(prefix),
                      CommandInfo.ArgumentType.File => extensions == null || fs.HasExtension(extensions),
                      _ => true
                  })
@@ -362,7 +365,7 @@ public static partial class Suggestor
                     Suggestion FlagSuggestion(string text) => new(text)
                     {
                         Description = arg.Description,
-                        Icon = arg.Icon ?? "⚐",
+                        Icon = arg.Icon ?? (TerminalUtility.CurrentTerminalHasNerdFont() ? "\uf024"/*nf-fa-flag*/ : "⚐"),
                         Argument = arg
                     };
                 case CommandInfo.ArgumentType.Keyword:
@@ -455,13 +458,13 @@ public static partial class Suggestor
     private static Suggestion[] SuggestCommand(string commandline)
     {
         if (string.IsNullOrEmpty(commandline))
-            return History.Commands.Select(h => new Suggestion(h.Commandline)).ToArray();
+            return History.Commands.Select(h => new Suggestion(h.Commandline) {Icon = "\uf1da" /*nf-fa-history*/}).ToArray();
         return _executablesInPathEnvironment
             .Concat(
                 SuggestFileSystemEntries(commandline, CommandInfo.ArgumentType.CommandName)
                     .Select(sug => sug with { Description = KnownCommands.GetCommand(sug.Text.Split('/').Last().Trim(), false)?.Description ?? "" })
                 )
-            .Concat(History.Commands.Select(h => new Suggestion(h.Commandline)))
+            .Concat(History.Commands.Select(h => new Suggestion(h.Commandline) {Icon = "\uf1da" /*nf-fa-history*/}))
             .DistinctBy(s => s.Text)
             .Where(sug => sug.Text.Contains(commandline, StringComparison.InvariantCultureIgnoreCase) || (sug.Description?.Contains(commandline, StringComparison.InvariantCultureIgnoreCase) ?? false))
             .Append(new (commandline))
@@ -471,20 +474,14 @@ public static partial class Suggestor
     private static Suggestion[] FindExecutablesInPath(NPath path)
     {
         var executables = path.Files()
-            .Where(IsExecutable);
+            .Where(FileSystemSuggestion.IsExecutable);
         return executables.Select(ex => new Suggestion(ex.FileName)
             {
-                Description = KnownCommands.GetCommand(ex.FileName, false)?.Description ?? ex.ToString()
+                Description = KnownCommands.GetCommand(ex.FileName, false)?.Description ?? ex.ToString(),
+                Icon = "\udb82\udcc6"//nf-md-application
             })
             .OrderBy(s => s.Text)
             .ToArray();
-    }
-
-    private static bool IsExecutable(NPath filePath)
-    {
-        if (Syscall.stat(filePath.ToString(), out var fileStat) == 0)
-            return (fileStat.st_mode & FilePermissions.S_IXUSR) != 0;
-        return false;
     }
     
     private static Suggestion[] FindExecutablesInPathEnvironment()

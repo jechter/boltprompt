@@ -47,6 +47,9 @@ public record CommandInfo
         [Description("A Regex to match the output of the custom command to suggestions and descriptions.")]
         public string? Regex;
         [JsonInclude]
+        [Description("An icon to show for suggestions (or null if none).")]
+        public string? Icon;
+        [JsonInclude]
         [Description("If this is not empty, then these arguments will be used in place of the custom argument. The Command and Regex fields will be ignored in this case.")]
         public Argument[]? Arguments;
     }
