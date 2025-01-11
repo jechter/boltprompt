@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.1.3] - 2025-01-11
+
+### Changed
+
+- Use a lot more icons if nerd fonts are supported
+- Detect nerd font usage in ghostty
+
 ## [0.1.2] - 2024-12-17
 
 ### Added
