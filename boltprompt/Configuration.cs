@@ -30,6 +30,8 @@ internal class Configuration
     [Description("Remove any personal information about your environment from AI service queries.")]
     public bool RemovePersonalInformationFromAIQueries { get; set; } = false;
 
+    [Description("If this setting is enabled, boltprompt suggestions will be less prominent in your terminal, by only showing the suggestion viewer once you press the up or down arrow keys.")]
+    public bool OnlyShowSuggestionsWhenArrowKeyIsPressed { get; set; } = false;
     [Description("Delay in ms before sending requests for suggestions to AI, to avoid flooding the service while typing, wasting tokens.")]
     public int DelayBeforeAskingAI { get; set; } = 300;
 

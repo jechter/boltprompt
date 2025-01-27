@@ -13,6 +13,7 @@ internal class MainLoop
     private int _screenWidth;
     private bool _needsRedraw;
     private bool _didShowSuggestions;
+    private bool _suggestionsHidden = true;
     private readonly NPath _outputCommand;
     private Suggestion[] _suggestions = [];
     
@@ -92,14 +93,18 @@ internal class MainLoop
                         if (_commandLine.Length > 0 && Prompt.CursorPosition > 0)
                         {
                             _commandLine = _commandLine[..(Prompt.CursorPosition - 1)] + _commandLine[Prompt.CursorPosition..];
+                            if (_selection > NoneSelected)
+                                _selection = NoneSelected;
                             Prompt.CursorPosition--;
                         }
                         break;
                     }
                     case ConsoleKey.DownArrow:
+                        _suggestionsHidden = false;
                         _selection++;
                         break;
                     case ConsoleKey.UpArrow:
+                        _suggestionsHidden = false;
                         _selection--;
                         if (_selection < 0)
                             _selection = -3;
@@ -256,9 +261,10 @@ internal class MainLoop
         UpdateSuggestionsAndSelection();
 
         var top = Prompt.RenderPrompt(_commandLine, _selection >= 0 && !_commandLine.StartsWith(Configuration.Instance.AIPromptPrefix) ? _suggestions[_selection].Text : null);
-        if (_suggestions.Length > 0 && _selection != SelectionNotShown)
+        if (_suggestions.Length > 0 && _selection != SelectionNotShown && !(_suggestionsHidden && Configuration.Instance.OnlyShowSuggestionsWhenArrowKeyIsPressed))
         {
             _didShowSuggestions = true;
+            _suggestionsHidden = false;
             SuggestionConsoleViewer.ShowSuggestions(top, _suggestions, _commandLine, _selection);
         }
         else if (_didShowSuggestions)
@@ -275,7 +281,8 @@ internal class MainLoop
     private void SetupRunCommand(string command = "")
     {
         var top = Prompt.RenderPrompt(_commandLine);
-        SuggestionConsoleViewer.Clear(top);
+        if (_didShowSuggestions)
+            SuggestionConsoleViewer.Clear(top);
         BufferedConsole.Flush();
         Console.WriteLine();
         _outputCommand.WriteAllText(command);

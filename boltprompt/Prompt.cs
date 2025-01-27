@@ -187,11 +187,28 @@ internal static class Prompt
         {
             BufferedConsole.SetCursorPosition(Console.WindowWidth - 1, pos.Top);
             BufferedConsole.Write("⋯");
+            BufferedConsole.ResetColor();
+            BufferedConsole.SetCursorPosition(pos.Left, pos.Top);
         }
         else
+        {
             BufferedConsole.ClearEndOfLine();
-        BufferedConsole.ResetColor();
-        BufferedConsole.SetCursorPosition(pos.Left, pos.Top);
+            BufferedConsole.ResetColor();
+            if (pos.Top == Console.WindowHeight - 1)
+            {
+                // If we are on the last row in the Terminal window, and the prompt is longer than one row, printing it
+                // will scroll us down - we have to compensate for that.
+                while (remainingSpace < 0)
+                {
+                    remainingSpace += Console.WindowWidth;
+                    pos.Top--;
+                }
+                BufferedConsole.SetCursorPosition(pos.Left, pos.Top + _commandLineCursorRow);
+            }
+            else
+                BufferedConsole.SetCursorPosition(pos.Left, pos.Top);
+        }
+        
         SetCursorPosition(_commandLineCursorPosition);
         if (Configuration.Instance.ScrollLongCommandLine)
             return pos.Top + 1;
