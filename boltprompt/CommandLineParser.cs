@@ -103,12 +103,18 @@ public static class CommandLineParser
         return null;
     }
 
+    private static bool CanMatchExtensions(string arg,string[]? extensions)
+    {
+        if (!(extensions?.Length > 0)) return true;
+        NPath npath = arg;
+        return npath.IsRoot || npath.HasExtension(extensions);
+    }
+    
     private static bool CanMatchArgument(string arg, CommandInfo.Argument argToMatch, CommandInfo ci) => argToMatch.Type switch
     {
         CommandInfo.ArgumentType.Keyword => argToMatch.AllNames.Any(a => a == arg),
         CommandInfo.ArgumentType.Flag => argToMatch.AllNames.Any(a => arg.StartsWith($"-{a}")),
-        CommandInfo.ArgumentType.File => !(argToMatch.Extensions?.Length > 0) ||
-                                         arg.ToNPath().HasExtension(argToMatch.Extensions),
+        CommandInfo.ArgumentType.File => CanMatchExtensions(arg, argToMatch.Extensions),
         CommandInfo.ArgumentType.CustomArgument => argToMatch.CustomArgumentTemplate != null && CustomArguments.Match(arg, argToMatch, ci),
         CommandInfo.ArgumentType.FileSystemEntry or CommandInfo.ArgumentType.Directory
             or CommandInfo.ArgumentType.Command or CommandInfo.ArgumentType.CommandName
@@ -179,7 +185,7 @@ public static class CommandLineParser
                 // Variable assignment
                 if (part.Type == CommandLinePart.PartType.Command && part.Text.Contains('='))
                 {
-                    var equalsPos = commandline.IndexOf('=');
+                    var equalsPos = part.Text.IndexOf('=');
                     var variableName = part.Text[..equalsPos];
                     yield return new (variableName) { Type = CommandLinePart.PartType.Variable };
                     yield return new ("=") { Type = CommandLinePart.PartType.Operator };
