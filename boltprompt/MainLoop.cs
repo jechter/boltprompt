@@ -260,8 +260,9 @@ internal class MainLoop
         _needsRedraw = false;
         UpdateSuggestionsAndSelection();
 
-        var top = Prompt.RenderPrompt(_commandLine, _selection >= 0 && !_commandLine.StartsWith(Configuration.Instance.AIPromptPrefix) ? _suggestions[_selection].Text : null);
-        if (_suggestions.Length > 0 && _selection != SelectionNotShown && !(_suggestionsHidden && Configuration.Instance.OnlyShowSuggestionsWhenArrowKeyIsPressed))
+        var aiPrompt = _commandLine.StartsWith(Configuration.Instance.AIPromptPrefix);
+        var top = Prompt.RenderPrompt(_commandLine, _selection >= 0 && !aiPrompt ? _suggestions[_selection].Text : null);
+        if (_suggestions.Length > 0 && _selection != SelectionNotShown && !(_suggestionsHidden && Configuration.Instance.OnlyShowSuggestionsWhenArrowKeyIsPressed && !(aiPrompt && _commandLine[Configuration.Instance.AIPromptPrefix.Length..].Trim().Length > 0)))
         {
             _didShowSuggestions = true;
             _suggestionsHidden = false;
