@@ -220,11 +220,14 @@ internal class MainLoop
                 var parts = CommandLineParser.ParseCommandLine(_commandLine).ToArray();
                 var partsIndexUpToCursor = Prompt.PartsIndexUpToCursor(parts);
                 var newPart = new CommandLineParser.CommandLinePart(selection.Text);
+                // We normally put a space behind committed arguments so you can write the next argument.
+                // The exception is file system paths, where the path might continue, or flags
                 if (partsIndexUpToCursor == parts.Length &&
                     selection.Argument?.Type is not CommandInfo.ArgumentType.Flag && 
                     selection.Argument?.Type is not CommandInfo.ArgumentType.File && 
                     selection.Argument?.Type is not CommandInfo.ArgumentType.Directory &&
-                    selection.Argument?.Type is not CommandInfo.ArgumentType.FileSystemEntry)
+                    selection.Argument?.Type is not CommandInfo.ArgumentType.FileSystemEntry &&
+                    selection is not FileSystemSuggestion) 
                     newPart = newPart with { Text = newPart.Text + " " };
                 if (parts.Length == 0 || parts[partsIndexUpToCursor - 1].Type is CommandLineParser.CommandLinePart.PartType.Whitespace or CommandLineParser.CommandLinePart.PartType.Operator)
                     parts = parts[..partsIndexUpToCursor]
