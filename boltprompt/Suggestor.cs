@@ -56,7 +56,7 @@ public static partial class Suggestor
                 var index = lastCommandLinePart.Type == CommandLineParser.CommandLinePart.PartType.Whitespace
                     ? parsedCommandLine.Length
                     : parsedCommandLine.Length - 1;
-                if (index >= parsedCommandLine.Length)
+                if (index >= parsedCommandLine.Length || index >= parsedHistoryCommandLine.Length)
                     return null;
                 var part = parsedHistoryCommandLine[index];
                 if (part is
