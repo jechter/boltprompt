@@ -334,6 +334,8 @@ public static partial class Suggestor
         }
         
         var arguments = CommandLineParser.GetEligibleArgumentsForState(parsingState).Select(a => a.argument).ToArray();
+        if (!arguments.Any(a => a.MayBeFileSystemEntry))
+            arguments = arguments.Append(new ("path") {Type = CommandInfo.ArgumentType.FileSystemEntry}).ToArray();
         var allFlags = arguments.Where(a => a.Type == CommandInfo.ArgumentType.Flag).SelectMany(a => a.AllNames).SelectMany(a => a).ToArray();
         var hasMatch = false;
         var lastParamPath = UnescapeFileName(lastParam);
