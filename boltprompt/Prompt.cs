@@ -99,6 +99,10 @@ internal static class Prompt
     {
         BufferedConsole.Update();
         var pos = BufferedConsole.GetCursorPosition();
+
+        // Set terminal window title to current working directory
+        BufferedConsole.SetTerminalTitle(CurrentDirectoryNameForPrompt(NPath.CurrentDirectory, PathStyle.Full));
+
         BufferedConsole.SetCursorPosition(0, pos.Top - _commandLineCursorRow);
         BufferedConsole.ClearEndOfScreen();
         var promptText = GetPromptPrefix(Configuration.Instance.Prompt, commandline);

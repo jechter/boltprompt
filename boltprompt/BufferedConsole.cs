@@ -176,8 +176,12 @@ internal static partial class BufferedConsole
     public static string MoveToStartOfLineEsc() => ConsoleEscape("0G");
 
     public static void ClearEndOfScreen() => _buffer.Append(ClearEndOfScreenEsc());
-    
+
     public static string ClearEndOfScreenEsc() => ConsoleEscape("0J");
+
+    public static void SetTerminalTitle(string title) => _buffer.Append(SetTerminalTitleEsc(title));
+
+    public static string SetTerminalTitleEsc(string title) => $"\u001b]0;{title}\u0007";
 
     public static void Flush()
     {
