@@ -162,6 +162,8 @@ internal class MainLoop
                         Prompt.CursorPosition++;
                         if (_selection is SelectionNotShown or NoneSelected && _commandLine != Configuration.Instance.AIQuestionPrefix)
                             _selection = 0;
+                        if (char.IsWhiteSpace(key.KeyChar))
+                            _selection = NoneSelected;
                         break;
                 }
             }
