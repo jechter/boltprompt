@@ -59,7 +59,7 @@ static class CustomArguments
 
     public static CommandInfo.CustomArgumentTemplate LookupTemplate(CommandInfo.Argument argument, CommandInfo ci)
         => ci.CustomArgumentTemplates?.Single(t => t.Name == argument.CustomArgumentTemplate) 
-        ?? throw new InvalidDataException($"No custom argument template matching {argument.CustomArgumentTemplate} was found");
+        ?? throw new InvalidDataException($"No custom argument template matching {argument.CustomArgumentTemplate} (from {ci.Name}) was found");
 
     public static bool Match(string argument, CommandInfo.Argument argToMatch, CommandInfo ci)
     {
